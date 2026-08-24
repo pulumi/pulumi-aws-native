@@ -7,6 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .cluster_snapshot import *
 from .custom_db_engine_version import *
 from .db_cluster import *
 from .db_cluster_parameter_group import *
@@ -16,8 +17,10 @@ from .db_proxy import *
 from .db_proxy_endpoint import *
 from .db_proxy_target_group import *
 from .db_shard_group import *
+from .db_snapshot import *
 from .db_subnet_group import *
 from .event_subscription import *
+from .get_cluster_snapshot import *
 from .get_custom_db_engine_version import *
 from .get_db_cluster import *
 from .get_db_cluster_parameter_group import *
@@ -27,6 +30,7 @@ from .get_db_proxy import *
 from .get_db_proxy_endpoint import *
 from .get_db_proxy_target_group import *
 from .get_db_shard_group import *
+from .get_db_snapshot import *
 from .get_db_subnet_group import *
 from .get_event_subscription import *
 from .get_global_cluster import *

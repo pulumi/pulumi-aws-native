@@ -2827,6 +2827,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     }
 
     [EnumType]
+    public readonly struct PaymentConnectorProvisionMode : IEquatable<PaymentConnectorProvisionMode>
+    {
+        private readonly string _value;
+
+        private PaymentConnectorProvisionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PaymentConnectorProvisionMode Manual { get; } = new PaymentConnectorProvisionMode("MANUAL");
+        public static PaymentConnectorProvisionMode QuickCreate { get; } = new PaymentConnectorProvisionMode("QUICK_CREATE");
+
+        public static bool operator ==(PaymentConnectorProvisionMode left, PaymentConnectorProvisionMode right) => left.Equals(right);
+        public static bool operator !=(PaymentConnectorProvisionMode left, PaymentConnectorProvisionMode right) => !left.Equals(right);
+
+        public static explicit operator string(PaymentConnectorProvisionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PaymentConnectorProvisionMode other && Equals(other);
+        public bool Equals(PaymentConnectorProvisionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct PaymentConnectorStatus : IEquatable<PaymentConnectorStatus>
     {
         private readonly string _value;
@@ -2843,6 +2871,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static PaymentConnectorStatus CreateFailed { get; } = new PaymentConnectorStatus("CREATE_FAILED");
         public static PaymentConnectorStatus UpdateFailed { get; } = new PaymentConnectorStatus("UPDATE_FAILED");
         public static PaymentConnectorStatus DeleteFailed { get; } = new PaymentConnectorStatus("DELETE_FAILED");
+        public static PaymentConnectorStatus AwsMarketplaceSubscriptionRequired { get; } = new PaymentConnectorStatus("AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED");
+        public static PaymentConnectorStatus PendingAuthentication { get; } = new PaymentConnectorStatus("PENDING_AUTHENTICATION");
+        public static PaymentConnectorStatus Provisioning { get; } = new PaymentConnectorStatus("PROVISIONING");
+        public static PaymentConnectorStatus AuthenticationExpired { get; } = new PaymentConnectorStatus("AUTHENTICATION_EXPIRED");
+        public static PaymentConnectorStatus AuthenticationFailed { get; } = new PaymentConnectorStatus("AUTHENTICATION_FAILED");
 
         public static bool operator ==(PaymentConnectorStatus left, PaymentConnectorStatus right) => left.Equals(right);
         public static bool operator !=(PaymentConnectorStatus left, PaymentConnectorStatus right) => !left.Equals(right);

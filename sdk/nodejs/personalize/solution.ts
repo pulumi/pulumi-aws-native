@@ -103,6 +103,10 @@ export class Solution extends pulumi.CustomResource {
      * Describes the configuration properties for the solution.
      */
     declare public readonly solutionConfig: pulumi.Output<outputs.personalize.SolutionConfig | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    declare public readonly tags: pulumi.Output<outputs.CreateOnlyTag[] | undefined>;
 
     /**
      * Create a Solution resource with the given unique name, arguments, and options.
@@ -125,6 +129,7 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["performHpo"] = args?.performHpo;
             resourceInputs["recipeArn"] = args?.recipeArn;
             resourceInputs["solutionConfig"] = args?.solutionConfig;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["solutionArn"] = undefined /*out*/;
         } else {
             resourceInputs["datasetGroupArn"] = undefined /*out*/;
@@ -135,9 +140,10 @@ export class Solution extends pulumi.CustomResource {
             resourceInputs["recipeArn"] = undefined /*out*/;
             resourceInputs["solutionArn"] = undefined /*out*/;
             resourceInputs["solutionConfig"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["datasetGroupArn", "eventType", "name", "performAutoMl", "performHpo", "recipeArn", "solutionConfig"] };
+        const replaceOnChanges = { replaceOnChanges: ["datasetGroupArn", "eventType", "name", "performAutoMl", "performHpo", "recipeArn", "solutionConfig", "tags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Solution.__pulumiType, name, resourceInputs, opts);
     }
@@ -175,4 +181,8 @@ export interface SolutionArgs {
      * Describes the configuration properties for the solution.
      */
     solutionConfig?: pulumi.Input<inputs.personalize.SolutionConfigArgs | undefined>;
+    /**
+     * The tags used to organize, track, or control access for this resource.
+     */
+    tags?: pulumi.Input<pulumi.Input<inputs.CreateOnlyTagArgs>[] | undefined>;
 }

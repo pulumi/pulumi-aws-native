@@ -16,6 +16,8 @@ import (
 type PaymentConnector struct {
 	pulumi.CustomResourceState
 
+	// The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+	AuthorizationUrl pulumi.StringOutput `pulumi:"authorizationUrl"`
 	// The timestamp when the connector was created
 	ConnectorCreatedAt pulumi.StringOutput `pulumi:"connectorCreatedAt"`
 	// The timestamp when the connector was last updated
@@ -24,7 +26,7 @@ type PaymentConnector struct {
 	ConnectorName   pulumi.StringOutput          `pulumi:"connectorName"`
 	ConnectorStatus PaymentConnectorStatusOutput `pulumi:"connectorStatus"`
 	ConnectorType   PaymentConnectorTypeOutput   `pulumi:"connectorType"`
-	// The credential provider configurations for the connector
+	// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
 	CredentialProviderConfigurations PaymentConnectorCredentialsProviderConfigurationArrayOutput `pulumi:"credentialProviderConfigurations"`
 	// A description of the payment connector
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -34,6 +36,8 @@ type PaymentConnector struct {
 	PaymentConnectorId pulumi.StringOutput `pulumi:"paymentConnectorId"`
 	// The identifier of the parent payment manager
 	PaymentManagerId pulumi.StringOutput `pulumi:"paymentManagerId"`
+	// The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+	ProvisionMode PaymentConnectorProvisionModePtrOutput `pulumi:"provisionMode"`
 }
 
 // NewPaymentConnector registers a new resource with the given unique name, arguments, and options.
@@ -46,15 +50,14 @@ func NewPaymentConnector(ctx *pulumi.Context,
 	if args.ConnectorType == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectorType'")
 	}
-	if args.CredentialProviderConfigurations == nil {
-		return nil, errors.New("invalid value for required argument 'CredentialProviderConfigurations'")
-	}
 	if args.PaymentManagerId == nil {
 		return nil, errors.New("invalid value for required argument 'PaymentManagerId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"connectorName",
+		"connectorType",
 		"paymentManagerId",
+		"provisionMode",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -93,12 +96,14 @@ type paymentConnectorArgs struct {
 	// The name of the payment connector
 	ConnectorName *string              `pulumi:"connectorName"`
 	ConnectorType PaymentConnectorType `pulumi:"connectorType"`
-	// The credential provider configurations for the connector
+	// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
 	CredentialProviderConfigurations []PaymentConnectorCredentialsProviderConfiguration `pulumi:"credentialProviderConfigurations"`
 	// A description of the payment connector
 	Description *string `pulumi:"description"`
 	// The identifier of the parent payment manager
 	PaymentManagerId string `pulumi:"paymentManagerId"`
+	// The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+	ProvisionMode *PaymentConnectorProvisionMode `pulumi:"provisionMode"`
 }
 
 // The set of arguments for constructing a PaymentConnector resource.
@@ -106,12 +111,14 @@ type PaymentConnectorArgs struct {
 	// The name of the payment connector
 	ConnectorName pulumi.StringPtrInput
 	ConnectorType PaymentConnectorTypeInput
-	// The credential provider configurations for the connector
+	// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
 	CredentialProviderConfigurations PaymentConnectorCredentialsProviderConfigurationArrayInput
 	// A description of the payment connector
 	Description pulumi.StringPtrInput
 	// The identifier of the parent payment manager
 	PaymentManagerId pulumi.StringInput
+	// The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+	ProvisionMode PaymentConnectorProvisionModePtrInput
 }
 
 func (PaymentConnectorArgs) ElementType() reflect.Type {
@@ -151,6 +158,11 @@ func (o PaymentConnectorOutput) ToPaymentConnectorOutputWithContext(ctx context.
 	return o
 }
 
+// The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+func (o PaymentConnectorOutput) AuthorizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v *PaymentConnector) pulumi.StringOutput { return v.AuthorizationUrl }).(pulumi.StringOutput)
+}
+
 // The timestamp when the connector was created
 func (o PaymentConnectorOutput) ConnectorCreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *PaymentConnector) pulumi.StringOutput { return v.ConnectorCreatedAt }).(pulumi.StringOutput)
@@ -174,7 +186,7 @@ func (o PaymentConnectorOutput) ConnectorType() PaymentConnectorTypeOutput {
 	return o.ApplyT(func(v *PaymentConnector) PaymentConnectorTypeOutput { return v.ConnectorType }).(PaymentConnectorTypeOutput)
 }
 
-// The credential provider configurations for the connector
+// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
 func (o PaymentConnectorOutput) CredentialProviderConfigurations() PaymentConnectorCredentialsProviderConfigurationArrayOutput {
 	return o.ApplyT(func(v *PaymentConnector) PaymentConnectorCredentialsProviderConfigurationArrayOutput {
 		return v.CredentialProviderConfigurations
@@ -199,6 +211,11 @@ func (o PaymentConnectorOutput) PaymentConnectorId() pulumi.StringOutput {
 // The identifier of the parent payment manager
 func (o PaymentConnectorOutput) PaymentManagerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PaymentConnector) pulumi.StringOutput { return v.PaymentManagerId }).(pulumi.StringOutput)
+}
+
+// The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+func (o PaymentConnectorOutput) ProvisionMode() PaymentConnectorProvisionModePtrOutput {
+	return o.ApplyT(func(v *PaymentConnector) PaymentConnectorProvisionModePtrOutput { return v.ProvisionMode }).(PaymentConnectorProvisionModePtrOutput)
 }
 
 func init() {

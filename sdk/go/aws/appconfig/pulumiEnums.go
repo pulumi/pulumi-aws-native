@@ -786,6 +786,98 @@ func (in *environmentDeletionProtectionCheckPtr) ToEnvironmentDeletionProtection
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentDeletionProtectionCheckPtrOutput)
 }
 
+// Current status.
+type ExperimentDefinitionStatus string
+
+const (
+	ExperimentDefinitionStatusActive   = ExperimentDefinitionStatus("ACTIVE")
+	ExperimentDefinitionStatusIdle     = ExperimentDefinitionStatus("IDLE")
+	ExperimentDefinitionStatusArchived = ExperimentDefinitionStatus("ARCHIVED")
+)
+
+type ExperimentDefinitionStatusOutput struct{ *pulumi.OutputState }
+
+func (ExperimentDefinitionStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentDefinitionStatus)(nil)).Elem()
+}
+
+func (o ExperimentDefinitionStatusOutput) ToExperimentDefinitionStatusOutput() ExperimentDefinitionStatusOutput {
+	return o
+}
+
+func (o ExperimentDefinitionStatusOutput) ToExperimentDefinitionStatusOutputWithContext(ctx context.Context) ExperimentDefinitionStatusOutput {
+	return o
+}
+
+func (o ExperimentDefinitionStatusOutput) ToExperimentDefinitionStatusPtrOutput() ExperimentDefinitionStatusPtrOutput {
+	return o.ToExperimentDefinitionStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentDefinitionStatusOutput) ToExperimentDefinitionStatusPtrOutputWithContext(ctx context.Context) ExperimentDefinitionStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentDefinitionStatus) *ExperimentDefinitionStatus {
+		return &v
+	}).(ExperimentDefinitionStatusPtrOutput)
+}
+
+func (o ExperimentDefinitionStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExperimentDefinitionStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentDefinitionStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExperimentDefinitionStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentDefinitionStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentDefinitionStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperimentDefinitionStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentDefinitionStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentDefinitionStatus)(nil)).Elem()
+}
+
+func (o ExperimentDefinitionStatusPtrOutput) ToExperimentDefinitionStatusPtrOutput() ExperimentDefinitionStatusPtrOutput {
+	return o
+}
+
+func (o ExperimentDefinitionStatusPtrOutput) ToExperimentDefinitionStatusPtrOutputWithContext(ctx context.Context) ExperimentDefinitionStatusPtrOutput {
+	return o
+}
+
+func (o ExperimentDefinitionStatusPtrOutput) Elem() ExperimentDefinitionStatusOutput {
+	return o.ApplyT(func(v *ExperimentDefinitionStatus) ExperimentDefinitionStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentDefinitionStatus
+		return ret
+	}).(ExperimentDefinitionStatusOutput)
+}
+
+func (o ExperimentDefinitionStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentDefinitionStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExperimentDefinitionStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheckInput)(nil)).Elem(), ConfigurationProfileDeletionProtectionCheck("ACCOUNT_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheckPtrInput)(nil)).Elem(), ConfigurationProfileDeletionProtectionCheck("ACCOUNT_DEFAULT"))
@@ -805,4 +897,6 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentStrategyReplicateToPtrOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeletionProtectionCheckOutput{})
 	pulumi.RegisterOutputType(EnvironmentDeletionProtectionCheckPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentDefinitionStatusOutput{})
+	pulumi.RegisterOutputType(ExperimentDefinitionStatusPtrOutput{})
 }

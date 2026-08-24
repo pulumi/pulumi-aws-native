@@ -1331,6 +1331,7 @@ __all__ = [
     'KnowledgeBaseMediaExtractionConfiguration',
     'KnowledgeBaseResourcePermission',
     'KnowledgeBaseVideoExtractionConfiguration',
+    'LimitsProfileProfileLimitValue',
     'OAuthClientApplicationIdentityProviderVpcConnectionProperties',
     'RefreshScheduleMap',
     'RefreshScheduleMapScheduleFrequencyProperties',
@@ -87270,6 +87271,42 @@ class KnowledgeBaseVideoExtractionConfiguration(dict):
     @pulumi.getter(name="videoExtractionType")
     def video_extraction_type(self) -> Optional['KnowledgeBaseVideoExtractionType']:
         return pulumi.get(self, "video_extraction_type")
+
+
+@pulumi.output_type
+class LimitsProfileProfileLimitValue(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxValue":
+            suggest = "max_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LimitsProfileProfileLimitValue. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LimitsProfileProfileLimitValue.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LimitsProfileProfileLimitValue.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_value: _builtins.float,
+                 unit: 'LimitsProfileLimitUnit'):
+        pulumi.set(__self__, "max_value", max_value)
+        pulumi.set(__self__, "unit", unit)
+
+    @_builtins.property
+    @pulumi.getter(name="maxValue")
+    def max_value(self) -> _builtins.float:
+        return pulumi.get(self, "max_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> 'LimitsProfileLimitUnit':
+        return pulumi.get(self, "unit")
 
 
 @pulumi.output_type

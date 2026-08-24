@@ -230,7 +230,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["peeringId", "routingPolicyLabel", "transitGatewayRouteTableArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["peeringId", "transitGatewayRouteTableArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TransitGatewayRouteTableAttachment, __self__).__init__(
             'aws-native:networkmanager:TransitGatewayRouteTableAttachment',

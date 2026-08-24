@@ -15,6 +15,8 @@ __all__ = [
     'JobWorkerType',
     'SchemaCompatibility',
     'SchemaDataFormat',
+    'SessionStatus',
+    'SessionWorkerType',
     'UserDefinedFunctionFunctionType',
     'UserDefinedFunctionOwnerType',
     'UserDefinedFunctionResourceUriResourceType',
@@ -115,6 +117,33 @@ class SchemaDataFormat(_builtins.str, Enum):
     AVRO = "AVRO"
     JSON = "JSON"
     PROTOBUF = "PROTOBUF"
+
+
+@pulumi.type_token("aws-native:glue:SessionStatus")
+class SessionStatus(_builtins.str, Enum):
+    """
+    The session status.
+    """
+    PROVISIONING = "PROVISIONING"
+    READY = "READY"
+    FAILED = "FAILED"
+    TIMEOUT = "TIMEOUT"
+    STOPPING = "STOPPING"
+    STOPPED = "STOPPED"
+
+
+@pulumi.type_token("aws-native:glue:SessionWorkerType")
+class SessionWorkerType(_builtins.str, Enum):
+    """
+    The type of predefined worker that is allocated when a session runs.
+    """
+    STANDARD = "Standard"
+    G1X = "G.1X"
+    G2X = "G.2X"
+    G025X = "G.025X"
+    G4X = "G.4X"
+    G8X = "G.8X"
+    Z2X = "Z.2X"
 
 
 @pulumi.type_token("aws-native:glue:UserDefinedFunctionFunctionType")

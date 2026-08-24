@@ -302,4 +302,35 @@ namespace Pulumi.AwsNative.AppSync
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type format: SDL or JSON.
+    /// </summary>
+    [EnumType]
+    public readonly struct TypeFormat : IEquatable<TypeFormat>
+    {
+        private readonly string _value;
+
+        private TypeFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TypeFormat Sdl { get; } = new TypeFormat("SDL");
+        public static TypeFormat Json { get; } = new TypeFormat("JSON");
+
+        public static bool operator ==(TypeFormat left, TypeFormat right) => left.Equals(right);
+        public static bool operator !=(TypeFormat left, TypeFormat right) => !left.Equals(right);
+
+        public static explicit operator string(TypeFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TypeFormat other && Equals(other);
+        public bool Equals(TypeFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

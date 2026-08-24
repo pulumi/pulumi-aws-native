@@ -30,6 +30,7 @@ from .get_dlp_setting import *
 from .get_flow import *
 from .get_folder import *
 from .get_knowledge_base import *
+from .get_limits_profile import *
 from .get_o_auth_client_application import *
 from .get_space import *
 from .get_template import *
@@ -38,6 +39,7 @@ from .get_topic import *
 from .get_topic_v2 import *
 from .get_vpc_connection import *
 from .knowledge_base import *
+from .limits_profile import *
 from .o_auth_client_application import *
 from .refresh_schedule import *
 from .space import *

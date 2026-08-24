@@ -28,13 +28,14 @@ type LookupPaymentConnectorArgs struct {
 }
 
 type LookupPaymentConnectorResult struct {
+	// The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+	AuthorizationUrl *string `pulumi:"authorizationUrl"`
 	// The timestamp when the connector was created
 	ConnectorCreatedAt *string `pulumi:"connectorCreatedAt"`
 	// The timestamp when the connector was last updated
 	ConnectorLastUpdatedAt *string                 `pulumi:"connectorLastUpdatedAt"`
 	ConnectorStatus        *PaymentConnectorStatus `pulumi:"connectorStatus"`
-	ConnectorType          *PaymentConnectorType   `pulumi:"connectorType"`
-	// The credential provider configurations for the connector
+	// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
 	CredentialProviderConfigurations []PaymentConnectorCredentialsProviderConfiguration `pulumi:"credentialProviderConfigurations"`
 	// A description of the payment connector
 	Description *string `pulumi:"description"`
@@ -76,6 +77,11 @@ func (o LookupPaymentConnectorResultOutput) ToLookupPaymentConnectorResultOutput
 	return o
 }
 
+// The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+func (o LookupPaymentConnectorResultOutput) AuthorizationUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupPaymentConnectorResult) *string { return v.AuthorizationUrl }).(pulumi.StringPtrOutput)
+}
+
 // The timestamp when the connector was created
 func (o LookupPaymentConnectorResultOutput) ConnectorCreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPaymentConnectorResult) *string { return v.ConnectorCreatedAt }).(pulumi.StringPtrOutput)
@@ -90,11 +96,7 @@ func (o LookupPaymentConnectorResultOutput) ConnectorStatus() PaymentConnectorSt
 	return o.ApplyT(func(v LookupPaymentConnectorResult) *PaymentConnectorStatus { return v.ConnectorStatus }).(PaymentConnectorStatusPtrOutput)
 }
 
-func (o LookupPaymentConnectorResultOutput) ConnectorType() PaymentConnectorTypePtrOutput {
-	return o.ApplyT(func(v LookupPaymentConnectorResult) *PaymentConnectorType { return v.ConnectorType }).(PaymentConnectorTypePtrOutput)
-}
-
-// The credential provider configurations for the connector
+// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
 func (o LookupPaymentConnectorResultOutput) CredentialProviderConfigurations() PaymentConnectorCredentialsProviderConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupPaymentConnectorResult) []PaymentConnectorCredentialsProviderConfiguration {
 		return v.CredentialProviderConfigurations

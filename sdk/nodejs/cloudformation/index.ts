@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ChangeSetArgs } from "./changeSet";
+export type ChangeSet = import("./changeSet").ChangeSet;
+export const ChangeSet: typeof import("./changeSet").ChangeSet = null as any;
+utilities.lazyLoad(exports, ["ChangeSet"], () => require("./changeSet"));
+
 export { CustomResourceEmulatorArgs } from "./customResourceEmulator";
 export type CustomResourceEmulator = import("./customResourceEmulator").CustomResourceEmulator;
 export const CustomResourceEmulator: typeof import("./customResourceEmulator").CustomResourceEmulator = null as any;
@@ -14,6 +19,11 @@ export { GeneratedTemplateArgs } from "./generatedTemplate";
 export type GeneratedTemplate = import("./generatedTemplate").GeneratedTemplate;
 export const GeneratedTemplate: typeof import("./generatedTemplate").GeneratedTemplate = null as any;
 utilities.lazyLoad(exports, ["GeneratedTemplate"], () => require("./generatedTemplate"));
+
+export { GetChangeSetArgs, GetChangeSetResult, GetChangeSetOutputArgs } from "./getChangeSet";
+export const getChangeSet: typeof import("./getChangeSet").getChangeSet = null as any;
+export const getChangeSetOutput: typeof import("./getChangeSet").getChangeSetOutput = null as any;
+utilities.lazyLoad(exports, ["getChangeSet","getChangeSetOutput"], () => require("./getChangeSet"));
 
 export { GetGeneratedTemplateArgs, GetGeneratedTemplateResult, GetGeneratedTemplateOutputArgs } from "./getGeneratedTemplate";
 export const getGeneratedTemplate: typeof import("./getGeneratedTemplate").getGeneratedTemplate = null as any;
@@ -163,6 +173,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:cloudformation:ChangeSet":
+                return new ChangeSet(name, <any>undefined, { urn })
             case "aws-native:cloudformation:CustomResourceEmulator":
                 return new CustomResourceEmulator(name, <any>undefined, { urn })
             case "aws-native:cloudformation:GeneratedTemplate":

@@ -27,7 +27,9 @@ class ClusterArgs:
                  resources_vpc_config: pulumi.Input['ClusterResourcesVpcConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
                  access_config: pulumi.Input[Optional['ClusterAccessConfigArgs']] = None,
+                 active_certificate_authority_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_self_managed_addons: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate_authority: pulumi.Input[Optional['ClusterCertificateAuthorityArgs']] = None,
                  compute_config: pulumi.Input[Optional['ClusterComputeConfigArgs']] = None,
                  control_plane_scaling_config: pulumi.Input[Optional['ClusterControlPlaneScalingConfigArgs']] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -53,6 +55,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterResourcesVpcConfigArgs'] resources_vpc_config: The VPC configuration that's used by the cluster control plane. Amazon EKS VPC resources have specific requirements to work properly with Kubernetes. For more information, see [Cluster VPC Considerations](https://docs.aws.amazon.com/eks/latest/userguide/network_reqs.html) and [Cluster Security Group Considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html) in the *Amazon EKS User Guide* . You must specify at least two subnets. You can specify up to five security groups, but we recommend that you use a dedicated security group for your cluster control plane.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that provides permissions for the Kubernetes control plane to make calls to AWS API operations on your behalf.
         :param pulumi.Input['ClusterAccessConfigArgs'] access_config: The access configuration for the cluster.
+        :param pulumi.Input[_builtins.str] active_certificate_authority_id: The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input['ClusterComputeConfigArgs'] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         :param pulumi.Input['ClusterControlPlaneScalingConfigArgs'] control_plane_scaling_config: The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
@@ -76,8 +79,12 @@ class ClusterArgs:
         pulumi.set(__self__, "role_arn", role_arn)
         if access_config is not None:
             pulumi.set(__self__, "access_config", access_config)
+        if active_certificate_authority_id is not None:
+            pulumi.set(__self__, "active_certificate_authority_id", active_certificate_authority_id)
         if bootstrap_self_managed_addons is not None:
             pulumi.set(__self__, "bootstrap_self_managed_addons", bootstrap_self_managed_addons)
+        if certificate_authority is not None:
+            pulumi.set(__self__, "certificate_authority", certificate_authority)
         if compute_config is not None:
             pulumi.set(__self__, "compute_config", compute_config)
         if control_plane_scaling_config is not None:
@@ -154,6 +161,18 @@ class ClusterArgs:
         pulumi.set(self, "access_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="activeCertificateAuthorityId")
+    def active_certificate_authority_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+        """
+        return pulumi.get(self, "active_certificate_authority_id")
+
+    @active_certificate_authority_id.setter
+    def active_certificate_authority_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "active_certificate_authority_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="bootstrapSelfManagedAddons")
     def bootstrap_self_managed_addons(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -164,6 +183,15 @@ class ClusterArgs:
     @bootstrap_self_managed_addons.setter
     def bootstrap_self_managed_addons(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "bootstrap_self_managed_addons", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> pulumi.Input[Optional['ClusterCertificateAuthorityArgs']]:
+        return pulumi.get(self, "certificate_authority")
+
+    @certificate_authority.setter
+    def certificate_authority(self, value: pulumi.Input[Optional['ClusterCertificateAuthorityArgs']]):
+        pulumi.set(self, "certificate_authority", value)
 
     @_builtins.property
     @pulumi.getter(name="computeConfig")
@@ -391,7 +419,9 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
+                 active_certificate_authority_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_self_managed_addons: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
                  compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -420,6 +450,7 @@ class Cluster(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']] access_config: The access configuration for the cluster.
+        :param pulumi.Input[_builtins.str] active_certificate_authority_id: The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
         :param pulumi.Input[_builtins.bool] bootstrap_self_managed_addons: Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         :param pulumi.Input[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']] compute_config: Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
         :param pulumi.Input[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']] control_plane_scaling_config: The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
@@ -466,7 +497,9 @@ class Cluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_config: pulumi.Input[Optional[Union['ClusterAccessConfigArgs', 'ClusterAccessConfigArgsDict']]] = None,
+                 active_certificate_authority_id: pulumi.Input[Optional[_builtins.str]] = None,
                  bootstrap_self_managed_addons: pulumi.Input[Optional[_builtins.bool]] = None,
+                 certificate_authority: pulumi.Input[Optional[Union['ClusterCertificateAuthorityArgs', 'ClusterCertificateAuthorityArgsDict']]] = None,
                  compute_config: pulumi.Input[Optional[Union['ClusterComputeConfigArgs', 'ClusterComputeConfigArgsDict']]] = None,
                  control_plane_scaling_config: pulumi.Input[Optional[Union['ClusterControlPlaneScalingConfigArgs', 'ClusterControlPlaneScalingConfigArgsDict']]] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -498,7 +531,9 @@ class Cluster(pulumi.CustomResource):
             __props__ = ClusterArgs.__new__(ClusterArgs)
 
             __props__.__dict__["access_config"] = access_config
+            __props__.__dict__["active_certificate_authority_id"] = active_certificate_authority_id
             __props__.__dict__["bootstrap_self_managed_addons"] = bootstrap_self_managed_addons
+            __props__.__dict__["certificate_authority"] = certificate_authority
             __props__.__dict__["compute_config"] = compute_config
             __props__.__dict__["control_plane_scaling_config"] = control_plane_scaling_config
             __props__.__dict__["deletion_protection"] = deletion_protection
@@ -556,9 +591,11 @@ class Cluster(pulumi.CustomResource):
         __props__ = ClusterArgs.__new__(ClusterArgs)
 
         __props__.__dict__["access_config"] = None
+        __props__.__dict__["active_certificate_authority_id"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["bootstrap_self_managed_addons"] = None
+        __props__.__dict__["certificate_authority"] = None
         __props__.__dict__["certificate_authority_data"] = None
         __props__.__dict__["cluster_security_group_id"] = None
         __props__.__dict__["compute_config"] = None
@@ -596,6 +633,14 @@ class Cluster(pulumi.CustomResource):
         return pulumi.get(self, "access_config")
 
     @_builtins.property
+    @pulumi.getter(name="activeCertificateAuthorityId")
+    def active_certificate_authority_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+        """
+        return pulumi.get(self, "active_certificate_authority_id")
+
+    @_builtins.property
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
@@ -618,6 +663,11 @@ class Cluster(pulumi.CustomResource):
         Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         """
         return pulumi.get(self, "bootstrap_self_managed_addons")
+
+    @_builtins.property
+    @pulumi.getter(name="certificateAuthority")
+    def certificate_authority(self) -> pulumi.Output[Optional['outputs.ClusterCertificateAuthority']]:
+        return pulumi.get(self, "certificate_authority")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthorityData")

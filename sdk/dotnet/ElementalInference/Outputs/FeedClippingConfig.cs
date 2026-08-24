@@ -14,11 +14,16 @@ namespace Pulumi.AwsNative.ElementalInference.Outputs
     public sealed class FeedClippingConfig
     {
         public readonly string? CallbackMetadata;
+        public readonly Outputs.FeedDataSourceConfiguration? DataSourceConfiguration;
 
         [OutputConstructor]
-        private FeedClippingConfig(string? callbackMetadata)
+        private FeedClippingConfig(
+            string? callbackMetadata,
+
+            Outputs.FeedDataSourceConfiguration? dataSourceConfiguration)
         {
             CallbackMetadata = callbackMetadata;
+            DataSourceConfiguration = dataSourceConfiguration;
         }
     }
 }

@@ -84,6 +84,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly Outputs.RuntimeAuthorizerConfiguration? AuthorizerConfiguration;
         /// <summary>
+        /// Capacity provider configuration for the agent runtime
+        /// </summary>
+        public readonly Outputs.RuntimeCapacityProviderConfiguration? CapacityProviderConfiguration;
+        /// <summary>
         /// Timestamp when the Agent was created
         /// </summary>
         public readonly string? CreatedAt;
@@ -152,6 +156,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             Outputs.RuntimeAuthorizerConfiguration? authorizerConfiguration,
 
+            Outputs.RuntimeCapacityProviderConfiguration? capacityProviderConfiguration,
+
             string? createdAt,
 
             string? description,
@@ -185,6 +191,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             AgentRuntimeId = agentRuntimeId;
             AgentRuntimeVersion = agentRuntimeVersion;
             AuthorizerConfiguration = authorizerConfiguration;
+            CapacityProviderConfiguration = capacityProviderConfiguration;
             CreatedAt = createdAt;
             Description = description;
             EnvironmentVariables = environmentVariables;

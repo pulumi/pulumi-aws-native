@@ -80,6 +80,11 @@ export const getSourceApiAssociation: typeof import("./getSourceApiAssociation")
 export const getSourceApiAssociationOutput: typeof import("./getSourceApiAssociation").getSourceApiAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceApiAssociation","getSourceApiAssociationOutput"], () => require("./getSourceApiAssociation"));
 
+export { GetTypeArgs, GetTypeResult, GetTypeOutputArgs } from "./getType";
+export const getType: typeof import("./getType").getType = null as any;
+export const getTypeOutput: typeof import("./getType").getTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getType","getTypeOutput"], () => require("./getType"));
+
 export { GraphQlApiArgs } from "./graphQlApi";
 export type GraphQlApi = import("./graphQlApi").GraphQlApi;
 export const GraphQlApi: typeof import("./graphQlApi").GraphQlApi = null as any;
@@ -94,6 +99,11 @@ export { SourceApiAssociationArgs } from "./sourceApiAssociation";
 export type SourceApiAssociation = import("./sourceApiAssociation").SourceApiAssociation;
 export const SourceApiAssociation: typeof import("./sourceApiAssociation").SourceApiAssociation = null as any;
 utilities.lazyLoad(exports, ["SourceApiAssociation"], () => require("./sourceApiAssociation"));
+
+export { TypeArgs } from "./type";
+export type Type = import("./type").Type;
+export const Type: typeof import("./type").Type = null as any;
+utilities.lazyLoad(exports, ["Type"], () => require("./type"));
 
 
 // Export enums:
@@ -121,6 +131,8 @@ const _module = {
                 return new Resolver(name, <any>undefined, { urn })
             case "aws-native:appsync:SourceApiAssociation":
                 return new SourceApiAssociation(name, <any>undefined, { urn })
+            case "aws-native:appsync:Type":
+                return new Type(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -16,6 +16,7 @@ __all__ = [
     'ResolverMetricsConfig',
     'SourceApiAssociationConfigMergeType',
     'SourceApiAssociationStatus',
+    'TypeFormat',
 ]
 
 
@@ -115,3 +116,12 @@ class SourceApiAssociationStatus(_builtins.str, Enum):
     DELETION_SCHEDULED = "DELETION_SCHEDULED"
     DELETION_IN_PROGRESS = "DELETION_IN_PROGRESS"
     DELETION_FAILED = "DELETION_FAILED"
+
+
+@pulumi.type_token("aws-native:appsync:TypeFormat")
+class TypeFormat(_builtins.str, Enum):
+    """
+    The type format: SDL or JSON.
+    """
+    SDL = "SDL"
+    JSON = "JSON"

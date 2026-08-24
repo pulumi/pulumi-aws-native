@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:rds:ClusterSnapshot":
+		r = &ClusterSnapshot{}
 	case "aws-native:rds:CustomDbEngineVersion":
 		r = &CustomDbEngineVersion{}
 	case "aws-native:rds:DbCluster":
@@ -39,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DbProxyTargetGroup{}
 	case "aws-native:rds:DbShardGroup":
 		r = &DbShardGroup{}
+	case "aws-native:rds:DbSnapshot":
+		r = &DbSnapshot{}
 	case "aws-native:rds:DbSubnetGroup":
 		r = &DbSubnetGroup{}
 	case "aws-native:rds:EventSubscription":

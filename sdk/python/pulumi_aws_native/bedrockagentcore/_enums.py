@@ -97,6 +97,7 @@ __all__ = [
     'OnlineEvaluationConfigExecutionStatus',
     'OnlineEvaluationConfigFilterOperator',
     'OnlineEvaluationConfigStatus',
+    'PaymentConnectorProvisionMode',
     'PaymentConnectorStatus',
     'PaymentConnectorType',
     'PaymentCredentialProviderSecretSourceType',
@@ -959,6 +960,12 @@ class OnlineEvaluationConfigStatus(_builtins.str, Enum):
     DELETING = "DELETING"
 
 
+@pulumi.type_token("aws-native:bedrockagentcore:PaymentConnectorProvisionMode")
+class PaymentConnectorProvisionMode(_builtins.str, Enum):
+    MANUAL = "MANUAL"
+    QUICK_CREATE = "QUICK_CREATE"
+
+
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentConnectorStatus")
 class PaymentConnectorStatus(_builtins.str, Enum):
     CREATING = "CREATING"
@@ -968,6 +975,11 @@ class PaymentConnectorStatus(_builtins.str, Enum):
     CREATE_FAILED = "CREATE_FAILED"
     UPDATE_FAILED = "UPDATE_FAILED"
     DELETE_FAILED = "DELETE_FAILED"
+    AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED = "AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED"
+    PENDING_AUTHENTICATION = "PENDING_AUTHENTICATION"
+    PROVISIONING = "PROVISIONING"
+    AUTHENTICATION_EXPIRED = "AUTHENTICATION_EXPIRED"
+    AUTHENTICATION_FAILED = "AUTHENTICATION_FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:PaymentConnectorType")

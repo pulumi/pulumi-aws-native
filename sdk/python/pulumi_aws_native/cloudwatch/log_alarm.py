@@ -37,7 +37,8 @@ class LogAlarmArgs:
                  insufficient_data_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None):
+                 treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional['LogAlarmWarmUpConfigurationArgs']] = None):
         """
         The set of arguments for constructing a LogAlarm resource.
 
@@ -56,6 +57,7 @@ class LogAlarmArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The actions to execute when this alarm transitions to the OK state from any other state.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: A list of key-value pairs to associate with the log alarm.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+        :param pulumi.Input['LogAlarmWarmUpConfigurationArgs'] warm_up_configuration: The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
         """
         pulumi.set(__self__, "comparison_operator", comparison_operator)
         pulumi.set(__self__, "query_results_to_alarm", query_results_to_alarm)
@@ -82,6 +84,8 @@ class LogAlarmArgs:
             pulumi.set(__self__, "tags", tags)
         if treat_missing_data is not None:
             pulumi.set(__self__, "treat_missing_data", treat_missing_data)
+        if warm_up_configuration is not None:
+            pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
 
     @_builtins.property
     @pulumi.getter(name="comparisonOperator")
@@ -263,6 +267,18 @@ class LogAlarmArgs:
     def treat_missing_data(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "treat_missing_data", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> pulumi.Input[Optional['LogAlarmWarmUpConfigurationArgs']]:
+        """
+        The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+        """
+        return pulumi.get(self, "warm_up_configuration")
+
+    @warm_up_configuration.setter
+    def warm_up_configuration(self, value: pulumi.Input[Optional['LogAlarmWarmUpConfigurationArgs']]):
+        pulumi.set(self, "warm_up_configuration", value)
+
 
 @pulumi.type_token("aws-native:cloudwatch:LogAlarm")
 class LogAlarm(pulumi.CustomResource):
@@ -285,6 +301,7 @@ class LogAlarm(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::LogAlarm. A LogAlarm evaluates scheduled query results from CloudWatch Logs and triggers actions when thresholds are breached.
@@ -306,6 +323,7 @@ class LogAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the log alarm.
         :param pulumi.Input[_builtins.float] threshold: The value to compare against the results of the scheduled query evaluation.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
+        :param pulumi.Input[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict']] warm_up_configuration: The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
         """
         ...
     @overload
@@ -346,6 +364,7 @@ class LogAlarm(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -380,6 +399,7 @@ class LogAlarm(pulumi.CustomResource):
                 raise TypeError("Missing required property 'threshold'")
             __props__.__dict__["threshold"] = threshold
             __props__.__dict__["treat_missing_data"] = treat_missing_data
+            __props__.__dict__["warm_up_configuration"] = warm_up_configuration
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alarmName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -421,6 +441,7 @@ class LogAlarm(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["threshold"] = None
         __props__.__dict__["treat_missing_data"] = None
+        __props__.__dict__["warm_up_configuration"] = None
         return LogAlarm(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -550,4 +571,12 @@ class LogAlarm(pulumi.CustomResource):
         Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
         """
         return pulumi.get(self, "treat_missing_data")
+
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> pulumi.Output[Optional['outputs.LogAlarmWarmUpConfiguration']]:
+        """
+        The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+        """
+        return pulumi.get(self, "warm_up_configuration")
 

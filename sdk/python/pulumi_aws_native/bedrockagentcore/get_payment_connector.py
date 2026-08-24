@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetPaymentConnectorResult:
-    def __init__(__self__, connector_created_at=None, connector_last_updated_at=None, connector_status=None, connector_type=None, credential_provider_configurations=None, description=None, payment_connector_arn=None, payment_connector_id=None):
+    def __init__(__self__, authorization_url=None, connector_created_at=None, connector_last_updated_at=None, connector_status=None, credential_provider_configurations=None, description=None, payment_connector_arn=None, payment_connector_id=None):
+        if authorization_url and not isinstance(authorization_url, str):
+            raise TypeError("Expected argument 'authorization_url' to be a str")
+        pulumi.set(__self__, "authorization_url", authorization_url)
         if connector_created_at and not isinstance(connector_created_at, str):
             raise TypeError("Expected argument 'connector_created_at' to be a str")
         pulumi.set(__self__, "connector_created_at", connector_created_at)
@@ -35,9 +38,6 @@ class GetPaymentConnectorResult:
         if connector_status and not isinstance(connector_status, str):
             raise TypeError("Expected argument 'connector_status' to be a str")
         pulumi.set(__self__, "connector_status", connector_status)
-        if connector_type and not isinstance(connector_type, str):
-            raise TypeError("Expected argument 'connector_type' to be a str")
-        pulumi.set(__self__, "connector_type", connector_type)
         if credential_provider_configurations and not isinstance(credential_provider_configurations, list):
             raise TypeError("Expected argument 'credential_provider_configurations' to be a list")
         pulumi.set(__self__, "credential_provider_configurations", credential_provider_configurations)
@@ -50,6 +50,14 @@ class GetPaymentConnectorResult:
         if payment_connector_id and not isinstance(payment_connector_id, str):
             raise TypeError("Expected argument 'payment_connector_id' to be a str")
         pulumi.set(__self__, "payment_connector_id", payment_connector_id)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationUrl")
+    def authorization_url(self) -> Optional[_builtins.str]:
+        """
+        The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+        """
+        return pulumi.get(self, "authorization_url")
 
     @_builtins.property
     @pulumi.getter(name="connectorCreatedAt")
@@ -73,15 +81,10 @@ class GetPaymentConnectorResult:
         return pulumi.get(self, "connector_status")
 
     @_builtins.property
-    @pulumi.getter(name="connectorType")
-    def connector_type(self) -> Optional['PaymentConnectorType']:
-        return pulumi.get(self, "connector_type")
-
-    @_builtins.property
     @pulumi.getter(name="credentialProviderConfigurations")
     def credential_provider_configurations(self) -> Optional[Sequence['outputs.PaymentConnectorCredentialsProviderConfiguration']]:
         """
-        The credential provider configurations for the connector
+        The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         """
         return pulumi.get(self, "credential_provider_configurations")
 
@@ -116,10 +119,10 @@ class AwaitableGetPaymentConnectorResult(GetPaymentConnectorResult):
         if False:
             yield self
         return GetPaymentConnectorResult(
+            authorization_url=self.authorization_url,
             connector_created_at=self.connector_created_at,
             connector_last_updated_at=self.connector_last_updated_at,
             connector_status=self.connector_status,
-            connector_type=self.connector_type,
             credential_provider_configurations=self.credential_provider_configurations,
             description=self.description,
             payment_connector_arn=self.payment_connector_arn,
@@ -139,10 +142,10 @@ def get_payment_connector(payment_connector_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:bedrockagentcore:getPaymentConnector', __args__, opts=opts, typ=GetPaymentConnectorResult).value
 
     return AwaitableGetPaymentConnectorResult(
+        authorization_url=pulumi.get(__ret__, 'authorization_url'),
         connector_created_at=pulumi.get(__ret__, 'connector_created_at'),
         connector_last_updated_at=pulumi.get(__ret__, 'connector_last_updated_at'),
         connector_status=pulumi.get(__ret__, 'connector_status'),
-        connector_type=pulumi.get(__ret__, 'connector_type'),
         credential_provider_configurations=pulumi.get(__ret__, 'credential_provider_configurations'),
         description=pulumi.get(__ret__, 'description'),
         payment_connector_arn=pulumi.get(__ret__, 'payment_connector_arn'),
@@ -159,10 +162,10 @@ def get_payment_connector_output(payment_connector_arn: pulumi.Input[Optional[_b
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:bedrockagentcore:getPaymentConnector', __args__, opts=opts, typ=GetPaymentConnectorResult)
     return __ret__.apply(lambda __response__: GetPaymentConnectorResult(
+        authorization_url=pulumi.get(__response__, 'authorization_url'),
         connector_created_at=pulumi.get(__response__, 'connector_created_at'),
         connector_last_updated_at=pulumi.get(__response__, 'connector_last_updated_at'),
         connector_status=pulumi.get(__response__, 'connector_status'),
-        connector_type=pulumi.get(__response__, 'connector_type'),
         credential_provider_configurations=pulumi.get(__response__, 'credential_provider_configurations'),
         description=pulumi.get(__response__, 'description'),
         payment_connector_arn=pulumi.get(__response__, 'payment_connector_arn'),

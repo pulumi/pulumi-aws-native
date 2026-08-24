@@ -7,6 +7,68 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.Deadline
 {
+    /// <summary>
+    /// The type of budget action.
+    /// </summary>
+    [EnumType]
+    public readonly struct BudgetActionToAddType : IEquatable<BudgetActionToAddType>
+    {
+        private readonly string _value;
+
+        private BudgetActionToAddType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BudgetActionToAddType StopSchedulingAndCompleteTasks { get; } = new BudgetActionToAddType("STOP_SCHEDULING_AND_COMPLETE_TASKS");
+        public static BudgetActionToAddType StopSchedulingAndCancelTasks { get; } = new BudgetActionToAddType("STOP_SCHEDULING_AND_CANCEL_TASKS");
+
+        public static bool operator ==(BudgetActionToAddType left, BudgetActionToAddType right) => left.Equals(right);
+        public static bool operator !=(BudgetActionToAddType left, BudgetActionToAddType right) => !left.Equals(right);
+
+        public static explicit operator string(BudgetActionToAddType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BudgetActionToAddType other && Equals(other);
+        public bool Equals(BudgetActionToAddType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the budget.
+    /// </summary>
+    [EnumType]
+    public readonly struct BudgetStatus : IEquatable<BudgetStatus>
+    {
+        private readonly string _value;
+
+        private BudgetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BudgetStatus Active { get; } = new BudgetStatus("ACTIVE");
+        public static BudgetStatus Inactive { get; } = new BudgetStatus("INACTIVE");
+
+        public static bool operator ==(BudgetStatus left, BudgetStatus right) => left.Equals(right);
+        public static bool operator !=(BudgetStatus left, BudgetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(BudgetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BudgetStatus other && Equals(other);
+        public bool Equals(BudgetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct FleetAcceleratorSelectionName : IEquatable<FleetAcceleratorSelectionName>
     {
@@ -432,6 +494,43 @@ namespace Pulumi.AwsNative.Deadline
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StorageProfileOperatingSystemFamily other && Equals(other);
         public bool Equals(StorageProfileOperatingSystemFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the worker.
+    /// </summary>
+    [EnumType]
+    public readonly struct WorkerStatus : IEquatable<WorkerStatus>
+    {
+        private readonly string _value;
+
+        private WorkerStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WorkerStatus Created { get; } = new WorkerStatus("CREATED");
+        public static WorkerStatus Started { get; } = new WorkerStatus("STARTED");
+        public static WorkerStatus Stopping { get; } = new WorkerStatus("STOPPING");
+        public static WorkerStatus Stopped { get; } = new WorkerStatus("STOPPED");
+        public static WorkerStatus NotResponding { get; } = new WorkerStatus("NOT_RESPONDING");
+        public static WorkerStatus NotCompatible { get; } = new WorkerStatus("NOT_COMPATIBLE");
+        public static WorkerStatus Running { get; } = new WorkerStatus("RUNNING");
+        public static WorkerStatus Idle { get; } = new WorkerStatus("IDLE");
+
+        public static bool operator ==(WorkerStatus left, WorkerStatus right) => left.Equals(right);
+        public static bool operator !=(WorkerStatus left, WorkerStatus right) => !left.Equals(right);
+
+        public static explicit operator string(WorkerStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WorkerStatus other && Equals(other);
+        public bool Equals(WorkerStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

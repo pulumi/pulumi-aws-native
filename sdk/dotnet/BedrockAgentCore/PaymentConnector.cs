@@ -16,6 +16,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
     public partial class PaymentConnector : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+        /// </summary>
+        [Output("authorizationUrl")]
+        public Output<string> AuthorizationUrl { get; private set; } = null!;
+
+        /// <summary>
         /// The timestamp when the connector was created
         /// </summary>
         [Output("connectorCreatedAt")]
@@ -40,7 +46,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorType> ConnectorType { get; private set; } = null!;
 
         /// <summary>
-        /// The credential provider configurations for the connector
+        /// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         /// </summary>
         [Output("credentialProviderConfigurations")]
         public Output<ImmutableArray<Outputs.PaymentConnectorCredentialsProviderConfiguration>> CredentialProviderConfigurations { get; private set; } = null!;
@@ -69,6 +75,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("paymentManagerId")]
         public Output<string> PaymentManagerId { get; private set; } = null!;
 
+        /// <summary>
+        /// The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+        /// </summary>
+        [Output("provisionMode")]
+        public Output<Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorProvisionMode?> ProvisionMode { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a PaymentConnector resource with the given unique name, arguments, and options.
@@ -95,7 +107,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
                 ReplaceOnChanges =
                 {
                     "connectorName",
+                    "connectorType",
                     "paymentManagerId",
+                    "provisionMode",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -128,11 +142,11 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Input("connectorType", required: true)]
         public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorType> ConnectorType { get; set; } = null!;
 
-        [Input("credentialProviderConfigurations", required: true)]
+        [Input("credentialProviderConfigurations")]
         private InputList<Inputs.PaymentConnectorCredentialsProviderConfigurationArgs>? _credentialProviderConfigurations;
 
         /// <summary>
-        /// The credential provider configurations for the connector
+        /// The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
         /// </summary>
         public InputList<Inputs.PaymentConnectorCredentialsProviderConfigurationArgs> CredentialProviderConfigurations
         {
@@ -151,6 +165,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("paymentManagerId", required: true)]
         public Input<string> PaymentManagerId { get; set; } = null!;
+
+        /// <summary>
+        /// The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+        /// </summary>
+        [Input("provisionMode")]
+        public Input<Pulumi.AwsNative.BedrockAgentCore.PaymentConnectorProvisionMode>? ProvisionMode { get; set; }
 
         public PaymentConnectorArgs()
         {

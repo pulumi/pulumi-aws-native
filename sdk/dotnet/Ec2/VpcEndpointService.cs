@@ -45,6 +45,12 @@ namespace Pulumi.AwsNative.Ec2
         [Output("payerResponsibility")]
         public Output<string?> PayerResponsibility { get; private set; } = null!;
 
+        [Output("privateDnsName")]
+        public Output<string?> PrivateDnsName { get; private set; } = null!;
+
+        [Output("privateDnsNameConfiguration")]
+        public Output<Outputs.VpcEndpointServicePrivateDnsNameConfiguration?> PrivateDnsNameConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The ID of the endpoint service.
         /// </summary>
@@ -155,6 +161,12 @@ namespace Pulumi.AwsNative.Ec2
         /// </summary>
         [Input("payerResponsibility")]
         public Input<string>? PayerResponsibility { get; set; }
+
+        [Input("privateDnsName")]
+        public Input<string>? PrivateDnsName { get; set; }
+
+        [Input("privateDnsNameConfiguration")]
+        public Input<Inputs.VpcEndpointServicePrivateDnsNameConfigurationArgs>? PrivateDnsNameConfiguration { get; set; }
 
         [Input("supportedIpAddressTypes")]
         private InputList<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType>? _supportedIpAddressTypes;

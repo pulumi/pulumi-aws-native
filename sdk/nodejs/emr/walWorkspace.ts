@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::EMR::WALWorkspace Type
+ * Resource Type definition for AWS::EMR::WALWorkspace
  */
 export class WalWorkspace extends pulumi.CustomResource {
     /**

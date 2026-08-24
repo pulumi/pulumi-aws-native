@@ -9405,6 +9405,957 @@ func (o LockVersionPropertiesPtrOutput) DataTable() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type MetricAvailableFilter struct {
+	Id   string                    `pulumi:"id"`
+	Type MetricAvailableFilterType `pulumi:"type"`
+}
+
+type MetricAvailableFilterOutput struct{ *pulumi.OutputState }
+
+func (MetricAvailableFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricAvailableFilter)(nil)).Elem()
+}
+
+func (o MetricAvailableFilterOutput) ToMetricAvailableFilterOutput() MetricAvailableFilterOutput {
+	return o
+}
+
+func (o MetricAvailableFilterOutput) ToMetricAvailableFilterOutputWithContext(ctx context.Context) MetricAvailableFilterOutput {
+	return o
+}
+
+func (o MetricAvailableFilterOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricAvailableFilter) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o MetricAvailableFilterOutput) Type() MetricAvailableFilterTypeOutput {
+	return o.ApplyT(func(v MetricAvailableFilter) MetricAvailableFilterType { return v.Type }).(MetricAvailableFilterTypeOutput)
+}
+
+type MetricAvailableFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricAvailableFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricAvailableFilter)(nil)).Elem()
+}
+
+func (o MetricAvailableFilterArrayOutput) ToMetricAvailableFilterArrayOutput() MetricAvailableFilterArrayOutput {
+	return o
+}
+
+func (o MetricAvailableFilterArrayOutput) ToMetricAvailableFilterArrayOutputWithContext(ctx context.Context) MetricAvailableFilterArrayOutput {
+	return o
+}
+
+func (o MetricAvailableFilterArrayOutput) Index(i pulumi.IntInput) MetricAvailableFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricAvailableFilter {
+		return vs[0].([]MetricAvailableFilter)[vs[1].(int)]
+	}).(MetricAvailableFilterOutput)
+}
+
+type MetricCalculationComponent struct {
+	// Metric calculation component alias for use within a calculation
+	Alias         string         `pulumi:"alias"`
+	MetricFilters []MetricFilter `pulumi:"metricFilters"`
+	MetricId      *string        `pulumi:"metricId"`
+	MetricName    *string        `pulumi:"metricName"`
+}
+
+// MetricCalculationComponentInput is an input type that accepts MetricCalculationComponentArgs and MetricCalculationComponentOutput values.
+// You can construct a concrete instance of `MetricCalculationComponentInput` via:
+//
+//	MetricCalculationComponentArgs{...}
+type MetricCalculationComponentInput interface {
+	pulumi.Input
+
+	ToMetricCalculationComponentOutput() MetricCalculationComponentOutput
+	ToMetricCalculationComponentOutputWithContext(context.Context) MetricCalculationComponentOutput
+}
+
+type MetricCalculationComponentArgs struct {
+	// Metric calculation component alias for use within a calculation
+	Alias         pulumi.StringInput     `pulumi:"alias"`
+	MetricFilters MetricFilterArrayInput `pulumi:"metricFilters"`
+	MetricId      pulumi.StringPtrInput  `pulumi:"metricId"`
+	MetricName    pulumi.StringPtrInput  `pulumi:"metricName"`
+}
+
+func (MetricCalculationComponentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCalculationComponent)(nil)).Elem()
+}
+
+func (i MetricCalculationComponentArgs) ToMetricCalculationComponentOutput() MetricCalculationComponentOutput {
+	return i.ToMetricCalculationComponentOutputWithContext(context.Background())
+}
+
+func (i MetricCalculationComponentArgs) ToMetricCalculationComponentOutputWithContext(ctx context.Context) MetricCalculationComponentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationComponentOutput)
+}
+
+// MetricCalculationComponentArrayInput is an input type that accepts MetricCalculationComponentArray and MetricCalculationComponentArrayOutput values.
+// You can construct a concrete instance of `MetricCalculationComponentArrayInput` via:
+//
+//	MetricCalculationComponentArray{ MetricCalculationComponentArgs{...} }
+type MetricCalculationComponentArrayInput interface {
+	pulumi.Input
+
+	ToMetricCalculationComponentArrayOutput() MetricCalculationComponentArrayOutput
+	ToMetricCalculationComponentArrayOutputWithContext(context.Context) MetricCalculationComponentArrayOutput
+}
+
+type MetricCalculationComponentArray []MetricCalculationComponentInput
+
+func (MetricCalculationComponentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCalculationComponent)(nil)).Elem()
+}
+
+func (i MetricCalculationComponentArray) ToMetricCalculationComponentArrayOutput() MetricCalculationComponentArrayOutput {
+	return i.ToMetricCalculationComponentArrayOutputWithContext(context.Background())
+}
+
+func (i MetricCalculationComponentArray) ToMetricCalculationComponentArrayOutputWithContext(ctx context.Context) MetricCalculationComponentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationComponentArrayOutput)
+}
+
+type MetricCalculationComponentOutput struct{ *pulumi.OutputState }
+
+func (MetricCalculationComponentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCalculationComponent)(nil)).Elem()
+}
+
+func (o MetricCalculationComponentOutput) ToMetricCalculationComponentOutput() MetricCalculationComponentOutput {
+	return o
+}
+
+func (o MetricCalculationComponentOutput) ToMetricCalculationComponentOutputWithContext(ctx context.Context) MetricCalculationComponentOutput {
+	return o
+}
+
+// Metric calculation component alias for use within a calculation
+func (o MetricCalculationComponentOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCalculationComponent) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+func (o MetricCalculationComponentOutput) MetricFilters() MetricFilterArrayOutput {
+	return o.ApplyT(func(v MetricCalculationComponent) []MetricFilter { return v.MetricFilters }).(MetricFilterArrayOutput)
+}
+
+func (o MetricCalculationComponentOutput) MetricId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCalculationComponent) *string { return v.MetricId }).(pulumi.StringPtrOutput)
+}
+
+func (o MetricCalculationComponentOutput) MetricName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCalculationComponent) *string { return v.MetricName }).(pulumi.StringPtrOutput)
+}
+
+type MetricCalculationComponentArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricCalculationComponentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricCalculationComponent)(nil)).Elem()
+}
+
+func (o MetricCalculationComponentArrayOutput) ToMetricCalculationComponentArrayOutput() MetricCalculationComponentArrayOutput {
+	return o
+}
+
+func (o MetricCalculationComponentArrayOutput) ToMetricCalculationComponentArrayOutputWithContext(ctx context.Context) MetricCalculationComponentArrayOutput {
+	return o
+}
+
+func (o MetricCalculationComponentArrayOutput) Index(i pulumi.IntInput) MetricCalculationComponentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricCalculationComponent {
+		return vs[0].([]MetricCalculationComponent)[vs[1].(int)]
+	}).(MetricCalculationComponentOutput)
+}
+
+// The calculation configuration for the metric
+type MetricCalculationProperties struct {
+	// The calculation formula
+	Calculation string `pulumi:"calculation"`
+	// The calculation components for the metric
+	CalculationComponents []MetricCalculationComponent `pulumi:"calculationComponents"`
+}
+
+// MetricCalculationPropertiesInput is an input type that accepts MetricCalculationPropertiesArgs and MetricCalculationPropertiesOutput values.
+// You can construct a concrete instance of `MetricCalculationPropertiesInput` via:
+//
+//	MetricCalculationPropertiesArgs{...}
+type MetricCalculationPropertiesInput interface {
+	pulumi.Input
+
+	ToMetricCalculationPropertiesOutput() MetricCalculationPropertiesOutput
+	ToMetricCalculationPropertiesOutputWithContext(context.Context) MetricCalculationPropertiesOutput
+}
+
+// The calculation configuration for the metric
+type MetricCalculationPropertiesArgs struct {
+	// The calculation formula
+	Calculation pulumi.StringInput `pulumi:"calculation"`
+	// The calculation components for the metric
+	CalculationComponents MetricCalculationComponentArrayInput `pulumi:"calculationComponents"`
+}
+
+func (MetricCalculationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCalculationProperties)(nil)).Elem()
+}
+
+func (i MetricCalculationPropertiesArgs) ToMetricCalculationPropertiesOutput() MetricCalculationPropertiesOutput {
+	return i.ToMetricCalculationPropertiesOutputWithContext(context.Background())
+}
+
+func (i MetricCalculationPropertiesArgs) ToMetricCalculationPropertiesOutputWithContext(ctx context.Context) MetricCalculationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationPropertiesOutput)
+}
+
+func (i MetricCalculationPropertiesArgs) ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput {
+	return i.ToMetricCalculationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i MetricCalculationPropertiesArgs) ToMetricCalculationPropertiesPtrOutputWithContext(ctx context.Context) MetricCalculationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationPropertiesOutput).ToMetricCalculationPropertiesPtrOutputWithContext(ctx)
+}
+
+// MetricCalculationPropertiesPtrInput is an input type that accepts MetricCalculationPropertiesArgs, MetricCalculationPropertiesPtr and MetricCalculationPropertiesPtrOutput values.
+// You can construct a concrete instance of `MetricCalculationPropertiesPtrInput` via:
+//
+//	        MetricCalculationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricCalculationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput
+	ToMetricCalculationPropertiesPtrOutputWithContext(context.Context) MetricCalculationPropertiesPtrOutput
+}
+
+type metricCalculationPropertiesPtrType MetricCalculationPropertiesArgs
+
+func MetricCalculationPropertiesPtr(v *MetricCalculationPropertiesArgs) MetricCalculationPropertiesPtrInput {
+	return (*metricCalculationPropertiesPtrType)(v)
+}
+
+func (*metricCalculationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricCalculationProperties)(nil)).Elem()
+}
+
+func (i *metricCalculationPropertiesPtrType) ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput {
+	return i.ToMetricCalculationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *metricCalculationPropertiesPtrType) ToMetricCalculationPropertiesPtrOutputWithContext(ctx context.Context) MetricCalculationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationPropertiesPtrOutput)
+}
+
+// The calculation configuration for the metric
+type MetricCalculationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (MetricCalculationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCalculationProperties)(nil)).Elem()
+}
+
+func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesOutput() MetricCalculationPropertiesOutput {
+	return o
+}
+
+func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesOutputWithContext(ctx context.Context) MetricCalculationPropertiesOutput {
+	return o
+}
+
+func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput {
+	return o.ToMetricCalculationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesPtrOutputWithContext(ctx context.Context) MetricCalculationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricCalculationProperties) *MetricCalculationProperties {
+		return &v
+	}).(MetricCalculationPropertiesPtrOutput)
+}
+
+// The calculation formula
+func (o MetricCalculationPropertiesOutput) Calculation() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricCalculationProperties) string { return v.Calculation }).(pulumi.StringOutput)
+}
+
+// The calculation components for the metric
+func (o MetricCalculationPropertiesOutput) CalculationComponents() MetricCalculationComponentArrayOutput {
+	return o.ApplyT(func(v MetricCalculationProperties) []MetricCalculationComponent { return v.CalculationComponents }).(MetricCalculationComponentArrayOutput)
+}
+
+type MetricCalculationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricCalculationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricCalculationProperties)(nil)).Elem()
+}
+
+func (o MetricCalculationPropertiesPtrOutput) ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricCalculationPropertiesPtrOutput) ToMetricCalculationPropertiesPtrOutputWithContext(ctx context.Context) MetricCalculationPropertiesPtrOutput {
+	return o
+}
+
+func (o MetricCalculationPropertiesPtrOutput) Elem() MetricCalculationPropertiesOutput {
+	return o.ApplyT(func(v *MetricCalculationProperties) MetricCalculationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret MetricCalculationProperties
+		return ret
+	}).(MetricCalculationPropertiesOutput)
+}
+
+// The calculation formula
+func (o MetricCalculationPropertiesPtrOutput) Calculation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricCalculationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Calculation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The calculation components for the metric
+func (o MetricCalculationPropertiesPtrOutput) CalculationComponents() MetricCalculationComponentArrayOutput {
+	return o.ApplyT(func(v *MetricCalculationProperties) []MetricCalculationComponent {
+		if v == nil {
+			return nil
+		}
+		return v.CalculationComponents
+	}).(MetricCalculationComponentArrayOutput)
+}
+
+type MetricCreatedByInfo struct {
+	// STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and this value is calculated automatically if ConnectUserArn is not provided.
+	AwsIdentityArn *string `pulumi:"awsIdentityArn"`
+	// An agent ARN representing a connect user.
+	ConnectUserArn *string `pulumi:"connectUserArn"`
+}
+
+type MetricCreatedByInfoOutput struct{ *pulumi.OutputState }
+
+func (MetricCreatedByInfoOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricCreatedByInfo)(nil)).Elem()
+}
+
+func (o MetricCreatedByInfoOutput) ToMetricCreatedByInfoOutput() MetricCreatedByInfoOutput {
+	return o
+}
+
+func (o MetricCreatedByInfoOutput) ToMetricCreatedByInfoOutputWithContext(ctx context.Context) MetricCreatedByInfoOutput {
+	return o
+}
+
+// STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and this value is calculated automatically if ConnectUserArn is not provided.
+func (o MetricCreatedByInfoOutput) AwsIdentityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCreatedByInfo) *string { return v.AwsIdentityArn }).(pulumi.StringPtrOutput)
+}
+
+// An agent ARN representing a connect user.
+func (o MetricCreatedByInfoOutput) ConnectUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MetricCreatedByInfo) *string { return v.ConnectUserArn }).(pulumi.StringPtrOutput)
+}
+
+type MetricCreatedByInfoPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricCreatedByInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricCreatedByInfo)(nil)).Elem()
+}
+
+func (o MetricCreatedByInfoPtrOutput) ToMetricCreatedByInfoPtrOutput() MetricCreatedByInfoPtrOutput {
+	return o
+}
+
+func (o MetricCreatedByInfoPtrOutput) ToMetricCreatedByInfoPtrOutputWithContext(ctx context.Context) MetricCreatedByInfoPtrOutput {
+	return o
+}
+
+func (o MetricCreatedByInfoPtrOutput) Elem() MetricCreatedByInfoOutput {
+	return o.ApplyT(func(v *MetricCreatedByInfo) MetricCreatedByInfo {
+		if v != nil {
+			return *v
+		}
+		var ret MetricCreatedByInfo
+		return ret
+	}).(MetricCreatedByInfoOutput)
+}
+
+// STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and this value is calculated automatically if ConnectUserArn is not provided.
+func (o MetricCreatedByInfoPtrOutput) AwsIdentityArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricCreatedByInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsIdentityArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// An agent ARN representing a connect user.
+func (o MetricCreatedByInfoPtrOutput) ConnectUserArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MetricCreatedByInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectUserArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type MetricFilter struct {
+	BooleanCondition *MetricFilterBooleanCondition `pulumi:"booleanCondition"`
+	MetricFilterKey  string                        `pulumi:"metricFilterKey"`
+	Negate           *bool                         `pulumi:"negate"`
+	NumberCondition  *MetricFilterNumberCondition  `pulumi:"numberCondition"`
+	StringCondition  *MetricFilterStringCondition  `pulumi:"stringCondition"`
+}
+
+// MetricFilterInput is an input type that accepts MetricFilterArgs and MetricFilterOutput values.
+// You can construct a concrete instance of `MetricFilterInput` via:
+//
+//	MetricFilterArgs{...}
+type MetricFilterInput interface {
+	pulumi.Input
+
+	ToMetricFilterOutput() MetricFilterOutput
+	ToMetricFilterOutputWithContext(context.Context) MetricFilterOutput
+}
+
+type MetricFilterArgs struct {
+	BooleanCondition MetricFilterBooleanConditionPtrInput `pulumi:"booleanCondition"`
+	MetricFilterKey  pulumi.StringInput                   `pulumi:"metricFilterKey"`
+	Negate           pulumi.BoolPtrInput                  `pulumi:"negate"`
+	NumberCondition  MetricFilterNumberConditionPtrInput  `pulumi:"numberCondition"`
+	StringCondition  MetricFilterStringConditionPtrInput  `pulumi:"stringCondition"`
+}
+
+func (MetricFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilter)(nil)).Elem()
+}
+
+func (i MetricFilterArgs) ToMetricFilterOutput() MetricFilterOutput {
+	return i.ToMetricFilterOutputWithContext(context.Background())
+}
+
+func (i MetricFilterArgs) ToMetricFilterOutputWithContext(ctx context.Context) MetricFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterOutput)
+}
+
+// MetricFilterArrayInput is an input type that accepts MetricFilterArray and MetricFilterArrayOutput values.
+// You can construct a concrete instance of `MetricFilterArrayInput` via:
+//
+//	MetricFilterArray{ MetricFilterArgs{...} }
+type MetricFilterArrayInput interface {
+	pulumi.Input
+
+	ToMetricFilterArrayOutput() MetricFilterArrayOutput
+	ToMetricFilterArrayOutputWithContext(context.Context) MetricFilterArrayOutput
+}
+
+type MetricFilterArray []MetricFilterInput
+
+func (MetricFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricFilter)(nil)).Elem()
+}
+
+func (i MetricFilterArray) ToMetricFilterArrayOutput() MetricFilterArrayOutput {
+	return i.ToMetricFilterArrayOutputWithContext(context.Background())
+}
+
+func (i MetricFilterArray) ToMetricFilterArrayOutputWithContext(ctx context.Context) MetricFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterArrayOutput)
+}
+
+type MetricFilterOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilter)(nil)).Elem()
+}
+
+func (o MetricFilterOutput) ToMetricFilterOutput() MetricFilterOutput {
+	return o
+}
+
+func (o MetricFilterOutput) ToMetricFilterOutputWithContext(ctx context.Context) MetricFilterOutput {
+	return o
+}
+
+func (o MetricFilterOutput) BooleanCondition() MetricFilterBooleanConditionPtrOutput {
+	return o.ApplyT(func(v MetricFilter) *MetricFilterBooleanCondition { return v.BooleanCondition }).(MetricFilterBooleanConditionPtrOutput)
+}
+
+func (o MetricFilterOutput) MetricFilterKey() pulumi.StringOutput {
+	return o.ApplyT(func(v MetricFilter) string { return v.MetricFilterKey }).(pulumi.StringOutput)
+}
+
+func (o MetricFilterOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MetricFilter) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+func (o MetricFilterOutput) NumberCondition() MetricFilterNumberConditionPtrOutput {
+	return o.ApplyT(func(v MetricFilter) *MetricFilterNumberCondition { return v.NumberCondition }).(MetricFilterNumberConditionPtrOutput)
+}
+
+func (o MetricFilterOutput) StringCondition() MetricFilterStringConditionPtrOutput {
+	return o.ApplyT(func(v MetricFilter) *MetricFilterStringCondition { return v.StringCondition }).(MetricFilterStringConditionPtrOutput)
+}
+
+type MetricFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MetricFilter)(nil)).Elem()
+}
+
+func (o MetricFilterArrayOutput) ToMetricFilterArrayOutput() MetricFilterArrayOutput {
+	return o
+}
+
+func (o MetricFilterArrayOutput) ToMetricFilterArrayOutputWithContext(ctx context.Context) MetricFilterArrayOutput {
+	return o
+}
+
+func (o MetricFilterArrayOutput) Index(i pulumi.IntInput) MetricFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MetricFilter {
+		return vs[0].([]MetricFilter)[vs[1].(int)]
+	}).(MetricFilterOutput)
+}
+
+type MetricFilterBooleanCondition struct {
+	Comparison MetricFilterBooleanConditionComparison `pulumi:"comparison"`
+}
+
+// MetricFilterBooleanConditionInput is an input type that accepts MetricFilterBooleanConditionArgs and MetricFilterBooleanConditionOutput values.
+// You can construct a concrete instance of `MetricFilterBooleanConditionInput` via:
+//
+//	MetricFilterBooleanConditionArgs{...}
+type MetricFilterBooleanConditionInput interface {
+	pulumi.Input
+
+	ToMetricFilterBooleanConditionOutput() MetricFilterBooleanConditionOutput
+	ToMetricFilterBooleanConditionOutputWithContext(context.Context) MetricFilterBooleanConditionOutput
+}
+
+type MetricFilterBooleanConditionArgs struct {
+	Comparison MetricFilterBooleanConditionComparisonInput `pulumi:"comparison"`
+}
+
+func (MetricFilterBooleanConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterBooleanCondition)(nil)).Elem()
+}
+
+func (i MetricFilterBooleanConditionArgs) ToMetricFilterBooleanConditionOutput() MetricFilterBooleanConditionOutput {
+	return i.ToMetricFilterBooleanConditionOutputWithContext(context.Background())
+}
+
+func (i MetricFilterBooleanConditionArgs) ToMetricFilterBooleanConditionOutputWithContext(ctx context.Context) MetricFilterBooleanConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterBooleanConditionOutput)
+}
+
+func (i MetricFilterBooleanConditionArgs) ToMetricFilterBooleanConditionPtrOutput() MetricFilterBooleanConditionPtrOutput {
+	return i.ToMetricFilterBooleanConditionPtrOutputWithContext(context.Background())
+}
+
+func (i MetricFilterBooleanConditionArgs) ToMetricFilterBooleanConditionPtrOutputWithContext(ctx context.Context) MetricFilterBooleanConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterBooleanConditionOutput).ToMetricFilterBooleanConditionPtrOutputWithContext(ctx)
+}
+
+// MetricFilterBooleanConditionPtrInput is an input type that accepts MetricFilterBooleanConditionArgs, MetricFilterBooleanConditionPtr and MetricFilterBooleanConditionPtrOutput values.
+// You can construct a concrete instance of `MetricFilterBooleanConditionPtrInput` via:
+//
+//	        MetricFilterBooleanConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricFilterBooleanConditionPtrInput interface {
+	pulumi.Input
+
+	ToMetricFilterBooleanConditionPtrOutput() MetricFilterBooleanConditionPtrOutput
+	ToMetricFilterBooleanConditionPtrOutputWithContext(context.Context) MetricFilterBooleanConditionPtrOutput
+}
+
+type metricFilterBooleanConditionPtrType MetricFilterBooleanConditionArgs
+
+func MetricFilterBooleanConditionPtr(v *MetricFilterBooleanConditionArgs) MetricFilterBooleanConditionPtrInput {
+	return (*metricFilterBooleanConditionPtrType)(v)
+}
+
+func (*metricFilterBooleanConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricFilterBooleanCondition)(nil)).Elem()
+}
+
+func (i *metricFilterBooleanConditionPtrType) ToMetricFilterBooleanConditionPtrOutput() MetricFilterBooleanConditionPtrOutput {
+	return i.ToMetricFilterBooleanConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *metricFilterBooleanConditionPtrType) ToMetricFilterBooleanConditionPtrOutputWithContext(ctx context.Context) MetricFilterBooleanConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterBooleanConditionPtrOutput)
+}
+
+type MetricFilterBooleanConditionOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterBooleanConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterBooleanCondition)(nil)).Elem()
+}
+
+func (o MetricFilterBooleanConditionOutput) ToMetricFilterBooleanConditionOutput() MetricFilterBooleanConditionOutput {
+	return o
+}
+
+func (o MetricFilterBooleanConditionOutput) ToMetricFilterBooleanConditionOutputWithContext(ctx context.Context) MetricFilterBooleanConditionOutput {
+	return o
+}
+
+func (o MetricFilterBooleanConditionOutput) ToMetricFilterBooleanConditionPtrOutput() MetricFilterBooleanConditionPtrOutput {
+	return o.ToMetricFilterBooleanConditionPtrOutputWithContext(context.Background())
+}
+
+func (o MetricFilterBooleanConditionOutput) ToMetricFilterBooleanConditionPtrOutputWithContext(ctx context.Context) MetricFilterBooleanConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricFilterBooleanCondition) *MetricFilterBooleanCondition {
+		return &v
+	}).(MetricFilterBooleanConditionPtrOutput)
+}
+
+func (o MetricFilterBooleanConditionOutput) Comparison() MetricFilterBooleanConditionComparisonOutput {
+	return o.ApplyT(func(v MetricFilterBooleanCondition) MetricFilterBooleanConditionComparison { return v.Comparison }).(MetricFilterBooleanConditionComparisonOutput)
+}
+
+type MetricFilterBooleanConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterBooleanConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricFilterBooleanCondition)(nil)).Elem()
+}
+
+func (o MetricFilterBooleanConditionPtrOutput) ToMetricFilterBooleanConditionPtrOutput() MetricFilterBooleanConditionPtrOutput {
+	return o
+}
+
+func (o MetricFilterBooleanConditionPtrOutput) ToMetricFilterBooleanConditionPtrOutputWithContext(ctx context.Context) MetricFilterBooleanConditionPtrOutput {
+	return o
+}
+
+func (o MetricFilterBooleanConditionPtrOutput) Elem() MetricFilterBooleanConditionOutput {
+	return o.ApplyT(func(v *MetricFilterBooleanCondition) MetricFilterBooleanCondition {
+		if v != nil {
+			return *v
+		}
+		var ret MetricFilterBooleanCondition
+		return ret
+	}).(MetricFilterBooleanConditionOutput)
+}
+
+func (o MetricFilterBooleanConditionPtrOutput) Comparison() MetricFilterBooleanConditionComparisonPtrOutput {
+	return o.ApplyT(func(v *MetricFilterBooleanCondition) *MetricFilterBooleanConditionComparison {
+		if v == nil {
+			return nil
+		}
+		return &v.Comparison
+	}).(MetricFilterBooleanConditionComparisonPtrOutput)
+}
+
+type MetricFilterNumberCondition struct {
+	Comparison MetricFilterNumberConditionComparison `pulumi:"comparison"`
+	Values     []float64                             `pulumi:"values"`
+}
+
+// MetricFilterNumberConditionInput is an input type that accepts MetricFilterNumberConditionArgs and MetricFilterNumberConditionOutput values.
+// You can construct a concrete instance of `MetricFilterNumberConditionInput` via:
+//
+//	MetricFilterNumberConditionArgs{...}
+type MetricFilterNumberConditionInput interface {
+	pulumi.Input
+
+	ToMetricFilterNumberConditionOutput() MetricFilterNumberConditionOutput
+	ToMetricFilterNumberConditionOutputWithContext(context.Context) MetricFilterNumberConditionOutput
+}
+
+type MetricFilterNumberConditionArgs struct {
+	Comparison MetricFilterNumberConditionComparisonInput `pulumi:"comparison"`
+	Values     pulumi.Float64ArrayInput                   `pulumi:"values"`
+}
+
+func (MetricFilterNumberConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterNumberCondition)(nil)).Elem()
+}
+
+func (i MetricFilterNumberConditionArgs) ToMetricFilterNumberConditionOutput() MetricFilterNumberConditionOutput {
+	return i.ToMetricFilterNumberConditionOutputWithContext(context.Background())
+}
+
+func (i MetricFilterNumberConditionArgs) ToMetricFilterNumberConditionOutputWithContext(ctx context.Context) MetricFilterNumberConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterNumberConditionOutput)
+}
+
+func (i MetricFilterNumberConditionArgs) ToMetricFilterNumberConditionPtrOutput() MetricFilterNumberConditionPtrOutput {
+	return i.ToMetricFilterNumberConditionPtrOutputWithContext(context.Background())
+}
+
+func (i MetricFilterNumberConditionArgs) ToMetricFilterNumberConditionPtrOutputWithContext(ctx context.Context) MetricFilterNumberConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterNumberConditionOutput).ToMetricFilterNumberConditionPtrOutputWithContext(ctx)
+}
+
+// MetricFilterNumberConditionPtrInput is an input type that accepts MetricFilterNumberConditionArgs, MetricFilterNumberConditionPtr and MetricFilterNumberConditionPtrOutput values.
+// You can construct a concrete instance of `MetricFilterNumberConditionPtrInput` via:
+//
+//	        MetricFilterNumberConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricFilterNumberConditionPtrInput interface {
+	pulumi.Input
+
+	ToMetricFilterNumberConditionPtrOutput() MetricFilterNumberConditionPtrOutput
+	ToMetricFilterNumberConditionPtrOutputWithContext(context.Context) MetricFilterNumberConditionPtrOutput
+}
+
+type metricFilterNumberConditionPtrType MetricFilterNumberConditionArgs
+
+func MetricFilterNumberConditionPtr(v *MetricFilterNumberConditionArgs) MetricFilterNumberConditionPtrInput {
+	return (*metricFilterNumberConditionPtrType)(v)
+}
+
+func (*metricFilterNumberConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricFilterNumberCondition)(nil)).Elem()
+}
+
+func (i *metricFilterNumberConditionPtrType) ToMetricFilterNumberConditionPtrOutput() MetricFilterNumberConditionPtrOutput {
+	return i.ToMetricFilterNumberConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *metricFilterNumberConditionPtrType) ToMetricFilterNumberConditionPtrOutputWithContext(ctx context.Context) MetricFilterNumberConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterNumberConditionPtrOutput)
+}
+
+type MetricFilterNumberConditionOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterNumberConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterNumberCondition)(nil)).Elem()
+}
+
+func (o MetricFilterNumberConditionOutput) ToMetricFilterNumberConditionOutput() MetricFilterNumberConditionOutput {
+	return o
+}
+
+func (o MetricFilterNumberConditionOutput) ToMetricFilterNumberConditionOutputWithContext(ctx context.Context) MetricFilterNumberConditionOutput {
+	return o
+}
+
+func (o MetricFilterNumberConditionOutput) ToMetricFilterNumberConditionPtrOutput() MetricFilterNumberConditionPtrOutput {
+	return o.ToMetricFilterNumberConditionPtrOutputWithContext(context.Background())
+}
+
+func (o MetricFilterNumberConditionOutput) ToMetricFilterNumberConditionPtrOutputWithContext(ctx context.Context) MetricFilterNumberConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricFilterNumberCondition) *MetricFilterNumberCondition {
+		return &v
+	}).(MetricFilterNumberConditionPtrOutput)
+}
+
+func (o MetricFilterNumberConditionOutput) Comparison() MetricFilterNumberConditionComparisonOutput {
+	return o.ApplyT(func(v MetricFilterNumberCondition) MetricFilterNumberConditionComparison { return v.Comparison }).(MetricFilterNumberConditionComparisonOutput)
+}
+
+func (o MetricFilterNumberConditionOutput) Values() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v MetricFilterNumberCondition) []float64 { return v.Values }).(pulumi.Float64ArrayOutput)
+}
+
+type MetricFilterNumberConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterNumberConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricFilterNumberCondition)(nil)).Elem()
+}
+
+func (o MetricFilterNumberConditionPtrOutput) ToMetricFilterNumberConditionPtrOutput() MetricFilterNumberConditionPtrOutput {
+	return o
+}
+
+func (o MetricFilterNumberConditionPtrOutput) ToMetricFilterNumberConditionPtrOutputWithContext(ctx context.Context) MetricFilterNumberConditionPtrOutput {
+	return o
+}
+
+func (o MetricFilterNumberConditionPtrOutput) Elem() MetricFilterNumberConditionOutput {
+	return o.ApplyT(func(v *MetricFilterNumberCondition) MetricFilterNumberCondition {
+		if v != nil {
+			return *v
+		}
+		var ret MetricFilterNumberCondition
+		return ret
+	}).(MetricFilterNumberConditionOutput)
+}
+
+func (o MetricFilterNumberConditionPtrOutput) Comparison() MetricFilterNumberConditionComparisonPtrOutput {
+	return o.ApplyT(func(v *MetricFilterNumberCondition) *MetricFilterNumberConditionComparison {
+		if v == nil {
+			return nil
+		}
+		return &v.Comparison
+	}).(MetricFilterNumberConditionComparisonPtrOutput)
+}
+
+func (o MetricFilterNumberConditionPtrOutput) Values() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v *MetricFilterNumberCondition) []float64 {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.Float64ArrayOutput)
+}
+
+type MetricFilterStringCondition struct {
+	Comparison MetricFilterStringConditionComparison `pulumi:"comparison"`
+	Values     []string                              `pulumi:"values"`
+}
+
+// MetricFilterStringConditionInput is an input type that accepts MetricFilterStringConditionArgs and MetricFilterStringConditionOutput values.
+// You can construct a concrete instance of `MetricFilterStringConditionInput` via:
+//
+//	MetricFilterStringConditionArgs{...}
+type MetricFilterStringConditionInput interface {
+	pulumi.Input
+
+	ToMetricFilterStringConditionOutput() MetricFilterStringConditionOutput
+	ToMetricFilterStringConditionOutputWithContext(context.Context) MetricFilterStringConditionOutput
+}
+
+type MetricFilterStringConditionArgs struct {
+	Comparison MetricFilterStringConditionComparisonInput `pulumi:"comparison"`
+	Values     pulumi.StringArrayInput                    `pulumi:"values"`
+}
+
+func (MetricFilterStringConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterStringCondition)(nil)).Elem()
+}
+
+func (i MetricFilterStringConditionArgs) ToMetricFilterStringConditionOutput() MetricFilterStringConditionOutput {
+	return i.ToMetricFilterStringConditionOutputWithContext(context.Background())
+}
+
+func (i MetricFilterStringConditionArgs) ToMetricFilterStringConditionOutputWithContext(ctx context.Context) MetricFilterStringConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterStringConditionOutput)
+}
+
+func (i MetricFilterStringConditionArgs) ToMetricFilterStringConditionPtrOutput() MetricFilterStringConditionPtrOutput {
+	return i.ToMetricFilterStringConditionPtrOutputWithContext(context.Background())
+}
+
+func (i MetricFilterStringConditionArgs) ToMetricFilterStringConditionPtrOutputWithContext(ctx context.Context) MetricFilterStringConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterStringConditionOutput).ToMetricFilterStringConditionPtrOutputWithContext(ctx)
+}
+
+// MetricFilterStringConditionPtrInput is an input type that accepts MetricFilterStringConditionArgs, MetricFilterStringConditionPtr and MetricFilterStringConditionPtrOutput values.
+// You can construct a concrete instance of `MetricFilterStringConditionPtrInput` via:
+//
+//	        MetricFilterStringConditionArgs{...}
+//
+//	or:
+//
+//	        nil
+type MetricFilterStringConditionPtrInput interface {
+	pulumi.Input
+
+	ToMetricFilterStringConditionPtrOutput() MetricFilterStringConditionPtrOutput
+	ToMetricFilterStringConditionPtrOutputWithContext(context.Context) MetricFilterStringConditionPtrOutput
+}
+
+type metricFilterStringConditionPtrType MetricFilterStringConditionArgs
+
+func MetricFilterStringConditionPtr(v *MetricFilterStringConditionArgs) MetricFilterStringConditionPtrInput {
+	return (*metricFilterStringConditionPtrType)(v)
+}
+
+func (*metricFilterStringConditionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricFilterStringCondition)(nil)).Elem()
+}
+
+func (i *metricFilterStringConditionPtrType) ToMetricFilterStringConditionPtrOutput() MetricFilterStringConditionPtrOutput {
+	return i.ToMetricFilterStringConditionPtrOutputWithContext(context.Background())
+}
+
+func (i *metricFilterStringConditionPtrType) ToMetricFilterStringConditionPtrOutputWithContext(ctx context.Context) MetricFilterStringConditionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MetricFilterStringConditionPtrOutput)
+}
+
+type MetricFilterStringConditionOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterStringConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MetricFilterStringCondition)(nil)).Elem()
+}
+
+func (o MetricFilterStringConditionOutput) ToMetricFilterStringConditionOutput() MetricFilterStringConditionOutput {
+	return o
+}
+
+func (o MetricFilterStringConditionOutput) ToMetricFilterStringConditionOutputWithContext(ctx context.Context) MetricFilterStringConditionOutput {
+	return o
+}
+
+func (o MetricFilterStringConditionOutput) ToMetricFilterStringConditionPtrOutput() MetricFilterStringConditionPtrOutput {
+	return o.ToMetricFilterStringConditionPtrOutputWithContext(context.Background())
+}
+
+func (o MetricFilterStringConditionOutput) ToMetricFilterStringConditionPtrOutputWithContext(ctx context.Context) MetricFilterStringConditionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricFilterStringCondition) *MetricFilterStringCondition {
+		return &v
+	}).(MetricFilterStringConditionPtrOutput)
+}
+
+func (o MetricFilterStringConditionOutput) Comparison() MetricFilterStringConditionComparisonOutput {
+	return o.ApplyT(func(v MetricFilterStringCondition) MetricFilterStringConditionComparison { return v.Comparison }).(MetricFilterStringConditionComparisonOutput)
+}
+
+func (o MetricFilterStringConditionOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MetricFilterStringCondition) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type MetricFilterStringConditionPtrOutput struct{ *pulumi.OutputState }
+
+func (MetricFilterStringConditionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MetricFilterStringCondition)(nil)).Elem()
+}
+
+func (o MetricFilterStringConditionPtrOutput) ToMetricFilterStringConditionPtrOutput() MetricFilterStringConditionPtrOutput {
+	return o
+}
+
+func (o MetricFilterStringConditionPtrOutput) ToMetricFilterStringConditionPtrOutputWithContext(ctx context.Context) MetricFilterStringConditionPtrOutput {
+	return o
+}
+
+func (o MetricFilterStringConditionPtrOutput) Elem() MetricFilterStringConditionOutput {
+	return o.ApplyT(func(v *MetricFilterStringCondition) MetricFilterStringCondition {
+		if v != nil {
+			return *v
+		}
+		var ret MetricFilterStringCondition
+		return ret
+	}).(MetricFilterStringConditionOutput)
+}
+
+func (o MetricFilterStringConditionPtrOutput) Comparison() MetricFilterStringConditionComparisonPtrOutput {
+	return o.ApplyT(func(v *MetricFilterStringCondition) *MetricFilterStringConditionComparison {
+		if v == nil {
+			return nil
+		}
+		return &v.Comparison
+	}).(MetricFilterStringConditionComparisonPtrOutput)
+}
+
+func (o MetricFilterStringConditionPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MetricFilterStringCondition) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type MetricTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is maximum of 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // The content of a notification
 type NotificationContent struct {
 	DeDe *string `pulumi:"deDe"`
@@ -19924,6 +20875,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigKinesisVideoStreamConfigPtrInput)(nil)).Elem(), InstanceStorageConfigKinesisVideoStreamConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceStorageConfigS3ConfigPtrInput)(nil)).Elem(), InstanceStorageConfigS3ConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationComponentInput)(nil)).Elem(), MetricCalculationComponentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationComponentArrayInput)(nil)).Elem(), MetricCalculationComponentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationPropertiesInput)(nil)).Elem(), MetricCalculationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationPropertiesPtrInput)(nil)).Elem(), MetricCalculationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterInput)(nil)).Elem(), MetricFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterArrayInput)(nil)).Elem(), MetricFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterBooleanConditionInput)(nil)).Elem(), MetricFilterBooleanConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterBooleanConditionPtrInput)(nil)).Elem(), MetricFilterBooleanConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterNumberConditionInput)(nil)).Elem(), MetricFilterNumberConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterNumberConditionPtrInput)(nil)).Elem(), MetricFilterNumberConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterStringConditionInput)(nil)).Elem(), MetricFilterStringConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterStringConditionPtrInput)(nil)).Elem(), MetricFilterStringConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationContentInput)(nil)).Elem(), NotificationContentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueEmailAddressInput)(nil)).Elem(), QueueEmailAddressArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueEmailAddressArrayInput)(nil)).Elem(), QueueEmailAddressArray{})
@@ -20185,6 +21148,22 @@ func init() {
 	pulumi.RegisterOutputType(InstanceStorageConfigS3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LockVersionPropertiesOutput{})
 	pulumi.RegisterOutputType(LockVersionPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MetricAvailableFilterOutput{})
+	pulumi.RegisterOutputType(MetricAvailableFilterArrayOutput{})
+	pulumi.RegisterOutputType(MetricCalculationComponentOutput{})
+	pulumi.RegisterOutputType(MetricCalculationComponentArrayOutput{})
+	pulumi.RegisterOutputType(MetricCalculationPropertiesOutput{})
+	pulumi.RegisterOutputType(MetricCalculationPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(MetricCreatedByInfoOutput{})
+	pulumi.RegisterOutputType(MetricCreatedByInfoPtrOutput{})
+	pulumi.RegisterOutputType(MetricFilterOutput{})
+	pulumi.RegisterOutputType(MetricFilterArrayOutput{})
+	pulumi.RegisterOutputType(MetricFilterBooleanConditionOutput{})
+	pulumi.RegisterOutputType(MetricFilterBooleanConditionPtrOutput{})
+	pulumi.RegisterOutputType(MetricFilterNumberConditionOutput{})
+	pulumi.RegisterOutputType(MetricFilterNumberConditionPtrOutput{})
+	pulumi.RegisterOutputType(MetricFilterStringConditionOutput{})
+	pulumi.RegisterOutputType(MetricFilterStringConditionPtrOutput{})
 	pulumi.RegisterOutputType(NotificationContentOutput{})
 	pulumi.RegisterOutputType(NotificationContentPtrOutput{})
 	pulumi.RegisterOutputType(QueueEmailAddressOutput{})

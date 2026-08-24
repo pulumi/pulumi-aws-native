@@ -10,6 +10,190 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The current state of the backup.
+type BackupStatus string
+
+const (
+	BackupStatusCreating  = BackupStatus("CREATING")
+	BackupStatusDeleted   = BackupStatus("DELETED")
+	BackupStatusAvailable = BackupStatus("AVAILABLE")
+)
+
+type BackupStatusOutput struct{ *pulumi.OutputState }
+
+func (BackupStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupStatus)(nil)).Elem()
+}
+
+func (o BackupStatusOutput) ToBackupStatusOutput() BackupStatusOutput {
+	return o
+}
+
+func (o BackupStatusOutput) ToBackupStatusOutputWithContext(ctx context.Context) BackupStatusOutput {
+	return o
+}
+
+func (o BackupStatusOutput) ToBackupStatusPtrOutput() BackupStatusPtrOutput {
+	return o.ToBackupStatusPtrOutputWithContext(context.Background())
+}
+
+func (o BackupStatusOutput) ToBackupStatusPtrOutputWithContext(ctx context.Context) BackupStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupStatus) *BackupStatus {
+		return &v
+	}).(BackupStatusPtrOutput)
+}
+
+func (o BackupStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackupStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackupStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (BackupStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupStatus)(nil)).Elem()
+}
+
+func (o BackupStatusPtrOutput) ToBackupStatusPtrOutput() BackupStatusPtrOutput {
+	return o
+}
+
+func (o BackupStatusPtrOutput) ToBackupStatusPtrOutputWithContext(ctx context.Context) BackupStatusPtrOutput {
+	return o
+}
+
+func (o BackupStatusPtrOutput) Elem() BackupStatusOutput {
+	return o.ApplyT(func(v *BackupStatus) BackupStatus {
+		if v != nil {
+			return *v
+		}
+		var ret BackupStatus
+		return ret
+	}).(BackupStatusOutput)
+}
+
+func (o BackupStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of backup (USER, SYSTEM, or AWS_BACKUP).
+type BackupType string
+
+const (
+	BackupTypeUser      = BackupType("USER")
+	BackupTypeSystem    = BackupType("SYSTEM")
+	BackupTypeAwsBackup = BackupType("AWS_BACKUP")
+)
+
+type BackupTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupType)(nil)).Elem()
+}
+
+func (o BackupTypeOutput) ToBackupTypeOutput() BackupTypeOutput {
+	return o
+}
+
+func (o BackupTypeOutput) ToBackupTypeOutputWithContext(ctx context.Context) BackupTypeOutput {
+	return o
+}
+
+func (o BackupTypeOutput) ToBackupTypePtrOutput() BackupTypePtrOutput {
+	return o.ToBackupTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackupTypeOutput) ToBackupTypePtrOutputWithContext(ctx context.Context) BackupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupType) *BackupType {
+		return &v
+	}).(BackupTypePtrOutput)
+}
+
+func (o BackupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupType)(nil)).Elem()
+}
+
+func (o BackupTypePtrOutput) ToBackupTypePtrOutput() BackupTypePtrOutput {
+	return o
+}
+
+func (o BackupTypePtrOutput) ToBackupTypePtrOutputWithContext(ctx context.Context) BackupTypePtrOutput {
+	return o
+}
+
+func (o BackupTypePtrOutput) Elem() BackupTypeOutput {
+	return o.ApplyT(func(v *BackupType) BackupType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupType
+		return ret
+	}).(BackupTypeOutput)
+}
+
+func (o BackupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the CloudWatch Contributor Insights mode for a global table. Valid values are `ACCESSED_AND_THROTTLED_KEYS` (tracks all access and throttled events) or `THROTTLED_KEYS` (tracks only throttled events). This setting determines what type of contributor insights data is collected for the global table.
 type GlobalTableContributorInsightsSpecificationMode string
 
@@ -1025,6 +1209,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableContributorInsightsSpecificationModePtrInput)(nil)).Elem(), TableContributorInsightsSpecificationMode("ACCESSED_AND_THROTTLED_KEYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TableKinesisStreamSpecificationApproximateCreationDateTimePrecisionPtrInput)(nil)).Elem(), TableKinesisStreamSpecificationApproximateCreationDateTimePrecision("MICROSECOND"))
+	pulumi.RegisterOutputType(BackupStatusOutput{})
+	pulumi.RegisterOutputType(BackupStatusPtrOutput{})
+	pulumi.RegisterOutputType(BackupTypeOutput{})
+	pulumi.RegisterOutputType(BackupTypePtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationModeOutput{})
 	pulumi.RegisterOutputType(GlobalTableContributorInsightsSpecificationModePtrOutput{})
 	pulumi.RegisterOutputType(GlobalTableKinesisStreamSpecificationApproximateCreationDateTimePrecisionOutput{})

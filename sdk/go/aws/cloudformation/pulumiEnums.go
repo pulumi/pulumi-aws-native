@@ -10,6 +10,718 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ChangeSetCapabilitiesItem string
+
+const (
+	ChangeSetCapabilitiesItemCapabilityIam        = ChangeSetCapabilitiesItem("CAPABILITY_IAM")
+	ChangeSetCapabilitiesItemCapabilityNamedIam   = ChangeSetCapabilitiesItem("CAPABILITY_NAMED_IAM")
+	ChangeSetCapabilitiesItemCapabilityAutoExpand = ChangeSetCapabilitiesItem("CAPABILITY_AUTO_EXPAND")
+)
+
+func (ChangeSetCapabilitiesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetCapabilitiesItem)(nil)).Elem()
+}
+
+func (e ChangeSetCapabilitiesItem) ToChangeSetCapabilitiesItemOutput() ChangeSetCapabilitiesItemOutput {
+	return pulumi.ToOutput(e).(ChangeSetCapabilitiesItemOutput)
+}
+
+func (e ChangeSetCapabilitiesItem) ToChangeSetCapabilitiesItemOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChangeSetCapabilitiesItemOutput)
+}
+
+func (e ChangeSetCapabilitiesItem) ToChangeSetCapabilitiesItemPtrOutput() ChangeSetCapabilitiesItemPtrOutput {
+	return e.ToChangeSetCapabilitiesItemPtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetCapabilitiesItem) ToChangeSetCapabilitiesItemPtrOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemPtrOutput {
+	return ChangeSetCapabilitiesItem(e).ToChangeSetCapabilitiesItemOutputWithContext(ctx).ToChangeSetCapabilitiesItemPtrOutputWithContext(ctx)
+}
+
+func (e ChangeSetCapabilitiesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetCapabilitiesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetCapabilitiesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetCapabilitiesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChangeSetCapabilitiesItemOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetCapabilitiesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetCapabilitiesItem)(nil)).Elem()
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToChangeSetCapabilitiesItemOutput() ChangeSetCapabilitiesItemOutput {
+	return o
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToChangeSetCapabilitiesItemOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemOutput {
+	return o
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToChangeSetCapabilitiesItemPtrOutput() ChangeSetCapabilitiesItemPtrOutput {
+	return o.ToChangeSetCapabilitiesItemPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToChangeSetCapabilitiesItemPtrOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChangeSetCapabilitiesItem) *ChangeSetCapabilitiesItem {
+		return &v
+	}).(ChangeSetCapabilitiesItemPtrOutput)
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetCapabilitiesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetCapabilitiesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetCapabilitiesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChangeSetCapabilitiesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetCapabilitiesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeSetCapabilitiesItem)(nil)).Elem()
+}
+
+func (o ChangeSetCapabilitiesItemPtrOutput) ToChangeSetCapabilitiesItemPtrOutput() ChangeSetCapabilitiesItemPtrOutput {
+	return o
+}
+
+func (o ChangeSetCapabilitiesItemPtrOutput) ToChangeSetCapabilitiesItemPtrOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemPtrOutput {
+	return o
+}
+
+func (o ChangeSetCapabilitiesItemPtrOutput) Elem() ChangeSetCapabilitiesItemOutput {
+	return o.ApplyT(func(v *ChangeSetCapabilitiesItem) ChangeSetCapabilitiesItem {
+		if v != nil {
+			return *v
+		}
+		var ret ChangeSetCapabilitiesItem
+		return ret
+	}).(ChangeSetCapabilitiesItemOutput)
+}
+
+func (o ChangeSetCapabilitiesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetCapabilitiesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChangeSetCapabilitiesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChangeSetCapabilitiesItemInput is an input type that accepts values of the ChangeSetCapabilitiesItem enum
+// A concrete instance of `ChangeSetCapabilitiesItemInput` can be one of the following:
+//
+//	ChangeSetCapabilitiesItemCapabilityIam
+//	ChangeSetCapabilitiesItemCapabilityNamedIam
+//	ChangeSetCapabilitiesItemCapabilityAutoExpand
+type ChangeSetCapabilitiesItemInput interface {
+	pulumi.Input
+
+	ToChangeSetCapabilitiesItemOutput() ChangeSetCapabilitiesItemOutput
+	ToChangeSetCapabilitiesItemOutputWithContext(context.Context) ChangeSetCapabilitiesItemOutput
+}
+
+var changeSetCapabilitiesItemPtrType = reflect.TypeOf((**ChangeSetCapabilitiesItem)(nil)).Elem()
+
+type ChangeSetCapabilitiesItemPtrInput interface {
+	pulumi.Input
+
+	ToChangeSetCapabilitiesItemPtrOutput() ChangeSetCapabilitiesItemPtrOutput
+	ToChangeSetCapabilitiesItemPtrOutputWithContext(context.Context) ChangeSetCapabilitiesItemPtrOutput
+}
+
+type changeSetCapabilitiesItemPtr string
+
+func ChangeSetCapabilitiesItemPtr(v string) ChangeSetCapabilitiesItemPtrInput {
+	return (*changeSetCapabilitiesItemPtr)(&v)
+}
+
+func (*changeSetCapabilitiesItemPtr) ElementType() reflect.Type {
+	return changeSetCapabilitiesItemPtrType
+}
+
+func (in *changeSetCapabilitiesItemPtr) ToChangeSetCapabilitiesItemPtrOutput() ChangeSetCapabilitiesItemPtrOutput {
+	return pulumi.ToOutput(in).(ChangeSetCapabilitiesItemPtrOutput)
+}
+
+func (in *changeSetCapabilitiesItemPtr) ToChangeSetCapabilitiesItemPtrOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChangeSetCapabilitiesItemPtrOutput)
+}
+
+// ChangeSetCapabilitiesItemArrayInput is an input type that accepts ChangeSetCapabilitiesItemArray and ChangeSetCapabilitiesItemArrayOutput values.
+// You can construct a concrete instance of `ChangeSetCapabilitiesItemArrayInput` via:
+//
+//	ChangeSetCapabilitiesItemArray{ ChangeSetCapabilitiesItemArgs{...} }
+type ChangeSetCapabilitiesItemArrayInput interface {
+	pulumi.Input
+
+	ToChangeSetCapabilitiesItemArrayOutput() ChangeSetCapabilitiesItemArrayOutput
+	ToChangeSetCapabilitiesItemArrayOutputWithContext(context.Context) ChangeSetCapabilitiesItemArrayOutput
+}
+
+type ChangeSetCapabilitiesItemArray []ChangeSetCapabilitiesItem
+
+func (ChangeSetCapabilitiesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChangeSetCapabilitiesItem)(nil)).Elem()
+}
+
+func (i ChangeSetCapabilitiesItemArray) ToChangeSetCapabilitiesItemArrayOutput() ChangeSetCapabilitiesItemArrayOutput {
+	return i.ToChangeSetCapabilitiesItemArrayOutputWithContext(context.Background())
+}
+
+func (i ChangeSetCapabilitiesItemArray) ToChangeSetCapabilitiesItemArrayOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChangeSetCapabilitiesItemArrayOutput)
+}
+
+type ChangeSetCapabilitiesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetCapabilitiesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChangeSetCapabilitiesItem)(nil)).Elem()
+}
+
+func (o ChangeSetCapabilitiesItemArrayOutput) ToChangeSetCapabilitiesItemArrayOutput() ChangeSetCapabilitiesItemArrayOutput {
+	return o
+}
+
+func (o ChangeSetCapabilitiesItemArrayOutput) ToChangeSetCapabilitiesItemArrayOutputWithContext(ctx context.Context) ChangeSetCapabilitiesItemArrayOutput {
+	return o
+}
+
+func (o ChangeSetCapabilitiesItemArrayOutput) Index(i pulumi.IntInput) ChangeSetCapabilitiesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChangeSetCapabilitiesItem {
+		return vs[0].([]ChangeSetCapabilitiesItem)[vs[1].(int)]
+	}).(ChangeSetCapabilitiesItemOutput)
+}
+
+// Determines how CloudFormation handles configuration drift during deployment.
+type ChangeSetDeploymentMode string
+
+const (
+	ChangeSetDeploymentModeRevertDrift = ChangeSetDeploymentMode("REVERT_DRIFT")
+)
+
+func (ChangeSetDeploymentMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetDeploymentMode)(nil)).Elem()
+}
+
+func (e ChangeSetDeploymentMode) ToChangeSetDeploymentModeOutput() ChangeSetDeploymentModeOutput {
+	return pulumi.ToOutput(e).(ChangeSetDeploymentModeOutput)
+}
+
+func (e ChangeSetDeploymentMode) ToChangeSetDeploymentModeOutputWithContext(ctx context.Context) ChangeSetDeploymentModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChangeSetDeploymentModeOutput)
+}
+
+func (e ChangeSetDeploymentMode) ToChangeSetDeploymentModePtrOutput() ChangeSetDeploymentModePtrOutput {
+	return e.ToChangeSetDeploymentModePtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetDeploymentMode) ToChangeSetDeploymentModePtrOutputWithContext(ctx context.Context) ChangeSetDeploymentModePtrOutput {
+	return ChangeSetDeploymentMode(e).ToChangeSetDeploymentModeOutputWithContext(ctx).ToChangeSetDeploymentModePtrOutputWithContext(ctx)
+}
+
+func (e ChangeSetDeploymentMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetDeploymentMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetDeploymentMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetDeploymentMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChangeSetDeploymentModeOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetDeploymentModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetDeploymentMode)(nil)).Elem()
+}
+
+func (o ChangeSetDeploymentModeOutput) ToChangeSetDeploymentModeOutput() ChangeSetDeploymentModeOutput {
+	return o
+}
+
+func (o ChangeSetDeploymentModeOutput) ToChangeSetDeploymentModeOutputWithContext(ctx context.Context) ChangeSetDeploymentModeOutput {
+	return o
+}
+
+func (o ChangeSetDeploymentModeOutput) ToChangeSetDeploymentModePtrOutput() ChangeSetDeploymentModePtrOutput {
+	return o.ToChangeSetDeploymentModePtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetDeploymentModeOutput) ToChangeSetDeploymentModePtrOutputWithContext(ctx context.Context) ChangeSetDeploymentModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChangeSetDeploymentMode) *ChangeSetDeploymentMode {
+		return &v
+	}).(ChangeSetDeploymentModePtrOutput)
+}
+
+func (o ChangeSetDeploymentModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChangeSetDeploymentModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetDeploymentMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChangeSetDeploymentModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetDeploymentModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetDeploymentMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChangeSetDeploymentModePtrOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetDeploymentModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeSetDeploymentMode)(nil)).Elem()
+}
+
+func (o ChangeSetDeploymentModePtrOutput) ToChangeSetDeploymentModePtrOutput() ChangeSetDeploymentModePtrOutput {
+	return o
+}
+
+func (o ChangeSetDeploymentModePtrOutput) ToChangeSetDeploymentModePtrOutputWithContext(ctx context.Context) ChangeSetDeploymentModePtrOutput {
+	return o
+}
+
+func (o ChangeSetDeploymentModePtrOutput) Elem() ChangeSetDeploymentModeOutput {
+	return o.ApplyT(func(v *ChangeSetDeploymentMode) ChangeSetDeploymentMode {
+		if v != nil {
+			return *v
+		}
+		var ret ChangeSetDeploymentMode
+		return ret
+	}).(ChangeSetDeploymentModeOutput)
+}
+
+func (o ChangeSetDeploymentModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetDeploymentModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChangeSetDeploymentMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChangeSetDeploymentModeInput is an input type that accepts values of the ChangeSetDeploymentMode enum
+// A concrete instance of `ChangeSetDeploymentModeInput` can be one of the following:
+//
+//	ChangeSetDeploymentModeRevertDrift
+type ChangeSetDeploymentModeInput interface {
+	pulumi.Input
+
+	ToChangeSetDeploymentModeOutput() ChangeSetDeploymentModeOutput
+	ToChangeSetDeploymentModeOutputWithContext(context.Context) ChangeSetDeploymentModeOutput
+}
+
+var changeSetDeploymentModePtrType = reflect.TypeOf((**ChangeSetDeploymentMode)(nil)).Elem()
+
+type ChangeSetDeploymentModePtrInput interface {
+	pulumi.Input
+
+	ToChangeSetDeploymentModePtrOutput() ChangeSetDeploymentModePtrOutput
+	ToChangeSetDeploymentModePtrOutputWithContext(context.Context) ChangeSetDeploymentModePtrOutput
+}
+
+type changeSetDeploymentModePtr string
+
+func ChangeSetDeploymentModePtr(v string) ChangeSetDeploymentModePtrInput {
+	return (*changeSetDeploymentModePtr)(&v)
+}
+
+func (*changeSetDeploymentModePtr) ElementType() reflect.Type {
+	return changeSetDeploymentModePtrType
+}
+
+func (in *changeSetDeploymentModePtr) ToChangeSetDeploymentModePtrOutput() ChangeSetDeploymentModePtrOutput {
+	return pulumi.ToOutput(in).(ChangeSetDeploymentModePtrOutput)
+}
+
+func (in *changeSetDeploymentModePtr) ToChangeSetDeploymentModePtrOutputWithContext(ctx context.Context) ChangeSetDeploymentModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChangeSetDeploymentModePtrOutput)
+}
+
+// Determines what action will be taken if stack creation fails.
+type ChangeSetOnStackFailure string
+
+const (
+	ChangeSetOnStackFailureDoNothing = ChangeSetOnStackFailure("DO_NOTHING")
+	ChangeSetOnStackFailureRollback  = ChangeSetOnStackFailure("ROLLBACK")
+	ChangeSetOnStackFailureDelete    = ChangeSetOnStackFailure("DELETE")
+)
+
+func (ChangeSetOnStackFailure) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetOnStackFailure)(nil)).Elem()
+}
+
+func (e ChangeSetOnStackFailure) ToChangeSetOnStackFailureOutput() ChangeSetOnStackFailureOutput {
+	return pulumi.ToOutput(e).(ChangeSetOnStackFailureOutput)
+}
+
+func (e ChangeSetOnStackFailure) ToChangeSetOnStackFailureOutputWithContext(ctx context.Context) ChangeSetOnStackFailureOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChangeSetOnStackFailureOutput)
+}
+
+func (e ChangeSetOnStackFailure) ToChangeSetOnStackFailurePtrOutput() ChangeSetOnStackFailurePtrOutput {
+	return e.ToChangeSetOnStackFailurePtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetOnStackFailure) ToChangeSetOnStackFailurePtrOutputWithContext(ctx context.Context) ChangeSetOnStackFailurePtrOutput {
+	return ChangeSetOnStackFailure(e).ToChangeSetOnStackFailureOutputWithContext(ctx).ToChangeSetOnStackFailurePtrOutputWithContext(ctx)
+}
+
+func (e ChangeSetOnStackFailure) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetOnStackFailure) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetOnStackFailure) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetOnStackFailure) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChangeSetOnStackFailureOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetOnStackFailureOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetOnStackFailure)(nil)).Elem()
+}
+
+func (o ChangeSetOnStackFailureOutput) ToChangeSetOnStackFailureOutput() ChangeSetOnStackFailureOutput {
+	return o
+}
+
+func (o ChangeSetOnStackFailureOutput) ToChangeSetOnStackFailureOutputWithContext(ctx context.Context) ChangeSetOnStackFailureOutput {
+	return o
+}
+
+func (o ChangeSetOnStackFailureOutput) ToChangeSetOnStackFailurePtrOutput() ChangeSetOnStackFailurePtrOutput {
+	return o.ToChangeSetOnStackFailurePtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetOnStackFailureOutput) ToChangeSetOnStackFailurePtrOutputWithContext(ctx context.Context) ChangeSetOnStackFailurePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChangeSetOnStackFailure) *ChangeSetOnStackFailure {
+		return &v
+	}).(ChangeSetOnStackFailurePtrOutput)
+}
+
+func (o ChangeSetOnStackFailureOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChangeSetOnStackFailureOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetOnStackFailure) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChangeSetOnStackFailureOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetOnStackFailureOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetOnStackFailure) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChangeSetOnStackFailurePtrOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetOnStackFailurePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeSetOnStackFailure)(nil)).Elem()
+}
+
+func (o ChangeSetOnStackFailurePtrOutput) ToChangeSetOnStackFailurePtrOutput() ChangeSetOnStackFailurePtrOutput {
+	return o
+}
+
+func (o ChangeSetOnStackFailurePtrOutput) ToChangeSetOnStackFailurePtrOutputWithContext(ctx context.Context) ChangeSetOnStackFailurePtrOutput {
+	return o
+}
+
+func (o ChangeSetOnStackFailurePtrOutput) Elem() ChangeSetOnStackFailureOutput {
+	return o.ApplyT(func(v *ChangeSetOnStackFailure) ChangeSetOnStackFailure {
+		if v != nil {
+			return *v
+		}
+		var ret ChangeSetOnStackFailure
+		return ret
+	}).(ChangeSetOnStackFailureOutput)
+}
+
+func (o ChangeSetOnStackFailurePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetOnStackFailurePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChangeSetOnStackFailure) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChangeSetOnStackFailureInput is an input type that accepts values of the ChangeSetOnStackFailure enum
+// A concrete instance of `ChangeSetOnStackFailureInput` can be one of the following:
+//
+//	ChangeSetOnStackFailureDoNothing
+//	ChangeSetOnStackFailureRollback
+//	ChangeSetOnStackFailureDelete
+type ChangeSetOnStackFailureInput interface {
+	pulumi.Input
+
+	ToChangeSetOnStackFailureOutput() ChangeSetOnStackFailureOutput
+	ToChangeSetOnStackFailureOutputWithContext(context.Context) ChangeSetOnStackFailureOutput
+}
+
+var changeSetOnStackFailurePtrType = reflect.TypeOf((**ChangeSetOnStackFailure)(nil)).Elem()
+
+type ChangeSetOnStackFailurePtrInput interface {
+	pulumi.Input
+
+	ToChangeSetOnStackFailurePtrOutput() ChangeSetOnStackFailurePtrOutput
+	ToChangeSetOnStackFailurePtrOutputWithContext(context.Context) ChangeSetOnStackFailurePtrOutput
+}
+
+type changeSetOnStackFailurePtr string
+
+func ChangeSetOnStackFailurePtr(v string) ChangeSetOnStackFailurePtrInput {
+	return (*changeSetOnStackFailurePtr)(&v)
+}
+
+func (*changeSetOnStackFailurePtr) ElementType() reflect.Type {
+	return changeSetOnStackFailurePtrType
+}
+
+func (in *changeSetOnStackFailurePtr) ToChangeSetOnStackFailurePtrOutput() ChangeSetOnStackFailurePtrOutput {
+	return pulumi.ToOutput(in).(ChangeSetOnStackFailurePtrOutput)
+}
+
+func (in *changeSetOnStackFailurePtr) ToChangeSetOnStackFailurePtrOutputWithContext(ctx context.Context) ChangeSetOnStackFailurePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChangeSetOnStackFailurePtrOutput)
+}
+
+// The type of change set operation.
+type ChangeSetType string
+
+const (
+	ChangeSetTypeCreate = ChangeSetType("CREATE")
+	ChangeSetTypeUpdate = ChangeSetType("UPDATE")
+	ChangeSetTypeImport = ChangeSetType("IMPORT")
+)
+
+func (ChangeSetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetType)(nil)).Elem()
+}
+
+func (e ChangeSetType) ToChangeSetTypeOutput() ChangeSetTypeOutput {
+	return pulumi.ToOutput(e).(ChangeSetTypeOutput)
+}
+
+func (e ChangeSetType) ToChangeSetTypeOutputWithContext(ctx context.Context) ChangeSetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChangeSetTypeOutput)
+}
+
+func (e ChangeSetType) ToChangeSetTypePtrOutput() ChangeSetTypePtrOutput {
+	return e.ToChangeSetTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetType) ToChangeSetTypePtrOutputWithContext(ctx context.Context) ChangeSetTypePtrOutput {
+	return ChangeSetType(e).ToChangeSetTypeOutputWithContext(ctx).ToChangeSetTypePtrOutputWithContext(ctx)
+}
+
+func (e ChangeSetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChangeSetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChangeSetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChangeSetTypeOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChangeSetType)(nil)).Elem()
+}
+
+func (o ChangeSetTypeOutput) ToChangeSetTypeOutput() ChangeSetTypeOutput {
+	return o
+}
+
+func (o ChangeSetTypeOutput) ToChangeSetTypeOutputWithContext(ctx context.Context) ChangeSetTypeOutput {
+	return o
+}
+
+func (o ChangeSetTypeOutput) ToChangeSetTypePtrOutput() ChangeSetTypePtrOutput {
+	return o.ToChangeSetTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetTypeOutput) ToChangeSetTypePtrOutputWithContext(ctx context.Context) ChangeSetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChangeSetType) *ChangeSetType {
+		return &v
+	}).(ChangeSetTypePtrOutput)
+}
+
+func (o ChangeSetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChangeSetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChangeSetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChangeSetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChangeSetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChangeSetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChangeSetType)(nil)).Elem()
+}
+
+func (o ChangeSetTypePtrOutput) ToChangeSetTypePtrOutput() ChangeSetTypePtrOutput {
+	return o
+}
+
+func (o ChangeSetTypePtrOutput) ToChangeSetTypePtrOutputWithContext(ctx context.Context) ChangeSetTypePtrOutput {
+	return o
+}
+
+func (o ChangeSetTypePtrOutput) Elem() ChangeSetTypeOutput {
+	return o.ApplyT(func(v *ChangeSetType) ChangeSetType {
+		if v != nil {
+			return *v
+		}
+		var ret ChangeSetType
+		return ret
+	}).(ChangeSetTypeOutput)
+}
+
+func (o ChangeSetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChangeSetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChangeSetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChangeSetTypeInput is an input type that accepts values of the ChangeSetType enum
+// A concrete instance of `ChangeSetTypeInput` can be one of the following:
+//
+//	ChangeSetTypeCreate
+//	ChangeSetTypeUpdate
+//	ChangeSetTypeImport
+type ChangeSetTypeInput interface {
+	pulumi.Input
+
+	ToChangeSetTypeOutput() ChangeSetTypeOutput
+	ToChangeSetTypeOutputWithContext(context.Context) ChangeSetTypeOutput
+}
+
+var changeSetTypePtrType = reflect.TypeOf((**ChangeSetType)(nil)).Elem()
+
+type ChangeSetTypePtrInput interface {
+	pulumi.Input
+
+	ToChangeSetTypePtrOutput() ChangeSetTypePtrOutput
+	ToChangeSetTypePtrOutputWithContext(context.Context) ChangeSetTypePtrOutput
+}
+
+type changeSetTypePtr string
+
+func ChangeSetTypePtr(v string) ChangeSetTypePtrInput {
+	return (*changeSetTypePtr)(&v)
+}
+
+func (*changeSetTypePtr) ElementType() reflect.Type {
+	return changeSetTypePtrType
+}
+
+func (in *changeSetTypePtr) ToChangeSetTypePtrOutput() ChangeSetTypePtrOutput {
+	return pulumi.ToOutput(in).(ChangeSetTypePtrOutput)
+}
+
+func (in *changeSetTypePtr) ToChangeSetTypePtrOutputWithContext(ctx context.Context) ChangeSetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChangeSetTypePtrOutput)
+}
+
 // The status of the template generation.
 type GeneratedTemplateStatus string
 
@@ -4745,6 +5457,15 @@ func (in *typeActivationVersionBumpPtr) ToTypeActivationVersionBumpPtrOutputWith
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetCapabilitiesItemInput)(nil)).Elem(), ChangeSetCapabilitiesItem("CAPABILITY_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetCapabilitiesItemPtrInput)(nil)).Elem(), ChangeSetCapabilitiesItem("CAPABILITY_IAM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetCapabilitiesItemArrayInput)(nil)).Elem(), ChangeSetCapabilitiesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetDeploymentModeInput)(nil)).Elem(), ChangeSetDeploymentMode("REVERT_DRIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetDeploymentModePtrInput)(nil)).Elem(), ChangeSetDeploymentMode("REVERT_DRIFT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetOnStackFailureInput)(nil)).Elem(), ChangeSetOnStackFailure("DO_NOTHING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetOnStackFailurePtrInput)(nil)).Elem(), ChangeSetOnStackFailure("DO_NOTHING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetTypeInput)(nil)).Elem(), ChangeSetType("CREATE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChangeSetTypePtrInput)(nil)).Elem(), ChangeSetType("CREATE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationDeletionPolicyInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationDeletionPolicy("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationDeletionPolicyPtrInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationDeletionPolicy("DELETE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GeneratedTemplateTemplateConfigurationUpdateReplacePolicyInput)(nil)).Elem(), GeneratedTemplateTemplateConfigurationUpdateReplacePolicy("DELETE"))
@@ -4795,6 +5516,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationTypePtrInput)(nil)).Elem(), TypeActivationType("RESOURCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TypeActivationVersionBumpPtrInput)(nil)).Elem(), TypeActivationVersionBump("MAJOR"))
+	pulumi.RegisterOutputType(ChangeSetCapabilitiesItemOutput{})
+	pulumi.RegisterOutputType(ChangeSetCapabilitiesItemPtrOutput{})
+	pulumi.RegisterOutputType(ChangeSetCapabilitiesItemArrayOutput{})
+	pulumi.RegisterOutputType(ChangeSetDeploymentModeOutput{})
+	pulumi.RegisterOutputType(ChangeSetDeploymentModePtrOutput{})
+	pulumi.RegisterOutputType(ChangeSetOnStackFailureOutput{})
+	pulumi.RegisterOutputType(ChangeSetOnStackFailurePtrOutput{})
+	pulumi.RegisterOutputType(ChangeSetTypeOutput{})
+	pulumi.RegisterOutputType(ChangeSetTypePtrOutput{})
 	pulumi.RegisterOutputType(GeneratedTemplateStatusOutput{})
 	pulumi.RegisterOutputType(GeneratedTemplateStatusPtrOutput{})
 	pulumi.RegisterOutputType(GeneratedTemplateTemplateConfigurationDeletionPolicyOutput{})

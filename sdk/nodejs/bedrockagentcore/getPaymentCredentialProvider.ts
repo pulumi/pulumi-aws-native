@@ -33,7 +33,6 @@ export interface GetPaymentCredentialProviderResult {
      * The Amazon Resource Name (ARN) of the payment credential provider
      */
     readonly credentialProviderArn?: string;
-    readonly credentialProviderVendor?: enums.bedrockagentcore.PaymentCredentialProviderVendorType;
     /**
      * The timestamp when the credential provider was last updated
      */

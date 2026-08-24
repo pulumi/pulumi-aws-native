@@ -10,6 +10,173 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type ComputeEnvironmentEcsSettingsContainerInsights string
+
+const (
+	ComputeEnvironmentEcsSettingsContainerInsightsEnabled  = ComputeEnvironmentEcsSettingsContainerInsights("ENABLED")
+	ComputeEnvironmentEcsSettingsContainerInsightsEnhanced = ComputeEnvironmentEcsSettingsContainerInsights("ENHANCED")
+	ComputeEnvironmentEcsSettingsContainerInsightsDisabled = ComputeEnvironmentEcsSettingsContainerInsights("DISABLED")
+)
+
+func (ComputeEnvironmentEcsSettingsContainerInsights) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEcsSettingsContainerInsights)(nil)).Elem()
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToComputeEnvironmentEcsSettingsContainerInsightsOutput() ComputeEnvironmentEcsSettingsContainerInsightsOutput {
+	return pulumi.ToOutput(e).(ComputeEnvironmentEcsSettingsContainerInsightsOutput)
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToComputeEnvironmentEcsSettingsContainerInsightsOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsContainerInsightsOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ComputeEnvironmentEcsSettingsContainerInsightsOutput)
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutput() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return e.ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return ComputeEnvironmentEcsSettingsContainerInsights(e).ToComputeEnvironmentEcsSettingsContainerInsightsOutputWithContext(ctx).ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(ctx)
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ComputeEnvironmentEcsSettingsContainerInsights) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ComputeEnvironmentEcsSettingsContainerInsightsOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEcsSettingsContainerInsightsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputeEnvironmentEcsSettingsContainerInsights)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToComputeEnvironmentEcsSettingsContainerInsightsOutput() ComputeEnvironmentEcsSettingsContainerInsightsOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToComputeEnvironmentEcsSettingsContainerInsightsOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsContainerInsightsOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutput() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return o.ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ComputeEnvironmentEcsSettingsContainerInsights) *ComputeEnvironmentEcsSettingsContainerInsights {
+		return &v
+	}).(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput)
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentEcsSettingsContainerInsights) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ComputeEnvironmentEcsSettingsContainerInsights) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput struct{ *pulumi.OutputState }
+
+func (ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ComputeEnvironmentEcsSettingsContainerInsights)(nil)).Elem()
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutput() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return o
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput) Elem() ComputeEnvironmentEcsSettingsContainerInsightsOutput {
+	return o.ApplyT(func(v *ComputeEnvironmentEcsSettingsContainerInsights) ComputeEnvironmentEcsSettingsContainerInsights {
+		if v != nil {
+			return *v
+		}
+		var ret ComputeEnvironmentEcsSettingsContainerInsights
+		return ret
+	}).(ComputeEnvironmentEcsSettingsContainerInsightsOutput)
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ComputeEnvironmentEcsSettingsContainerInsights) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ComputeEnvironmentEcsSettingsContainerInsightsInput is an input type that accepts values of the ComputeEnvironmentEcsSettingsContainerInsights enum
+// A concrete instance of `ComputeEnvironmentEcsSettingsContainerInsightsInput` can be one of the following:
+//
+//	ComputeEnvironmentEcsSettingsContainerInsightsEnabled
+//	ComputeEnvironmentEcsSettingsContainerInsightsEnhanced
+//	ComputeEnvironmentEcsSettingsContainerInsightsDisabled
+type ComputeEnvironmentEcsSettingsContainerInsightsInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEcsSettingsContainerInsightsOutput() ComputeEnvironmentEcsSettingsContainerInsightsOutput
+	ToComputeEnvironmentEcsSettingsContainerInsightsOutputWithContext(context.Context) ComputeEnvironmentEcsSettingsContainerInsightsOutput
+}
+
+var computeEnvironmentEcsSettingsContainerInsightsPtrType = reflect.TypeOf((**ComputeEnvironmentEcsSettingsContainerInsights)(nil)).Elem()
+
+type ComputeEnvironmentEcsSettingsContainerInsightsPtrInput interface {
+	pulumi.Input
+
+	ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutput() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput
+	ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(context.Context) ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput
+}
+
+type computeEnvironmentEcsSettingsContainerInsightsPtr string
+
+func ComputeEnvironmentEcsSettingsContainerInsightsPtr(v string) ComputeEnvironmentEcsSettingsContainerInsightsPtrInput {
+	return (*computeEnvironmentEcsSettingsContainerInsightsPtr)(&v)
+}
+
+func (*computeEnvironmentEcsSettingsContainerInsightsPtr) ElementType() reflect.Type {
+	return computeEnvironmentEcsSettingsContainerInsightsPtrType
+}
+
+func (in *computeEnvironmentEcsSettingsContainerInsightsPtr) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutput() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return pulumi.ToOutput(in).(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput)
+}
+
+func (in *computeEnvironmentEcsSettingsContainerInsightsPtr) ToComputeEnvironmentEcsSettingsContainerInsightsPtrOutputWithContext(ctx context.Context) ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput)
+}
+
 type ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType string
 
 const (
@@ -2000,6 +2167,8 @@ func (in *schedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtr) ToS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsContainerInsightsInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsContainerInsights("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentEcsSettingsContainerInsightsPtrInput)(nil)).Elem(), ComputeEnvironmentEcsSettingsContainerInsights("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeInput)(nil)).Elem(), ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrInput)(nil)).Elem(), ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeInput)(nil)).Elem(), ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataType("EKS_BOOTSTRAP_SH"))
@@ -2024,6 +2193,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QuotaShareStateEnumPtrInput)(nil)).Elem(), QuotaShareStateEnum("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategyPtrInput)(nil)).Elem(), SchedulingPolicyQuotaSharePolicyIdleResourceAssignmentStrategy("FIFO"))
+	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsContainerInsightsOutput{})
+	pulumi.RegisterOutputType(ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypeOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentInstanceLaunchTemplateCapacityOptionTypePtrOutput{})
 	pulumi.RegisterOutputType(ComputeEnvironmentLaunchTemplateSpecificationOverrideUserdataTypeOutput{})

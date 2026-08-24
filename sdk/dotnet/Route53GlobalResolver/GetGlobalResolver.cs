@@ -68,7 +68,7 @@ namespace Pulumi.AwsNative.Route53GlobalResolver
         public readonly string? Name;
         public readonly string? ObservabilityRegion;
         /// <summary>
-        /// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+        /// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
         /// </summary>
         public readonly ImmutableArray<string> Regions;
         public readonly Pulumi.AwsNative.Route53GlobalResolver.GlobalResolverCrResourceStatus? Status;

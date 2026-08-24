@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:guardduty:CustomDetectionRuleAssociation":
+		r = &CustomDetectionRuleAssociation{}
 	case "aws-native:guardduty:Detector":
 		r = &Detector{}
 	case "aws-native:guardduty:Filter":

@@ -62,6 +62,10 @@ export class Runtime extends pulumi.CustomResource {
      */
     declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeAuthorizerConfiguration | undefined>;
     /**
+     * Capacity provider configuration for the agent runtime
+     */
+    declare public readonly capacityProviderConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeCapacityProviderConfiguration | undefined>;
+    /**
      * Timestamp when the Agent was created
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
@@ -92,7 +96,7 @@ export class Runtime extends pulumi.CustomResource {
     /**
      * Network access configuration for the Agent
      */
-    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeNetworkConfiguration>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeNetworkConfiguration | undefined>;
     /**
      * Protocol configuration for the agent runtime
      */
@@ -135,15 +139,13 @@ export class Runtime extends pulumi.CustomResource {
             if (args?.agentRuntimeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentRuntimeName'");
             }
-            if (args?.networkConfiguration === undefined && !opts.urn) {
-                throw new Error("Missing required property 'networkConfiguration'");
-            }
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
             resourceInputs["agentRuntimeArtifact"] = args?.agentRuntimeArtifact;
             resourceInputs["agentRuntimeName"] = args?.agentRuntimeName;
             resourceInputs["authorizerConfiguration"] = args?.authorizerConfiguration;
+            resourceInputs["capacityProviderConfiguration"] = args?.capacityProviderConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["environmentVariables"] = args?.environmentVariables;
             resourceInputs["filesystemConfigurations"] = args?.filesystemConfigurations;
@@ -168,6 +170,7 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["agentRuntimeName"] = undefined /*out*/;
             resourceInputs["agentRuntimeVersion"] = undefined /*out*/;
             resourceInputs["authorizerConfiguration"] = undefined /*out*/;
+            resourceInputs["capacityProviderConfiguration"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["environmentVariables"] = undefined /*out*/;
@@ -207,6 +210,10 @@ export interface RuntimeArgs {
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeAuthorizerConfigurationArgs | undefined>;
     /**
+     * Capacity provider configuration for the agent runtime
+     */
+    capacityProviderConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeCapacityProviderConfigurationArgs | undefined>;
+    /**
      * Description of the resource
      */
     description?: pulumi.Input<string | undefined>;
@@ -225,7 +232,7 @@ export interface RuntimeArgs {
     /**
      * Network access configuration for the Agent
      */
-    networkConfiguration: pulumi.Input<inputs.bedrockagentcore.RuntimeNetworkConfigurationArgs>;
+    networkConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeNetworkConfigurationArgs | undefined>;
     /**
      * Protocol configuration for the agent runtime
      */

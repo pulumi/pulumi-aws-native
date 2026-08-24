@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const CustomDetectionRuleAssociationMode = {
+    Live: "LIVE",
+    DryRun: "DRY_RUN",
+} as const;
+
+/**
+ * Whether the rule runs in LIVE mode (generates findings) or DRY_RUN mode (evaluates without generating findings).
+ */
+export type CustomDetectionRuleAssociationMode = (typeof CustomDetectionRuleAssociationMode)[keyof typeof CustomDetectionRuleAssociationMode];
+
 export const DetectorCfnFeatureConfigurationStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

@@ -87,10 +87,6 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? LastUpdatedAt;
         /// <summary>
-        /// Specify if the service network should be enabled for sharing.
-        /// </summary>
-        public readonly Outputs.ServiceNetworkSharingConfig? SharingConfig;
-        /// <summary>
         /// The tags for the service network.
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
@@ -107,8 +103,6 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? lastUpdatedAt,
 
-            Outputs.ServiceNetworkSharingConfig? sharingConfig,
-
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
@@ -116,7 +110,6 @@ namespace Pulumi.AwsNative.VpcLattice
             CreatedAt = createdAt;
             Id = id;
             LastUpdatedAt = lastUpdatedAt;
-            SharingConfig = sharingConfig;
             Tags = tags;
         }
     }

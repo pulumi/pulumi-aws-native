@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<Outputs.RuntimeAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// Capacity provider configuration for the agent runtime
+        /// </summary>
+        [Output("capacityProviderConfiguration")]
+        public Output<Outputs.RuntimeCapacityProviderConfiguration?> CapacityProviderConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Timestamp when the Agent was created
         /// </summary>
         [Output("createdAt")]
@@ -97,7 +103,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// Network access configuration for the Agent
         /// </summary>
         [Output("networkConfiguration")]
-        public Output<Outputs.RuntimeNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.RuntimeNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Protocol configuration for the agent runtime
@@ -203,6 +209,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Input<Inputs.RuntimeAuthorizerConfigurationArgs>? AuthorizerConfiguration { get; set; }
 
         /// <summary>
+        /// Capacity provider configuration for the agent runtime
+        /// </summary>
+        [Input("capacityProviderConfiguration")]
+        public Input<Inputs.RuntimeCapacityProviderConfigurationArgs>? CapacityProviderConfiguration { get; set; }
+
+        /// <summary>
         /// Description of the resource
         /// </summary>
         [Input("description")]
@@ -241,8 +253,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// <summary>
         /// Network access configuration for the Agent
         /// </summary>
-        [Input("networkConfiguration", required: true)]
-        public Input<Inputs.RuntimeNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
+        [Input("networkConfiguration")]
+        public Input<Inputs.RuntimeNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
 
         /// <summary>
         /// Protocol configuration for the agent runtime

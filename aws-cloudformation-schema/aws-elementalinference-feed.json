@@ -22,12 +22,27 @@
           "type" : "string",
           "maxLength" : 1024,
           "pattern" : "^[\\w \\-\\.',@:;]*$"
+        },
+        "DataSourceConfiguration" : {
+          "$ref" : "#/definitions/DataSourceConfiguration"
         }
       },
       "additionalProperties" : false
     },
     "CroppingConfig" : {
       "type" : "object",
+      "additionalProperties" : false
+    },
+    "DataSourceConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "FixtureId" : {
+          "type" : "string",
+          "maxLength" : 128,
+          "minLength" : 1
+        }
+      },
+      "required" : [ "FixtureId" ],
       "additionalProperties" : false
     },
     "GetOutput" : {

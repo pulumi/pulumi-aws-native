@@ -76,7 +76,7 @@
     "tagUpdatable" : true,
     "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "apigateway:PUT", "apigateway:PATCH", "apigateway:DELETE", "apigateway:GET", "apigateway:POST" ]
+    "permissions" : [ "apigateway:PUT", "apigateway:DELETE", "apigateway:GET" ]
   },
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/DomainNameArn" ],
@@ -84,13 +84,13 @@
   "readOnlyProperties" : [ "/properties/DomainNameId", "/properties/DomainNameArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:UpdateDomainNamePolicy" ]
+      "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:PUT", "apigateway:UpdateDomainNamePolicy" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "update" : {
-      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH", "apigateway:UpdateDomainNamePolicy" ]
+      "permissions" : [ "apigateway:GET", "apigateway:PUT", "apigateway:PATCH", "apigateway:DELETE", "apigateway:UpdateDomainNamePolicy" ]
     },
     "delete" : {
       "permissions" : [ "apigateway:DELETE", "apigateway:GET", "apigateway:UpdateDomainNamePolicy" ]

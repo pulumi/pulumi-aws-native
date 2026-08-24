@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -26,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceNetworkResult:
-    def __init__(__self__, arn=None, auth_type=None, created_at=None, id=None, last_updated_at=None, sharing_config=None, tags=None):
+    def __init__(__self__, arn=None, auth_type=None, created_at=None, id=None, last_updated_at=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,9 +41,6 @@ class GetServiceNetworkResult:
         if last_updated_at and not isinstance(last_updated_at, str):
             raise TypeError("Expected argument 'last_updated_at' to be a str")
         pulumi.set(__self__, "last_updated_at", last_updated_at)
-        if sharing_config and not isinstance(sharing_config, dict):
-            raise TypeError("Expected argument 'sharing_config' to be a dict")
-        pulumi.set(__self__, "sharing_config", sharing_config)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -93,14 +89,6 @@ class GetServiceNetworkResult:
         return pulumi.get(self, "last_updated_at")
 
     @_builtins.property
-    @pulumi.getter(name="sharingConfig")
-    def sharing_config(self) -> Optional['outputs.ServiceNetworkSharingConfig']:
-        """
-        Specify if the service network should be enabled for sharing.
-        """
-        return pulumi.get(self, "sharing_config")
-
-    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         """
@@ -120,7 +108,6 @@ class AwaitableGetServiceNetworkResult(GetServiceNetworkResult):
             created_at=self.created_at,
             id=self.id,
             last_updated_at=self.last_updated_at,
-            sharing_config=self.sharing_config,
             tags=self.tags)
 
 
@@ -142,7 +129,6 @@ def get_service_network(arn: Optional[_builtins.str] = None,
         created_at=pulumi.get(__ret__, 'created_at'),
         id=pulumi.get(__ret__, 'id'),
         last_updated_at=pulumi.get(__ret__, 'last_updated_at'),
-        sharing_config=pulumi.get(__ret__, 'sharing_config'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_service_network_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceNetworkResult]:
@@ -161,5 +147,4 @@ def get_service_network_output(arn: pulumi.Input[Optional[_builtins.str]] = None
         created_at=pulumi.get(__response__, 'created_at'),
         id=pulumi.get(__response__, 'id'),
         last_updated_at=pulumi.get(__response__, 'last_updated_at'),
-        sharing_config=pulumi.get(__response__, 'sharing_config'),
         tags=pulumi.get(__response__, 'tags')))

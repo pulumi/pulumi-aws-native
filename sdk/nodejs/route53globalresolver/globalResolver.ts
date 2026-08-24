@@ -49,7 +49,7 @@ export class GlobalResolver extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     declare public readonly observabilityRegion: pulumi.Output<string | undefined>;
     /**
-     * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+     * The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
      */
     declare public readonly regions: pulumi.Output<string[]>;
     declare public /*out*/ readonly status: pulumi.Output<enums.route53globalresolver.GlobalResolverCrResourceStatus>;
@@ -119,7 +119,7 @@ export interface GlobalResolverArgs {
     name?: pulumi.Input<string | undefined>;
     observabilityRegion?: pulumi.Input<string | undefined>;
     /**
-     * A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+     * The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
      */
     regions: pulumi.Input<pulumi.Input<string>[]>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;

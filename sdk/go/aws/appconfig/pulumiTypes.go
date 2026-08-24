@@ -386,6 +386,357 @@ type EnvironmentTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A typed attribute value for a treatment flag.
+type ExperimentDefinitionAttributeValue struct {
+	// A boolean value.
+	BooleanValue *bool `pulumi:"booleanValue"`
+	// An array of numeric values.
+	NumberArray []float64 `pulumi:"numberArray"`
+	// A numeric value.
+	NumberValue *float64 `pulumi:"numberValue"`
+	// An array of string values.
+	StringArray []string `pulumi:"stringArray"`
+	// A string value.
+	StringValue *string `pulumi:"stringValue"`
+}
+
+// ExperimentDefinitionAttributeValueInput is an input type that accepts ExperimentDefinitionAttributeValueArgs and ExperimentDefinitionAttributeValueOutput values.
+// You can construct a concrete instance of `ExperimentDefinitionAttributeValueInput` via:
+//
+//	ExperimentDefinitionAttributeValueArgs{...}
+type ExperimentDefinitionAttributeValueInput interface {
+	pulumi.Input
+
+	ToExperimentDefinitionAttributeValueOutput() ExperimentDefinitionAttributeValueOutput
+	ToExperimentDefinitionAttributeValueOutputWithContext(context.Context) ExperimentDefinitionAttributeValueOutput
+}
+
+// A typed attribute value for a treatment flag.
+type ExperimentDefinitionAttributeValueArgs struct {
+	// A boolean value.
+	BooleanValue pulumi.BoolPtrInput `pulumi:"booleanValue"`
+	// An array of numeric values.
+	NumberArray pulumi.Float64ArrayInput `pulumi:"numberArray"`
+	// A numeric value.
+	NumberValue pulumi.Float64PtrInput `pulumi:"numberValue"`
+	// An array of string values.
+	StringArray pulumi.StringArrayInput `pulumi:"stringArray"`
+	// A string value.
+	StringValue pulumi.StringPtrInput `pulumi:"stringValue"`
+}
+
+func (ExperimentDefinitionAttributeValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentDefinitionAttributeValue)(nil)).Elem()
+}
+
+func (i ExperimentDefinitionAttributeValueArgs) ToExperimentDefinitionAttributeValueOutput() ExperimentDefinitionAttributeValueOutput {
+	return i.ToExperimentDefinitionAttributeValueOutputWithContext(context.Background())
+}
+
+func (i ExperimentDefinitionAttributeValueArgs) ToExperimentDefinitionAttributeValueOutputWithContext(ctx context.Context) ExperimentDefinitionAttributeValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentDefinitionAttributeValueOutput)
+}
+
+// ExperimentDefinitionAttributeValueMapInput is an input type that accepts ExperimentDefinitionAttributeValueMap and ExperimentDefinitionAttributeValueMapOutput values.
+// You can construct a concrete instance of `ExperimentDefinitionAttributeValueMapInput` via:
+//
+//	ExperimentDefinitionAttributeValueMap{ "key": ExperimentDefinitionAttributeValueArgs{...} }
+type ExperimentDefinitionAttributeValueMapInput interface {
+	pulumi.Input
+
+	ToExperimentDefinitionAttributeValueMapOutput() ExperimentDefinitionAttributeValueMapOutput
+	ToExperimentDefinitionAttributeValueMapOutputWithContext(context.Context) ExperimentDefinitionAttributeValueMapOutput
+}
+
+type ExperimentDefinitionAttributeValueMap map[string]ExperimentDefinitionAttributeValueInput
+
+func (ExperimentDefinitionAttributeValueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExperimentDefinitionAttributeValue)(nil)).Elem()
+}
+
+func (i ExperimentDefinitionAttributeValueMap) ToExperimentDefinitionAttributeValueMapOutput() ExperimentDefinitionAttributeValueMapOutput {
+	return i.ToExperimentDefinitionAttributeValueMapOutputWithContext(context.Background())
+}
+
+func (i ExperimentDefinitionAttributeValueMap) ToExperimentDefinitionAttributeValueMapOutputWithContext(ctx context.Context) ExperimentDefinitionAttributeValueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentDefinitionAttributeValueMapOutput)
+}
+
+// A typed attribute value for a treatment flag.
+type ExperimentDefinitionAttributeValueOutput struct{ *pulumi.OutputState }
+
+func (ExperimentDefinitionAttributeValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentDefinitionAttributeValue)(nil)).Elem()
+}
+
+func (o ExperimentDefinitionAttributeValueOutput) ToExperimentDefinitionAttributeValueOutput() ExperimentDefinitionAttributeValueOutput {
+	return o
+}
+
+func (o ExperimentDefinitionAttributeValueOutput) ToExperimentDefinitionAttributeValueOutputWithContext(ctx context.Context) ExperimentDefinitionAttributeValueOutput {
+	return o
+}
+
+// A boolean value.
+func (o ExperimentDefinitionAttributeValueOutput) BooleanValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ExperimentDefinitionAttributeValue) *bool { return v.BooleanValue }).(pulumi.BoolPtrOutput)
+}
+
+// An array of numeric values.
+func (o ExperimentDefinitionAttributeValueOutput) NumberArray() pulumi.Float64ArrayOutput {
+	return o.ApplyT(func(v ExperimentDefinitionAttributeValue) []float64 { return v.NumberArray }).(pulumi.Float64ArrayOutput)
+}
+
+// A numeric value.
+func (o ExperimentDefinitionAttributeValueOutput) NumberValue() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v ExperimentDefinitionAttributeValue) *float64 { return v.NumberValue }).(pulumi.Float64PtrOutput)
+}
+
+// An array of string values.
+func (o ExperimentDefinitionAttributeValueOutput) StringArray() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ExperimentDefinitionAttributeValue) []string { return v.StringArray }).(pulumi.StringArrayOutput)
+}
+
+// A string value.
+func (o ExperimentDefinitionAttributeValueOutput) StringValue() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentDefinitionAttributeValue) *string { return v.StringValue }).(pulumi.StringPtrOutput)
+}
+
+type ExperimentDefinitionAttributeValueMapOutput struct{ *pulumi.OutputState }
+
+func (ExperimentDefinitionAttributeValueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ExperimentDefinitionAttributeValue)(nil)).Elem()
+}
+
+func (o ExperimentDefinitionAttributeValueMapOutput) ToExperimentDefinitionAttributeValueMapOutput() ExperimentDefinitionAttributeValueMapOutput {
+	return o
+}
+
+func (o ExperimentDefinitionAttributeValueMapOutput) ToExperimentDefinitionAttributeValueMapOutputWithContext(ctx context.Context) ExperimentDefinitionAttributeValueMapOutput {
+	return o
+}
+
+func (o ExperimentDefinitionAttributeValueMapOutput) MapIndex(k pulumi.StringInput) ExperimentDefinitionAttributeValueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ExperimentDefinitionAttributeValue {
+		return vs[0].(map[string]ExperimentDefinitionAttributeValue)[vs[1].(string)]
+	}).(ExperimentDefinitionAttributeValueOutput)
+}
+
+type ExperimentDefinitionTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// A treatment variant with weight and flag value. The Key is auto-generated by the service.
+type ExperimentDefinitionTreatment struct {
+	// Map of attribute name to attribute value.
+	AttributeValues map[string]ExperimentDefinitionAttributeValue `pulumi:"attributeValues"`
+	Description     *string                                       `pulumi:"description"`
+	// Whether the flag is enabled for this variant.
+	Enabled bool `pulumi:"enabled"`
+	// The treatment key (read-only, auto-generated by service).
+	Key *string `pulumi:"key"`
+	// Traffic weight percentage.
+	Weight float64 `pulumi:"weight"`
+}
+
+// ExperimentDefinitionTreatmentInput is an input type that accepts ExperimentDefinitionTreatmentArgs and ExperimentDefinitionTreatmentOutput values.
+// You can construct a concrete instance of `ExperimentDefinitionTreatmentInput` via:
+//
+//	ExperimentDefinitionTreatmentArgs{...}
+type ExperimentDefinitionTreatmentInput interface {
+	pulumi.Input
+
+	ToExperimentDefinitionTreatmentOutput() ExperimentDefinitionTreatmentOutput
+	ToExperimentDefinitionTreatmentOutputWithContext(context.Context) ExperimentDefinitionTreatmentOutput
+}
+
+// A treatment variant with weight and flag value. The Key is auto-generated by the service.
+type ExperimentDefinitionTreatmentArgs struct {
+	// Map of attribute name to attribute value.
+	AttributeValues ExperimentDefinitionAttributeValueMapInput `pulumi:"attributeValues"`
+	Description     pulumi.StringPtrInput                      `pulumi:"description"`
+	// Whether the flag is enabled for this variant.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The treatment key (read-only, auto-generated by service).
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// Traffic weight percentage.
+	Weight pulumi.Float64Input `pulumi:"weight"`
+}
+
+func (ExperimentDefinitionTreatmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentDefinitionTreatment)(nil)).Elem()
+}
+
+func (i ExperimentDefinitionTreatmentArgs) ToExperimentDefinitionTreatmentOutput() ExperimentDefinitionTreatmentOutput {
+	return i.ToExperimentDefinitionTreatmentOutputWithContext(context.Background())
+}
+
+func (i ExperimentDefinitionTreatmentArgs) ToExperimentDefinitionTreatmentOutputWithContext(ctx context.Context) ExperimentDefinitionTreatmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentDefinitionTreatmentOutput)
+}
+
+// ExperimentDefinitionTreatmentArrayInput is an input type that accepts ExperimentDefinitionTreatmentArray and ExperimentDefinitionTreatmentArrayOutput values.
+// You can construct a concrete instance of `ExperimentDefinitionTreatmentArrayInput` via:
+//
+//	ExperimentDefinitionTreatmentArray{ ExperimentDefinitionTreatmentArgs{...} }
+type ExperimentDefinitionTreatmentArrayInput interface {
+	pulumi.Input
+
+	ToExperimentDefinitionTreatmentArrayOutput() ExperimentDefinitionTreatmentArrayOutput
+	ToExperimentDefinitionTreatmentArrayOutputWithContext(context.Context) ExperimentDefinitionTreatmentArrayOutput
+}
+
+type ExperimentDefinitionTreatmentArray []ExperimentDefinitionTreatmentInput
+
+func (ExperimentDefinitionTreatmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperimentDefinitionTreatment)(nil)).Elem()
+}
+
+func (i ExperimentDefinitionTreatmentArray) ToExperimentDefinitionTreatmentArrayOutput() ExperimentDefinitionTreatmentArrayOutput {
+	return i.ToExperimentDefinitionTreatmentArrayOutputWithContext(context.Background())
+}
+
+func (i ExperimentDefinitionTreatmentArray) ToExperimentDefinitionTreatmentArrayOutputWithContext(ctx context.Context) ExperimentDefinitionTreatmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentDefinitionTreatmentArrayOutput)
+}
+
+// A treatment variant with weight and flag value. The Key is auto-generated by the service.
+type ExperimentDefinitionTreatmentOutput struct{ *pulumi.OutputState }
+
+func (ExperimentDefinitionTreatmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentDefinitionTreatment)(nil)).Elem()
+}
+
+func (o ExperimentDefinitionTreatmentOutput) ToExperimentDefinitionTreatmentOutput() ExperimentDefinitionTreatmentOutput {
+	return o
+}
+
+func (o ExperimentDefinitionTreatmentOutput) ToExperimentDefinitionTreatmentOutputWithContext(ctx context.Context) ExperimentDefinitionTreatmentOutput {
+	return o
+}
+
+// Map of attribute name to attribute value.
+func (o ExperimentDefinitionTreatmentOutput) AttributeValues() ExperimentDefinitionAttributeValueMapOutput {
+	return o.ApplyT(func(v ExperimentDefinitionTreatment) map[string]ExperimentDefinitionAttributeValue {
+		return v.AttributeValues
+	}).(ExperimentDefinitionAttributeValueMapOutput)
+}
+
+func (o ExperimentDefinitionTreatmentOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentDefinitionTreatment) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Whether the flag is enabled for this variant.
+func (o ExperimentDefinitionTreatmentOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ExperimentDefinitionTreatment) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The treatment key (read-only, auto-generated by service).
+func (o ExperimentDefinitionTreatmentOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExperimentDefinitionTreatment) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// Traffic weight percentage.
+func (o ExperimentDefinitionTreatmentOutput) Weight() pulumi.Float64Output {
+	return o.ApplyT(func(v ExperimentDefinitionTreatment) float64 { return v.Weight }).(pulumi.Float64Output)
+}
+
+type ExperimentDefinitionTreatmentPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentDefinitionTreatmentPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentDefinitionTreatment)(nil)).Elem()
+}
+
+func (o ExperimentDefinitionTreatmentPtrOutput) ToExperimentDefinitionTreatmentPtrOutput() ExperimentDefinitionTreatmentPtrOutput {
+	return o
+}
+
+func (o ExperimentDefinitionTreatmentPtrOutput) ToExperimentDefinitionTreatmentPtrOutputWithContext(ctx context.Context) ExperimentDefinitionTreatmentPtrOutput {
+	return o
+}
+
+func (o ExperimentDefinitionTreatmentPtrOutput) Elem() ExperimentDefinitionTreatmentOutput {
+	return o.ApplyT(func(v *ExperimentDefinitionTreatment) ExperimentDefinitionTreatment {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentDefinitionTreatment
+		return ret
+	}).(ExperimentDefinitionTreatmentOutput)
+}
+
+// Map of attribute name to attribute value.
+func (o ExperimentDefinitionTreatmentPtrOutput) AttributeValues() ExperimentDefinitionAttributeValueMapOutput {
+	return o.ApplyT(func(v *ExperimentDefinitionTreatment) map[string]ExperimentDefinitionAttributeValue {
+		if v == nil {
+			return nil
+		}
+		return v.AttributeValues
+	}).(ExperimentDefinitionAttributeValueMapOutput)
+}
+
+func (o ExperimentDefinitionTreatmentPtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentDefinitionTreatment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether the flag is enabled for this variant.
+func (o ExperimentDefinitionTreatmentPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ExperimentDefinitionTreatment) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The treatment key (read-only, auto-generated by service).
+func (o ExperimentDefinitionTreatmentPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ExperimentDefinitionTreatment) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// Traffic weight percentage.
+func (o ExperimentDefinitionTreatmentPtrOutput) Weight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ExperimentDefinitionTreatment) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Weight
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ExperimentDefinitionTreatmentArrayOutput struct{ *pulumi.OutputState }
+
+func (ExperimentDefinitionTreatmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExperimentDefinitionTreatment)(nil)).Elem()
+}
+
+func (o ExperimentDefinitionTreatmentArrayOutput) ToExperimentDefinitionTreatmentArrayOutput() ExperimentDefinitionTreatmentArrayOutput {
+	return o
+}
+
+func (o ExperimentDefinitionTreatmentArrayOutput) ToExperimentDefinitionTreatmentArrayOutputWithContext(ctx context.Context) ExperimentDefinitionTreatmentArrayOutput {
+	return o
+}
+
+func (o ExperimentDefinitionTreatmentArrayOutput) Index(i pulumi.IntInput) ExperimentDefinitionTreatmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExperimentDefinitionTreatment {
+		return vs[0].([]ExperimentDefinitionTreatment)[vs[1].(int)]
+	}).(ExperimentDefinitionTreatmentOutput)
+}
+
 // An action for an extension to take at a specific action point.
 type ExtensionAction struct {
 	// The description of the extension Action.
@@ -693,6 +1044,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DeploymentDynamicExtensionParametersArrayInput)(nil)).Elem(), DeploymentDynamicExtensionParametersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorInput)(nil)).Elem(), EnvironmentMonitorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EnvironmentMonitorArrayInput)(nil)).Elem(), EnvironmentMonitorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentDefinitionAttributeValueInput)(nil)).Elem(), ExperimentDefinitionAttributeValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentDefinitionAttributeValueMapInput)(nil)).Elem(), ExperimentDefinitionAttributeValueMap{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentDefinitionTreatmentInput)(nil)).Elem(), ExperimentDefinitionTreatmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentDefinitionTreatmentArrayInput)(nil)).Elem(), ExperimentDefinitionTreatmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionInput)(nil)).Elem(), ExtensionActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionArrayInput)(nil)).Elem(), ExtensionActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionParameterInput)(nil)).Elem(), ExtensionParameterArgs{})
@@ -704,6 +1059,11 @@ func init() {
 	pulumi.RegisterOutputType(DeploymentDynamicExtensionParametersArrayOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorOutput{})
 	pulumi.RegisterOutputType(EnvironmentMonitorArrayOutput{})
+	pulumi.RegisterOutputType(ExperimentDefinitionAttributeValueOutput{})
+	pulumi.RegisterOutputType(ExperimentDefinitionAttributeValueMapOutput{})
+	pulumi.RegisterOutputType(ExperimentDefinitionTreatmentOutput{})
+	pulumi.RegisterOutputType(ExperimentDefinitionTreatmentPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentDefinitionTreatmentArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionActionOutput{})
 	pulumi.RegisterOutputType(ExtensionActionArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionParameterOutput{})

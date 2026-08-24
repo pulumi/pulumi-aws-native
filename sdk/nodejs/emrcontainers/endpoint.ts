@@ -42,6 +42,10 @@ export class Endpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * The auth proxy URL for Spark Connect connections.
+     */
+    declare public /*out*/ readonly authProxyUrl: pulumi.Output<string>;
+    /**
      * The ID of the managed endpoint.
      */
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
@@ -81,6 +85,10 @@ export class Endpoint extends pulumi.CustomResource {
      * The server URL of the managed endpoint.
      */
     declare public /*out*/ readonly serverUrl: pulumi.Output<string>;
+    /**
+     * The idle timeout in minutes for sessions on the managed endpoint.
+     */
+    declare public readonly sessionIdleTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * The state of the managed endpoint.
      */
@@ -129,10 +137,12 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["releaseLabel"] = args?.releaseLabel;
+            resourceInputs["sessionIdleTimeoutInMinutes"] = args?.sessionIdleTimeoutInMinutes;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["type"] = args?.type;
             resourceInputs["virtualClusterId"] = args?.virtualClusterId;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authProxyUrl"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthority"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -143,6 +153,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["stateDetails"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["authProxyUrl"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["certificateAuthority"] = undefined /*out*/;
             resourceInputs["configurationOverrides"] = undefined /*out*/;
@@ -153,6 +164,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["releaseLabel"] = undefined /*out*/;
             resourceInputs["securityGroup"] = undefined /*out*/;
             resourceInputs["serverUrl"] = undefined /*out*/;
+            resourceInputs["sessionIdleTimeoutInMinutes"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["stateDetails"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -160,7 +172,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["virtualClusterId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["configurationOverrides", "executionRoleArn", "name", "releaseLabel", "type", "virtualClusterId"] };
+        const replaceOnChanges = { replaceOnChanges: ["configurationOverrides", "executionRoleArn", "name", "releaseLabel", "sessionIdleTimeoutInMinutes", "type", "virtualClusterId"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }
@@ -186,6 +198,10 @@ export interface EndpointArgs {
      * The Amazon EMR release label.
      */
     releaseLabel: pulumi.Input<string>;
+    /**
+     * The idle timeout in minutes for sessions on the managed endpoint.
+     */
+    sessionIdleTimeoutInMinutes?: pulumi.Input<number | undefined>;
     /**
      * An array of key-value pairs to apply to this managed endpoint.
      */

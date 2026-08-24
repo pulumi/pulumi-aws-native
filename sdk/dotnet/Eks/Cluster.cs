@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Eks
         public Output<Outputs.ClusterAccessConfig?> AccessConfig { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+        /// </summary>
+        [Output("activeCertificateAuthorityId")]
+        public Output<string?> ActiveCertificateAuthorityId { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
         /// </summary>
         [Output("arn")]
@@ -38,6 +44,9 @@ namespace Pulumi.AwsNative.Eks
         /// </summary>
         [Output("bootstrapSelfManagedAddons")]
         public Output<bool?> BootstrapSelfManagedAddons { get; private set; } = null!;
+
+        [Output("certificateAuthority")]
+        public Output<Outputs.ClusterCertificateAuthority?> CertificateAuthority { get; private set; } = null!;
 
         /// <summary>
         /// The certificate-authority-data for your cluster.
@@ -248,10 +257,19 @@ namespace Pulumi.AwsNative.Eks
         public Input<Inputs.ClusterAccessConfigArgs>? AccessConfig { get; set; }
 
         /// <summary>
+        /// The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+        /// </summary>
+        [Input("activeCertificateAuthorityId")]
+        public Input<string>? ActiveCertificateAuthorityId { get; set; }
+
+        /// <summary>
         /// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
         /// </summary>
         [Input("bootstrapSelfManagedAddons")]
         public Input<bool>? BootstrapSelfManagedAddons { get; set; }
+
+        [Input("certificateAuthority")]
+        public Input<Inputs.ClusterCertificateAuthorityArgs>? CertificateAuthority { get; set; }
 
         /// <summary>
         /// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .

@@ -30,10 +30,30 @@ export const getIndex: typeof import("./getIndex").getIndex = null as any;
 export const getIndexOutput: typeof import("./getIndex").getIndexOutput = null as any;
 utilities.lazyLoad(exports, ["getIndex","getIndexOutput"], () => require("./getIndex"));
 
+export { GetQuerySuggestionsBlockListArgs, GetQuerySuggestionsBlockListResult, GetQuerySuggestionsBlockListOutputArgs } from "./getQuerySuggestionsBlockList";
+export const getQuerySuggestionsBlockList: typeof import("./getQuerySuggestionsBlockList").getQuerySuggestionsBlockList = null as any;
+export const getQuerySuggestionsBlockListOutput: typeof import("./getQuerySuggestionsBlockList").getQuerySuggestionsBlockListOutput = null as any;
+utilities.lazyLoad(exports, ["getQuerySuggestionsBlockList","getQuerySuggestionsBlockListOutput"], () => require("./getQuerySuggestionsBlockList"));
+
+export { GetThesaurusArgs, GetThesaurusResult, GetThesaurusOutputArgs } from "./getThesaurus";
+export const getThesaurus: typeof import("./getThesaurus").getThesaurus = null as any;
+export const getThesaurusOutput: typeof import("./getThesaurus").getThesaurusOutput = null as any;
+utilities.lazyLoad(exports, ["getThesaurus","getThesaurusOutput"], () => require("./getThesaurus"));
+
 export { IndexArgs } from "./index_";
 export type Index = import("./index_").Index;
 export const Index: typeof import("./index_").Index = null as any;
 utilities.lazyLoad(exports, ["Index"], () => require("./index_"));
+
+export { QuerySuggestionsBlockListArgs } from "./querySuggestionsBlockList";
+export type QuerySuggestionsBlockList = import("./querySuggestionsBlockList").QuerySuggestionsBlockList;
+export const QuerySuggestionsBlockList: typeof import("./querySuggestionsBlockList").QuerySuggestionsBlockList = null as any;
+utilities.lazyLoad(exports, ["QuerySuggestionsBlockList"], () => require("./querySuggestionsBlockList"));
+
+export { ThesaurusArgs } from "./thesaurus";
+export type Thesaurus = import("./thesaurus").Thesaurus;
+export const Thesaurus: typeof import("./thesaurus").Thesaurus = null as any;
+utilities.lazyLoad(exports, ["Thesaurus"], () => require("./thesaurus"));
 
 
 // Export enums:
@@ -49,6 +69,10 @@ const _module = {
                 return new Faq(name, <any>undefined, { urn })
             case "aws-native:kendra:Index":
                 return new Index(name, <any>undefined, { urn })
+            case "aws-native:kendra:QuerySuggestionsBlockList":
+                return new QuerySuggestionsBlockList(name, <any>undefined, { urn })
+            case "aws-native:kendra:Thesaurus":
+                return new Thesaurus(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

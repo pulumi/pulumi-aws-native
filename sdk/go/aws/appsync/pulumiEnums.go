@@ -1455,6 +1455,172 @@ func (o SourceApiAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type format: SDL or JSON.
+type TypeFormat string
+
+const (
+	TypeFormatSdl  = TypeFormat("SDL")
+	TypeFormatJson = TypeFormat("JSON")
+)
+
+func (TypeFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypeFormat)(nil)).Elem()
+}
+
+func (e TypeFormat) ToTypeFormatOutput() TypeFormatOutput {
+	return pulumi.ToOutput(e).(TypeFormatOutput)
+}
+
+func (e TypeFormat) ToTypeFormatOutputWithContext(ctx context.Context) TypeFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TypeFormatOutput)
+}
+
+func (e TypeFormat) ToTypeFormatPtrOutput() TypeFormatPtrOutput {
+	return e.ToTypeFormatPtrOutputWithContext(context.Background())
+}
+
+func (e TypeFormat) ToTypeFormatPtrOutputWithContext(ctx context.Context) TypeFormatPtrOutput {
+	return TypeFormat(e).ToTypeFormatOutputWithContext(ctx).ToTypeFormatPtrOutputWithContext(ctx)
+}
+
+func (e TypeFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TypeFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TypeFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TypeFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TypeFormatOutput struct{ *pulumi.OutputState }
+
+func (TypeFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TypeFormat)(nil)).Elem()
+}
+
+func (o TypeFormatOutput) ToTypeFormatOutput() TypeFormatOutput {
+	return o
+}
+
+func (o TypeFormatOutput) ToTypeFormatOutputWithContext(ctx context.Context) TypeFormatOutput {
+	return o
+}
+
+func (o TypeFormatOutput) ToTypeFormatPtrOutput() TypeFormatPtrOutput {
+	return o.ToTypeFormatPtrOutputWithContext(context.Background())
+}
+
+func (o TypeFormatOutput) ToTypeFormatPtrOutputWithContext(ctx context.Context) TypeFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TypeFormat) *TypeFormat {
+		return &v
+	}).(TypeFormatPtrOutput)
+}
+
+func (o TypeFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TypeFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TypeFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TypeFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TypeFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TypeFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TypeFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (TypeFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TypeFormat)(nil)).Elem()
+}
+
+func (o TypeFormatPtrOutput) ToTypeFormatPtrOutput() TypeFormatPtrOutput {
+	return o
+}
+
+func (o TypeFormatPtrOutput) ToTypeFormatPtrOutputWithContext(ctx context.Context) TypeFormatPtrOutput {
+	return o
+}
+
+func (o TypeFormatPtrOutput) Elem() TypeFormatOutput {
+	return o.ApplyT(func(v *TypeFormat) TypeFormat {
+		if v != nil {
+			return *v
+		}
+		var ret TypeFormat
+		return ret
+	}).(TypeFormatOutput)
+}
+
+func (o TypeFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TypeFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TypeFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TypeFormatInput is an input type that accepts values of the TypeFormat enum
+// A concrete instance of `TypeFormatInput` can be one of the following:
+//
+//	TypeFormatSdl
+//	TypeFormatJson
+type TypeFormatInput interface {
+	pulumi.Input
+
+	ToTypeFormatOutput() TypeFormatOutput
+	ToTypeFormatOutputWithContext(context.Context) TypeFormatOutput
+}
+
+var typeFormatPtrType = reflect.TypeOf((**TypeFormat)(nil)).Elem()
+
+type TypeFormatPtrInput interface {
+	pulumi.Input
+
+	ToTypeFormatPtrOutput() TypeFormatPtrOutput
+	ToTypeFormatPtrOutputWithContext(context.Context) TypeFormatPtrOutput
+}
+
+type typeFormatPtr string
+
+func TypeFormatPtr(v string) TypeFormatPtrInput {
+	return (*typeFormatPtr)(&v)
+}
+
+func (*typeFormatPtr) ElementType() reflect.Type {
+	return typeFormatPtrType
+}
+
+func (in *typeFormatPtr) ToTypeFormatPtrOutput() TypeFormatPtrOutput {
+	return pulumi.ToOutput(in).(TypeFormatPtrOutput)
+}
+
+func (in *typeFormatPtr) ToTypeFormatPtrOutputWithContext(ctx context.Context) TypeFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TypeFormatPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationTypeInput)(nil)).Elem(), ApiAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationTypePtrInput)(nil)).Elem(), ApiAuthenticationType("AMAZON_COGNITO_USER_POOLS"))
@@ -1472,6 +1638,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResolverMetricsConfigPtrInput)(nil)).Elem(), ResolverMetricsConfig("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypeInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceApiAssociationConfigMergeTypePtrInput)(nil)).Elem(), SourceApiAssociationConfigMergeType("AUTO_MERGE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeFormatInput)(nil)).Elem(), TypeFormat("SDL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TypeFormatPtrInput)(nil)).Elem(), TypeFormat("SDL"))
 	pulumi.RegisterOutputType(ApiAuthenticationTypeOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationTypePtrOutput{})
 	pulumi.RegisterOutputType(ApiEventLogLevelOutput{})
@@ -1490,4 +1658,6 @@ func init() {
 	pulumi.RegisterOutputType(SourceApiAssociationConfigMergeTypePtrOutput{})
 	pulumi.RegisterOutputType(SourceApiAssociationStatusOutput{})
 	pulumi.RegisterOutputType(SourceApiAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(TypeFormatOutput{})
+	pulumi.RegisterOutputType(TypeFormatPtrOutput{})
 }

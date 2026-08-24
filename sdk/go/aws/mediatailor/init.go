@@ -31,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LiveSource{}
 	case "aws-native:mediatailor:PlaybackConfiguration":
 		r = &PlaybackConfiguration{}
+	case "aws-native:mediatailor:PrefetchSchedule":
+		r = &PrefetchSchedule{}
 	case "aws-native:mediatailor:SourceLocation":
 		r = &SourceLocation{}
 	case "aws-native:mediatailor:VodSource":

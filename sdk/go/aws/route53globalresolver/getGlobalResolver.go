@@ -38,7 +38,7 @@ type LookupGlobalResolverResult struct {
 	IpAddressType       *GlobalResolverIpAddressType `pulumi:"ipAddressType"`
 	Name                *string                      `pulumi:"name"`
 	ObservabilityRegion *string                      `pulumi:"observabilityRegion"`
-	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
 	Regions   []string                        `pulumi:"regions"`
 	Status    *GlobalResolverCrResourceStatus `pulumi:"status"`
 	Tags      []aws.Tag                       `pulumi:"tags"`
@@ -116,7 +116,7 @@ func (o LookupGlobalResolverResultOutput) ObservabilityRegion() pulumi.StringPtr
 	return o.ApplyT(func(v LookupGlobalResolverResult) *string { return v.ObservabilityRegion }).(pulumi.StringPtrOutput)
 }
 
-// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
 func (o LookupGlobalResolverResultOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupGlobalResolverResult) []string { return v.Regions }).(pulumi.StringArrayOutput)
 }

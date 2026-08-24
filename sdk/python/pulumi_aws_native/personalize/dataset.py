@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 from ._inputs import *
 
@@ -26,7 +28,8 @@ class DatasetArgs:
                  dataset_type: pulumi.Input['DatasetType'],
                  schema_arn: pulumi.Input[_builtins.str],
                  dataset_import_job: pulumi.Input[Optional['DatasetImportJobArgs']] = None,
-                 name: pulumi.Input[Optional[_builtins.str]] = None):
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a Dataset resource.
 
@@ -35,6 +38,7 @@ class DatasetArgs:
         :param pulumi.Input[_builtins.str] schema_arn: The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
         :param pulumi.Input['DatasetImportJobArgs'] dataset_import_job: Describes a job that imports training data from a data source (Amazon S3 bucket) to an Amazon Personalize dataset. If you specify a dataset import job as part of a dataset, all dataset import job fields are required.
         :param pulumi.Input[_builtins.str] name: The name for the dataset
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         pulumi.set(__self__, "dataset_group_arn", dataset_group_arn)
         pulumi.set(__self__, "dataset_type", dataset_type)
@@ -43,6 +47,8 @@ class DatasetArgs:
             pulumi.set(__self__, "dataset_import_job", dataset_import_job)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="datasetGroupArn")
@@ -104,6 +110,18 @@ class DatasetArgs:
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:personalize:Dataset")
 class Dataset(pulumi.CustomResource):
@@ -116,6 +134,7 @@ class Dataset(pulumi.CustomResource):
                  dataset_type: pulumi.Input[Optional['DatasetType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Personalize::Dataset.
@@ -170,6 +189,7 @@ class Dataset(pulumi.CustomResource):
         :param pulumi.Input['DatasetType'] dataset_type: The type of dataset
         :param pulumi.Input[_builtins.str] name: The name for the dataset
         :param pulumi.Input[_builtins.str] schema_arn: The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -243,6 +263,7 @@ class Dataset(pulumi.CustomResource):
                  dataset_type: pulumi.Input[Optional['DatasetType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -263,8 +284,9 @@ class Dataset(pulumi.CustomResource):
             if schema_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'schema_arn'")
             __props__.__dict__["schema_arn"] = schema_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["dataset_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetGroupArn", "datasetType", "name", "schemaArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["datasetGroupArn", "datasetType", "name", "schemaArn", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Dataset, __self__).__init__(
             'aws-native:personalize:Dataset',
@@ -294,6 +316,7 @@ class Dataset(pulumi.CustomResource):
         __props__.__dict__["dataset_type"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schema_arn"] = None
+        __props__.__dict__["tags"] = None
         return Dataset(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -343,4 +366,12 @@ class Dataset(pulumi.CustomResource):
         The ARN of the schema to associate with the dataset. The schema defines the dataset fields.
         """
         return pulumi.get(self, "schema_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
 

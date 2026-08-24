@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ClusterSnapshotArgs } from "./clusterSnapshot";
+export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
+export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
+utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
+
 export { CustomDbEngineVersionArgs } from "./customDbEngineVersion";
 export type CustomDbEngineVersion = import("./customDbEngineVersion").CustomDbEngineVersion;
 export const CustomDbEngineVersion: typeof import("./customDbEngineVersion").CustomDbEngineVersion = null as any;
@@ -50,6 +55,11 @@ export type DbShardGroup = import("./dbShardGroup").DbShardGroup;
 export const DbShardGroup: typeof import("./dbShardGroup").DbShardGroup = null as any;
 utilities.lazyLoad(exports, ["DbShardGroup"], () => require("./dbShardGroup"));
 
+export { DbSnapshotArgs } from "./dbSnapshot";
+export type DbSnapshot = import("./dbSnapshot").DbSnapshot;
+export const DbSnapshot: typeof import("./dbSnapshot").DbSnapshot = null as any;
+utilities.lazyLoad(exports, ["DbSnapshot"], () => require("./dbSnapshot"));
+
 export { DbSubnetGroupArgs } from "./dbSubnetGroup";
 export type DbSubnetGroup = import("./dbSubnetGroup").DbSubnetGroup;
 export const DbSubnetGroup: typeof import("./dbSubnetGroup").DbSubnetGroup = null as any;
@@ -59,6 +69,11 @@ export { EventSubscriptionArgs } from "./eventSubscription";
 export type EventSubscription = import("./eventSubscription").EventSubscription;
 export const EventSubscription: typeof import("./eventSubscription").EventSubscription = null as any;
 utilities.lazyLoad(exports, ["EventSubscription"], () => require("./eventSubscription"));
+
+export { GetClusterSnapshotArgs, GetClusterSnapshotResult, GetClusterSnapshotOutputArgs } from "./getClusterSnapshot";
+export const getClusterSnapshot: typeof import("./getClusterSnapshot").getClusterSnapshot = null as any;
+export const getClusterSnapshotOutput: typeof import("./getClusterSnapshot").getClusterSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterSnapshot","getClusterSnapshotOutput"], () => require("./getClusterSnapshot"));
 
 export { GetCustomDbEngineVersionArgs, GetCustomDbEngineVersionResult, GetCustomDbEngineVersionOutputArgs } from "./getCustomDbEngineVersion";
 export const getCustomDbEngineVersion: typeof import("./getCustomDbEngineVersion").getCustomDbEngineVersion = null as any;
@@ -104,6 +119,11 @@ export { GetDbShardGroupArgs, GetDbShardGroupResult, GetDbShardGroupOutputArgs }
 export const getDbShardGroup: typeof import("./getDbShardGroup").getDbShardGroup = null as any;
 export const getDbShardGroupOutput: typeof import("./getDbShardGroup").getDbShardGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getDbShardGroup","getDbShardGroupOutput"], () => require("./getDbShardGroup"));
+
+export { GetDbSnapshotArgs, GetDbSnapshotResult, GetDbSnapshotOutputArgs } from "./getDbSnapshot";
+export const getDbSnapshot: typeof import("./getDbSnapshot").getDbSnapshot = null as any;
+export const getDbSnapshotOutput: typeof import("./getDbSnapshot").getDbSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getDbSnapshot","getDbSnapshotOutput"], () => require("./getDbSnapshot"));
 
 export { GetDbSubnetGroupArgs, GetDbSubnetGroupResult, GetDbSubnetGroupOutputArgs } from "./getDbSubnetGroup";
 export const getDbSubnetGroup: typeof import("./getDbSubnetGroup").getDbSubnetGroup = null as any;
@@ -153,6 +173,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:rds:ClusterSnapshot":
+                return new ClusterSnapshot(name, <any>undefined, { urn })
             case "aws-native:rds:CustomDbEngineVersion":
                 return new CustomDbEngineVersion(name, <any>undefined, { urn })
             case "aws-native:rds:DbCluster":
@@ -171,6 +193,8 @@ const _module = {
                 return new DbProxyTargetGroup(name, <any>undefined, { urn })
             case "aws-native:rds:DbShardGroup":
                 return new DbShardGroup(name, <any>undefined, { urn })
+            case "aws-native:rds:DbSnapshot":
+                return new DbSnapshot(name, <any>undefined, { urn })
             case "aws-native:rds:DbSubnetGroup":
                 return new DbSubnetGroup(name, <any>undefined, { urn })
             case "aws-native:rds:EventSubscription":

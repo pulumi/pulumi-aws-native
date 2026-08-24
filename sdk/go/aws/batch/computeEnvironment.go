@@ -23,7 +23,8 @@ type ComputeEnvironment struct {
 	// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
 	ComputeResources ComputeEnvironmentComputeResourcesPtrOutput `pulumi:"computeResources"`
 	// Reserved.
-	Context pulumi.StringPtrOutput `pulumi:"context"`
+	Context     pulumi.StringPtrOutput                 `pulumi:"context"`
+	EcsSettings ComputeEnvironmentEcsSettingsPtrOutput `pulumi:"ecsSettings"`
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	//
 	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
@@ -122,7 +123,8 @@ type computeEnvironmentArgs struct {
 	// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
 	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
 	// Reserved.
-	Context *string `pulumi:"context"`
+	Context     *string                        `pulumi:"context"`
+	EcsSettings *ComputeEnvironmentEcsSettings `pulumi:"ecsSettings"`
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	//
 	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
@@ -170,7 +172,8 @@ type ComputeEnvironmentArgs struct {
 	// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
 	ComputeResources ComputeEnvironmentComputeResourcesPtrInput
 	// Reserved.
-	Context pulumi.StringPtrInput
+	Context     pulumi.StringPtrInput
+	EcsSettings ComputeEnvironmentEcsSettingsPtrInput
 	// The details for the Amazon EKS cluster that supports the compute environment.
 	//
 	// > To create a compute environment that uses EKS resources, the caller must have permissions to call `eks:DescribeCluster` .
@@ -266,6 +269,10 @@ func (o ComputeEnvironmentOutput) ComputeResources() ComputeEnvironmentComputeRe
 // Reserved.
 func (o ComputeEnvironmentOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironment) pulumi.StringPtrOutput { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputeEnvironmentOutput) EcsSettings() ComputeEnvironmentEcsSettingsPtrOutput {
+	return o.ApplyT(func(v *ComputeEnvironment) ComputeEnvironmentEcsSettingsPtrOutput { return v.EcsSettings }).(ComputeEnvironmentEcsSettingsPtrOutput)
 }
 
 // The details for the Amazon EKS cluster that supports the compute environment.

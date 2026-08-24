@@ -24,3 +24,13 @@ export const DataSetOrigin = {
  * A property that defines the data set as OWNED by the account (for providers) or ENTITLED to the account (for subscribers).
  */
 export type DataSetOrigin = (typeof DataSetOrigin)[keyof typeof DataSetOrigin];
+
+export const EventActionExportServerSideEncryptionType = {
+    Awskms: "aws:kms",
+    Aes256: "AES256",
+} as const;
+
+/**
+ * The type of server side encryption used for encrypting the objects in Amazon S3.
+ */
+export type EventActionExportServerSideEncryptionType = (typeof EventActionExportServerSideEncryptionType)[keyof typeof EventActionExportServerSideEncryptionType];

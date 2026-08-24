@@ -24,6 +24,8 @@ __all__ = [
     'ComputeEnvironmentComputeScalingPolicyArgsDict',
     'ComputeEnvironmentEc2ConfigurationObjectArgs',
     'ComputeEnvironmentEc2ConfigurationObjectArgsDict',
+    'ComputeEnvironmentEcsSettingsArgs',
+    'ComputeEnvironmentEcsSettingsArgsDict',
     'ComputeEnvironmentEksConfigurationArgs',
     'ComputeEnvironmentEksConfigurationArgsDict',
     'ComputeEnvironmentInfrastructureOptimizationArgs',
@@ -1043,6 +1045,26 @@ class ComputeEnvironmentEc2ConfigurationObjectArgs:
     @image_kubernetes_version.setter
     def image_kubernetes_version(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "image_kubernetes_version", value)
+
+
+class ComputeEnvironmentEcsSettingsArgsDict(TypedDict):
+    container_insights: NotRequired[pulumi.Input[Optional['ComputeEnvironmentEcsSettingsContainerInsights']]]
+
+@pulumi.input_type
+class ComputeEnvironmentEcsSettingsArgs:
+    def __init__(__self__, *,
+                 container_insights: pulumi.Input[Optional['ComputeEnvironmentEcsSettingsContainerInsights']] = None):
+        if container_insights is not None:
+            pulumi.set(__self__, "container_insights", container_insights)
+
+    @_builtins.property
+    @pulumi.getter(name="containerInsights")
+    def container_insights(self) -> pulumi.Input[Optional['ComputeEnvironmentEcsSettingsContainerInsights']]:
+        return pulumi.get(self, "container_insights")
+
+    @container_insights.setter
+    def container_insights(self, value: pulumi.Input[Optional['ComputeEnvironmentEcsSettingsContainerInsights']]):
+        pulumi.set(self, "container_insights", value)
 
 
 class ComputeEnvironmentEksConfigurationArgsDict(TypedDict):

@@ -36,7 +36,9 @@ type LookupVpcEndpointServiceResult struct {
 	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
-	PayerResponsibility *string `pulumi:"payerResponsibility"`
+	PayerResponsibility         *string                                        `pulumi:"payerResponsibility"`
+	PrivateDnsName              *string                                        `pulumi:"privateDnsName"`
+	PrivateDnsNameConfiguration *VpcEndpointServicePrivateDnsNameConfiguration `pulumi:"privateDnsNameConfiguration"`
 	// The ID of the endpoint service.
 	ServiceId *string `pulumi:"serviceId"`
 	// Specify which Ip Address types are supported for VPC endpoint service.
@@ -97,6 +99,16 @@ func (o LookupVpcEndpointServiceResultOutput) NetworkLoadBalancerArns() pulumi.S
 // The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 func (o LookupVpcEndpointServiceResultOutput) PayerResponsibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.PayerResponsibility }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVpcEndpointServiceResultOutput) PrivateDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *string { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupVpcEndpointServiceResultOutput) PrivateDnsNameConfiguration() VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupVpcEndpointServiceResult) *VpcEndpointServicePrivateDnsNameConfiguration {
+		return v.PrivateDnsNameConfiguration
+	}).(VpcEndpointServicePrivateDnsNameConfigurationPtrOutput)
 }
 
 // The ID of the endpoint service.

@@ -161,7 +161,6 @@ namespace Pulumi.AwsNative.NetworkManager
                 ReplaceOnChanges =
                 {
                     "peeringId",
-                    "routingPolicyLabel",
                     "transitGatewayRouteTableArn",
                 },
             };

@@ -21,6 +21,7 @@ __all__ = [
     'ComputeEnvironmentComputeResources',
     'ComputeEnvironmentComputeScalingPolicy',
     'ComputeEnvironmentEc2ConfigurationObject',
+    'ComputeEnvironmentEcsSettings',
     'ComputeEnvironmentEksConfiguration',
     'ComputeEnvironmentInfrastructureOptimization',
     'ComputeEnvironmentInstanceLaunchTemplate',
@@ -755,6 +756,36 @@ class ComputeEnvironmentEc2ConfigurationObject(dict):
         The Kubernetes version for the compute environment. If you don't specify a value, the latest version that AWS Batch supports is used.
         """
         return pulumi.get(self, "image_kubernetes_version")
+
+
+@pulumi.output_type
+class ComputeEnvironmentEcsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerInsights":
+            suggest = "container_insights"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputeEnvironmentEcsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputeEnvironmentEcsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputeEnvironmentEcsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_insights: Optional['ComputeEnvironmentEcsSettingsContainerInsights'] = None):
+        if container_insights is not None:
+            pulumi.set(__self__, "container_insights", container_insights)
+
+    @_builtins.property
+    @pulumi.getter(name="containerInsights")
+    def container_insights(self) -> Optional['ComputeEnvironmentEcsSettingsContainerInsights']:
+        return pulumi.get(self, "container_insights")
 
 
 @pulumi.output_type

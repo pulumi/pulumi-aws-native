@@ -7,9 +7,11 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .case import *
 from .case_rule import *
 from .domain import *
 from .field import *
+from .get_case import *
 from .get_case_rule import *
 from .get_domain import *
 from .get_field import *

@@ -802,7 +802,8 @@ type RestApi struct {
 	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy pulumi.StringPtrOutput `pulumi:"securityPolicy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
-	Tags aws.TagArrayOutput `pulumi:"tags"`
+	Tags    aws.TagArrayOutput     `pulumi:"tags"`
+	Version pulumi.StringPtrOutput `pulumi:"version"`
 }
 
 // NewRestApi registers a new resource with the given unique name, arguments, and options.
@@ -887,7 +888,8 @@ type restApiArgs struct {
 	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
-	Tags []aws.Tag `pulumi:"tags"`
+	Tags    []aws.Tag `pulumi:"tags"`
+	Version *string   `pulumi:"version"`
 }
 
 // The set of arguments for constructing a RestApi resource.
@@ -934,7 +936,8 @@ type RestApiArgs struct {
 	// The Transport Layer Security (TLS) version + cipher suite for this RestApi.
 	SecurityPolicy pulumi.StringPtrInput
 	// The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
-	Tags aws.TagArrayInput
+	Tags    aws.TagArrayInput
+	Version pulumi.StringPtrInput
 }
 
 func (RestApiArgs) ElementType() reflect.Type {
@@ -1077,6 +1080,10 @@ func (o RestApiOutput) SecurityPolicy() pulumi.StringPtrOutput {
 // The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
 func (o RestApiOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v *RestApi) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
+}
+
+func (o RestApiOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RestApi) pulumi.StringPtrOutput { return v.Version }).(pulumi.StringPtrOutput)
 }
 
 func init() {

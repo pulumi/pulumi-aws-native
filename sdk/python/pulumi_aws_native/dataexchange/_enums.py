@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'DataSetAssetType',
     'DataSetOrigin',
+    'EventActionExportServerSideEncryptionType',
 ]
 
 
@@ -31,3 +32,12 @@ class DataSetOrigin(_builtins.str, Enum):
     """
     OWNED = "OWNED"
     ENTITLED = "ENTITLED"
+
+
+@pulumi.type_token("aws-native:dataexchange:EventActionExportServerSideEncryptionType")
+class EventActionExportServerSideEncryptionType(_builtins.str, Enum):
+    """
+    The type of server side encryption used for encrypting the objects in Amazon S3.
+    """
+    AWSKMS = "aws:kms"
+    AES256 = "AES256"

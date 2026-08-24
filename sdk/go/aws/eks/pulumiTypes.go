@@ -1214,6 +1214,160 @@ type CapabilityTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The scheduled auto-activation events for the certificate authority, computed from its validity window.
+type CertificateAuthorityScheduledEvents struct {
+	// The deadline by which EKS will auto-activate this certificate authority (notAfter minus 45 days).
+	FinalAutoActivation *string `pulumi:"finalAutoActivation"`
+	// The earliest date EKS may auto-activate this certificate authority (notAfter minus 6 months).
+	FirstAutoActivation *string `pulumi:"firstAutoActivation"`
+}
+
+// The scheduled auto-activation events for the certificate authority, computed from its validity window.
+type CertificateAuthorityScheduledEventsOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityScheduledEventsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityScheduledEvents)(nil)).Elem()
+}
+
+func (o CertificateAuthorityScheduledEventsOutput) ToCertificateAuthorityScheduledEventsOutput() CertificateAuthorityScheduledEventsOutput {
+	return o
+}
+
+func (o CertificateAuthorityScheduledEventsOutput) ToCertificateAuthorityScheduledEventsOutputWithContext(ctx context.Context) CertificateAuthorityScheduledEventsOutput {
+	return o
+}
+
+// The deadline by which EKS will auto-activate this certificate authority (notAfter minus 45 days).
+func (o CertificateAuthorityScheduledEventsOutput) FinalAutoActivation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityScheduledEvents) *string { return v.FinalAutoActivation }).(pulumi.StringPtrOutput)
+}
+
+// The earliest date EKS may auto-activate this certificate authority (notAfter minus 6 months).
+func (o CertificateAuthorityScheduledEventsOutput) FirstAutoActivation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityScheduledEvents) *string { return v.FirstAutoActivation }).(pulumi.StringPtrOutput)
+}
+
+type CertificateAuthorityScheduledEventsPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityScheduledEventsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityScheduledEvents)(nil)).Elem()
+}
+
+func (o CertificateAuthorityScheduledEventsPtrOutput) ToCertificateAuthorityScheduledEventsPtrOutput() CertificateAuthorityScheduledEventsPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityScheduledEventsPtrOutput) ToCertificateAuthorityScheduledEventsPtrOutputWithContext(ctx context.Context) CertificateAuthorityScheduledEventsPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityScheduledEventsPtrOutput) Elem() CertificateAuthorityScheduledEventsOutput {
+	return o.ApplyT(func(v *CertificateAuthorityScheduledEvents) CertificateAuthorityScheduledEvents {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityScheduledEvents
+		return ret
+	}).(CertificateAuthorityScheduledEventsOutput)
+}
+
+// The deadline by which EKS will auto-activate this certificate authority (notAfter minus 45 days).
+func (o CertificateAuthorityScheduledEventsPtrOutput) FinalAutoActivation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityScheduledEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FinalAutoActivation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The earliest date EKS may auto-activate this certificate authority (notAfter minus 6 months).
+func (o CertificateAuthorityScheduledEventsPtrOutput) FirstAutoActivation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityScheduledEvents) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FirstAutoActivation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The validity period of the certificate authority.
+type CertificateAuthorityValidity struct {
+	// The end of the validity period for the certificate authority.
+	NotAfter *string `pulumi:"notAfter"`
+	// The start of the validity period for the certificate authority.
+	NotBefore *string `pulumi:"notBefore"`
+}
+
+// The validity period of the certificate authority.
+type CertificateAuthorityValidityOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityValidityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CertificateAuthorityValidity)(nil)).Elem()
+}
+
+func (o CertificateAuthorityValidityOutput) ToCertificateAuthorityValidityOutput() CertificateAuthorityValidityOutput {
+	return o
+}
+
+func (o CertificateAuthorityValidityOutput) ToCertificateAuthorityValidityOutputWithContext(ctx context.Context) CertificateAuthorityValidityOutput {
+	return o
+}
+
+// The end of the validity period for the certificate authority.
+func (o CertificateAuthorityValidityOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityValidity) *string { return v.NotAfter }).(pulumi.StringPtrOutput)
+}
+
+// The start of the validity period for the certificate authority.
+func (o CertificateAuthorityValidityOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityValidity) *string { return v.NotBefore }).(pulumi.StringPtrOutput)
+}
+
+type CertificateAuthorityValidityPtrOutput struct{ *pulumi.OutputState }
+
+func (CertificateAuthorityValidityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CertificateAuthorityValidity)(nil)).Elem()
+}
+
+func (o CertificateAuthorityValidityPtrOutput) ToCertificateAuthorityValidityPtrOutput() CertificateAuthorityValidityPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityValidityPtrOutput) ToCertificateAuthorityValidityPtrOutputWithContext(ctx context.Context) CertificateAuthorityValidityPtrOutput {
+	return o
+}
+
+func (o CertificateAuthorityValidityPtrOutput) Elem() CertificateAuthorityValidityOutput {
+	return o.ApplyT(func(v *CertificateAuthorityValidity) CertificateAuthorityValidity {
+		if v != nil {
+			return *v
+		}
+		var ret CertificateAuthorityValidity
+		return ret
+	}).(CertificateAuthorityValidityOutput)
+}
+
+// The end of the validity period for the certificate authority.
+func (o CertificateAuthorityValidityPtrOutput) NotAfter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityValidity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotAfter
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start of the validity period for the certificate authority.
+func (o CertificateAuthorityValidityPtrOutput) NotBefore() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityValidity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NotBefore
+	}).(pulumi.StringPtrOutput)
+}
+
 // An object representing the Access Config to use for the cluster.
 type ClusterAccessConfig struct {
 	// Specify the authentication mode that should be used to create your cluster.
@@ -1373,6 +1527,165 @@ func (o ClusterAccessConfigPtrOutput) BootstrapClusterCreatorAdminPermissions() 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Identifies the certificate authority currently signing certificates for the cluster.
+type ClusterActiveCertificateAuthority struct {
+	// Indicates whether the active certificate authority was activated by EKS or by the customer.
+	ActivatedBy *string `pulumi:"activatedBy"`
+	// The ID of the active (signing) certificate authority.
+	Id *string `pulumi:"id"`
+}
+
+// ClusterActiveCertificateAuthorityInput is an input type that accepts ClusterActiveCertificateAuthorityArgs and ClusterActiveCertificateAuthorityOutput values.
+// You can construct a concrete instance of `ClusterActiveCertificateAuthorityInput` via:
+//
+//	ClusterActiveCertificateAuthorityArgs{...}
+type ClusterActiveCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToClusterActiveCertificateAuthorityOutput() ClusterActiveCertificateAuthorityOutput
+	ToClusterActiveCertificateAuthorityOutputWithContext(context.Context) ClusterActiveCertificateAuthorityOutput
+}
+
+// Identifies the certificate authority currently signing certificates for the cluster.
+type ClusterActiveCertificateAuthorityArgs struct {
+	// Indicates whether the active certificate authority was activated by EKS or by the customer.
+	ActivatedBy pulumi.StringPtrInput `pulumi:"activatedBy"`
+	// The ID of the active (signing) certificate authority.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (ClusterActiveCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterActiveCertificateAuthority)(nil)).Elem()
+}
+
+func (i ClusterActiveCertificateAuthorityArgs) ToClusterActiveCertificateAuthorityOutput() ClusterActiveCertificateAuthorityOutput {
+	return i.ToClusterActiveCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i ClusterActiveCertificateAuthorityArgs) ToClusterActiveCertificateAuthorityOutputWithContext(ctx context.Context) ClusterActiveCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterActiveCertificateAuthorityOutput)
+}
+
+func (i ClusterActiveCertificateAuthorityArgs) ToClusterActiveCertificateAuthorityPtrOutput() ClusterActiveCertificateAuthorityPtrOutput {
+	return i.ToClusterActiveCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterActiveCertificateAuthorityArgs) ToClusterActiveCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterActiveCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterActiveCertificateAuthorityOutput).ToClusterActiveCertificateAuthorityPtrOutputWithContext(ctx)
+}
+
+// ClusterActiveCertificateAuthorityPtrInput is an input type that accepts ClusterActiveCertificateAuthorityArgs, ClusterActiveCertificateAuthorityPtr and ClusterActiveCertificateAuthorityPtrOutput values.
+// You can construct a concrete instance of `ClusterActiveCertificateAuthorityPtrInput` via:
+//
+//	        ClusterActiveCertificateAuthorityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterActiveCertificateAuthorityPtrInput interface {
+	pulumi.Input
+
+	ToClusterActiveCertificateAuthorityPtrOutput() ClusterActiveCertificateAuthorityPtrOutput
+	ToClusterActiveCertificateAuthorityPtrOutputWithContext(context.Context) ClusterActiveCertificateAuthorityPtrOutput
+}
+
+type clusterActiveCertificateAuthorityPtrType ClusterActiveCertificateAuthorityArgs
+
+func ClusterActiveCertificateAuthorityPtr(v *ClusterActiveCertificateAuthorityArgs) ClusterActiveCertificateAuthorityPtrInput {
+	return (*clusterActiveCertificateAuthorityPtrType)(v)
+}
+
+func (*clusterActiveCertificateAuthorityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterActiveCertificateAuthority)(nil)).Elem()
+}
+
+func (i *clusterActiveCertificateAuthorityPtrType) ToClusterActiveCertificateAuthorityPtrOutput() ClusterActiveCertificateAuthorityPtrOutput {
+	return i.ToClusterActiveCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterActiveCertificateAuthorityPtrType) ToClusterActiveCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterActiveCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterActiveCertificateAuthorityPtrOutput)
+}
+
+// Identifies the certificate authority currently signing certificates for the cluster.
+type ClusterActiveCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (ClusterActiveCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterActiveCertificateAuthority)(nil)).Elem()
+}
+
+func (o ClusterActiveCertificateAuthorityOutput) ToClusterActiveCertificateAuthorityOutput() ClusterActiveCertificateAuthorityOutput {
+	return o
+}
+
+func (o ClusterActiveCertificateAuthorityOutput) ToClusterActiveCertificateAuthorityOutputWithContext(ctx context.Context) ClusterActiveCertificateAuthorityOutput {
+	return o
+}
+
+func (o ClusterActiveCertificateAuthorityOutput) ToClusterActiveCertificateAuthorityPtrOutput() ClusterActiveCertificateAuthorityPtrOutput {
+	return o.ToClusterActiveCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterActiveCertificateAuthorityOutput) ToClusterActiveCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterActiveCertificateAuthorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterActiveCertificateAuthority) *ClusterActiveCertificateAuthority {
+		return &v
+	}).(ClusterActiveCertificateAuthorityPtrOutput)
+}
+
+// Indicates whether the active certificate authority was activated by EKS or by the customer.
+func (o ClusterActiveCertificateAuthorityOutput) ActivatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterActiveCertificateAuthority) *string { return v.ActivatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The ID of the active (signing) certificate authority.
+func (o ClusterActiveCertificateAuthorityOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterActiveCertificateAuthority) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type ClusterActiveCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterActiveCertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterActiveCertificateAuthority)(nil)).Elem()
+}
+
+func (o ClusterActiveCertificateAuthorityPtrOutput) ToClusterActiveCertificateAuthorityPtrOutput() ClusterActiveCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o ClusterActiveCertificateAuthorityPtrOutput) ToClusterActiveCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterActiveCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o ClusterActiveCertificateAuthorityPtrOutput) Elem() ClusterActiveCertificateAuthorityOutput {
+	return o.ApplyT(func(v *ClusterActiveCertificateAuthority) ClusterActiveCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterActiveCertificateAuthority
+		return ret
+	}).(ClusterActiveCertificateAuthorityOutput)
+}
+
+// Indicates whether the active certificate authority was activated by EKS or by the customer.
+func (o ClusterActiveCertificateAuthorityPtrOutput) ActivatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterActiveCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ActivatedBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the active (signing) certificate authority.
+func (o ClusterActiveCertificateAuthorityPtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterActiveCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
 // Todo: add description
 type ClusterBlockStorage struct {
 	// Todo: add description
@@ -1511,6 +1824,161 @@ func (o ClusterBlockStoragePtrOutput) Enabled() pulumi.BoolPtrOutput {
 		}
 		return v.Enabled
 	}).(pulumi.BoolPtrOutput)
+}
+
+// The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+type ClusterCertificateAuthority struct {
+	Active *ClusterActiveCertificateAuthority `pulumi:"active"`
+	// The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+	Data *string `pulumi:"data"`
+}
+
+// ClusterCertificateAuthorityInput is an input type that accepts ClusterCertificateAuthorityArgs and ClusterCertificateAuthorityOutput values.
+// You can construct a concrete instance of `ClusterCertificateAuthorityInput` via:
+//
+//	ClusterCertificateAuthorityArgs{...}
+type ClusterCertificateAuthorityInput interface {
+	pulumi.Input
+
+	ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput
+	ToClusterCertificateAuthorityOutputWithContext(context.Context) ClusterCertificateAuthorityOutput
+}
+
+// The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+type ClusterCertificateAuthorityArgs struct {
+	Active ClusterActiveCertificateAuthorityPtrInput `pulumi:"active"`
+	// The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+	Data pulumi.StringPtrInput `pulumi:"data"`
+}
+
+func (ClusterCertificateAuthorityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCertificateAuthority)(nil)).Elem()
+}
+
+func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput {
+	return i.ToClusterCertificateAuthorityOutputWithContext(context.Background())
+}
+
+func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityOutputWithContext(ctx context.Context) ClusterCertificateAuthorityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityOutput)
+}
+
+func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
+	return i.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterCertificateAuthorityArgs) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityOutput).ToClusterCertificateAuthorityPtrOutputWithContext(ctx)
+}
+
+// ClusterCertificateAuthorityPtrInput is an input type that accepts ClusterCertificateAuthorityArgs, ClusterCertificateAuthorityPtr and ClusterCertificateAuthorityPtrOutput values.
+// You can construct a concrete instance of `ClusterCertificateAuthorityPtrInput` via:
+//
+//	        ClusterCertificateAuthorityArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterCertificateAuthorityPtrInput interface {
+	pulumi.Input
+
+	ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput
+	ToClusterCertificateAuthorityPtrOutputWithContext(context.Context) ClusterCertificateAuthorityPtrOutput
+}
+
+type clusterCertificateAuthorityPtrType ClusterCertificateAuthorityArgs
+
+func ClusterCertificateAuthorityPtr(v *ClusterCertificateAuthorityArgs) ClusterCertificateAuthorityPtrInput {
+	return (*clusterCertificateAuthorityPtrType)(v)
+}
+
+func (*clusterCertificateAuthorityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCertificateAuthority)(nil)).Elem()
+}
+
+func (i *clusterCertificateAuthorityPtrType) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
+	return i.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterCertificateAuthorityPtrType) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterCertificateAuthorityPtrOutput)
+}
+
+// The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+type ClusterCertificateAuthorityOutput struct{ *pulumi.OutputState }
+
+func (ClusterCertificateAuthorityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterCertificateAuthority)(nil)).Elem()
+}
+
+func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityOutput() ClusterCertificateAuthorityOutput {
+	return o
+}
+
+func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityOutputWithContext(ctx context.Context) ClusterCertificateAuthorityOutput {
+	return o
+}
+
+func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
+	return o.ToClusterCertificateAuthorityPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterCertificateAuthorityOutput) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterCertificateAuthority) *ClusterCertificateAuthority {
+		return &v
+	}).(ClusterCertificateAuthorityPtrOutput)
+}
+
+func (o ClusterCertificateAuthorityOutput) Active() ClusterActiveCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v ClusterCertificateAuthority) *ClusterActiveCertificateAuthority { return v.Active }).(ClusterActiveCertificateAuthorityPtrOutput)
+}
+
+// The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+func (o ClusterCertificateAuthorityOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterCertificateAuthority) *string { return v.Data }).(pulumi.StringPtrOutput)
+}
+
+type ClusterCertificateAuthorityPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterCertificateAuthorityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterCertificateAuthority)(nil)).Elem()
+}
+
+func (o ClusterCertificateAuthorityPtrOutput) ToClusterCertificateAuthorityPtrOutput() ClusterCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o ClusterCertificateAuthorityPtrOutput) ToClusterCertificateAuthorityPtrOutputWithContext(ctx context.Context) ClusterCertificateAuthorityPtrOutput {
+	return o
+}
+
+func (o ClusterCertificateAuthorityPtrOutput) Elem() ClusterCertificateAuthorityOutput {
+	return o.ApplyT(func(v *ClusterCertificateAuthority) ClusterCertificateAuthority {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterCertificateAuthority
+		return ret
+	}).(ClusterCertificateAuthorityOutput)
+}
+
+func (o ClusterCertificateAuthorityPtrOutput) Active() ClusterActiveCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v *ClusterCertificateAuthority) *ClusterActiveCertificateAuthority {
+		if v == nil {
+			return nil
+		}
+		return v.Active
+	}).(ClusterActiveCertificateAuthorityPtrOutput)
+}
+
+// The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+func (o ClusterCertificateAuthorityPtrOutput) Data() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterCertificateAuthority) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Data
+	}).(pulumi.StringPtrOutput)
 }
 
 // Todo: add description
@@ -7759,8 +8227,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilitySsoIdentityArrayInput)(nil)).Elem(), CapabilitySsoIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigInput)(nil)).Elem(), ClusterAccessConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccessConfigPtrInput)(nil)).Elem(), ClusterAccessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterActiveCertificateAuthorityInput)(nil)).Elem(), ClusterActiveCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterActiveCertificateAuthorityPtrInput)(nil)).Elem(), ClusterActiveCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBlockStorageInput)(nil)).Elem(), ClusterBlockStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterBlockStoragePtrInput)(nil)).Elem(), ClusterBlockStorageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterCertificateAuthorityPtrInput)(nil)).Elem(), ClusterCertificateAuthorityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigInput)(nil)).Elem(), ClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterComputeConfigPtrInput)(nil)).Elem(), ClusterComputeConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterControlPlanePlacementInput)(nil)).Elem(), ClusterControlPlanePlacementArgs{})
@@ -7859,10 +8331,18 @@ func init() {
 	pulumi.RegisterOutputType(CapabilityNetworkAccessPtrOutput{})
 	pulumi.RegisterOutputType(CapabilitySsoIdentityOutput{})
 	pulumi.RegisterOutputType(CapabilitySsoIdentityArrayOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityScheduledEventsOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityScheduledEventsPtrOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityValidityOutput{})
+	pulumi.RegisterOutputType(CertificateAuthorityValidityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigOutput{})
 	pulumi.RegisterOutputType(ClusterAccessConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterActiveCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(ClusterActiveCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterBlockStorageOutput{})
 	pulumi.RegisterOutputType(ClusterBlockStoragePtrOutput{})
+	pulumi.RegisterOutputType(ClusterCertificateAuthorityOutput{})
+	pulumi.RegisterOutputType(ClusterCertificateAuthorityPtrOutput{})
 	pulumi.RegisterOutputType(ClusterComputeConfigOutput{})
 	pulumi.RegisterOutputType(ClusterComputeConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterControlPlanePlacementOutput{})

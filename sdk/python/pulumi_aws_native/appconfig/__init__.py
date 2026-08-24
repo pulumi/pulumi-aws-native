@@ -12,6 +12,7 @@ from .configuration_profile import *
 from .deployment import *
 from .deployment_strategy import *
 from .environment import *
+from .experiment_definition import *
 from .extension import *
 from .extension_association import *
 from .get_application import *
@@ -19,6 +20,7 @@ from .get_configuration_profile import *
 from .get_deployment import *
 from .get_deployment_strategy import *
 from .get_environment import *
+from .get_experiment_definition import *
 from .get_extension import *
 from .get_extension_association import *
 from .get_hosted_configuration_version import *

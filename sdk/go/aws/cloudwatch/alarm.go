@@ -45,8 +45,9 @@ type Alarm struct {
 	EvaluationInterval pulumi.IntPtrOutput `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods pulumi.IntPtrOutput            `pulumi:"evaluationPeriods"`
-	EvaluationWindow  AlarmEvaluationWindowPtrOutput `pulumi:"evaluationWindow"`
+	EvaluationPeriods pulumi.IntPtrOutput `pulumi:"evaluationPeriods"`
+	// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+	EvaluationWindow AlarmEvaluationWindowPtrOutput `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -83,7 +84,8 @@ type Alarm struct {
 	TreatMissingData pulumi.StringPtrOutput `pulumi:"treatMissingData"`
 	// The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
 	//   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
-	Unit pulumi.StringPtrOutput `pulumi:"unit"`
+	Unit                pulumi.StringPtrOutput            `pulumi:"unit"`
+	WarmUpConfiguration AlarmWarmUpConfigurationPtrOutput `pulumi:"warmUpConfiguration"`
 }
 
 // NewAlarm registers a new resource with the given unique name, arguments, and options.
@@ -154,8 +156,9 @@ type alarmArgs struct {
 	EvaluationInterval *int `pulumi:"evaluationInterval"`
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
-	EvaluationPeriods *int                   `pulumi:"evaluationPeriods"`
-	EvaluationWindow  *AlarmEvaluationWindow `pulumi:"evaluationWindow"`
+	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
+	// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+	EvaluationWindow *AlarmEvaluationWindow `pulumi:"evaluationWindow"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -192,7 +195,8 @@ type alarmArgs struct {
 	TreatMissingData *string `pulumi:"treatMissingData"`
 	// The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
 	//   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
-	Unit *string `pulumi:"unit"`
+	Unit                *string                   `pulumi:"unit"`
+	WarmUpConfiguration *AlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
 // The set of arguments for constructing a Alarm resource.
@@ -222,7 +226,8 @@ type AlarmArgs struct {
 	// The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
 	//  For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
 	EvaluationPeriods pulumi.IntPtrInput
-	EvaluationWindow  AlarmEvaluationWindowPtrInput
+	// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+	EvaluationWindow AlarmEvaluationWindowPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	//  For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
 	//  For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -259,7 +264,8 @@ type AlarmArgs struct {
 	TreatMissingData pulumi.StringPtrInput
 	// The unit of the metric associated with the alarm. Specify this only if you are creating an alarm based on a single metric. Do not specify this if you are specifying a ``Metrics`` array.
 	//   You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
-	Unit pulumi.StringPtrInput
+	Unit                pulumi.StringPtrInput
+	WarmUpConfiguration AlarmWarmUpConfigurationPtrInput
 }
 
 func (AlarmArgs) ElementType() reflect.Type {
@@ -365,6 +371,7 @@ func (o AlarmOutput) EvaluationPeriods() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.IntPtrOutput { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
 }
 
+// The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
 func (o AlarmOutput) EvaluationWindow() AlarmEvaluationWindowPtrOutput {
 	return o.ApplyT(func(v *Alarm) AlarmEvaluationWindowPtrOutput { return v.EvaluationWindow }).(AlarmEvaluationWindowPtrOutput)
 }
@@ -451,6 +458,10 @@ func (o AlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
 //	You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
 func (o AlarmOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Alarm) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+func (o AlarmOutput) WarmUpConfiguration() AlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyT(func(v *Alarm) AlarmWarmUpConfigurationPtrOutput { return v.WarmUpConfiguration }).(AlarmWarmUpConfigurationPtrOutput)
 }
 
 func init() {

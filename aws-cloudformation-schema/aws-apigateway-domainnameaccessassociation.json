@@ -59,13 +59,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "apigateway:POST", "apigateway:GET" ]
+      "permissions" : [ "apigateway:POST", "apigateway:GET", "apigateway:PUT", "apigateway:CreateAccessAssociation" ]
     },
     "read" : {
       "permissions" : [ "apigateway:GET" ]
     },
     "delete" : {
-      "permissions" : [ "apigateway:DELETE", "apigateway:GET" ]
+      "permissions" : [ "apigateway:DELETE", "apigateway:GET", "apigateway:RejectAccessAssociation" ]
     },
     "list" : {
       "permissions" : [ "apigateway:GET" ]

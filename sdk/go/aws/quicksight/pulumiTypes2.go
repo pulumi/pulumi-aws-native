@@ -52995,6 +52995,106 @@ func (o KnowledgeBaseVideoExtractionConfigurationPtrOutput) VideoExtractionType(
 	}).(KnowledgeBaseVideoExtractionTypePtrOutput)
 }
 
+type LimitsProfileProfileLimitValue struct {
+	MaxValue float64                `pulumi:"maxValue"`
+	Unit     LimitsProfileLimitUnit `pulumi:"unit"`
+}
+
+// LimitsProfileProfileLimitValueInput is an input type that accepts LimitsProfileProfileLimitValueArgs and LimitsProfileProfileLimitValueOutput values.
+// You can construct a concrete instance of `LimitsProfileProfileLimitValueInput` via:
+//
+//	LimitsProfileProfileLimitValueArgs{...}
+type LimitsProfileProfileLimitValueInput interface {
+	pulumi.Input
+
+	ToLimitsProfileProfileLimitValueOutput() LimitsProfileProfileLimitValueOutput
+	ToLimitsProfileProfileLimitValueOutputWithContext(context.Context) LimitsProfileProfileLimitValueOutput
+}
+
+type LimitsProfileProfileLimitValueArgs struct {
+	MaxValue pulumi.Float64Input         `pulumi:"maxValue"`
+	Unit     LimitsProfileLimitUnitInput `pulumi:"unit"`
+}
+
+func (LimitsProfileProfileLimitValueArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LimitsProfileProfileLimitValue)(nil)).Elem()
+}
+
+func (i LimitsProfileProfileLimitValueArgs) ToLimitsProfileProfileLimitValueOutput() LimitsProfileProfileLimitValueOutput {
+	return i.ToLimitsProfileProfileLimitValueOutputWithContext(context.Background())
+}
+
+func (i LimitsProfileProfileLimitValueArgs) ToLimitsProfileProfileLimitValueOutputWithContext(ctx context.Context) LimitsProfileProfileLimitValueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LimitsProfileProfileLimitValueOutput)
+}
+
+// LimitsProfileProfileLimitValueMapInput is an input type that accepts LimitsProfileProfileLimitValueMap and LimitsProfileProfileLimitValueMapOutput values.
+// You can construct a concrete instance of `LimitsProfileProfileLimitValueMapInput` via:
+//
+//	LimitsProfileProfileLimitValueMap{ "key": LimitsProfileProfileLimitValueArgs{...} }
+type LimitsProfileProfileLimitValueMapInput interface {
+	pulumi.Input
+
+	ToLimitsProfileProfileLimitValueMapOutput() LimitsProfileProfileLimitValueMapOutput
+	ToLimitsProfileProfileLimitValueMapOutputWithContext(context.Context) LimitsProfileProfileLimitValueMapOutput
+}
+
+type LimitsProfileProfileLimitValueMap map[string]LimitsProfileProfileLimitValueInput
+
+func (LimitsProfileProfileLimitValueMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LimitsProfileProfileLimitValue)(nil)).Elem()
+}
+
+func (i LimitsProfileProfileLimitValueMap) ToLimitsProfileProfileLimitValueMapOutput() LimitsProfileProfileLimitValueMapOutput {
+	return i.ToLimitsProfileProfileLimitValueMapOutputWithContext(context.Background())
+}
+
+func (i LimitsProfileProfileLimitValueMap) ToLimitsProfileProfileLimitValueMapOutputWithContext(ctx context.Context) LimitsProfileProfileLimitValueMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LimitsProfileProfileLimitValueMapOutput)
+}
+
+type LimitsProfileProfileLimitValueOutput struct{ *pulumi.OutputState }
+
+func (LimitsProfileProfileLimitValueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LimitsProfileProfileLimitValue)(nil)).Elem()
+}
+
+func (o LimitsProfileProfileLimitValueOutput) ToLimitsProfileProfileLimitValueOutput() LimitsProfileProfileLimitValueOutput {
+	return o
+}
+
+func (o LimitsProfileProfileLimitValueOutput) ToLimitsProfileProfileLimitValueOutputWithContext(ctx context.Context) LimitsProfileProfileLimitValueOutput {
+	return o
+}
+
+func (o LimitsProfileProfileLimitValueOutput) MaxValue() pulumi.Float64Output {
+	return o.ApplyT(func(v LimitsProfileProfileLimitValue) float64 { return v.MaxValue }).(pulumi.Float64Output)
+}
+
+func (o LimitsProfileProfileLimitValueOutput) Unit() LimitsProfileLimitUnitOutput {
+	return o.ApplyT(func(v LimitsProfileProfileLimitValue) LimitsProfileLimitUnit { return v.Unit }).(LimitsProfileLimitUnitOutput)
+}
+
+type LimitsProfileProfileLimitValueMapOutput struct{ *pulumi.OutputState }
+
+func (LimitsProfileProfileLimitValueMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]LimitsProfileProfileLimitValue)(nil)).Elem()
+}
+
+func (o LimitsProfileProfileLimitValueMapOutput) ToLimitsProfileProfileLimitValueMapOutput() LimitsProfileProfileLimitValueMapOutput {
+	return o
+}
+
+func (o LimitsProfileProfileLimitValueMapOutput) ToLimitsProfileProfileLimitValueMapOutputWithContext(ctx context.Context) LimitsProfileProfileLimitValueMapOutput {
+	return o
+}
+
+func (o LimitsProfileProfileLimitValueMapOutput) MapIndex(k pulumi.StringInput) LimitsProfileProfileLimitValueOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) LimitsProfileProfileLimitValue {
+		return vs[0].(map[string]LimitsProfileProfileLimitValue)[vs[1].(string)]
+	}).(LimitsProfileProfileLimitValueOutput)
+}
+
 type OAuthClientApplicationIdentityProviderVpcConnectionProperties struct {
 	VpcConnectionArn string `pulumi:"vpcConnectionArn"`
 }
@@ -81570,172 +81670,6 @@ func (o TemplateFilledMapVisualPtrOutput) VisualId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type TemplateFilter struct {
-	// A `CategoryFilter` filters text values.
-	//
-	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
-	CategoryFilter *TemplateCategoryFilter `pulumi:"categoryFilter"`
-	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
-	NestedFilter *TemplateNestedFilter `pulumi:"nestedFilter"`
-	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
-	NumericEqualityFilter *TemplateNumericEqualityFilter `pulumi:"numericEqualityFilter"`
-	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
-	NumericRangeFilter *TemplateNumericRangeFilter `pulumi:"numericRangeFilter"`
-	// A `RelativeDatesFilter` filters date values that are relative to a given date.
-	RelativeDatesFilter *TemplateRelativeDatesFilter `pulumi:"relativeDatesFilter"`
-	// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
-	TimeEqualityFilter *TemplateTimeEqualityFilter `pulumi:"timeEqualityFilter"`
-	// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
-	TimeRangeFilter *TemplateTimeRangeFilter `pulumi:"timeRangeFilter"`
-	// A `TopBottomFilter` filters data to the top or bottom values for a given column.
-	TopBottomFilter *TemplateTopBottomFilter `pulumi:"topBottomFilter"`
-}
-
-// TemplateFilterInput is an input type that accepts TemplateFilterArgs and TemplateFilterOutput values.
-// You can construct a concrete instance of `TemplateFilterInput` via:
-//
-//	TemplateFilterArgs{...}
-type TemplateFilterInput interface {
-	pulumi.Input
-
-	ToTemplateFilterOutput() TemplateFilterOutput
-	ToTemplateFilterOutputWithContext(context.Context) TemplateFilterOutput
-}
-
-type TemplateFilterArgs struct {
-	// A `CategoryFilter` filters text values.
-	//
-	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
-	CategoryFilter TemplateCategoryFilterPtrInput `pulumi:"categoryFilter"`
-	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
-	NestedFilter TemplateNestedFilterPtrInput `pulumi:"nestedFilter"`
-	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
-	NumericEqualityFilter TemplateNumericEqualityFilterPtrInput `pulumi:"numericEqualityFilter"`
-	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
-	NumericRangeFilter TemplateNumericRangeFilterPtrInput `pulumi:"numericRangeFilter"`
-	// A `RelativeDatesFilter` filters date values that are relative to a given date.
-	RelativeDatesFilter TemplateRelativeDatesFilterPtrInput `pulumi:"relativeDatesFilter"`
-	// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
-	TimeEqualityFilter TemplateTimeEqualityFilterPtrInput `pulumi:"timeEqualityFilter"`
-	// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
-	TimeRangeFilter TemplateTimeRangeFilterPtrInput `pulumi:"timeRangeFilter"`
-	// A `TopBottomFilter` filters data to the top or bottom values for a given column.
-	TopBottomFilter TemplateTopBottomFilterPtrInput `pulumi:"topBottomFilter"`
-}
-
-func (TemplateFilterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilter)(nil)).Elem()
-}
-
-func (i TemplateFilterArgs) ToTemplateFilterOutput() TemplateFilterOutput {
-	return i.ToTemplateFilterOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterArgs) ToTemplateFilterOutputWithContext(ctx context.Context) TemplateFilterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOutput)
-}
-
-// TemplateFilterArrayInput is an input type that accepts TemplateFilterArray and TemplateFilterArrayOutput values.
-// You can construct a concrete instance of `TemplateFilterArrayInput` via:
-//
-//	TemplateFilterArray{ TemplateFilterArgs{...} }
-type TemplateFilterArrayInput interface {
-	pulumi.Input
-
-	ToTemplateFilterArrayOutput() TemplateFilterArrayOutput
-	ToTemplateFilterArrayOutputWithContext(context.Context) TemplateFilterArrayOutput
-}
-
-type TemplateFilterArray []TemplateFilterInput
-
-func (TemplateFilterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFilter)(nil)).Elem()
-}
-
-func (i TemplateFilterArray) ToTemplateFilterArrayOutput() TemplateFilterArrayOutput {
-	return i.ToTemplateFilterArrayOutputWithContext(context.Background())
-}
-
-func (i TemplateFilterArray) ToTemplateFilterArrayOutputWithContext(ctx context.Context) TemplateFilterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterArrayOutput)
-}
-
-type TemplateFilterOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TemplateFilter)(nil)).Elem()
-}
-
-func (o TemplateFilterOutput) ToTemplateFilterOutput() TemplateFilterOutput {
-	return o
-}
-
-func (o TemplateFilterOutput) ToTemplateFilterOutputWithContext(ctx context.Context) TemplateFilterOutput {
-	return o
-}
-
-// A `CategoryFilter` filters text values.
-//
-// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
-func (o TemplateFilterOutput) CategoryFilter() TemplateCategoryFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateCategoryFilter { return v.CategoryFilter }).(TemplateCategoryFilterPtrOutput)
-}
-
-// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
-func (o TemplateFilterOutput) NestedFilter() TemplateNestedFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateNestedFilter { return v.NestedFilter }).(TemplateNestedFilterPtrOutput)
-}
-
-// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
-func (o TemplateFilterOutput) NumericEqualityFilter() TemplateNumericEqualityFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateNumericEqualityFilter { return v.NumericEqualityFilter }).(TemplateNumericEqualityFilterPtrOutput)
-}
-
-// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
-func (o TemplateFilterOutput) NumericRangeFilter() TemplateNumericRangeFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateNumericRangeFilter { return v.NumericRangeFilter }).(TemplateNumericRangeFilterPtrOutput)
-}
-
-// A `RelativeDatesFilter` filters date values that are relative to a given date.
-func (o TemplateFilterOutput) RelativeDatesFilter() TemplateRelativeDatesFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateRelativeDatesFilter { return v.RelativeDatesFilter }).(TemplateRelativeDatesFilterPtrOutput)
-}
-
-// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
-func (o TemplateFilterOutput) TimeEqualityFilter() TemplateTimeEqualityFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateTimeEqualityFilter { return v.TimeEqualityFilter }).(TemplateTimeEqualityFilterPtrOutput)
-}
-
-// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
-func (o TemplateFilterOutput) TimeRangeFilter() TemplateTimeRangeFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateTimeRangeFilter { return v.TimeRangeFilter }).(TemplateTimeRangeFilterPtrOutput)
-}
-
-// A `TopBottomFilter` filters data to the top or bottom values for a given column.
-func (o TemplateFilterOutput) TopBottomFilter() TemplateTopBottomFilterPtrOutput {
-	return o.ApplyT(func(v TemplateFilter) *TemplateTopBottomFilter { return v.TopBottomFilter }).(TemplateTopBottomFilterPtrOutput)
-}
-
-type TemplateFilterArrayOutput struct{ *pulumi.OutputState }
-
-func (TemplateFilterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TemplateFilter)(nil)).Elem()
-}
-
-func (o TemplateFilterArrayOutput) ToTemplateFilterArrayOutput() TemplateFilterArrayOutput {
-	return o
-}
-
-func (o TemplateFilterArrayOutput) ToTemplateFilterArrayOutputWithContext(ctx context.Context) TemplateFilterArrayOutput {
-	return o
-}
-
-func (o TemplateFilterArrayOutput) Index(i pulumi.IntInput) TemplateFilterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateFilter {
-		return vs[0].([]TemplateFilter)[vs[1].(int)]
-	}).(TemplateFilterOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardRadarChartVisualPtrInput)(nil)).Elem(), DashboardRadarChartVisualArgs{})
@@ -82363,6 +82297,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseResourcePermissionArrayInput)(nil)).Elem(), KnowledgeBaseResourcePermissionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionConfigurationInput)(nil)).Elem(), KnowledgeBaseVideoExtractionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KnowledgeBaseVideoExtractionConfigurationPtrInput)(nil)).Elem(), KnowledgeBaseVideoExtractionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LimitsProfileProfileLimitValueInput)(nil)).Elem(), LimitsProfileProfileLimitValueArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LimitsProfileProfileLimitValueMapInput)(nil)).Elem(), LimitsProfileProfileLimitValueMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationIdentityProviderVpcConnectionPropertiesInput)(nil)).Elem(), OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrInput)(nil)).Elem(), OAuthClientApplicationIdentityProviderVpcConnectionPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RefreshScheduleMapInput)(nil)).Elem(), RefreshScheduleMapArgs{})
@@ -82700,8 +82636,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilledMapSortConfigurationPtrInput)(nil)).Elem(), TemplateFilledMapSortConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilledMapVisualInput)(nil)).Elem(), TemplateFilledMapVisualArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilledMapVisualPtrInput)(nil)).Elem(), TemplateFilledMapVisualArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterInput)(nil)).Elem(), TemplateFilterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterArrayInput)(nil)).Elem(), TemplateFilterArray{})
 	pulumi.RegisterOutputType(DashboardRadarChartVisualOutput{})
 	pulumi.RegisterOutputType(DashboardRadarChartVisualPtrOutput{})
 	pulumi.RegisterOutputType(DashboardRangeEndsLabelTypeOutput{})
@@ -83340,6 +83274,8 @@ func init() {
 	pulumi.RegisterOutputType(KnowledgeBaseResourcePermissionArrayOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionConfigurationOutput{})
 	pulumi.RegisterOutputType(KnowledgeBaseVideoExtractionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LimitsProfileProfileLimitValueOutput{})
+	pulumi.RegisterOutputType(LimitsProfileProfileLimitValueMapOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesOutput{})
 	pulumi.RegisterOutputType(OAuthClientApplicationIdentityProviderVpcConnectionPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(RefreshScheduleMapOutput{})
@@ -83681,6 +83617,4 @@ func init() {
 	pulumi.RegisterOutputType(TemplateFilledMapSortConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(TemplateFilledMapVisualOutput{})
 	pulumi.RegisterOutputType(TemplateFilledMapVisualPtrOutput{})
-	pulumi.RegisterOutputType(TemplateFilterOutput{})
-	pulumi.RegisterOutputType(TemplateFilterArrayOutput{})
 }

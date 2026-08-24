@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource schema for AWS::EMR::WALWorkspace Type
+// Resource Type definition for AWS::EMR::WALWorkspace
 type WalWorkspace struct {
 	pulumi.CustomResourceState
 

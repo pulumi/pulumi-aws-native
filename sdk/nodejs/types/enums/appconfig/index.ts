@@ -70,3 +70,14 @@ export const EnvironmentDeletionProtectionCheck = {
  * On resource deletion this controls whether the Deletion Protection check should be applied, bypassed, or (the default) whether the behavior should be controlled by the account-level Deletion Protection setting. See https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html
  */
 export type EnvironmentDeletionProtectionCheck = (typeof EnvironmentDeletionProtectionCheck)[keyof typeof EnvironmentDeletionProtectionCheck];
+
+export const ExperimentDefinitionStatus = {
+    Active: "ACTIVE",
+    Idle: "IDLE",
+    Archived: "ARCHIVED",
+} as const;
+
+/**
+ * Current status.
+ */
+export type ExperimentDefinitionStatus = (typeof ExperimentDefinitionStatus)[keyof typeof ExperimentDefinitionStatus];

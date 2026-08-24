@@ -14,7 +14,7 @@
       "permissions" : [ "apigateway:PATCH", "iam:GetRole", "iam:PassRole" ]
     },
     "delete" : {
-      "permissions" : [ "apigateway:PATCH" ]
+      "permissions" : [ "apigateway:GET" ]
     }
   },
   "typeName" : "AWS::ApiGateway::Account",

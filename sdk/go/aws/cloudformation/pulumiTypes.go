@@ -2781,6 +2781,11 @@ type StackTag struct {
 	Value string `pulumi:"value"`
 }
 
+type TagsItemProperties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Attribute to specify which targets should invoke the hook
 type TargetFilters0Properties struct {
 	// List of actions that the hook is going to target

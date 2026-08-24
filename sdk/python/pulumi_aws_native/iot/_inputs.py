@@ -144,6 +144,10 @@ __all__ = [
     'SoftwarePackageVersionS3LocationArgsDict',
     'SoftwarePackageVersionSbomArgs',
     'SoftwarePackageVersionSbomArgsDict',
+    'StreamFileArgs',
+    'StreamFileArgsDict',
+    'StreamS3LocationArgs',
+    'StreamS3LocationArgsDict',
     'ThingAttributePayloadArgs',
     'ThingAttributePayloadArgsDict',
     'ThingGroupAttributePayloadArgs',
@@ -4070,6 +4074,127 @@ class SoftwarePackageVersionSbomArgs:
     @s3_location.setter
     def s3_location(self, value: pulumi.Input['SoftwarePackageVersionS3LocationArgs']):
         pulumi.set(self, "s3_location", value)
+
+
+class StreamFileArgsDict(TypedDict):
+    """
+    Represents a file to stream.
+    """
+    file_id: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The file ID.
+    """
+    s3_location: NotRequired[pulumi.Input[Optional['StreamS3LocationArgsDict']]]
+
+@pulumi.input_type
+class StreamFileArgs:
+    def __init__(__self__, *,
+                 file_id: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_location: pulumi.Input[Optional['StreamS3LocationArgs']] = None):
+        """
+        Represents a file to stream.
+
+        :param pulumi.Input[_builtins.int] file_id: The file ID.
+        """
+        if file_id is not None:
+            pulumi.set(__self__, "file_id", file_id)
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="fileId")
+    def file_id(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The file ID.
+        """
+        return pulumi.get(self, "file_id")
+
+    @file_id.setter
+    def file_id(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "file_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> pulumi.Input[Optional['StreamS3LocationArgs']]:
+        return pulumi.get(self, "s3_location")
+
+    @s3_location.setter
+    def s3_location(self, value: pulumi.Input[Optional['StreamS3LocationArgs']]):
+        pulumi.set(self, "s3_location", value)
+
+
+class StreamS3LocationArgsDict(TypedDict):
+    """
+    The location of the file in S3.
+    """
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 bucket.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 key.
+    """
+    version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The S3 bucket version.
+    """
+
+@pulumi.input_type
+class StreamS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The location of the file in S3.
+
+        :param pulumi.Input[_builtins.str] bucket: The S3 bucket.
+        :param pulumi.Input[_builtins.str] key: The S3 key.
+        :param pulumi.Input[_builtins.str] version: The S3 bucket version.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The S3 bucket version.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
 
 
 class ThingAttributePayloadArgsDict(TypedDict):

@@ -16,11 +16,14 @@ AWS::AccessAnalyzer::Analyzer
 AWS::AccessAnalyzer::ArchiveRule
 AWS::AccountAccess::Application
 AWS::AccountAccess::Entitlement
+AWS::AgentRegistry::Registry
+AWS::AgentRegistry::RegistryRecord
 AWS::AmazonMQ::Broker
 AWS::AmazonMQ::Configuration
 AWS::Amplify::App
 AWS::Amplify::Branch
 AWS::Amplify::Domain
+AWS::Amplify::Webhook
 AWS::AmplifyUIBuilder::Component
 AWS::AmplifyUIBuilder::Form
 AWS::AmplifyUIBuilder::Theme
@@ -66,6 +69,7 @@ AWS::AppConfig::ConfigurationProfile
 AWS::AppConfig::Deployment
 AWS::AppConfig::DeploymentStrategy
 AWS::AppConfig::Environment
+AWS::AppConfig::ExperimentDefinition
 AWS::AppConfig::Extension
 AWS::AppConfig::ExtensionAssociation
 AWS::AppConfig::HostedConfigurationVersion
@@ -101,6 +105,7 @@ AWS::AppSync::FunctionConfiguration
 AWS::AppSync::GraphQLApi
 AWS::AppSync::Resolver
 AWS::AppSync::SourceApiAssociation
+AWS::AppSync::Type
 AWS::ApplicationAutoScaling::ScalableTarget
 AWS::ApplicationAutoScaling::ScalingPolicy
 AWS::ApplicationInsights::Application
@@ -198,6 +203,7 @@ AWS::Budgets::BudgetsAction
 AWS::CE::AnomalyMonitor
 AWS::CE::AnomalySubscription
 AWS::CE::CostCategory
+AWS::Cases::Case
 AWS::Cases::CaseRule
 AWS::Cases::Domain
 AWS::Cases::Field
@@ -226,6 +232,7 @@ AWS::CleanRooms::PrivacyBudgetTemplate
 AWS::CleanRoomsML::ConfiguredModelAlgorithm
 AWS::CleanRoomsML::ConfiguredModelAlgorithmAssociation
 AWS::CleanRoomsML::TrainingDataset
+AWS::CloudFormation::ChangeSet
 AWS::CloudFormation::GeneratedTemplate
 AWS::CloudFormation::GuardHook
 AWS::CloudFormation::HookDefaultVersion
@@ -277,7 +284,10 @@ AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
 AWS::CodeBuild::Fleet
+AWS::CodeBuild::SourceCredential
+AWS::CodeCommit::Repository
 AWS::CodeConnections::Connection
+AWS::CodeConnections::Host
 AWS::CodeDeploy::Application
 AWS::CodeDeploy::DeploymentConfig
 AWS::CodeDeploy::DeploymentGroup
@@ -371,6 +381,7 @@ AWS::CustomerProfiles::Integration
 AWS::CustomerProfiles::ObjectType
 AWS::CustomerProfiles::Recommender
 AWS::CustomerProfiles::SegmentDefinition
+AWS::DAX::ParameterGroup
 AWS::DAX::SubnetGroup
 AWS::DMS::Certificate
 AWS::DMS::DataMigration
@@ -381,6 +392,7 @@ AWS::DMS::InstanceProfile
 AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
 AWS::DMS::ReplicationSubnetGroup
+AWS::DRS::SourceNetwork
 AWS::DSQL::Cluster
 AWS::DataBrew::Dataset
 AWS::DataBrew::Job
@@ -389,6 +401,7 @@ AWS::DataBrew::Recipe
 AWS::DataBrew::Ruleset
 AWS::DataBrew::Schedule
 AWS::DataExchange::DataSet
+AWS::DataExchange::EventAction
 AWS::DataPipeline::Pipeline
 AWS::DataSync::Agent
 AWS::DataSync::LocationAzureBlob
@@ -421,6 +434,7 @@ AWS::DataZone::ProjectMembership
 AWS::DataZone::ProjectProfile
 AWS::DataZone::SubscriptionTarget
 AWS::DataZone::UserProfile
+AWS::Deadline::Budget
 AWS::Deadline::Farm
 AWS::Deadline::Fleet
 AWS::Deadline::LicenseEndpoint
@@ -432,6 +446,7 @@ AWS::Deadline::QueueEnvironment
 AWS::Deadline::QueueFleetAssociation
 AWS::Deadline::QueueLimitAssociation
 AWS::Deadline::StorageProfile
+AWS::Deadline::Worker
 AWS::Detective::Graph
 AWS::Detective::MemberInvitation
 AWS::Detective::OrganizationAdmin
@@ -449,6 +464,7 @@ AWS::DeviceFarm::InstanceProfile
 AWS::DeviceFarm::NetworkProfile
 AWS::DeviceFarm::Project
 AWS::DeviceFarm::TestGridProject
+AWS::DeviceFarm::Upload
 AWS::DeviceFarm::VPCEConfiguration
 AWS::DirectConnect::Connection
 AWS::DirectConnect::DirectConnectGateway
@@ -463,6 +479,7 @@ AWS::DocDB::DBSubnetGroup
 AWS::DocDB::EventSubscription
 AWS::DocDB::GlobalCluster
 AWS::DocDBElastic::Cluster
+AWS::DynamoDB::Backup
 AWS::DynamoDB::GlobalTable
 AWS::DynamoDB::Table
 AWS::EC2::CapacityManagerDataExport
@@ -598,6 +615,7 @@ AWS::EFS::MountTarget
 AWS::EKS::AccessEntry
 AWS::EKS::Addon
 AWS::EKS::Capability
+AWS::EKS::CertificateAuthority
 AWS::EKS::Cluster
 AWS::EKS::FargateProfile
 AWS::EKS::IdentityProviderConfig
@@ -710,6 +728,7 @@ AWS::Glue::Schema
 AWS::Glue::SchemaVersion
 AWS::Glue::SchemaVersionMetadata
 AWS::Glue::SecurityConfiguration
+AWS::Glue::Session
 AWS::Glue::TableOptimizer
 AWS::Glue::Trigger
 AWS::Glue::UsageProfile
@@ -722,6 +741,7 @@ AWS::GroundStation::Config
 AWS::GroundStation::DataflowEndpointGroup
 AWS::GroundStation::DataflowEndpointGroupV2
 AWS::GroundStation::MissionProfile
+AWS::GuardDuty::CustomDetectionRuleAssociation
 AWS::GuardDuty::Detector
 AWS::GuardDuty::Filter
 AWS::GuardDuty::IPSet
@@ -806,6 +826,7 @@ AWS::IoT::ScheduledAudit
 AWS::IoT::SecurityProfile
 AWS::IoT::SoftwarePackage
 AWS::IoT::SoftwarePackageVersion
+AWS::IoT::Stream
 AWS::IoT::Thing
 AWS::IoT::ThingGroup
 AWS::IoT::ThingType
@@ -820,6 +841,7 @@ AWS::IoTEvents::AlarmModel
 AWS::IoTEvents::DetectorModel
 AWS::IoTEvents::Input
 AWS::IoTFleetHub::Application
+AWS::IoTSecureTunneling::Tunnel
 AWS::IoTSiteWise::AccessPolicy
 AWS::IoTSiteWise::Asset
 AWS::IoTSiteWise::AssetModel
@@ -851,6 +873,8 @@ AWS::KafkaConnect::WorkerConfiguration
 AWS::Kendra::DataSource
 AWS::Kendra::Faq
 AWS::Kendra::Index
+AWS::Kendra::QuerySuggestionsBlockList
+AWS::Kendra::Thesaurus
 AWS::KendraRanking::ExecutionPlan
 AWS::Kinesis::ResourcePolicy
 AWS::Kinesis::Stream
@@ -874,6 +898,7 @@ AWS::Lambda::LayerVersionPermission
 AWS::Lambda::MicrovmImage
 AWS::Lambda::NetworkConnector
 AWS::Lambda::Permission
+AWS::Lambda::ResourcePolicy
 AWS::Lambda::Url
 AWS::Lambda::Version
 AWS::LaunchWizard::Deployment
@@ -926,6 +951,7 @@ AWS::LookoutVision::Project
 AWS::M2::Application
 AWS::M2::Deployment
 AWS::M2::Environment
+AWS::MGN::NetworkMigrationDefinition
 AWS::MSK::BatchScramSecret
 AWS::MSK::Channel
 AWS::MSK::Cluster
@@ -981,6 +1007,7 @@ AWS::MediaTailor::ChannelPolicy
 AWS::MediaTailor::Function
 AWS::MediaTailor::LiveSource
 AWS::MediaTailor::PlaybackConfiguration
+AWS::MediaTailor::PrefetchSchedule
 AWS::MediaTailor::SourceLocation
 AWS::MediaTailor::VodSource
 AWS::MemoryDB::ACL
@@ -1043,6 +1070,7 @@ AWS::ObservabilityAdmin::TelemetryRule
 AWS::Omics::AnnotationStore
 AWS::Omics::Configuration
 AWS::Omics::ReferenceStore
+AWS::Omics::RunCache
 AWS::Omics::RunGroup
 AWS::Omics::SequenceStore
 AWS::Omics::VariantStore
@@ -1085,6 +1113,7 @@ AWS::PaymentCryptography::Key
 AWS::Personalize::Dataset
 AWS::Personalize::DatasetGroup
 AWS::Personalize::EventTracker
+AWS::Personalize::MetricAttribution
 AWS::Personalize::Schema
 AWS::Personalize::Solution
 AWS::Pinpoint::InAppTemplate
@@ -1113,6 +1142,7 @@ AWS::QuickSight::DataSource
 AWS::QuickSight::Flow
 AWS::QuickSight::Folder
 AWS::QuickSight::KnowledgeBase
+AWS::QuickSight::LimitsProfile
 AWS::QuickSight::OAuthClientApplication
 AWS::QuickSight::RefreshSchedule
 AWS::QuickSight::Space
@@ -1123,6 +1153,7 @@ AWS::QuickSight::TopicV2
 AWS::QuickSight::VPCConnection
 AWS::RAM::Permission
 AWS::RAM::ResourceShare
+AWS::RDS::ClusterSnapshot
 AWS::RDS::CustomDBEngineVersion
 AWS::RDS::DBCluster
 AWS::RDS::DBClusterParameterGroup
@@ -1132,6 +1163,7 @@ AWS::RDS::DBProxy
 AWS::RDS::DBProxyEndpoint
 AWS::RDS::DBProxyTargetGroup
 AWS::RDS::DBShardGroup
+AWS::RDS::DBSnapshot
 AWS::RDS::DBSubnetGroup
 AWS::RDS::EventSubscription
 AWS::RDS::GlobalCluster
@@ -1191,6 +1223,7 @@ AWS::Route53::DNSSEC
 AWS::Route53::HealthCheck
 AWS::Route53::HostedZone
 AWS::Route53::KeySigningKey
+AWS::Route53::RecordSet
 AWS::Route53GlobalResolver::AccessSource
 AWS::Route53GlobalResolver::AccessToken
 AWS::Route53GlobalResolver::DnsView
@@ -1251,6 +1284,7 @@ AWS::S3Tables::TablePolicy
 AWS::S3Vectors::Index
 AWS::S3Vectors::VectorBucket
 AWS::S3Vectors::VectorBucketPolicy
+AWS::SDB::Domain
 AWS::SES::ConfigurationSet
 AWS::SES::ConfigurationSetEventDestination
 AWS::SES::ContactList
@@ -1266,6 +1300,7 @@ AWS::SES::MailManagerRelay
 AWS::SES::MailManagerRuleSet
 AWS::SES::MailManagerTrafficPolicy
 AWS::SES::MultiRegionEndpoint
+AWS::SES::ReceiptFilter
 AWS::SES::ReceiptRule
 AWS::SES::ReceiptRuleSet
 AWS::SES::Template
@@ -1425,6 +1460,7 @@ AWS::SupportApp::SlackWorkspaceConfiguration
 AWS::Synthetics::Canary
 AWS::Synthetics::Group
 AWS::SystemsManagerSAP::Application
+AWS::Textract::Adapter
 AWS::Timestream::Database
 AWS::Timestream::InfluxDBCluster
 AWS::Timestream::InfluxDBInstance
@@ -1440,6 +1476,7 @@ AWS::Transfer::Server
 AWS::Transfer::User
 AWS::Transfer::WebApp
 AWS::Transfer::Workflow
+AWS::Translate::ParallelData
 AWS::UXC::AccountCustomization
 AWS::VerifiedPermissions::IdentitySource
 AWS::VerifiedPermissions::Policy

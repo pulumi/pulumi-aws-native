@@ -39,7 +39,8 @@ class RestApiArgs:
                  parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  policy: Optional[Any] = None,
                  security_policy: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a RestApi resource.
 
@@ -104,6 +105,8 @@ class RestApiArgs:
             pulumi.set(__self__, "security_policy", security_policy)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
 
     @_builtins.property
     @pulumi.getter(name="apiKeySourceType")
@@ -318,6 +321,15 @@ class RestApiArgs:
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version", value)
+
 
 @pulumi.type_token("aws-native:apigateway:RestApi")
 class RestApi(pulumi.CustomResource):
@@ -342,6 +354,7 @@ class RestApi(pulumi.CustomResource):
                  policy: Optional[Any] = None,
                  security_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         The ``AWS::ApiGateway::RestApi`` resource creates a REST API. For more information, see [restapi:create](https://docs.aws.amazon.com/apigateway/latest/api/API_CreateRestApi.html) in the *Amazon API Gateway REST API Reference*.
@@ -1212,6 +1225,7 @@ class RestApi(pulumi.CustomResource):
                  policy: Optional[Any] = None,
                  security_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1238,6 +1252,7 @@ class RestApi(pulumi.CustomResource):
             __props__.__dict__["policy"] = policy
             __props__.__dict__["security_policy"] = security_policy
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["version"] = version
             __props__.__dict__["rest_api_id"] = None
             __props__.__dict__["root_resource_id"] = None
         super(RestApi, __self__).__init__(
@@ -1281,6 +1296,7 @@ class RestApi(pulumi.CustomResource):
         __props__.__dict__["root_resource_id"] = None
         __props__.__dict__["security_policy"] = None
         __props__.__dict__["tags"] = None
+        __props__.__dict__["version"] = None
         return RestApi(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -1443,4 +1459,9 @@ class RestApi(pulumi.CustomResource):
         The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
         """
         return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter
+    def version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "version")
 

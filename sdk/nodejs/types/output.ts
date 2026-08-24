@@ -788,6 +788,266 @@ export namespace acmpca {
 
 }
 
+export namespace agentregistry {
+    /**
+     * Configuration for the registry's record approval workflow.
+     */
+    export interface RegistryApprovalConfiguration {
+        /**
+         * The rules that determine which registry records are automatically approved on submission. When omitted or empty, submitted records require manual review.
+         */
+        autoApprovalRules?: enums.agentregistry.RegistryAutoApprovalRule[];
+    }
+
+    /**
+     * The authorizer configuration for the registry. This is a union - specify exactly one member.
+     */
+    export interface RegistryAuthorizerConfiguration {
+        customJwtAuthorizer: outputs.agentregistry.RegistryCustomJwtAuthorizerConfiguration;
+    }
+
+    /**
+     * The value and match operator used to authorize a claim during JWT validation.
+     */
+    export interface RegistryAuthorizingClaimMatchValueType {
+        claimMatchOperator: enums.agentregistry.RegistryAuthorizingClaimMatchValueTypeClaimMatchOperator;
+        claimMatchValue: outputs.agentregistry.RegistryClaimMatchValueType;
+    }
+
+    /**
+     * The expected value used to match a claim. Exactly one member is set.
+     */
+    export interface RegistryClaimMatchValueType {
+        matchValueString?: string;
+        matchValueStringList?: string[];
+    }
+
+    /**
+     * A validation rule applied to a single claim of an inbound JWT.
+     */
+    export interface RegistryCustomClaimValidationType {
+        authorizingClaimMatchValue: outputs.agentregistry.RegistryAuthorizingClaimMatchValueType;
+        inboundTokenClaimName: string;
+        inboundTokenClaimValueType: enums.agentregistry.RegistryCustomClaimValidationTypeInboundTokenClaimValueType;
+    }
+
+    /**
+     * Configuration for a custom JWT authorizer that validates inbound bearer tokens against an OpenID Connect identity provider.
+     */
+    export interface RegistryCustomJwtAuthorizerConfiguration {
+        /**
+         * The audience values accepted during JWT validation.
+         */
+        allowedAudience?: string[];
+        /**
+         * The client identifiers accepted during JWT validation.
+         */
+        allowedClients?: string[];
+        /**
+         * The scopes accepted during JWT validation.
+         */
+        allowedScopes?: string[];
+        /**
+         * Additional custom claim validations applied to the inbound JWT.
+         */
+        customClaims?: outputs.agentregistry.RegistryCustomClaimValidationType[];
+        /**
+         * The OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         */
+        discoveryUrl: string;
+    }
+
+    /**
+     * Discovery configuration for the registry. Controls how consumers are authorized to search the registry and invoke its MCP endpoint.
+     */
+    export interface RegistryDiscoveryConfiguration {
+        authorizerConfiguration?: outputs.agentregistry.RegistryAuthorizerConfiguration;
+    }
+
+    /**
+     * The A2A agent card descriptor, populated when the record type is AGENT.
+     */
+    export interface RegistryRecordA2aAgentCardDescriptor {
+        data?: string;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: string;
+        source?: outputs.agentregistry.RegistryRecordDescriptorSource;
+    }
+
+    /**
+     * Additional data associated with an agent skills definition descriptor.
+     */
+    export interface RegistryRecordAgentSkillsAdditionalData {
+        skillMd?: outputs.agentregistry.RegistryRecordAgentSkillsMdDescriptor;
+    }
+
+    /**
+     * The agent skills definition descriptor, populated when the record type is SKILL.
+     */
+    export interface RegistryRecordAgentSkillsDefinitionDescriptor {
+        additionalData?: outputs.agentregistry.RegistryRecordAgentSkillsAdditionalData;
+        data?: string;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: string;
+    }
+
+    /**
+     * Markdown-format descriptor containing an agent skills document.
+     */
+    export interface RegistryRecordAgentSkillsMdDescriptor {
+        data?: string;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: string;
+        source?: outputs.agentregistry.RegistryRecordSkillMdSource;
+    }
+
+    /**
+     * A credential provider configuration used for authenticated descriptor retrieval.
+     */
+    export interface RegistryRecordCredentialProviderConfiguration {
+        credentialProvider: outputs.agentregistry.RegistryRecordCredentialProviderUnion;
+        credentialProviderType: enums.agentregistry.RegistryRecordCredentialProviderConfigurationCredentialProviderType;
+    }
+
+    /**
+     * The credential provider details. Specify exactly one member.
+     */
+    export interface RegistryRecordCredentialProviderUnion {
+        iamCredentialProvider?: outputs.agentregistry.RegistryRecordIamCredentialProvider;
+        oauthCredentialProvider?: outputs.agentregistry.RegistryRecordOAuthCredentialProvider;
+    }
+
+    /**
+     * The custom descriptor, populated when the record type is CUSTOM.
+     */
+    export interface RegistryRecordCustomDescriptor {
+        data?: string;
+    }
+
+    /**
+     * The source configuration that defines where descriptor content is retrieved from.
+     */
+    export interface RegistryRecordDescriptorSource {
+        fromUrl?: outputs.agentregistry.RegistryRecordDescriptorSourceFromUrl;
+    }
+
+    /**
+     * URL-based descriptor source configuration, with credential provider configurations for authenticated URL retrieval.
+     */
+    export interface RegistryRecordDescriptorSourceFromUrl {
+        /**
+         * The credential providers used to authenticate when fetching descriptor content from the source URL.
+         */
+        credentialProviderConfigurations?: outputs.agentregistry.RegistryRecordCredentialProviderConfiguration[];
+        /**
+         * URL source for descriptor content.
+         */
+        url: string;
+    }
+
+    /**
+     * The typed set of descriptors for a registry record. Exactly one descriptor field is populated based on the record type.
+     */
+    export interface RegistryRecordDescriptors {
+        a2aAgentCard?: outputs.agentregistry.RegistryRecordA2aAgentCardDescriptor;
+        agentSkillsDefinition?: outputs.agentregistry.RegistryRecordAgentSkillsDefinitionDescriptor;
+        custom?: outputs.agentregistry.RegistryRecordCustomDescriptor;
+        mcpServer?: outputs.agentregistry.RegistryRecordMcpServerDescriptor;
+    }
+
+    /**
+     * IAM credential provider configuration.
+     */
+    export interface RegistryRecordIamCredentialProvider {
+        /**
+         * The SigV4 signing region.
+         */
+        region?: string;
+        /**
+         * The ARN of the IAM role.
+         */
+        roleArn?: string;
+        /**
+         * The SigV4 signing service name.
+         */
+        service?: string;
+    }
+
+    /**
+     * Additional data associated with an MCP server descriptor.
+     */
+    export interface RegistryRecordMcpServerAdditionalData {
+        tools?: outputs.agentregistry.RegistryRecordMcpToolsDescriptor;
+    }
+
+    /**
+     * The MCP server descriptor, populated when the record type is MCP.
+     */
+    export interface RegistryRecordMcpServerDescriptor {
+        additionalData?: outputs.agentregistry.RegistryRecordMcpServerAdditionalData;
+        data?: string;
+        /**
+         * Version of the descriptor type schema.
+         */
+        dataSchemaVersion?: string;
+        source?: outputs.agentregistry.RegistryRecordDescriptorSource;
+    }
+
+    /**
+     * The MCP tools descriptor.
+     */
+    export interface RegistryRecordMcpToolsDescriptor {
+        data?: string;
+        /**
+         * Version of the tools descriptor schema.
+         */
+        dataSchemaVersion?: string;
+    }
+
+    /**
+     * OAuth credential provider configuration.
+     */
+    export interface RegistryRecordOAuthCredentialProvider {
+        /**
+         * Additional custom parameters for the OAuth flow.
+         */
+        customParameters?: {[key: string]: string};
+        grantType?: enums.agentregistry.RegistryRecordOAuthCredentialProviderGrantType;
+        /**
+         * The ARN of the OAuth credential provider.
+         */
+        providerArn: string;
+        /**
+         * OAuth scopes to request.
+         */
+        scopes?: string[];
+    }
+
+    /**
+     * Source configuration for a SkillMd document. Unlike MCP/A2A sources, SkillMd does not support credential providers.
+     */
+    export interface RegistryRecordSkillMdSource {
+        fromUrl?: outputs.agentregistry.RegistryRecordSkillMdSourceFromUrl;
+    }
+
+    /**
+     * URL-based source for SkillMd content (sync is skipped; content is provided inline via Data).
+     */
+    export interface RegistryRecordSkillMdSourceFromUrl {
+        /**
+         * URL source for the SkillMd document.
+         */
+        url: string;
+    }
+
+}
+
 export namespace aiops {
     export interface InvestigationGroupChatbotNotificationChannel {
         /**
@@ -2771,6 +3031,55 @@ export namespace appconfig {
          * ARN of an AWS Identity and Access Management (IAM) role for AWS AppConfig to monitor AlarmArn.
          */
         alarmRoleArn?: string;
+    }
+
+    /**
+     * A typed attribute value for a treatment flag.
+     */
+    export interface ExperimentDefinitionAttributeValue {
+        /**
+         * A boolean value.
+         */
+        booleanValue?: boolean;
+        /**
+         * An array of numeric values.
+         */
+        numberArray?: number[];
+        /**
+         * A numeric value.
+         */
+        numberValue?: number;
+        /**
+         * An array of string values.
+         */
+        stringArray?: string[];
+        /**
+         * A string value.
+         */
+        stringValue?: string;
+    }
+
+    /**
+     * A treatment variant with weight and flag value. The Key is auto-generated by the service.
+     */
+    export interface ExperimentDefinitionTreatment {
+        /**
+         * Map of attribute name to attribute value.
+         */
+        attributeValues?: {[key: string]: outputs.appconfig.ExperimentDefinitionAttributeValue};
+        description?: string;
+        /**
+         * Whether the flag is enabled for this variant.
+         */
+        enabled: boolean;
+        /**
+         * The treatment key (read-only, auto-generated by service).
+         */
+        key?: string;
+        /**
+         * Traffic weight percentage.
+         */
+        weight: number;
     }
 
     /**
@@ -10404,6 +10713,10 @@ export namespace batch {
          * - **EKS_AL2023_NVIDIA** - [Amazon Linux 2023 (accelerated)](https://docs.aws.amazon.com/eks/latest/userguide/eks-optimized-ami.html) : Default for GPU instance families and can be used for all non AWS Graviton-based instance types.
          */
         imageType: string;
+    }
+
+    export interface ComputeEnvironmentEcsSettings {
+        containerInsights?: enums.batch.ComputeEnvironmentEcsSettingsContainerInsights;
     }
 
     export interface ComputeEnvironmentEksConfiguration {
@@ -19413,6 +19726,21 @@ export namespace bedrockagentcore {
     }
 
     /**
+     * Configuration for a capacity provider
+     */
+    export interface RuntimeCapacityProviderConfiguration {
+        capacityProviderArn: string;
+    }
+
+    /**
+     * Configuration for a CapacityProvider-managed volume to mount into the agent runtime
+     */
+    export interface RuntimeCapacityProviderVolumeConfiguration {
+        mountPath: string;
+        volumeName: string;
+    }
+
+    /**
      * The value or values in the custom claim to match for
      */
     export interface RuntimeClaimMatchValueType {
@@ -19487,6 +19815,7 @@ export namespace bedrockagentcore {
      * Filesystem configuration for the runtime
      */
     export interface RuntimeFilesystemConfiguration {
+        capacityProviderVolume?: outputs.bedrockagentcore.RuntimeCapacityProviderVolumeConfiguration;
         efsAccessPoint?: outputs.bedrockagentcore.RuntimeEfsAccessPointConfiguration;
         s3FilesAccessPoint?: outputs.bedrockagentcore.RuntimeS3FilesAccessPointConfiguration;
         sessionStorage?: outputs.bedrockagentcore.RuntimeSessionStorageConfiguration;
@@ -24061,13 +24390,17 @@ export namespace cloudwatch {
         promQlCriteria?: outputs.cloudwatch.AlarmPromQlCriteria;
     }
 
+    /**
+     * The evaluation window that an alarm uses to select the range of metric data that it evaluates each time it runs. This is a union type. Set exactly one of its members, ``SlidingWindow`` or ``WallClockWindow``. If you don't set ``EvaluationWindow``, the alarm uses a ``SlidingWindow`` by default.
+     *  For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+     */
     export interface AlarmEvaluationWindow {
         /**
-         * Configuration for sliding evaluation window (default behavior).
+         * A sliding window, which advances each time the alarm is evaluated, forming a rolling time window. This is the default evaluation window.
          */
         slidingWindow?: any;
         /**
-         * Configuration for wall clock based evaluation window.
+         * A wall clock window, which aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week.
          */
         wallClockWindow?: outputs.cloudwatch.AlarmWallClockWindow;
     }
@@ -24175,11 +24508,28 @@ export namespace cloudwatch {
         recoveryPeriod?: number;
     }
 
+    /**
+     * An evaluation window that aligns the evaluated range to fixed clock boundaries that match the alarm's period, such as the top of the hour, midnight, or the start of the calendar week, optionally in a specific time zone.
+     *  When you use a wall clock window, the alarm's period must be 1 minute (60 seconds), 5 minutes (300 seconds), 1 hour (3,600 seconds), 1 day (86,400 seconds), or 1 week (604,800 seconds). Other period values aren't supported with a wall clock window.
+     *  Choose a wall clock window when your monitoring is tied to a business or calendar period, such as daily reports, batch jobs, or backups, or when you want alarm evaluations to match the periods shown on a metric dashboard.
+     */
     export interface AlarmWallClockWindow {
         /**
-         * The timezone for wall clock evaluation, in IANA time zone format (e.g., America/New_York, UTC).
+         * The time zone to use when the alarm aligns the evaluation window to clock boundaries. You can specify an IANA time zone name (for example, ``America/New_York``), a fixed UTC offset (for example, ``+05:30``), or an offset-prefixed identifier (for example, ``UTC+05:30``). The offset must be aligned to a multiple of 5 minutes. If you don't specify a time zone, CloudWatch uses ``UTC``.
+         *  The time zone affects window alignment for all periods, including periods of one hour or shorter.
          */
         timezone?: string;
+    }
+
+    export interface AlarmWarmUpConfiguration {
+        /**
+         * Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+         */
+        onlyStartEvaluatingAfterWarmUpPeriodEnds?: boolean;
+        /**
+         * The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+         */
+        warmUpPeriodDurationInMinutes?: number;
     }
 
     /**
@@ -24242,6 +24592,20 @@ export namespace cloudwatch {
          * The value for the specified tag key.
          */
         value: string;
+    }
+
+    /**
+     * The warm-up configuration for an alarm. A warm-up period delays alarm evaluation after you create or update the alarm. This reduces alarm noise from missing data while a new resource or service starts up. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions.
+     */
+    export interface LogAlarmWarmUpConfiguration {
+        /**
+         * Specifies whether the alarm waits for the full warm-up period before it starts evaluating. If true, the alarm waits the entire WarmUpPeriodDurationInMinutes before it starts evaluating, even if metric data arrives earlier. If false, the alarm ends the warm-up period early and starts evaluating as soon as it has enough metric data to fill its evaluation window. This is the default behavior.
+         */
+        onlyStartEvaluatingAfterWarmUpPeriodEnds?: boolean;
+        /**
+         * The length of the warm-up period, in minutes. For this duration after you create or update the alarm, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. Valid values range from 1 to 2,880 minutes (2 days). You can change this value while the alarm is still in its warm-up period. Changes have no effect after the warm-up period ends.
+         */
+        warmUpPeriodDurationInMinutes?: number;
     }
 
     /**
@@ -24449,7 +24813,90 @@ export namespace codebuild {
 
 }
 
+export namespace codecommit {
+    /**
+     * Information about code to be committed to a repository after it is created in an AWS CloudFormation stack. Information about code is only used in resource creation. Updates to a stack will not reflect changes made to code properties after initial resource creation.
+     */
+    export interface RepositoryCode {
+        /**
+         * Optional. Specifies a branch name to be used as the default branch when importing code into a repository on initial creation. If this property is not set, the name main will be used for the default branch for the repository. Changes to this property are ignored after initial resource creation. We recommend using this parameter to set the name to main to align with the default behavior of CodeCommit unless another name is needed.
+         */
+        branchName?: string;
+        /**
+         * Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository. Changes to this property are ignored after initial resource creation.
+         */
+        s3: outputs.codecommit.RepositoryS3;
+    }
+
+    /**
+     * Information about the Amazon S3 bucket that contains a ZIP file of code to be committed to the repository. Changes to this property are ignored after initial resource creation.
+     */
+    export interface RepositoryS3 {
+        /**
+         * The name of the Amazon S3 bucket that contains the ZIP file with the content that will be committed to the new repository. This can be specified using the name of the bucket in the AWS account. Changes to this property are ignored after initial resource creation.
+         */
+        bucket: string;
+        /**
+         * The key to use for accessing the Amazon S3 bucket. Changes to this property are ignored after initial resource creation.
+         */
+        key: string;
+        /**
+         * The object version of the ZIP file, if versioning is enabled for the Amazon S3 bucket. Changes to this property are ignored after initial resource creation.
+         */
+        objectVersion?: string;
+    }
+
+    /**
+     * Information about a trigger for a repository.
+     */
+    export interface RepositoryTrigger {
+        /**
+         * The branches to be included in the trigger configuration. If you specify an empty array, the trigger applies to all branches.
+         */
+        branches?: string[];
+        /**
+         * Any custom data associated with the trigger to be included in the information sent to the target of the trigger.
+         */
+        customData?: string;
+        /**
+         * The ARN of the resource that is the target for a trigger (for example, the ARN of a topic in Amazon SNS).
+         */
+        destinationArn: string;
+        /**
+         * The repository events that cause the trigger to run actions in another service, such as sending a notification through Amazon SNS.
+         */
+        events: string[];
+        /**
+         * The name of the trigger.
+         */
+        name: string;
+    }
+
+}
+
 export namespace codeconnections {
+    /**
+     * The VPC configuration provisioned for the host.
+     */
+    export interface HostVpcConfiguration {
+        /**
+         * The ID of the security group or security groups associated with the Amazon VPC.
+         */
+        securityGroupIds: string[];
+        /**
+         * The ID of the subnet or subnets associated with the Amazon VPC.
+         */
+        subnetIds: string[];
+        /**
+         * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         */
+        tlsCertificate?: string;
+        /**
+         * The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+         */
+        vpcId: string;
+    }
+
 }
 
 export namespace codedeploy {
@@ -26784,8 +27231,8 @@ export namespace configuration {
         customPolicyDetails?: outputs.configuration.ConfigRuleCustomPolicyDetails;
         /**
          * Indicates whether AWS or the customer owns and manages the CC rule.
-         *   CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
-         *   CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
+         *  CC Managed Rules are predefined rules owned by AWS. For more information, see [Managed Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html) in the *developer guide*.
+         *  CC Custom Rules are rules that you can develop either with Guard (``CUSTOM_POLICY``) or LAMlong (``CUSTOM_LAMBDA``). For more information, see [Custom Rules](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html) in the *developer guide*.
          */
         owner: string;
         /**
@@ -26817,10 +27264,10 @@ export namespace configuration {
         maximumExecutionFrequency?: string;
         /**
          * The type of notification that triggers CC to run an evaluation for a rule. You can specify the following notification types:
-         *   +   ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
-         *   +   ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-         *   +   ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
-         *   +   ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
+         *   +  ``ConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers a configuration item as a result of a resource change.
+         *   +  ``OversizedConfigurationItemChangeNotification`` - Triggers an evaluation when CC delivers an oversized configuration item. CC may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+         *   +  ``ScheduledNotification`` - Triggers a periodic evaluation at the frequency specified for ``MaximumExecutionFrequency``.
+         *   +  ``ConfigurationSnapshotDeliveryCompleted`` - Triggers a periodic evaluation when CC delivers a configuration snapshot.
          *
          *  If you want your custom rule to be triggered by configuration changes, specify two SourceDetail objects, one for ``ConfigurationItemChangeNotification`` and one for ``OversizedConfigurationItemChangeNotification``.
          */
@@ -27918,6 +28365,68 @@ export namespace connect {
     export interface LockVersionProperties {
         attribute?: string;
         dataTable?: string;
+    }
+
+    export interface MetricAvailableFilter {
+        id: string;
+        type: enums.connect.MetricAvailableFilterType;
+    }
+
+    export interface MetricCalculationComponent {
+        /**
+         * Metric calculation component alias for use within a calculation
+         */
+        alias: string;
+        metricFilters?: outputs.connect.MetricFilter[];
+        metricId?: string;
+        metricName?: string;
+    }
+
+    /**
+     * The calculation configuration for the metric
+     */
+    export interface MetricCalculationProperties {
+        /**
+         * The calculation formula
+         */
+        calculation: string;
+        /**
+         * The calculation components for the metric
+         */
+        calculationComponents: outputs.connect.MetricCalculationComponent[];
+    }
+
+    export interface MetricCreatedByInfo {
+        /**
+         * STS or IAM ARN representing the identity of API Caller. SDK users cannot populate this and this value is calculated automatically if ConnectUserArn is not provided.
+         */
+        awsIdentityArn?: string;
+        /**
+         * An agent ARN representing a connect user.
+         */
+        connectUserArn?: string;
+    }
+
+    export interface MetricFilter {
+        booleanCondition?: outputs.connect.MetricFilterBooleanCondition;
+        metricFilterKey: string;
+        negate?: boolean;
+        numberCondition?: outputs.connect.MetricFilterNumberCondition;
+        stringCondition?: outputs.connect.MetricFilterStringCondition;
+    }
+
+    export interface MetricFilterBooleanCondition {
+        comparison: enums.connect.MetricFilterBooleanConditionComparison;
+    }
+
+    export interface MetricFilterNumberCondition {
+        comparison: enums.connect.MetricFilterNumberConditionComparison;
+        values: number[];
+    }
+
+    export interface MetricFilterStringCondition {
+        comparison: enums.connect.MetricFilterStringConditionComparison;
+        values: string[];
     }
 
     /**
@@ -31394,6 +31903,66 @@ export namespace databrew {
 }
 
 export namespace dataexchange {
+    /**
+     * What occurs after a certain event.
+     */
+    export interface EventActionAction {
+        exportRevisionToS3?: outputs.dataexchange.EventActionAutoExportRevisionToS3RequestDetails;
+    }
+
+    /**
+     * A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.
+     */
+    export interface EventActionAutoExportRevisionDestinationEntry {
+        /**
+         * The Amazon S3 bucket that is the destination for the event action.
+         */
+        bucket: string;
+        /**
+         * A string representing the pattern for generated names of the individual assets in the revision.
+         */
+        keyPattern?: string;
+    }
+
+    /**
+     * Details of the operation to be performed by the job.
+     */
+    export interface EventActionAutoExportRevisionToS3RequestDetails {
+        encryption?: outputs.dataexchange.EventActionExportServerSideEncryption;
+        revisionDestination: outputs.dataexchange.EventActionAutoExportRevisionDestinationEntry;
+    }
+
+    /**
+     * What occurs to start an action.
+     */
+    export interface EventActionEvent {
+        revisionPublished?: outputs.dataexchange.EventActionRevisionPublished;
+    }
+
+    /**
+     * Encryption configuration of the export job.
+     */
+    export interface EventActionExportServerSideEncryption {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The type of server side encryption used for encrypting the objects in Amazon S3.
+         */
+        type: enums.dataexchange.EventActionExportServerSideEncryptionType;
+    }
+
+    /**
+     * Information about the published revision.
+     */
+    export interface EventActionRevisionPublished {
+        /**
+         * The data set ID of the published revision.
+         */
+        dataSetId: string;
+    }
+
 }
 
 export namespace datapipeline {
@@ -33174,6 +33743,55 @@ export namespace datazone {
 }
 
 export namespace deadline {
+    /**
+     * The budget action to add.
+     */
+    export interface BudgetActionToAdd {
+        /**
+         * A description for the budget action.
+         */
+        description?: string;
+        /**
+         * The percentage threshold for the budget action.
+         */
+        thresholdPercentage: number;
+        /**
+         * The type of budget action.
+         */
+        type: enums.deadline.BudgetActionToAddType;
+    }
+
+    /**
+     * The details of a fixed budget schedule.
+     */
+    export interface BudgetFixedBudgetSchedule {
+        /**
+         * When the budget ends.
+         */
+        endTime: string;
+        /**
+         * When the budget starts.
+         */
+        startTime: string;
+    }
+
+    /**
+     * The start and end time of the budget.
+     */
+    export interface BudgetSchedule {
+        fixed: outputs.deadline.BudgetFixedBudgetSchedule;
+    }
+
+    /**
+     * The usage details of the allotted budget.
+     */
+    export interface BudgetUsageTrackingResource {
+        /**
+         * The queue ID.
+         */
+        queueId: string;
+    }
+
     export interface FleetAcceleratorCapabilities {
         count?: outputs.deadline.FleetAcceleratorCountRange;
         selections: outputs.deadline.FleetAcceleratorSelection[];
@@ -33442,6 +34060,31 @@ export namespace deadline {
          * The type of file.
          */
         type: enums.deadline.StorageProfileFileSystemLocationType;
+    }
+
+    /**
+     * The host property details.
+     */
+    export interface WorkerHostPropertiesRequest {
+        /**
+         * The host name.
+         */
+        hostName?: string;
+        ipAddresses?: outputs.deadline.WorkerIpAddresses;
+    }
+
+    /**
+     * The IP addresses for a host.
+     */
+    export interface WorkerIpAddresses {
+        /**
+         * The IpV4 address of the network.
+         */
+        ipV4Addresses?: string[];
+        /**
+         * The IpV6 address for the network and node component.
+         */
+        ipV6Addresses?: string[];
     }
 
 }
@@ -36068,6 +36711,9 @@ export namespace docdb {
 }
 
 export namespace docdbelastic {
+}
+
+export namespace drs {
 }
 
 export namespace dsql {
@@ -42016,6 +42662,13 @@ export namespace ec2 {
         privateDnsSpecifiedDomains?: string[];
     }
 
+    export interface VpcEndpointServicePrivateDnsNameConfiguration {
+        name?: string;
+        state?: string;
+        type?: string;
+        value?: string;
+    }
+
     /**
      * Options for sending VPN tunnel logs to CloudWatch.
      */
@@ -46041,6 +46694,34 @@ export namespace eks {
     }
 
     /**
+     * The scheduled auto-activation events for the certificate authority, computed from its validity window.
+     */
+    export interface CertificateAuthorityScheduledEvents {
+        /**
+         * The deadline by which EKS will auto-activate this certificate authority (notAfter minus 45 days).
+         */
+        finalAutoActivation?: string;
+        /**
+         * The earliest date EKS may auto-activate this certificate authority (notAfter minus 6 months).
+         */
+        firstAutoActivation?: string;
+    }
+
+    /**
+     * The validity period of the certificate authority.
+     */
+    export interface CertificateAuthorityValidity {
+        /**
+         * The end of the validity period for the certificate authority.
+         */
+        notAfter?: string;
+        /**
+         * The start of the validity period for the certificate authority.
+         */
+        notBefore?: string;
+    }
+
+    /**
      * An object representing the Access Config to use for the cluster.
      */
     export interface ClusterAccessConfig {
@@ -46055,6 +46736,20 @@ export namespace eks {
     }
 
     /**
+     * Identifies the certificate authority currently signing certificates for the cluster.
+     */
+    export interface ClusterActiveCertificateAuthority {
+        /**
+         * Indicates whether the active certificate authority was activated by EKS or by the customer.
+         */
+        activatedBy?: string;
+        /**
+         * The ID of the active (signing) certificate authority.
+         */
+        id?: string;
+    }
+
+    /**
      * Todo: add description
      */
     export interface ClusterBlockStorage {
@@ -46062,6 +46757,17 @@ export namespace eks {
          * Todo: add description
          */
         enabled?: boolean;
+    }
+
+    /**
+     * The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+     */
+    export interface ClusterCertificateAuthority {
+        active?: outputs.eks.ClusterActiveCertificateAuthority;
+        /**
+         * The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+         */
+        data?: string;
     }
 
     /**
@@ -48237,9 +48943,14 @@ export namespace elementalinference {
 
     export interface FeedClippingConfig {
         callbackMetadata?: string;
+        dataSourceConfiguration?: outputs.elementalinference.FeedDataSourceConfiguration;
     }
 
     export interface FeedCroppingConfig {
+    }
+
+    export interface FeedDataSourceConfiguration {
+        fixtureId: string;
     }
 
     export interface FeedGetOutput {
@@ -53195,6 +53906,30 @@ export namespace glue {
     }
 
     /**
+     * The SessionCommand that runs the job.
+     */
+    export interface SessionCommand {
+        /**
+         * Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+         */
+        name?: string;
+        /**
+         * Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+         */
+        pythonVersion?: string;
+    }
+
+    /**
+     * Specifies the connections used by the session.
+     */
+    export interface SessionConnectionsList {
+        /**
+         * A list of connection names used by the session.
+         */
+        connections?: string[];
+    }
+
+    /**
      * The resource properties associated with the integration source.
      */
     export interface SourceProcessingPropertiesProperties {
@@ -57392,6 +58127,35 @@ export namespace iot {
         s3Location: outputs.iot.SoftwarePackageVersionS3Location;
     }
 
+    /**
+     * Represents a file to stream.
+     */
+    export interface StreamFile {
+        /**
+         * The file ID.
+         */
+        fileId?: number;
+        s3Location?: outputs.iot.StreamS3Location;
+    }
+
+    /**
+     * The location of the file in S3.
+     */
+    export interface StreamS3Location {
+        /**
+         * The S3 bucket.
+         */
+        bucket?: string;
+        /**
+         * The S3 key.
+         */
+        key?: string;
+        /**
+         * The S3 bucket version.
+         */
+        version?: string;
+    }
+
     export interface ThingAttributePayload {
         /**
          * A JSON string containing up to three key-value pair in JSON format. For example:
@@ -60007,6 +60771,33 @@ export namespace iotevents {
 }
 
 export namespace iotfleethub {
+}
+
+export namespace iotsecuretunneling {
+    /**
+     * The destination configuration.
+     */
+    export interface TunnelDestinationConfig {
+        /**
+         * A list of service names that identify the target application.
+         */
+        services: string[];
+        /**
+         * The name of the IoT thing to which you want to connect.
+         */
+        thingName?: string;
+    }
+
+    /**
+     * Tunnel timeout configuration.
+     */
+    export interface TunnelTimeoutConfig {
+        /**
+         * The maximum amount of time (in minutes) a tunnel can remain open.
+         */
+        maxLifetimeTimeoutMinutes?: number;
+    }
+
 }
 
 export namespace iotsitewise {
@@ -63061,6 +63852,34 @@ export namespace kendra {
     export interface IndexValueImportanceItem {
         key?: string;
         value?: number;
+    }
+
+    /**
+     * Information required to find a specific file in an Amazon S3 bucket.
+     */
+    export interface QuerySuggestionsBlockListS3Path {
+        /**
+         * The name of the S3 bucket that contains the file.
+         */
+        bucket: string;
+        /**
+         * The name of the file.
+         */
+        key: string;
+    }
+
+    /**
+     * Information required to find a specific file in an Amazon S3 bucket.
+     */
+    export interface ThesaurusS3Path {
+        /**
+         * The name of the S3 bucket that contains the file.
+         */
+        bucket: string;
+        /**
+         * The name of the file.
+         */
+        key: string;
     }
 
 }
@@ -72904,6 +73723,112 @@ export namespace mediatailor {
         excludeEventTypes?: string[];
     }
 
+    export interface PrefetchScheduleAvailMatchingCriteria {
+        /**
+         * The dynamic variable(s) that MediaTailor should use as avail matching criteria.
+         */
+        dynamicVariable: string;
+        /**
+         * For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+         */
+        operator: enums.mediatailor.PrefetchScheduleAvailMatchingCriteriaOperator;
+    }
+
+    export interface PrefetchSchedulePrefetchConsumption {
+        /**
+         * If you only want MediaTailor to insert prefetched ads into avails that match specific dynamic variables, set the avail matching criteria.
+         */
+        availMatchingCriteria?: outputs.mediatailor.PrefetchScheduleAvailMatchingCriteria[];
+        /**
+         * The time when MediaTailor no longer considers the prefetched ads for use in an ad break, as an ISO 8601 date-time.
+         */
+        endTime: string;
+        /**
+         * The time when prefetched ads are considered for use in an ad break, as an ISO 8601 date-time.
+         */
+        startTime?: string;
+    }
+
+    export interface PrefetchSchedulePrefetchRetrieval {
+        /**
+         * The dynamic variables to use for substitution during prefetch requests to the ad decision server (ADS).
+         */
+        dynamicVariables?: {[key: string]: string};
+        /**
+         * The time when prefetch retrieval ends for the ad break, as an ISO 8601 date-time.
+         */
+        endTime: string;
+        /**
+         * The time when prefetch retrievals can start for this break, as an ISO 8601 date-time.
+         */
+        startTime?: string;
+        trafficShapingRetrievalWindow?: outputs.mediatailor.PrefetchScheduleTrafficShapingRetrievalWindow;
+        trafficShapingTpsConfiguration?: outputs.mediatailor.PrefetchScheduleTrafficShapingTpsConfiguration;
+        /**
+         * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+         */
+        trafficShapingType?: enums.mediatailor.PrefetchSchedulePrefetchRetrievalTrafficShapingType;
+    }
+
+    export interface PrefetchScheduleRecurringConsumption {
+        /**
+         * The configuration for the dynamic variables that determine which ad breaks that MediaTailor inserts prefetched ads in.
+         */
+        availMatchingCriteria?: outputs.mediatailor.PrefetchScheduleAvailMatchingCriteria[];
+        /**
+         * The number of seconds that an ad is available for insertion after it was prefetched.
+         */
+        retrievedAdExpirationSeconds?: number;
+    }
+
+    export interface PrefetchScheduleRecurringPrefetchConfiguration {
+        /**
+         * The end time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+         */
+        endTime: string;
+        recurringConsumption: outputs.mediatailor.PrefetchScheduleRecurringConsumption;
+        recurringRetrieval: outputs.mediatailor.PrefetchScheduleRecurringRetrieval;
+        /**
+         * The start time for the window that MediaTailor prefetches and inserts ads in a live event, as an ISO 8601 date-time.
+         */
+        startTime?: string;
+    }
+
+    export interface PrefetchScheduleRecurringRetrieval {
+        /**
+         * The number of seconds that MediaTailor waits after an ad avail before prefetching ads for the next avail.
+         */
+        delayAfterAvailEndSeconds?: number;
+        /**
+         * The dynamic variables to use for substitution during prefetch requests to the ADS.
+         */
+        dynamicVariables?: {[key: string]: string};
+        trafficShapingRetrievalWindow?: outputs.mediatailor.PrefetchScheduleTrafficShapingRetrievalWindow;
+        trafficShapingTpsConfiguration?: outputs.mediatailor.PrefetchScheduleTrafficShapingTpsConfiguration;
+        /**
+         * Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+         */
+        trafficShapingType?: enums.mediatailor.PrefetchScheduleRecurringRetrievalTrafficShapingType;
+    }
+
+    export interface PrefetchScheduleTrafficShapingRetrievalWindow {
+        /**
+         * The amount of time, in seconds, that MediaTailor spreads prefetch requests to the ADS.
+         */
+        retrievalWindowDurationSeconds?: number;
+    }
+
+    export interface PrefetchScheduleTrafficShapingTpsConfiguration {
+        /**
+         * The expected peak number of concurrent viewers for your content.
+         */
+        peakConcurrentUsers?: number;
+        /**
+         * The maximum number of transactions per second (TPS) that your ad decision server (ADS) can handle.
+         */
+        peakTps?: number;
+    }
+
     /**
      * <p>Access configuration parameters.</p>
      */
@@ -73028,6 +73953,74 @@ export namespace memorydb {
          * The port number that the engine is listening on.
          */
         port?: number;
+    }
+
+}
+
+export namespace mgn {
+    /**
+     * Configuration for a migration source environment.
+     */
+    export interface NetworkMigrationDefinitionSourceConfiguration {
+        /**
+         * The source environment type.
+         */
+        sourceEnvironment: enums.mgn.NetworkMigrationDefinitionSourceConfigurationSourceEnvironment;
+        sourceS3Configuration: outputs.mgn.NetworkMigrationDefinitionSourceS3Configuration;
+    }
+
+    /**
+     * S3 configuration for source network data.
+     */
+    export interface NetworkMigrationDefinitionSourceS3Configuration {
+        /**
+         * The name of the S3 bucket containing source data.
+         */
+        s3Bucket: string;
+        /**
+         * The AWS account ID of the S3 bucket owner.
+         */
+        s3BucketOwner: string;
+        /**
+         * The S3 key (path) for the source data.
+         */
+        s3Key: string;
+    }
+
+    /**
+     * Configuration for the target network topology and addressing.
+     */
+    export interface NetworkMigrationDefinitionTargetNetwork {
+        /**
+         * The CIDR block for inbound traffic in the target network.
+         */
+        inboundCidr?: string;
+        /**
+         * The CIDR block for inspection traffic in the target network.
+         */
+        inspectionCidr?: string;
+        /**
+         * The CIDR block for outbound traffic in the target network.
+         */
+        outboundCidr?: string;
+        /**
+         * The network topology type for the target environment.
+         */
+        topology: enums.mgn.NetworkMigrationDefinitionTargetNetworkTopology;
+    }
+
+    /**
+     * S3 configuration for storing target network artifacts.
+     */
+    export interface NetworkMigrationDefinitionTargetS3Configuration {
+        /**
+         * The name of the S3 bucket for target artifacts.
+         */
+        s3Bucket: string;
+        /**
+         * The AWS account ID of the S3 bucket owner.
+         */
+        s3BucketOwner: string;
     }
 
 }
@@ -73779,6 +74772,10 @@ export namespace msk {
          */
         mtls?: outputs.msk.ReplicatorKafkaClusterMtlsAuthentication;
         /**
+         * Details for client authentication using SASL/OAUTHBEARER.
+         */
+        saslOAuthBearer?: outputs.msk.ReplicatorKafkaClusterSaslOAuthBearerAuthentication;
+        /**
          * Details for SASL/SCRAM client authentication.
          */
         saslScram?: outputs.msk.ReplicatorKafkaClusterSaslScramAuthentication;
@@ -73820,6 +74817,86 @@ export namespace msk {
          * The Amazon Resource Name (ARN) of the Secrets Manager secret.
          */
         secretArn: string;
+    }
+
+    /**
+     * Details for SASL/OAUTHBEARER using the standard client_credentials grant. The referenced secret must contain client_id and client_secret.
+     */
+    export interface ReplicatorKafkaClusterOAuthClientCredentials {
+        /**
+         * Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+         */
+        tokenRequestSecretArn: string;
+    }
+
+    /**
+     * Details for SASL/OAUTHBEARER using the client credentials grant with a JWT client assertion (RFC 7521/7523 Section 2.2). An STS-vended JWT is used as the client_assertion.
+     */
+    export interface ReplicatorKafkaClusterOAuthClientCredentialsAssertion {
+        /**
+         * The audience (aud claim) set in the STS JWT client assertion.
+         */
+        audience: string;
+        /**
+         * The algorithm used to sign the JWT client assertion.
+         */
+        signingAlgorithm: enums.msk.ReplicatorJwtSigningAlgorithm;
+        /**
+         * Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+         */
+        tokenRequestSecretArn?: string;
+    }
+
+    /**
+     * Details for SASL/OAUTHBEARER using the JWT Bearer assertion grant (RFC 7523). An STS-vended JWT is used as the assertion.
+     */
+    export interface ReplicatorKafkaClusterOAuthIamJwtBearer {
+        /**
+         * The audience (aud claim) set in the STS JWT assertion.
+         */
+        audience: string;
+        /**
+         * The algorithm used to sign the JWT assertion.
+         */
+        signingAlgorithm: enums.msk.ReplicatorJwtSigningAlgorithm;
+        /**
+         * Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+         */
+        tokenRequestSecretArn?: string;
+    }
+
+    /**
+     * Details for client authentication using SASL/OAUTHBEARER.
+     */
+    export interface ReplicatorKafkaClusterSaslOAuthBearerAuthentication {
+        /**
+         * Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+         */
+        clientCredentials?: outputs.msk.ReplicatorKafkaClusterOAuthClientCredentials;
+        /**
+         * Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+         */
+        clientCredentialsAssertion?: outputs.msk.ReplicatorKafkaClusterOAuthClientCredentialsAssertion;
+        /**
+         * Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+         */
+        iamJwtBearer?: outputs.msk.ReplicatorKafkaClusterOAuthIamJwtBearer;
+        /**
+         * OAuth scope to request. Included in the token request if provided.
+         */
+        scope?: string;
+        /**
+         * How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+         */
+        tokenEndpointAuthenticationMethod: enums.msk.ReplicatorTokenEndpointAuthenticationMethod;
+        /**
+         * Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+         */
+        tokenEndpointTlsCertificateArn?: string;
+        /**
+         * The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+         */
+        tokenEndpointUrl: string;
     }
 
     /**
@@ -78535,6 +79612,49 @@ export namespace personalize {
          * The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
          */
         dataLocation?: string;
+    }
+
+    /**
+     * A metric attribute for the metric attribution.
+     */
+    export interface MetricAttributionMetricAttribute {
+        /**
+         * The metric's event type.
+         */
+        eventType: string;
+        /**
+         * The attribute's expression.
+         */
+        expression: string;
+        /**
+         * The metric's name.
+         */
+        metricName: string;
+    }
+
+    /**
+     * The output configuration details for the metric attribution.
+     */
+    export interface MetricAttributionMetricsOutputConfig {
+        /**
+         * The ARN of the IAM role for the metric attribution.
+         */
+        roleArn: string;
+        s3DataDestination?: outputs.personalize.MetricAttributionS3DataDestination;
+    }
+
+    /**
+     * The configuration details of an Amazon S3 output bucket.
+     */
+    export interface MetricAttributionS3DataDestination {
+        /**
+         * The ARN of the KMS key.
+         */
+        kmsKeyArn?: string;
+        /**
+         * The file path of the Amazon S3 bucket.
+         */
+        path: string;
     }
 
     /**
@@ -102336,6 +103456,11 @@ export namespace quicksight {
         videoExtractionType?: enums.quicksight.KnowledgeBaseVideoExtractionType;
     }
 
+    export interface LimitsProfileProfileLimitValue {
+        maxValue: number;
+        unit: enums.quicksight.LimitsProfileLimitUnit;
+    }
+
     export interface OAuthClientApplicationIdentityProviderVpcConnectionProperties {
         vpcConnectionArn: string;
     }
@@ -114075,6 +115200,47 @@ export namespace route53 {
          *   For public hosted zones, omit ``VPCs``, ``VPCId``, and ``VPCRegion``.
          */
         vpcRegion: string;
+    }
+
+    export interface RecordSetAliasTarget {
+        /**
+         * The value that you specify depends on where you want to route queries.
+         */
+        dnsName: string;
+        /**
+         * When EvaluateTargetHealth is true, an alias resource record set inherits the health of the referenced AWS resource, such as an ELB load balancer or another resource record set in the hosted zone.
+         */
+        evaluateTargetHealth?: boolean;
+        /**
+         * The value used depends on where you want to route traffic.
+         */
+        hostedZoneId: string;
+    }
+
+    export interface RecordSetCidrRoutingConfig {
+        /**
+         * The CIDR collection ID.
+         */
+        collectionId: string;
+        /**
+         * The CIDR collection location name.
+         */
+        locationName: string;
+    }
+
+    export interface RecordSetGeoLocation {
+        /**
+         * For geolocation resource record sets, a two-letter abbreviation that identifies a continent.
+         */
+        continentCode?: string;
+        /**
+         * For geolocation resource record sets, the two-letter code for a country.
+         */
+        countryCode?: string;
+        /**
+         * For geolocation resource record sets, the two-letter code for a state of the United States.
+         */
+        subdivisionCode?: string;
     }
 
 }
@@ -127132,6 +128298,34 @@ export namespace ses {
     }
 
     /**
+     * A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+     */
+    export interface ReceiptFilterFilter {
+        /**
+         * A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+         */
+        ipFilter: outputs.ses.ReceiptFilterIpFilter;
+        /**
+         * The name of the IP address filter.
+         */
+        name?: string;
+    }
+
+    /**
+     * A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+     */
+    export interface ReceiptFilterIpFilter {
+        /**
+         * A single IP address or a range of IP addresses to block or allow, specified in CIDR notation.
+         */
+        cidr: string;
+        /**
+         * Indicates whether to block or allow incoming mail from the specified IP addresses.
+         */
+        policy: string;
+    }
+
+    /**
      * An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.
      */
     export interface ReceiptRuleAction {
@@ -129434,6 +130628,9 @@ export namespace systemsmanagersap {
 
 }
 
+export namespace textract {
+}
+
 export namespace timestream {
     /**
      * The maintenance schedule for the InfluxDB cluster.
@@ -130269,6 +131466,37 @@ export namespace transfer {
          * Array that contains from 1 to 10 key/value pairs.
          */
         tags?: outputs.transfer.WorkflowS3Tag[];
+    }
+
+}
+
+export namespace translate {
+    /**
+     * The encryption key used to encrypt this object.
+     */
+    export interface EncryptionKeyProperties {
+        /**
+         * The Amazon Resource Name (ARN) of the encryption key.
+         */
+        id: string;
+        /**
+         * The type of encryption key.
+         */
+        type: enums.translate.ParallelDataEncryptionKeyPropertiesType;
+    }
+
+    /**
+     * Specifies the format and S3 location of the parallel data input file.
+     */
+    export interface ParallelDataConfigProperties {
+        /**
+         * The format of the parallel data input file.
+         */
+        format: enums.translate.ParallelDataConfigPropertiesFormat;
+        /**
+         * The URI of the Amazon S3 folder that contains the parallel data input file.
+         */
+        s3Uri: string;
     }
 
 }

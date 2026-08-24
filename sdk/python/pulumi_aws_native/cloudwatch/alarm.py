@@ -47,7 +47,8 @@ class AlarmArgs:
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
-                 unit: pulumi.Input[Optional[_builtins.str]] = None):
+                 unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional['AlarmWarmUpConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Alarm resource.
 
@@ -65,6 +66,7 @@ class AlarmArgs:
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
                 For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
+        :param pulumi.Input['AlarmEvaluationWindowArgs'] evaluation_window: The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
                 For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
                 For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -140,6 +142,8 @@ class AlarmArgs:
             pulumi.set(__self__, "treat_missing_data", treat_missing_data)
         if unit is not None:
             pulumi.set(__self__, "unit", unit)
+        if warm_up_configuration is not None:
+            pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
 
     @_builtins.property
     @pulumi.getter(name="actionsEnabled")
@@ -279,6 +283,9 @@ class AlarmArgs:
     @_builtins.property
     @pulumi.getter(name="evaluationWindow")
     def evaluation_window(self) -> pulumi.Input[Optional['AlarmEvaluationWindowArgs']]:
+        """
+        The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+        """
         return pulumi.get(self, "evaluation_window")
 
     @evaluation_window.setter
@@ -452,6 +459,15 @@ class AlarmArgs:
     def unit(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "unit", value)
 
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> pulumi.Input[Optional['AlarmWarmUpConfigurationArgs']]:
+        return pulumi.get(self, "warm_up_configuration")
+
+    @warm_up_configuration.setter
+    def warm_up_configuration(self, value: pulumi.Input[Optional['AlarmWarmUpConfigurationArgs']]):
+        pulumi.set(self, "warm_up_configuration", value)
+
 
 @pulumi.type_token("aws-native:cloudwatch:Alarm")
 class Alarm(pulumi.CustomResource):
@@ -484,6 +500,7 @@ class Alarm(pulumi.CustomResource):
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['AlarmWarmUpConfigurationArgs', 'AlarmWarmUpConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         The ``AWS::CloudWatch::Alarm`` type specifies an alarm and associates it with the specified metric or metric math expression.
@@ -506,6 +523,7 @@ class Alarm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] evaluation_interval: The frequency, in seconds, at which the alarm is evaluated.
         :param pulumi.Input[_builtins.int] evaluation_periods: The number of periods over which data is compared to the specified threshold. If you are setting an alarm that requires that a number of consecutive data points be breaching to trigger the alarm, this value specifies that number. If you are setting an "M out of N" alarm, this value is the N, and ``DatapointsToAlarm`` is the M.
                 For more information, see [Evaluating an Alarm](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#alarm-evaluation) in the *User Guide*.
+        :param pulumi.Input[Union['AlarmEvaluationWindowArgs', 'AlarmEvaluationWindowArgsDict']] evaluation_window: The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
         :param pulumi.Input[_builtins.str] extended_statistic: The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
                 For an alarm based on a metric, you must specify either ``Statistic`` or ``ExtendedStatistic`` but not both.
                 For an alarm based on a math expression, you can't specify ``ExtendedStatistic``. Instead, you use ``Metrics``.
@@ -582,6 +600,7 @@ class Alarm(pulumi.CustomResource):
                  threshold_metric_id: pulumi.Input[Optional[_builtins.str]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
                  unit: pulumi.Input[Optional[_builtins.str]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['AlarmWarmUpConfigurationArgs', 'AlarmWarmUpConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -616,6 +635,7 @@ class Alarm(pulumi.CustomResource):
             __props__.__dict__["threshold_metric_id"] = threshold_metric_id
             __props__.__dict__["treat_missing_data"] = treat_missing_data
             __props__.__dict__["unit"] = unit
+            __props__.__dict__["warm_up_configuration"] = warm_up_configuration
             __props__.__dict__["arn"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["alarmName"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -667,6 +687,7 @@ class Alarm(pulumi.CustomResource):
         __props__.__dict__["threshold_metric_id"] = None
         __props__.__dict__["treat_missing_data"] = None
         __props__.__dict__["unit"] = None
+        __props__.__dict__["warm_up_configuration"] = None
         return Alarm(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -771,6 +792,9 @@ class Alarm(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="evaluationWindow")
     def evaluation_window(self) -> pulumi.Output[Optional['outputs.AlarmEvaluationWindow']]:
+        """
+        The evaluation window that the alarm uses to select the range of metric data that it evaluates. This is either a sliding window or a wall clock window. For more information, see [Alarm evaluation windows](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-evaluation-window.html) in the *CloudWatch User Guide*.
+        """
         return pulumi.get(self, "evaluation_window")
 
     @_builtins.property
@@ -887,4 +911,9 @@ class Alarm(pulumi.CustomResource):
           You can specify the following values: Seconds, Microseconds, Milliseconds, Bytes, Kilobytes, Megabytes, Gigabytes, Terabytes, Bits, Kilobits, Megabits, Gigabits, Terabits, Percent, Count, Bytes/Second, Kilobytes/Second, Megabytes/Second, Gigabytes/Second, Terabytes/Second, Bits/Second, Kilobits/Second, Megabits/Second, Gigabits/Second, Terabits/Second, Count/Second, or None.
         """
         return pulumi.get(self, "unit")
+
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> pulumi.Output[Optional['outputs.AlarmWarmUpConfiguration']]:
+        return pulumi.get(self, "warm_up_configuration")
 

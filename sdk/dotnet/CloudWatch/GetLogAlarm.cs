@@ -123,6 +123,10 @@ namespace Pulumi.AwsNative.CloudWatch
         /// Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
         /// </summary>
         public readonly string? TreatMissingData;
+        /// <summary>
+        /// The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+        /// </summary>
+        public readonly Outputs.LogAlarmWarmUpConfiguration? WarmUpConfiguration;
 
         [OutputConstructor]
         private GetLogAlarmResult(
@@ -154,7 +158,9 @@ namespace Pulumi.AwsNative.CloudWatch
 
             double? threshold,
 
-            string? treatMissingData)
+            string? treatMissingData,
+
+            Outputs.LogAlarmWarmUpConfiguration? warmUpConfiguration)
         {
             ActionLogLineCount = actionLogLineCount;
             ActionLogLineRoleArn = actionLogLineRoleArn;
@@ -171,6 +177,7 @@ namespace Pulumi.AwsNative.CloudWatch
             Tags = tags;
             Threshold = threshold;
             TreatMissingData = treatMissingData;
+            WarmUpConfiguration = warmUpConfiguration;
         }
     }
 }

@@ -142,6 +142,14 @@ __all__ = [
     'ReplicatorKafkaClusterEncryptionInTransitArgsDict',
     'ReplicatorKafkaClusterMtlsAuthenticationArgs',
     'ReplicatorKafkaClusterMtlsAuthenticationArgsDict',
+    'ReplicatorKafkaClusterOAuthClientCredentialsArgs',
+    'ReplicatorKafkaClusterOAuthClientCredentialsArgsDict',
+    'ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs',
+    'ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgsDict',
+    'ReplicatorKafkaClusterOAuthIamJwtBearerArgs',
+    'ReplicatorKafkaClusterOAuthIamJwtBearerArgsDict',
+    'ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs',
+    'ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgsDict',
     'ReplicatorKafkaClusterSaslScramAuthenticationArgs',
     'ReplicatorKafkaClusterSaslScramAuthenticationArgsDict',
     'ReplicatorLogDeliveryArgs',
@@ -3243,6 +3251,10 @@ class ReplicatorKafkaClusterClientAuthenticationArgsDict(TypedDict):
     """
     Details for mTLS client authentication.
     """
+    sasl_o_auth_bearer: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgsDict']]]
+    """
+    Details for client authentication using SASL/OAUTHBEARER.
+    """
     sasl_scram: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterSaslScramAuthenticationArgsDict']]]
     """
     Details for SASL/SCRAM client authentication.
@@ -3252,15 +3264,19 @@ class ReplicatorKafkaClusterClientAuthenticationArgsDict(TypedDict):
 class ReplicatorKafkaClusterClientAuthenticationArgs:
     def __init__(__self__, *,
                  mtls: pulumi.Input[Optional['ReplicatorKafkaClusterMtlsAuthenticationArgs']] = None,
+                 sasl_o_auth_bearer: pulumi.Input[Optional['ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs']] = None,
                  sasl_scram: pulumi.Input[Optional['ReplicatorKafkaClusterSaslScramAuthenticationArgs']] = None):
         """
         Details of the client authentication used by the Apache Kafka cluster.
 
         :param pulumi.Input['ReplicatorKafkaClusterMtlsAuthenticationArgs'] mtls: Details for mTLS client authentication.
+        :param pulumi.Input['ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs'] sasl_o_auth_bearer: Details for client authentication using SASL/OAUTHBEARER.
         :param pulumi.Input['ReplicatorKafkaClusterSaslScramAuthenticationArgs'] sasl_scram: Details for SASL/SCRAM client authentication.
         """
         if mtls is not None:
             pulumi.set(__self__, "mtls", mtls)
+        if sasl_o_auth_bearer is not None:
+            pulumi.set(__self__, "sasl_o_auth_bearer", sasl_o_auth_bearer)
         if sasl_scram is not None:
             pulumi.set(__self__, "sasl_scram", sasl_scram)
 
@@ -3275,6 +3291,18 @@ class ReplicatorKafkaClusterClientAuthenticationArgs:
     @mtls.setter
     def mtls(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterMtlsAuthenticationArgs']]):
         pulumi.set(self, "mtls", value)
+
+    @_builtins.property
+    @pulumi.getter(name="saslOAuthBearer")
+    def sasl_o_auth_bearer(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs']]:
+        """
+        Details for client authentication using SASL/OAUTHBEARER.
+        """
+        return pulumi.get(self, "sasl_o_auth_bearer")
+
+    @sasl_o_auth_bearer.setter
+    def sasl_o_auth_bearer(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs']]):
+        pulumi.set(self, "sasl_o_auth_bearer", value)
 
     @_builtins.property
     @pulumi.getter(name="saslScram")
@@ -3426,6 +3454,335 @@ class ReplicatorKafkaClusterMtlsAuthenticationArgs:
     @secret_arn.setter
     def secret_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "secret_arn", value)
+
+
+class ReplicatorKafkaClusterOAuthClientCredentialsArgsDict(TypedDict):
+    """
+    Details for SASL/OAUTHBEARER using the standard client_credentials grant. The referenced secret must contain client_id and client_secret.
+    """
+    token_request_secret_arn: pulumi.Input[_builtins.str]
+    """
+    Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterOAuthClientCredentialsArgs:
+    def __init__(__self__, *,
+                 token_request_secret_arn: pulumi.Input[_builtins.str]):
+        """
+        Details for SASL/OAUTHBEARER using the standard client_credentials grant. The referenced secret must contain client_id and client_secret.
+
+        :param pulumi.Input[_builtins.str] token_request_secret_arn: Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+        """
+        pulumi.set(__self__, "token_request_secret_arn", token_request_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenRequestSecretArn")
+    def token_request_secret_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Secrets Manager ARN of the secret containing the client_id and client_secret used to obtain an OAuth Bearer token via the client_credentials grant.
+        """
+        return pulumi.get(self, "token_request_secret_arn")
+
+    @token_request_secret_arn.setter
+    def token_request_secret_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_request_secret_arn", value)
+
+
+class ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgsDict(TypedDict):
+    """
+    Details for SASL/OAUTHBEARER using the client credentials grant with a JWT client assertion (RFC 7521/7523 Section 2.2). An STS-vended JWT is used as the client_assertion.
+    """
+    audience: pulumi.Input[_builtins.str]
+    """
+    The audience (aud claim) set in the STS JWT client assertion.
+    """
+    signing_algorithm: pulumi.Input['ReplicatorJwtSigningAlgorithm']
+    """
+    The algorithm used to sign the JWT client assertion.
+    """
+    token_request_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs:
+    def __init__(__self__, *,
+                 audience: pulumi.Input[_builtins.str],
+                 signing_algorithm: pulumi.Input['ReplicatorJwtSigningAlgorithm'],
+                 token_request_secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Details for SASL/OAUTHBEARER using the client credentials grant with a JWT client assertion (RFC 7521/7523 Section 2.2). An STS-vended JWT is used as the client_assertion.
+
+        :param pulumi.Input[_builtins.str] audience: The audience (aud claim) set in the STS JWT client assertion.
+        :param pulumi.Input['ReplicatorJwtSigningAlgorithm'] signing_algorithm: The algorithm used to sign the JWT client assertion.
+        :param pulumi.Input[_builtins.str] token_request_secret_arn: Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+        """
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+        if token_request_secret_arn is not None:
+            pulumi.set(__self__, "token_request_secret_arn", token_request_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def audience(self) -> pulumi.Input[_builtins.str]:
+        """
+        The audience (aud claim) set in the STS JWT client assertion.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "audience", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> pulumi.Input['ReplicatorJwtSigningAlgorithm']:
+        """
+        The algorithm used to sign the JWT client assertion.
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+    @signing_algorithm.setter
+    def signing_algorithm(self, value: pulumi.Input['ReplicatorJwtSigningAlgorithm']):
+        pulumi.set(self, "signing_algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenRequestSecretArn")
+    def token_request_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional Secrets Manager ARN for identity providers that require client_id as a form parameter alongside the JWT client assertion.
+        """
+        return pulumi.get(self, "token_request_secret_arn")
+
+    @token_request_secret_arn.setter
+    def token_request_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_request_secret_arn", value)
+
+
+class ReplicatorKafkaClusterOAuthIamJwtBearerArgsDict(TypedDict):
+    """
+    Details for SASL/OAUTHBEARER using the JWT Bearer assertion grant (RFC 7523). An STS-vended JWT is used as the assertion.
+    """
+    audience: pulumi.Input[_builtins.str]
+    """
+    The audience (aud claim) set in the STS JWT assertion.
+    """
+    signing_algorithm: pulumi.Input['ReplicatorJwtSigningAlgorithm']
+    """
+    The algorithm used to sign the JWT assertion.
+    """
+    token_request_secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterOAuthIamJwtBearerArgs:
+    def __init__(__self__, *,
+                 audience: pulumi.Input[_builtins.str],
+                 signing_algorithm: pulumi.Input['ReplicatorJwtSigningAlgorithm'],
+                 token_request_secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Details for SASL/OAUTHBEARER using the JWT Bearer assertion grant (RFC 7523). An STS-vended JWT is used as the assertion.
+
+        :param pulumi.Input[_builtins.str] audience: The audience (aud claim) set in the STS JWT assertion.
+        :param pulumi.Input['ReplicatorJwtSigningAlgorithm'] signing_algorithm: The algorithm used to sign the JWT assertion.
+        :param pulumi.Input[_builtins.str] token_request_secret_arn: Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+        """
+        pulumi.set(__self__, "audience", audience)
+        pulumi.set(__self__, "signing_algorithm", signing_algorithm)
+        if token_request_secret_arn is not None:
+            pulumi.set(__self__, "token_request_secret_arn", token_request_secret_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def audience(self) -> pulumi.Input[_builtins.str]:
+        """
+        The audience (aud claim) set in the STS JWT assertion.
+        """
+        return pulumi.get(self, "audience")
+
+    @audience.setter
+    def audience(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "audience", value)
+
+    @_builtins.property
+    @pulumi.getter(name="signingAlgorithm")
+    def signing_algorithm(self) -> pulumi.Input['ReplicatorJwtSigningAlgorithm']:
+        """
+        The algorithm used to sign the JWT assertion.
+        """
+        return pulumi.get(self, "signing_algorithm")
+
+    @signing_algorithm.setter
+    def signing_algorithm(self, value: pulumi.Input['ReplicatorJwtSigningAlgorithm']):
+        pulumi.set(self, "signing_algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenRequestSecretArn")
+    def token_request_secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional Secrets Manager ARN for identity providers that require client authentication alongside the JWT Bearer assertion.
+        """
+        return pulumi.get(self, "token_request_secret_arn")
+
+    @token_request_secret_arn.setter
+    def token_request_secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_request_secret_arn", value)
+
+
+class ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgsDict(TypedDict):
+    """
+    Details for client authentication using SASL/OAUTHBEARER.
+    """
+    token_endpoint_authentication_method: pulumi.Input['ReplicatorTokenEndpointAuthenticationMethod']
+    """
+    How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+    """
+    token_endpoint_url: pulumi.Input[_builtins.str]
+    """
+    The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+    """
+    client_credentials: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsArgsDict']]]
+    """
+    Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+    """
+    client_credentials_assertion: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgsDict']]]
+    """
+    Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+    """
+    iam_jwt_bearer: NotRequired[pulumi.Input[Optional['ReplicatorKafkaClusterOAuthIamJwtBearerArgsDict']]]
+    """
+    Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+    """
+    scope: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    OAuth scope to request. Included in the token request if provided.
+    """
+    token_endpoint_tls_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+    """
+
+@pulumi.input_type
+class ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs:
+    def __init__(__self__, *,
+                 token_endpoint_authentication_method: pulumi.Input['ReplicatorTokenEndpointAuthenticationMethod'],
+                 token_endpoint_url: pulumi.Input[_builtins.str],
+                 client_credentials: pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsArgs']] = None,
+                 client_credentials_assertion: pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs']] = None,
+                 iam_jwt_bearer: pulumi.Input[Optional['ReplicatorKafkaClusterOAuthIamJwtBearerArgs']] = None,
+                 scope: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_endpoint_tls_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Details for client authentication using SASL/OAUTHBEARER.
+
+        :param pulumi.Input['ReplicatorTokenEndpointAuthenticationMethod'] token_endpoint_authentication_method: How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+        :param pulumi.Input[_builtins.str] token_endpoint_url: The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+        :param pulumi.Input['ReplicatorKafkaClusterOAuthClientCredentialsArgs'] client_credentials: Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+        :param pulumi.Input['ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs'] client_credentials_assertion: Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+        :param pulumi.Input['ReplicatorKafkaClusterOAuthIamJwtBearerArgs'] iam_jwt_bearer: Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+        :param pulumi.Input[_builtins.str] scope: OAuth scope to request. Included in the token request if provided.
+        :param pulumi.Input[_builtins.str] token_endpoint_tls_certificate_arn: Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+        """
+        pulumi.set(__self__, "token_endpoint_authentication_method", token_endpoint_authentication_method)
+        pulumi.set(__self__, "token_endpoint_url", token_endpoint_url)
+        if client_credentials is not None:
+            pulumi.set(__self__, "client_credentials", client_credentials)
+        if client_credentials_assertion is not None:
+            pulumi.set(__self__, "client_credentials_assertion", client_credentials_assertion)
+        if iam_jwt_bearer is not None:
+            pulumi.set(__self__, "iam_jwt_bearer", iam_jwt_bearer)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_endpoint_tls_certificate_arn is not None:
+            pulumi.set(__self__, "token_endpoint_tls_certificate_arn", token_endpoint_tls_certificate_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointAuthenticationMethod")
+    def token_endpoint_authentication_method(self) -> pulumi.Input['ReplicatorTokenEndpointAuthenticationMethod']:
+        """
+        How client credentials are sent to the identity provider (POST, BASIC, or NONE).
+        """
+        return pulumi.get(self, "token_endpoint_authentication_method")
+
+    @token_endpoint_authentication_method.setter
+    def token_endpoint_authentication_method(self, value: pulumi.Input['ReplicatorTokenEndpointAuthenticationMethod']):
+        pulumi.set(self, "token_endpoint_authentication_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointUrl")
+    def token_endpoint_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The HTTPS URL of the OAuth token endpoint that vends OAuth Bearer tokens per RFC 6749.
+        """
+        return pulumi.get(self, "token_endpoint_url")
+
+    @token_endpoint_url.setter
+    def token_endpoint_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "token_endpoint_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentials")
+    def client_credentials(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsArgs']]:
+        """
+        Details for SASL/OAUTHBEARER using standard client_credentials grant. Mutually exclusive with iamJwtBearer and clientCredentialsAssertion.
+        """
+        return pulumi.get(self, "client_credentials")
+
+    @client_credentials.setter
+    def client_credentials(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsArgs']]):
+        pulumi.set(self, "client_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsAssertion")
+    def client_credentials_assertion(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs']]:
+        """
+        Details for SASL/OAUTHBEARER using client credentials grant with JWT client assertion (RFC 7521/7523). Mutually exclusive with clientCredentials and iamJwtBearer.
+        """
+        return pulumi.get(self, "client_credentials_assertion")
+
+    @client_credentials_assertion.setter
+    def client_credentials_assertion(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterOAuthClientCredentialsAssertionArgs']]):
+        pulumi.set(self, "client_credentials_assertion", value)
+
+    @_builtins.property
+    @pulumi.getter(name="iamJwtBearer")
+    def iam_jwt_bearer(self) -> pulumi.Input[Optional['ReplicatorKafkaClusterOAuthIamJwtBearerArgs']]:
+        """
+        Details for SASL/OAUTHBEARER using JWT Bearer assertion grant (RFC 7523). Mutually exclusive with clientCredentials and clientCredentialsAssertion.
+        """
+        return pulumi.get(self, "iam_jwt_bearer")
+
+    @iam_jwt_bearer.setter
+    def iam_jwt_bearer(self, value: pulumi.Input[Optional['ReplicatorKafkaClusterOAuthIamJwtBearerArgs']]):
+        pulumi.set(self, "iam_jwt_bearer", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        OAuth scope to request. Included in the token request if provided.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenEndpointTlsCertificateArn")
+    def token_endpoint_tls_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secrets Manager ARN containing a custom CA certificate for the identity provider. Required only if the identity provider uses a private CA.
+        """
+        return pulumi.get(self, "token_endpoint_tls_certificate_arn")
+
+    @token_endpoint_tls_certificate_arn.setter
+    def token_endpoint_tls_certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_endpoint_tls_certificate_arn", value)
 
 
 class ReplicatorKafkaClusterSaslScramAuthenticationArgsDict(TypedDict):

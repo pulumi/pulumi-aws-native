@@ -391,6 +391,37 @@ namespace Pulumi.AwsNative.Msk
     }
 
     /// <summary>
+    /// The algorithm used to sign the STS JWT assertion.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorJwtSigningAlgorithm : IEquatable<ReplicatorJwtSigningAlgorithm>
+    {
+        private readonly string _value;
+
+        private ReplicatorJwtSigningAlgorithm(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorJwtSigningAlgorithm Rs256 { get; } = new ReplicatorJwtSigningAlgorithm("RS256");
+        public static ReplicatorJwtSigningAlgorithm Es384 { get; } = new ReplicatorJwtSigningAlgorithm("ES384");
+
+        public static bool operator ==(ReplicatorJwtSigningAlgorithm left, ReplicatorJwtSigningAlgorithm right) => left.Equals(right);
+        public static bool operator !=(ReplicatorJwtSigningAlgorithm left, ReplicatorJwtSigningAlgorithm right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorJwtSigningAlgorithm value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorJwtSigningAlgorithm other && Equals(other);
+        public bool Equals(ReplicatorJwtSigningAlgorithm other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of encryption in transit to the Apache Kafka cluster.
     /// </summary>
     [EnumType]
@@ -540,6 +571,38 @@ namespace Pulumi.AwsNative.Msk
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ReplicatorReplicationTopicNameConfigurationType other && Equals(other);
         public bool Equals(ReplicatorReplicationTopicNameConfigurationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// How client credentials are sent to the identity provider's token endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicatorTokenEndpointAuthenticationMethod : IEquatable<ReplicatorTokenEndpointAuthenticationMethod>
+    {
+        private readonly string _value;
+
+        private ReplicatorTokenEndpointAuthenticationMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicatorTokenEndpointAuthenticationMethod Post { get; } = new ReplicatorTokenEndpointAuthenticationMethod("POST");
+        public static ReplicatorTokenEndpointAuthenticationMethod Basic { get; } = new ReplicatorTokenEndpointAuthenticationMethod("BASIC");
+        public static ReplicatorTokenEndpointAuthenticationMethod None { get; } = new ReplicatorTokenEndpointAuthenticationMethod("NONE");
+
+        public static bool operator ==(ReplicatorTokenEndpointAuthenticationMethod left, ReplicatorTokenEndpointAuthenticationMethod right) => left.Equals(right);
+        public static bool operator !=(ReplicatorTokenEndpointAuthenticationMethod left, ReplicatorTokenEndpointAuthenticationMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicatorTokenEndpointAuthenticationMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicatorTokenEndpointAuthenticationMethod other && Equals(other);
+        public bool Equals(ReplicatorTokenEndpointAuthenticationMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -521,6 +521,7 @@ export class RestApi extends pulumi.CustomResource {
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a RestApi resource with the given unique name, arguments, and options.
@@ -550,6 +551,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["policy"] = args?.policy;
             resourceInputs["securityPolicy"] = args?.securityPolicy;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["restApiId"] = undefined /*out*/;
             resourceInputs["rootResourceId"] = undefined /*out*/;
         } else {
@@ -572,6 +574,7 @@ export class RestApi extends pulumi.CustomResource {
             resourceInputs["rootResourceId"] = undefined /*out*/;
             resourceInputs["securityPolicy"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
+            resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RestApi.__pulumiType, name, resourceInputs, opts);
@@ -659,4 +662,5 @@ export interface RestApiArgs {
      * The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with `aws:` . The tag value can be up to 256 characters.
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
+    version?: pulumi.Input<string | undefined>;
 }

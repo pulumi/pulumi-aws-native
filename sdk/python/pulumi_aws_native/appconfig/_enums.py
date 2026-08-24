@@ -12,6 +12,7 @@ __all__ = [
     'DeploymentStrategyGrowthType',
     'DeploymentStrategyReplicateTo',
     'EnvironmentDeletionProtectionCheck',
+    'ExperimentDefinitionStatus',
 ]
 
 
@@ -77,3 +78,13 @@ class EnvironmentDeletionProtectionCheck(_builtins.str, Enum):
     ACCOUNT_DEFAULT = "ACCOUNT_DEFAULT"
     APPLY = "APPLY"
     BYPASS = "BYPASS"
+
+
+@pulumi.type_token("aws-native:appconfig:ExperimentDefinitionStatus")
+class ExperimentDefinitionStatus(_builtins.str, Enum):
+    """
+    Current status.
+    """
+    ACTIVE = "ACTIVE"
+    IDLE = "IDLE"
+    ARCHIVED = "ARCHIVED"

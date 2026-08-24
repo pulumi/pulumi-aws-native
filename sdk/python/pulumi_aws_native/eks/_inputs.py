@@ -36,8 +36,12 @@ __all__ = [
     'CapabilitySsoIdentityArgsDict',
     'ClusterAccessConfigArgs',
     'ClusterAccessConfigArgsDict',
+    'ClusterActiveCertificateAuthorityArgs',
+    'ClusterActiveCertificateAuthorityArgsDict',
     'ClusterBlockStorageArgs',
     'ClusterBlockStorageArgsDict',
+    'ClusterCertificateAuthorityArgs',
+    'ClusterCertificateAuthorityArgsDict',
     'ClusterComputeConfigArgs',
     'ClusterComputeConfigArgsDict',
     'ClusterControlPlanePlacementArgs',
@@ -682,6 +686,60 @@ class ClusterAccessConfigArgs:
         pulumi.set(self, "bootstrap_cluster_creator_admin_permissions", value)
 
 
+class ClusterActiveCertificateAuthorityArgsDict(TypedDict):
+    """
+    Identifies the certificate authority currently signing certificates for the cluster.
+    """
+    activated_by: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Indicates whether the active certificate authority was activated by EKS or by the customer.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ID of the active (signing) certificate authority.
+    """
+
+@pulumi.input_type
+class ClusterActiveCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 activated_by: pulumi.Input[Optional[_builtins.str]] = None,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Identifies the certificate authority currently signing certificates for the cluster.
+
+        :param pulumi.Input[_builtins.str] activated_by: Indicates whether the active certificate authority was activated by EKS or by the customer.
+        :param pulumi.Input[_builtins.str] id: The ID of the active (signing) certificate authority.
+        """
+        if activated_by is not None:
+            pulumi.set(__self__, "activated_by", activated_by)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter(name="activatedBy")
+    def activated_by(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Indicates whether the active certificate authority was activated by EKS or by the customer.
+        """
+        return pulumi.get(self, "activated_by")
+
+    @activated_by.setter
+    def activated_by(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "activated_by", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ID of the active (signing) certificate authority.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
 class ClusterBlockStorageArgsDict(TypedDict):
     """
     Todo: add description
@@ -714,6 +772,53 @@ class ClusterBlockStorageArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "enabled", value)
+
+
+class ClusterCertificateAuthorityArgsDict(TypedDict):
+    """
+    The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+    """
+    active: NotRequired[pulumi.Input[Optional['ClusterActiveCertificateAuthorityArgsDict']]]
+    data: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+    """
+
+@pulumi.input_type
+class ClusterCertificateAuthorityArgs:
+    def __init__(__self__, *,
+                 active: pulumi.Input[Optional['ClusterActiveCertificateAuthorityArgs']] = None,
+                 data: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The certificate authority information for the cluster, including the trust bundle and the currently active signing certificate authority.
+
+        :param pulumi.Input[_builtins.str] data: The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+        """
+        if active is not None:
+            pulumi.set(__self__, "active", active)
+        if data is not None:
+            pulumi.set(__self__, "data", data)
+
+    @_builtins.property
+    @pulumi.getter
+    def active(self) -> pulumi.Input[Optional['ClusterActiveCertificateAuthorityArgs']]:
+        return pulumi.get(self, "active")
+
+    @active.setter
+    def active(self, value: pulumi.Input[Optional['ClusterActiveCertificateAuthorityArgs']]):
+        pulumi.set(self, "active", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def data(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The base64-encoded certificate-authority trust bundle for the cluster (all trusted CAs).
+        """
+        return pulumi.get(self, "data")
+
+    @data.setter
+    def data(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data", value)
 
 
 class ClusterComputeConfigArgsDict(TypedDict):

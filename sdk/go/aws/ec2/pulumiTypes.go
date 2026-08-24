@@ -38603,6 +38603,184 @@ func (o VpcEndpointDnsOptionsSpecificationPtrOutput) PrivateDnsSpecifiedDomains(
 	}).(pulumi.StringArrayOutput)
 }
 
+type VpcEndpointServicePrivateDnsNameConfiguration struct {
+	Name  *string `pulumi:"name"`
+	State *string `pulumi:"state"`
+	Type  *string `pulumi:"type"`
+	Value *string `pulumi:"value"`
+}
+
+// VpcEndpointServicePrivateDnsNameConfigurationInput is an input type that accepts VpcEndpointServicePrivateDnsNameConfigurationArgs and VpcEndpointServicePrivateDnsNameConfigurationOutput values.
+// You can construct a concrete instance of `VpcEndpointServicePrivateDnsNameConfigurationInput` via:
+//
+//	VpcEndpointServicePrivateDnsNameConfigurationArgs{...}
+type VpcEndpointServicePrivateDnsNameConfigurationInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServicePrivateDnsNameConfigurationOutput() VpcEndpointServicePrivateDnsNameConfigurationOutput
+	ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(context.Context) VpcEndpointServicePrivateDnsNameConfigurationOutput
+}
+
+type VpcEndpointServicePrivateDnsNameConfigurationArgs struct {
+	Name  pulumi.StringPtrInput `pulumi:"name"`
+	State pulumi.StringPtrInput `pulumi:"state"`
+	Type  pulumi.StringPtrInput `pulumi:"type"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (VpcEndpointServicePrivateDnsNameConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArgs) ToVpcEndpointServicePrivateDnsNameConfigurationOutput() VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return i.ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArgs) ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServicePrivateDnsNameConfigurationOutput)
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArgs) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutput() VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return i.ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VpcEndpointServicePrivateDnsNameConfigurationArgs) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServicePrivateDnsNameConfigurationOutput).ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(ctx)
+}
+
+// VpcEndpointServicePrivateDnsNameConfigurationPtrInput is an input type that accepts VpcEndpointServicePrivateDnsNameConfigurationArgs, VpcEndpointServicePrivateDnsNameConfigurationPtr and VpcEndpointServicePrivateDnsNameConfigurationPtrOutput values.
+// You can construct a concrete instance of `VpcEndpointServicePrivateDnsNameConfigurationPtrInput` via:
+//
+//	        VpcEndpointServicePrivateDnsNameConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcEndpointServicePrivateDnsNameConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutput() VpcEndpointServicePrivateDnsNameConfigurationPtrOutput
+	ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(context.Context) VpcEndpointServicePrivateDnsNameConfigurationPtrOutput
+}
+
+type vpcEndpointServicePrivateDnsNameConfigurationPtrType VpcEndpointServicePrivateDnsNameConfigurationArgs
+
+func VpcEndpointServicePrivateDnsNameConfigurationPtr(v *VpcEndpointServicePrivateDnsNameConfigurationArgs) VpcEndpointServicePrivateDnsNameConfigurationPtrInput {
+	return (*vpcEndpointServicePrivateDnsNameConfigurationPtrType)(v)
+}
+
+func (*vpcEndpointServicePrivateDnsNameConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (i *vpcEndpointServicePrivateDnsNameConfigurationPtrType) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutput() VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return i.ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *vpcEndpointServicePrivateDnsNameConfigurationPtrType) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcEndpointServicePrivateDnsNameConfigurationPtrOutput)
+}
+
+type VpcEndpointServicePrivateDnsNameConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServicePrivateDnsNameConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) ToVpcEndpointServicePrivateDnsNameConfigurationOutput() VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return o
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) ToVpcEndpointServicePrivateDnsNameConfigurationOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return o
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutput() VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return o.ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcEndpointServicePrivateDnsNameConfiguration) *VpcEndpointServicePrivateDnsNameConfiguration {
+		return &v
+	}).(VpcEndpointServicePrivateDnsNameConfigurationPtrOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.Type }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VpcEndpointServicePrivateDnsNameConfiguration) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type VpcEndpointServicePrivateDnsNameConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcEndpointServicePrivateDnsNameConfiguration)(nil)).Elem()
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutput() VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return o
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) ToVpcEndpointServicePrivateDnsNameConfigurationPtrOutputWithContext(ctx context.Context) VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return o
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) Elem() VpcEndpointServicePrivateDnsNameConfigurationOutput {
+	return o.ApplyT(func(v *VpcEndpointServicePrivateDnsNameConfiguration) VpcEndpointServicePrivateDnsNameConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VpcEndpointServicePrivateDnsNameConfiguration
+		return ret
+	}).(VpcEndpointServicePrivateDnsNameConfigurationOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointServicePrivateDnsNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointServicePrivateDnsNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.State
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointServicePrivateDnsNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServicePrivateDnsNameConfigurationPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointServicePrivateDnsNameConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
 type VpcEndpointServiceTag struct {
 	// The key of the tag.
 	//
@@ -40575,6 +40753,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEncryptionControlExclusionsPtrInput)(nil)).Elem(), VpcEncryptionControlExclusionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointDnsOptionsSpecificationPtrInput)(nil)).Elem(), VpcEndpointDnsOptionsSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointServicePrivateDnsNameConfigurationPtrInput)(nil)).Elem(), VpcEndpointServicePrivateDnsNameConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionCloudwatchLogOptionsSpecificationPtrInput)(nil)).Elem(), VpnConnectionCloudwatchLogOptionsSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionIkeVersionsRequestListValueInput)(nil)).Elem(), VpnConnectionIkeVersionsRequestListValueArgs{})
@@ -41029,6 +41209,8 @@ func init() {
 	pulumi.RegisterOutputType(VpcEncryptionControlResourceExclusionsPtrOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationOutput{})
 	pulumi.RegisterOutputType(VpcEndpointDnsOptionsSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationOutput{})
+	pulumi.RegisterOutputType(VpcEndpointServicePrivateDnsNameConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationOutput{})
 	pulumi.RegisterOutputType(VpnConnectionCloudwatchLogOptionsSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(VpnConnectionIkeVersionsRequestListValueOutput{})

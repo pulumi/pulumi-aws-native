@@ -3,6 +3,7 @@
 
 // Export sub-modules:
 import * as accountaccess from "./accountaccess";
+import * as agentregistry from "./agentregistry";
 import * as amazonmq from "./amazonmq";
 import * as amplify from "./amplify";
 import * as amplifyuibuilder from "./amplifyuibuilder";
@@ -45,6 +46,7 @@ import * as cloudtrail from "./cloudtrail";
 import * as cloudwatch from "./cloudwatch";
 import * as codeartifact from "./codeartifact";
 import * as codebuild from "./codebuild";
+import * as codeconnections from "./codeconnections";
 import * as codeguruprofiler from "./codeguruprofiler";
 import * as codegurureviewer from "./codegurureviewer";
 import * as codepipeline from "./codepipeline";
@@ -106,6 +108,7 @@ import * as internetmonitor from "./internetmonitor";
 import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
 import * as iotevents from "./iotevents";
+import * as iotsecuretunneling from "./iotsecuretunneling";
 import * as iotsitewise from "./iotsitewise";
 import * as iottwinmaker from "./iottwinmaker";
 import * as iotwireless from "./iotwireless";
@@ -133,6 +136,7 @@ import * as mediapackage from "./mediapackage";
 import * as mediapackagev2 from "./mediapackagev2";
 import * as mediatailor from "./mediatailor";
 import * as memorydb from "./memorydb";
+import * as mgn from "./mgn";
 import * as msk from "./msk";
 import * as mwaa from "./mwaa";
 import * as mwaaserverless from "./mwaaserverless";
@@ -209,8 +213,10 @@ import * as storagegateway from "./storagegateway";
 import * as supportapp from "./supportapp";
 import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
+import * as textract from "./textract";
 import * as timestream from "./timestream";
 import * as transfer from "./transfer";
+import * as translate from "./translate";
 import * as uxc from "./uxc";
 import * as verifiedpermissions from "./verifiedpermissions";
 import * as vpclattice from "./vpclattice";
@@ -224,6 +230,7 @@ import * as workspacesweb from "./workspacesweb";
 
 export {
     accountaccess,
+    agentregistry,
     amazonmq,
     amplify,
     amplifyuibuilder,
@@ -266,6 +273,7 @@ export {
     cloudwatch,
     codeartifact,
     codebuild,
+    codeconnections,
     codeguruprofiler,
     codegurureviewer,
     codepipeline,
@@ -327,6 +335,7 @@ export {
     iot,
     iotanalytics,
     iotevents,
+    iotsecuretunneling,
     iotsitewise,
     iottwinmaker,
     iotwireless,
@@ -354,6 +363,7 @@ export {
     mediapackagev2,
     mediatailor,
     memorydb,
+    mgn,
     msk,
     mwaa,
     mwaaserverless,
@@ -430,8 +440,10 @@ export {
     supportapp,
     synthetics,
     systemsmanagersap,
+    textract,
     timestream,
     transfer,
+    translate,
     uxc,
     verifiedpermissions,
     vpclattice,

@@ -2,6 +2,26 @@
   "typeName" : "AWS::Personalize::Schema",
   "description" : "Resource schema for AWS::Personalize::Schema.",
   "sourceUrl" : "https://github.com/aws-cloudformation/aws-cloudformation-resource-providers-personalize",
+  "definitions" : {
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "pattern" : "^(?!aws:)[a-zA-Z+-=._:/]+$",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
+    }
+  },
   "properties" : {
     "Name" : {
       "description" : "Name for the schema.",
@@ -25,19 +45,36 @@
       "description" : "The domain of a Domain dataset group.",
       "type" : "string",
       "enum" : [ "ECOMMERCE", "VIDEO_ON_DEMAND" ]
+    },
+    "Tags" : {
+      "description" : "The tags used to organize, track, or control access for this resource.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "minItems" : 0,
+      "maxItems" : 50
     }
   },
   "additionalProperties" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "personalize:TagResource", "personalize:UntagResource", "personalize:ListTagsForResource" ]
+  },
   "required" : [ "Name", "Schema" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/Schema", "/properties/Domain" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/Schema", "/properties/Domain", "/properties/Tags" ],
   "readOnlyProperties" : [ "/properties/SchemaArn" ],
   "primaryIdentifier" : [ "/properties/SchemaArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "personalize:CreateSchema", "personalize:DescribeSchema" ]
+      "permissions" : [ "personalize:CreateSchema", "personalize:DescribeSchema", "personalize:TagResource", "personalize:ListTagsForResource" ]
     },
     "read" : {
-      "permissions" : [ "personalize:DescribeSchema" ]
+      "permissions" : [ "personalize:DescribeSchema", "personalize:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "personalize:DeleteSchema", "personalize:DescribeSchema" ]

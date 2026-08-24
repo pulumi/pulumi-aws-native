@@ -12,12 +12,14 @@ from .configuration import *
 from .get_annotation_store import *
 from .get_configuration import *
 from .get_reference_store import *
+from .get_run_cache import *
 from .get_run_group import *
 from .get_sequence_store import *
 from .get_variant_store import *
 from .get_workflow import *
 from .get_workflow_version import *
 from .reference_store import *
+from .run_cache import *
 from .run_group import *
 from .sequence_store import *
 from .variant_store import *

@@ -162,7 +162,8 @@ func (o FeedAspectRatioPtrOutput) Width() pulumi.IntPtrOutput {
 }
 
 type FeedClippingConfig struct {
-	CallbackMetadata *string `pulumi:"callbackMetadata"`
+	CallbackMetadata        *string                      `pulumi:"callbackMetadata"`
+	DataSourceConfiguration *FeedDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 }
 
 // FeedClippingConfigInput is an input type that accepts FeedClippingConfigArgs and FeedClippingConfigOutput values.
@@ -177,7 +178,8 @@ type FeedClippingConfigInput interface {
 }
 
 type FeedClippingConfigArgs struct {
-	CallbackMetadata pulumi.StringPtrInput `pulumi:"callbackMetadata"`
+	CallbackMetadata        pulumi.StringPtrInput               `pulumi:"callbackMetadata"`
+	DataSourceConfiguration FeedDataSourceConfigurationPtrInput `pulumi:"dataSourceConfiguration"`
 }
 
 func (FeedClippingConfigArgs) ElementType() reflect.Type {
@@ -208,6 +210,10 @@ func (o FeedClippingConfigOutput) ToFeedClippingConfigOutputWithContext(ctx cont
 
 func (o FeedClippingConfigOutput) CallbackMetadata() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FeedClippingConfig) *string { return v.CallbackMetadata }).(pulumi.StringPtrOutput)
+}
+
+func (o FeedClippingConfigOutput) DataSourceConfiguration() FeedDataSourceConfigurationPtrOutput {
+	return o.ApplyT(func(v FeedClippingConfig) *FeedDataSourceConfiguration { return v.DataSourceConfiguration }).(FeedDataSourceConfigurationPtrOutput)
 }
 
 type FeedCroppingConfig struct {
@@ -251,6 +257,139 @@ func (o FeedCroppingConfigOutput) ToFeedCroppingConfigOutput() FeedCroppingConfi
 
 func (o FeedCroppingConfigOutput) ToFeedCroppingConfigOutputWithContext(ctx context.Context) FeedCroppingConfigOutput {
 	return o
+}
+
+type FeedDataSourceConfiguration struct {
+	FixtureId string `pulumi:"fixtureId"`
+}
+
+// FeedDataSourceConfigurationInput is an input type that accepts FeedDataSourceConfigurationArgs and FeedDataSourceConfigurationOutput values.
+// You can construct a concrete instance of `FeedDataSourceConfigurationInput` via:
+//
+//	FeedDataSourceConfigurationArgs{...}
+type FeedDataSourceConfigurationInput interface {
+	pulumi.Input
+
+	ToFeedDataSourceConfigurationOutput() FeedDataSourceConfigurationOutput
+	ToFeedDataSourceConfigurationOutputWithContext(context.Context) FeedDataSourceConfigurationOutput
+}
+
+type FeedDataSourceConfigurationArgs struct {
+	FixtureId pulumi.StringInput `pulumi:"fixtureId"`
+}
+
+func (FeedDataSourceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i FeedDataSourceConfigurationArgs) ToFeedDataSourceConfigurationOutput() FeedDataSourceConfigurationOutput {
+	return i.ToFeedDataSourceConfigurationOutputWithContext(context.Background())
+}
+
+func (i FeedDataSourceConfigurationArgs) ToFeedDataSourceConfigurationOutputWithContext(ctx context.Context) FeedDataSourceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedDataSourceConfigurationOutput)
+}
+
+func (i FeedDataSourceConfigurationArgs) ToFeedDataSourceConfigurationPtrOutput() FeedDataSourceConfigurationPtrOutput {
+	return i.ToFeedDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FeedDataSourceConfigurationArgs) ToFeedDataSourceConfigurationPtrOutputWithContext(ctx context.Context) FeedDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedDataSourceConfigurationOutput).ToFeedDataSourceConfigurationPtrOutputWithContext(ctx)
+}
+
+// FeedDataSourceConfigurationPtrInput is an input type that accepts FeedDataSourceConfigurationArgs, FeedDataSourceConfigurationPtr and FeedDataSourceConfigurationPtrOutput values.
+// You can construct a concrete instance of `FeedDataSourceConfigurationPtrInput` via:
+//
+//	        FeedDataSourceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeedDataSourceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFeedDataSourceConfigurationPtrOutput() FeedDataSourceConfigurationPtrOutput
+	ToFeedDataSourceConfigurationPtrOutputWithContext(context.Context) FeedDataSourceConfigurationPtrOutput
+}
+
+type feedDataSourceConfigurationPtrType FeedDataSourceConfigurationArgs
+
+func FeedDataSourceConfigurationPtr(v *FeedDataSourceConfigurationArgs) FeedDataSourceConfigurationPtrInput {
+	return (*feedDataSourceConfigurationPtrType)(v)
+}
+
+func (*feedDataSourceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedDataSourceConfiguration)(nil)).Elem()
+}
+
+func (i *feedDataSourceConfigurationPtrType) ToFeedDataSourceConfigurationPtrOutput() FeedDataSourceConfigurationPtrOutput {
+	return i.ToFeedDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *feedDataSourceConfigurationPtrType) ToFeedDataSourceConfigurationPtrOutputWithContext(ctx context.Context) FeedDataSourceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedDataSourceConfigurationPtrOutput)
+}
+
+type FeedDataSourceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FeedDataSourceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o FeedDataSourceConfigurationOutput) ToFeedDataSourceConfigurationOutput() FeedDataSourceConfigurationOutput {
+	return o
+}
+
+func (o FeedDataSourceConfigurationOutput) ToFeedDataSourceConfigurationOutputWithContext(ctx context.Context) FeedDataSourceConfigurationOutput {
+	return o
+}
+
+func (o FeedDataSourceConfigurationOutput) ToFeedDataSourceConfigurationPtrOutput() FeedDataSourceConfigurationPtrOutput {
+	return o.ToFeedDataSourceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FeedDataSourceConfigurationOutput) ToFeedDataSourceConfigurationPtrOutputWithContext(ctx context.Context) FeedDataSourceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeedDataSourceConfiguration) *FeedDataSourceConfiguration {
+		return &v
+	}).(FeedDataSourceConfigurationPtrOutput)
+}
+
+func (o FeedDataSourceConfigurationOutput) FixtureId() pulumi.StringOutput {
+	return o.ApplyT(func(v FeedDataSourceConfiguration) string { return v.FixtureId }).(pulumi.StringOutput)
+}
+
+type FeedDataSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FeedDataSourceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeedDataSourceConfiguration)(nil)).Elem()
+}
+
+func (o FeedDataSourceConfigurationPtrOutput) ToFeedDataSourceConfigurationPtrOutput() FeedDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o FeedDataSourceConfigurationPtrOutput) ToFeedDataSourceConfigurationPtrOutputWithContext(ctx context.Context) FeedDataSourceConfigurationPtrOutput {
+	return o
+}
+
+func (o FeedDataSourceConfigurationPtrOutput) Elem() FeedDataSourceConfigurationOutput {
+	return o.ApplyT(func(v *FeedDataSourceConfiguration) FeedDataSourceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FeedDataSourceConfiguration
+		return ret
+	}).(FeedDataSourceConfigurationOutput)
+}
+
+func (o FeedDataSourceConfigurationPtrOutput) FixtureId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FeedDataSourceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FixtureId
+	}).(pulumi.StringPtrOutput)
 }
 
 type FeedGetOutput struct {
@@ -584,6 +723,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedAspectRatioPtrInput)(nil)).Elem(), FeedAspectRatioArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedClippingConfigInput)(nil)).Elem(), FeedClippingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedCroppingConfigInput)(nil)).Elem(), FeedCroppingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedDataSourceConfigurationInput)(nil)).Elem(), FeedDataSourceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedDataSourceConfigurationPtrInput)(nil)).Elem(), FeedDataSourceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedGetOutputInput)(nil)).Elem(), FeedGetOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedGetOutputArrayInput)(nil)).Elem(), FeedGetOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputConfig0PropertiesInput)(nil)).Elem(), FeedOutputConfig0PropertiesArgs{})
@@ -594,6 +735,8 @@ func init() {
 	pulumi.RegisterOutputType(FeedAspectRatioPtrOutput{})
 	pulumi.RegisterOutputType(FeedClippingConfigOutput{})
 	pulumi.RegisterOutputType(FeedCroppingConfigOutput{})
+	pulumi.RegisterOutputType(FeedDataSourceConfigurationOutput{})
+	pulumi.RegisterOutputType(FeedDataSourceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FeedGetOutputOutput{})
 	pulumi.RegisterOutputType(FeedGetOutputArrayOutput{})
 	pulumi.RegisterOutputType(FeedOutputConfig0PropertiesOutput{})

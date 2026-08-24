@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SoftwarePackage{}
 	case "aws-native:iot:SoftwarePackageVersion":
 		r = &SoftwarePackageVersion{}
+	case "aws-native:iot:Stream":
+		r = &Stream{}
 	case "aws-native:iot:Thing":
 		r = &Thing{}
 	case "aws-native:iot:ThingGroup":

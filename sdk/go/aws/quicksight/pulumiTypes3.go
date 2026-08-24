@@ -13,6 +13,172 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type TemplateFilter struct {
+	// A `CategoryFilter` filters text values.
+	//
+	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
+	CategoryFilter *TemplateCategoryFilter `pulumi:"categoryFilter"`
+	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+	NestedFilter *TemplateNestedFilter `pulumi:"nestedFilter"`
+	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
+	NumericEqualityFilter *TemplateNumericEqualityFilter `pulumi:"numericEqualityFilter"`
+	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
+	NumericRangeFilter *TemplateNumericRangeFilter `pulumi:"numericRangeFilter"`
+	// A `RelativeDatesFilter` filters date values that are relative to a given date.
+	RelativeDatesFilter *TemplateRelativeDatesFilter `pulumi:"relativeDatesFilter"`
+	// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
+	TimeEqualityFilter *TemplateTimeEqualityFilter `pulumi:"timeEqualityFilter"`
+	// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
+	TimeRangeFilter *TemplateTimeRangeFilter `pulumi:"timeRangeFilter"`
+	// A `TopBottomFilter` filters data to the top or bottom values for a given column.
+	TopBottomFilter *TemplateTopBottomFilter `pulumi:"topBottomFilter"`
+}
+
+// TemplateFilterInput is an input type that accepts TemplateFilterArgs and TemplateFilterOutput values.
+// You can construct a concrete instance of `TemplateFilterInput` via:
+//
+//	TemplateFilterArgs{...}
+type TemplateFilterInput interface {
+	pulumi.Input
+
+	ToTemplateFilterOutput() TemplateFilterOutput
+	ToTemplateFilterOutputWithContext(context.Context) TemplateFilterOutput
+}
+
+type TemplateFilterArgs struct {
+	// A `CategoryFilter` filters text values.
+	//
+	// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
+	CategoryFilter TemplateCategoryFilterPtrInput `pulumi:"categoryFilter"`
+	// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+	NestedFilter TemplateNestedFilterPtrInput `pulumi:"nestedFilter"`
+	// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
+	NumericEqualityFilter TemplateNumericEqualityFilterPtrInput `pulumi:"numericEqualityFilter"`
+	// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
+	NumericRangeFilter TemplateNumericRangeFilterPtrInput `pulumi:"numericRangeFilter"`
+	// A `RelativeDatesFilter` filters date values that are relative to a given date.
+	RelativeDatesFilter TemplateRelativeDatesFilterPtrInput `pulumi:"relativeDatesFilter"`
+	// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
+	TimeEqualityFilter TemplateTimeEqualityFilterPtrInput `pulumi:"timeEqualityFilter"`
+	// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
+	TimeRangeFilter TemplateTimeRangeFilterPtrInput `pulumi:"timeRangeFilter"`
+	// A `TopBottomFilter` filters data to the top or bottom values for a given column.
+	TopBottomFilter TemplateTopBottomFilterPtrInput `pulumi:"topBottomFilter"`
+}
+
+func (TemplateFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilter)(nil)).Elem()
+}
+
+func (i TemplateFilterArgs) ToTemplateFilterOutput() TemplateFilterOutput {
+	return i.ToTemplateFilterOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterArgs) ToTemplateFilterOutputWithContext(ctx context.Context) TemplateFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterOutput)
+}
+
+// TemplateFilterArrayInput is an input type that accepts TemplateFilterArray and TemplateFilterArrayOutput values.
+// You can construct a concrete instance of `TemplateFilterArrayInput` via:
+//
+//	TemplateFilterArray{ TemplateFilterArgs{...} }
+type TemplateFilterArrayInput interface {
+	pulumi.Input
+
+	ToTemplateFilterArrayOutput() TemplateFilterArrayOutput
+	ToTemplateFilterArrayOutputWithContext(context.Context) TemplateFilterArrayOutput
+}
+
+type TemplateFilterArray []TemplateFilterInput
+
+func (TemplateFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateFilter)(nil)).Elem()
+}
+
+func (i TemplateFilterArray) ToTemplateFilterArrayOutput() TemplateFilterArrayOutput {
+	return i.ToTemplateFilterArrayOutputWithContext(context.Background())
+}
+
+func (i TemplateFilterArray) ToTemplateFilterArrayOutputWithContext(ctx context.Context) TemplateFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TemplateFilterArrayOutput)
+}
+
+type TemplateFilterOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TemplateFilter)(nil)).Elem()
+}
+
+func (o TemplateFilterOutput) ToTemplateFilterOutput() TemplateFilterOutput {
+	return o
+}
+
+func (o TemplateFilterOutput) ToTemplateFilterOutputWithContext(ctx context.Context) TemplateFilterOutput {
+	return o
+}
+
+// A `CategoryFilter` filters text values.
+//
+// For more information, see [Adding text filters](https://docs.aws.amazon.com/quicksight/latest/user/add-a-text-filter-data-prep.html) in the *Amazon Quick Suite User Guide* .
+func (o TemplateFilterOutput) CategoryFilter() TemplateCategoryFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateCategoryFilter { return v.CategoryFilter }).(TemplateCategoryFilterPtrOutput)
+}
+
+// A `NestedFilter` filters data with a subset of data that is defined by the nested inner filter.
+func (o TemplateFilterOutput) NestedFilter() TemplateNestedFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateNestedFilter { return v.NestedFilter }).(TemplateNestedFilterPtrOutput)
+}
+
+// A `NumericEqualityFilter` filters numeric values that equal or do not equal a given numeric value.
+func (o TemplateFilterOutput) NumericEqualityFilter() TemplateNumericEqualityFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateNumericEqualityFilter { return v.NumericEqualityFilter }).(TemplateNumericEqualityFilterPtrOutput)
+}
+
+// A `NumericRangeFilter` filters numeric values that are either inside or outside a given numeric range.
+func (o TemplateFilterOutput) NumericRangeFilter() TemplateNumericRangeFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateNumericRangeFilter { return v.NumericRangeFilter }).(TemplateNumericRangeFilterPtrOutput)
+}
+
+// A `RelativeDatesFilter` filters date values that are relative to a given date.
+func (o TemplateFilterOutput) RelativeDatesFilter() TemplateRelativeDatesFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateRelativeDatesFilter { return v.RelativeDatesFilter }).(TemplateRelativeDatesFilterPtrOutput)
+}
+
+// A `TimeEqualityFilter` filters date-time values that equal or do not equal a given date/time value.
+func (o TemplateFilterOutput) TimeEqualityFilter() TemplateTimeEqualityFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateTimeEqualityFilter { return v.TimeEqualityFilter }).(TemplateTimeEqualityFilterPtrOutput)
+}
+
+// A `TimeRangeFilter` filters date-time values that are either inside or outside a given date/time range.
+func (o TemplateFilterOutput) TimeRangeFilter() TemplateTimeRangeFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateTimeRangeFilter { return v.TimeRangeFilter }).(TemplateTimeRangeFilterPtrOutput)
+}
+
+// A `TopBottomFilter` filters data to the top or bottom values for a given column.
+func (o TemplateFilterOutput) TopBottomFilter() TemplateTopBottomFilterPtrOutput {
+	return o.ApplyT(func(v TemplateFilter) *TemplateTopBottomFilter { return v.TopBottomFilter }).(TemplateTopBottomFilterPtrOutput)
+}
+
+type TemplateFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (TemplateFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TemplateFilter)(nil)).Elem()
+}
+
+func (o TemplateFilterArrayOutput) ToTemplateFilterArrayOutput() TemplateFilterArrayOutput {
+	return o
+}
+
+func (o TemplateFilterArrayOutput) ToTemplateFilterArrayOutputWithContext(ctx context.Context) TemplateFilterArrayOutput {
+	return o
+}
+
+func (o TemplateFilterArrayOutput) Index(i pulumi.IntInput) TemplateFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TemplateFilter {
+		return vs[0].([]TemplateFilter)[vs[1].(int)]
+	}).(TemplateFilterOutput)
+}
+
 type TemplateFilterControl struct {
 	// A control from a filter that is scoped across more than one sheet. This represents your filter control on a sheet
 	CrossSheet *TemplateFilterCrossSheetControl `pulumi:"crossSheet"`
@@ -70700,6 +70866,8 @@ type VpcConnectionTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterInput)(nil)).Elem(), TemplateFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterArrayInput)(nil)).Elem(), TemplateFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterControlInput)(nil)).Elem(), TemplateFilterControlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterControlArrayInput)(nil)).Elem(), TemplateFilterControlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TemplateFilterCrossSheetControlInput)(nil)).Elem(), TemplateFilterCrossSheetControlArgs{})
@@ -71487,6 +71655,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicV2DataSetRelationEndpointInput)(nil)).Elem(), TopicV2DataSetRelationEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicV2ResourcePermissionInput)(nil)).Elem(), TopicV2ResourcePermissionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicV2ResourcePermissionArrayInput)(nil)).Elem(), TopicV2ResourcePermissionArray{})
+	pulumi.RegisterOutputType(TemplateFilterOutput{})
+	pulumi.RegisterOutputType(TemplateFilterArrayOutput{})
 	pulumi.RegisterOutputType(TemplateFilterControlOutput{})
 	pulumi.RegisterOutputType(TemplateFilterControlArrayOutput{})
 	pulumi.RegisterOutputType(TemplateFilterCrossSheetControlOutput{})

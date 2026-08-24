@@ -136,6 +136,10 @@ __all__ = [
     'IndexUserTokenConfigurationArgsDict',
     'IndexValueImportanceItemArgs',
     'IndexValueImportanceItemArgsDict',
+    'QuerySuggestionsBlockListS3PathArgs',
+    'QuerySuggestionsBlockListS3PathArgsDict',
+    'ThesaurusS3PathArgs',
+    'ThesaurusS3PathArgsDict',
 ]
 
 class DataSourceAccessControlListConfigurationArgsDict(TypedDict):
@@ -5212,5 +5216,109 @@ class IndexValueImportanceItemArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "value", value)
+
+
+class QuerySuggestionsBlockListS3PathArgsDict(TypedDict):
+    """
+    Information required to find a specific file in an Amazon S3 bucket.
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket that contains the file.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the file.
+    """
+
+@pulumi.input_type
+class QuerySuggestionsBlockListS3PathArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[_builtins.str]):
+        """
+        Information required to find a specific file in an Amazon S3 bucket.
+
+        :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket that contains the file.
+        :param pulumi.Input[_builtins.str] key: The name of the file.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the S3 bucket that contains the file.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+
+class ThesaurusS3PathArgsDict(TypedDict):
+    """
+    Information required to find a specific file in an Amazon S3 bucket.
+    """
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket that contains the file.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the file.
+    """
+
+@pulumi.input_type
+class ThesaurusS3PathArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[_builtins.str]):
+        """
+        Information required to find a specific file in an Amazon S3 bucket.
+
+        :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket that contains the file.
+        :param pulumi.Input[_builtins.str] key: The name of the file.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "key", key)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the S3 bucket that contains the file.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the file.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
 
 

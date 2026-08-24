@@ -313,6 +313,8 @@ __all__ = [
     'RuntimeAllowedWorkloadConfiguration',
     'RuntimeAuthorizerConfiguration',
     'RuntimeAuthorizingClaimMatchValueType',
+    'RuntimeCapacityProviderConfiguration',
+    'RuntimeCapacityProviderVolumeConfiguration',
     'RuntimeClaimMatchValueType',
     'RuntimeCode',
     'RuntimeCodeConfiguration',
@@ -13728,6 +13730,85 @@ class RuntimeAuthorizingClaimMatchValueType(dict):
 
 
 @pulumi.output_type
+class RuntimeCapacityProviderConfiguration(dict):
+    """
+    Configuration for a capacity provider
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityProviderArn":
+            suggest = "capacity_provider_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeCapacityProviderConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeCapacityProviderConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeCapacityProviderConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_provider_arn: _builtins.str):
+        """
+        Configuration for a capacity provider
+        """
+        pulumi.set(__self__, "capacity_provider_arn", capacity_provider_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderArn")
+    def capacity_provider_arn(self) -> _builtins.str:
+        return pulumi.get(self, "capacity_provider_arn")
+
+
+@pulumi.output_type
+class RuntimeCapacityProviderVolumeConfiguration(dict):
+    """
+    Configuration for a CapacityProvider-managed volume to mount into the agent runtime
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mountPath":
+            suggest = "mount_path"
+        elif key == "volumeName":
+            suggest = "volume_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuntimeCapacityProviderVolumeConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuntimeCapacityProviderVolumeConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuntimeCapacityProviderVolumeConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mount_path: _builtins.str,
+                 volume_name: _builtins.str):
+        """
+        Configuration for a CapacityProvider-managed volume to mount into the agent runtime
+        """
+        pulumi.set(__self__, "mount_path", mount_path)
+        pulumi.set(__self__, "volume_name", volume_name)
+
+    @_builtins.property
+    @pulumi.getter(name="mountPath")
+    def mount_path(self) -> _builtins.str:
+        return pulumi.get(self, "mount_path")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeName")
+    def volume_name(self) -> _builtins.str:
+        return pulumi.get(self, "volume_name")
+
+
+@pulumi.output_type
 class RuntimeClaimMatchValueType(dict):
     """
     The value or values in the custom claim to match for
@@ -14099,7 +14180,9 @@ class RuntimeFilesystemConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "efsAccessPoint":
+        if key == "capacityProviderVolume":
+            suggest = "capacity_provider_volume"
+        elif key == "efsAccessPoint":
             suggest = "efs_access_point"
         elif key == "s3FilesAccessPoint":
             suggest = "s3_files_access_point"
@@ -14118,18 +14201,26 @@ class RuntimeFilesystemConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 capacity_provider_volume: Optional['outputs.RuntimeCapacityProviderVolumeConfiguration'] = None,
                  efs_access_point: Optional['outputs.RuntimeEfsAccessPointConfiguration'] = None,
                  s3_files_access_point: Optional['outputs.RuntimeS3FilesAccessPointConfiguration'] = None,
                  session_storage: Optional['outputs.RuntimeSessionStorageConfiguration'] = None):
         """
         Filesystem configuration for the runtime
         """
+        if capacity_provider_volume is not None:
+            pulumi.set(__self__, "capacity_provider_volume", capacity_provider_volume)
         if efs_access_point is not None:
             pulumi.set(__self__, "efs_access_point", efs_access_point)
         if s3_files_access_point is not None:
             pulumi.set(__self__, "s3_files_access_point", s3_files_access_point)
         if session_storage is not None:
             pulumi.set(__self__, "session_storage", session_storage)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderVolume")
+    def capacity_provider_volume(self) -> Optional['outputs.RuntimeCapacityProviderVolumeConfiguration']:
+        return pulumi.get(self, "capacity_provider_volume")
 
     @_builtins.property
     @pulumi.getter(name="efsAccessPoint")

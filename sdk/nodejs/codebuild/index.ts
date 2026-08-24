@@ -15,6 +15,16 @@ export const getFleet: typeof import("./getFleet").getFleet = null as any;
 export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
 utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
 
+export { GetSourceCredentialArgs, GetSourceCredentialResult, GetSourceCredentialOutputArgs } from "./getSourceCredential";
+export const getSourceCredential: typeof import("./getSourceCredential").getSourceCredential = null as any;
+export const getSourceCredentialOutput: typeof import("./getSourceCredential").getSourceCredentialOutput = null as any;
+utilities.lazyLoad(exports, ["getSourceCredential","getSourceCredentialOutput"], () => require("./getSourceCredential"));
+
+export { SourceCredentialArgs } from "./sourceCredential";
+export type SourceCredential = import("./sourceCredential").SourceCredential;
+export const SourceCredential: typeof import("./sourceCredential").SourceCredential = null as any;
+utilities.lazyLoad(exports, ["SourceCredential"], () => require("./sourceCredential"));
+
 
 // Export enums:
 export * from "../types/enums/codebuild";
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:codebuild:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
+            case "aws-native:codebuild:SourceCredential":
+                return new SourceCredential(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

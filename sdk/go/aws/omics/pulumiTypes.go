@@ -962,6 +962,13 @@ func (o ReferenceStoreSseConfigPtrOutput) Type() ReferenceStoreEncryptionTypePtr
 	}).(ReferenceStoreEncryptionTypePtrOutput)
 }
 
+type RunCacheTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // Server-side encryption (SSE) settings for a store.
 type SequenceStoreSseConfig struct {
 	// An encryption key ARN.

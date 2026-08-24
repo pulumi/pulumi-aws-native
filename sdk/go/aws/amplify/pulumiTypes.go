@@ -1985,6 +1985,11 @@ func (o DomainSubDomainSettingArrayOutput) Index(i pulumi.IntInput) DomainSubDom
 	}).(DomainSubDomainSettingOutput)
 }
 
+type WebhookTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigInput)(nil)).Elem(), AppAutoBranchCreationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppAutoBranchCreationConfigPtrInput)(nil)).Elem(), AppAutoBranchCreationConfigArgs{})

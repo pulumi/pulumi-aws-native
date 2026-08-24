@@ -106,6 +106,35 @@ export const SchemaDataFormat = {
  */
 export type SchemaDataFormat = (typeof SchemaDataFormat)[keyof typeof SchemaDataFormat];
 
+export const SessionStatus = {
+    Provisioning: "PROVISIONING",
+    Ready: "READY",
+    Failed: "FAILED",
+    Timeout: "TIMEOUT",
+    Stopping: "STOPPING",
+    Stopped: "STOPPED",
+} as const;
+
+/**
+ * The session status.
+ */
+export type SessionStatus = (typeof SessionStatus)[keyof typeof SessionStatus];
+
+export const SessionWorkerType = {
+    Standard: "Standard",
+    G1x: "G.1X",
+    G2x: "G.2X",
+    G025x: "G.025X",
+    G4x: "G.4X",
+    G8x: "G.8X",
+    Z2x: "Z.2X",
+} as const;
+
+/**
+ * The type of predefined worker that is allocated when a session runs.
+ */
+export type SessionWorkerType = (typeof SessionWorkerType)[keyof typeof SessionWorkerType];
+
 export const UserDefinedFunctionFunctionType = {
     RegularFunction: "REGULAR_FUNCTION",
     AggregateFunction: "AGGREGATE_FUNCTION",

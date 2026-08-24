@@ -151,7 +151,7 @@ class PaymentCredentialProvider(pulumi.CustomResource):
             __props__.__dict__["credential_provider_arn"] = None
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["provider_configuration_output"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["credentialProviderVendor", "name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(PaymentCredentialProvider, __self__).__init__(
             'aws-native:bedrockagentcore:PaymentCredentialProvider',

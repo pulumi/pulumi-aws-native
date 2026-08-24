@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVpcEndpointServiceResult:
-    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, service_id=None, supported_ip_address_types=None, supported_regions=None, tags=None):
+    def __init__(__self__, acceptance_required=None, gateway_load_balancer_arns=None, network_load_balancer_arns=None, payer_responsibility=None, private_dns_name=None, private_dns_name_configuration=None, service_id=None, supported_ip_address_types=None, supported_regions=None, tags=None):
         if acceptance_required and not isinstance(acceptance_required, bool):
             raise TypeError("Expected argument 'acceptance_required' to be a bool")
         pulumi.set(__self__, "acceptance_required", acceptance_required)
@@ -38,6 +39,12 @@ class GetVpcEndpointServiceResult:
         if payer_responsibility and not isinstance(payer_responsibility, str):
             raise TypeError("Expected argument 'payer_responsibility' to be a str")
         pulumi.set(__self__, "payer_responsibility", payer_responsibility)
+        if private_dns_name and not isinstance(private_dns_name, str):
+            raise TypeError("Expected argument 'private_dns_name' to be a str")
+        pulumi.set(__self__, "private_dns_name", private_dns_name)
+        if private_dns_name_configuration and not isinstance(private_dns_name_configuration, dict):
+            raise TypeError("Expected argument 'private_dns_name_configuration' to be a dict")
+        pulumi.set(__self__, "private_dns_name_configuration", private_dns_name_configuration)
         if service_id and not isinstance(service_id, str):
             raise TypeError("Expected argument 'service_id' to be a str")
         pulumi.set(__self__, "service_id", service_id)
@@ -84,6 +91,16 @@ class GetVpcEndpointServiceResult:
         return pulumi.get(self, "payer_responsibility")
 
     @_builtins.property
+    @pulumi.getter(name="privateDnsName")
+    def private_dns_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "private_dns_name")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsNameConfiguration")
+    def private_dns_name_configuration(self) -> Optional['outputs.VpcEndpointServicePrivateDnsNameConfiguration']:
+        return pulumi.get(self, "private_dns_name_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="serviceId")
     def service_id(self) -> Optional[_builtins.str]:
         """
@@ -126,6 +143,8 @@ class AwaitableGetVpcEndpointServiceResult(GetVpcEndpointServiceResult):
             gateway_load_balancer_arns=self.gateway_load_balancer_arns,
             network_load_balancer_arns=self.network_load_balancer_arns,
             payer_responsibility=self.payer_responsibility,
+            private_dns_name=self.private_dns_name,
+            private_dns_name_configuration=self.private_dns_name_configuration,
             service_id=self.service_id,
             supported_ip_address_types=self.supported_ip_address_types,
             supported_regions=self.supported_regions,
@@ -149,6 +168,8 @@ def get_vpc_endpoint_service(service_id: Optional[_builtins.str] = None,
         gateway_load_balancer_arns=pulumi.get(__ret__, 'gateway_load_balancer_arns'),
         network_load_balancer_arns=pulumi.get(__ret__, 'network_load_balancer_arns'),
         payer_responsibility=pulumi.get(__ret__, 'payer_responsibility'),
+        private_dns_name=pulumi.get(__ret__, 'private_dns_name'),
+        private_dns_name_configuration=pulumi.get(__ret__, 'private_dns_name_configuration'),
         service_id=pulumi.get(__ret__, 'service_id'),
         supported_ip_address_types=pulumi.get(__ret__, 'supported_ip_address_types'),
         supported_regions=pulumi.get(__ret__, 'supported_regions'),
@@ -169,6 +190,8 @@ def get_vpc_endpoint_service_output(service_id: pulumi.Input[Optional[_builtins.
         gateway_load_balancer_arns=pulumi.get(__response__, 'gateway_load_balancer_arns'),
         network_load_balancer_arns=pulumi.get(__response__, 'network_load_balancer_arns'),
         payer_responsibility=pulumi.get(__response__, 'payer_responsibility'),
+        private_dns_name=pulumi.get(__response__, 'private_dns_name'),
+        private_dns_name_configuration=pulumi.get(__response__, 'private_dns_name_configuration'),
         service_id=pulumi.get(__response__, 'service_id'),
         supported_ip_address_types=pulumi.get(__response__, 'supported_ip_address_types'),
         supported_regions=pulumi.get(__response__, 'supported_regions'),

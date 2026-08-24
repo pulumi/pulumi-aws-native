@@ -33,7 +33,8 @@ type LookupComputeEnvironmentResult struct {
 	// The ComputeResources property type specifies details of the compute resources managed by the compute environment. This parameter is required for managed compute environments. For more information, see [Compute Environments](https://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html) in the ** .
 	ComputeResources *ComputeEnvironmentComputeResources `pulumi:"computeResources"`
 	// Reserved.
-	Context *string `pulumi:"context"`
+	Context     *string                        `pulumi:"context"`
+	EcsSettings *ComputeEnvironmentEcsSettings `pulumi:"ecsSettings"`
 	// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
 	//
 	// > If your account already created the AWS Batch service-linked role, that role is used by default for your compute environment unless you specify a different role here. If the AWS Batch service-linked role doesn't exist in your account, and no role is specified here, the service attempts to create the AWS Batch service-linked role in your account.
@@ -103,6 +104,10 @@ func (o LookupComputeEnvironmentResultOutput) ComputeResources() ComputeEnvironm
 // Reserved.
 func (o LookupComputeEnvironmentResultOutput) Context() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupComputeEnvironmentResult) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupComputeEnvironmentResultOutput) EcsSettings() ComputeEnvironmentEcsSettingsPtrOutput {
+	return o.ApplyT(func(v LookupComputeEnvironmentResult) *ComputeEnvironmentEcsSettings { return v.EcsSettings }).(ComputeEnvironmentEcsSettingsPtrOutput)
 }
 
 // The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .

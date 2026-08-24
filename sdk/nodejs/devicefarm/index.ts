@@ -35,6 +35,11 @@ export const getTestGridProject: typeof import("./getTestGridProject").getTestGr
 export const getTestGridProjectOutput: typeof import("./getTestGridProject").getTestGridProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getTestGridProject","getTestGridProjectOutput"], () => require("./getTestGridProject"));
 
+export { GetUploadArgs, GetUploadResult, GetUploadOutputArgs } from "./getUpload";
+export const getUpload: typeof import("./getUpload").getUpload = null as any;
+export const getUploadOutput: typeof import("./getUpload").getUploadOutput = null as any;
+utilities.lazyLoad(exports, ["getUpload","getUploadOutput"], () => require("./getUpload"));
+
 export { GetVpceConfigurationArgs, GetVpceConfigurationResult, GetVpceConfigurationOutputArgs } from "./getVpceConfiguration";
 export const getVpceConfiguration: typeof import("./getVpceConfiguration").getVpceConfiguration = null as any;
 export const getVpceConfigurationOutput: typeof import("./getVpceConfiguration").getVpceConfigurationOutput = null as any;
@@ -60,6 +65,11 @@ export type TestGridProject = import("./testGridProject").TestGridProject;
 export const TestGridProject: typeof import("./testGridProject").TestGridProject = null as any;
 utilities.lazyLoad(exports, ["TestGridProject"], () => require("./testGridProject"));
 
+export { UploadArgs } from "./upload";
+export type Upload = import("./upload").Upload;
+export const Upload: typeof import("./upload").Upload = null as any;
+utilities.lazyLoad(exports, ["Upload"], () => require("./upload"));
+
 export { VpceConfigurationArgs } from "./vpceConfiguration";
 export type VpceConfiguration = import("./vpceConfiguration").VpceConfiguration;
 export const VpceConfiguration: typeof import("./vpceConfiguration").VpceConfiguration = null as any;
@@ -83,6 +93,8 @@ const _module = {
                 return new Project(name, <any>undefined, { urn })
             case "aws-native:devicefarm:TestGridProject":
                 return new TestGridProject(name, <any>undefined, { urn })
+            case "aws-native:devicefarm:Upload":
+                return new Upload(name, <any>undefined, { urn })
             case "aws-native:devicefarm:VpceConfiguration":
                 return new VpceConfiguration(name, <any>undefined, { urn })
             default:

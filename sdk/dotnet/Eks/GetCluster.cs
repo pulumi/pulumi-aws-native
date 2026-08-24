@@ -71,6 +71,7 @@ namespace Pulumi.AwsNative.Eks
         /// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
         /// </summary>
         public readonly string? Arn;
+        public readonly Outputs.ClusterCertificateAuthority? CertificateAuthority;
         /// <summary>
         /// The certificate-authority-data for your cluster.
         /// </summary>
@@ -155,6 +156,8 @@ namespace Pulumi.AwsNative.Eks
 
             string? arn,
 
+            Outputs.ClusterCertificateAuthority? certificateAuthority,
+
             string? certificateAuthorityData,
 
             string? clusterSecurityGroupId,
@@ -199,6 +202,7 @@ namespace Pulumi.AwsNative.Eks
         {
             AccessConfig = accessConfig;
             Arn = arn;
+            CertificateAuthority = certificateAuthority;
             CertificateAuthorityData = certificateAuthorityData;
             ClusterSecurityGroupId = clusterSecurityGroupId;
             ComputeConfig = computeConfig;

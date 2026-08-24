@@ -111,6 +111,12 @@ namespace Pulumi.AwsNative.CloudWatch
         [Output("treatMissingData")]
         public Output<string?> TreatMissingData { get; private set; } = null!;
 
+        /// <summary>
+        /// The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+        /// </summary>
+        [Output("warmUpConfiguration")]
+        public Output<Outputs.LogAlarmWarmUpConfiguration?> WarmUpConfiguration { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a LogAlarm resource with the given unique name, arguments, and options.
@@ -273,6 +279,12 @@ namespace Pulumi.AwsNative.CloudWatch
         /// </summary>
         [Input("treatMissingData")]
         public Input<string>? TreatMissingData { get; set; }
+
+        /// <summary>
+        /// The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+        /// </summary>
+        [Input("warmUpConfiguration")]
+        public Input<Inputs.LogAlarmWarmUpConfigurationArgs>? WarmUpConfiguration { get; set; }
 
         public LogAlarmArgs()
         {

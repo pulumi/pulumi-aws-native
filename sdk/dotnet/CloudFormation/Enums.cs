@@ -7,6 +7,129 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.CloudFormation
 {
+    [EnumType]
+    public readonly struct ChangeSetCapabilitiesItem : IEquatable<ChangeSetCapabilitiesItem>
+    {
+        private readonly string _value;
+
+        private ChangeSetCapabilitiesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChangeSetCapabilitiesItem CapabilityIam { get; } = new ChangeSetCapabilitiesItem("CAPABILITY_IAM");
+        public static ChangeSetCapabilitiesItem CapabilityNamedIam { get; } = new ChangeSetCapabilitiesItem("CAPABILITY_NAMED_IAM");
+        public static ChangeSetCapabilitiesItem CapabilityAutoExpand { get; } = new ChangeSetCapabilitiesItem("CAPABILITY_AUTO_EXPAND");
+
+        public static bool operator ==(ChangeSetCapabilitiesItem left, ChangeSetCapabilitiesItem right) => left.Equals(right);
+        public static bool operator !=(ChangeSetCapabilitiesItem left, ChangeSetCapabilitiesItem right) => !left.Equals(right);
+
+        public static explicit operator string(ChangeSetCapabilitiesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChangeSetCapabilitiesItem other && Equals(other);
+        public bool Equals(ChangeSetCapabilitiesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines how CloudFormation handles configuration drift during deployment.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChangeSetDeploymentMode : IEquatable<ChangeSetDeploymentMode>
+    {
+        private readonly string _value;
+
+        private ChangeSetDeploymentMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChangeSetDeploymentMode RevertDrift { get; } = new ChangeSetDeploymentMode("REVERT_DRIFT");
+
+        public static bool operator ==(ChangeSetDeploymentMode left, ChangeSetDeploymentMode right) => left.Equals(right);
+        public static bool operator !=(ChangeSetDeploymentMode left, ChangeSetDeploymentMode right) => !left.Equals(right);
+
+        public static explicit operator string(ChangeSetDeploymentMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChangeSetDeploymentMode other && Equals(other);
+        public bool Equals(ChangeSetDeploymentMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines what action will be taken if stack creation fails.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChangeSetOnStackFailure : IEquatable<ChangeSetOnStackFailure>
+    {
+        private readonly string _value;
+
+        private ChangeSetOnStackFailure(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChangeSetOnStackFailure DoNothing { get; } = new ChangeSetOnStackFailure("DO_NOTHING");
+        public static ChangeSetOnStackFailure Rollback { get; } = new ChangeSetOnStackFailure("ROLLBACK");
+        public static ChangeSetOnStackFailure Delete { get; } = new ChangeSetOnStackFailure("DELETE");
+
+        public static bool operator ==(ChangeSetOnStackFailure left, ChangeSetOnStackFailure right) => left.Equals(right);
+        public static bool operator !=(ChangeSetOnStackFailure left, ChangeSetOnStackFailure right) => !left.Equals(right);
+
+        public static explicit operator string(ChangeSetOnStackFailure value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChangeSetOnStackFailure other && Equals(other);
+        public bool Equals(ChangeSetOnStackFailure other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of change set operation.
+    /// </summary>
+    [EnumType]
+    public readonly struct ChangeSetType : IEquatable<ChangeSetType>
+    {
+        private readonly string _value;
+
+        private ChangeSetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChangeSetType Create { get; } = new ChangeSetType("CREATE");
+        public static ChangeSetType Update { get; } = new ChangeSetType("UPDATE");
+        public static ChangeSetType Import { get; } = new ChangeSetType("IMPORT");
+
+        public static bool operator ==(ChangeSetType left, ChangeSetType right) => left.Equals(right);
+        public static bool operator !=(ChangeSetType left, ChangeSetType right) => !left.Equals(right);
+
+        public static explicit operator string(ChangeSetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChangeSetType other && Equals(other);
+        public bool Equals(ChangeSetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The status of the template generation.
     /// </summary>

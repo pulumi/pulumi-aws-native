@@ -280,6 +280,77 @@ namespace Pulumi.AwsNative.Glue
     }
 
     /// <summary>
+    /// The session status.
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionStatus : IEquatable<SessionStatus>
+    {
+        private readonly string _value;
+
+        private SessionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionStatus Provisioning { get; } = new SessionStatus("PROVISIONING");
+        public static SessionStatus Ready { get; } = new SessionStatus("READY");
+        public static SessionStatus Failed { get; } = new SessionStatus("FAILED");
+        public static SessionStatus Timeout { get; } = new SessionStatus("TIMEOUT");
+        public static SessionStatus Stopping { get; } = new SessionStatus("STOPPING");
+        public static SessionStatus Stopped { get; } = new SessionStatus("STOPPED");
+
+        public static bool operator ==(SessionStatus left, SessionStatus right) => left.Equals(right);
+        public static bool operator !=(SessionStatus left, SessionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SessionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionStatus other && Equals(other);
+        public bool Equals(SessionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of predefined worker that is allocated when a session runs.
+    /// </summary>
+    [EnumType]
+    public readonly struct SessionWorkerType : IEquatable<SessionWorkerType>
+    {
+        private readonly string _value;
+
+        private SessionWorkerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SessionWorkerType Standard { get; } = new SessionWorkerType("Standard");
+        public static SessionWorkerType G1x { get; } = new SessionWorkerType("G.1X");
+        public static SessionWorkerType G2x { get; } = new SessionWorkerType("G.2X");
+        public static SessionWorkerType G025x { get; } = new SessionWorkerType("G.025X");
+        public static SessionWorkerType G4x { get; } = new SessionWorkerType("G.4X");
+        public static SessionWorkerType G8x { get; } = new SessionWorkerType("G.8X");
+        public static SessionWorkerType Z2x { get; } = new SessionWorkerType("Z.2X");
+
+        public static bool operator ==(SessionWorkerType left, SessionWorkerType right) => left.Equals(right);
+        public static bool operator !=(SessionWorkerType left, SessionWorkerType right) => !left.Equals(right);
+
+        public static explicit operator string(SessionWorkerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SessionWorkerType other && Equals(other);
+        public bool Equals(SessionWorkerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of the function.
     /// </summary>
     [EnumType]

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -94,6 +95,8 @@ type Solution struct {
 	SolutionArn pulumi.StringOutput `pulumi:"solutionArn"`
 	// Describes the configuration properties for the solution.
 	SolutionConfig SolutionConfigPtrOutput `pulumi:"solutionConfig"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSolution registers a new resource with the given unique name, arguments, and options.
@@ -114,6 +117,7 @@ func NewSolution(ctx *pulumi.Context,
 		"performHpo",
 		"recipeArn",
 		"solutionConfig",
+		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -163,6 +167,8 @@ type solutionArgs struct {
 	RecipeArn *string `pulumi:"recipeArn"`
 	// Describes the configuration properties for the solution.
 	SolutionConfig *SolutionConfig `pulumi:"solutionConfig"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Solution resource.
@@ -181,6 +187,8 @@ type SolutionArgs struct {
 	RecipeArn pulumi.StringPtrInput
 	// Describes the configuration properties for the solution.
 	SolutionConfig SolutionConfigPtrInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (SolutionArgs) ElementType() reflect.Type {
@@ -258,6 +266,11 @@ func (o SolutionOutput) SolutionArn() pulumi.StringOutput {
 // Describes the configuration properties for the solution.
 func (o SolutionOutput) SolutionConfig() SolutionConfigPtrOutput {
 	return o.ApplyT(func(v *Solution) SolutionConfigPtrOutput { return v.SolutionConfig }).(SolutionConfigPtrOutput)
+}
+
+// The tags used to organize, track, or control access for this resource.
+func (o SolutionOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Solution) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

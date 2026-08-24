@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.Emr
 {
     /// <summary>
-    /// Resource schema for AWS::EMR::WALWorkspace Type
+    /// Resource Type definition for AWS::EMR::WALWorkspace
     /// </summary>
     [AwsNativeResourceType("aws-native:emr:WalWorkspace")]
     public partial class WalWorkspace : global::Pulumi.CustomResource

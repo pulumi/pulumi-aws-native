@@ -32,8 +32,7 @@ type LookupPaymentCredentialProviderResult struct {
 	// The timestamp when the credential provider was created
 	CreatedTime *string `pulumi:"createdTime"`
 	// The Amazon Resource Name (ARN) of the payment credential provider
-	CredentialProviderArn    *string                              `pulumi:"credentialProviderArn"`
-	CredentialProviderVendor *PaymentCredentialProviderVendorType `pulumi:"credentialProviderVendor"`
+	CredentialProviderArn *string `pulumi:"credentialProviderArn"`
 	// The timestamp when the credential provider was last updated
 	LastUpdatedTime             *string                                                      `pulumi:"lastUpdatedTime"`
 	ProviderConfigurationOutput *PaymentCredentialProviderPaymentProviderConfigurationOutput `pulumi:"providerConfigurationOutput"`
@@ -81,12 +80,6 @@ func (o LookupPaymentCredentialProviderResultOutput) CreatedTime() pulumi.String
 // The Amazon Resource Name (ARN) of the payment credential provider
 func (o LookupPaymentCredentialProviderResultOutput) CredentialProviderArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupPaymentCredentialProviderResult) *string { return v.CredentialProviderArn }).(pulumi.StringPtrOutput)
-}
-
-func (o LookupPaymentCredentialProviderResultOutput) CredentialProviderVendor() PaymentCredentialProviderVendorTypePtrOutput {
-	return o.ApplyT(func(v LookupPaymentCredentialProviderResult) *PaymentCredentialProviderVendorType {
-		return v.CredentialProviderVendor
-	}).(PaymentCredentialProviderVendorTypePtrOutput)
 }
 
 // The timestamp when the credential provider was last updated

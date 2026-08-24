@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -78,6 +79,8 @@ type Schema struct {
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Arn for the schema.
 	SchemaArn pulumi.StringOutput `pulumi:"schemaArn"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayOutput `pulumi:"tags"`
 }
 
 // NewSchema registers a new resource with the given unique name, arguments, and options.
@@ -94,6 +97,7 @@ func NewSchema(ctx *pulumi.Context,
 		"domain",
 		"name",
 		"schema",
+		"tags[*]",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -135,6 +139,8 @@ type schemaArgs struct {
 	Name *string `pulumi:"name"`
 	// A schema in Avro JSON format.
 	Schema string `pulumi:"schema"`
+	// The tags used to organize, track, or control access for this resource.
+	Tags []aws.CreateOnlyTag `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Schema resource.
@@ -145,6 +151,8 @@ type SchemaArgs struct {
 	Name pulumi.StringPtrInput
 	// A schema in Avro JSON format.
 	Schema pulumi.StringInput
+	// The tags used to organize, track, or control access for this resource.
+	Tags aws.CreateOnlyTagArrayInput
 }
 
 func (SchemaArgs) ElementType() reflect.Type {
@@ -202,6 +210,11 @@ func (o SchemaOutput) Schema() pulumi.StringOutput {
 // Arn for the schema.
 func (o SchemaOutput) SchemaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.SchemaArn }).(pulumi.StringOutput)
+}
+
+// The tags used to organize, track, or control access for this resource.
+func (o SchemaOutput) Tags() aws.CreateOnlyTagArrayOutput {
+	return o.ApplyT(func(v *Schema) aws.CreateOnlyTagArrayOutput { return v.Tags }).(aws.CreateOnlyTagArrayOutput)
 }
 
 func init() {

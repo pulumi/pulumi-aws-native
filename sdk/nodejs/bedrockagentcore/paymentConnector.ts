@@ -38,6 +38,10 @@ export class PaymentConnector extends pulumi.CustomResource {
     }
 
     /**
+     * The URL the user must open to complete OAuth consent. Only present when ConnectorStatus is PENDING_AUTHENTICATION.
+     */
+    declare public /*out*/ readonly authorizationUrl: pulumi.Output<string>;
+    /**
      * The timestamp when the connector was created
      */
     declare public /*out*/ readonly connectorCreatedAt: pulumi.Output<string>;
@@ -52,9 +56,9 @@ export class PaymentConnector extends pulumi.CustomResource {
     declare public /*out*/ readonly connectorStatus: pulumi.Output<enums.bedrockagentcore.PaymentConnectorStatus>;
     declare public readonly connectorType: pulumi.Output<enums.bedrockagentcore.PaymentConnectorType>;
     /**
-     * The credential provider configurations for the connector
+     * The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
      */
-    declare public readonly credentialProviderConfigurations: pulumi.Output<outputs.bedrockagentcore.PaymentConnectorCredentialsProviderConfiguration[]>;
+    declare public readonly credentialProviderConfigurations: pulumi.Output<outputs.bedrockagentcore.PaymentConnectorCredentialsProviderConfiguration[] | undefined>;
     /**
      * A description of the payment connector
      */
@@ -71,6 +75,10 @@ export class PaymentConnector extends pulumi.CustomResource {
      * The identifier of the parent payment manager
      */
     declare public readonly paymentManagerId: pulumi.Output<string>;
+    /**
+     * The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+     */
+    declare public readonly provisionMode: pulumi.Output<enums.bedrockagentcore.PaymentConnectorProvisionMode | undefined>;
 
     /**
      * Create a PaymentConnector resource with the given unique name, arguments, and options.
@@ -86,9 +94,6 @@ export class PaymentConnector extends pulumi.CustomResource {
             if (args?.connectorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            if (args?.credentialProviderConfigurations === undefined && !opts.urn) {
-                throw new Error("Missing required property 'credentialProviderConfigurations'");
-            }
             if (args?.paymentManagerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'paymentManagerId'");
             }
@@ -97,12 +102,15 @@ export class PaymentConnector extends pulumi.CustomResource {
             resourceInputs["credentialProviderConfigurations"] = args?.credentialProviderConfigurations;
             resourceInputs["description"] = args?.description;
             resourceInputs["paymentManagerId"] = args?.paymentManagerId;
+            resourceInputs["provisionMode"] = args?.provisionMode;
+            resourceInputs["authorizationUrl"] = undefined /*out*/;
             resourceInputs["connectorCreatedAt"] = undefined /*out*/;
             resourceInputs["connectorLastUpdatedAt"] = undefined /*out*/;
             resourceInputs["connectorStatus"] = undefined /*out*/;
             resourceInputs["paymentConnectorArn"] = undefined /*out*/;
             resourceInputs["paymentConnectorId"] = undefined /*out*/;
         } else {
+            resourceInputs["authorizationUrl"] = undefined /*out*/;
             resourceInputs["connectorCreatedAt"] = undefined /*out*/;
             resourceInputs["connectorLastUpdatedAt"] = undefined /*out*/;
             resourceInputs["connectorName"] = undefined /*out*/;
@@ -113,9 +121,10 @@ export class PaymentConnector extends pulumi.CustomResource {
             resourceInputs["paymentConnectorArn"] = undefined /*out*/;
             resourceInputs["paymentConnectorId"] = undefined /*out*/;
             resourceInputs["paymentManagerId"] = undefined /*out*/;
+            resourceInputs["provisionMode"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["connectorName", "paymentManagerId"] };
+        const replaceOnChanges = { replaceOnChanges: ["connectorName", "connectorType", "paymentManagerId", "provisionMode"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PaymentConnector.__pulumiType, name, resourceInputs, opts);
     }
@@ -131,9 +140,9 @@ export interface PaymentConnectorArgs {
     connectorName?: pulumi.Input<string | undefined>;
     connectorType: pulumi.Input<enums.bedrockagentcore.PaymentConnectorType>;
     /**
-     * The credential provider configurations for the connector
+     * The credential provider configurations for the connector. Required when ProvisionMode is MANUAL or not specified. Empty for QUICK_CREATE until provisioning completes.
      */
-    credentialProviderConfigurations: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.PaymentConnectorCredentialsProviderConfigurationArgs>[]>;
+    credentialProviderConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.PaymentConnectorCredentialsProviderConfigurationArgs>[] | undefined>;
     /**
      * A description of the payment connector
      */
@@ -142,4 +151,8 @@ export interface PaymentConnectorArgs {
      * The identifier of the parent payment manager
      */
     paymentManagerId: pulumi.Input<string>;
+    /**
+     * The provision mode for creating the connector. MANUAL requires CredentialProviderConfigurations; QUICK_CREATE orchestrates OAuth consent and credential provisioning.
+     */
+    provisionMode?: pulumi.Input<enums.bedrockagentcore.PaymentConnectorProvisionMode | undefined>;
 }

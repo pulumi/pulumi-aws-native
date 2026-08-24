@@ -41,6 +41,8 @@ export interface GetVpcEndpointServiceResult {
      * The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
      */
     readonly payerResponsibility?: string;
+    readonly privateDnsName?: string;
+    readonly privateDnsNameConfiguration?: outputs.ec2.VpcEndpointServicePrivateDnsNameConfiguration;
     /**
      * The ID of the endpoint service.
      */

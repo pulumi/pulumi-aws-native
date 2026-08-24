@@ -19,6 +19,24 @@
     "IpAddressType" : {
       "type" : "string",
       "enum" : [ "ipv4", "ipv6" ]
+    },
+    "PrivateDnsNameConfiguration" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Name" : {
+          "type" : "string"
+        },
+        "State" : {
+          "type" : "string"
+        },
+        "Type" : {
+          "type" : "string"
+        },
+        "Value" : {
+          "type" : "string"
+        }
+      }
     }
   },
   "properties" : {
@@ -78,16 +96,22 @@
       "items" : {
         "type" : "string"
       }
+    },
+    "PrivateDnsName" : {
+      "type" : "string"
+    },
+    "PrivateDnsNameConfiguration" : {
+      "$ref" : "#/definitions/PrivateDnsNameConfiguration"
     }
   },
   "primaryIdentifier" : [ "/properties/ServiceId" ],
-  "readOnlyProperties" : [ "/properties/ServiceId" ],
+  "readOnlyProperties" : [ "/properties/ServiceId", "/properties/PrivateDnsNameConfiguration/Name", "/properties/PrivateDnsNameConfiguration/State", "/properties/PrivateDnsNameConfiguration/Type", "/properties/PrivateDnsNameConfiguration/Value" ],
   "writeOnlyProperties" : [ "/properties/ContributorInsightsEnabled" ],
   "tagging" : {
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "ec2:CreateTags", "ec2:DeleteTags" ]
   },

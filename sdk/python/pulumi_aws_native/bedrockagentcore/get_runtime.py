@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuntimeResult:
-    def __init__(__self__, agent_runtime_arn=None, agent_runtime_artifact=None, agent_runtime_id=None, agent_runtime_version=None, authorizer_configuration=None, created_at=None, description=None, environment_variables=None, failure_reason=None, filesystem_configurations=None, last_updated_at=None, lifecycle_configuration=None, network_configuration=None, protocol_configuration=None, request_header_configuration=None, role_arn=None, status=None, tags=None, workload_identity_details=None):
+    def __init__(__self__, agent_runtime_arn=None, agent_runtime_artifact=None, agent_runtime_id=None, agent_runtime_version=None, authorizer_configuration=None, capacity_provider_configuration=None, created_at=None, description=None, environment_variables=None, failure_reason=None, filesystem_configurations=None, last_updated_at=None, lifecycle_configuration=None, network_configuration=None, protocol_configuration=None, request_header_configuration=None, role_arn=None, status=None, tags=None, workload_identity_details=None):
         if agent_runtime_arn and not isinstance(agent_runtime_arn, str):
             raise TypeError("Expected argument 'agent_runtime_arn' to be a str")
         pulumi.set(__self__, "agent_runtime_arn", agent_runtime_arn)
@@ -41,6 +41,9 @@ class GetRuntimeResult:
         if authorizer_configuration and not isinstance(authorizer_configuration, dict):
             raise TypeError("Expected argument 'authorizer_configuration' to be a dict")
         pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
+        if capacity_provider_configuration and not isinstance(capacity_provider_configuration, dict):
+            raise TypeError("Expected argument 'capacity_provider_configuration' to be a dict")
+        pulumi.set(__self__, "capacity_provider_configuration", capacity_provider_configuration)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -123,6 +126,14 @@ class GetRuntimeResult:
         Authorizer configuration for the agent runtime
         """
         return pulumi.get(self, "authorizer_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityProviderConfiguration")
+    def capacity_provider_configuration(self) -> Optional['outputs.RuntimeCapacityProviderConfiguration']:
+        """
+        Capacity provider configuration for the agent runtime
+        """
+        return pulumi.get(self, "capacity_provider_configuration")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -248,6 +259,7 @@ class AwaitableGetRuntimeResult(GetRuntimeResult):
             agent_runtime_id=self.agent_runtime_id,
             agent_runtime_version=self.agent_runtime_version,
             authorizer_configuration=self.authorizer_configuration,
+            capacity_provider_configuration=self.capacity_provider_configuration,
             created_at=self.created_at,
             description=self.description,
             environment_variables=self.environment_variables,
@@ -282,6 +294,7 @@ def get_runtime(agent_runtime_id: Optional[_builtins.str] = None,
         agent_runtime_id=pulumi.get(__ret__, 'agent_runtime_id'),
         agent_runtime_version=pulumi.get(__ret__, 'agent_runtime_version'),
         authorizer_configuration=pulumi.get(__ret__, 'authorizer_configuration'),
+        capacity_provider_configuration=pulumi.get(__ret__, 'capacity_provider_configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         environment_variables=pulumi.get(__ret__, 'environment_variables'),
@@ -313,6 +326,7 @@ def get_runtime_output(agent_runtime_id: pulumi.Input[Optional[_builtins.str]] =
         agent_runtime_id=pulumi.get(__response__, 'agent_runtime_id'),
         agent_runtime_version=pulumi.get(__response__, 'agent_runtime_version'),
         authorizer_configuration=pulumi.get(__response__, 'authorizer_configuration'),
+        capacity_provider_configuration=pulumi.get(__response__, 'capacity_provider_configuration'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         environment_variables=pulumi.get(__response__, 'environment_variables'),

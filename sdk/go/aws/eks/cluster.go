@@ -19,12 +19,15 @@ type Cluster struct {
 
 	// The access configuration for the cluster.
 	AccessConfig ClusterAccessConfigPtrOutput `pulumi:"accessConfig"`
+	// The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+	ActiveCertificateAuthorityId pulumi.StringPtrOutput `pulumi:"activeCertificateAuthorityId"`
 	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The unique ID given to your cluster.
 	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
-	BootstrapSelfManagedAddons pulumi.BoolPtrOutput `pulumi:"bootstrapSelfManagedAddons"`
+	BootstrapSelfManagedAddons pulumi.BoolPtrOutput                 `pulumi:"bootstrapSelfManagedAddons"`
+	CertificateAuthority       ClusterCertificateAuthorityPtrOutput `pulumi:"certificateAuthority"`
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData pulumi.StringOutput `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
@@ -136,8 +139,11 @@ func (ClusterState) ElementType() reflect.Type {
 type clusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
+	// The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+	ActiveCertificateAuthorityId *string `pulumi:"activeCertificateAuthorityId"`
 	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
-	BootstrapSelfManagedAddons *bool `pulumi:"bootstrapSelfManagedAddons"`
+	BootstrapSelfManagedAddons *bool                        `pulumi:"bootstrapSelfManagedAddons"`
+	CertificateAuthority       *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 	ComputeConfig *ClusterComputeConfig `pulumi:"computeConfig"`
 	// The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
@@ -184,8 +190,11 @@ type clusterArgs struct {
 type ClusterArgs struct {
 	// The access configuration for the cluster.
 	AccessConfig ClusterAccessConfigPtrInput
+	// The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+	ActiveCertificateAuthorityId pulumi.StringPtrInput
 	// Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 	BootstrapSelfManagedAddons pulumi.BoolPtrInput
+	CertificateAuthority       ClusterCertificateAuthorityPtrInput
 	// Indicates the current configuration of the compute capability on your EKS Auto Mode cluster. For example, if the capability is enabled or disabled. If the compute capability is enabled, EKS Auto Mode will create and delete EC2 Managed Instances in your AWS account. For more information, see EKS Auto Mode compute capability in the *Amazon EKS User Guide* .
 	ComputeConfig ClusterComputeConfigPtrInput
 	// The control plane scaling tier configuration. For more information, see EKS Provisioned Control Plane in the Amazon EKS User Guide.
@@ -270,6 +279,11 @@ func (o ClusterOutput) AccessConfig() ClusterAccessConfigPtrOutput {
 	return o.ApplyT(func(v *Cluster) ClusterAccessConfigPtrOutput { return v.AccessConfig }).(ClusterAccessConfigPtrOutput)
 }
 
+// The ID of the certificate authority to activate as the cluster's signing CA. Setting or changing this value activates the specified CA (the previously active CA becomes trusted).
+func (o ClusterOutput) ActiveCertificateAuthorityId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.ActiveCertificateAuthorityId }).(pulumi.StringPtrOutput)
+}
+
 // The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
@@ -283,6 +297,10 @@ func (o ClusterOutput) AwsId() pulumi.StringOutput {
 // Set this value to false to avoid creating the default networking add-ons when the cluster is created.
 func (o ClusterOutput) BootstrapSelfManagedAddons() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.BootstrapSelfManagedAddons }).(pulumi.BoolPtrOutput)
+}
+
+func (o ClusterOutput) CertificateAuthority() ClusterCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v *Cluster) ClusterCertificateAuthorityPtrOutput { return v.CertificateAuthority }).(ClusterCertificateAuthorityPtrOutput)
 }
 
 // The certificate-authority-data for your cluster.

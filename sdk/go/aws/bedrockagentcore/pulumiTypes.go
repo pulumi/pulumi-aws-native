@@ -38928,6 +38928,293 @@ func (o RuntimeAuthorizingClaimMatchValueTypeOutput) ClaimMatchValue() RuntimeCl
 	return o.ApplyT(func(v RuntimeAuthorizingClaimMatchValueType) RuntimeClaimMatchValueType { return v.ClaimMatchValue }).(RuntimeClaimMatchValueTypeOutput)
 }
 
+// Configuration for a capacity provider
+type RuntimeCapacityProviderConfiguration struct {
+	CapacityProviderArn string `pulumi:"capacityProviderArn"`
+}
+
+// RuntimeCapacityProviderConfigurationInput is an input type that accepts RuntimeCapacityProviderConfigurationArgs and RuntimeCapacityProviderConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeCapacityProviderConfigurationInput` via:
+//
+//	RuntimeCapacityProviderConfigurationArgs{...}
+type RuntimeCapacityProviderConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeCapacityProviderConfigurationOutput() RuntimeCapacityProviderConfigurationOutput
+	ToRuntimeCapacityProviderConfigurationOutputWithContext(context.Context) RuntimeCapacityProviderConfigurationOutput
+}
+
+// Configuration for a capacity provider
+type RuntimeCapacityProviderConfigurationArgs struct {
+	CapacityProviderArn pulumi.StringInput `pulumi:"capacityProviderArn"`
+}
+
+func (RuntimeCapacityProviderConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCapacityProviderConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeCapacityProviderConfigurationArgs) ToRuntimeCapacityProviderConfigurationOutput() RuntimeCapacityProviderConfigurationOutput {
+	return i.ToRuntimeCapacityProviderConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeCapacityProviderConfigurationArgs) ToRuntimeCapacityProviderConfigurationOutputWithContext(ctx context.Context) RuntimeCapacityProviderConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCapacityProviderConfigurationOutput)
+}
+
+func (i RuntimeCapacityProviderConfigurationArgs) ToRuntimeCapacityProviderConfigurationPtrOutput() RuntimeCapacityProviderConfigurationPtrOutput {
+	return i.ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeCapacityProviderConfigurationArgs) ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCapacityProviderConfigurationOutput).ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeCapacityProviderConfigurationPtrInput is an input type that accepts RuntimeCapacityProviderConfigurationArgs, RuntimeCapacityProviderConfigurationPtr and RuntimeCapacityProviderConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeCapacityProviderConfigurationPtrInput` via:
+//
+//	        RuntimeCapacityProviderConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeCapacityProviderConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeCapacityProviderConfigurationPtrOutput() RuntimeCapacityProviderConfigurationPtrOutput
+	ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(context.Context) RuntimeCapacityProviderConfigurationPtrOutput
+}
+
+type runtimeCapacityProviderConfigurationPtrType RuntimeCapacityProviderConfigurationArgs
+
+func RuntimeCapacityProviderConfigurationPtr(v *RuntimeCapacityProviderConfigurationArgs) RuntimeCapacityProviderConfigurationPtrInput {
+	return (*runtimeCapacityProviderConfigurationPtrType)(v)
+}
+
+func (*runtimeCapacityProviderConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCapacityProviderConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeCapacityProviderConfigurationPtrType) ToRuntimeCapacityProviderConfigurationPtrOutput() RuntimeCapacityProviderConfigurationPtrOutput {
+	return i.ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeCapacityProviderConfigurationPtrType) ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCapacityProviderConfigurationPtrOutput)
+}
+
+// Configuration for a capacity provider
+type RuntimeCapacityProviderConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCapacityProviderConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCapacityProviderConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeCapacityProviderConfigurationOutput) ToRuntimeCapacityProviderConfigurationOutput() RuntimeCapacityProviderConfigurationOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderConfigurationOutput) ToRuntimeCapacityProviderConfigurationOutputWithContext(ctx context.Context) RuntimeCapacityProviderConfigurationOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderConfigurationOutput) ToRuntimeCapacityProviderConfigurationPtrOutput() RuntimeCapacityProviderConfigurationPtrOutput {
+	return o.ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeCapacityProviderConfigurationOutput) ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeCapacityProviderConfiguration) *RuntimeCapacityProviderConfiguration {
+		return &v
+	}).(RuntimeCapacityProviderConfigurationPtrOutput)
+}
+
+func (o RuntimeCapacityProviderConfigurationOutput) CapacityProviderArn() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeCapacityProviderConfiguration) string { return v.CapacityProviderArn }).(pulumi.StringOutput)
+}
+
+type RuntimeCapacityProviderConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCapacityProviderConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCapacityProviderConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeCapacityProviderConfigurationPtrOutput) ToRuntimeCapacityProviderConfigurationPtrOutput() RuntimeCapacityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderConfigurationPtrOutput) ToRuntimeCapacityProviderConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderConfigurationPtrOutput) Elem() RuntimeCapacityProviderConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeCapacityProviderConfiguration) RuntimeCapacityProviderConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeCapacityProviderConfiguration
+		return ret
+	}).(RuntimeCapacityProviderConfigurationOutput)
+}
+
+func (o RuntimeCapacityProviderConfigurationPtrOutput) CapacityProviderArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeCapacityProviderConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CapacityProviderArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for a CapacityProvider-managed volume to mount into the agent runtime
+type RuntimeCapacityProviderVolumeConfiguration struct {
+	MountPath  string `pulumi:"mountPath"`
+	VolumeName string `pulumi:"volumeName"`
+}
+
+// RuntimeCapacityProviderVolumeConfigurationInput is an input type that accepts RuntimeCapacityProviderVolumeConfigurationArgs and RuntimeCapacityProviderVolumeConfigurationOutput values.
+// You can construct a concrete instance of `RuntimeCapacityProviderVolumeConfigurationInput` via:
+//
+//	RuntimeCapacityProviderVolumeConfigurationArgs{...}
+type RuntimeCapacityProviderVolumeConfigurationInput interface {
+	pulumi.Input
+
+	ToRuntimeCapacityProviderVolumeConfigurationOutput() RuntimeCapacityProviderVolumeConfigurationOutput
+	ToRuntimeCapacityProviderVolumeConfigurationOutputWithContext(context.Context) RuntimeCapacityProviderVolumeConfigurationOutput
+}
+
+// Configuration for a CapacityProvider-managed volume to mount into the agent runtime
+type RuntimeCapacityProviderVolumeConfigurationArgs struct {
+	MountPath  pulumi.StringInput `pulumi:"mountPath"`
+	VolumeName pulumi.StringInput `pulumi:"volumeName"`
+}
+
+func (RuntimeCapacityProviderVolumeConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (i RuntimeCapacityProviderVolumeConfigurationArgs) ToRuntimeCapacityProviderVolumeConfigurationOutput() RuntimeCapacityProviderVolumeConfigurationOutput {
+	return i.ToRuntimeCapacityProviderVolumeConfigurationOutputWithContext(context.Background())
+}
+
+func (i RuntimeCapacityProviderVolumeConfigurationArgs) ToRuntimeCapacityProviderVolumeConfigurationOutputWithContext(ctx context.Context) RuntimeCapacityProviderVolumeConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCapacityProviderVolumeConfigurationOutput)
+}
+
+func (i RuntimeCapacityProviderVolumeConfigurationArgs) ToRuntimeCapacityProviderVolumeConfigurationPtrOutput() RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return i.ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeCapacityProviderVolumeConfigurationArgs) ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCapacityProviderVolumeConfigurationOutput).ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeCapacityProviderVolumeConfigurationPtrInput is an input type that accepts RuntimeCapacityProviderVolumeConfigurationArgs, RuntimeCapacityProviderVolumeConfigurationPtr and RuntimeCapacityProviderVolumeConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeCapacityProviderVolumeConfigurationPtrInput` via:
+//
+//	        RuntimeCapacityProviderVolumeConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeCapacityProviderVolumeConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeCapacityProviderVolumeConfigurationPtrOutput() RuntimeCapacityProviderVolumeConfigurationPtrOutput
+	ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(context.Context) RuntimeCapacityProviderVolumeConfigurationPtrOutput
+}
+
+type runtimeCapacityProviderVolumeConfigurationPtrType RuntimeCapacityProviderVolumeConfigurationArgs
+
+func RuntimeCapacityProviderVolumeConfigurationPtr(v *RuntimeCapacityProviderVolumeConfigurationArgs) RuntimeCapacityProviderVolumeConfigurationPtrInput {
+	return (*runtimeCapacityProviderVolumeConfigurationPtrType)(v)
+}
+
+func (*runtimeCapacityProviderVolumeConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeCapacityProviderVolumeConfigurationPtrType) ToRuntimeCapacityProviderVolumeConfigurationPtrOutput() RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return i.ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeCapacityProviderVolumeConfigurationPtrType) ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeCapacityProviderVolumeConfigurationPtrOutput)
+}
+
+// Configuration for a CapacityProvider-managed volume to mount into the agent runtime
+type RuntimeCapacityProviderVolumeConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCapacityProviderVolumeConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RuntimeCapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationOutput) ToRuntimeCapacityProviderVolumeConfigurationOutput() RuntimeCapacityProviderVolumeConfigurationOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationOutput) ToRuntimeCapacityProviderVolumeConfigurationOutputWithContext(ctx context.Context) RuntimeCapacityProviderVolumeConfigurationOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationOutput) ToRuntimeCapacityProviderVolumeConfigurationPtrOutput() RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return o.ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationOutput) ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeCapacityProviderVolumeConfiguration) *RuntimeCapacityProviderVolumeConfiguration {
+		return &v
+	}).(RuntimeCapacityProviderVolumeConfigurationPtrOutput)
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationOutput) MountPath() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeCapacityProviderVolumeConfiguration) string { return v.MountPath }).(pulumi.StringOutput)
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationOutput) VolumeName() pulumi.StringOutput {
+	return o.ApplyT(func(v RuntimeCapacityProviderVolumeConfiguration) string { return v.VolumeName }).(pulumi.StringOutput)
+}
+
+type RuntimeCapacityProviderVolumeConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RuntimeCapacityProviderVolumeConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeCapacityProviderVolumeConfiguration)(nil)).Elem()
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationPtrOutput) ToRuntimeCapacityProviderVolumeConfigurationPtrOutput() RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationPtrOutput) ToRuntimeCapacityProviderVolumeConfigurationPtrOutputWithContext(ctx context.Context) RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return o
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationPtrOutput) Elem() RuntimeCapacityProviderVolumeConfigurationOutput {
+	return o.ApplyT(func(v *RuntimeCapacityProviderVolumeConfiguration) RuntimeCapacityProviderVolumeConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RuntimeCapacityProviderVolumeConfiguration
+		return ret
+	}).(RuntimeCapacityProviderVolumeConfigurationOutput)
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationPtrOutput) MountPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeCapacityProviderVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MountPath
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o RuntimeCapacityProviderVolumeConfigurationPtrOutput) VolumeName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RuntimeCapacityProviderVolumeConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.VolumeName
+	}).(pulumi.StringPtrOutput)
+}
+
 // The value or values in the custom claim to match for
 type RuntimeClaimMatchValueType struct {
 	MatchValueString     *string  `pulumi:"matchValueString"`
@@ -39950,9 +40237,10 @@ func (o RuntimeEfsAccessPointConfigurationPtrOutput) MountPath() pulumi.StringPt
 
 // Filesystem configuration for the runtime
 type RuntimeFilesystemConfiguration struct {
-	EfsAccessPoint     *RuntimeEfsAccessPointConfiguration     `pulumi:"efsAccessPoint"`
-	S3FilesAccessPoint *RuntimeS3FilesAccessPointConfiguration `pulumi:"s3FilesAccessPoint"`
-	SessionStorage     *RuntimeSessionStorageConfiguration     `pulumi:"sessionStorage"`
+	CapacityProviderVolume *RuntimeCapacityProviderVolumeConfiguration `pulumi:"capacityProviderVolume"`
+	EfsAccessPoint         *RuntimeEfsAccessPointConfiguration         `pulumi:"efsAccessPoint"`
+	S3FilesAccessPoint     *RuntimeS3FilesAccessPointConfiguration     `pulumi:"s3FilesAccessPoint"`
+	SessionStorage         *RuntimeSessionStorageConfiguration         `pulumi:"sessionStorage"`
 }
 
 // RuntimeFilesystemConfigurationInput is an input type that accepts RuntimeFilesystemConfigurationArgs and RuntimeFilesystemConfigurationOutput values.
@@ -39968,9 +40256,10 @@ type RuntimeFilesystemConfigurationInput interface {
 
 // Filesystem configuration for the runtime
 type RuntimeFilesystemConfigurationArgs struct {
-	EfsAccessPoint     RuntimeEfsAccessPointConfigurationPtrInput     `pulumi:"efsAccessPoint"`
-	S3FilesAccessPoint RuntimeS3FilesAccessPointConfigurationPtrInput `pulumi:"s3FilesAccessPoint"`
-	SessionStorage     RuntimeSessionStorageConfigurationPtrInput     `pulumi:"sessionStorage"`
+	CapacityProviderVolume RuntimeCapacityProviderVolumeConfigurationPtrInput `pulumi:"capacityProviderVolume"`
+	EfsAccessPoint         RuntimeEfsAccessPointConfigurationPtrInput         `pulumi:"efsAccessPoint"`
+	S3FilesAccessPoint     RuntimeS3FilesAccessPointConfigurationPtrInput     `pulumi:"s3FilesAccessPoint"`
+	SessionStorage         RuntimeSessionStorageConfigurationPtrInput         `pulumi:"sessionStorage"`
 }
 
 func (RuntimeFilesystemConfigurationArgs) ElementType() reflect.Type {
@@ -40023,6 +40312,12 @@ func (o RuntimeFilesystemConfigurationOutput) ToRuntimeFilesystemConfigurationOu
 
 func (o RuntimeFilesystemConfigurationOutput) ToRuntimeFilesystemConfigurationOutputWithContext(ctx context.Context) RuntimeFilesystemConfigurationOutput {
 	return o
+}
+
+func (o RuntimeFilesystemConfigurationOutput) CapacityProviderVolume() RuntimeCapacityProviderVolumeConfigurationPtrOutput {
+	return o.ApplyT(func(v RuntimeFilesystemConfiguration) *RuntimeCapacityProviderVolumeConfiguration {
+		return v.CapacityProviderVolume
+	}).(RuntimeCapacityProviderVolumeConfigurationPtrOutput)
 }
 
 func (o RuntimeFilesystemConfigurationOutput) EfsAccessPoint() RuntimeEfsAccessPointConfigurationPtrOutput {
@@ -40590,6 +40885,47 @@ func (i RuntimeNetworkConfigurationArgs) ToRuntimeNetworkConfigurationOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(RuntimeNetworkConfigurationOutput)
 }
 
+func (i RuntimeNetworkConfigurationArgs) ToRuntimeNetworkConfigurationPtrOutput() RuntimeNetworkConfigurationPtrOutput {
+	return i.ToRuntimeNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RuntimeNetworkConfigurationArgs) ToRuntimeNetworkConfigurationPtrOutputWithContext(ctx context.Context) RuntimeNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeNetworkConfigurationOutput).ToRuntimeNetworkConfigurationPtrOutputWithContext(ctx)
+}
+
+// RuntimeNetworkConfigurationPtrInput is an input type that accepts RuntimeNetworkConfigurationArgs, RuntimeNetworkConfigurationPtr and RuntimeNetworkConfigurationPtrOutput values.
+// You can construct a concrete instance of `RuntimeNetworkConfigurationPtrInput` via:
+//
+//	        RuntimeNetworkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RuntimeNetworkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRuntimeNetworkConfigurationPtrOutput() RuntimeNetworkConfigurationPtrOutput
+	ToRuntimeNetworkConfigurationPtrOutputWithContext(context.Context) RuntimeNetworkConfigurationPtrOutput
+}
+
+type runtimeNetworkConfigurationPtrType RuntimeNetworkConfigurationArgs
+
+func RuntimeNetworkConfigurationPtr(v *RuntimeNetworkConfigurationArgs) RuntimeNetworkConfigurationPtrInput {
+	return (*runtimeNetworkConfigurationPtrType)(v)
+}
+
+func (*runtimeNetworkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RuntimeNetworkConfiguration)(nil)).Elem()
+}
+
+func (i *runtimeNetworkConfigurationPtrType) ToRuntimeNetworkConfigurationPtrOutput() RuntimeNetworkConfigurationPtrOutput {
+	return i.ToRuntimeNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *runtimeNetworkConfigurationPtrType) ToRuntimeNetworkConfigurationPtrOutputWithContext(ctx context.Context) RuntimeNetworkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RuntimeNetworkConfigurationPtrOutput)
+}
+
 type RuntimeNetworkConfigurationOutput struct{ *pulumi.OutputState }
 
 func (RuntimeNetworkConfigurationOutput) ElementType() reflect.Type {
@@ -40602,6 +40938,16 @@ func (o RuntimeNetworkConfigurationOutput) ToRuntimeNetworkConfigurationOutput()
 
 func (o RuntimeNetworkConfigurationOutput) ToRuntimeNetworkConfigurationOutputWithContext(ctx context.Context) RuntimeNetworkConfigurationOutput {
 	return o
+}
+
+func (o RuntimeNetworkConfigurationOutput) ToRuntimeNetworkConfigurationPtrOutput() RuntimeNetworkConfigurationPtrOutput {
+	return o.ToRuntimeNetworkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RuntimeNetworkConfigurationOutput) ToRuntimeNetworkConfigurationPtrOutputWithContext(ctx context.Context) RuntimeNetworkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RuntimeNetworkConfiguration) *RuntimeNetworkConfiguration {
+		return &v
+	}).(RuntimeNetworkConfigurationPtrOutput)
 }
 
 // The network mode.
@@ -42363,6 +42709,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizerConfigurationPtrInput)(nil)).Elem(), RuntimeAuthorizerConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeAuthorizingClaimMatchValueTypeInput)(nil)).Elem(), RuntimeAuthorizingClaimMatchValueTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCapacityProviderConfigurationInput)(nil)).Elem(), RuntimeCapacityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCapacityProviderConfigurationPtrInput)(nil)).Elem(), RuntimeCapacityProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCapacityProviderVolumeConfigurationInput)(nil)).Elem(), RuntimeCapacityProviderVolumeConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCapacityProviderVolumeConfigurationPtrInput)(nil)).Elem(), RuntimeCapacityProviderVolumeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeClaimMatchValueTypeInput)(nil)).Elem(), RuntimeClaimMatchValueTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodeInput)(nil)).Elem(), RuntimeCodeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeCodePtrInput)(nil)).Elem(), RuntimeCodeArgs{})
@@ -42385,6 +42735,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeManagedVpcResourceInput)(nil)).Elem(), RuntimeManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeManagedVpcResourcePtrInput)(nil)).Elem(), RuntimeManagedVpcResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RuntimeNetworkConfigurationPtrInput)(nil)).Elem(), RuntimeNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointInput)(nil)).Elem(), RuntimePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointPtrInput)(nil)).Elem(), RuntimePrivateEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuntimePrivateEndpointOverrideInput)(nil)).Elem(), RuntimePrivateEndpointOverrideArgs{})
@@ -42955,6 +43306,10 @@ func init() {
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizerConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeAuthorizingClaimMatchValueTypeOutput{})
+	pulumi.RegisterOutputType(RuntimeCapacityProviderConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeCapacityProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RuntimeCapacityProviderVolumeConfigurationOutput{})
+	pulumi.RegisterOutputType(RuntimeCapacityProviderVolumeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RuntimeClaimMatchValueTypeOutput{})
 	pulumi.RegisterOutputType(RuntimeCodeOutput{})
 	pulumi.RegisterOutputType(RuntimeCodePtrOutput{})

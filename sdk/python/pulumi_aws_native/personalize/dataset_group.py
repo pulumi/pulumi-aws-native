@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._enums import *
 
 __all__ = ['DatasetGroupArgs', 'DatasetGroup']
@@ -23,7 +25,8 @@ class DatasetGroupArgs:
                  domain: pulumi.Input[Optional['DatasetGroupDomain']] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+                 role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]] = None):
         """
         The set of arguments for constructing a DatasetGroup resource.
 
@@ -31,6 +34,7 @@ class DatasetGroupArgs:
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.
         :param pulumi.Input[_builtins.str] name: The name for the new dataset group.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]] tags: The tags used to organize, track, or control access for this resource.
         """
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
@@ -40,6 +44,8 @@ class DatasetGroupArgs:
             pulumi.set(__self__, "name", name)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -89,6 +95,18 @@ class DatasetGroupArgs:
     def role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "role_arn", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.CreateOnlyTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:personalize:DatasetGroup")
 class DatasetGroup(pulumi.CustomResource):
@@ -100,6 +118,7 @@ class DatasetGroup(pulumi.CustomResource):
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         """
         Resource Schema for AWS::Personalize::DatasetGroup.
@@ -131,6 +150,7 @@ class DatasetGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name(ARN) of a AWS Key Management Service (KMS) key used to encrypt the datasets.
         :param pulumi.Input[_builtins.str] name: The name for the new dataset group.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -181,6 +201,7 @@ class DatasetGroup(pulumi.CustomResource):
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -194,8 +215,9 @@ class DatasetGroup(pulumi.CustomResource):
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
             __props__.__dict__["role_arn"] = role_arn
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["dataset_group_arn"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "kmsKeyArn", "name", "roleArn"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["domain", "kmsKeyArn", "name", "roleArn", "tags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DatasetGroup, __self__).__init__(
             'aws-native:personalize:DatasetGroup',
@@ -224,6 +246,7 @@ class DatasetGroup(pulumi.CustomResource):
         __props__.__dict__["kms_key_arn"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["tags"] = None
         return DatasetGroup(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -265,4 +288,12 @@ class DatasetGroup(pulumi.CustomResource):
         The ARN of the AWS Identity and Access Management (IAM) role that has permissions to access the AWS Key Management Service (KMS) key. Supplying an IAM role is only valid when also specifying a KMS key.
         """
         return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.CreateOnlyTag']]]:
+        """
+        The tags used to organize, track, or control access for this resource.
+        """
+        return pulumi.get(self, "tags")
 

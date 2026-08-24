@@ -10151,6 +10151,298 @@ type SoftwarePackageVersionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Represents a file to stream.
+type StreamFile struct {
+	// The file ID.
+	FileId     *int              `pulumi:"fileId"`
+	S3Location *StreamS3Location `pulumi:"s3Location"`
+}
+
+// StreamFileInput is an input type that accepts StreamFileArgs and StreamFileOutput values.
+// You can construct a concrete instance of `StreamFileInput` via:
+//
+//	StreamFileArgs{...}
+type StreamFileInput interface {
+	pulumi.Input
+
+	ToStreamFileOutput() StreamFileOutput
+	ToStreamFileOutputWithContext(context.Context) StreamFileOutput
+}
+
+// Represents a file to stream.
+type StreamFileArgs struct {
+	// The file ID.
+	FileId     pulumi.IntPtrInput       `pulumi:"fileId"`
+	S3Location StreamS3LocationPtrInput `pulumi:"s3Location"`
+}
+
+func (StreamFileArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamFile)(nil)).Elem()
+}
+
+func (i StreamFileArgs) ToStreamFileOutput() StreamFileOutput {
+	return i.ToStreamFileOutputWithContext(context.Background())
+}
+
+func (i StreamFileArgs) ToStreamFileOutputWithContext(ctx context.Context) StreamFileOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamFileOutput)
+}
+
+// StreamFileArrayInput is an input type that accepts StreamFileArray and StreamFileArrayOutput values.
+// You can construct a concrete instance of `StreamFileArrayInput` via:
+//
+//	StreamFileArray{ StreamFileArgs{...} }
+type StreamFileArrayInput interface {
+	pulumi.Input
+
+	ToStreamFileArrayOutput() StreamFileArrayOutput
+	ToStreamFileArrayOutputWithContext(context.Context) StreamFileArrayOutput
+}
+
+type StreamFileArray []StreamFileInput
+
+func (StreamFileArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamFile)(nil)).Elem()
+}
+
+func (i StreamFileArray) ToStreamFileArrayOutput() StreamFileArrayOutput {
+	return i.ToStreamFileArrayOutputWithContext(context.Background())
+}
+
+func (i StreamFileArray) ToStreamFileArrayOutputWithContext(ctx context.Context) StreamFileArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamFileArrayOutput)
+}
+
+// Represents a file to stream.
+type StreamFileOutput struct{ *pulumi.OutputState }
+
+func (StreamFileOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamFile)(nil)).Elem()
+}
+
+func (o StreamFileOutput) ToStreamFileOutput() StreamFileOutput {
+	return o
+}
+
+func (o StreamFileOutput) ToStreamFileOutputWithContext(ctx context.Context) StreamFileOutput {
+	return o
+}
+
+// The file ID.
+func (o StreamFileOutput) FileId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v StreamFile) *int { return v.FileId }).(pulumi.IntPtrOutput)
+}
+
+func (o StreamFileOutput) S3Location() StreamS3LocationPtrOutput {
+	return o.ApplyT(func(v StreamFile) *StreamS3Location { return v.S3Location }).(StreamS3LocationPtrOutput)
+}
+
+type StreamFileArrayOutput struct{ *pulumi.OutputState }
+
+func (StreamFileArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StreamFile)(nil)).Elem()
+}
+
+func (o StreamFileArrayOutput) ToStreamFileArrayOutput() StreamFileArrayOutput {
+	return o
+}
+
+func (o StreamFileArrayOutput) ToStreamFileArrayOutputWithContext(ctx context.Context) StreamFileArrayOutput {
+	return o
+}
+
+func (o StreamFileArrayOutput) Index(i pulumi.IntInput) StreamFileOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StreamFile {
+		return vs[0].([]StreamFile)[vs[1].(int)]
+	}).(StreamFileOutput)
+}
+
+// The location of the file in S3.
+type StreamS3Location struct {
+	// The S3 bucket.
+	Bucket *string `pulumi:"bucket"`
+	// The S3 key.
+	Key *string `pulumi:"key"`
+	// The S3 bucket version.
+	Version *string `pulumi:"version"`
+}
+
+// StreamS3LocationInput is an input type that accepts StreamS3LocationArgs and StreamS3LocationOutput values.
+// You can construct a concrete instance of `StreamS3LocationInput` via:
+//
+//	StreamS3LocationArgs{...}
+type StreamS3LocationInput interface {
+	pulumi.Input
+
+	ToStreamS3LocationOutput() StreamS3LocationOutput
+	ToStreamS3LocationOutputWithContext(context.Context) StreamS3LocationOutput
+}
+
+// The location of the file in S3.
+type StreamS3LocationArgs struct {
+	// The S3 bucket.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The S3 key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The S3 bucket version.
+	Version pulumi.StringPtrInput `pulumi:"version"`
+}
+
+func (StreamS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamS3Location)(nil)).Elem()
+}
+
+func (i StreamS3LocationArgs) ToStreamS3LocationOutput() StreamS3LocationOutput {
+	return i.ToStreamS3LocationOutputWithContext(context.Background())
+}
+
+func (i StreamS3LocationArgs) ToStreamS3LocationOutputWithContext(ctx context.Context) StreamS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamS3LocationOutput)
+}
+
+func (i StreamS3LocationArgs) ToStreamS3LocationPtrOutput() StreamS3LocationPtrOutput {
+	return i.ToStreamS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i StreamS3LocationArgs) ToStreamS3LocationPtrOutputWithContext(ctx context.Context) StreamS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamS3LocationOutput).ToStreamS3LocationPtrOutputWithContext(ctx)
+}
+
+// StreamS3LocationPtrInput is an input type that accepts StreamS3LocationArgs, StreamS3LocationPtr and StreamS3LocationPtrOutput values.
+// You can construct a concrete instance of `StreamS3LocationPtrInput` via:
+//
+//	        StreamS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type StreamS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToStreamS3LocationPtrOutput() StreamS3LocationPtrOutput
+	ToStreamS3LocationPtrOutputWithContext(context.Context) StreamS3LocationPtrOutput
+}
+
+type streamS3LocationPtrType StreamS3LocationArgs
+
+func StreamS3LocationPtr(v *StreamS3LocationArgs) StreamS3LocationPtrInput {
+	return (*streamS3LocationPtrType)(v)
+}
+
+func (*streamS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamS3Location)(nil)).Elem()
+}
+
+func (i *streamS3LocationPtrType) ToStreamS3LocationPtrOutput() StreamS3LocationPtrOutput {
+	return i.ToStreamS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *streamS3LocationPtrType) ToStreamS3LocationPtrOutputWithContext(ctx context.Context) StreamS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StreamS3LocationPtrOutput)
+}
+
+// The location of the file in S3.
+type StreamS3LocationOutput struct{ *pulumi.OutputState }
+
+func (StreamS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StreamS3Location)(nil)).Elem()
+}
+
+func (o StreamS3LocationOutput) ToStreamS3LocationOutput() StreamS3LocationOutput {
+	return o
+}
+
+func (o StreamS3LocationOutput) ToStreamS3LocationOutputWithContext(ctx context.Context) StreamS3LocationOutput {
+	return o
+}
+
+func (o StreamS3LocationOutput) ToStreamS3LocationPtrOutput() StreamS3LocationPtrOutput {
+	return o.ToStreamS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o StreamS3LocationOutput) ToStreamS3LocationPtrOutputWithContext(ctx context.Context) StreamS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v StreamS3Location) *StreamS3Location {
+		return &v
+	}).(StreamS3LocationPtrOutput)
+}
+
+// The S3 bucket.
+func (o StreamS3LocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamS3Location) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The S3 key.
+func (o StreamS3LocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamS3Location) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The S3 bucket version.
+func (o StreamS3LocationOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StreamS3Location) *string { return v.Version }).(pulumi.StringPtrOutput)
+}
+
+type StreamS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (StreamS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**StreamS3Location)(nil)).Elem()
+}
+
+func (o StreamS3LocationPtrOutput) ToStreamS3LocationPtrOutput() StreamS3LocationPtrOutput {
+	return o
+}
+
+func (o StreamS3LocationPtrOutput) ToStreamS3LocationPtrOutputWithContext(ctx context.Context) StreamS3LocationPtrOutput {
+	return o
+}
+
+func (o StreamS3LocationPtrOutput) Elem() StreamS3LocationOutput {
+	return o.ApplyT(func(v *StreamS3Location) StreamS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret StreamS3Location
+		return ret
+	}).(StreamS3LocationOutput)
+}
+
+// The S3 bucket.
+func (o StreamS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 key.
+func (o StreamS3LocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 bucket version.
+func (o StreamS3LocationPtrOutput) Version() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *StreamS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Version
+	}).(pulumi.StringPtrOutput)
+}
+
+// A set of key/value pairs that are used to manage the resource.
+type StreamTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
 type ThingAttributePayload struct {
 	// A JSON string containing up to three key-value pair in JSON format. For example:
 	//
@@ -18875,6 +19167,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionS3LocationPtrInput)(nil)).Elem(), SoftwarePackageVersionS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionSbomInput)(nil)).Elem(), SoftwarePackageVersionSbomArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SoftwarePackageVersionSbomPtrInput)(nil)).Elem(), SoftwarePackageVersionSbomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamFileInput)(nil)).Elem(), StreamFileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamFileArrayInput)(nil)).Elem(), StreamFileArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamS3LocationInput)(nil)).Elem(), StreamS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*StreamS3LocationPtrInput)(nil)).Elem(), StreamS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingAttributePayloadPtrInput)(nil)).Elem(), ThingAttributePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ThingGroupAttributePayloadInput)(nil)).Elem(), ThingGroupAttributePayloadArgs{})
@@ -19100,6 +19396,10 @@ func init() {
 	pulumi.RegisterOutputType(SoftwarePackageVersionS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(SoftwarePackageVersionSbomOutput{})
 	pulumi.RegisterOutputType(SoftwarePackageVersionSbomPtrOutput{})
+	pulumi.RegisterOutputType(StreamFileOutput{})
+	pulumi.RegisterOutputType(StreamFileArrayOutput{})
+	pulumi.RegisterOutputType(StreamS3LocationOutput{})
+	pulumi.RegisterOutputType(StreamS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadOutput{})
 	pulumi.RegisterOutputType(ThingAttributePayloadPtrOutput{})
 	pulumi.RegisterOutputType(ThingGroupAttributePayloadOutput{})

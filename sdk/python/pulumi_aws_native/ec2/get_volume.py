@@ -24,7 +24,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetVolumeResult:
-    def __init__(__self__, auto_enable_io=None, availability_zone=None, availability_zone_id=None, encrypted=None, iops=None, kms_key_id=None, multi_attach_enabled=None, outpost_arn=None, size=None, snapshot_id=None, source_volume_id=None, tags=None, throughput=None, volume_id=None, volume_initialization_rate=None, volume_type=None):
+    def __init__(__self__, auto_enable_io=None, availability_zone=None, availability_zone_id=None, encrypted=None, iops=None, kms_key_id=None, multi_attach_enabled=None, size=None, snapshot_id=None, source_volume_id=None, tags=None, throughput=None, volume_id=None, volume_initialization_rate=None, volume_type=None):
         if auto_enable_io and not isinstance(auto_enable_io, bool):
             raise TypeError("Expected argument 'auto_enable_io' to be a bool")
         pulumi.set(__self__, "auto_enable_io", auto_enable_io)
@@ -46,9 +46,6 @@ class GetVolumeResult:
         if multi_attach_enabled and not isinstance(multi_attach_enabled, bool):
             raise TypeError("Expected argument 'multi_attach_enabled' to be a bool")
         pulumi.set(__self__, "multi_attach_enabled", multi_attach_enabled)
-        if outpost_arn and not isinstance(outpost_arn, str):
-            raise TypeError("Expected argument 'outpost_arn' to be a str")
-        pulumi.set(__self__, "outpost_arn", outpost_arn)
         if size and not isinstance(size, int):
             raise TypeError("Expected argument 'size' to be a int")
         pulumi.set(__self__, "size", size)
@@ -149,15 +146,6 @@ class GetVolumeResult:
          CFNlong does not currently support updating a single-attach volume to be multi-attach enabled, updating a multi-attach enabled volume to be single-attach, or updating the size or number of I/O operations per second (IOPS) of a multi-attach enabled volume.
         """
         return pulumi.get(self, "multi_attach_enabled")
-
-    @_builtins.property
-    @pulumi.getter(name="outpostArn")
-    def outpost_arn(self) -> Optional[_builtins.str]:
-        """
-        The Amazon Resource Name (ARN) of the Outpost on which to create the volume.
-         If you intend to use a volume with an instance running on an outpost, then you must create the volume on the same outpost as the instance. You can't use a volume created in an AWS Region with an instance on an AWS outpost, or the other way around.
-        """
-        return pulumi.get(self, "outpost_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -266,7 +254,6 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             iops=self.iops,
             kms_key_id=self.kms_key_id,
             multi_attach_enabled=self.multi_attach_enabled,
-            outpost_arn=self.outpost_arn,
             size=self.size,
             snapshot_id=self.snapshot_id,
             source_volume_id=self.source_volume_id,
@@ -311,7 +298,6 @@ def get_volume(volume_id: Optional[_builtins.str] = None,
         iops=pulumi.get(__ret__, 'iops'),
         kms_key_id=pulumi.get(__ret__, 'kms_key_id'),
         multi_attach_enabled=pulumi.get(__ret__, 'multi_attach_enabled'),
-        outpost_arn=pulumi.get(__ret__, 'outpost_arn'),
         size=pulumi.get(__ret__, 'size'),
         snapshot_id=pulumi.get(__ret__, 'snapshot_id'),
         source_volume_id=pulumi.get(__ret__, 'source_volume_id'),
@@ -353,7 +339,6 @@ def get_volume_output(volume_id: pulumi.Input[Optional[_builtins.str]] = None,
         iops=pulumi.get(__response__, 'iops'),
         kms_key_id=pulumi.get(__response__, 'kms_key_id'),
         multi_attach_enabled=pulumi.get(__response__, 'multi_attach_enabled'),
-        outpost_arn=pulumi.get(__response__, 'outpost_arn'),
         size=pulumi.get(__response__, 'size'),
         snapshot_id=pulumi.get(__response__, 'snapshot_id'),
         source_volume_id=pulumi.get(__response__, 'source_volume_id'),

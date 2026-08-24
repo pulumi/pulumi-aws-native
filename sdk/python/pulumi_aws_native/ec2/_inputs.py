@@ -408,6 +408,8 @@ __all__ = [
     'VpcEncryptionControlExclusionsArgsDict',
     'VpcEndpointDnsOptionsSpecificationArgs',
     'VpcEndpointDnsOptionsSpecificationArgsDict',
+    'VpcEndpointServicePrivateDnsNameConfigurationArgs',
+    'VpcEndpointServicePrivateDnsNameConfigurationArgsDict',
     'VpnConnectionCloudwatchLogOptionsSpecificationArgs',
     'VpnConnectionCloudwatchLogOptionsSpecificationArgsDict',
     'VpnConnectionIkeVersionsRequestListValueArgs',
@@ -19356,6 +19358,65 @@ class VpcEndpointDnsOptionsSpecificationArgs:
     @private_dns_specified_domains.setter
     def private_dns_specified_domains(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "private_dns_specified_domains", value)
+
+
+class VpcEndpointServicePrivateDnsNameConfigurationArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    state: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class VpcEndpointServicePrivateDnsNameConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 state: pulumi.Input[Optional[_builtins.str]] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
 
 
 class VpnConnectionCloudwatchLogOptionsSpecificationArgsDict(TypedDict):

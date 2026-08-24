@@ -69,7 +69,7 @@ class WalWorkspace(pulumi.CustomResource):
                  wal_workspace_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource schema for AWS::EMR::WALWorkspace Type
+        Resource Type definition for AWS::EMR::WALWorkspace
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -83,7 +83,7 @@ class WalWorkspace(pulumi.CustomResource):
                  args: Optional[WalWorkspaceArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource schema for AWS::EMR::WALWorkspace Type
+        Resource Type definition for AWS::EMR::WALWorkspace
 
         :param str resource_name: The name of the resource.
         :param WalWorkspaceArgs args: The arguments to use to populate this resource's properties.

@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetParameterGroupArgs, GetParameterGroupResult, GetParameterGroupOutputArgs } from "./getParameterGroup";
+export const getParameterGroup: typeof import("./getParameterGroup").getParameterGroup = null as any;
+export const getParameterGroupOutput: typeof import("./getParameterGroup").getParameterGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getParameterGroup","getParameterGroupOutput"], () => require("./getParameterGroup"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getSubnetGroup","getSubnetGroupOutput"], () => require("./getSubnetGroup"));
+
+export { ParameterGroupArgs } from "./parameterGroup";
+export type ParameterGroup = import("./parameterGroup").ParameterGroup;
+export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
+utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
 
 export { SubnetGroupArgs } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
@@ -20,6 +30,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:dax:ParameterGroup":
+                return new ParameterGroup(name, <any>undefined, { urn })
             case "aws-native:dax:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             default:

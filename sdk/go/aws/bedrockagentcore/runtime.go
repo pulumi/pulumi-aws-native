@@ -28,6 +28,8 @@ type Runtime struct {
 	AgentRuntimeVersion pulumi.StringOutput `pulumi:"agentRuntimeVersion"`
 	// Authorizer configuration for the agent runtime
 	AuthorizerConfiguration RuntimeAuthorizerConfigurationPtrOutput `pulumi:"authorizerConfiguration"`
+	// Capacity provider configuration for the agent runtime
+	CapacityProviderConfiguration RuntimeCapacityProviderConfigurationPtrOutput `pulumi:"capacityProviderConfiguration"`
 	// Timestamp when the Agent was created
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Description of the resource
@@ -43,7 +45,7 @@ type Runtime struct {
 	// Lifecycle configuration for managing runtime sessions
 	LifecycleConfiguration RuntimeLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
-	NetworkConfiguration RuntimeNetworkConfigurationOutput `pulumi:"networkConfiguration"`
+	NetworkConfiguration RuntimeNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
@@ -70,9 +72,6 @@ func NewRuntime(ctx *pulumi.Context,
 	}
 	if args.AgentRuntimeName == nil {
 		return nil, errors.New("invalid value for required argument 'AgentRuntimeName'")
-	}
-	if args.NetworkConfiguration == nil {
-		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -120,6 +119,8 @@ type runtimeArgs struct {
 	AgentRuntimeName string `pulumi:"agentRuntimeName"`
 	// Authorizer configuration for the agent runtime
 	AuthorizerConfiguration *RuntimeAuthorizerConfiguration `pulumi:"authorizerConfiguration"`
+	// Capacity provider configuration for the agent runtime
+	CapacityProviderConfiguration *RuntimeCapacityProviderConfiguration `pulumi:"capacityProviderConfiguration"`
 	// Description of the resource
 	Description *string `pulumi:"description"`
 	// Environment variables for the agent runtime
@@ -129,7 +130,7 @@ type runtimeArgs struct {
 	// Lifecycle configuration for managing runtime sessions
 	LifecycleConfiguration *RuntimeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
-	NetworkConfiguration RuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
+	NetworkConfiguration *RuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
@@ -148,6 +149,8 @@ type RuntimeArgs struct {
 	AgentRuntimeName pulumi.StringInput
 	// Authorizer configuration for the agent runtime
 	AuthorizerConfiguration RuntimeAuthorizerConfigurationPtrInput
+	// Capacity provider configuration for the agent runtime
+	CapacityProviderConfiguration RuntimeCapacityProviderConfigurationPtrInput
 	// Description of the resource
 	Description pulumi.StringPtrInput
 	// Environment variables for the agent runtime
@@ -157,7 +160,7 @@ type RuntimeArgs struct {
 	// Lifecycle configuration for managing runtime sessions
 	LifecycleConfiguration RuntimeLifecycleConfigurationPtrInput
 	// Network access configuration for the Agent
-	NetworkConfiguration RuntimeNetworkConfigurationInput
+	NetworkConfiguration RuntimeNetworkConfigurationPtrInput
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrInput
 	// Configuration for HTTP request headers
@@ -235,6 +238,11 @@ func (o RuntimeOutput) AuthorizerConfiguration() RuntimeAuthorizerConfigurationP
 	return o.ApplyT(func(v *Runtime) RuntimeAuthorizerConfigurationPtrOutput { return v.AuthorizerConfiguration }).(RuntimeAuthorizerConfigurationPtrOutput)
 }
 
+// Capacity provider configuration for the agent runtime
+func (o RuntimeOutput) CapacityProviderConfiguration() RuntimeCapacityProviderConfigurationPtrOutput {
+	return o.ApplyT(func(v *Runtime) RuntimeCapacityProviderConfigurationPtrOutput { return v.CapacityProviderConfiguration }).(RuntimeCapacityProviderConfigurationPtrOutput)
+}
+
 // Timestamp when the Agent was created
 func (o RuntimeOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Runtime) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
@@ -271,8 +279,8 @@ func (o RuntimeOutput) LifecycleConfiguration() RuntimeLifecycleConfigurationPtr
 }
 
 // Network access configuration for the Agent
-func (o RuntimeOutput) NetworkConfiguration() RuntimeNetworkConfigurationOutput {
-	return o.ApplyT(func(v *Runtime) RuntimeNetworkConfigurationOutput { return v.NetworkConfiguration }).(RuntimeNetworkConfigurationOutput)
+func (o RuntimeOutput) NetworkConfiguration() RuntimeNetworkConfigurationPtrOutput {
+	return o.ApplyT(func(v *Runtime) RuntimeNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(RuntimeNetworkConfigurationPtrOutput)
 }
 
 // Protocol configuration for the agent runtime

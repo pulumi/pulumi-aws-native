@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLogAlarmResult:
-    def __init__(__self__, action_log_line_count=None, action_log_line_role_arn=None, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, insufficient_data_actions=None, ok_actions=None, query_results_to_alarm=None, query_results_to_evaluate=None, scheduled_query_configuration=None, tags=None, threshold=None, treat_missing_data=None):
+    def __init__(__self__, action_log_line_count=None, action_log_line_role_arn=None, actions_enabled=None, alarm_actions=None, alarm_description=None, arn=None, comparison_operator=None, insufficient_data_actions=None, ok_actions=None, query_results_to_alarm=None, query_results_to_evaluate=None, scheduled_query_configuration=None, tags=None, threshold=None, treat_missing_data=None, warm_up_configuration=None):
         if action_log_line_count and not isinstance(action_log_line_count, int):
             raise TypeError("Expected argument 'action_log_line_count' to be a int")
         pulumi.set(__self__, "action_log_line_count", action_log_line_count)
@@ -71,6 +71,9 @@ class GetLogAlarmResult:
         if treat_missing_data and not isinstance(treat_missing_data, str):
             raise TypeError("Expected argument 'treat_missing_data' to be a str")
         pulumi.set(__self__, "treat_missing_data", treat_missing_data)
+        if warm_up_configuration and not isinstance(warm_up_configuration, dict):
+            raise TypeError("Expected argument 'warm_up_configuration' to be a dict")
+        pulumi.set(__self__, "warm_up_configuration", warm_up_configuration)
 
     @_builtins.property
     @pulumi.getter(name="actionLogLineCount")
@@ -192,6 +195,14 @@ class GetLogAlarmResult:
         """
         return pulumi.get(self, "treat_missing_data")
 
+    @_builtins.property
+    @pulumi.getter(name="warmUpConfiguration")
+    def warm_up_configuration(self) -> Optional['outputs.LogAlarmWarmUpConfiguration']:
+        """
+        The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+        """
+        return pulumi.get(self, "warm_up_configuration")
+
 
 class AwaitableGetLogAlarmResult(GetLogAlarmResult):
     # pylint: disable=using-constant-test
@@ -213,7 +224,8 @@ class AwaitableGetLogAlarmResult(GetLogAlarmResult):
             scheduled_query_configuration=self.scheduled_query_configuration,
             tags=self.tags,
             threshold=self.threshold,
-            treat_missing_data=self.treat_missing_data)
+            treat_missing_data=self.treat_missing_data,
+            warm_up_configuration=self.warm_up_configuration)
 
 
 def get_log_alarm(alarm_name: Optional[_builtins.str] = None,
@@ -243,7 +255,8 @@ def get_log_alarm(alarm_name: Optional[_builtins.str] = None,
         scheduled_query_configuration=pulumi.get(__ret__, 'scheduled_query_configuration'),
         tags=pulumi.get(__ret__, 'tags'),
         threshold=pulumi.get(__ret__, 'threshold'),
-        treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'))
+        treat_missing_data=pulumi.get(__ret__, 'treat_missing_data'),
+        warm_up_configuration=pulumi.get(__ret__, 'warm_up_configuration'))
 def get_log_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLogAlarmResult]:
     """
@@ -270,4 +283,5 @@ def get_log_alarm_output(alarm_name: pulumi.Input[Optional[_builtins.str]] = Non
         scheduled_query_configuration=pulumi.get(__response__, 'scheduled_query_configuration'),
         tags=pulumi.get(__response__, 'tags'),
         threshold=pulumi.get(__response__, 'threshold'),
-        treat_missing_data=pulumi.get(__response__, 'treat_missing_data')))
+        treat_missing_data=pulumi.get(__response__, 'treat_missing_data'),
+        warm_up_configuration=pulumi.get(__response__, 'warm_up_configuration')))

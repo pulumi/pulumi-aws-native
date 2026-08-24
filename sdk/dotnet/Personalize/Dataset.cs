@@ -113,6 +113,12 @@ namespace Pulumi.AwsNative.Personalize
         [Output("schemaArn")]
         public Output<string> SchemaArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.CreateOnlyTag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a Dataset resource with the given unique name, arguments, and options.
@@ -142,6 +148,7 @@ namespace Pulumi.AwsNative.Personalize
                     "datasetType",
                     "name",
                     "schemaArn",
+                    "tags[*]",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -194,6 +201,18 @@ namespace Pulumi.AwsNative.Personalize
         /// </summary>
         [Input("schemaArn", required: true)]
         public Input<string> SchemaArn { get; set; } = null!;
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>? _tags;
+
+        /// <summary>
+        /// The tags used to organize, track, or control access for this resource.
+        /// </summary>
+        public InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.CreateOnlyTagArgs>());
+            set => _tags = value;
+        }
 
         public DatasetArgs()
         {

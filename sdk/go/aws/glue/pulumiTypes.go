@@ -7584,6 +7584,218 @@ func (o SecurityConfigurationS3EncryptionArrayOutput) Index(i pulumi.IntInput) S
 	}).(SecurityConfigurationS3EncryptionOutput)
 }
 
+// The SessionCommand that runs the job.
+type SessionCommand struct {
+	// Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+	Name *string `pulumi:"name"`
+	// Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+	PythonVersion *string `pulumi:"pythonVersion"`
+}
+
+// SessionCommandInput is an input type that accepts SessionCommandArgs and SessionCommandOutput values.
+// You can construct a concrete instance of `SessionCommandInput` via:
+//
+//	SessionCommandArgs{...}
+type SessionCommandInput interface {
+	pulumi.Input
+
+	ToSessionCommandOutput() SessionCommandOutput
+	ToSessionCommandOutputWithContext(context.Context) SessionCommandOutput
+}
+
+// The SessionCommand that runs the job.
+type SessionCommandArgs struct {
+	// Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+	PythonVersion pulumi.StringPtrInput `pulumi:"pythonVersion"`
+}
+
+func (SessionCommandArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionCommand)(nil)).Elem()
+}
+
+func (i SessionCommandArgs) ToSessionCommandOutput() SessionCommandOutput {
+	return i.ToSessionCommandOutputWithContext(context.Background())
+}
+
+func (i SessionCommandArgs) ToSessionCommandOutputWithContext(ctx context.Context) SessionCommandOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionCommandOutput)
+}
+
+// The SessionCommand that runs the job.
+type SessionCommandOutput struct{ *pulumi.OutputState }
+
+func (SessionCommandOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionCommand)(nil)).Elem()
+}
+
+func (o SessionCommandOutput) ToSessionCommandOutput() SessionCommandOutput {
+	return o
+}
+
+func (o SessionCommandOutput) ToSessionCommandOutputWithContext(ctx context.Context) SessionCommandOutput {
+	return o
+}
+
+// Specifies the name of the SessionCommand. Can be 'glueetl' or 'gluestreaming'.
+func (o SessionCommandOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionCommand) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Python version. The Python version indicates the version supported for jobs of type Spark.
+func (o SessionCommandOutput) PythonVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SessionCommand) *string { return v.PythonVersion }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the connections used by the session.
+type SessionConnectionsList struct {
+	// A list of connection names used by the session.
+	Connections []string `pulumi:"connections"`
+}
+
+// SessionConnectionsListInput is an input type that accepts SessionConnectionsListArgs and SessionConnectionsListOutput values.
+// You can construct a concrete instance of `SessionConnectionsListInput` via:
+//
+//	SessionConnectionsListArgs{...}
+type SessionConnectionsListInput interface {
+	pulumi.Input
+
+	ToSessionConnectionsListOutput() SessionConnectionsListOutput
+	ToSessionConnectionsListOutputWithContext(context.Context) SessionConnectionsListOutput
+}
+
+// Specifies the connections used by the session.
+type SessionConnectionsListArgs struct {
+	// A list of connection names used by the session.
+	Connections pulumi.StringArrayInput `pulumi:"connections"`
+}
+
+func (SessionConnectionsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionConnectionsList)(nil)).Elem()
+}
+
+func (i SessionConnectionsListArgs) ToSessionConnectionsListOutput() SessionConnectionsListOutput {
+	return i.ToSessionConnectionsListOutputWithContext(context.Background())
+}
+
+func (i SessionConnectionsListArgs) ToSessionConnectionsListOutputWithContext(ctx context.Context) SessionConnectionsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionConnectionsListOutput)
+}
+
+func (i SessionConnectionsListArgs) ToSessionConnectionsListPtrOutput() SessionConnectionsListPtrOutput {
+	return i.ToSessionConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (i SessionConnectionsListArgs) ToSessionConnectionsListPtrOutputWithContext(ctx context.Context) SessionConnectionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionConnectionsListOutput).ToSessionConnectionsListPtrOutputWithContext(ctx)
+}
+
+// SessionConnectionsListPtrInput is an input type that accepts SessionConnectionsListArgs, SessionConnectionsListPtr and SessionConnectionsListPtrOutput values.
+// You can construct a concrete instance of `SessionConnectionsListPtrInput` via:
+//
+//	        SessionConnectionsListArgs{...}
+//
+//	or:
+//
+//	        nil
+type SessionConnectionsListPtrInput interface {
+	pulumi.Input
+
+	ToSessionConnectionsListPtrOutput() SessionConnectionsListPtrOutput
+	ToSessionConnectionsListPtrOutputWithContext(context.Context) SessionConnectionsListPtrOutput
+}
+
+type sessionConnectionsListPtrType SessionConnectionsListArgs
+
+func SessionConnectionsListPtr(v *SessionConnectionsListArgs) SessionConnectionsListPtrInput {
+	return (*sessionConnectionsListPtrType)(v)
+}
+
+func (*sessionConnectionsListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionConnectionsList)(nil)).Elem()
+}
+
+func (i *sessionConnectionsListPtrType) ToSessionConnectionsListPtrOutput() SessionConnectionsListPtrOutput {
+	return i.ToSessionConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (i *sessionConnectionsListPtrType) ToSessionConnectionsListPtrOutputWithContext(ctx context.Context) SessionConnectionsListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SessionConnectionsListPtrOutput)
+}
+
+// Specifies the connections used by the session.
+type SessionConnectionsListOutput struct{ *pulumi.OutputState }
+
+func (SessionConnectionsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SessionConnectionsList)(nil)).Elem()
+}
+
+func (o SessionConnectionsListOutput) ToSessionConnectionsListOutput() SessionConnectionsListOutput {
+	return o
+}
+
+func (o SessionConnectionsListOutput) ToSessionConnectionsListOutputWithContext(ctx context.Context) SessionConnectionsListOutput {
+	return o
+}
+
+func (o SessionConnectionsListOutput) ToSessionConnectionsListPtrOutput() SessionConnectionsListPtrOutput {
+	return o.ToSessionConnectionsListPtrOutputWithContext(context.Background())
+}
+
+func (o SessionConnectionsListOutput) ToSessionConnectionsListPtrOutputWithContext(ctx context.Context) SessionConnectionsListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SessionConnectionsList) *SessionConnectionsList {
+		return &v
+	}).(SessionConnectionsListPtrOutput)
+}
+
+// A list of connection names used by the session.
+func (o SessionConnectionsListOutput) Connections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SessionConnectionsList) []string { return v.Connections }).(pulumi.StringArrayOutput)
+}
+
+type SessionConnectionsListPtrOutput struct{ *pulumi.OutputState }
+
+func (SessionConnectionsListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SessionConnectionsList)(nil)).Elem()
+}
+
+func (o SessionConnectionsListPtrOutput) ToSessionConnectionsListPtrOutput() SessionConnectionsListPtrOutput {
+	return o
+}
+
+func (o SessionConnectionsListPtrOutput) ToSessionConnectionsListPtrOutputWithContext(ctx context.Context) SessionConnectionsListPtrOutput {
+	return o
+}
+
+func (o SessionConnectionsListPtrOutput) Elem() SessionConnectionsListOutput {
+	return o.ApplyT(func(v *SessionConnectionsList) SessionConnectionsList {
+		if v != nil {
+			return *v
+		}
+		var ret SessionConnectionsList
+		return ret
+	}).(SessionConnectionsListOutput)
+}
+
+// A list of connection names used by the session.
+func (o SessionConnectionsListPtrOutput) Connections() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *SessionConnectionsList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Connections
+	}).(pulumi.StringArrayOutput)
+}
+
+// A key-value pair to associate with a resource.
+type SessionTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 // The resource properties associated with the integration source.
 type SourceProcessingPropertiesProperties struct {
 	// The IAM role to access the Glue connection.
@@ -10370,6 +10582,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationJobBookmarksEncryptionPtrInput)(nil)).Elem(), SecurityConfigurationJobBookmarksEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationS3EncryptionInput)(nil)).Elem(), SecurityConfigurationS3EncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityConfigurationS3EncryptionArrayInput)(nil)).Elem(), SecurityConfigurationS3EncryptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionCommandInput)(nil)).Elem(), SessionCommandArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionConnectionsListInput)(nil)).Elem(), SessionConnectionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SessionConnectionsListPtrInput)(nil)).Elem(), SessionConnectionsListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SourceProcessingPropertiesPropertiesPtrInput)(nil)).Elem(), SourceProcessingPropertiesPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableOptimizerCompactionConfigurationInput)(nil)).Elem(), TableOptimizerCompactionConfigurationArgs{})
@@ -10503,6 +10718,9 @@ func init() {
 	pulumi.RegisterOutputType(SecurityConfigurationJobBookmarksEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionOutput{})
 	pulumi.RegisterOutputType(SecurityConfigurationS3EncryptionArrayOutput{})
+	pulumi.RegisterOutputType(SessionCommandOutput{})
+	pulumi.RegisterOutputType(SessionConnectionsListOutput{})
+	pulumi.RegisterOutputType(SessionConnectionsListPtrOutput{})
 	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesOutput{})
 	pulumi.RegisterOutputType(SourceProcessingPropertiesPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TableOptimizerCompactionConfigurationOutput{})

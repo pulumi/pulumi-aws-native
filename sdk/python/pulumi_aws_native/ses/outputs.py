@@ -126,6 +126,8 @@ __all__ = [
     'MailManagerTrafficPolicyPolicyStatement',
     'MultiRegionEndpointDetails',
     'MultiRegionEndpointRouteDetailsItemProperties',
+    'ReceiptFilterFilter',
+    'ReceiptFilterIpFilter',
     'ReceiptRuleAction',
     'ReceiptRuleAddHeaderAction',
     'ReceiptRuleBounceAction',
@@ -3760,6 +3762,92 @@ class MultiRegionEndpointRouteDetailsItemProperties(dict):
     @pulumi.getter
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class ReceiptFilterFilter(dict):
+    """
+    A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipFilter":
+            suggest = "ip_filter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ReceiptFilterFilter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ReceiptFilterFilter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ReceiptFilterFilter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_filter: 'outputs.ReceiptFilterIpFilter',
+                 name: Optional[_builtins.str] = None):
+        """
+        A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+
+        :param 'ReceiptFilterIpFilter' ip_filter: A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+        :param _builtins.str name: The name of the IP address filter.
+        """
+        pulumi.set(__self__, "ip_filter", ip_filter)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="ipFilter")
+    def ip_filter(self) -> 'outputs.ReceiptFilterIpFilter':
+        """
+        A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+        """
+        return pulumi.get(self, "ip_filter")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the IP address filter.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ReceiptFilterIpFilter(dict):
+    """
+    A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+    """
+    def __init__(__self__, *,
+                 cidr: _builtins.str,
+                 policy: _builtins.str):
+        """
+        A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.
+
+        :param _builtins.str cidr: A single IP address or a range of IP addresses to block or allow, specified in CIDR notation.
+        :param _builtins.str policy: Indicates whether to block or allow incoming mail from the specified IP addresses.
+        """
+        pulumi.set(__self__, "cidr", cidr)
+        pulumi.set(__self__, "policy", policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def cidr(self) -> _builtins.str:
+        """
+        A single IP address or a range of IP addresses to block or allow, specified in CIDR notation.
+        """
+        return pulumi.get(self, "cidr")
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> _builtins.str:
+        """
+        Indicates whether to block or allow incoming mail from the specified IP addresses.
+        """
+        return pulumi.get(self, "policy")
 
 
 @pulumi.output_type

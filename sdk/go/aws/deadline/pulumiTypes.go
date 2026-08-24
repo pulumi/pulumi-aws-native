@@ -13,6 +13,380 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The budget action to add.
+type BudgetActionToAdd struct {
+	// A description for the budget action.
+	Description *string `pulumi:"description"`
+	// The percentage threshold for the budget action.
+	ThresholdPercentage float64 `pulumi:"thresholdPercentage"`
+	// The type of budget action.
+	Type BudgetActionToAddType `pulumi:"type"`
+}
+
+// BudgetActionToAddInput is an input type that accepts BudgetActionToAddArgs and BudgetActionToAddOutput values.
+// You can construct a concrete instance of `BudgetActionToAddInput` via:
+//
+//	BudgetActionToAddArgs{...}
+type BudgetActionToAddInput interface {
+	pulumi.Input
+
+	ToBudgetActionToAddOutput() BudgetActionToAddOutput
+	ToBudgetActionToAddOutputWithContext(context.Context) BudgetActionToAddOutput
+}
+
+// The budget action to add.
+type BudgetActionToAddArgs struct {
+	// A description for the budget action.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The percentage threshold for the budget action.
+	ThresholdPercentage pulumi.Float64Input `pulumi:"thresholdPercentage"`
+	// The type of budget action.
+	Type BudgetActionToAddTypeInput `pulumi:"type"`
+}
+
+func (BudgetActionToAddArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetActionToAdd)(nil)).Elem()
+}
+
+func (i BudgetActionToAddArgs) ToBudgetActionToAddOutput() BudgetActionToAddOutput {
+	return i.ToBudgetActionToAddOutputWithContext(context.Background())
+}
+
+func (i BudgetActionToAddArgs) ToBudgetActionToAddOutputWithContext(ctx context.Context) BudgetActionToAddOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionToAddOutput)
+}
+
+// BudgetActionToAddArrayInput is an input type that accepts BudgetActionToAddArray and BudgetActionToAddArrayOutput values.
+// You can construct a concrete instance of `BudgetActionToAddArrayInput` via:
+//
+//	BudgetActionToAddArray{ BudgetActionToAddArgs{...} }
+type BudgetActionToAddArrayInput interface {
+	pulumi.Input
+
+	ToBudgetActionToAddArrayOutput() BudgetActionToAddArrayOutput
+	ToBudgetActionToAddArrayOutputWithContext(context.Context) BudgetActionToAddArrayOutput
+}
+
+type BudgetActionToAddArray []BudgetActionToAddInput
+
+func (BudgetActionToAddArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetActionToAdd)(nil)).Elem()
+}
+
+func (i BudgetActionToAddArray) ToBudgetActionToAddArrayOutput() BudgetActionToAddArrayOutput {
+	return i.ToBudgetActionToAddArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetActionToAddArray) ToBudgetActionToAddArrayOutputWithContext(ctx context.Context) BudgetActionToAddArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetActionToAddArrayOutput)
+}
+
+// The budget action to add.
+type BudgetActionToAddOutput struct{ *pulumi.OutputState }
+
+func (BudgetActionToAddOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetActionToAdd)(nil)).Elem()
+}
+
+func (o BudgetActionToAddOutput) ToBudgetActionToAddOutput() BudgetActionToAddOutput {
+	return o
+}
+
+func (o BudgetActionToAddOutput) ToBudgetActionToAddOutputWithContext(ctx context.Context) BudgetActionToAddOutput {
+	return o
+}
+
+// A description for the budget action.
+func (o BudgetActionToAddOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetActionToAdd) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The percentage threshold for the budget action.
+func (o BudgetActionToAddOutput) ThresholdPercentage() pulumi.Float64Output {
+	return o.ApplyT(func(v BudgetActionToAdd) float64 { return v.ThresholdPercentage }).(pulumi.Float64Output)
+}
+
+// The type of budget action.
+func (o BudgetActionToAddOutput) Type() BudgetActionToAddTypeOutput {
+	return o.ApplyT(func(v BudgetActionToAdd) BudgetActionToAddType { return v.Type }).(BudgetActionToAddTypeOutput)
+}
+
+type BudgetActionToAddArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetActionToAddArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetActionToAdd)(nil)).Elem()
+}
+
+func (o BudgetActionToAddArrayOutput) ToBudgetActionToAddArrayOutput() BudgetActionToAddArrayOutput {
+	return o
+}
+
+func (o BudgetActionToAddArrayOutput) ToBudgetActionToAddArrayOutputWithContext(ctx context.Context) BudgetActionToAddArrayOutput {
+	return o
+}
+
+func (o BudgetActionToAddArrayOutput) Index(i pulumi.IntInput) BudgetActionToAddOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetActionToAdd {
+		return vs[0].([]BudgetActionToAdd)[vs[1].(int)]
+	}).(BudgetActionToAddOutput)
+}
+
+// The details of a fixed budget schedule.
+type BudgetFixedBudgetSchedule struct {
+	// When the budget ends.
+	EndTime string `pulumi:"endTime"`
+	// When the budget starts.
+	StartTime string `pulumi:"startTime"`
+}
+
+// BudgetFixedBudgetScheduleInput is an input type that accepts BudgetFixedBudgetScheduleArgs and BudgetFixedBudgetScheduleOutput values.
+// You can construct a concrete instance of `BudgetFixedBudgetScheduleInput` via:
+//
+//	BudgetFixedBudgetScheduleArgs{...}
+type BudgetFixedBudgetScheduleInput interface {
+	pulumi.Input
+
+	ToBudgetFixedBudgetScheduleOutput() BudgetFixedBudgetScheduleOutput
+	ToBudgetFixedBudgetScheduleOutputWithContext(context.Context) BudgetFixedBudgetScheduleOutput
+}
+
+// The details of a fixed budget schedule.
+type BudgetFixedBudgetScheduleArgs struct {
+	// When the budget ends.
+	EndTime pulumi.StringInput `pulumi:"endTime"`
+	// When the budget starts.
+	StartTime pulumi.StringInput `pulumi:"startTime"`
+}
+
+func (BudgetFixedBudgetScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFixedBudgetSchedule)(nil)).Elem()
+}
+
+func (i BudgetFixedBudgetScheduleArgs) ToBudgetFixedBudgetScheduleOutput() BudgetFixedBudgetScheduleOutput {
+	return i.ToBudgetFixedBudgetScheduleOutputWithContext(context.Background())
+}
+
+func (i BudgetFixedBudgetScheduleArgs) ToBudgetFixedBudgetScheduleOutputWithContext(ctx context.Context) BudgetFixedBudgetScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFixedBudgetScheduleOutput)
+}
+
+// The details of a fixed budget schedule.
+type BudgetFixedBudgetScheduleOutput struct{ *pulumi.OutputState }
+
+func (BudgetFixedBudgetScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFixedBudgetSchedule)(nil)).Elem()
+}
+
+func (o BudgetFixedBudgetScheduleOutput) ToBudgetFixedBudgetScheduleOutput() BudgetFixedBudgetScheduleOutput {
+	return o
+}
+
+func (o BudgetFixedBudgetScheduleOutput) ToBudgetFixedBudgetScheduleOutputWithContext(ctx context.Context) BudgetFixedBudgetScheduleOutput {
+	return o
+}
+
+// When the budget ends.
+func (o BudgetFixedBudgetScheduleOutput) EndTime() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFixedBudgetSchedule) string { return v.EndTime }).(pulumi.StringOutput)
+}
+
+// When the budget starts.
+func (o BudgetFixedBudgetScheduleOutput) StartTime() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFixedBudgetSchedule) string { return v.StartTime }).(pulumi.StringOutput)
+}
+
+type BudgetFixedBudgetSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFixedBudgetSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFixedBudgetSchedule)(nil)).Elem()
+}
+
+func (o BudgetFixedBudgetSchedulePtrOutput) ToBudgetFixedBudgetSchedulePtrOutput() BudgetFixedBudgetSchedulePtrOutput {
+	return o
+}
+
+func (o BudgetFixedBudgetSchedulePtrOutput) ToBudgetFixedBudgetSchedulePtrOutputWithContext(ctx context.Context) BudgetFixedBudgetSchedulePtrOutput {
+	return o
+}
+
+func (o BudgetFixedBudgetSchedulePtrOutput) Elem() BudgetFixedBudgetScheduleOutput {
+	return o.ApplyT(func(v *BudgetFixedBudgetSchedule) BudgetFixedBudgetSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFixedBudgetSchedule
+		return ret
+	}).(BudgetFixedBudgetScheduleOutput)
+}
+
+// When the budget ends.
+func (o BudgetFixedBudgetSchedulePtrOutput) EndTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFixedBudgetSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// When the budget starts.
+func (o BudgetFixedBudgetSchedulePtrOutput) StartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFixedBudgetSchedule) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+// The start and end time of the budget.
+type BudgetSchedule struct {
+	Fixed BudgetFixedBudgetSchedule `pulumi:"fixed"`
+}
+
+// BudgetScheduleInput is an input type that accepts BudgetScheduleArgs and BudgetScheduleOutput values.
+// You can construct a concrete instance of `BudgetScheduleInput` via:
+//
+//	BudgetScheduleArgs{...}
+type BudgetScheduleInput interface {
+	pulumi.Input
+
+	ToBudgetScheduleOutput() BudgetScheduleOutput
+	ToBudgetScheduleOutputWithContext(context.Context) BudgetScheduleOutput
+}
+
+// The start and end time of the budget.
+type BudgetScheduleArgs struct {
+	Fixed BudgetFixedBudgetScheduleInput `pulumi:"fixed"`
+}
+
+func (BudgetScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSchedule)(nil)).Elem()
+}
+
+func (i BudgetScheduleArgs) ToBudgetScheduleOutput() BudgetScheduleOutput {
+	return i.ToBudgetScheduleOutputWithContext(context.Background())
+}
+
+func (i BudgetScheduleArgs) ToBudgetScheduleOutputWithContext(ctx context.Context) BudgetScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetScheduleOutput)
+}
+
+// The start and end time of the budget.
+type BudgetScheduleOutput struct{ *pulumi.OutputState }
+
+func (BudgetScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetSchedule)(nil)).Elem()
+}
+
+func (o BudgetScheduleOutput) ToBudgetScheduleOutput() BudgetScheduleOutput {
+	return o
+}
+
+func (o BudgetScheduleOutput) ToBudgetScheduleOutputWithContext(ctx context.Context) BudgetScheduleOutput {
+	return o
+}
+
+func (o BudgetScheduleOutput) Fixed() BudgetFixedBudgetScheduleOutput {
+	return o.ApplyT(func(v BudgetSchedule) BudgetFixedBudgetSchedule { return v.Fixed }).(BudgetFixedBudgetScheduleOutput)
+}
+
+type BudgetSchedulePtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetSchedulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetSchedule)(nil)).Elem()
+}
+
+func (o BudgetSchedulePtrOutput) ToBudgetSchedulePtrOutput() BudgetSchedulePtrOutput {
+	return o
+}
+
+func (o BudgetSchedulePtrOutput) ToBudgetSchedulePtrOutputWithContext(ctx context.Context) BudgetSchedulePtrOutput {
+	return o
+}
+
+func (o BudgetSchedulePtrOutput) Elem() BudgetScheduleOutput {
+	return o.ApplyT(func(v *BudgetSchedule) BudgetSchedule {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetSchedule
+		return ret
+	}).(BudgetScheduleOutput)
+}
+
+func (o BudgetSchedulePtrOutput) Fixed() BudgetFixedBudgetSchedulePtrOutput {
+	return o.ApplyT(func(v *BudgetSchedule) *BudgetFixedBudgetSchedule {
+		if v == nil {
+			return nil
+		}
+		return &v.Fixed
+	}).(BudgetFixedBudgetSchedulePtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type BudgetTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
+// The usage details of the allotted budget.
+type BudgetUsageTrackingResource struct {
+	// The queue ID.
+	QueueId string `pulumi:"queueId"`
+}
+
+// BudgetUsageTrackingResourceInput is an input type that accepts BudgetUsageTrackingResourceArgs and BudgetUsageTrackingResourceOutput values.
+// You can construct a concrete instance of `BudgetUsageTrackingResourceInput` via:
+//
+//	BudgetUsageTrackingResourceArgs{...}
+type BudgetUsageTrackingResourceInput interface {
+	pulumi.Input
+
+	ToBudgetUsageTrackingResourceOutput() BudgetUsageTrackingResourceOutput
+	ToBudgetUsageTrackingResourceOutputWithContext(context.Context) BudgetUsageTrackingResourceOutput
+}
+
+// The usage details of the allotted budget.
+type BudgetUsageTrackingResourceArgs struct {
+	// The queue ID.
+	QueueId pulumi.StringInput `pulumi:"queueId"`
+}
+
+func (BudgetUsageTrackingResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetUsageTrackingResource)(nil)).Elem()
+}
+
+func (i BudgetUsageTrackingResourceArgs) ToBudgetUsageTrackingResourceOutput() BudgetUsageTrackingResourceOutput {
+	return i.ToBudgetUsageTrackingResourceOutputWithContext(context.Background())
+}
+
+func (i BudgetUsageTrackingResourceArgs) ToBudgetUsageTrackingResourceOutputWithContext(ctx context.Context) BudgetUsageTrackingResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetUsageTrackingResourceOutput)
+}
+
+// The usage details of the allotted budget.
+type BudgetUsageTrackingResourceOutput struct{ *pulumi.OutputState }
+
+func (BudgetUsageTrackingResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetUsageTrackingResource)(nil)).Elem()
+}
+
+func (o BudgetUsageTrackingResourceOutput) ToBudgetUsageTrackingResourceOutput() BudgetUsageTrackingResourceOutput {
+	return o
+}
+
+func (o BudgetUsageTrackingResourceOutput) ToBudgetUsageTrackingResourceOutputWithContext(ctx context.Context) BudgetUsageTrackingResourceOutput {
+	return o
+}
+
+// The queue ID.
+func (o BudgetUsageTrackingResourceOutput) QueueId() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetUsageTrackingResource) string { return v.QueueId }).(pulumi.StringOutput)
+}
+
 // A key-value pair to associate with a resource.
 type FarmTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 127 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -4997,7 +5371,331 @@ func (o StorageProfileFileSystemLocationArrayOutput) Index(i pulumi.IntInput) St
 	}).(StorageProfileFileSystemLocationOutput)
 }
 
+type TagsItemProperties struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+// The host property details.
+type WorkerHostPropertiesRequest struct {
+	// The host name.
+	HostName    *string            `pulumi:"hostName"`
+	IpAddresses *WorkerIpAddresses `pulumi:"ipAddresses"`
+}
+
+// WorkerHostPropertiesRequestInput is an input type that accepts WorkerHostPropertiesRequestArgs and WorkerHostPropertiesRequestOutput values.
+// You can construct a concrete instance of `WorkerHostPropertiesRequestInput` via:
+//
+//	WorkerHostPropertiesRequestArgs{...}
+type WorkerHostPropertiesRequestInput interface {
+	pulumi.Input
+
+	ToWorkerHostPropertiesRequestOutput() WorkerHostPropertiesRequestOutput
+	ToWorkerHostPropertiesRequestOutputWithContext(context.Context) WorkerHostPropertiesRequestOutput
+}
+
+// The host property details.
+type WorkerHostPropertiesRequestArgs struct {
+	// The host name.
+	HostName    pulumi.StringPtrInput     `pulumi:"hostName"`
+	IpAddresses WorkerIpAddressesPtrInput `pulumi:"ipAddresses"`
+}
+
+func (WorkerHostPropertiesRequestArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerHostPropertiesRequest)(nil)).Elem()
+}
+
+func (i WorkerHostPropertiesRequestArgs) ToWorkerHostPropertiesRequestOutput() WorkerHostPropertiesRequestOutput {
+	return i.ToWorkerHostPropertiesRequestOutputWithContext(context.Background())
+}
+
+func (i WorkerHostPropertiesRequestArgs) ToWorkerHostPropertiesRequestOutputWithContext(ctx context.Context) WorkerHostPropertiesRequestOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerHostPropertiesRequestOutput)
+}
+
+func (i WorkerHostPropertiesRequestArgs) ToWorkerHostPropertiesRequestPtrOutput() WorkerHostPropertiesRequestPtrOutput {
+	return i.ToWorkerHostPropertiesRequestPtrOutputWithContext(context.Background())
+}
+
+func (i WorkerHostPropertiesRequestArgs) ToWorkerHostPropertiesRequestPtrOutputWithContext(ctx context.Context) WorkerHostPropertiesRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerHostPropertiesRequestOutput).ToWorkerHostPropertiesRequestPtrOutputWithContext(ctx)
+}
+
+// WorkerHostPropertiesRequestPtrInput is an input type that accepts WorkerHostPropertiesRequestArgs, WorkerHostPropertiesRequestPtr and WorkerHostPropertiesRequestPtrOutput values.
+// You can construct a concrete instance of `WorkerHostPropertiesRequestPtrInput` via:
+//
+//	        WorkerHostPropertiesRequestArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkerHostPropertiesRequestPtrInput interface {
+	pulumi.Input
+
+	ToWorkerHostPropertiesRequestPtrOutput() WorkerHostPropertiesRequestPtrOutput
+	ToWorkerHostPropertiesRequestPtrOutputWithContext(context.Context) WorkerHostPropertiesRequestPtrOutput
+}
+
+type workerHostPropertiesRequestPtrType WorkerHostPropertiesRequestArgs
+
+func WorkerHostPropertiesRequestPtr(v *WorkerHostPropertiesRequestArgs) WorkerHostPropertiesRequestPtrInput {
+	return (*workerHostPropertiesRequestPtrType)(v)
+}
+
+func (*workerHostPropertiesRequestPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkerHostPropertiesRequest)(nil)).Elem()
+}
+
+func (i *workerHostPropertiesRequestPtrType) ToWorkerHostPropertiesRequestPtrOutput() WorkerHostPropertiesRequestPtrOutput {
+	return i.ToWorkerHostPropertiesRequestPtrOutputWithContext(context.Background())
+}
+
+func (i *workerHostPropertiesRequestPtrType) ToWorkerHostPropertiesRequestPtrOutputWithContext(ctx context.Context) WorkerHostPropertiesRequestPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerHostPropertiesRequestPtrOutput)
+}
+
+// The host property details.
+type WorkerHostPropertiesRequestOutput struct{ *pulumi.OutputState }
+
+func (WorkerHostPropertiesRequestOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerHostPropertiesRequest)(nil)).Elem()
+}
+
+func (o WorkerHostPropertiesRequestOutput) ToWorkerHostPropertiesRequestOutput() WorkerHostPropertiesRequestOutput {
+	return o
+}
+
+func (o WorkerHostPropertiesRequestOutput) ToWorkerHostPropertiesRequestOutputWithContext(ctx context.Context) WorkerHostPropertiesRequestOutput {
+	return o
+}
+
+func (o WorkerHostPropertiesRequestOutput) ToWorkerHostPropertiesRequestPtrOutput() WorkerHostPropertiesRequestPtrOutput {
+	return o.ToWorkerHostPropertiesRequestPtrOutputWithContext(context.Background())
+}
+
+func (o WorkerHostPropertiesRequestOutput) ToWorkerHostPropertiesRequestPtrOutputWithContext(ctx context.Context) WorkerHostPropertiesRequestPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkerHostPropertiesRequest) *WorkerHostPropertiesRequest {
+		return &v
+	}).(WorkerHostPropertiesRequestPtrOutput)
+}
+
+// The host name.
+func (o WorkerHostPropertiesRequestOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerHostPropertiesRequest) *string { return v.HostName }).(pulumi.StringPtrOutput)
+}
+
+func (o WorkerHostPropertiesRequestOutput) IpAddresses() WorkerIpAddressesPtrOutput {
+	return o.ApplyT(func(v WorkerHostPropertiesRequest) *WorkerIpAddresses { return v.IpAddresses }).(WorkerIpAddressesPtrOutput)
+}
+
+type WorkerHostPropertiesRequestPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkerHostPropertiesRequestPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkerHostPropertiesRequest)(nil)).Elem()
+}
+
+func (o WorkerHostPropertiesRequestPtrOutput) ToWorkerHostPropertiesRequestPtrOutput() WorkerHostPropertiesRequestPtrOutput {
+	return o
+}
+
+func (o WorkerHostPropertiesRequestPtrOutput) ToWorkerHostPropertiesRequestPtrOutputWithContext(ctx context.Context) WorkerHostPropertiesRequestPtrOutput {
+	return o
+}
+
+func (o WorkerHostPropertiesRequestPtrOutput) Elem() WorkerHostPropertiesRequestOutput {
+	return o.ApplyT(func(v *WorkerHostPropertiesRequest) WorkerHostPropertiesRequest {
+		if v != nil {
+			return *v
+		}
+		var ret WorkerHostPropertiesRequest
+		return ret
+	}).(WorkerHostPropertiesRequestOutput)
+}
+
+// The host name.
+func (o WorkerHostPropertiesRequestPtrOutput) HostName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkerHostPropertiesRequest) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HostName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkerHostPropertiesRequestPtrOutput) IpAddresses() WorkerIpAddressesPtrOutput {
+	return o.ApplyT(func(v *WorkerHostPropertiesRequest) *WorkerIpAddresses {
+		if v == nil {
+			return nil
+		}
+		return v.IpAddresses
+	}).(WorkerIpAddressesPtrOutput)
+}
+
+// The IP addresses for a host.
+type WorkerIpAddresses struct {
+	// The IpV4 address of the network.
+	IpV4Addresses []string `pulumi:"ipV4Addresses"`
+	// The IpV6 address for the network and node component.
+	IpV6Addresses []string `pulumi:"ipV6Addresses"`
+}
+
+// WorkerIpAddressesInput is an input type that accepts WorkerIpAddressesArgs and WorkerIpAddressesOutput values.
+// You can construct a concrete instance of `WorkerIpAddressesInput` via:
+//
+//	WorkerIpAddressesArgs{...}
+type WorkerIpAddressesInput interface {
+	pulumi.Input
+
+	ToWorkerIpAddressesOutput() WorkerIpAddressesOutput
+	ToWorkerIpAddressesOutputWithContext(context.Context) WorkerIpAddressesOutput
+}
+
+// The IP addresses for a host.
+type WorkerIpAddressesArgs struct {
+	// The IpV4 address of the network.
+	IpV4Addresses pulumi.StringArrayInput `pulumi:"ipV4Addresses"`
+	// The IpV6 address for the network and node component.
+	IpV6Addresses pulumi.StringArrayInput `pulumi:"ipV6Addresses"`
+}
+
+func (WorkerIpAddressesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerIpAddresses)(nil)).Elem()
+}
+
+func (i WorkerIpAddressesArgs) ToWorkerIpAddressesOutput() WorkerIpAddressesOutput {
+	return i.ToWorkerIpAddressesOutputWithContext(context.Background())
+}
+
+func (i WorkerIpAddressesArgs) ToWorkerIpAddressesOutputWithContext(ctx context.Context) WorkerIpAddressesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerIpAddressesOutput)
+}
+
+func (i WorkerIpAddressesArgs) ToWorkerIpAddressesPtrOutput() WorkerIpAddressesPtrOutput {
+	return i.ToWorkerIpAddressesPtrOutputWithContext(context.Background())
+}
+
+func (i WorkerIpAddressesArgs) ToWorkerIpAddressesPtrOutputWithContext(ctx context.Context) WorkerIpAddressesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerIpAddressesOutput).ToWorkerIpAddressesPtrOutputWithContext(ctx)
+}
+
+// WorkerIpAddressesPtrInput is an input type that accepts WorkerIpAddressesArgs, WorkerIpAddressesPtr and WorkerIpAddressesPtrOutput values.
+// You can construct a concrete instance of `WorkerIpAddressesPtrInput` via:
+//
+//	        WorkerIpAddressesArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkerIpAddressesPtrInput interface {
+	pulumi.Input
+
+	ToWorkerIpAddressesPtrOutput() WorkerIpAddressesPtrOutput
+	ToWorkerIpAddressesPtrOutputWithContext(context.Context) WorkerIpAddressesPtrOutput
+}
+
+type workerIpAddressesPtrType WorkerIpAddressesArgs
+
+func WorkerIpAddressesPtr(v *WorkerIpAddressesArgs) WorkerIpAddressesPtrInput {
+	return (*workerIpAddressesPtrType)(v)
+}
+
+func (*workerIpAddressesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkerIpAddresses)(nil)).Elem()
+}
+
+func (i *workerIpAddressesPtrType) ToWorkerIpAddressesPtrOutput() WorkerIpAddressesPtrOutput {
+	return i.ToWorkerIpAddressesPtrOutputWithContext(context.Background())
+}
+
+func (i *workerIpAddressesPtrType) ToWorkerIpAddressesPtrOutputWithContext(ctx context.Context) WorkerIpAddressesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkerIpAddressesPtrOutput)
+}
+
+// The IP addresses for a host.
+type WorkerIpAddressesOutput struct{ *pulumi.OutputState }
+
+func (WorkerIpAddressesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkerIpAddresses)(nil)).Elem()
+}
+
+func (o WorkerIpAddressesOutput) ToWorkerIpAddressesOutput() WorkerIpAddressesOutput {
+	return o
+}
+
+func (o WorkerIpAddressesOutput) ToWorkerIpAddressesOutputWithContext(ctx context.Context) WorkerIpAddressesOutput {
+	return o
+}
+
+func (o WorkerIpAddressesOutput) ToWorkerIpAddressesPtrOutput() WorkerIpAddressesPtrOutput {
+	return o.ToWorkerIpAddressesPtrOutputWithContext(context.Background())
+}
+
+func (o WorkerIpAddressesOutput) ToWorkerIpAddressesPtrOutputWithContext(ctx context.Context) WorkerIpAddressesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkerIpAddresses) *WorkerIpAddresses {
+		return &v
+	}).(WorkerIpAddressesPtrOutput)
+}
+
+// The IpV4 address of the network.
+func (o WorkerIpAddressesOutput) IpV4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkerIpAddresses) []string { return v.IpV4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The IpV6 address for the network and node component.
+func (o WorkerIpAddressesOutput) IpV6Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v WorkerIpAddresses) []string { return v.IpV6Addresses }).(pulumi.StringArrayOutput)
+}
+
+type WorkerIpAddressesPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkerIpAddressesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkerIpAddresses)(nil)).Elem()
+}
+
+func (o WorkerIpAddressesPtrOutput) ToWorkerIpAddressesPtrOutput() WorkerIpAddressesPtrOutput {
+	return o
+}
+
+func (o WorkerIpAddressesPtrOutput) ToWorkerIpAddressesPtrOutputWithContext(ctx context.Context) WorkerIpAddressesPtrOutput {
+	return o
+}
+
+func (o WorkerIpAddressesPtrOutput) Elem() WorkerIpAddressesOutput {
+	return o.ApplyT(func(v *WorkerIpAddresses) WorkerIpAddresses {
+		if v != nil {
+			return *v
+		}
+		var ret WorkerIpAddresses
+		return ret
+	}).(WorkerIpAddressesOutput)
+}
+
+// The IpV4 address of the network.
+func (o WorkerIpAddressesPtrOutput) IpV4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkerIpAddresses) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpV4Addresses
+	}).(pulumi.StringArrayOutput)
+}
+
+// The IpV6 address for the network and node component.
+func (o WorkerIpAddressesPtrOutput) IpV6Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *WorkerIpAddresses) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpV6Addresses
+	}).(pulumi.StringArrayOutput)
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionToAddInput)(nil)).Elem(), BudgetActionToAddArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetActionToAddArrayInput)(nil)).Elem(), BudgetActionToAddArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFixedBudgetScheduleInput)(nil)).Elem(), BudgetFixedBudgetScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetScheduleInput)(nil)).Elem(), BudgetScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetUsageTrackingResourceInput)(nil)).Elem(), BudgetUsageTrackingResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorCapabilitiesInput)(nil)).Elem(), FleetAcceleratorCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorCapabilitiesPtrInput)(nil)).Elem(), FleetAcceleratorCapabilitiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetAcceleratorCountRangeInput)(nil)).Elem(), FleetAcceleratorCountRangeArgs{})
@@ -5057,6 +5755,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueueWindowsUserPtrInput)(nil)).Elem(), QueueWindowsUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationInput)(nil)).Elem(), StorageProfileFileSystemLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageProfileFileSystemLocationArrayInput)(nil)).Elem(), StorageProfileFileSystemLocationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkerHostPropertiesRequestInput)(nil)).Elem(), WorkerHostPropertiesRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkerHostPropertiesRequestPtrInput)(nil)).Elem(), WorkerHostPropertiesRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkerIpAddressesInput)(nil)).Elem(), WorkerIpAddressesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkerIpAddressesPtrInput)(nil)).Elem(), WorkerIpAddressesArgs{})
+	pulumi.RegisterOutputType(BudgetActionToAddOutput{})
+	pulumi.RegisterOutputType(BudgetActionToAddArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFixedBudgetScheduleOutput{})
+	pulumi.RegisterOutputType(BudgetFixedBudgetSchedulePtrOutput{})
+	pulumi.RegisterOutputType(BudgetScheduleOutput{})
+	pulumi.RegisterOutputType(BudgetSchedulePtrOutput{})
+	pulumi.RegisterOutputType(BudgetUsageTrackingResourceOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorCapabilitiesOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorCapabilitiesPtrOutput{})
 	pulumi.RegisterOutputType(FleetAcceleratorCountRangeOutput{})
@@ -5127,4 +5836,8 @@ func init() {
 	pulumi.RegisterOutputType(QueueWindowsUserPtrOutput{})
 	pulumi.RegisterOutputType(StorageProfileFileSystemLocationOutput{})
 	pulumi.RegisterOutputType(StorageProfileFileSystemLocationArrayOutput{})
+	pulumi.RegisterOutputType(WorkerHostPropertiesRequestOutput{})
+	pulumi.RegisterOutputType(WorkerHostPropertiesRequestPtrOutput{})
+	pulumi.RegisterOutputType(WorkerIpAddressesOutput{})
+	pulumi.RegisterOutputType(WorkerIpAddressesPtrOutput{})
 }

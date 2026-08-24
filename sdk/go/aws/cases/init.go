@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:cases:Case":
+		r = &Case{}
 	case "aws-native:cases:CaseRule":
 		r = &CaseRule{}
 	case "aws-native:cases:Domain":

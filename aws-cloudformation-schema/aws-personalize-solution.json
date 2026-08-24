@@ -211,6 +211,24 @@
         }
       },
       "additionalProperties" : false
+    },
+    "Tag" : {
+      "type" : "object",
+      "properties" : {
+        "Key" : {
+          "type" : "string",
+          "pattern" : "^(?!aws:)[a-zA-Z+-=._:/]+$",
+          "minLength" : 1,
+          "maxLength" : 128
+        },
+        "Value" : {
+          "type" : "string",
+          "minLength" : 0,
+          "maxLength" : 256
+        }
+      },
+      "required" : [ "Key", "Value" ],
+      "additionalProperties" : false
     }
   },
   "properties" : {
@@ -251,20 +269,36 @@
     },
     "SolutionConfig" : {
       "$ref" : "#/definitions/SolutionConfig"
+    },
+    "Tags" : {
+      "description" : "The tags used to organize, track, or control access for this resource.",
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Tag"
+      },
+      "minItems" : 0,
+      "maxItems" : 50
     }
   },
   "additionalProperties" : false,
   "required" : [ "Name", "DatasetGroupArn" ],
-  "createOnlyProperties" : [ "/properties/Name", "/properties/EventType", "/properties/DatasetGroupArn", "/properties/PerformAutoML", "/properties/PerformHPO", "/properties/RecipeArn", "/properties/SolutionConfig" ],
-  "taggable" : false,
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : false,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ "personalize:TagResource", "personalize:UntagResource", "personalize:ListTagsForResource" ]
+  },
+  "createOnlyProperties" : [ "/properties/Name", "/properties/EventType", "/properties/DatasetGroupArn", "/properties/PerformAutoML", "/properties/PerformHPO", "/properties/RecipeArn", "/properties/SolutionConfig", "/properties/Tags" ],
   "readOnlyProperties" : [ "/properties/SolutionArn" ],
   "primaryIdentifier" : [ "/properties/SolutionArn" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "personalize:CreateSolution", "personalize:DescribeSolution" ]
+      "permissions" : [ "personalize:CreateSolution", "personalize:DescribeSolution", "personalize:ListTagsForResource", "personalize:TagResource" ]
     },
     "read" : {
-      "permissions" : [ "personalize:DescribeSolution" ]
+      "permissions" : [ "personalize:DescribeSolution", "personalize:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "personalize:DeleteSolution", "personalize:DescribeSolution" ]

@@ -150,6 +150,11 @@ export const getIntegrationAssociation: typeof import("./getIntegrationAssociati
 export const getIntegrationAssociationOutput: typeof import("./getIntegrationAssociation").getIntegrationAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getIntegrationAssociation","getIntegrationAssociationOutput"], () => require("./getIntegrationAssociation"));
 
+export { GetMetricArgs, GetMetricResult, GetMetricOutputArgs } from "./getMetric";
+export const getMetric: typeof import("./getMetric").getMetric = null as any;
+export const getMetricOutput: typeof import("./getMetric").getMetricOutput = null as any;
+utilities.lazyLoad(exports, ["getMetric","getMetricOutput"], () => require("./getMetric"));
+
 export { GetNotificationArgs, GetNotificationResult, GetNotificationOutputArgs } from "./getNotification";
 export const getNotification: typeof import("./getNotification").getNotification = null as any;
 export const getNotificationOutput: typeof import("./getNotification").getNotificationOutput = null as any;
@@ -264,6 +269,11 @@ export { IntegrationAssociationArgs } from "./integrationAssociation";
 export type IntegrationAssociation = import("./integrationAssociation").IntegrationAssociation;
 export const IntegrationAssociation: typeof import("./integrationAssociation").IntegrationAssociation = null as any;
 utilities.lazyLoad(exports, ["IntegrationAssociation"], () => require("./integrationAssociation"));
+
+export { MetricArgs } from "./metric";
+export type Metric = import("./metric").Metric;
+export const Metric: typeof import("./metric").Metric = null as any;
+utilities.lazyLoad(exports, ["Metric"], () => require("./metric"));
 
 export { NotificationArgs } from "./notification";
 export type Notification = import("./notification").Notification;
@@ -402,6 +412,8 @@ const _module = {
                 return new InstanceStorageConfig(name, <any>undefined, { urn })
             case "aws-native:connect:IntegrationAssociation":
                 return new IntegrationAssociation(name, <any>undefined, { urn })
+            case "aws-native:connect:Metric":
+                return new Metric(name, <any>undefined, { urn })
             case "aws-native:connect:Notification":
                 return new Notification(name, <any>undefined, { urn })
             case "aws-native:connect:PhoneNumber":

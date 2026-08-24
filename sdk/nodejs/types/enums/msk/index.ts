@@ -133,6 +133,16 @@ export const ReplicatorConsumerGroupOffsetSyncMode = {
  */
 export type ReplicatorConsumerGroupOffsetSyncMode = (typeof ReplicatorConsumerGroupOffsetSyncMode)[keyof typeof ReplicatorConsumerGroupOffsetSyncMode];
 
+export const ReplicatorJwtSigningAlgorithm = {
+    Rs256: "RS256",
+    Es384: "ES384",
+} as const;
+
+/**
+ * The algorithm used to sign the STS JWT assertion.
+ */
+export type ReplicatorJwtSigningAlgorithm = (typeof ReplicatorJwtSigningAlgorithm)[keyof typeof ReplicatorJwtSigningAlgorithm];
+
 export const ReplicatorKafkaClusterEncryptionInTransitType = {
     Tls: "TLS",
 } as const;
@@ -184,6 +194,17 @@ export const ReplicatorReplicationTopicNameConfigurationType = {
  * The type of replicated topic name.
  */
 export type ReplicatorReplicationTopicNameConfigurationType = (typeof ReplicatorReplicationTopicNameConfigurationType)[keyof typeof ReplicatorReplicationTopicNameConfigurationType];
+
+export const ReplicatorTokenEndpointAuthenticationMethod = {
+    Post: "POST",
+    Basic: "BASIC",
+    None: "NONE",
+} as const;
+
+/**
+ * How client credentials are sent to the identity provider's token endpoint.
+ */
+export type ReplicatorTokenEndpointAuthenticationMethod = (typeof ReplicatorTokenEndpointAuthenticationMethod)[keyof typeof ReplicatorTokenEndpointAuthenticationMethod];
 
 export const VpcConnectionAuthentication = {
     SaslIam: "SASL_IAM",

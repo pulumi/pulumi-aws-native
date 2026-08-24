@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.Msk.Inputs
         public Input<Inputs.ReplicatorKafkaClusterMtlsAuthenticationArgs>? Mtls { get; set; }
 
         /// <summary>
+        /// Details for client authentication using SASL/OAUTHBEARER.
+        /// </summary>
+        [Input("saslOAuthBearer")]
+        public Input<Inputs.ReplicatorKafkaClusterSaslOAuthBearerAuthenticationArgs>? SaslOAuthBearer { get; set; }
+
+        /// <summary>
         /// Details for SASL/SCRAM client authentication.
         /// </summary>
         [Input("saslScram")]

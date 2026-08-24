@@ -10,6 +10,172 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Whether the rule runs in LIVE mode (generates findings) or DRY_RUN mode (evaluates without generating findings).
+type CustomDetectionRuleAssociationMode string
+
+const (
+	CustomDetectionRuleAssociationModeLive   = CustomDetectionRuleAssociationMode("LIVE")
+	CustomDetectionRuleAssociationModeDryRun = CustomDetectionRuleAssociationMode("DRY_RUN")
+)
+
+func (CustomDetectionRuleAssociationMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDetectionRuleAssociationMode)(nil)).Elem()
+}
+
+func (e CustomDetectionRuleAssociationMode) ToCustomDetectionRuleAssociationModeOutput() CustomDetectionRuleAssociationModeOutput {
+	return pulumi.ToOutput(e).(CustomDetectionRuleAssociationModeOutput)
+}
+
+func (e CustomDetectionRuleAssociationMode) ToCustomDetectionRuleAssociationModeOutputWithContext(ctx context.Context) CustomDetectionRuleAssociationModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(CustomDetectionRuleAssociationModeOutput)
+}
+
+func (e CustomDetectionRuleAssociationMode) ToCustomDetectionRuleAssociationModePtrOutput() CustomDetectionRuleAssociationModePtrOutput {
+	return e.ToCustomDetectionRuleAssociationModePtrOutputWithContext(context.Background())
+}
+
+func (e CustomDetectionRuleAssociationMode) ToCustomDetectionRuleAssociationModePtrOutputWithContext(ctx context.Context) CustomDetectionRuleAssociationModePtrOutput {
+	return CustomDetectionRuleAssociationMode(e).ToCustomDetectionRuleAssociationModeOutputWithContext(ctx).ToCustomDetectionRuleAssociationModePtrOutputWithContext(ctx)
+}
+
+func (e CustomDetectionRuleAssociationMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomDetectionRuleAssociationMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e CustomDetectionRuleAssociationMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e CustomDetectionRuleAssociationMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type CustomDetectionRuleAssociationModeOutput struct{ *pulumi.OutputState }
+
+func (CustomDetectionRuleAssociationModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomDetectionRuleAssociationMode)(nil)).Elem()
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToCustomDetectionRuleAssociationModeOutput() CustomDetectionRuleAssociationModeOutput {
+	return o
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToCustomDetectionRuleAssociationModeOutputWithContext(ctx context.Context) CustomDetectionRuleAssociationModeOutput {
+	return o
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToCustomDetectionRuleAssociationModePtrOutput() CustomDetectionRuleAssociationModePtrOutput {
+	return o.ToCustomDetectionRuleAssociationModePtrOutputWithContext(context.Background())
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToCustomDetectionRuleAssociationModePtrOutputWithContext(ctx context.Context) CustomDetectionRuleAssociationModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomDetectionRuleAssociationMode) *CustomDetectionRuleAssociationMode {
+		return &v
+	}).(CustomDetectionRuleAssociationModePtrOutput)
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDetectionRuleAssociationMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomDetectionRuleAssociationModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomDetectionRuleAssociationMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type CustomDetectionRuleAssociationModePtrOutput struct{ *pulumi.OutputState }
+
+func (CustomDetectionRuleAssociationModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomDetectionRuleAssociationMode)(nil)).Elem()
+}
+
+func (o CustomDetectionRuleAssociationModePtrOutput) ToCustomDetectionRuleAssociationModePtrOutput() CustomDetectionRuleAssociationModePtrOutput {
+	return o
+}
+
+func (o CustomDetectionRuleAssociationModePtrOutput) ToCustomDetectionRuleAssociationModePtrOutputWithContext(ctx context.Context) CustomDetectionRuleAssociationModePtrOutput {
+	return o
+}
+
+func (o CustomDetectionRuleAssociationModePtrOutput) Elem() CustomDetectionRuleAssociationModeOutput {
+	return o.ApplyT(func(v *CustomDetectionRuleAssociationMode) CustomDetectionRuleAssociationMode {
+		if v != nil {
+			return *v
+		}
+		var ret CustomDetectionRuleAssociationMode
+		return ret
+	}).(CustomDetectionRuleAssociationModeOutput)
+}
+
+func (o CustomDetectionRuleAssociationModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o CustomDetectionRuleAssociationModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomDetectionRuleAssociationMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// CustomDetectionRuleAssociationModeInput is an input type that accepts values of the CustomDetectionRuleAssociationMode enum
+// A concrete instance of `CustomDetectionRuleAssociationModeInput` can be one of the following:
+//
+//	CustomDetectionRuleAssociationModeLive
+//	CustomDetectionRuleAssociationModeDryRun
+type CustomDetectionRuleAssociationModeInput interface {
+	pulumi.Input
+
+	ToCustomDetectionRuleAssociationModeOutput() CustomDetectionRuleAssociationModeOutput
+	ToCustomDetectionRuleAssociationModeOutputWithContext(context.Context) CustomDetectionRuleAssociationModeOutput
+}
+
+var customDetectionRuleAssociationModePtrType = reflect.TypeOf((**CustomDetectionRuleAssociationMode)(nil)).Elem()
+
+type CustomDetectionRuleAssociationModePtrInput interface {
+	pulumi.Input
+
+	ToCustomDetectionRuleAssociationModePtrOutput() CustomDetectionRuleAssociationModePtrOutput
+	ToCustomDetectionRuleAssociationModePtrOutputWithContext(context.Context) CustomDetectionRuleAssociationModePtrOutput
+}
+
+type customDetectionRuleAssociationModePtr string
+
+func CustomDetectionRuleAssociationModePtr(v string) CustomDetectionRuleAssociationModePtrInput {
+	return (*customDetectionRuleAssociationModePtr)(&v)
+}
+
+func (*customDetectionRuleAssociationModePtr) ElementType() reflect.Type {
+	return customDetectionRuleAssociationModePtrType
+}
+
+func (in *customDetectionRuleAssociationModePtr) ToCustomDetectionRuleAssociationModePtrOutput() CustomDetectionRuleAssociationModePtrOutput {
+	return pulumi.ToOutput(in).(CustomDetectionRuleAssociationModePtrOutput)
+}
+
+func (in *customDetectionRuleAssociationModePtr) ToCustomDetectionRuleAssociationModePtrOutputWithContext(ctx context.Context) CustomDetectionRuleAssociationModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(CustomDetectionRuleAssociationModePtrOutput)
+}
+
 // Status of the feature configuration.
 type DetectorCfnFeatureConfigurationStatus string
 
@@ -369,8 +535,12 @@ func (o TrustedEntitySetStatusPtrOutput) ToStringPtrOutputWithContext(ctx contex
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDetectionRuleAssociationModeInput)(nil)).Elem(), CustomDetectionRuleAssociationMode("LIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomDetectionRuleAssociationModePtrInput)(nil)).Elem(), CustomDetectionRuleAssociationMode("LIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationStatusInput)(nil)).Elem(), DetectorCfnFeatureConfigurationStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DetectorCfnFeatureConfigurationStatusPtrInput)(nil)).Elem(), DetectorCfnFeatureConfigurationStatus("ENABLED"))
+	pulumi.RegisterOutputType(CustomDetectionRuleAssociationModeOutput{})
+	pulumi.RegisterOutputType(CustomDetectionRuleAssociationModePtrOutput{})
 	pulumi.RegisterOutputType(DetectorCfnFeatureConfigurationStatusOutput{})
 	pulumi.RegisterOutputType(DetectorCfnFeatureConfigurationStatusPtrOutput{})
 	pulumi.RegisterOutputType(ThreatEntitySetStatusOutput{})

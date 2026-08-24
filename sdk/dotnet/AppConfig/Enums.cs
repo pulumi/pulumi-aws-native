@@ -180,4 +180,36 @@ namespace Pulumi.AwsNative.AppConfig
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Current status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExperimentDefinitionStatus : IEquatable<ExperimentDefinitionStatus>
+    {
+        private readonly string _value;
+
+        private ExperimentDefinitionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExperimentDefinitionStatus Active { get; } = new ExperimentDefinitionStatus("ACTIVE");
+        public static ExperimentDefinitionStatus Idle { get; } = new ExperimentDefinitionStatus("IDLE");
+        public static ExperimentDefinitionStatus Archived { get; } = new ExperimentDefinitionStatus("ARCHIVED");
+
+        public static bool operator ==(ExperimentDefinitionStatus left, ExperimentDefinitionStatus right) => left.Equals(right);
+        public static bool operator !=(ExperimentDefinitionStatus left, ExperimentDefinitionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ExperimentDefinitionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExperimentDefinitionStatus other && Equals(other);
+        public bool Equals(ExperimentDefinitionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

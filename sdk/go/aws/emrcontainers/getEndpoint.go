@@ -31,6 +31,8 @@ type LookupEndpointArgs struct {
 type LookupEndpointResult struct {
 	// The ARN of the managed endpoint.
 	Arn *string `pulumi:"arn"`
+	// The auth proxy URL for Spark Connect connections.
+	AuthProxyUrl *string `pulumi:"authProxyUrl"`
 	// The certificate authority for the managed endpoint.
 	CertificateAuthority *EndpointCertificate `pulumi:"certificateAuthority"`
 	// The date and time when the managed endpoint was created.
@@ -86,6 +88,11 @@ func (o LookupEndpointResultOutput) ToLookupEndpointResultOutputWithContext(ctx 
 // The ARN of the managed endpoint.
 func (o LookupEndpointResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupEndpointResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The auth proxy URL for Spark Connect connections.
+func (o LookupEndpointResultOutput) AuthProxyUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupEndpointResult) *string { return v.AuthProxyUrl }).(pulumi.StringPtrOutput)
 }
 
 // The certificate authority for the managed endpoint.

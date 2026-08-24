@@ -8,6 +8,35 @@ using Pulumi;
 namespace Pulumi.AwsNative.Batch
 {
     [EnumType]
+    public readonly struct ComputeEnvironmentEcsSettingsContainerInsights : IEquatable<ComputeEnvironmentEcsSettingsContainerInsights>
+    {
+        private readonly string _value;
+
+        private ComputeEnvironmentEcsSettingsContainerInsights(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ComputeEnvironmentEcsSettingsContainerInsights Enabled { get; } = new ComputeEnvironmentEcsSettingsContainerInsights("ENABLED");
+        public static ComputeEnvironmentEcsSettingsContainerInsights Enhanced { get; } = new ComputeEnvironmentEcsSettingsContainerInsights("ENHANCED");
+        public static ComputeEnvironmentEcsSettingsContainerInsights Disabled { get; } = new ComputeEnvironmentEcsSettingsContainerInsights("DISABLED");
+
+        public static bool operator ==(ComputeEnvironmentEcsSettingsContainerInsights left, ComputeEnvironmentEcsSettingsContainerInsights right) => left.Equals(right);
+        public static bool operator !=(ComputeEnvironmentEcsSettingsContainerInsights left, ComputeEnvironmentEcsSettingsContainerInsights right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeEnvironmentEcsSettingsContainerInsights value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeEnvironmentEcsSettingsContainerInsights other && Equals(other);
+        public bool Equals(ComputeEnvironmentEcsSettingsContainerInsights other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType : IEquatable<ComputeEnvironmentInstanceLaunchTemplateCapacityOptionType>
     {
         private readonly string _value;

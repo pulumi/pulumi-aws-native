@@ -15,10 +15,12 @@ from .get_channel_policy import *
 from .get_function import *
 from .get_live_source import *
 from .get_playback_configuration import *
+from .get_prefetch_schedule import *
 from .get_source_location import *
 from .get_vod_source import *
 from .live_source import *
 from .playback_configuration import *
+from .prefetch_schedule import *
 from .source_location import *
 from .vod_source import *
 from ._inputs import *

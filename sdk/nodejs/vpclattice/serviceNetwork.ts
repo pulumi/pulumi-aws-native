@@ -105,7 +105,7 @@ export class ServiceNetwork extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["name", "sharingConfig"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceNetwork.__pulumiType, name, resourceInputs, opts);
     }

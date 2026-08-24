@@ -79,6 +79,8 @@ namespace Pulumi.AwsNative.Ec2
         /// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
         /// </summary>
         public readonly string? PayerResponsibility;
+        public readonly string? PrivateDnsName;
+        public readonly Outputs.VpcEndpointServicePrivateDnsNameConfiguration? PrivateDnsNameConfiguration;
         /// <summary>
         /// The ID of the endpoint service.
         /// </summary>
@@ -106,6 +108,10 @@ namespace Pulumi.AwsNative.Ec2
 
             string? payerResponsibility,
 
+            string? privateDnsName,
+
+            Outputs.VpcEndpointServicePrivateDnsNameConfiguration? privateDnsNameConfiguration,
+
             string? serviceId,
 
             ImmutableArray<Pulumi.AwsNative.Ec2.VpcEndpointServiceIpAddressType> supportedIpAddressTypes,
@@ -118,6 +124,8 @@ namespace Pulumi.AwsNative.Ec2
             GatewayLoadBalancerArns = gatewayLoadBalancerArns;
             NetworkLoadBalancerArns = networkLoadBalancerArns;
             PayerResponsibility = payerResponsibility;
+            PrivateDnsName = privateDnsName;
+            PrivateDnsNameConfiguration = privateDnsNameConfiguration;
             ServiceId = serviceId;
             SupportedIpAddressTypes = supportedIpAddressTypes;
             SupportedRegions = supportedRegions;

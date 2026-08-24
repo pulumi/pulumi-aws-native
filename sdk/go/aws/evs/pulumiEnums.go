@@ -208,6 +208,7 @@ type EnvironmentHostInfoForCreateInstanceType string
 const (
 	EnvironmentHostInfoForCreateInstanceTypeI4iMetal     = EnvironmentHostInfoForCreateInstanceType("i4i.metal")
 	EnvironmentHostInfoForCreateInstanceTypeI7iMetal24xl = EnvironmentHostInfoForCreateInstanceType("i7i.metal-24xl")
+	EnvironmentHostInfoForCreateInstanceTypeI7iMetal48xl = EnvironmentHostInfoForCreateInstanceType("i7i.metal-48xl")
 )
 
 func (EnvironmentHostInfoForCreateInstanceType) ElementType() reflect.Type {
@@ -334,6 +335,7 @@ func (o EnvironmentHostInfoForCreateInstanceTypePtrOutput) ToStringPtrOutputWith
 //
 //	EnvironmentHostInfoForCreateInstanceTypeI4iMetal
 //	EnvironmentHostInfoForCreateInstanceTypeI7iMetal24xl
+//	EnvironmentHostInfoForCreateInstanceTypeI7iMetal48xl
 type EnvironmentHostInfoForCreateInstanceTypeInput interface {
 	pulumi.Input
 

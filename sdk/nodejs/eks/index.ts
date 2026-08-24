@@ -20,6 +20,11 @@ export type Capability = import("./capability").Capability;
 export const Capability: typeof import("./capability").Capability = null as any;
 utilities.lazyLoad(exports, ["Capability"], () => require("./capability"));
 
+export { CertificateAuthorityArgs } from "./certificateAuthority";
+export type CertificateAuthority = import("./certificateAuthority").CertificateAuthority;
+export const CertificateAuthority: typeof import("./certificateAuthority").CertificateAuthority = null as any;
+utilities.lazyLoad(exports, ["CertificateAuthority"], () => require("./certificateAuthority"));
+
 export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
@@ -44,6 +49,11 @@ export { GetCapabilityArgs, GetCapabilityResult, GetCapabilityOutputArgs } from 
 export const getCapability: typeof import("./getCapability").getCapability = null as any;
 export const getCapabilityOutput: typeof import("./getCapability").getCapabilityOutput = null as any;
 utilities.lazyLoad(exports, ["getCapability","getCapabilityOutput"], () => require("./getCapability"));
+
+export { GetCertificateAuthorityArgs, GetCertificateAuthorityResult, GetCertificateAuthorityOutputArgs } from "./getCertificateAuthority";
+export const getCertificateAuthority: typeof import("./getCertificateAuthority").getCertificateAuthority = null as any;
+export const getCertificateAuthorityOutput: typeof import("./getCertificateAuthority").getCertificateAuthorityOutput = null as any;
+utilities.lazyLoad(exports, ["getCertificateAuthority","getCertificateAuthorityOutput"], () => require("./getCertificateAuthority"));
 
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
@@ -99,6 +109,8 @@ const _module = {
                 return new Addon(name, <any>undefined, { urn })
             case "aws-native:eks:Capability":
                 return new Capability(name, <any>undefined, { urn })
+            case "aws-native:eks:CertificateAuthority":
+                return new CertificateAuthority(name, <any>undefined, { urn })
             case "aws-native:eks:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "aws-native:eks:FargateProfile":

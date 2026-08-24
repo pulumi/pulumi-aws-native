@@ -17,6 +17,10 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BudgetActionToAdd',
+    'BudgetFixedBudgetSchedule',
+    'BudgetSchedule',
+    'BudgetUsageTrackingResource',
     'FleetAcceleratorCapabilities',
     'FleetAcceleratorCountRange',
     'FleetAcceleratorSelection',
@@ -52,7 +56,183 @@ __all__ = [
     'QueueWeightedBalancedSchedulingConfiguration',
     'QueueWindowsUser',
     'StorageProfileFileSystemLocation',
+    'WorkerHostPropertiesRequest',
+    'WorkerIpAddresses',
 ]
+
+@pulumi.output_type
+class BudgetActionToAdd(dict):
+    """
+    The budget action to add.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "thresholdPercentage":
+            suggest = "threshold_percentage"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetActionToAdd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetActionToAdd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetActionToAdd.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 threshold_percentage: _builtins.float,
+                 type: 'BudgetActionToAddType',
+                 description: Optional[_builtins.str] = None):
+        """
+        The budget action to add.
+
+        :param _builtins.float threshold_percentage: The percentage threshold for the budget action.
+        :param 'BudgetActionToAddType' type: The type of budget action.
+        :param _builtins.str description: A description for the budget action.
+        """
+        pulumi.set(__self__, "threshold_percentage", threshold_percentage)
+        pulumi.set(__self__, "type", type)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @_builtins.property
+    @pulumi.getter(name="thresholdPercentage")
+    def threshold_percentage(self) -> _builtins.float:
+        """
+        The percentage threshold for the budget action.
+        """
+        return pulumi.get(self, "threshold_percentage")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'BudgetActionToAddType':
+        """
+        The type of budget action.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        A description for the budget action.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
+class BudgetFixedBudgetSchedule(dict):
+    """
+    The details of a fixed budget schedule.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endTime":
+            suggest = "end_time"
+        elif key == "startTime":
+            suggest = "start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetFixedBudgetSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetFixedBudgetSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetFixedBudgetSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 end_time: _builtins.str,
+                 start_time: _builtins.str):
+        """
+        The details of a fixed budget schedule.
+
+        :param _builtins.str end_time: When the budget ends.
+        :param _builtins.str start_time: When the budget starts.
+        """
+        pulumi.set(__self__, "end_time", end_time)
+        pulumi.set(__self__, "start_time", start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="endTime")
+    def end_time(self) -> _builtins.str:
+        """
+        When the budget ends.
+        """
+        return pulumi.get(self, "end_time")
+
+    @_builtins.property
+    @pulumi.getter(name="startTime")
+    def start_time(self) -> _builtins.str:
+        """
+        When the budget starts.
+        """
+        return pulumi.get(self, "start_time")
+
+
+@pulumi.output_type
+class BudgetSchedule(dict):
+    """
+    The start and end time of the budget.
+    """
+    def __init__(__self__, *,
+                 fixed: 'outputs.BudgetFixedBudgetSchedule'):
+        """
+        The start and end time of the budget.
+        """
+        pulumi.set(__self__, "fixed", fixed)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> 'outputs.BudgetFixedBudgetSchedule':
+        return pulumi.get(self, "fixed")
+
+
+@pulumi.output_type
+class BudgetUsageTrackingResource(dict):
+    """
+    The usage details of the allotted budget.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queueId":
+            suggest = "queue_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BudgetUsageTrackingResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BudgetUsageTrackingResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BudgetUsageTrackingResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 queue_id: _builtins.str):
+        """
+        The usage details of the allotted budget.
+
+        :param _builtins.str queue_id: The queue ID.
+        """
+        pulumi.set(__self__, "queue_id", queue_id)
+
+    @_builtins.property
+    @pulumi.getter(name="queueId")
+    def queue_id(self) -> _builtins.str:
+        """
+        The queue ID.
+        """
+        return pulumi.get(self, "queue_id")
+
 
 @pulumi.output_type
 class FleetAcceleratorCapabilities(dict):
@@ -1487,5 +1667,111 @@ class StorageProfileFileSystemLocation(dict):
         The type of file.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class WorkerHostPropertiesRequest(dict):
+    """
+    The host property details.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "hostName":
+            suggest = "host_name"
+        elif key == "ipAddresses":
+            suggest = "ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkerHostPropertiesRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkerHostPropertiesRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkerHostPropertiesRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 host_name: Optional[_builtins.str] = None,
+                 ip_addresses: Optional['outputs.WorkerIpAddresses'] = None):
+        """
+        The host property details.
+
+        :param _builtins.str host_name: The host name.
+        """
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
+        if ip_addresses is not None:
+            pulumi.set(__self__, "ip_addresses", ip_addresses)
+
+    @_builtins.property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[_builtins.str]:
+        """
+        The host name.
+        """
+        return pulumi.get(self, "host_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddresses")
+    def ip_addresses(self) -> Optional['outputs.WorkerIpAddresses']:
+        return pulumi.get(self, "ip_addresses")
+
+
+@pulumi.output_type
+class WorkerIpAddresses(dict):
+    """
+    The IP addresses for a host.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipV4Addresses":
+            suggest = "ip_v4_addresses"
+        elif key == "ipV6Addresses":
+            suggest = "ip_v6_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkerIpAddresses. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkerIpAddresses.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkerIpAddresses.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_v4_addresses: Optional[Sequence[_builtins.str]] = None,
+                 ip_v6_addresses: Optional[Sequence[_builtins.str]] = None):
+        """
+        The IP addresses for a host.
+
+        :param Sequence[_builtins.str] ip_v4_addresses: The IpV4 address of the network.
+        :param Sequence[_builtins.str] ip_v6_addresses: The IpV6 address for the network and node component.
+        """
+        if ip_v4_addresses is not None:
+            pulumi.set(__self__, "ip_v4_addresses", ip_v4_addresses)
+        if ip_v6_addresses is not None:
+            pulumi.set(__self__, "ip_v6_addresses", ip_v6_addresses)
+
+    @_builtins.property
+    @pulumi.getter(name="ipV4Addresses")
+    def ip_v4_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IpV4 address of the network.
+        """
+        return pulumi.get(self, "ip_v4_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="ipV6Addresses")
+    def ip_v6_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The IpV6 address for the network and node component.
+        """
+        return pulumi.get(self, "ip_v6_addresses")
 
 

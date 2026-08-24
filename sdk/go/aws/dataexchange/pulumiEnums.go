@@ -273,11 +273,181 @@ func (o DataSetOriginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of server side encryption used for encrypting the objects in Amazon S3.
+type EventActionExportServerSideEncryptionType string
+
+const (
+	EventActionExportServerSideEncryptionTypeAwskms = EventActionExportServerSideEncryptionType("aws:kms")
+	EventActionExportServerSideEncryptionTypeAes256 = EventActionExportServerSideEncryptionType("AES256")
+)
+
+func (EventActionExportServerSideEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionExportServerSideEncryptionType)(nil)).Elem()
+}
+
+func (e EventActionExportServerSideEncryptionType) ToEventActionExportServerSideEncryptionTypeOutput() EventActionExportServerSideEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(EventActionExportServerSideEncryptionTypeOutput)
+}
+
+func (e EventActionExportServerSideEncryptionType) ToEventActionExportServerSideEncryptionTypeOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(EventActionExportServerSideEncryptionTypeOutput)
+}
+
+func (e EventActionExportServerSideEncryptionType) ToEventActionExportServerSideEncryptionTypePtrOutput() EventActionExportServerSideEncryptionTypePtrOutput {
+	return e.ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e EventActionExportServerSideEncryptionType) ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionTypePtrOutput {
+	return EventActionExportServerSideEncryptionType(e).ToEventActionExportServerSideEncryptionTypeOutputWithContext(ctx).ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e EventActionExportServerSideEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventActionExportServerSideEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e EventActionExportServerSideEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e EventActionExportServerSideEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type EventActionExportServerSideEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (EventActionExportServerSideEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionExportServerSideEncryptionType)(nil)).Elem()
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToEventActionExportServerSideEncryptionTypeOutput() EventActionExportServerSideEncryptionTypeOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToEventActionExportServerSideEncryptionTypeOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionTypeOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToEventActionExportServerSideEncryptionTypePtrOutput() EventActionExportServerSideEncryptionTypePtrOutput {
+	return o.ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventActionExportServerSideEncryptionType) *EventActionExportServerSideEncryptionType {
+		return &v
+	}).(EventActionExportServerSideEncryptionTypePtrOutput)
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventActionExportServerSideEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventActionExportServerSideEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e EventActionExportServerSideEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type EventActionExportServerSideEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (EventActionExportServerSideEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionExportServerSideEncryptionType)(nil)).Elem()
+}
+
+func (o EventActionExportServerSideEncryptionTypePtrOutput) ToEventActionExportServerSideEncryptionTypePtrOutput() EventActionExportServerSideEncryptionTypePtrOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionTypePtrOutput) ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionTypePtrOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionTypePtrOutput) Elem() EventActionExportServerSideEncryptionTypeOutput {
+	return o.ApplyT(func(v *EventActionExportServerSideEncryptionType) EventActionExportServerSideEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret EventActionExportServerSideEncryptionType
+		return ret
+	}).(EventActionExportServerSideEncryptionTypeOutput)
+}
+
+func (o EventActionExportServerSideEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o EventActionExportServerSideEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *EventActionExportServerSideEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// EventActionExportServerSideEncryptionTypeInput is an input type that accepts values of the EventActionExportServerSideEncryptionType enum
+// A concrete instance of `EventActionExportServerSideEncryptionTypeInput` can be one of the following:
+//
+//	EventActionExportServerSideEncryptionTypeAwskms
+//	EventActionExportServerSideEncryptionTypeAes256
+type EventActionExportServerSideEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToEventActionExportServerSideEncryptionTypeOutput() EventActionExportServerSideEncryptionTypeOutput
+	ToEventActionExportServerSideEncryptionTypeOutputWithContext(context.Context) EventActionExportServerSideEncryptionTypeOutput
+}
+
+var eventActionExportServerSideEncryptionTypePtrType = reflect.TypeOf((**EventActionExportServerSideEncryptionType)(nil)).Elem()
+
+type EventActionExportServerSideEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToEventActionExportServerSideEncryptionTypePtrOutput() EventActionExportServerSideEncryptionTypePtrOutput
+	ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(context.Context) EventActionExportServerSideEncryptionTypePtrOutput
+}
+
+type eventActionExportServerSideEncryptionTypePtr string
+
+func EventActionExportServerSideEncryptionTypePtr(v string) EventActionExportServerSideEncryptionTypePtrInput {
+	return (*eventActionExportServerSideEncryptionTypePtr)(&v)
+}
+
+func (*eventActionExportServerSideEncryptionTypePtr) ElementType() reflect.Type {
+	return eventActionExportServerSideEncryptionTypePtrType
+}
+
+func (in *eventActionExportServerSideEncryptionTypePtr) ToEventActionExportServerSideEncryptionTypePtrOutput() EventActionExportServerSideEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(EventActionExportServerSideEncryptionTypePtrOutput)
+}
+
+func (in *eventActionExportServerSideEncryptionTypePtr) ToEventActionExportServerSideEncryptionTypePtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(EventActionExportServerSideEncryptionTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetAssetTypeInput)(nil)).Elem(), DataSetAssetType("S3_SNAPSHOT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSetAssetTypePtrInput)(nil)).Elem(), DataSetAssetType("S3_SNAPSHOT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionExportServerSideEncryptionTypeInput)(nil)).Elem(), EventActionExportServerSideEncryptionType("aws:kms"))
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionExportServerSideEncryptionTypePtrInput)(nil)).Elem(), EventActionExportServerSideEncryptionType("aws:kms"))
 	pulumi.RegisterOutputType(DataSetAssetTypeOutput{})
 	pulumi.RegisterOutputType(DataSetAssetTypePtrOutput{})
 	pulumi.RegisterOutputType(DataSetOriginOutput{})
 	pulumi.RegisterOutputType(DataSetOriginPtrOutput{})
+	pulumi.RegisterOutputType(EventActionExportServerSideEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(EventActionExportServerSideEncryptionTypePtrOutput{})
 }

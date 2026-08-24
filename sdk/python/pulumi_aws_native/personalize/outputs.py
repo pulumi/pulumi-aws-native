@@ -19,6 +19,9 @@ from ._enums import *
 __all__ = [
     'DatasetImportJob',
     'DatasetImportJobDataSourceProperties',
+    'MetricAttributionMetricAttribute',
+    'MetricAttributionMetricsOutputConfig',
+    'MetricAttributionS3DataDestination',
     'SolutionCategoricalHyperParameterRange',
     'SolutionConfig',
     'SolutionConfigAutoMlConfigProperties',
@@ -166,6 +169,172 @@ class DatasetImportJobDataSourceProperties(dict):
         The path to the Amazon S3 bucket where the data that you want to upload to your dataset is stored.
         """
         return pulumi.get(self, "data_location")
+
+
+@pulumi.output_type
+class MetricAttributionMetricAttribute(dict):
+    """
+    A metric attribute for the metric attribution.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "eventType":
+            suggest = "event_type"
+        elif key == "metricName":
+            suggest = "metric_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAttributionMetricAttribute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAttributionMetricAttribute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAttributionMetricAttribute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 event_type: _builtins.str,
+                 expression: _builtins.str,
+                 metric_name: _builtins.str):
+        """
+        A metric attribute for the metric attribution.
+
+        :param _builtins.str event_type: The metric's event type.
+        :param _builtins.str expression: The attribute's expression.
+        :param _builtins.str metric_name: The metric's name.
+        """
+        pulumi.set(__self__, "event_type", event_type)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "metric_name", metric_name)
+
+    @_builtins.property
+    @pulumi.getter(name="eventType")
+    def event_type(self) -> _builtins.str:
+        """
+        The metric's event type.
+        """
+        return pulumi.get(self, "event_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def expression(self) -> _builtins.str:
+        """
+        The attribute's expression.
+        """
+        return pulumi.get(self, "expression")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> _builtins.str:
+        """
+        The metric's name.
+        """
+        return pulumi.get(self, "metric_name")
+
+
+@pulumi.output_type
+class MetricAttributionMetricsOutputConfig(dict):
+    """
+    The output configuration details for the metric attribution.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "roleArn":
+            suggest = "role_arn"
+        elif key == "s3DataDestination":
+            suggest = "s3_data_destination"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAttributionMetricsOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAttributionMetricsOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAttributionMetricsOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 role_arn: _builtins.str,
+                 s3_data_destination: Optional['outputs.MetricAttributionS3DataDestination'] = None):
+        """
+        The output configuration details for the metric attribution.
+
+        :param _builtins.str role_arn: The ARN of the IAM role for the metric attribution.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        if s3_data_destination is not None:
+            pulumi.set(__self__, "s3_data_destination", s3_data_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        The ARN of the IAM role for the metric attribution.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataDestination")
+    def s3_data_destination(self) -> Optional['outputs.MetricAttributionS3DataDestination']:
+        return pulumi.get(self, "s3_data_destination")
+
+
+@pulumi.output_type
+class MetricAttributionS3DataDestination(dict):
+    """
+    The configuration details of an Amazon S3 output bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyArn":
+            suggest = "kms_key_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MetricAttributionS3DataDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MetricAttributionS3DataDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MetricAttributionS3DataDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 kms_key_arn: Optional[_builtins.str] = None):
+        """
+        The configuration details of an Amazon S3 output bucket.
+
+        :param _builtins.str path: The file path of the Amazon S3 bucket.
+        :param _builtins.str kms_key_arn: The ARN of the KMS key.
+        """
+        pulumi.set(__self__, "path", path)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        The file path of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the KMS key.
+        """
+        return pulumi.get(self, "kms_key_arn")
 
 
 @pulumi.output_type

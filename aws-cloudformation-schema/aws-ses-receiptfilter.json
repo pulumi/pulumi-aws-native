@@ -13,12 +13,14 @@
   "definitions" : {
     "Filter" : {
       "type" : "object",
+      "description" : "A structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.",
       "additionalProperties" : false,
       "properties" : {
         "IpFilter" : {
           "$ref" : "#/definitions/IpFilter"
         },
         "Name" : {
+          "description" : "The name of the IP address filter.",
           "type" : "string"
         }
       },
@@ -26,20 +28,40 @@
     },
     "IpFilter" : {
       "type" : "object",
+      "description" : "A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.",
       "additionalProperties" : false,
       "properties" : {
         "Policy" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "Indicates whether to block or allow incoming mail from the specified IP addresses."
         },
         "Cidr" : {
-          "type" : "string"
+          "type" : "string",
+          "description" : "A single IP address or a range of IP addresses to block or allow, specified in CIDR notation."
         }
       },
       "required" : [ "Policy", "Cidr" ]
     }
   },
   "required" : [ "Filter" ],
-  "createOnlyProperties" : [ "/properties/Filter" ],
+  "readOnlyProperties" : [ "/properties/Id" ],
+  "createOnlyProperties" : [ "/properties/Filter", "/properties/Filter/Name", "/properties/Filter/IpFilter", "/properties/Filter/IpFilter/Policy", "/properties/Filter/IpFilter/Cidr" ],
   "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id" ]
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "ses:CreateReceiptFilter" ]
+    },
+    "read" : {
+      "permissions" : [ "ses:ListReceiptFilters" ]
+    },
+    "delete" : {
+      "permissions" : [ "ses:DeleteReceiptFilter", "ses:ListReceiptFilters" ]
+    },
+    "list" : {
+      "permissions" : [ "ses:ListReceiptFilters" ]
+    }
+  },
+  "tagging" : {
+    "taggable" : false
+  }
 }

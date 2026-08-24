@@ -108,3 +108,13 @@ export const SourceApiAssociationStatus = {
  * Current status of SourceApiAssociation.
  */
 export type SourceApiAssociationStatus = (typeof SourceApiAssociationStatus)[keyof typeof SourceApiAssociationStatus];
+
+export const TypeFormat = {
+    Sdl: "SDL",
+    Json: "JSON",
+} as const;
+
+/**
+ * The type format: SDL or JSON.
+ */
+export type TypeFormat = (typeof TypeFormat)[keyof typeof TypeFormat];

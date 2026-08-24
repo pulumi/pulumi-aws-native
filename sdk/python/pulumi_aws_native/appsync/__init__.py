@@ -22,8 +22,10 @@ from .get_function_configuration import *
 from .get_graph_ql_api import *
 from .get_resolver import *
 from .get_source_api_association import *
+from .get_type import *
 from .graph_ql_api import *
 from .resolver import *
 from .source_api_association import *
+from .type import *
 from ._inputs import *
 from . import outputs

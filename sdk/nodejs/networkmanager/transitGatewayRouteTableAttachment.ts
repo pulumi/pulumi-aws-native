@@ -178,7 +178,7 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["peeringId", "routingPolicyLabel", "transitGatewayRouteTableArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["peeringId", "transitGatewayRouteTableArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TransitGatewayRouteTableAttachment.__pulumiType, name, resourceInputs, opts);
     }

@@ -14,6 +14,8 @@ __all__ = [
     'AnnotationStoreStoreStatus',
     'ConfigurationStatus',
     'ReferenceStoreEncryptionType',
+    'RunCacheCacheBehavior',
+    'RunCacheStatus',
     'SequenceStoreETagAlgorithmFamily',
     'SequenceStoreEncryptionType',
     'SequenceStoreStatus',
@@ -92,6 +94,25 @@ class ConfigurationStatus(_builtins.str, Enum):
 @pulumi.type_token("aws-native:omics:ReferenceStoreEncryptionType")
 class ReferenceStoreEncryptionType(_builtins.str, Enum):
     KMS = "KMS"
+
+
+@pulumi.type_token("aws-native:omics:RunCacheCacheBehavior")
+class RunCacheCacheBehavior(_builtins.str, Enum):
+    """
+    The default cache behavior for runs using this cache.
+    """
+    CACHE_ON_FAILURE = "CACHE_ON_FAILURE"
+    CACHE_ALWAYS = "CACHE_ALWAYS"
+
+
+@pulumi.type_token("aws-native:omics:RunCacheStatus")
+class RunCacheStatus(_builtins.str, Enum):
+    """
+    The run cache status.
+    """
+    ACTIVE = "ACTIVE"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:omics:SequenceStoreETagAlgorithmFamily")

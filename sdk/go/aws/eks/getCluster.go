@@ -32,7 +32,8 @@ type LookupClusterResult struct {
 	// The access configuration for the cluster.
 	AccessConfig *ClusterAccessConfig `pulumi:"accessConfig"`
 	// The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
-	Arn *string `pulumi:"arn"`
+	Arn                  *string                      `pulumi:"arn"`
+	CertificateAuthority *ClusterCertificateAuthority `pulumi:"certificateAuthority"`
 	// The certificate-authority-data for your cluster.
 	CertificateAuthorityData *string `pulumi:"certificateAuthorityData"`
 	// The cluster security group that was created by Amazon EKS for the cluster. Managed node groups use this security group for control plane to data plane communication.
@@ -116,6 +117,10 @@ func (o LookupClusterResultOutput) AccessConfig() ClusterAccessConfigPtrOutput {
 // The ARN of the cluster, such as arn:aws:eks:us-west-2:666666666666:cluster/prod.
 func (o LookupClusterResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupClusterResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupClusterResultOutput) CertificateAuthority() ClusterCertificateAuthorityPtrOutput {
+	return o.ApplyT(func(v LookupClusterResult) *ClusterCertificateAuthority { return v.CertificateAuthority }).(ClusterCertificateAuthorityPtrOutput)
 }
 
 // The certificate-authority-data for your cluster.

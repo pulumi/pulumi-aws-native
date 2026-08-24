@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource schema for AWS::EMR::WALWorkspace Type
+ * Resource Type definition for AWS::EMR::WALWorkspace
  */
 export function getWalWorkspace(args: GetWalWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWalWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -31,7 +31,7 @@ export interface GetWalWorkspaceResult {
     readonly tags?: outputs.Tag[];
 }
 /**
- * Resource schema for AWS::EMR::WALWorkspace Type
+ * Resource Type definition for AWS::EMR::WALWorkspace
  */
 export function getWalWorkspaceOutput(args: GetWalWorkspaceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWalWorkspaceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

@@ -37,6 +37,7 @@ export interface GetComputeEnvironmentResult {
      * Reserved.
      */
     readonly context?: string;
+    readonly ecsSettings?: outputs.batch.ComputeEnvironmentEcsSettings;
     /**
      * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf. For more information, see [AWS Batch service IAM role](https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html) in the *AWS Batch User Guide* .
      *

@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .custom_detection_rule_association import *
 from .detector import *
 from .filter import *
+from .get_custom_detection_rule_association import *
 from .get_detector import *
 from .get_filter import *
 from .get_ip_set import *

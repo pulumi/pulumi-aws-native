@@ -14000,16 +14000,186 @@ func (o OnlineEvaluationConfigStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
+type PaymentConnectorProvisionMode string
+
+const (
+	PaymentConnectorProvisionModeManual      = PaymentConnectorProvisionMode("MANUAL")
+	PaymentConnectorProvisionModeQuickCreate = PaymentConnectorProvisionMode("QUICK_CREATE")
+)
+
+func (PaymentConnectorProvisionMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentConnectorProvisionMode)(nil)).Elem()
+}
+
+func (e PaymentConnectorProvisionMode) ToPaymentConnectorProvisionModeOutput() PaymentConnectorProvisionModeOutput {
+	return pulumi.ToOutput(e).(PaymentConnectorProvisionModeOutput)
+}
+
+func (e PaymentConnectorProvisionMode) ToPaymentConnectorProvisionModeOutputWithContext(ctx context.Context) PaymentConnectorProvisionModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PaymentConnectorProvisionModeOutput)
+}
+
+func (e PaymentConnectorProvisionMode) ToPaymentConnectorProvisionModePtrOutput() PaymentConnectorProvisionModePtrOutput {
+	return e.ToPaymentConnectorProvisionModePtrOutputWithContext(context.Background())
+}
+
+func (e PaymentConnectorProvisionMode) ToPaymentConnectorProvisionModePtrOutputWithContext(ctx context.Context) PaymentConnectorProvisionModePtrOutput {
+	return PaymentConnectorProvisionMode(e).ToPaymentConnectorProvisionModeOutputWithContext(ctx).ToPaymentConnectorProvisionModePtrOutputWithContext(ctx)
+}
+
+func (e PaymentConnectorProvisionMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentConnectorProvisionMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PaymentConnectorProvisionMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PaymentConnectorProvisionMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PaymentConnectorProvisionModeOutput struct{ *pulumi.OutputState }
+
+func (PaymentConnectorProvisionModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PaymentConnectorProvisionMode)(nil)).Elem()
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToPaymentConnectorProvisionModeOutput() PaymentConnectorProvisionModeOutput {
+	return o
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToPaymentConnectorProvisionModeOutputWithContext(ctx context.Context) PaymentConnectorProvisionModeOutput {
+	return o
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToPaymentConnectorProvisionModePtrOutput() PaymentConnectorProvisionModePtrOutput {
+	return o.ToPaymentConnectorProvisionModePtrOutputWithContext(context.Background())
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToPaymentConnectorProvisionModePtrOutputWithContext(ctx context.Context) PaymentConnectorProvisionModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PaymentConnectorProvisionMode) *PaymentConnectorProvisionMode {
+		return &v
+	}).(PaymentConnectorProvisionModePtrOutput)
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentConnectorProvisionMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentConnectorProvisionModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PaymentConnectorProvisionMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PaymentConnectorProvisionModePtrOutput struct{ *pulumi.OutputState }
+
+func (PaymentConnectorProvisionModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PaymentConnectorProvisionMode)(nil)).Elem()
+}
+
+func (o PaymentConnectorProvisionModePtrOutput) ToPaymentConnectorProvisionModePtrOutput() PaymentConnectorProvisionModePtrOutput {
+	return o
+}
+
+func (o PaymentConnectorProvisionModePtrOutput) ToPaymentConnectorProvisionModePtrOutputWithContext(ctx context.Context) PaymentConnectorProvisionModePtrOutput {
+	return o
+}
+
+func (o PaymentConnectorProvisionModePtrOutput) Elem() PaymentConnectorProvisionModeOutput {
+	return o.ApplyT(func(v *PaymentConnectorProvisionMode) PaymentConnectorProvisionMode {
+		if v != nil {
+			return *v
+		}
+		var ret PaymentConnectorProvisionMode
+		return ret
+	}).(PaymentConnectorProvisionModeOutput)
+}
+
+func (o PaymentConnectorProvisionModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PaymentConnectorProvisionModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PaymentConnectorProvisionMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PaymentConnectorProvisionModeInput is an input type that accepts values of the PaymentConnectorProvisionMode enum
+// A concrete instance of `PaymentConnectorProvisionModeInput` can be one of the following:
+//
+//	PaymentConnectorProvisionModeManual
+//	PaymentConnectorProvisionModeQuickCreate
+type PaymentConnectorProvisionModeInput interface {
+	pulumi.Input
+
+	ToPaymentConnectorProvisionModeOutput() PaymentConnectorProvisionModeOutput
+	ToPaymentConnectorProvisionModeOutputWithContext(context.Context) PaymentConnectorProvisionModeOutput
+}
+
+var paymentConnectorProvisionModePtrType = reflect.TypeOf((**PaymentConnectorProvisionMode)(nil)).Elem()
+
+type PaymentConnectorProvisionModePtrInput interface {
+	pulumi.Input
+
+	ToPaymentConnectorProvisionModePtrOutput() PaymentConnectorProvisionModePtrOutput
+	ToPaymentConnectorProvisionModePtrOutputWithContext(context.Context) PaymentConnectorProvisionModePtrOutput
+}
+
+type paymentConnectorProvisionModePtr string
+
+func PaymentConnectorProvisionModePtr(v string) PaymentConnectorProvisionModePtrInput {
+	return (*paymentConnectorProvisionModePtr)(&v)
+}
+
+func (*paymentConnectorProvisionModePtr) ElementType() reflect.Type {
+	return paymentConnectorProvisionModePtrType
+}
+
+func (in *paymentConnectorProvisionModePtr) ToPaymentConnectorProvisionModePtrOutput() PaymentConnectorProvisionModePtrOutput {
+	return pulumi.ToOutput(in).(PaymentConnectorProvisionModePtrOutput)
+}
+
+func (in *paymentConnectorProvisionModePtr) ToPaymentConnectorProvisionModePtrOutputWithContext(ctx context.Context) PaymentConnectorProvisionModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PaymentConnectorProvisionModePtrOutput)
+}
+
 type PaymentConnectorStatus string
 
 const (
-	PaymentConnectorStatusCreating     = PaymentConnectorStatus("CREATING")
-	PaymentConnectorStatusUpdating     = PaymentConnectorStatus("UPDATING")
-	PaymentConnectorStatusDeleting     = PaymentConnectorStatus("DELETING")
-	PaymentConnectorStatusReady        = PaymentConnectorStatus("READY")
-	PaymentConnectorStatusCreateFailed = PaymentConnectorStatus("CREATE_FAILED")
-	PaymentConnectorStatusUpdateFailed = PaymentConnectorStatus("UPDATE_FAILED")
-	PaymentConnectorStatusDeleteFailed = PaymentConnectorStatus("DELETE_FAILED")
+	PaymentConnectorStatusCreating                           = PaymentConnectorStatus("CREATING")
+	PaymentConnectorStatusUpdating                           = PaymentConnectorStatus("UPDATING")
+	PaymentConnectorStatusDeleting                           = PaymentConnectorStatus("DELETING")
+	PaymentConnectorStatusReady                              = PaymentConnectorStatus("READY")
+	PaymentConnectorStatusCreateFailed                       = PaymentConnectorStatus("CREATE_FAILED")
+	PaymentConnectorStatusUpdateFailed                       = PaymentConnectorStatus("UPDATE_FAILED")
+	PaymentConnectorStatusDeleteFailed                       = PaymentConnectorStatus("DELETE_FAILED")
+	PaymentConnectorStatusAwsMarketplaceSubscriptionRequired = PaymentConnectorStatus("AWS_MARKETPLACE_SUBSCRIPTION_REQUIRED")
+	PaymentConnectorStatusPendingAuthentication              = PaymentConnectorStatus("PENDING_AUTHENTICATION")
+	PaymentConnectorStatusProvisioning                       = PaymentConnectorStatus("PROVISIONING")
+	PaymentConnectorStatusAuthenticationExpired              = PaymentConnectorStatus("AUTHENTICATION_EXPIRED")
+	PaymentConnectorStatusAuthenticationFailed               = PaymentConnectorStatus("AUTHENTICATION_FAILED")
 )
 
 type PaymentConnectorStatusOutput struct{ *pulumi.OutputState }
@@ -17052,6 +17222,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigExecutionStatusPtrInput)(nil)).Elem(), OnlineEvaluationConfigExecutionStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineEvaluationConfigFilterOperatorPtrInput)(nil)).Elem(), OnlineEvaluationConfigFilterOperator("Equals"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorProvisionModeInput)(nil)).Elem(), PaymentConnectorProvisionMode("MANUAL"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorProvisionModePtrInput)(nil)).Elem(), PaymentConnectorProvisionMode("MANUAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorTypeInput)(nil)).Elem(), PaymentConnectorType("CoinbaseCDP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentConnectorTypePtrInput)(nil)).Elem(), PaymentConnectorType("CoinbaseCDP"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PaymentCredentialProviderSecretSourceTypeInput)(nil)).Elem(), PaymentCredentialProviderSecretSourceType("MANAGED"))
@@ -17264,6 +17436,8 @@ func init() {
 	pulumi.RegisterOutputType(OnlineEvaluationConfigFilterOperatorPtrOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusOutput{})
 	pulumi.RegisterOutputType(OnlineEvaluationConfigStatusPtrOutput{})
+	pulumi.RegisterOutputType(PaymentConnectorProvisionModeOutput{})
+	pulumi.RegisterOutputType(PaymentConnectorProvisionModePtrOutput{})
 	pulumi.RegisterOutputType(PaymentConnectorStatusOutput{})
 	pulumi.RegisterOutputType(PaymentConnectorStatusPtrOutput{})
 	pulumi.RegisterOutputType(PaymentConnectorTypeOutput{})

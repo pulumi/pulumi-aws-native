@@ -11183,6 +11183,238 @@ func (o IndexValueImportanceItemArrayOutput) Index(i pulumi.IntInput) IndexValue
 	}).(IndexValueImportanceItemOutput)
 }
 
+// Information required to find a specific file in an Amazon S3 bucket.
+type QuerySuggestionsBlockListS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// QuerySuggestionsBlockListS3PathInput is an input type that accepts QuerySuggestionsBlockListS3PathArgs and QuerySuggestionsBlockListS3PathOutput values.
+// You can construct a concrete instance of `QuerySuggestionsBlockListS3PathInput` via:
+//
+//	QuerySuggestionsBlockListS3PathArgs{...}
+type QuerySuggestionsBlockListS3PathInput interface {
+	pulumi.Input
+
+	ToQuerySuggestionsBlockListS3PathOutput() QuerySuggestionsBlockListS3PathOutput
+	ToQuerySuggestionsBlockListS3PathOutputWithContext(context.Context) QuerySuggestionsBlockListS3PathOutput
+}
+
+// Information required to find a specific file in an Amazon S3 bucket.
+type QuerySuggestionsBlockListS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (QuerySuggestionsBlockListS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuerySuggestionsBlockListS3Path)(nil)).Elem()
+}
+
+func (i QuerySuggestionsBlockListS3PathArgs) ToQuerySuggestionsBlockListS3PathOutput() QuerySuggestionsBlockListS3PathOutput {
+	return i.ToQuerySuggestionsBlockListS3PathOutputWithContext(context.Background())
+}
+
+func (i QuerySuggestionsBlockListS3PathArgs) ToQuerySuggestionsBlockListS3PathOutputWithContext(ctx context.Context) QuerySuggestionsBlockListS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QuerySuggestionsBlockListS3PathOutput)
+}
+
+// Information required to find a specific file in an Amazon S3 bucket.
+type QuerySuggestionsBlockListS3PathOutput struct{ *pulumi.OutputState }
+
+func (QuerySuggestionsBlockListS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QuerySuggestionsBlockListS3Path)(nil)).Elem()
+}
+
+func (o QuerySuggestionsBlockListS3PathOutput) ToQuerySuggestionsBlockListS3PathOutput() QuerySuggestionsBlockListS3PathOutput {
+	return o
+}
+
+func (o QuerySuggestionsBlockListS3PathOutput) ToQuerySuggestionsBlockListS3PathOutputWithContext(ctx context.Context) QuerySuggestionsBlockListS3PathOutput {
+	return o
+}
+
+// The name of the S3 bucket that contains the file.
+func (o QuerySuggestionsBlockListS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v QuerySuggestionsBlockListS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o QuerySuggestionsBlockListS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v QuerySuggestionsBlockListS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type QuerySuggestionsBlockListS3PathPtrOutput struct{ *pulumi.OutputState }
+
+func (QuerySuggestionsBlockListS3PathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**QuerySuggestionsBlockListS3Path)(nil)).Elem()
+}
+
+func (o QuerySuggestionsBlockListS3PathPtrOutput) ToQuerySuggestionsBlockListS3PathPtrOutput() QuerySuggestionsBlockListS3PathPtrOutput {
+	return o
+}
+
+func (o QuerySuggestionsBlockListS3PathPtrOutput) ToQuerySuggestionsBlockListS3PathPtrOutputWithContext(ctx context.Context) QuerySuggestionsBlockListS3PathPtrOutput {
+	return o
+}
+
+func (o QuerySuggestionsBlockListS3PathPtrOutput) Elem() QuerySuggestionsBlockListS3PathOutput {
+	return o.ApplyT(func(v *QuerySuggestionsBlockListS3Path) QuerySuggestionsBlockListS3Path {
+		if v != nil {
+			return *v
+		}
+		var ret QuerySuggestionsBlockListS3Path
+		return ret
+	}).(QuerySuggestionsBlockListS3PathOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o QuerySuggestionsBlockListS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuerySuggestionsBlockListS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the file.
+func (o QuerySuggestionsBlockListS3PathPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *QuerySuggestionsBlockListS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair that identifies or categorizes a resource.
+type QuerySuggestionsBlockListTag struct {
+	// The key for the tag.
+	Key string `pulumi:"key"`
+	// The value associated with the tag.
+	Value string `pulumi:"value"`
+}
+
+// Information required to find a specific file in an Amazon S3 bucket.
+type ThesaurusS3Path struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket string `pulumi:"bucket"`
+	// The name of the file.
+	Key string `pulumi:"key"`
+}
+
+// ThesaurusS3PathInput is an input type that accepts ThesaurusS3PathArgs and ThesaurusS3PathOutput values.
+// You can construct a concrete instance of `ThesaurusS3PathInput` via:
+//
+//	ThesaurusS3PathArgs{...}
+type ThesaurusS3PathInput interface {
+	pulumi.Input
+
+	ToThesaurusS3PathOutput() ThesaurusS3PathOutput
+	ToThesaurusS3PathOutputWithContext(context.Context) ThesaurusS3PathOutput
+}
+
+// Information required to find a specific file in an Amazon S3 bucket.
+type ThesaurusS3PathArgs struct {
+	// The name of the S3 bucket that contains the file.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The name of the file.
+	Key pulumi.StringInput `pulumi:"key"`
+}
+
+func (ThesaurusS3PathArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThesaurusS3Path)(nil)).Elem()
+}
+
+func (i ThesaurusS3PathArgs) ToThesaurusS3PathOutput() ThesaurusS3PathOutput {
+	return i.ToThesaurusS3PathOutputWithContext(context.Background())
+}
+
+func (i ThesaurusS3PathArgs) ToThesaurusS3PathOutputWithContext(ctx context.Context) ThesaurusS3PathOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThesaurusS3PathOutput)
+}
+
+// Information required to find a specific file in an Amazon S3 bucket.
+type ThesaurusS3PathOutput struct{ *pulumi.OutputState }
+
+func (ThesaurusS3PathOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThesaurusS3Path)(nil)).Elem()
+}
+
+func (o ThesaurusS3PathOutput) ToThesaurusS3PathOutput() ThesaurusS3PathOutput {
+	return o
+}
+
+func (o ThesaurusS3PathOutput) ToThesaurusS3PathOutputWithContext(ctx context.Context) ThesaurusS3PathOutput {
+	return o
+}
+
+// The name of the S3 bucket that contains the file.
+func (o ThesaurusS3PathOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v ThesaurusS3Path) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The name of the file.
+func (o ThesaurusS3PathOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ThesaurusS3Path) string { return v.Key }).(pulumi.StringOutput)
+}
+
+type ThesaurusS3PathPtrOutput struct{ *pulumi.OutputState }
+
+func (ThesaurusS3PathPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ThesaurusS3Path)(nil)).Elem()
+}
+
+func (o ThesaurusS3PathPtrOutput) ToThesaurusS3PathPtrOutput() ThesaurusS3PathPtrOutput {
+	return o
+}
+
+func (o ThesaurusS3PathPtrOutput) ToThesaurusS3PathPtrOutputWithContext(ctx context.Context) ThesaurusS3PathPtrOutput {
+	return o
+}
+
+func (o ThesaurusS3PathPtrOutput) Elem() ThesaurusS3PathOutput {
+	return o.ApplyT(func(v *ThesaurusS3Path) ThesaurusS3Path {
+		if v != nil {
+			return *v
+		}
+		var ret ThesaurusS3Path
+		return ret
+	}).(ThesaurusS3PathOutput)
+}
+
+// The name of the S3 bucket that contains the file.
+func (o ThesaurusS3PathPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThesaurusS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the file.
+func (o ThesaurusS3PathPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ThesaurusS3Path) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair that identifies or categorizes a resource.
+type ThesaurusTag struct {
+	// The key for the tag.
+	Key string `pulumi:"key"`
+	// The value associated with the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAccessControlListConfigurationInput)(nil)).Elem(), DataSourceAccessControlListConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceAccessControlListConfigurationPtrInput)(nil)).Elem(), DataSourceAccessControlListConfigurationArgs{})
@@ -11303,6 +11535,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexUserTokenConfigurationArrayInput)(nil)).Elem(), IndexUserTokenConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexValueImportanceItemInput)(nil)).Elem(), IndexValueImportanceItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexValueImportanceItemArrayInput)(nil)).Elem(), IndexValueImportanceItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*QuerySuggestionsBlockListS3PathInput)(nil)).Elem(), QuerySuggestionsBlockListS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ThesaurusS3PathInput)(nil)).Elem(), ThesaurusS3PathArgs{})
 	pulumi.RegisterOutputType(DataSourceAccessControlListConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceAccessControlListConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(DataSourceAclConfigurationOutput{})
@@ -11422,4 +11656,8 @@ func init() {
 	pulumi.RegisterOutputType(IndexUserTokenConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(IndexValueImportanceItemOutput{})
 	pulumi.RegisterOutputType(IndexValueImportanceItemArrayOutput{})
+	pulumi.RegisterOutputType(QuerySuggestionsBlockListS3PathOutput{})
+	pulumi.RegisterOutputType(QuerySuggestionsBlockListS3PathPtrOutput{})
+	pulumi.RegisterOutputType(ThesaurusS3PathOutput{})
+	pulumi.RegisterOutputType(ThesaurusS3PathPtrOutput{})
 }

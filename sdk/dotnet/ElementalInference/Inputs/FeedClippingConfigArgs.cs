@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ElementalInference.Inputs
         [Input("callbackMetadata")]
         public Input<string>? CallbackMetadata { get; set; }
 
+        [Input("dataSourceConfiguration")]
+        public Input<Inputs.FeedDataSourceConfigurationArgs>? DataSourceConfiguration { get; set; }
+
         public FeedClippingConfigArgs()
         {
         }

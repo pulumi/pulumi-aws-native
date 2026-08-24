@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Configuration{}
 	case "aws-native:omics:ReferenceStore":
 		r = &ReferenceStore{}
+	case "aws-native:omics:RunCache":
+		r = &RunCache{}
 	case "aws-native:omics:RunGroup":
 		r = &RunGroup{}
 	case "aws-native:omics:SequenceStore":

@@ -28,6 +28,7 @@ from .get_mail_manager_relay import *
 from .get_mail_manager_rule_set import *
 from .get_mail_manager_traffic_policy import *
 from .get_multi_region_endpoint import *
+from .get_receipt_filter import *
 from .get_receipt_rule import *
 from .get_template import *
 from .get_tenant import *
@@ -41,6 +42,7 @@ from .mail_manager_relay import *
 from .mail_manager_rule_set import *
 from .mail_manager_traffic_policy import *
 from .multi_region_endpoint import *
+from .receipt_filter import *
 from .receipt_rule import *
 from .receipt_rule_set import *
 from .template import *

@@ -120,6 +120,11 @@ export const getKnowledgeBase: typeof import("./getKnowledgeBase").getKnowledgeB
 export const getKnowledgeBaseOutput: typeof import("./getKnowledgeBase").getKnowledgeBaseOutput = null as any;
 utilities.lazyLoad(exports, ["getKnowledgeBase","getKnowledgeBaseOutput"], () => require("./getKnowledgeBase"));
 
+export { GetLimitsProfileArgs, GetLimitsProfileResult, GetLimitsProfileOutputArgs } from "./getLimitsProfile";
+export const getLimitsProfile: typeof import("./getLimitsProfile").getLimitsProfile = null as any;
+export const getLimitsProfileOutput: typeof import("./getLimitsProfile").getLimitsProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getLimitsProfile","getLimitsProfileOutput"], () => require("./getLimitsProfile"));
+
 export { GetOAuthClientApplicationArgs, GetOAuthClientApplicationResult, GetOAuthClientApplicationOutputArgs } from "./getOAuthClientApplication";
 export const getOAuthClientApplication: typeof import("./getOAuthClientApplication").getOAuthClientApplication = null as any;
 export const getOAuthClientApplicationOutput: typeof import("./getOAuthClientApplication").getOAuthClientApplicationOutput = null as any;
@@ -159,6 +164,11 @@ export { KnowledgeBaseArgs } from "./knowledgeBase";
 export type KnowledgeBase = import("./knowledgeBase").KnowledgeBase;
 export const KnowledgeBase: typeof import("./knowledgeBase").KnowledgeBase = null as any;
 utilities.lazyLoad(exports, ["KnowledgeBase"], () => require("./knowledgeBase"));
+
+export { LimitsProfileArgs } from "./limitsProfile";
+export type LimitsProfile = import("./limitsProfile").LimitsProfile;
+export const LimitsProfile: typeof import("./limitsProfile").LimitsProfile = null as any;
+utilities.lazyLoad(exports, ["LimitsProfile"], () => require("./limitsProfile"));
 
 export { OAuthClientApplicationArgs } from "./oauthClientApplication";
 export type OAuthClientApplication = import("./oauthClientApplication").OAuthClientApplication;
@@ -232,6 +242,8 @@ const _module = {
                 return new Folder(name, <any>undefined, { urn })
             case "aws-native:quicksight:KnowledgeBase":
                 return new KnowledgeBase(name, <any>undefined, { urn })
+            case "aws-native:quicksight:LimitsProfile":
+                return new LimitsProfile(name, <any>undefined, { urn })
             case "aws-native:quicksight:OAuthClientApplication":
                 return new OAuthClientApplication(name, <any>undefined, { urn })
             case "aws-native:quicksight:RefreshSchedule":

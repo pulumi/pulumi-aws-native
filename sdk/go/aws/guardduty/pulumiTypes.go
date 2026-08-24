@@ -13,6 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type CustomDetectionRuleAssociationTagItem struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type DetectorCfnDataSourceConfigurations struct {
 	// Describes which Kubernetes data sources are enabled for a detector.
 	Kubernetes *DetectorCfnKubernetesConfiguration `pulumi:"kubernetes"`

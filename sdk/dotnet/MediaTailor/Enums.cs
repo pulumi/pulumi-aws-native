@@ -442,6 +442,129 @@ namespace Pulumi.AwsNative.MediaTailor
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrefetchScheduleAvailMatchingCriteriaOperator : IEquatable<PrefetchScheduleAvailMatchingCriteriaOperator>
+    {
+        private readonly string _value;
+
+        private PrefetchScheduleAvailMatchingCriteriaOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrefetchScheduleAvailMatchingCriteriaOperator EqualsValue { get; } = new PrefetchScheduleAvailMatchingCriteriaOperator("EQUALS");
+
+        public static bool operator ==(PrefetchScheduleAvailMatchingCriteriaOperator left, PrefetchScheduleAvailMatchingCriteriaOperator right) => left.Equals(right);
+        public static bool operator !=(PrefetchScheduleAvailMatchingCriteriaOperator left, PrefetchScheduleAvailMatchingCriteriaOperator right) => !left.Equals(right);
+
+        public static explicit operator string(PrefetchScheduleAvailMatchingCriteriaOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrefetchScheduleAvailMatchingCriteriaOperator other && Equals(other);
+        public bool Equals(PrefetchScheduleAvailMatchingCriteriaOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrefetchSchedulePrefetchRetrievalTrafficShapingType : IEquatable<PrefetchSchedulePrefetchRetrievalTrafficShapingType>
+    {
+        private readonly string _value;
+
+        private PrefetchSchedulePrefetchRetrievalTrafficShapingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrefetchSchedulePrefetchRetrievalTrafficShapingType RetrievalWindow { get; } = new PrefetchSchedulePrefetchRetrievalTrafficShapingType("RETRIEVAL_WINDOW");
+        public static PrefetchSchedulePrefetchRetrievalTrafficShapingType Tps { get; } = new PrefetchSchedulePrefetchRetrievalTrafficShapingType("TPS");
+
+        public static bool operator ==(PrefetchSchedulePrefetchRetrievalTrafficShapingType left, PrefetchSchedulePrefetchRetrievalTrafficShapingType right) => left.Equals(right);
+        public static bool operator !=(PrefetchSchedulePrefetchRetrievalTrafficShapingType left, PrefetchSchedulePrefetchRetrievalTrafficShapingType right) => !left.Equals(right);
+
+        public static explicit operator string(PrefetchSchedulePrefetchRetrievalTrafficShapingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrefetchSchedulePrefetchRetrievalTrafficShapingType other && Equals(other);
+        public bool Equals(PrefetchSchedulePrefetchRetrievalTrafficShapingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates the type of traffic shaping used to limit the number of requests to the ADS at one time.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrefetchScheduleRecurringRetrievalTrafficShapingType : IEquatable<PrefetchScheduleRecurringRetrievalTrafficShapingType>
+    {
+        private readonly string _value;
+
+        private PrefetchScheduleRecurringRetrievalTrafficShapingType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrefetchScheduleRecurringRetrievalTrafficShapingType RetrievalWindow { get; } = new PrefetchScheduleRecurringRetrievalTrafficShapingType("RETRIEVAL_WINDOW");
+        public static PrefetchScheduleRecurringRetrievalTrafficShapingType Tps { get; } = new PrefetchScheduleRecurringRetrievalTrafficShapingType("TPS");
+
+        public static bool operator ==(PrefetchScheduleRecurringRetrievalTrafficShapingType left, PrefetchScheduleRecurringRetrievalTrafficShapingType right) => left.Equals(right);
+        public static bool operator !=(PrefetchScheduleRecurringRetrievalTrafficShapingType left, PrefetchScheduleRecurringRetrievalTrafficShapingType right) => !left.Equals(right);
+
+        public static explicit operator string(PrefetchScheduleRecurringRetrievalTrafficShapingType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrefetchScheduleRecurringRetrievalTrafficShapingType other && Equals(other);
+        public bool Equals(PrefetchScheduleRecurringRetrievalTrafficShapingType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The frequency that MediaTailor creates prefetch schedules.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrefetchScheduleScheduleType : IEquatable<PrefetchScheduleScheduleType>
+    {
+        private readonly string _value;
+
+        private PrefetchScheduleScheduleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrefetchScheduleScheduleType Single { get; } = new PrefetchScheduleScheduleType("SINGLE");
+        public static PrefetchScheduleScheduleType Recurring { get; } = new PrefetchScheduleScheduleType("RECURRING");
+
+        public static bool operator ==(PrefetchScheduleScheduleType left, PrefetchScheduleScheduleType right) => left.Equals(right);
+        public static bool operator !=(PrefetchScheduleScheduleType left, PrefetchScheduleScheduleType right) => !left.Equals(right);
+
+        public static explicit operator string(PrefetchScheduleScheduleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrefetchScheduleScheduleType other && Equals(other);
+        public bool Equals(PrefetchScheduleScheduleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct SourceLocationAccessType : IEquatable<SourceLocationAccessType>
     {

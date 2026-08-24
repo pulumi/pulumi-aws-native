@@ -71,4 +71,35 @@ namespace Pulumi.AwsNative.DataExchange
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The type of server side encryption used for encrypting the objects in Amazon S3.
+    /// </summary>
+    [EnumType]
+    public readonly struct EventActionExportServerSideEncryptionType : IEquatable<EventActionExportServerSideEncryptionType>
+    {
+        private readonly string _value;
+
+        private EventActionExportServerSideEncryptionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EventActionExportServerSideEncryptionType Awskms { get; } = new EventActionExportServerSideEncryptionType("aws:kms");
+        public static EventActionExportServerSideEncryptionType Aes256 { get; } = new EventActionExportServerSideEncryptionType("AES256");
+
+        public static bool operator ==(EventActionExportServerSideEncryptionType left, EventActionExportServerSideEncryptionType right) => left.Equals(right);
+        public static bool operator !=(EventActionExportServerSideEncryptionType left, EventActionExportServerSideEncryptionType right) => !left.Equals(right);
+
+        public static explicit operator string(EventActionExportServerSideEncryptionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EventActionExportServerSideEncryptionType other && Equals(other);
+        public bool Equals(EventActionExportServerSideEncryptionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

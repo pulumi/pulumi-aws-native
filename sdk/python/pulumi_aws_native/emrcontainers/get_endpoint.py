@@ -25,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetEndpointResult:
-    def __init__(__self__, arn=None, certificate_authority=None, created_at=None, failure_reason=None, id=None, security_group=None, server_url=None, state=None, state_details=None, tags=None):
+    def __init__(__self__, arn=None, auth_proxy_url=None, certificate_authority=None, created_at=None, failure_reason=None, id=None, security_group=None, server_url=None, state=None, state_details=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if auth_proxy_url and not isinstance(auth_proxy_url, str):
+            raise TypeError("Expected argument 'auth_proxy_url' to be a str")
+        pulumi.set(__self__, "auth_proxy_url", auth_proxy_url)
         if certificate_authority and not isinstance(certificate_authority, dict):
             raise TypeError("Expected argument 'certificate_authority' to be a dict")
         pulumi.set(__self__, "certificate_authority", certificate_authority)
@@ -64,6 +67,14 @@ class GetEndpointResult:
         The ARN of the managed endpoint.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="authProxyUrl")
+    def auth_proxy_url(self) -> Optional[_builtins.str]:
+        """
+        The auth proxy URL for Spark Connect connections.
+        """
+        return pulumi.get(self, "auth_proxy_url")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
@@ -145,6 +156,7 @@ class AwaitableGetEndpointResult(GetEndpointResult):
             yield self
         return GetEndpointResult(
             arn=self.arn,
+            auth_proxy_url=self.auth_proxy_url,
             certificate_authority=self.certificate_authority,
             created_at=self.created_at,
             failure_reason=self.failure_reason,
@@ -170,6 +182,7 @@ def get_endpoint(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetEndpointResult(
         arn=pulumi.get(__ret__, 'arn'),
+        auth_proxy_url=pulumi.get(__ret__, 'auth_proxy_url'),
         certificate_authority=pulumi.get(__ret__, 'certificate_authority'),
         created_at=pulumi.get(__ret__, 'created_at'),
         failure_reason=pulumi.get(__ret__, 'failure_reason'),
@@ -192,6 +205,7 @@ def get_endpoint_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:emrcontainers:getEndpoint', __args__, opts=opts, typ=GetEndpointResult)
     return __ret__.apply(lambda __response__: GetEndpointResult(
         arn=pulumi.get(__response__, 'arn'),
+        auth_proxy_url=pulumi.get(__response__, 'auth_proxy_url'),
         certificate_authority=pulumi.get(__response__, 'certificate_authority'),
         created_at=pulumi.get(__response__, 'created_at'),
         failure_reason=pulumi.get(__response__, 'failure_reason'),

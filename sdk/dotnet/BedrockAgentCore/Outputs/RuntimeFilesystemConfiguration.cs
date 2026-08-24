@@ -16,18 +16,22 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Outputs
     [OutputType]
     public sealed class RuntimeFilesystemConfiguration
     {
+        public readonly Outputs.RuntimeCapacityProviderVolumeConfiguration? CapacityProviderVolume;
         public readonly Outputs.RuntimeEfsAccessPointConfiguration? EfsAccessPoint;
         public readonly Outputs.RuntimeS3FilesAccessPointConfiguration? S3FilesAccessPoint;
         public readonly Outputs.RuntimeSessionStorageConfiguration? SessionStorage;
 
         [OutputConstructor]
         private RuntimeFilesystemConfiguration(
+            Outputs.RuntimeCapacityProviderVolumeConfiguration? capacityProviderVolume,
+
             Outputs.RuntimeEfsAccessPointConfiguration? efsAccessPoint,
 
             Outputs.RuntimeS3FilesAccessPointConfiguration? s3FilesAccessPoint,
 
             Outputs.RuntimeSessionStorageConfiguration? sessionStorage)
         {
+            CapacityProviderVolume = capacityProviderVolume;
             EfsAccessPoint = efsAccessPoint;
             S3FilesAccessPoint = s3FilesAccessPoint;
             SessionStorage = sessionStorage;

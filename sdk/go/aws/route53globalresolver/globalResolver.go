@@ -28,7 +28,7 @@ type GlobalResolver struct {
 	IpAddressType       GlobalResolverIpAddressTypePtrOutput `pulumi:"ipAddressType"`
 	Name                pulumi.StringOutput                  `pulumi:"name"`
 	ObservabilityRegion pulumi.StringPtrOutput               `pulumi:"observabilityRegion"`
-	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
 	Regions   pulumi.StringArrayOutput             `pulumi:"regions"`
 	Status    GlobalResolverCrResourceStatusOutput `pulumi:"status"`
 	Tags      aws.TagArrayOutput                   `pulumi:"tags"`
@@ -87,7 +87,7 @@ type globalResolverArgs struct {
 	IpAddressType       *GlobalResolverIpAddressType `pulumi:"ipAddressType"`
 	Name                *string                      `pulumi:"name"`
 	ObservabilityRegion *string                      `pulumi:"observabilityRegion"`
-	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
 	Regions []string  `pulumi:"regions"`
 	Tags    []aws.Tag `pulumi:"tags"`
 }
@@ -99,7 +99,7 @@ type GlobalResolverArgs struct {
 	IpAddressType       GlobalResolverIpAddressTypePtrInput
 	Name                pulumi.StringPtrInput
 	ObservabilityRegion pulumi.StringPtrInput
-	// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+	// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
 	Regions pulumi.StringArrayInput
 	Tags    aws.TagArrayInput
 }
@@ -185,7 +185,7 @@ func (o GlobalResolverOutput) ObservabilityRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GlobalResolver) pulumi.StringPtrOutput { return v.ObservabilityRegion }).(pulumi.StringPtrOutput)
 }
 
-// A list of regions the Global Resolver will exist in. This list cannot be updated and will stay fixed for the duration of the Global Resolver.
+// The list of regions the Global Resolver exists in. Regions can be added or removed on update; the order of this list is not significant.
 func (o GlobalResolverOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GlobalResolver) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
 }

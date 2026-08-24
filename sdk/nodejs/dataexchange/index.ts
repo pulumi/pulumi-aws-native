@@ -10,10 +10,20 @@ export type DataSet = import("./dataSet").DataSet;
 export const DataSet: typeof import("./dataSet").DataSet = null as any;
 utilities.lazyLoad(exports, ["DataSet"], () => require("./dataSet"));
 
+export { EventActionArgs } from "./eventAction";
+export type EventAction = import("./eventAction").EventAction;
+export const EventAction: typeof import("./eventAction").EventAction = null as any;
+utilities.lazyLoad(exports, ["EventAction"], () => require("./eventAction"));
+
 export { GetDataSetArgs, GetDataSetResult, GetDataSetOutputArgs } from "./getDataSet";
 export const getDataSet: typeof import("./getDataSet").getDataSet = null as any;
 export const getDataSetOutput: typeof import("./getDataSet").getDataSetOutput = null as any;
 utilities.lazyLoad(exports, ["getDataSet","getDataSetOutput"], () => require("./getDataSet"));
+
+export { GetEventActionArgs, GetEventActionResult, GetEventActionOutputArgs } from "./getEventAction";
+export const getEventAction: typeof import("./getEventAction").getEventAction = null as any;
+export const getEventActionOutput: typeof import("./getEventAction").getEventActionOutput = null as any;
+utilities.lazyLoad(exports, ["getEventAction","getEventActionOutput"], () => require("./getEventAction"));
 
 
 // Export enums:
@@ -25,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:dataexchange:DataSet":
                 return new DataSet(name, <any>undefined, { urn })
+            case "aws-native:dataexchange:EventAction":
+                return new EventAction(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

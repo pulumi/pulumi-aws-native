@@ -4,7 +4,11 @@
 package dataexchange
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -14,5 +18,786 @@ type DataSetTag struct {
 	Value string `pulumi:"value"`
 }
 
+// What occurs after a certain event.
+type EventActionAction struct {
+	ExportRevisionToS3 *EventActionAutoExportRevisionToS3RequestDetails `pulumi:"exportRevisionToS3"`
+}
+
+// EventActionActionInput is an input type that accepts EventActionActionArgs and EventActionActionOutput values.
+// You can construct a concrete instance of `EventActionActionInput` via:
+//
+//	EventActionActionArgs{...}
+type EventActionActionInput interface {
+	pulumi.Input
+
+	ToEventActionActionOutput() EventActionActionOutput
+	ToEventActionActionOutputWithContext(context.Context) EventActionActionOutput
+}
+
+// What occurs after a certain event.
+type EventActionActionArgs struct {
+	ExportRevisionToS3 EventActionAutoExportRevisionToS3RequestDetailsPtrInput `pulumi:"exportRevisionToS3"`
+}
+
+func (EventActionActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionAction)(nil)).Elem()
+}
+
+func (i EventActionActionArgs) ToEventActionActionOutput() EventActionActionOutput {
+	return i.ToEventActionActionOutputWithContext(context.Background())
+}
+
+func (i EventActionActionArgs) ToEventActionActionOutputWithContext(ctx context.Context) EventActionActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionActionOutput)
+}
+
+// What occurs after a certain event.
+type EventActionActionOutput struct{ *pulumi.OutputState }
+
+func (EventActionActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionAction)(nil)).Elem()
+}
+
+func (o EventActionActionOutput) ToEventActionActionOutput() EventActionActionOutput {
+	return o
+}
+
+func (o EventActionActionOutput) ToEventActionActionOutputWithContext(ctx context.Context) EventActionActionOutput {
+	return o
+}
+
+func (o EventActionActionOutput) ExportRevisionToS3() EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return o.ApplyT(func(v EventActionAction) *EventActionAutoExportRevisionToS3RequestDetails {
+		return v.ExportRevisionToS3
+	}).(EventActionAutoExportRevisionToS3RequestDetailsPtrOutput)
+}
+
+type EventActionActionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventActionActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionAction)(nil)).Elem()
+}
+
+func (o EventActionActionPtrOutput) ToEventActionActionPtrOutput() EventActionActionPtrOutput {
+	return o
+}
+
+func (o EventActionActionPtrOutput) ToEventActionActionPtrOutputWithContext(ctx context.Context) EventActionActionPtrOutput {
+	return o
+}
+
+func (o EventActionActionPtrOutput) Elem() EventActionActionOutput {
+	return o.ApplyT(func(v *EventActionAction) EventActionAction {
+		if v != nil {
+			return *v
+		}
+		var ret EventActionAction
+		return ret
+	}).(EventActionActionOutput)
+}
+
+func (o EventActionActionPtrOutput) ExportRevisionToS3() EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return o.ApplyT(func(v *EventActionAction) *EventActionAutoExportRevisionToS3RequestDetails {
+		if v == nil {
+			return nil
+		}
+		return v.ExportRevisionToS3
+	}).(EventActionAutoExportRevisionToS3RequestDetailsPtrOutput)
+}
+
+// A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.
+type EventActionAutoExportRevisionDestinationEntry struct {
+	// The Amazon S3 bucket that is the destination for the event action.
+	Bucket string `pulumi:"bucket"`
+	// A string representing the pattern for generated names of the individual assets in the revision.
+	KeyPattern *string `pulumi:"keyPattern"`
+}
+
+// EventActionAutoExportRevisionDestinationEntryInput is an input type that accepts EventActionAutoExportRevisionDestinationEntryArgs and EventActionAutoExportRevisionDestinationEntryOutput values.
+// You can construct a concrete instance of `EventActionAutoExportRevisionDestinationEntryInput` via:
+//
+//	EventActionAutoExportRevisionDestinationEntryArgs{...}
+type EventActionAutoExportRevisionDestinationEntryInput interface {
+	pulumi.Input
+
+	ToEventActionAutoExportRevisionDestinationEntryOutput() EventActionAutoExportRevisionDestinationEntryOutput
+	ToEventActionAutoExportRevisionDestinationEntryOutputWithContext(context.Context) EventActionAutoExportRevisionDestinationEntryOutput
+}
+
+// A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.
+type EventActionAutoExportRevisionDestinationEntryArgs struct {
+	// The Amazon S3 bucket that is the destination for the event action.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// A string representing the pattern for generated names of the individual assets in the revision.
+	KeyPattern pulumi.StringPtrInput `pulumi:"keyPattern"`
+}
+
+func (EventActionAutoExportRevisionDestinationEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionAutoExportRevisionDestinationEntry)(nil)).Elem()
+}
+
+func (i EventActionAutoExportRevisionDestinationEntryArgs) ToEventActionAutoExportRevisionDestinationEntryOutput() EventActionAutoExportRevisionDestinationEntryOutput {
+	return i.ToEventActionAutoExportRevisionDestinationEntryOutputWithContext(context.Background())
+}
+
+func (i EventActionAutoExportRevisionDestinationEntryArgs) ToEventActionAutoExportRevisionDestinationEntryOutputWithContext(ctx context.Context) EventActionAutoExportRevisionDestinationEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionAutoExportRevisionDestinationEntryOutput)
+}
+
+func (i EventActionAutoExportRevisionDestinationEntryArgs) ToEventActionAutoExportRevisionDestinationEntryPtrOutput() EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return i.ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(context.Background())
+}
+
+func (i EventActionAutoExportRevisionDestinationEntryArgs) ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionAutoExportRevisionDestinationEntryOutput).ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(ctx)
+}
+
+// EventActionAutoExportRevisionDestinationEntryPtrInput is an input type that accepts EventActionAutoExportRevisionDestinationEntryArgs, EventActionAutoExportRevisionDestinationEntryPtr and EventActionAutoExportRevisionDestinationEntryPtrOutput values.
+// You can construct a concrete instance of `EventActionAutoExportRevisionDestinationEntryPtrInput` via:
+//
+//	        EventActionAutoExportRevisionDestinationEntryArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventActionAutoExportRevisionDestinationEntryPtrInput interface {
+	pulumi.Input
+
+	ToEventActionAutoExportRevisionDestinationEntryPtrOutput() EventActionAutoExportRevisionDestinationEntryPtrOutput
+	ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(context.Context) EventActionAutoExportRevisionDestinationEntryPtrOutput
+}
+
+type eventActionAutoExportRevisionDestinationEntryPtrType EventActionAutoExportRevisionDestinationEntryArgs
+
+func EventActionAutoExportRevisionDestinationEntryPtr(v *EventActionAutoExportRevisionDestinationEntryArgs) EventActionAutoExportRevisionDestinationEntryPtrInput {
+	return (*eventActionAutoExportRevisionDestinationEntryPtrType)(v)
+}
+
+func (*eventActionAutoExportRevisionDestinationEntryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionAutoExportRevisionDestinationEntry)(nil)).Elem()
+}
+
+func (i *eventActionAutoExportRevisionDestinationEntryPtrType) ToEventActionAutoExportRevisionDestinationEntryPtrOutput() EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return i.ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(context.Background())
+}
+
+func (i *eventActionAutoExportRevisionDestinationEntryPtrType) ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionAutoExportRevisionDestinationEntryPtrOutput)
+}
+
+// A revision destination is the Amazon S3 bucket folder destination to where the export will be sent.
+type EventActionAutoExportRevisionDestinationEntryOutput struct{ *pulumi.OutputState }
+
+func (EventActionAutoExportRevisionDestinationEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionAutoExportRevisionDestinationEntry)(nil)).Elem()
+}
+
+func (o EventActionAutoExportRevisionDestinationEntryOutput) ToEventActionAutoExportRevisionDestinationEntryOutput() EventActionAutoExportRevisionDestinationEntryOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionDestinationEntryOutput) ToEventActionAutoExportRevisionDestinationEntryOutputWithContext(ctx context.Context) EventActionAutoExportRevisionDestinationEntryOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionDestinationEntryOutput) ToEventActionAutoExportRevisionDestinationEntryPtrOutput() EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return o.ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(context.Background())
+}
+
+func (o EventActionAutoExportRevisionDestinationEntryOutput) ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventActionAutoExportRevisionDestinationEntry) *EventActionAutoExportRevisionDestinationEntry {
+		return &v
+	}).(EventActionAutoExportRevisionDestinationEntryPtrOutput)
+}
+
+// The Amazon S3 bucket that is the destination for the event action.
+func (o EventActionAutoExportRevisionDestinationEntryOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v EventActionAutoExportRevisionDestinationEntry) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// A string representing the pattern for generated names of the individual assets in the revision.
+func (o EventActionAutoExportRevisionDestinationEntryOutput) KeyPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventActionAutoExportRevisionDestinationEntry) *string { return v.KeyPattern }).(pulumi.StringPtrOutput)
+}
+
+type EventActionAutoExportRevisionDestinationEntryPtrOutput struct{ *pulumi.OutputState }
+
+func (EventActionAutoExportRevisionDestinationEntryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionAutoExportRevisionDestinationEntry)(nil)).Elem()
+}
+
+func (o EventActionAutoExportRevisionDestinationEntryPtrOutput) ToEventActionAutoExportRevisionDestinationEntryPtrOutput() EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionDestinationEntryPtrOutput) ToEventActionAutoExportRevisionDestinationEntryPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionDestinationEntryPtrOutput) Elem() EventActionAutoExportRevisionDestinationEntryOutput {
+	return o.ApplyT(func(v *EventActionAutoExportRevisionDestinationEntry) EventActionAutoExportRevisionDestinationEntry {
+		if v != nil {
+			return *v
+		}
+		var ret EventActionAutoExportRevisionDestinationEntry
+		return ret
+	}).(EventActionAutoExportRevisionDestinationEntryOutput)
+}
+
+// The Amazon S3 bucket that is the destination for the event action.
+func (o EventActionAutoExportRevisionDestinationEntryPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventActionAutoExportRevisionDestinationEntry) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string representing the pattern for generated names of the individual assets in the revision.
+func (o EventActionAutoExportRevisionDestinationEntryPtrOutput) KeyPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventActionAutoExportRevisionDestinationEntry) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPattern
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of the operation to be performed by the job.
+type EventActionAutoExportRevisionToS3RequestDetails struct {
+	Encryption          *EventActionExportServerSideEncryption        `pulumi:"encryption"`
+	RevisionDestination EventActionAutoExportRevisionDestinationEntry `pulumi:"revisionDestination"`
+}
+
+// EventActionAutoExportRevisionToS3RequestDetailsInput is an input type that accepts EventActionAutoExportRevisionToS3RequestDetailsArgs and EventActionAutoExportRevisionToS3RequestDetailsOutput values.
+// You can construct a concrete instance of `EventActionAutoExportRevisionToS3RequestDetailsInput` via:
+//
+//	EventActionAutoExportRevisionToS3RequestDetailsArgs{...}
+type EventActionAutoExportRevisionToS3RequestDetailsInput interface {
+	pulumi.Input
+
+	ToEventActionAutoExportRevisionToS3RequestDetailsOutput() EventActionAutoExportRevisionToS3RequestDetailsOutput
+	ToEventActionAutoExportRevisionToS3RequestDetailsOutputWithContext(context.Context) EventActionAutoExportRevisionToS3RequestDetailsOutput
+}
+
+// Details of the operation to be performed by the job.
+type EventActionAutoExportRevisionToS3RequestDetailsArgs struct {
+	Encryption          EventActionExportServerSideEncryptionPtrInput      `pulumi:"encryption"`
+	RevisionDestination EventActionAutoExportRevisionDestinationEntryInput `pulumi:"revisionDestination"`
+}
+
+func (EventActionAutoExportRevisionToS3RequestDetailsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionAutoExportRevisionToS3RequestDetails)(nil)).Elem()
+}
+
+func (i EventActionAutoExportRevisionToS3RequestDetailsArgs) ToEventActionAutoExportRevisionToS3RequestDetailsOutput() EventActionAutoExportRevisionToS3RequestDetailsOutput {
+	return i.ToEventActionAutoExportRevisionToS3RequestDetailsOutputWithContext(context.Background())
+}
+
+func (i EventActionAutoExportRevisionToS3RequestDetailsArgs) ToEventActionAutoExportRevisionToS3RequestDetailsOutputWithContext(ctx context.Context) EventActionAutoExportRevisionToS3RequestDetailsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionAutoExportRevisionToS3RequestDetailsOutput)
+}
+
+func (i EventActionAutoExportRevisionToS3RequestDetailsArgs) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutput() EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return i.ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i EventActionAutoExportRevisionToS3RequestDetailsArgs) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionAutoExportRevisionToS3RequestDetailsOutput).ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(ctx)
+}
+
+// EventActionAutoExportRevisionToS3RequestDetailsPtrInput is an input type that accepts EventActionAutoExportRevisionToS3RequestDetailsArgs, EventActionAutoExportRevisionToS3RequestDetailsPtr and EventActionAutoExportRevisionToS3RequestDetailsPtrOutput values.
+// You can construct a concrete instance of `EventActionAutoExportRevisionToS3RequestDetailsPtrInput` via:
+//
+//	        EventActionAutoExportRevisionToS3RequestDetailsArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventActionAutoExportRevisionToS3RequestDetailsPtrInput interface {
+	pulumi.Input
+
+	ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutput() EventActionAutoExportRevisionToS3RequestDetailsPtrOutput
+	ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(context.Context) EventActionAutoExportRevisionToS3RequestDetailsPtrOutput
+}
+
+type eventActionAutoExportRevisionToS3RequestDetailsPtrType EventActionAutoExportRevisionToS3RequestDetailsArgs
+
+func EventActionAutoExportRevisionToS3RequestDetailsPtr(v *EventActionAutoExportRevisionToS3RequestDetailsArgs) EventActionAutoExportRevisionToS3RequestDetailsPtrInput {
+	return (*eventActionAutoExportRevisionToS3RequestDetailsPtrType)(v)
+}
+
+func (*eventActionAutoExportRevisionToS3RequestDetailsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionAutoExportRevisionToS3RequestDetails)(nil)).Elem()
+}
+
+func (i *eventActionAutoExportRevisionToS3RequestDetailsPtrType) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutput() EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return i.ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(context.Background())
+}
+
+func (i *eventActionAutoExportRevisionToS3RequestDetailsPtrType) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionAutoExportRevisionToS3RequestDetailsPtrOutput)
+}
+
+// Details of the operation to be performed by the job.
+type EventActionAutoExportRevisionToS3RequestDetailsOutput struct{ *pulumi.OutputState }
+
+func (EventActionAutoExportRevisionToS3RequestDetailsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionAutoExportRevisionToS3RequestDetails)(nil)).Elem()
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsOutput) ToEventActionAutoExportRevisionToS3RequestDetailsOutput() EventActionAutoExportRevisionToS3RequestDetailsOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsOutput) ToEventActionAutoExportRevisionToS3RequestDetailsOutputWithContext(ctx context.Context) EventActionAutoExportRevisionToS3RequestDetailsOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsOutput) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutput() EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return o.ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(context.Background())
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsOutput) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventActionAutoExportRevisionToS3RequestDetails) *EventActionAutoExportRevisionToS3RequestDetails {
+		return &v
+	}).(EventActionAutoExportRevisionToS3RequestDetailsPtrOutput)
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsOutput) Encryption() EventActionExportServerSideEncryptionPtrOutput {
+	return o.ApplyT(func(v EventActionAutoExportRevisionToS3RequestDetails) *EventActionExportServerSideEncryption {
+		return v.Encryption
+	}).(EventActionExportServerSideEncryptionPtrOutput)
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsOutput) RevisionDestination() EventActionAutoExportRevisionDestinationEntryOutput {
+	return o.ApplyT(func(v EventActionAutoExportRevisionToS3RequestDetails) EventActionAutoExportRevisionDestinationEntry {
+		return v.RevisionDestination
+	}).(EventActionAutoExportRevisionDestinationEntryOutput)
+}
+
+type EventActionAutoExportRevisionToS3RequestDetailsPtrOutput struct{ *pulumi.OutputState }
+
+func (EventActionAutoExportRevisionToS3RequestDetailsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionAutoExportRevisionToS3RequestDetails)(nil)).Elem()
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsPtrOutput) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutput() EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsPtrOutput) ToEventActionAutoExportRevisionToS3RequestDetailsPtrOutputWithContext(ctx context.Context) EventActionAutoExportRevisionToS3RequestDetailsPtrOutput {
+	return o
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsPtrOutput) Elem() EventActionAutoExportRevisionToS3RequestDetailsOutput {
+	return o.ApplyT(func(v *EventActionAutoExportRevisionToS3RequestDetails) EventActionAutoExportRevisionToS3RequestDetails {
+		if v != nil {
+			return *v
+		}
+		var ret EventActionAutoExportRevisionToS3RequestDetails
+		return ret
+	}).(EventActionAutoExportRevisionToS3RequestDetailsOutput)
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsPtrOutput) Encryption() EventActionExportServerSideEncryptionPtrOutput {
+	return o.ApplyT(func(v *EventActionAutoExportRevisionToS3RequestDetails) *EventActionExportServerSideEncryption {
+		if v == nil {
+			return nil
+		}
+		return v.Encryption
+	}).(EventActionExportServerSideEncryptionPtrOutput)
+}
+
+func (o EventActionAutoExportRevisionToS3RequestDetailsPtrOutput) RevisionDestination() EventActionAutoExportRevisionDestinationEntryPtrOutput {
+	return o.ApplyT(func(v *EventActionAutoExportRevisionToS3RequestDetails) *EventActionAutoExportRevisionDestinationEntry {
+		if v == nil {
+			return nil
+		}
+		return &v.RevisionDestination
+	}).(EventActionAutoExportRevisionDestinationEntryPtrOutput)
+}
+
+// What occurs to start an action.
+type EventActionEvent struct {
+	RevisionPublished *EventActionRevisionPublished `pulumi:"revisionPublished"`
+}
+
+// EventActionEventInput is an input type that accepts EventActionEventArgs and EventActionEventOutput values.
+// You can construct a concrete instance of `EventActionEventInput` via:
+//
+//	EventActionEventArgs{...}
+type EventActionEventInput interface {
+	pulumi.Input
+
+	ToEventActionEventOutput() EventActionEventOutput
+	ToEventActionEventOutputWithContext(context.Context) EventActionEventOutput
+}
+
+// What occurs to start an action.
+type EventActionEventArgs struct {
+	RevisionPublished EventActionRevisionPublishedPtrInput `pulumi:"revisionPublished"`
+}
+
+func (EventActionEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionEvent)(nil)).Elem()
+}
+
+func (i EventActionEventArgs) ToEventActionEventOutput() EventActionEventOutput {
+	return i.ToEventActionEventOutputWithContext(context.Background())
+}
+
+func (i EventActionEventArgs) ToEventActionEventOutputWithContext(ctx context.Context) EventActionEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionEventOutput)
+}
+
+// What occurs to start an action.
+type EventActionEventOutput struct{ *pulumi.OutputState }
+
+func (EventActionEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionEvent)(nil)).Elem()
+}
+
+func (o EventActionEventOutput) ToEventActionEventOutput() EventActionEventOutput {
+	return o
+}
+
+func (o EventActionEventOutput) ToEventActionEventOutputWithContext(ctx context.Context) EventActionEventOutput {
+	return o
+}
+
+func (o EventActionEventOutput) RevisionPublished() EventActionRevisionPublishedPtrOutput {
+	return o.ApplyT(func(v EventActionEvent) *EventActionRevisionPublished { return v.RevisionPublished }).(EventActionRevisionPublishedPtrOutput)
+}
+
+// Encryption configuration of the export job.
+type EventActionExportServerSideEncryption struct {
+	// The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// The type of server side encryption used for encrypting the objects in Amazon S3.
+	Type EventActionExportServerSideEncryptionType `pulumi:"type"`
+}
+
+// EventActionExportServerSideEncryptionInput is an input type that accepts EventActionExportServerSideEncryptionArgs and EventActionExportServerSideEncryptionOutput values.
+// You can construct a concrete instance of `EventActionExportServerSideEncryptionInput` via:
+//
+//	EventActionExportServerSideEncryptionArgs{...}
+type EventActionExportServerSideEncryptionInput interface {
+	pulumi.Input
+
+	ToEventActionExportServerSideEncryptionOutput() EventActionExportServerSideEncryptionOutput
+	ToEventActionExportServerSideEncryptionOutputWithContext(context.Context) EventActionExportServerSideEncryptionOutput
+}
+
+// Encryption configuration of the export job.
+type EventActionExportServerSideEncryptionArgs struct {
+	// The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// The type of server side encryption used for encrypting the objects in Amazon S3.
+	Type EventActionExportServerSideEncryptionTypeInput `pulumi:"type"`
+}
+
+func (EventActionExportServerSideEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionExportServerSideEncryption)(nil)).Elem()
+}
+
+func (i EventActionExportServerSideEncryptionArgs) ToEventActionExportServerSideEncryptionOutput() EventActionExportServerSideEncryptionOutput {
+	return i.ToEventActionExportServerSideEncryptionOutputWithContext(context.Background())
+}
+
+func (i EventActionExportServerSideEncryptionArgs) ToEventActionExportServerSideEncryptionOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionExportServerSideEncryptionOutput)
+}
+
+func (i EventActionExportServerSideEncryptionArgs) ToEventActionExportServerSideEncryptionPtrOutput() EventActionExportServerSideEncryptionPtrOutput {
+	return i.ToEventActionExportServerSideEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i EventActionExportServerSideEncryptionArgs) ToEventActionExportServerSideEncryptionPtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionExportServerSideEncryptionOutput).ToEventActionExportServerSideEncryptionPtrOutputWithContext(ctx)
+}
+
+// EventActionExportServerSideEncryptionPtrInput is an input type that accepts EventActionExportServerSideEncryptionArgs, EventActionExportServerSideEncryptionPtr and EventActionExportServerSideEncryptionPtrOutput values.
+// You can construct a concrete instance of `EventActionExportServerSideEncryptionPtrInput` via:
+//
+//	        EventActionExportServerSideEncryptionArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventActionExportServerSideEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToEventActionExportServerSideEncryptionPtrOutput() EventActionExportServerSideEncryptionPtrOutput
+	ToEventActionExportServerSideEncryptionPtrOutputWithContext(context.Context) EventActionExportServerSideEncryptionPtrOutput
+}
+
+type eventActionExportServerSideEncryptionPtrType EventActionExportServerSideEncryptionArgs
+
+func EventActionExportServerSideEncryptionPtr(v *EventActionExportServerSideEncryptionArgs) EventActionExportServerSideEncryptionPtrInput {
+	return (*eventActionExportServerSideEncryptionPtrType)(v)
+}
+
+func (*eventActionExportServerSideEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionExportServerSideEncryption)(nil)).Elem()
+}
+
+func (i *eventActionExportServerSideEncryptionPtrType) ToEventActionExportServerSideEncryptionPtrOutput() EventActionExportServerSideEncryptionPtrOutput {
+	return i.ToEventActionExportServerSideEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *eventActionExportServerSideEncryptionPtrType) ToEventActionExportServerSideEncryptionPtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionExportServerSideEncryptionPtrOutput)
+}
+
+// Encryption configuration of the export job.
+type EventActionExportServerSideEncryptionOutput struct{ *pulumi.OutputState }
+
+func (EventActionExportServerSideEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionExportServerSideEncryption)(nil)).Elem()
+}
+
+func (o EventActionExportServerSideEncryptionOutput) ToEventActionExportServerSideEncryptionOutput() EventActionExportServerSideEncryptionOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionOutput) ToEventActionExportServerSideEncryptionOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionOutput) ToEventActionExportServerSideEncryptionPtrOutput() EventActionExportServerSideEncryptionPtrOutput {
+	return o.ToEventActionExportServerSideEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o EventActionExportServerSideEncryptionOutput) ToEventActionExportServerSideEncryptionPtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventActionExportServerSideEncryption) *EventActionExportServerSideEncryption {
+		return &v
+	}).(EventActionExportServerSideEncryptionPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects.
+func (o EventActionExportServerSideEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EventActionExportServerSideEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// The type of server side encryption used for encrypting the objects in Amazon S3.
+func (o EventActionExportServerSideEncryptionOutput) Type() EventActionExportServerSideEncryptionTypeOutput {
+	return o.ApplyT(func(v EventActionExportServerSideEncryption) EventActionExportServerSideEncryptionType { return v.Type }).(EventActionExportServerSideEncryptionTypeOutput)
+}
+
+type EventActionExportServerSideEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (EventActionExportServerSideEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionExportServerSideEncryption)(nil)).Elem()
+}
+
+func (o EventActionExportServerSideEncryptionPtrOutput) ToEventActionExportServerSideEncryptionPtrOutput() EventActionExportServerSideEncryptionPtrOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionPtrOutput) ToEventActionExportServerSideEncryptionPtrOutputWithContext(ctx context.Context) EventActionExportServerSideEncryptionPtrOutput {
+	return o
+}
+
+func (o EventActionExportServerSideEncryptionPtrOutput) Elem() EventActionExportServerSideEncryptionOutput {
+	return o.ApplyT(func(v *EventActionExportServerSideEncryption) EventActionExportServerSideEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret EventActionExportServerSideEncryption
+		return ret
+	}).(EventActionExportServerSideEncryptionOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS KMS key you want to use to encrypt the Amazon S3 objects.
+func (o EventActionExportServerSideEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventActionExportServerSideEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of server side encryption used for encrypting the objects in Amazon S3.
+func (o EventActionExportServerSideEncryptionPtrOutput) Type() EventActionExportServerSideEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *EventActionExportServerSideEncryption) *EventActionExportServerSideEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(EventActionExportServerSideEncryptionTypePtrOutput)
+}
+
+// Information about the published revision.
+type EventActionRevisionPublished struct {
+	// The data set ID of the published revision.
+	DataSetId string `pulumi:"dataSetId"`
+}
+
+// EventActionRevisionPublishedInput is an input type that accepts EventActionRevisionPublishedArgs and EventActionRevisionPublishedOutput values.
+// You can construct a concrete instance of `EventActionRevisionPublishedInput` via:
+//
+//	EventActionRevisionPublishedArgs{...}
+type EventActionRevisionPublishedInput interface {
+	pulumi.Input
+
+	ToEventActionRevisionPublishedOutput() EventActionRevisionPublishedOutput
+	ToEventActionRevisionPublishedOutputWithContext(context.Context) EventActionRevisionPublishedOutput
+}
+
+// Information about the published revision.
+type EventActionRevisionPublishedArgs struct {
+	// The data set ID of the published revision.
+	DataSetId pulumi.StringInput `pulumi:"dataSetId"`
+}
+
+func (EventActionRevisionPublishedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionRevisionPublished)(nil)).Elem()
+}
+
+func (i EventActionRevisionPublishedArgs) ToEventActionRevisionPublishedOutput() EventActionRevisionPublishedOutput {
+	return i.ToEventActionRevisionPublishedOutputWithContext(context.Background())
+}
+
+func (i EventActionRevisionPublishedArgs) ToEventActionRevisionPublishedOutputWithContext(ctx context.Context) EventActionRevisionPublishedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionRevisionPublishedOutput)
+}
+
+func (i EventActionRevisionPublishedArgs) ToEventActionRevisionPublishedPtrOutput() EventActionRevisionPublishedPtrOutput {
+	return i.ToEventActionRevisionPublishedPtrOutputWithContext(context.Background())
+}
+
+func (i EventActionRevisionPublishedArgs) ToEventActionRevisionPublishedPtrOutputWithContext(ctx context.Context) EventActionRevisionPublishedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionRevisionPublishedOutput).ToEventActionRevisionPublishedPtrOutputWithContext(ctx)
+}
+
+// EventActionRevisionPublishedPtrInput is an input type that accepts EventActionRevisionPublishedArgs, EventActionRevisionPublishedPtr and EventActionRevisionPublishedPtrOutput values.
+// You can construct a concrete instance of `EventActionRevisionPublishedPtrInput` via:
+//
+//	        EventActionRevisionPublishedArgs{...}
+//
+//	or:
+//
+//	        nil
+type EventActionRevisionPublishedPtrInput interface {
+	pulumi.Input
+
+	ToEventActionRevisionPublishedPtrOutput() EventActionRevisionPublishedPtrOutput
+	ToEventActionRevisionPublishedPtrOutputWithContext(context.Context) EventActionRevisionPublishedPtrOutput
+}
+
+type eventActionRevisionPublishedPtrType EventActionRevisionPublishedArgs
+
+func EventActionRevisionPublishedPtr(v *EventActionRevisionPublishedArgs) EventActionRevisionPublishedPtrInput {
+	return (*eventActionRevisionPublishedPtrType)(v)
+}
+
+func (*eventActionRevisionPublishedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionRevisionPublished)(nil)).Elem()
+}
+
+func (i *eventActionRevisionPublishedPtrType) ToEventActionRevisionPublishedPtrOutput() EventActionRevisionPublishedPtrOutput {
+	return i.ToEventActionRevisionPublishedPtrOutputWithContext(context.Background())
+}
+
+func (i *eventActionRevisionPublishedPtrType) ToEventActionRevisionPublishedPtrOutputWithContext(ctx context.Context) EventActionRevisionPublishedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EventActionRevisionPublishedPtrOutput)
+}
+
+// Information about the published revision.
+type EventActionRevisionPublishedOutput struct{ *pulumi.OutputState }
+
+func (EventActionRevisionPublishedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EventActionRevisionPublished)(nil)).Elem()
+}
+
+func (o EventActionRevisionPublishedOutput) ToEventActionRevisionPublishedOutput() EventActionRevisionPublishedOutput {
+	return o
+}
+
+func (o EventActionRevisionPublishedOutput) ToEventActionRevisionPublishedOutputWithContext(ctx context.Context) EventActionRevisionPublishedOutput {
+	return o
+}
+
+func (o EventActionRevisionPublishedOutput) ToEventActionRevisionPublishedPtrOutput() EventActionRevisionPublishedPtrOutput {
+	return o.ToEventActionRevisionPublishedPtrOutputWithContext(context.Background())
+}
+
+func (o EventActionRevisionPublishedOutput) ToEventActionRevisionPublishedPtrOutputWithContext(ctx context.Context) EventActionRevisionPublishedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EventActionRevisionPublished) *EventActionRevisionPublished {
+		return &v
+	}).(EventActionRevisionPublishedPtrOutput)
+}
+
+// The data set ID of the published revision.
+func (o EventActionRevisionPublishedOutput) DataSetId() pulumi.StringOutput {
+	return o.ApplyT(func(v EventActionRevisionPublished) string { return v.DataSetId }).(pulumi.StringOutput)
+}
+
+type EventActionRevisionPublishedPtrOutput struct{ *pulumi.OutputState }
+
+func (EventActionRevisionPublishedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EventActionRevisionPublished)(nil)).Elem()
+}
+
+func (o EventActionRevisionPublishedPtrOutput) ToEventActionRevisionPublishedPtrOutput() EventActionRevisionPublishedPtrOutput {
+	return o
+}
+
+func (o EventActionRevisionPublishedPtrOutput) ToEventActionRevisionPublishedPtrOutputWithContext(ctx context.Context) EventActionRevisionPublishedPtrOutput {
+	return o
+}
+
+func (o EventActionRevisionPublishedPtrOutput) Elem() EventActionRevisionPublishedOutput {
+	return o.ApplyT(func(v *EventActionRevisionPublished) EventActionRevisionPublished {
+		if v != nil {
+			return *v
+		}
+		var ret EventActionRevisionPublished
+		return ret
+	}).(EventActionRevisionPublishedOutput)
+}
+
+// The data set ID of the published revision.
+func (o EventActionRevisionPublishedPtrOutput) DataSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EventActionRevisionPublished) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type EventActionTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionActionInput)(nil)).Elem(), EventActionActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionAutoExportRevisionDestinationEntryInput)(nil)).Elem(), EventActionAutoExportRevisionDestinationEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionAutoExportRevisionDestinationEntryPtrInput)(nil)).Elem(), EventActionAutoExportRevisionDestinationEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionAutoExportRevisionToS3RequestDetailsInput)(nil)).Elem(), EventActionAutoExportRevisionToS3RequestDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionAutoExportRevisionToS3RequestDetailsPtrInput)(nil)).Elem(), EventActionAutoExportRevisionToS3RequestDetailsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionEventInput)(nil)).Elem(), EventActionEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionExportServerSideEncryptionInput)(nil)).Elem(), EventActionExportServerSideEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionExportServerSideEncryptionPtrInput)(nil)).Elem(), EventActionExportServerSideEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionRevisionPublishedInput)(nil)).Elem(), EventActionRevisionPublishedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EventActionRevisionPublishedPtrInput)(nil)).Elem(), EventActionRevisionPublishedArgs{})
+	pulumi.RegisterOutputType(EventActionActionOutput{})
+	pulumi.RegisterOutputType(EventActionActionPtrOutput{})
+	pulumi.RegisterOutputType(EventActionAutoExportRevisionDestinationEntryOutput{})
+	pulumi.RegisterOutputType(EventActionAutoExportRevisionDestinationEntryPtrOutput{})
+	pulumi.RegisterOutputType(EventActionAutoExportRevisionToS3RequestDetailsOutput{})
+	pulumi.RegisterOutputType(EventActionAutoExportRevisionToS3RequestDetailsPtrOutput{})
+	pulumi.RegisterOutputType(EventActionEventOutput{})
+	pulumi.RegisterOutputType(EventActionExportServerSideEncryptionOutput{})
+	pulumi.RegisterOutputType(EventActionExportServerSideEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(EventActionRevisionPublishedOutput{})
+	pulumi.RegisterOutputType(EventActionRevisionPublishedPtrOutput{})
 }

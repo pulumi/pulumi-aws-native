@@ -42,8 +42,6 @@ type LookupServiceNetworkResult struct {
 	Id *string `pulumi:"id"`
 	// The date and time of the last update, specified in ISO-8601 format.
 	LastUpdatedAt *string `pulumi:"lastUpdatedAt"`
-	// Specify if the service network should be enabled for sharing.
-	SharingConfig *ServiceNetworkSharingConfig `pulumi:"sharingConfig"`
 	// The tags for the service network.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -106,11 +104,6 @@ func (o LookupServiceNetworkResultOutput) Id() pulumi.StringPtrOutput {
 // The date and time of the last update, specified in ISO-8601 format.
 func (o LookupServiceNetworkResultOutput) LastUpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkResult) *string { return v.LastUpdatedAt }).(pulumi.StringPtrOutput)
-}
-
-// Specify if the service network should be enabled for sharing.
-func (o LookupServiceNetworkResultOutput) SharingConfig() ServiceNetworkSharingConfigPtrOutput {
-	return o.ApplyT(func(v LookupServiceNetworkResult) *ServiceNetworkSharingConfig { return v.SharingConfig }).(ServiceNetworkSharingConfigPtrOutput)
 }
 
 // The tags for the service network.

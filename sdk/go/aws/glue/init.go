@@ -57,6 +57,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SchemaVersionMetadata{}
 	case "aws-native:glue:SecurityConfiguration":
 		r = &SecurityConfiguration{}
+	case "aws-native:glue:Session":
+		r = &Session{}
 	case "aws-native:glue:TableOptimizer":
 		r = &TableOptimizer{}
 	case "aws-native:glue:Trigger":

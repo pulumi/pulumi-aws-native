@@ -30,6 +30,7 @@ class EndpointArgs:
                  virtual_cluster_id: pulumi.Input[_builtins.str],
                  configuration_overrides: pulumi.Input[Optional['EndpointConfigurationOverridesArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
@@ -40,6 +41,7 @@ class EndpointArgs:
         :param pulumi.Input[_builtins.str] virtual_cluster_id: The ID of the virtual cluster for which the managed endpoint is created.
         :param pulumi.Input['EndpointConfigurationOverridesArgs'] configuration_overrides: The configuration overrides for the managed endpoint.
         :param pulumi.Input[_builtins.str] name: The name of the managed endpoint.
+        :param pulumi.Input[_builtins.int] session_idle_timeout_in_minutes: The idle timeout in minutes for sessions on the managed endpoint.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this managed endpoint.
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
@@ -50,6 +52,8 @@ class EndpointArgs:
             pulumi.set(__self__, "configuration_overrides", configuration_overrides)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if session_idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "session_idle_timeout_in_minutes", session_idle_timeout_in_minutes)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -126,6 +130,18 @@ class EndpointArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="sessionIdleTimeoutInMinutes")
+    def session_idle_timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The idle timeout in minutes for sessions on the managed endpoint.
+        """
+        return pulumi.get(self, "session_idle_timeout_in_minutes")
+
+    @session_idle_timeout_in_minutes.setter
+    def session_idle_timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "session_idle_timeout_in_minutes", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -148,6 +164,7 @@ class Endpoint(pulumi.CustomResource):
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -161,6 +178,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] execution_role_arn: The execution role ARN for the managed endpoint.
         :param pulumi.Input[_builtins.str] name: The name of the managed endpoint.
         :param pulumi.Input[_builtins.str] release_label: The Amazon EMR release label.
+        :param pulumi.Input[_builtins.int] session_idle_timeout_in_minutes: The idle timeout in minutes for sessions on the managed endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this managed endpoint.
         :param pulumi.Input[_builtins.str] type: The type of the managed endpoint.
         :param pulumi.Input[_builtins.str] virtual_cluster_id: The ID of the virtual cluster for which the managed endpoint is created.
@@ -193,6 +211,7 @@ class Endpoint(pulumi.CustomResource):
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  release_label: pulumi.Input[Optional[_builtins.str]] = None,
+                 session_idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -213,6 +232,7 @@ class Endpoint(pulumi.CustomResource):
             if release_label is None and not opts.urn:
                 raise TypeError("Missing required property 'release_label'")
             __props__.__dict__["release_label"] = release_label
+            __props__.__dict__["session_idle_timeout_in_minutes"] = session_idle_timeout_in_minutes
             __props__.__dict__["tags"] = tags
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
@@ -221,6 +241,7 @@ class Endpoint(pulumi.CustomResource):
                 raise TypeError("Missing required property 'virtual_cluster_id'")
             __props__.__dict__["virtual_cluster_id"] = virtual_cluster_id
             __props__.__dict__["arn"] = None
+            __props__.__dict__["auth_proxy_url"] = None
             __props__.__dict__["aws_id"] = None
             __props__.__dict__["certificate_authority"] = None
             __props__.__dict__["created_at"] = None
@@ -229,7 +250,7 @@ class Endpoint(pulumi.CustomResource):
             __props__.__dict__["server_url"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["state_details"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configurationOverrides", "executionRoleArn", "name", "releaseLabel", "type", "virtualClusterId"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["configurationOverrides", "executionRoleArn", "name", "releaseLabel", "sessionIdleTimeoutInMinutes", "type", "virtualClusterId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Endpoint, __self__).__init__(
             'aws-native:emrcontainers:Endpoint',
@@ -254,6 +275,7 @@ class Endpoint(pulumi.CustomResource):
         __props__ = EndpointArgs.__new__(EndpointArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["auth_proxy_url"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["certificate_authority"] = None
         __props__.__dict__["configuration_overrides"] = None
@@ -264,6 +286,7 @@ class Endpoint(pulumi.CustomResource):
         __props__.__dict__["release_label"] = None
         __props__.__dict__["security_group"] = None
         __props__.__dict__["server_url"] = None
+        __props__.__dict__["session_idle_timeout_in_minutes"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["state_details"] = None
         __props__.__dict__["tags"] = None
@@ -278,6 +301,14 @@ class Endpoint(pulumi.CustomResource):
         The ARN of the managed endpoint.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="authProxyUrl")
+    def auth_proxy_url(self) -> pulumi.Output[_builtins.str]:
+        """
+        The auth proxy URL for Spark Connect connections.
+        """
+        return pulumi.get(self, "auth_proxy_url")
 
     @_builtins.property
     @pulumi.getter(name="awsId")
@@ -358,6 +389,14 @@ class Endpoint(pulumi.CustomResource):
         The server URL of the managed endpoint.
         """
         return pulumi.get(self, "server_url")
+
+    @_builtins.property
+    @pulumi.getter(name="sessionIdleTimeoutInMinutes")
+    def session_idle_timeout_in_minutes(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        The idle timeout in minutes for sessions on the managed endpoint.
+        """
+        return pulumi.get(self, "session_idle_timeout_in_minutes")
 
     @_builtins.property
     @pulumi.getter

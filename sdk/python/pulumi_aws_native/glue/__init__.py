@@ -32,6 +32,7 @@ from .get_registry import *
 from .get_schema import *
 from .get_schema_version import *
 from .get_security_configuration import *
+from .get_session import *
 from .get_table_optimizer import *
 from .get_trigger import *
 from .get_usage_profile import *
@@ -47,6 +48,7 @@ from .schema import *
 from .schema_version import *
 from .schema_version_metadata import *
 from .security_configuration import *
+from .session import *
 from .table_optimizer import *
 from .trigger import *
 from .usage_profile import *

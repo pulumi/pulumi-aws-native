@@ -110,6 +110,10 @@ export class VirtualCluster extends pulumi.CustomResource {
      */
     declare public readonly securityConfigurationId: pulumi.Output<string | undefined>;
     /**
+     * Whether the virtual cluster is session-enabled for Spark Connect.
+     */
+    declare public readonly sessionEnabled: pulumi.Output<boolean | undefined>;
+    /**
      * An array of key-value pairs to apply to this virtual cluster.
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
@@ -131,6 +135,7 @@ export class VirtualCluster extends pulumi.CustomResource {
             resourceInputs["containerProvider"] = args?.containerProvider;
             resourceInputs["name"] = args?.name;
             resourceInputs["securityConfigurationId"] = args?.securityConfigurationId;
+            resourceInputs["sessionEnabled"] = args?.sessionEnabled;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
@@ -140,10 +145,11 @@ export class VirtualCluster extends pulumi.CustomResource {
             resourceInputs["containerProvider"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["securityConfigurationId"] = undefined /*out*/;
+            resourceInputs["sessionEnabled"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["containerProvider", "name"] };
+        const replaceOnChanges = { replaceOnChanges: ["containerProvider", "name", "securityConfigurationId", "sessionEnabled"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VirtualCluster.__pulumiType, name, resourceInputs, opts);
     }
@@ -165,6 +171,10 @@ export interface VirtualClusterArgs {
      * The ID of the security configuration.
      */
     securityConfigurationId?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the virtual cluster is session-enabled for Spark Connect.
+     */
+    sessionEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * An array of key-value pairs to apply to this virtual cluster.
      */

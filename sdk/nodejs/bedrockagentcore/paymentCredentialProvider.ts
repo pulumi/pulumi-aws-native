@@ -94,7 +94,7 @@ export class PaymentCredentialProvider extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["name"] };
+        const replaceOnChanges = { replaceOnChanges: ["credentialProviderVendor", "name"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(PaymentCredentialProvider.__pulumiType, name, resourceInputs, opts);
     }

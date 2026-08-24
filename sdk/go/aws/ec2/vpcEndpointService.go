@@ -25,7 +25,9 @@ type VpcEndpointService struct {
 	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	NetworkLoadBalancerArns pulumi.StringArrayOutput `pulumi:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
-	PayerResponsibility pulumi.StringPtrOutput `pulumi:"payerResponsibility"`
+	PayerResponsibility         pulumi.StringPtrOutput                                 `pulumi:"payerResponsibility"`
+	PrivateDnsName              pulumi.StringPtrOutput                                 `pulumi:"privateDnsName"`
+	PrivateDnsNameConfiguration VpcEndpointServicePrivateDnsNameConfigurationPtrOutput `pulumi:"privateDnsNameConfiguration"`
 	// The ID of the endpoint service.
 	ServiceId pulumi.StringOutput `pulumi:"serviceId"`
 	// Specify which Ip Address types are supported for VPC endpoint service.
@@ -85,7 +87,9 @@ type vpcEndpointServiceArgs struct {
 	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	NetworkLoadBalancerArns []string `pulumi:"networkLoadBalancerArns"`
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
-	PayerResponsibility *string `pulumi:"payerResponsibility"`
+	PayerResponsibility         *string                                        `pulumi:"payerResponsibility"`
+	PrivateDnsName              *string                                        `pulumi:"privateDnsName"`
+	PrivateDnsNameConfiguration *VpcEndpointServicePrivateDnsNameConfiguration `pulumi:"privateDnsNameConfiguration"`
 	// Specify which Ip Address types are supported for VPC endpoint service.
 	SupportedIpAddressTypes []VpcEndpointServiceIpAddressType `pulumi:"supportedIpAddressTypes"`
 	// The Regions from which service consumers can access the service.
@@ -105,7 +109,9 @@ type VpcEndpointServiceArgs struct {
 	// The Amazon Resource Names (ARNs) of the Network Load Balancers.
 	NetworkLoadBalancerArns pulumi.StringArrayInput
 	// The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
-	PayerResponsibility pulumi.StringPtrInput
+	PayerResponsibility         pulumi.StringPtrInput
+	PrivateDnsName              pulumi.StringPtrInput
+	PrivateDnsNameConfiguration VpcEndpointServicePrivateDnsNameConfigurationPtrInput
 	// Specify which Ip Address types are supported for VPC endpoint service.
 	SupportedIpAddressTypes VpcEndpointServiceIpAddressTypeArrayInput
 	// The Regions from which service consumers can access the service.
@@ -174,6 +180,16 @@ func (o VpcEndpointServiceOutput) NetworkLoadBalancerArns() pulumi.StringArrayOu
 // The entity that is responsible for the endpoint costs. The default is the endpoint owner. If you set the payer responsibility to the service owner, you cannot set it back to the endpoint owner.
 func (o VpcEndpointServiceOutput) PayerResponsibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.PayerResponsibility }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServiceOutput) PrivateDnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) pulumi.StringPtrOutput { return v.PrivateDnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o VpcEndpointServiceOutput) PrivateDnsNameConfiguration() VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+	return o.ApplyT(func(v *VpcEndpointService) VpcEndpointServicePrivateDnsNameConfigurationPtrOutput {
+		return v.PrivateDnsNameConfiguration
+	}).(VpcEndpointServicePrivateDnsNameConfigurationPtrOutput)
 }
 
 // The ID of the endpoint service.

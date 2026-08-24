@@ -1948,6 +1948,172 @@ func (in *replicatorConsumerGroupOffsetSyncModePtr) ToReplicatorConsumerGroupOff
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorConsumerGroupOffsetSyncModePtrOutput)
 }
 
+// The algorithm used to sign the STS JWT assertion.
+type ReplicatorJwtSigningAlgorithm string
+
+const (
+	ReplicatorJwtSigningAlgorithmRs256 = ReplicatorJwtSigningAlgorithm("RS256")
+	ReplicatorJwtSigningAlgorithmEs384 = ReplicatorJwtSigningAlgorithm("ES384")
+)
+
+func (ReplicatorJwtSigningAlgorithm) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorJwtSigningAlgorithm)(nil)).Elem()
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToReplicatorJwtSigningAlgorithmOutput() ReplicatorJwtSigningAlgorithmOutput {
+	return pulumi.ToOutput(e).(ReplicatorJwtSigningAlgorithmOutput)
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToReplicatorJwtSigningAlgorithmOutputWithContext(ctx context.Context) ReplicatorJwtSigningAlgorithmOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorJwtSigningAlgorithmOutput)
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToReplicatorJwtSigningAlgorithmPtrOutput() ReplicatorJwtSigningAlgorithmPtrOutput {
+	return e.ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(ctx context.Context) ReplicatorJwtSigningAlgorithmPtrOutput {
+	return ReplicatorJwtSigningAlgorithm(e).ToReplicatorJwtSigningAlgorithmOutputWithContext(ctx).ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorJwtSigningAlgorithm) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorJwtSigningAlgorithmOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorJwtSigningAlgorithmOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorJwtSigningAlgorithm)(nil)).Elem()
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToReplicatorJwtSigningAlgorithmOutput() ReplicatorJwtSigningAlgorithmOutput {
+	return o
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToReplicatorJwtSigningAlgorithmOutputWithContext(ctx context.Context) ReplicatorJwtSigningAlgorithmOutput {
+	return o
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToReplicatorJwtSigningAlgorithmPtrOutput() ReplicatorJwtSigningAlgorithmPtrOutput {
+	return o.ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(ctx context.Context) ReplicatorJwtSigningAlgorithmPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorJwtSigningAlgorithm) *ReplicatorJwtSigningAlgorithm {
+		return &v
+	}).(ReplicatorJwtSigningAlgorithmPtrOutput)
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorJwtSigningAlgorithm) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorJwtSigningAlgorithmOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorJwtSigningAlgorithm) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorJwtSigningAlgorithmPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorJwtSigningAlgorithmPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorJwtSigningAlgorithm)(nil)).Elem()
+}
+
+func (o ReplicatorJwtSigningAlgorithmPtrOutput) ToReplicatorJwtSigningAlgorithmPtrOutput() ReplicatorJwtSigningAlgorithmPtrOutput {
+	return o
+}
+
+func (o ReplicatorJwtSigningAlgorithmPtrOutput) ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(ctx context.Context) ReplicatorJwtSigningAlgorithmPtrOutput {
+	return o
+}
+
+func (o ReplicatorJwtSigningAlgorithmPtrOutput) Elem() ReplicatorJwtSigningAlgorithmOutput {
+	return o.ApplyT(func(v *ReplicatorJwtSigningAlgorithm) ReplicatorJwtSigningAlgorithm {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorJwtSigningAlgorithm
+		return ret
+	}).(ReplicatorJwtSigningAlgorithmOutput)
+}
+
+func (o ReplicatorJwtSigningAlgorithmPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorJwtSigningAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorJwtSigningAlgorithm) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorJwtSigningAlgorithmInput is an input type that accepts values of the ReplicatorJwtSigningAlgorithm enum
+// A concrete instance of `ReplicatorJwtSigningAlgorithmInput` can be one of the following:
+//
+//	ReplicatorJwtSigningAlgorithmRs256
+//	ReplicatorJwtSigningAlgorithmEs384
+type ReplicatorJwtSigningAlgorithmInput interface {
+	pulumi.Input
+
+	ToReplicatorJwtSigningAlgorithmOutput() ReplicatorJwtSigningAlgorithmOutput
+	ToReplicatorJwtSigningAlgorithmOutputWithContext(context.Context) ReplicatorJwtSigningAlgorithmOutput
+}
+
+var replicatorJwtSigningAlgorithmPtrType = reflect.TypeOf((**ReplicatorJwtSigningAlgorithm)(nil)).Elem()
+
+type ReplicatorJwtSigningAlgorithmPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorJwtSigningAlgorithmPtrOutput() ReplicatorJwtSigningAlgorithmPtrOutput
+	ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(context.Context) ReplicatorJwtSigningAlgorithmPtrOutput
+}
+
+type replicatorJwtSigningAlgorithmPtr string
+
+func ReplicatorJwtSigningAlgorithmPtr(v string) ReplicatorJwtSigningAlgorithmPtrInput {
+	return (*replicatorJwtSigningAlgorithmPtr)(&v)
+}
+
+func (*replicatorJwtSigningAlgorithmPtr) ElementType() reflect.Type {
+	return replicatorJwtSigningAlgorithmPtrType
+}
+
+func (in *replicatorJwtSigningAlgorithmPtr) ToReplicatorJwtSigningAlgorithmPtrOutput() ReplicatorJwtSigningAlgorithmPtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorJwtSigningAlgorithmPtrOutput)
+}
+
+func (in *replicatorJwtSigningAlgorithmPtr) ToReplicatorJwtSigningAlgorithmPtrOutputWithContext(ctx context.Context) ReplicatorJwtSigningAlgorithmPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorJwtSigningAlgorithmPtrOutput)
+}
+
 // The type of encryption in transit to the Apache Kafka cluster.
 type ReplicatorKafkaClusterEncryptionInTransitType string
 
@@ -2782,6 +2948,174 @@ func (in *replicatorReplicationTopicNameConfigurationTypePtr) ToReplicatorReplic
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorReplicationTopicNameConfigurationTypePtrOutput)
 }
 
+// How client credentials are sent to the identity provider's token endpoint.
+type ReplicatorTokenEndpointAuthenticationMethod string
+
+const (
+	ReplicatorTokenEndpointAuthenticationMethodPost  = ReplicatorTokenEndpointAuthenticationMethod("POST")
+	ReplicatorTokenEndpointAuthenticationMethodBasic = ReplicatorTokenEndpointAuthenticationMethod("BASIC")
+	ReplicatorTokenEndpointAuthenticationMethodNone  = ReplicatorTokenEndpointAuthenticationMethod("NONE")
+)
+
+func (ReplicatorTokenEndpointAuthenticationMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorTokenEndpointAuthenticationMethod)(nil)).Elem()
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToReplicatorTokenEndpointAuthenticationMethodOutput() ReplicatorTokenEndpointAuthenticationMethodOutput {
+	return pulumi.ToOutput(e).(ReplicatorTokenEndpointAuthenticationMethodOutput)
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToReplicatorTokenEndpointAuthenticationMethodOutputWithContext(ctx context.Context) ReplicatorTokenEndpointAuthenticationMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicatorTokenEndpointAuthenticationMethodOutput)
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToReplicatorTokenEndpointAuthenticationMethodPtrOutput() ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return e.ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(ctx context.Context) ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return ReplicatorTokenEndpointAuthenticationMethod(e).ToReplicatorTokenEndpointAuthenticationMethodOutputWithContext(ctx).ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(ctx)
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicatorTokenEndpointAuthenticationMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicatorTokenEndpointAuthenticationMethodOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorTokenEndpointAuthenticationMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicatorTokenEndpointAuthenticationMethod)(nil)).Elem()
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToReplicatorTokenEndpointAuthenticationMethodOutput() ReplicatorTokenEndpointAuthenticationMethodOutput {
+	return o
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToReplicatorTokenEndpointAuthenticationMethodOutputWithContext(ctx context.Context) ReplicatorTokenEndpointAuthenticationMethodOutput {
+	return o
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToReplicatorTokenEndpointAuthenticationMethodPtrOutput() ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return o.ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(ctx context.Context) ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicatorTokenEndpointAuthenticationMethod) *ReplicatorTokenEndpointAuthenticationMethod {
+		return &v
+	}).(ReplicatorTokenEndpointAuthenticationMethodPtrOutput)
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorTokenEndpointAuthenticationMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicatorTokenEndpointAuthenticationMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicatorTokenEndpointAuthenticationMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicatorTokenEndpointAuthenticationMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicatorTokenEndpointAuthenticationMethod)(nil)).Elem()
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodPtrOutput) ToReplicatorTokenEndpointAuthenticationMethodPtrOutput() ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return o
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodPtrOutput) ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(ctx context.Context) ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return o
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodPtrOutput) Elem() ReplicatorTokenEndpointAuthenticationMethodOutput {
+	return o.ApplyT(func(v *ReplicatorTokenEndpointAuthenticationMethod) ReplicatorTokenEndpointAuthenticationMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicatorTokenEndpointAuthenticationMethod
+		return ret
+	}).(ReplicatorTokenEndpointAuthenticationMethodOutput)
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicatorTokenEndpointAuthenticationMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicatorTokenEndpointAuthenticationMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicatorTokenEndpointAuthenticationMethodInput is an input type that accepts values of the ReplicatorTokenEndpointAuthenticationMethod enum
+// A concrete instance of `ReplicatorTokenEndpointAuthenticationMethodInput` can be one of the following:
+//
+//	ReplicatorTokenEndpointAuthenticationMethodPost
+//	ReplicatorTokenEndpointAuthenticationMethodBasic
+//	ReplicatorTokenEndpointAuthenticationMethodNone
+type ReplicatorTokenEndpointAuthenticationMethodInput interface {
+	pulumi.Input
+
+	ToReplicatorTokenEndpointAuthenticationMethodOutput() ReplicatorTokenEndpointAuthenticationMethodOutput
+	ToReplicatorTokenEndpointAuthenticationMethodOutputWithContext(context.Context) ReplicatorTokenEndpointAuthenticationMethodOutput
+}
+
+var replicatorTokenEndpointAuthenticationMethodPtrType = reflect.TypeOf((**ReplicatorTokenEndpointAuthenticationMethod)(nil)).Elem()
+
+type ReplicatorTokenEndpointAuthenticationMethodPtrInput interface {
+	pulumi.Input
+
+	ToReplicatorTokenEndpointAuthenticationMethodPtrOutput() ReplicatorTokenEndpointAuthenticationMethodPtrOutput
+	ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(context.Context) ReplicatorTokenEndpointAuthenticationMethodPtrOutput
+}
+
+type replicatorTokenEndpointAuthenticationMethodPtr string
+
+func ReplicatorTokenEndpointAuthenticationMethodPtr(v string) ReplicatorTokenEndpointAuthenticationMethodPtrInput {
+	return (*replicatorTokenEndpointAuthenticationMethodPtr)(&v)
+}
+
+func (*replicatorTokenEndpointAuthenticationMethodPtr) ElementType() reflect.Type {
+	return replicatorTokenEndpointAuthenticationMethodPtrType
+}
+
+func (in *replicatorTokenEndpointAuthenticationMethodPtr) ToReplicatorTokenEndpointAuthenticationMethodPtrOutput() ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return pulumi.ToOutput(in).(ReplicatorTokenEndpointAuthenticationMethodPtrOutput)
+}
+
+func (in *replicatorTokenEndpointAuthenticationMethodPtr) ToReplicatorTokenEndpointAuthenticationMethodPtrOutputWithContext(ctx context.Context) ReplicatorTokenEndpointAuthenticationMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicatorTokenEndpointAuthenticationMethodPtrOutput)
+}
+
 // The type of private link authentication
 type VpcConnectionAuthentication string
 
@@ -2973,6 +3307,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterStorageModePtrInput)(nil)).Elem(), ClusterStorageMode("LOCAL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorConsumerGroupOffsetSyncModeInput)(nil)).Elem(), ReplicatorConsumerGroupOffsetSyncMode("LEGACY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorConsumerGroupOffsetSyncModePtrInput)(nil)).Elem(), ReplicatorConsumerGroupOffsetSyncMode("LEGACY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorJwtSigningAlgorithmInput)(nil)).Elem(), ReplicatorJwtSigningAlgorithm("RS256"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorJwtSigningAlgorithmPtrInput)(nil)).Elem(), ReplicatorJwtSigningAlgorithm("RS256"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitTypeInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitType("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterEncryptionInTransitTypePtrInput)(nil)).Elem(), ReplicatorKafkaClusterEncryptionInTransitType("TLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorKafkaClusterSaslScramMechanismInput)(nil)).Elem(), ReplicatorKafkaClusterSaslScramMechanism("SHA256"))
@@ -2983,6 +3319,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationStartingPositionTypePtrInput)(nil)).Elem(), ReplicatorReplicationStartingPositionType("LATEST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationTypeInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationType("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorReplicationTopicNameConfigurationTypePtrInput)(nil)).Elem(), ReplicatorReplicationTopicNameConfigurationType("PREFIXED_WITH_SOURCE_CLUSTER_ALIAS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTokenEndpointAuthenticationMethodInput)(nil)).Elem(), ReplicatorTokenEndpointAuthenticationMethod("POST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicatorTokenEndpointAuthenticationMethodPtrInput)(nil)).Elem(), ReplicatorTokenEndpointAuthenticationMethod("POST"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcConnectionAuthenticationPtrInput)(nil)).Elem(), VpcConnectionAuthentication("SASL_IAM"))
 	pulumi.RegisterOutputType(ChannelIcebergCompressionTypeOutput{})
@@ -3009,6 +3347,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterStorageModePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorConsumerGroupOffsetSyncModeOutput{})
 	pulumi.RegisterOutputType(ReplicatorConsumerGroupOffsetSyncModePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorJwtSigningAlgorithmOutput{})
+	pulumi.RegisterOutputType(ReplicatorJwtSigningAlgorithmPtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitTypeOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterEncryptionInTransitTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorKafkaClusterSaslScramMechanismOutput{})
@@ -3019,6 +3359,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicatorReplicationStartingPositionTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationTypeOutput{})
 	pulumi.RegisterOutputType(ReplicatorReplicationTopicNameConfigurationTypePtrOutput{})
+	pulumi.RegisterOutputType(ReplicatorTokenEndpointAuthenticationMethodOutput{})
+	pulumi.RegisterOutputType(ReplicatorTokenEndpointAuthenticationMethodPtrOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationOutput{})
 	pulumi.RegisterOutputType(VpcConnectionAuthenticationPtrOutput{})
 }
