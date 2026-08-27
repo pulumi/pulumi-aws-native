@@ -52,12 +52,8 @@ type LookupConfiguredTableAssociationResult struct {
 }
 
 func LookupConfiguredTableAssociationOutput(ctx *pulumi.Context, args LookupConfiguredTableAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupConfiguredTableAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfiguredTableAssociationResultOutput, error) {
-			args := v.(LookupConfiguredTableAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cleanrooms:getConfiguredTableAssociation", args, LookupConfiguredTableAssociationResultOutput{}, options).(LookupConfiguredTableAssociationResultOutput), nil
-		}).(LookupConfiguredTableAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cleanrooms:getConfiguredTableAssociation", args, LookupConfiguredTableAssociationResultOutput{}, options).(LookupConfiguredTableAssociationResultOutput)
 }
 
 type LookupConfiguredTableAssociationOutputArgs struct {

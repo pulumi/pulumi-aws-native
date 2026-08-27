@@ -39,12 +39,8 @@ type LookupStackFleetAssociationResult struct {
 }
 
 func LookupStackFleetAssociationOutput(ctx *pulumi.Context, args LookupStackFleetAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupStackFleetAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStackFleetAssociationResultOutput, error) {
-			args := v.(LookupStackFleetAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appstream:getStackFleetAssociation", args, LookupStackFleetAssociationResultOutput{}, options).(LookupStackFleetAssociationResultOutput), nil
-		}).(LookupStackFleetAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appstream:getStackFleetAssociation", args, LookupStackFleetAssociationResultOutput{}, options).(LookupStackFleetAssociationResultOutput)
 }
 
 type LookupStackFleetAssociationOutputArgs struct {

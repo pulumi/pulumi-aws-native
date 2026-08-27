@@ -39,12 +39,8 @@ type LookupUploadResult struct {
 }
 
 func LookupUploadOutput(ctx *pulumi.Context, args LookupUploadOutputArgs, opts ...pulumi.InvokeOption) LookupUploadResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUploadResultOutput, error) {
-			args := v.(LookupUploadArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devicefarm:getUpload", args, LookupUploadResultOutput{}, options).(LookupUploadResultOutput), nil
-		}).(LookupUploadResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devicefarm:getUpload", args, LookupUploadResultOutput{}, options).(LookupUploadResultOutput)
 }
 
 type LookupUploadOutputArgs struct {

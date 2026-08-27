@@ -42,12 +42,8 @@ type LookupUserGroupResult struct {
 }
 
 func LookupUserGroupOutput(ctx *pulumi.Context, args LookupUserGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserGroupResultOutput, error) {
-			args := v.(LookupUserGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:elasticache:getUserGroup", args, LookupUserGroupResultOutput{}, options).(LookupUserGroupResultOutput), nil
-		}).(LookupUserGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:elasticache:getUserGroup", args, LookupUserGroupResultOutput{}, options).(LookupUserGroupResultOutput)
 }
 
 type LookupUserGroupOutputArgs struct {

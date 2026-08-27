@@ -37,12 +37,8 @@ type LookupChangeSetResult struct {
 }
 
 func LookupChangeSetOutput(ctx *pulumi.Context, args LookupChangeSetOutputArgs, opts ...pulumi.InvokeOption) LookupChangeSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupChangeSetResultOutput, error) {
-			args := v.(LookupChangeSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudformation:getChangeSet", args, LookupChangeSetResultOutput{}, options).(LookupChangeSetResultOutput), nil
-		}).(LookupChangeSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudformation:getChangeSet", args, LookupChangeSetResultOutput{}, options).(LookupChangeSetResultOutput)
 }
 
 type LookupChangeSetOutputArgs struct {

@@ -53,12 +53,8 @@ type LookupDbShardGroupResult struct {
 }
 
 func LookupDbShardGroupOutput(ctx *pulumi.Context, args LookupDbShardGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDbShardGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDbShardGroupResultOutput, error) {
-			args := v.(LookupDbShardGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rds:getDbShardGroup", args, LookupDbShardGroupResultOutput{}, options).(LookupDbShardGroupResultOutput), nil
-		}).(LookupDbShardGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rds:getDbShardGroup", args, LookupDbShardGroupResultOutput{}, options).(LookupDbShardGroupResultOutput)
 }
 
 type LookupDbShardGroupOutputArgs struct {

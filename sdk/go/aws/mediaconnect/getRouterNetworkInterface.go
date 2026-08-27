@@ -53,12 +53,8 @@ type LookupRouterNetworkInterfaceResult struct {
 }
 
 func LookupRouterNetworkInterfaceOutput(ctx *pulumi.Context, args LookupRouterNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupRouterNetworkInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRouterNetworkInterfaceResultOutput, error) {
-			args := v.(LookupRouterNetworkInterfaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediaconnect:getRouterNetworkInterface", args, LookupRouterNetworkInterfaceResultOutput{}, options).(LookupRouterNetworkInterfaceResultOutput), nil
-		}).(LookupRouterNetworkInterfaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediaconnect:getRouterNetworkInterface", args, LookupRouterNetworkInterfaceResultOutput{}, options).(LookupRouterNetworkInterfaceResultOutput)
 }
 
 type LookupRouterNetworkInterfaceOutputArgs struct {

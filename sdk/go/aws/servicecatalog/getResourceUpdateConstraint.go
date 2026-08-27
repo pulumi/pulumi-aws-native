@@ -37,12 +37,8 @@ type LookupResourceUpdateConstraintResult struct {
 }
 
 func LookupResourceUpdateConstraintOutput(ctx *pulumi.Context, args LookupResourceUpdateConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupResourceUpdateConstraintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceUpdateConstraintResultOutput, error) {
-			args := v.(LookupResourceUpdateConstraintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getResourceUpdateConstraint", args, LookupResourceUpdateConstraintResultOutput{}, options).(LookupResourceUpdateConstraintResultOutput), nil
-		}).(LookupResourceUpdateConstraintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getResourceUpdateConstraint", args, LookupResourceUpdateConstraintResultOutput{}, options).(LookupResourceUpdateConstraintResultOutput)
 }
 
 type LookupResourceUpdateConstraintOutputArgs struct {

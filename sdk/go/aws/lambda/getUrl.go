@@ -41,12 +41,8 @@ type LookupUrlResult struct {
 }
 
 func LookupUrlOutput(ctx *pulumi.Context, args LookupUrlOutputArgs, opts ...pulumi.InvokeOption) LookupUrlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUrlResultOutput, error) {
-			args := v.(LookupUrlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lambda:getUrl", args, LookupUrlResultOutput{}, options).(LookupUrlResultOutput), nil
-		}).(LookupUrlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lambda:getUrl", args, LookupUrlResultOutput{}, options).(LookupUrlResultOutput)
 }
 
 type LookupUrlOutputArgs struct {

@@ -58,12 +58,8 @@ type LookupStackResult struct {
 }
 
 func LookupStackOutput(ctx *pulumi.Context, args LookupStackOutputArgs, opts ...pulumi.InvokeOption) LookupStackResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStackResultOutput, error) {
-			args := v.(LookupStackArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appstream:getStack", args, LookupStackResultOutput{}, options).(LookupStackResultOutput), nil
-		}).(LookupStackResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appstream:getStack", args, LookupStackResultOutput{}, options).(LookupStackResultOutput)
 }
 
 type LookupStackOutputArgs struct {

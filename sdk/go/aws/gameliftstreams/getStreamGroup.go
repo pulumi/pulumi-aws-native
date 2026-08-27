@@ -43,12 +43,8 @@ type LookupStreamGroupResult struct {
 }
 
 func LookupStreamGroupOutput(ctx *pulumi.Context, args LookupStreamGroupOutputArgs, opts ...pulumi.InvokeOption) LookupStreamGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStreamGroupResultOutput, error) {
-			args := v.(LookupStreamGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:gameliftstreams:getStreamGroup", args, LookupStreamGroupResultOutput{}, options).(LookupStreamGroupResultOutput), nil
-		}).(LookupStreamGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:gameliftstreams:getStreamGroup", args, LookupStreamGroupResultOutput{}, options).(LookupStreamGroupResultOutput)
 }
 
 type LookupStreamGroupOutputArgs struct {

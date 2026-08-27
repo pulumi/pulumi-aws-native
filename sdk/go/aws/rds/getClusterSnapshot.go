@@ -70,12 +70,8 @@ type LookupClusterSnapshotResult struct {
 }
 
 func LookupClusterSnapshotOutput(ctx *pulumi.Context, args LookupClusterSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupClusterSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClusterSnapshotResultOutput, error) {
-			args := v.(LookupClusterSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rds:getClusterSnapshot", args, LookupClusterSnapshotResultOutput{}, options).(LookupClusterSnapshotResultOutput), nil
-		}).(LookupClusterSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rds:getClusterSnapshot", args, LookupClusterSnapshotResultOutput{}, options).(LookupClusterSnapshotResultOutput)
 }
 
 type LookupClusterSnapshotOutputArgs struct {

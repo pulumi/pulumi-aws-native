@@ -44,12 +44,8 @@ type LookupPlaybackRestrictionPolicyResult struct {
 }
 
 func LookupPlaybackRestrictionPolicyOutput(ctx *pulumi.Context, args LookupPlaybackRestrictionPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPlaybackRestrictionPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPlaybackRestrictionPolicyResultOutput, error) {
-			args := v.(LookupPlaybackRestrictionPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ivs:getPlaybackRestrictionPolicy", args, LookupPlaybackRestrictionPolicyResultOutput{}, options).(LookupPlaybackRestrictionPolicyResultOutput), nil
-		}).(LookupPlaybackRestrictionPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ivs:getPlaybackRestrictionPolicy", args, LookupPlaybackRestrictionPolicyResultOutput{}, options).(LookupPlaybackRestrictionPolicyResultOutput)
 }
 
 type LookupPlaybackRestrictionPolicyOutputArgs struct {

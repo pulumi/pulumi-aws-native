@@ -56,12 +56,8 @@ type LookupDataAutomationProjectResult struct {
 }
 
 func LookupDataAutomationProjectOutput(ctx *pulumi.Context, args LookupDataAutomationProjectOutputArgs, opts ...pulumi.InvokeOption) LookupDataAutomationProjectResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataAutomationProjectResultOutput, error) {
-			args := v.(LookupDataAutomationProjectArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getDataAutomationProject", args, LookupDataAutomationProjectResultOutput{}, options).(LookupDataAutomationProjectResultOutput), nil
-		}).(LookupDataAutomationProjectResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getDataAutomationProject", args, LookupDataAutomationProjectResultOutput{}, options).(LookupDataAutomationProjectResultOutput)
 }
 
 type LookupDataAutomationProjectOutputArgs struct {

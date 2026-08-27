@@ -38,12 +38,8 @@ type LookupGraphResult struct {
 }
 
 func LookupGraphOutput(ctx *pulumi.Context, args LookupGraphOutputArgs, opts ...pulumi.InvokeOption) LookupGraphResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGraphResultOutput, error) {
-			args := v.(LookupGraphArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:detective:getGraph", args, LookupGraphResultOutput{}, options).(LookupGraphResultOutput), nil
-		}).(LookupGraphResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:detective:getGraph", args, LookupGraphResultOutput{}, options).(LookupGraphResultOutput)
 }
 
 type LookupGraphOutputArgs struct {

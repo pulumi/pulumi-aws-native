@@ -41,12 +41,8 @@ type LookupAccessSourceResult struct {
 }
 
 func LookupAccessSourceOutput(ctx *pulumi.Context, args LookupAccessSourceOutputArgs, opts ...pulumi.InvokeOption) LookupAccessSourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccessSourceResultOutput, error) {
-			args := v.(LookupAccessSourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53globalresolver:getAccessSource", args, LookupAccessSourceResultOutput{}, options).(LookupAccessSourceResultOutput), nil
-		}).(LookupAccessSourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53globalresolver:getAccessSource", args, LookupAccessSourceResultOutput{}, options).(LookupAccessSourceResultOutput)
 }
 
 type LookupAccessSourceOutputArgs struct {

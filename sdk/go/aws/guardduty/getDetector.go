@@ -48,12 +48,8 @@ type LookupDetectorResult struct {
 }
 
 func LookupDetectorOutput(ctx *pulumi.Context, args LookupDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupDetectorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDetectorResultOutput, error) {
-			args := v.(LookupDetectorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:guardduty:getDetector", args, LookupDetectorResultOutput{}, options).(LookupDetectorResultOutput), nil
-		}).(LookupDetectorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:guardduty:getDetector", args, LookupDetectorResultOutput{}, options).(LookupDetectorResultOutput)
 }
 
 type LookupDetectorOutputArgs struct {

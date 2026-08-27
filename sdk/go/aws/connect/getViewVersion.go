@@ -37,12 +37,8 @@ type LookupViewVersionResult struct {
 }
 
 func LookupViewVersionOutput(ctx *pulumi.Context, args LookupViewVersionOutputArgs, opts ...pulumi.InvokeOption) LookupViewVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupViewVersionResultOutput, error) {
-			args := v.(LookupViewVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getViewVersion", args, LookupViewVersionResultOutput{}, options).(LookupViewVersionResultOutput), nil
-		}).(LookupViewVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getViewVersion", args, LookupViewVersionResultOutput{}, options).(LookupViewVersionResultOutput)
 }
 
 type LookupViewVersionOutputArgs struct {

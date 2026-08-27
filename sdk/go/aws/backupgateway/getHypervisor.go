@@ -35,12 +35,8 @@ type LookupHypervisorResult struct {
 }
 
 func LookupHypervisorOutput(ctx *pulumi.Context, args LookupHypervisorOutputArgs, opts ...pulumi.InvokeOption) LookupHypervisorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHypervisorResultOutput, error) {
-			args := v.(LookupHypervisorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:backupgateway:getHypervisor", args, LookupHypervisorResultOutput{}, options).(LookupHypervisorResultOutput), nil
-		}).(LookupHypervisorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:backupgateway:getHypervisor", args, LookupHypervisorResultOutput{}, options).(LookupHypervisorResultOutput)
 }
 
 type LookupHypervisorOutputArgs struct {

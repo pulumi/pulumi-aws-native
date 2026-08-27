@@ -39,12 +39,8 @@ type LookupSecurityGroupEgressResult struct {
 }
 
 func LookupSecurityGroupEgressOutput(ctx *pulumi.Context, args LookupSecurityGroupEgressOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupEgressResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecurityGroupEgressResultOutput, error) {
-			args := v.(LookupSecurityGroupEgressArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getSecurityGroupEgress", args, LookupSecurityGroupEgressResultOutput{}, options).(LookupSecurityGroupEgressResultOutput), nil
-		}).(LookupSecurityGroupEgressResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getSecurityGroupEgress", args, LookupSecurityGroupEgressResultOutput{}, options).(LookupSecurityGroupEgressResultOutput)
 }
 
 type LookupSecurityGroupEgressOutputArgs struct {

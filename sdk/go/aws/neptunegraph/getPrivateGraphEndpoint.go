@@ -39,12 +39,8 @@ type LookupPrivateGraphEndpointResult struct {
 }
 
 func LookupPrivateGraphEndpointOutput(ctx *pulumi.Context, args LookupPrivateGraphEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateGraphEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrivateGraphEndpointResultOutput, error) {
-			args := v.(LookupPrivateGraphEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:neptunegraph:getPrivateGraphEndpoint", args, LookupPrivateGraphEndpointResultOutput{}, options).(LookupPrivateGraphEndpointResultOutput), nil
-		}).(LookupPrivateGraphEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:neptunegraph:getPrivateGraphEndpoint", args, LookupPrivateGraphEndpointResultOutput{}, options).(LookupPrivateGraphEndpointResultOutput)
 }
 
 type LookupPrivateGraphEndpointOutputArgs struct {

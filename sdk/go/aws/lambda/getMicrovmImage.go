@@ -46,12 +46,8 @@ type LookupMicrovmImageResult struct {
 }
 
 func LookupMicrovmImageOutput(ctx *pulumi.Context, args LookupMicrovmImageOutputArgs, opts ...pulumi.InvokeOption) LookupMicrovmImageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMicrovmImageResultOutput, error) {
-			args := v.(LookupMicrovmImageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lambda:getMicrovmImage", args, LookupMicrovmImageResultOutput{}, options).(LookupMicrovmImageResultOutput), nil
-		}).(LookupMicrovmImageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lambda:getMicrovmImage", args, LookupMicrovmImageResultOutput{}, options).(LookupMicrovmImageResultOutput)
 }
 
 type LookupMicrovmImageOutputArgs struct {

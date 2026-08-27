@@ -33,12 +33,8 @@ type LookupSecurityConfigurationResult struct {
 }
 
 func LookupSecurityConfigurationOutput(ctx *pulumi.Context, args LookupSecurityConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecurityConfigurationResultOutput, error) {
-			args := v.(LookupSecurityConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getSecurityConfiguration", args, LookupSecurityConfigurationResultOutput{}, options).(LookupSecurityConfigurationResultOutput), nil
-		}).(LookupSecurityConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getSecurityConfiguration", args, LookupSecurityConfigurationResultOutput{}, options).(LookupSecurityConfigurationResultOutput)
 }
 
 type LookupSecurityConfigurationOutputArgs struct {

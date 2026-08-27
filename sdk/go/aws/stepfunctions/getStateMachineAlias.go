@@ -42,12 +42,8 @@ type LookupStateMachineAliasResult struct {
 }
 
 func LookupStateMachineAliasOutput(ctx *pulumi.Context, args LookupStateMachineAliasOutputArgs, opts ...pulumi.InvokeOption) LookupStateMachineAliasResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStateMachineAliasResultOutput, error) {
-			args := v.(LookupStateMachineAliasArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:stepfunctions:getStateMachineAlias", args, LookupStateMachineAliasResultOutput{}, options).(LookupStateMachineAliasResultOutput), nil
-		}).(LookupStateMachineAliasResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:stepfunctions:getStateMachineAlias", args, LookupStateMachineAliasResultOutput{}, options).(LookupStateMachineAliasResultOutput)
 }
 
 type LookupStateMachineAliasOutputArgs struct {

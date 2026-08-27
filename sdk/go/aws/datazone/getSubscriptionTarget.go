@@ -63,12 +63,8 @@ type LookupSubscriptionTargetResult struct {
 }
 
 func LookupSubscriptionTargetOutput(ctx *pulumi.Context, args LookupSubscriptionTargetOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubscriptionTargetResultOutput, error) {
-			args := v.(LookupSubscriptionTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datazone:getSubscriptionTarget", args, LookupSubscriptionTargetResultOutput{}, options).(LookupSubscriptionTargetResultOutput), nil
-		}).(LookupSubscriptionTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datazone:getSubscriptionTarget", args, LookupSubscriptionTargetResultOutput{}, options).(LookupSubscriptionTargetResultOutput)
 }
 
 type LookupSubscriptionTargetOutputArgs struct {

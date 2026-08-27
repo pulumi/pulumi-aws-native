@@ -47,12 +47,8 @@ type LookupDbSubnetGroupResult struct {
 }
 
 func LookupDbSubnetGroupOutput(ctx *pulumi.Context, args LookupDbSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDbSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDbSubnetGroupResultOutput, error) {
-			args := v.(LookupDbSubnetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rds:getDbSubnetGroup", args, LookupDbSubnetGroupResultOutput{}, options).(LookupDbSubnetGroupResultOutput), nil
-		}).(LookupDbSubnetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rds:getDbSubnetGroup", args, LookupDbSubnetGroupResultOutput{}, options).(LookupDbSubnetGroupResultOutput)
 }
 
 type LookupDbSubnetGroupOutputArgs struct {

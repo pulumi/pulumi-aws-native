@@ -51,12 +51,8 @@ type LookupInstanceSnapshotResult struct {
 }
 
 func LookupInstanceSnapshotOutput(ctx *pulumi.Context, args LookupInstanceSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInstanceSnapshotResultOutput, error) {
-			args := v.(LookupInstanceSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lightsail:getInstanceSnapshot", args, LookupInstanceSnapshotResultOutput{}, options).(LookupInstanceSnapshotResultOutput), nil
-		}).(LookupInstanceSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lightsail:getInstanceSnapshot", args, LookupInstanceSnapshotResultOutput{}, options).(LookupInstanceSnapshotResultOutput)
 }
 
 type LookupInstanceSnapshotOutputArgs struct {

@@ -48,12 +48,8 @@ type LookupRunCacheResult struct {
 }
 
 func LookupRunCacheOutput(ctx *pulumi.Context, args LookupRunCacheOutputArgs, opts ...pulumi.InvokeOption) LookupRunCacheResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRunCacheResultOutput, error) {
-			args := v.(LookupRunCacheArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:omics:getRunCache", args, LookupRunCacheResultOutput{}, options).(LookupRunCacheResultOutput), nil
-		}).(LookupRunCacheResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:omics:getRunCache", args, LookupRunCacheResultOutput{}, options).(LookupRunCacheResultOutput)
 }
 
 type LookupRunCacheOutputArgs struct {

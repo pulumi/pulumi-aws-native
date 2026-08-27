@@ -48,12 +48,8 @@ type LookupIdMappingWorkflowResult struct {
 }
 
 func LookupIdMappingWorkflowOutput(ctx *pulumi.Context, args LookupIdMappingWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupIdMappingWorkflowResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIdMappingWorkflowResultOutput, error) {
-			args := v.(LookupIdMappingWorkflowArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:entityresolution:getIdMappingWorkflow", args, LookupIdMappingWorkflowResultOutput{}, options).(LookupIdMappingWorkflowResultOutput), nil
-		}).(LookupIdMappingWorkflowResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:entityresolution:getIdMappingWorkflow", args, LookupIdMappingWorkflowResultOutput{}, options).(LookupIdMappingWorkflowResultOutput)
 }
 
 type LookupIdMappingWorkflowOutputArgs struct {

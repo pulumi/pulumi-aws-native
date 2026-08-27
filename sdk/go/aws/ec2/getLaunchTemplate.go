@@ -46,12 +46,8 @@ type LookupLaunchTemplateResult struct {
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLaunchTemplateResultOutput, error) {
-			args := v.(LookupLaunchTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getLaunchTemplate", args, LookupLaunchTemplateResultOutput{}, options).(LookupLaunchTemplateResultOutput), nil
-		}).(LookupLaunchTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getLaunchTemplate", args, LookupLaunchTemplateResultOutput{}, options).(LookupLaunchTemplateResultOutput)
 }
 
 type LookupLaunchTemplateOutputArgs struct {

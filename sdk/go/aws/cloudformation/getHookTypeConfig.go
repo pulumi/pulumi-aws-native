@@ -41,12 +41,8 @@ type LookupHookTypeConfigResult struct {
 }
 
 func LookupHookTypeConfigOutput(ctx *pulumi.Context, args LookupHookTypeConfigOutputArgs, opts ...pulumi.InvokeOption) LookupHookTypeConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHookTypeConfigResultOutput, error) {
-			args := v.(LookupHookTypeConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudformation:getHookTypeConfig", args, LookupHookTypeConfigResultOutput{}, options).(LookupHookTypeConfigResultOutput), nil
-		}).(LookupHookTypeConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudformation:getHookTypeConfig", args, LookupHookTypeConfigResultOutput{}, options).(LookupHookTypeConfigResultOutput)
 }
 
 type LookupHookTypeConfigOutputArgs struct {

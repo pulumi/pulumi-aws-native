@@ -50,12 +50,8 @@ type LookupMonitoringScheduleResult struct {
 }
 
 func LookupMonitoringScheduleOutput(ctx *pulumi.Context, args LookupMonitoringScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupMonitoringScheduleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMonitoringScheduleResultOutput, error) {
-			args := v.(LookupMonitoringScheduleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getMonitoringSchedule", args, LookupMonitoringScheduleResultOutput{}, options).(LookupMonitoringScheduleResultOutput), nil
-		}).(LookupMonitoringScheduleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getMonitoringSchedule", args, LookupMonitoringScheduleResultOutput{}, options).(LookupMonitoringScheduleResultOutput)
 }
 
 type LookupMonitoringScheduleOutputArgs struct {

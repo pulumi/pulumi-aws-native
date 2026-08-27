@@ -48,12 +48,8 @@ type LookupDevicePoolResult struct {
 }
 
 func LookupDevicePoolOutput(ctx *pulumi.Context, args LookupDevicePoolOutputArgs, opts ...pulumi.InvokeOption) LookupDevicePoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDevicePoolResultOutput, error) {
-			args := v.(LookupDevicePoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devicefarm:getDevicePool", args, LookupDevicePoolResultOutput{}, options).(LookupDevicePoolResultOutput), nil
-		}).(LookupDevicePoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devicefarm:getDevicePool", args, LookupDevicePoolResultOutput{}, options).(LookupDevicePoolResultOutput)
 }
 
 type LookupDevicePoolOutputArgs struct {

@@ -54,12 +54,8 @@ type LookupAssessmentResult struct {
 }
 
 func LookupAssessmentOutput(ctx *pulumi.Context, args LookupAssessmentOutputArgs, opts ...pulumi.InvokeOption) LookupAssessmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAssessmentResultOutput, error) {
-			args := v.(LookupAssessmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:auditmanager:getAssessment", args, LookupAssessmentResultOutput{}, options).(LookupAssessmentResultOutput), nil
-		}).(LookupAssessmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:auditmanager:getAssessment", args, LookupAssessmentResultOutput{}, options).(LookupAssessmentResultOutput)
 }
 
 type LookupAssessmentOutputArgs struct {

@@ -40,12 +40,8 @@ type LookupTelemetryRuleResult struct {
 }
 
 func LookupTelemetryRuleOutput(ctx *pulumi.Context, args LookupTelemetryRuleOutputArgs, opts ...pulumi.InvokeOption) LookupTelemetryRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTelemetryRuleResultOutput, error) {
-			args := v.(LookupTelemetryRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:observabilityadmin:getTelemetryRule", args, LookupTelemetryRuleResultOutput{}, options).(LookupTelemetryRuleResultOutput), nil
-		}).(LookupTelemetryRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:observabilityadmin:getTelemetryRule", args, LookupTelemetryRuleResultOutput{}, options).(LookupTelemetryRuleResultOutput)
 }
 
 type LookupTelemetryRuleOutputArgs struct {

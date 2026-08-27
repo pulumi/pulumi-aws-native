@@ -44,12 +44,8 @@ type LookupTableBucketResult struct {
 }
 
 func LookupTableBucketOutput(ctx *pulumi.Context, args LookupTableBucketOutputArgs, opts ...pulumi.InvokeOption) LookupTableBucketResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTableBucketResultOutput, error) {
-			args := v.(LookupTableBucketArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3tables:getTableBucket", args, LookupTableBucketResultOutput{}, options).(LookupTableBucketResultOutput), nil
-		}).(LookupTableBucketResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3tables:getTableBucket", args, LookupTableBucketResultOutput{}, options).(LookupTableBucketResultOutput)
 }
 
 type LookupTableBucketOutputArgs struct {

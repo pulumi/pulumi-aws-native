@@ -48,12 +48,8 @@ type LookupFindingAggregatorResult struct {
 }
 
 func LookupFindingAggregatorOutput(ctx *pulumi.Context, args LookupFindingAggregatorOutputArgs, opts ...pulumi.InvokeOption) LookupFindingAggregatorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFindingAggregatorResultOutput, error) {
-			args := v.(LookupFindingAggregatorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securityhub:getFindingAggregator", args, LookupFindingAggregatorResultOutput{}, options).(LookupFindingAggregatorResultOutput), nil
-		}).(LookupFindingAggregatorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securityhub:getFindingAggregator", args, LookupFindingAggregatorResultOutput{}, options).(LookupFindingAggregatorResultOutput)
 }
 
 type LookupFindingAggregatorOutputArgs struct {

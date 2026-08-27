@@ -44,12 +44,8 @@ type LookupModelPackageGroupResult struct {
 }
 
 func LookupModelPackageGroupOutput(ctx *pulumi.Context, args LookupModelPackageGroupOutputArgs, opts ...pulumi.InvokeOption) LookupModelPackageGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupModelPackageGroupResultOutput, error) {
-			args := v.(LookupModelPackageGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getModelPackageGroup", args, LookupModelPackageGroupResultOutput{}, options).(LookupModelPackageGroupResultOutput), nil
-		}).(LookupModelPackageGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getModelPackageGroup", args, LookupModelPackageGroupResultOutput{}, options).(LookupModelPackageGroupResultOutput)
 }
 
 type LookupModelPackageGroupOutputArgs struct {

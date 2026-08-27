@@ -40,12 +40,8 @@ type LookupRealtimeLogConfigResult struct {
 }
 
 func LookupRealtimeLogConfigOutput(ctx *pulumi.Context, args LookupRealtimeLogConfigOutputArgs, opts ...pulumi.InvokeOption) LookupRealtimeLogConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRealtimeLogConfigResultOutput, error) {
-			args := v.(LookupRealtimeLogConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getRealtimeLogConfig", args, LookupRealtimeLogConfigResultOutput{}, options).(LookupRealtimeLogConfigResultOutput), nil
-		}).(LookupRealtimeLogConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getRealtimeLogConfig", args, LookupRealtimeLogConfigResultOutput{}, options).(LookupRealtimeLogConfigResultOutput)
 }
 
 type LookupRealtimeLogConfigOutputArgs struct {

@@ -51,12 +51,8 @@ type LookupExperimentTemplateResult struct {
 }
 
 func LookupExperimentTemplateOutput(ctx *pulumi.Context, args LookupExperimentTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupExperimentTemplateResultOutput, error) {
-			args := v.(LookupExperimentTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:fis:getExperimentTemplate", args, LookupExperimentTemplateResultOutput{}, options).(LookupExperimentTemplateResultOutput), nil
-		}).(LookupExperimentTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:fis:getExperimentTemplate", args, LookupExperimentTemplateResultOutput{}, options).(LookupExperimentTemplateResultOutput)
 }
 
 type LookupExperimentTemplateOutputArgs struct {

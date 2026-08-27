@@ -33,12 +33,8 @@ type LookupVpcEndpointServicePermissionsResult struct {
 }
 
 func LookupVpcEndpointServicePermissionsOutput(ctx *pulumi.Context, args LookupVpcEndpointServicePermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointServicePermissionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcEndpointServicePermissionsResultOutput, error) {
-			args := v.(LookupVpcEndpointServicePermissionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpcEndpointServicePermissions", args, LookupVpcEndpointServicePermissionsResultOutput{}, options).(LookupVpcEndpointServicePermissionsResultOutput), nil
-		}).(LookupVpcEndpointServicePermissionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpcEndpointServicePermissions", args, LookupVpcEndpointServicePermissionsResultOutput{}, options).(LookupVpcEndpointServicePermissionsResultOutput)
 }
 
 type LookupVpcEndpointServicePermissionsOutputArgs struct {

@@ -48,12 +48,8 @@ type LookupResponsePlanResult struct {
 }
 
 func LookupResponsePlanOutput(ctx *pulumi.Context, args LookupResponsePlanOutputArgs, opts ...pulumi.InvokeOption) LookupResponsePlanResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResponsePlanResultOutput, error) {
-			args := v.(LookupResponsePlanArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssmincidents:getResponsePlan", args, LookupResponsePlanResultOutput{}, options).(LookupResponsePlanResultOutput), nil
-		}).(LookupResponsePlanResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssmincidents:getResponsePlan", args, LookupResponsePlanResultOutput{}, options).(LookupResponsePlanResultOutput)
 }
 
 type LookupResponsePlanOutputArgs struct {

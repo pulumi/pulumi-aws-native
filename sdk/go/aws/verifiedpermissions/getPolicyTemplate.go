@@ -40,12 +40,8 @@ type LookupPolicyTemplateResult struct {
 }
 
 func LookupPolicyTemplateOutput(ctx *pulumi.Context, args LookupPolicyTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPolicyTemplateResultOutput, error) {
-			args := v.(LookupPolicyTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:verifiedpermissions:getPolicyTemplate", args, LookupPolicyTemplateResultOutput{}, options).(LookupPolicyTemplateResultOutput), nil
-		}).(LookupPolicyTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:verifiedpermissions:getPolicyTemplate", args, LookupPolicyTemplateResultOutput{}, options).(LookupPolicyTemplateResultOutput)
 }
 
 type LookupPolicyTemplateOutputArgs struct {

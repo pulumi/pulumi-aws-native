@@ -46,12 +46,8 @@ type LookupDataIntegrationResult struct {
 }
 
 func LookupDataIntegrationOutput(ctx *pulumi.Context, args LookupDataIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupDataIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataIntegrationResultOutput, error) {
-			args := v.(LookupDataIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appintegrations:getDataIntegration", args, LookupDataIntegrationResultOutput{}, options).(LookupDataIntegrationResultOutput), nil
-		}).(LookupDataIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appintegrations:getDataIntegration", args, LookupDataIntegrationResultOutput{}, options).(LookupDataIntegrationResultOutput)
 }
 
 type LookupDataIntegrationOutputArgs struct {

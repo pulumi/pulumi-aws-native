@@ -52,12 +52,8 @@ type LookupMlflowAppResult struct {
 }
 
 func LookupMlflowAppOutput(ctx *pulumi.Context, args LookupMlflowAppOutputArgs, opts ...pulumi.InvokeOption) LookupMlflowAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMlflowAppResultOutput, error) {
-			args := v.(LookupMlflowAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getMlflowApp", args, LookupMlflowAppResultOutput{}, options).(LookupMlflowAppResultOutput), nil
-		}).(LookupMlflowAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getMlflowApp", args, LookupMlflowAppResultOutput{}, options).(LookupMlflowAppResultOutput)
 }
 
 type LookupMlflowAppOutputArgs struct {

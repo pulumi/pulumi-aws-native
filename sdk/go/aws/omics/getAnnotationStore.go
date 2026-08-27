@@ -47,12 +47,8 @@ type LookupAnnotationStoreResult struct {
 }
 
 func LookupAnnotationStoreOutput(ctx *pulumi.Context, args LookupAnnotationStoreOutputArgs, opts ...pulumi.InvokeOption) LookupAnnotationStoreResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAnnotationStoreResultOutput, error) {
-			args := v.(LookupAnnotationStoreArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:omics:getAnnotationStore", args, LookupAnnotationStoreResultOutput{}, options).(LookupAnnotationStoreResultOutput), nil
-		}).(LookupAnnotationStoreResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:omics:getAnnotationStore", args, LookupAnnotationStoreResultOutput{}, options).(LookupAnnotationStoreResultOutput)
 }
 
 type LookupAnnotationStoreOutputArgs struct {

@@ -53,12 +53,8 @@ type LookupCollaborationResult struct {
 }
 
 func LookupCollaborationOutput(ctx *pulumi.Context, args LookupCollaborationOutputArgs, opts ...pulumi.InvokeOption) LookupCollaborationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCollaborationResultOutput, error) {
-			args := v.(LookupCollaborationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cleanrooms:getCollaboration", args, LookupCollaborationResultOutput{}, options).(LookupCollaborationResultOutput), nil
-		}).(LookupCollaborationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cleanrooms:getCollaboration", args, LookupCollaborationResultOutput{}, options).(LookupCollaborationResultOutput)
 }
 
 type LookupCollaborationOutputArgs struct {

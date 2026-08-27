@@ -42,12 +42,8 @@ type LookupBuildResult struct {
 }
 
 func LookupBuildOutput(ctx *pulumi.Context, args LookupBuildOutputArgs, opts ...pulumi.InvokeOption) LookupBuildResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBuildResultOutput, error) {
-			args := v.(LookupBuildArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:gamelift:getBuild", args, LookupBuildResultOutput{}, options).(LookupBuildResultOutput), nil
-		}).(LookupBuildResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:gamelift:getBuild", args, LookupBuildResultOutput{}, options).(LookupBuildResultOutput)
 }
 
 type LookupBuildOutputArgs struct {

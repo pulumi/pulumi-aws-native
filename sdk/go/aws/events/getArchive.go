@@ -51,12 +51,8 @@ type LookupArchiveResult struct {
 }
 
 func LookupArchiveOutput(ctx *pulumi.Context, args LookupArchiveOutputArgs, opts ...pulumi.InvokeOption) LookupArchiveResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupArchiveResultOutput, error) {
-			args := v.(LookupArchiveArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:events:getArchive", args, LookupArchiveResultOutput{}, options).(LookupArchiveResultOutput), nil
-		}).(LookupArchiveResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:events:getArchive", args, LookupArchiveResultOutput{}, options).(LookupArchiveResultOutput)
 }
 
 type LookupArchiveOutputArgs struct {

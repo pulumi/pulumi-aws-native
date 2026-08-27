@@ -33,12 +33,8 @@ type LookupResourceGroupResult struct {
 }
 
 func LookupResourceGroupOutput(ctx *pulumi.Context, args LookupResourceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResourceGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceGroupResultOutput, error) {
-			args := v.(LookupResourceGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:inspector:getResourceGroup", args, LookupResourceGroupResultOutput{}, options).(LookupResourceGroupResultOutput), nil
-		}).(LookupResourceGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:inspector:getResourceGroup", args, LookupResourceGroupResultOutput{}, options).(LookupResourceGroupResultOutput)
 }
 
 type LookupResourceGroupOutputArgs struct {

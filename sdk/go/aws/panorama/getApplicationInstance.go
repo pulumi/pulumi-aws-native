@@ -50,12 +50,8 @@ type LookupApplicationInstanceResult struct {
 }
 
 func LookupApplicationInstanceOutput(ctx *pulumi.Context, args LookupApplicationInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApplicationInstanceResultOutput, error) {
-			args := v.(LookupApplicationInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:panorama:getApplicationInstance", args, LookupApplicationInstanceResultOutput{}, options).(LookupApplicationInstanceResultOutput), nil
-		}).(LookupApplicationInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:panorama:getApplicationInstance", args, LookupApplicationInstanceResultOutput{}, options).(LookupApplicationInstanceResultOutput)
 }
 
 type LookupApplicationInstanceOutputArgs struct {

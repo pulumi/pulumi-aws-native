@@ -37,12 +37,8 @@ type LookupNetworkConnectorResult struct {
 }
 
 func LookupNetworkConnectorOutput(ctx *pulumi.Context, args LookupNetworkConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkConnectorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkConnectorResultOutput, error) {
-			args := v.(LookupNetworkConnectorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lambda:getNetworkConnector", args, LookupNetworkConnectorResultOutput{}, options).(LookupNetworkConnectorResultOutput), nil
-		}).(LookupNetworkConnectorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lambda:getNetworkConnector", args, LookupNetworkConnectorResultOutput{}, options).(LookupNetworkConnectorResultOutput)
 }
 
 type LookupNetworkConnectorOutputArgs struct {

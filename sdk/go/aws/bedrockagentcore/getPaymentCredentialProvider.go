@@ -41,12 +41,8 @@ type LookupPaymentCredentialProviderResult struct {
 }
 
 func LookupPaymentCredentialProviderOutput(ctx *pulumi.Context, args LookupPaymentCredentialProviderOutputArgs, opts ...pulumi.InvokeOption) LookupPaymentCredentialProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPaymentCredentialProviderResultOutput, error) {
-			args := v.(LookupPaymentCredentialProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getPaymentCredentialProvider", args, LookupPaymentCredentialProviderResultOutput{}, options).(LookupPaymentCredentialProviderResultOutput), nil
-		}).(LookupPaymentCredentialProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getPaymentCredentialProvider", args, LookupPaymentCredentialProviderResultOutput{}, options).(LookupPaymentCredentialProviderResultOutput)
 }
 
 type LookupPaymentCredentialProviderOutputArgs struct {

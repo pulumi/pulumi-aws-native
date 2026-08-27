@@ -36,12 +36,8 @@ type LookupHostedZoneAssociationResult struct {
 }
 
 func LookupHostedZoneAssociationOutput(ctx *pulumi.Context, args LookupHostedZoneAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupHostedZoneAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHostedZoneAssociationResultOutput, error) {
-			args := v.(LookupHostedZoneAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53globalresolver:getHostedZoneAssociation", args, LookupHostedZoneAssociationResultOutput{}, options).(LookupHostedZoneAssociationResultOutput), nil
-		}).(LookupHostedZoneAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53globalresolver:getHostedZoneAssociation", args, LookupHostedZoneAssociationResultOutput{}, options).(LookupHostedZoneAssociationResultOutput)
 }
 
 type LookupHostedZoneAssociationOutputArgs struct {

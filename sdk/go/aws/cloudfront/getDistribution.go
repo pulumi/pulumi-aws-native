@@ -40,12 +40,8 @@ type LookupDistributionResult struct {
 }
 
 func LookupDistributionOutput(ctx *pulumi.Context, args LookupDistributionOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDistributionResultOutput, error) {
-			args := v.(LookupDistributionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getDistribution", args, LookupDistributionResultOutput{}, options).(LookupDistributionResultOutput), nil
-		}).(LookupDistributionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getDistribution", args, LookupDistributionResultOutput{}, options).(LookupDistributionResultOutput)
 }
 
 type LookupDistributionOutputArgs struct {

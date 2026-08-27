@@ -37,12 +37,8 @@ type LookupContactFlowVersionResult struct {
 }
 
 func LookupContactFlowVersionOutput(ctx *pulumi.Context, args LookupContactFlowVersionOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContactFlowVersionResultOutput, error) {
-			args := v.(LookupContactFlowVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getContactFlowVersion", args, LookupContactFlowVersionResultOutput{}, options).(LookupContactFlowVersionResultOutput), nil
-		}).(LookupContactFlowVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getContactFlowVersion", args, LookupContactFlowVersionResultOutput{}, options).(LookupContactFlowVersionResultOutput)
 }
 
 type LookupContactFlowVersionOutputArgs struct {

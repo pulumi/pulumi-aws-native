@@ -76,12 +76,8 @@ type LookupBranchResult struct {
 }
 
 func LookupBranchOutput(ctx *pulumi.Context, args LookupBranchOutputArgs, opts ...pulumi.InvokeOption) LookupBranchResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBranchResultOutput, error) {
-			args := v.(LookupBranchArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:amplify:getBranch", args, LookupBranchResultOutput{}, options).(LookupBranchResultOutput), nil
-		}).(LookupBranchResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:amplify:getBranch", args, LookupBranchResultOutput{}, options).(LookupBranchResultOutput)
 }
 
 type LookupBranchOutputArgs struct {

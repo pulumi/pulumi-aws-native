@@ -39,12 +39,8 @@ type LookupTablePolicyResult struct {
 }
 
 func LookupTablePolicyOutput(ctx *pulumi.Context, args LookupTablePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupTablePolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTablePolicyResultOutput, error) {
-			args := v.(LookupTablePolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3tables:getTablePolicy", args, LookupTablePolicyResultOutput{}, options).(LookupTablePolicyResultOutput), nil
-		}).(LookupTablePolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3tables:getTablePolicy", args, LookupTablePolicyResultOutput{}, options).(LookupTablePolicyResultOutput)
 }
 
 type LookupTablePolicyOutputArgs struct {

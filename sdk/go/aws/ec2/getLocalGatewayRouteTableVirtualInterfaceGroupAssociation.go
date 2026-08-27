@@ -44,12 +44,8 @@ type LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResult struct {
 }
 
 func LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput(ctx *pulumi.Context, args LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput, error) {
-			args := v.(LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", args, LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput{}, options).(LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput), nil
-		}).(LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getLocalGatewayRouteTableVirtualInterfaceGroupAssociation", args, LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput{}, options).(LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationResultOutput)
 }
 
 type LookupLocalGatewayRouteTableVirtualInterfaceGroupAssociationOutputArgs struct {

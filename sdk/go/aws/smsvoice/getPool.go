@@ -54,12 +54,8 @@ type LookupPoolResult struct {
 }
 
 func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pulumi.InvokeOption) LookupPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPoolResultOutput, error) {
-			args := v.(LookupPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:smsvoice:getPool", args, LookupPoolResultOutput{}, options).(LookupPoolResultOutput), nil
-		}).(LookupPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:smsvoice:getPool", args, LookupPoolResultOutput{}, options).(LookupPoolResultOutput)
 }
 
 type LookupPoolOutputArgs struct {

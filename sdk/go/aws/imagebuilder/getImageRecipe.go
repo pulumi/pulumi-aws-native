@@ -37,12 +37,8 @@ type LookupImageRecipeResult struct {
 }
 
 func LookupImageRecipeOutput(ctx *pulumi.Context, args LookupImageRecipeOutputArgs, opts ...pulumi.InvokeOption) LookupImageRecipeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupImageRecipeResultOutput, error) {
-			args := v.(LookupImageRecipeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:imagebuilder:getImageRecipe", args, LookupImageRecipeResultOutput{}, options).(LookupImageRecipeResultOutput), nil
-		}).(LookupImageRecipeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:imagebuilder:getImageRecipe", args, LookupImageRecipeResultOutput{}, options).(LookupImageRecipeResultOutput)
 }
 
 type LookupImageRecipeOutputArgs struct {

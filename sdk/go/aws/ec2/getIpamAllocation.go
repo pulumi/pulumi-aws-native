@@ -42,12 +42,8 @@ type LookupIpamAllocationResult struct {
 }
 
 func LookupIpamAllocationOutput(ctx *pulumi.Context, args LookupIpamAllocationOutputArgs, opts ...pulumi.InvokeOption) LookupIpamAllocationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpamAllocationResultOutput, error) {
-			args := v.(LookupIpamAllocationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getIpamAllocation", args, LookupIpamAllocationResultOutput{}, options).(LookupIpamAllocationResultOutput), nil
-		}).(LookupIpamAllocationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getIpamAllocation", args, LookupIpamAllocationResultOutput{}, options).(LookupIpamAllocationResultOutput)
 }
 
 type LookupIpamAllocationOutputArgs struct {

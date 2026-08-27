@@ -52,12 +52,8 @@ type LookupOAuth2CredentialProviderResult struct {
 }
 
 func LookupOAuth2CredentialProviderOutput(ctx *pulumi.Context, args LookupOAuth2CredentialProviderOutputArgs, opts ...pulumi.InvokeOption) LookupOAuth2CredentialProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOAuth2CredentialProviderResultOutput, error) {
-			args := v.(LookupOAuth2CredentialProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getOAuth2CredentialProvider", args, LookupOAuth2CredentialProviderResultOutput{}, options).(LookupOAuth2CredentialProviderResultOutput), nil
-		}).(LookupOAuth2CredentialProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getOAuth2CredentialProvider", args, LookupOAuth2CredentialProviderResultOutput{}, options).(LookupOAuth2CredentialProviderResultOutput)
 }
 
 type LookupOAuth2CredentialProviderOutputArgs struct {

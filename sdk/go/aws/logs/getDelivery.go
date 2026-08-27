@@ -52,12 +52,8 @@ type LookupDeliveryResult struct {
 }
 
 func LookupDeliveryOutput(ctx *pulumi.Context, args LookupDeliveryOutputArgs, opts ...pulumi.InvokeOption) LookupDeliveryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDeliveryResultOutput, error) {
-			args := v.(LookupDeliveryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:logs:getDelivery", args, LookupDeliveryResultOutput{}, options).(LookupDeliveryResultOutput), nil
-		}).(LookupDeliveryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:logs:getDelivery", args, LookupDeliveryResultOutput{}, options).(LookupDeliveryResultOutput)
 }
 
 type LookupDeliveryOutputArgs struct {

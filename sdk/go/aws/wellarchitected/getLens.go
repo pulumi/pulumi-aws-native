@@ -44,12 +44,8 @@ type LookupLensResult struct {
 }
 
 func LookupLensOutput(ctx *pulumi.Context, args LookupLensOutputArgs, opts ...pulumi.InvokeOption) LookupLensResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLensResultOutput, error) {
-			args := v.(LookupLensArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wellarchitected:getLens", args, LookupLensResultOutput{}, options).(LookupLensResultOutput), nil
-		}).(LookupLensResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wellarchitected:getLens", args, LookupLensResultOutput{}, options).(LookupLensResultOutput)
 }
 
 type LookupLensOutputArgs struct {

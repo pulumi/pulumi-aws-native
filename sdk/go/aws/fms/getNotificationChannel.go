@@ -33,12 +33,8 @@ type LookupNotificationChannelResult struct {
 }
 
 func LookupNotificationChannelOutput(ctx *pulumi.Context, args LookupNotificationChannelOutputArgs, opts ...pulumi.InvokeOption) LookupNotificationChannelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNotificationChannelResultOutput, error) {
-			args := v.(LookupNotificationChannelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:fms:getNotificationChannel", args, LookupNotificationChannelResultOutput{}, options).(LookupNotificationChannelResultOutput), nil
-		}).(LookupNotificationChannelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:fms:getNotificationChannel", args, LookupNotificationChannelResultOutput{}, options).(LookupNotificationChannelResultOutput)
 }
 
 type LookupNotificationChannelOutputArgs struct {

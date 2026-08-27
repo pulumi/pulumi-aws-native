@@ -40,12 +40,8 @@ type LookupTunnelResult struct {
 }
 
 func LookupTunnelOutput(ctx *pulumi.Context, args LookupTunnelOutputArgs, opts ...pulumi.InvokeOption) LookupTunnelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTunnelResultOutput, error) {
-			args := v.(LookupTunnelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iotsecuretunneling:getTunnel", args, LookupTunnelResultOutput{}, options).(LookupTunnelResultOutput), nil
-		}).(LookupTunnelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iotsecuretunneling:getTunnel", args, LookupTunnelResultOutput{}, options).(LookupTunnelResultOutput)
 }
 
 type LookupTunnelOutputArgs struct {

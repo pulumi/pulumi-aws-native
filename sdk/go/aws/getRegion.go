@@ -26,10 +26,8 @@ type GetRegionResult struct {
 }
 
 func GetRegionOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetRegionResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetRegionResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws-native:index:getRegion", nil, GetRegionResultOutput{}, options).(GetRegionResultOutput), nil
-	}).(GetRegionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:index:getRegion", nil, GetRegionResultOutput{}, options).(GetRegionResultOutput)
 }
 
 type GetRegionResultOutput struct{ *pulumi.OutputState }

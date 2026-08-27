@@ -38,12 +38,8 @@ type LookupS3TableIntegrationResult struct {
 }
 
 func LookupS3TableIntegrationOutput(ctx *pulumi.Context, args LookupS3TableIntegrationOutputArgs, opts ...pulumi.InvokeOption) LookupS3TableIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupS3TableIntegrationResultOutput, error) {
-			args := v.(LookupS3TableIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:observabilityadmin:getS3TableIntegration", args, LookupS3TableIntegrationResultOutput{}, options).(LookupS3TableIntegrationResultOutput), nil
-		}).(LookupS3TableIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:observabilityadmin:getS3TableIntegration", args, LookupS3TableIntegrationResultOutput{}, options).(LookupS3TableIntegrationResultOutput)
 }
 
 type LookupS3TableIntegrationOutputArgs struct {

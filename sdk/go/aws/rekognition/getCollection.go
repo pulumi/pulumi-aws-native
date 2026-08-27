@@ -36,12 +36,8 @@ type LookupCollectionResult struct {
 }
 
 func LookupCollectionOutput(ctx *pulumi.Context, args LookupCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupCollectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCollectionResultOutput, error) {
-			args := v.(LookupCollectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rekognition:getCollection", args, LookupCollectionResultOutput{}, options).(LookupCollectionResultOutput), nil
-		}).(LookupCollectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rekognition:getCollection", args, LookupCollectionResultOutput{}, options).(LookupCollectionResultOutput)
 }
 
 type LookupCollectionOutputArgs struct {

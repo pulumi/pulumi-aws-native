@@ -50,12 +50,8 @@ type LookupWorkgroupResult struct {
 }
 
 func LookupWorkgroupOutput(ctx *pulumi.Context, args LookupWorkgroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkgroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkgroupResultOutput, error) {
-			args := v.(LookupWorkgroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:redshiftserverless:getWorkgroup", args, LookupWorkgroupResultOutput{}, options).(LookupWorkgroupResultOutput), nil
-		}).(LookupWorkgroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:redshiftserverless:getWorkgroup", args, LookupWorkgroupResultOutput{}, options).(LookupWorkgroupResultOutput)
 }
 
 type LookupWorkgroupOutputArgs struct {

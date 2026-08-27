@@ -41,12 +41,8 @@ type LookupClassifierResult struct {
 }
 
 func LookupClassifierOutput(ctx *pulumi.Context, args LookupClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupClassifierResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClassifierResultOutput, error) {
-			args := v.(LookupClassifierArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getClassifier", args, LookupClassifierResultOutput{}, options).(LookupClassifierResultOutput), nil
-		}).(LookupClassifierResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getClassifier", args, LookupClassifierResultOutput{}, options).(LookupClassifierResultOutput)
 }
 
 type LookupClassifierOutputArgs struct {

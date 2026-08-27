@@ -36,12 +36,8 @@ type LookupVocabularyFilterResult struct {
 }
 
 func LookupVocabularyFilterOutput(ctx *pulumi.Context, args LookupVocabularyFilterOutputArgs, opts ...pulumi.InvokeOption) LookupVocabularyFilterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVocabularyFilterResultOutput, error) {
-			args := v.(LookupVocabularyFilterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:transcribe:getVocabularyFilter", args, LookupVocabularyFilterResultOutput{}, options).(LookupVocabularyFilterResultOutput), nil
-		}).(LookupVocabularyFilterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:transcribe:getVocabularyFilter", args, LookupVocabularyFilterResultOutput{}, options).(LookupVocabularyFilterResultOutput)
 }
 
 type LookupVocabularyFilterOutputArgs struct {

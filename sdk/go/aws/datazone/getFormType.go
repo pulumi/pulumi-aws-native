@@ -53,12 +53,8 @@ type LookupFormTypeResult struct {
 }
 
 func LookupFormTypeOutput(ctx *pulumi.Context, args LookupFormTypeOutputArgs, opts ...pulumi.InvokeOption) LookupFormTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFormTypeResultOutput, error) {
-			args := v.(LookupFormTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datazone:getFormType", args, LookupFormTypeResultOutput{}, options).(LookupFormTypeResultOutput), nil
-		}).(LookupFormTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datazone:getFormType", args, LookupFormTypeResultOutput{}, options).(LookupFormTypeResultOutput)
 }
 
 type LookupFormTypeOutputArgs struct {

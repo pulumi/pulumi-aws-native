@@ -32,12 +32,8 @@ type LookupFileSystemPolicyResult struct {
 }
 
 func LookupFileSystemPolicyOutput(ctx *pulumi.Context, args LookupFileSystemPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupFileSystemPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFileSystemPolicyResultOutput, error) {
-			args := v.(LookupFileSystemPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3files:getFileSystemPolicy", args, LookupFileSystemPolicyResultOutput{}, options).(LookupFileSystemPolicyResultOutput), nil
-		}).(LookupFileSystemPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3files:getFileSystemPolicy", args, LookupFileSystemPolicyResultOutput{}, options).(LookupFileSystemPolicyResultOutput)
 }
 
 type LookupFileSystemPolicyOutputArgs struct {

@@ -62,12 +62,8 @@ type LookupDatabaseSnapshotResult struct {
 }
 
 func LookupDatabaseSnapshotOutput(ctx *pulumi.Context, args LookupDatabaseSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatabaseSnapshotResultOutput, error) {
-			args := v.(LookupDatabaseSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lightsail:getDatabaseSnapshot", args, LookupDatabaseSnapshotResultOutput{}, options).(LookupDatabaseSnapshotResultOutput), nil
-		}).(LookupDatabaseSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lightsail:getDatabaseSnapshot", args, LookupDatabaseSnapshotResultOutput{}, options).(LookupDatabaseSnapshotResultOutput)
 }
 
 type LookupDatabaseSnapshotOutputArgs struct {

@@ -39,12 +39,8 @@ type LookupDataQualityRulesetResult struct {
 }
 
 func LookupDataQualityRulesetOutput(ctx *pulumi.Context, args LookupDataQualityRulesetOutputArgs, opts ...pulumi.InvokeOption) LookupDataQualityRulesetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataQualityRulesetResultOutput, error) {
-			args := v.(LookupDataQualityRulesetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getDataQualityRuleset", args, LookupDataQualityRulesetResultOutput{}, options).(LookupDataQualityRulesetResultOutput), nil
-		}).(LookupDataQualityRulesetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getDataQualityRuleset", args, LookupDataQualityRulesetResultOutput{}, options).(LookupDataQualityRulesetResultOutput)
 }
 
 type LookupDataQualityRulesetOutputArgs struct {

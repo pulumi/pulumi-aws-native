@@ -38,12 +38,8 @@ type LookupAlgorithmResult struct {
 }
 
 func LookupAlgorithmOutput(ctx *pulumi.Context, args LookupAlgorithmOutputArgs, opts ...pulumi.InvokeOption) LookupAlgorithmResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAlgorithmResultOutput, error) {
-			args := v.(LookupAlgorithmArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getAlgorithm", args, LookupAlgorithmResultOutput{}, options).(LookupAlgorithmResultOutput), nil
-		}).(LookupAlgorithmResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getAlgorithm", args, LookupAlgorithmResultOutput{}, options).(LookupAlgorithmResultOutput)
 }
 
 type LookupAlgorithmOutputArgs struct {

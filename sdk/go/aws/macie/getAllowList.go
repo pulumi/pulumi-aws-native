@@ -46,12 +46,8 @@ type LookupAllowListResult struct {
 }
 
 func LookupAllowListOutput(ctx *pulumi.Context, args LookupAllowListOutputArgs, opts ...pulumi.InvokeOption) LookupAllowListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAllowListResultOutput, error) {
-			args := v.(LookupAllowListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:macie:getAllowList", args, LookupAllowListResultOutput{}, options).(LookupAllowListResultOutput), nil
-		}).(LookupAllowListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:macie:getAllowList", args, LookupAllowListResultOutput{}, options).(LookupAllowListResultOutput)
 }
 
 type LookupAllowListOutputArgs struct {

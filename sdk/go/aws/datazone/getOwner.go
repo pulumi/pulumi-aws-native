@@ -43,12 +43,8 @@ type LookupOwnerResult struct {
 }
 
 func LookupOwnerOutput(ctx *pulumi.Context, args LookupOwnerOutputArgs, opts ...pulumi.InvokeOption) LookupOwnerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOwnerResultOutput, error) {
-			args := v.(LookupOwnerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datazone:getOwner", args, LookupOwnerResultOutput{}, options).(LookupOwnerResultOutput), nil
-		}).(LookupOwnerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datazone:getOwner", args, LookupOwnerResultOutput{}, options).(LookupOwnerResultOutput)
 }
 
 type LookupOwnerOutputArgs struct {

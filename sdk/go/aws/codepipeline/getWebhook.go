@@ -48,12 +48,8 @@ type LookupWebhookResult struct {
 }
 
 func LookupWebhookOutput(ctx *pulumi.Context, args LookupWebhookOutputArgs, opts ...pulumi.InvokeOption) LookupWebhookResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWebhookResultOutput, error) {
-			args := v.(LookupWebhookArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:codepipeline:getWebhook", args, LookupWebhookResultOutput{}, options).(LookupWebhookResultOutput), nil
-		}).(LookupWebhookResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:codepipeline:getWebhook", args, LookupWebhookResultOutput{}, options).(LookupWebhookResultOutput)
 }
 
 type LookupWebhookOutputArgs struct {

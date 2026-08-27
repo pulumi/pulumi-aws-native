@@ -42,12 +42,8 @@ type LookupEventSubscriptionResult struct {
 }
 
 func LookupEventSubscriptionOutput(ctx *pulumi.Context, args LookupEventSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupEventSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventSubscriptionResultOutput, error) {
-			args := v.(LookupEventSubscriptionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:neptune:getEventSubscription", args, LookupEventSubscriptionResultOutput{}, options).(LookupEventSubscriptionResultOutput), nil
-		}).(LookupEventSubscriptionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:neptune:getEventSubscription", args, LookupEventSubscriptionResultOutput{}, options).(LookupEventSubscriptionResultOutput)
 }
 
 type LookupEventSubscriptionOutputArgs struct {

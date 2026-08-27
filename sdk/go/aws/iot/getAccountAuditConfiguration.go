@@ -45,12 +45,8 @@ type LookupAccountAuditConfigurationResult struct {
 }
 
 func LookupAccountAuditConfigurationOutput(ctx *pulumi.Context, args LookupAccountAuditConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupAccountAuditConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccountAuditConfigurationResultOutput, error) {
-			args := v.(LookupAccountAuditConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getAccountAuditConfiguration", args, LookupAccountAuditConfigurationResultOutput{}, options).(LookupAccountAuditConfigurationResultOutput), nil
-		}).(LookupAccountAuditConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getAccountAuditConfiguration", args, LookupAccountAuditConfigurationResultOutput{}, options).(LookupAccountAuditConfigurationResultOutput)
 }
 
 type LookupAccountAuditConfigurationOutputArgs struct {

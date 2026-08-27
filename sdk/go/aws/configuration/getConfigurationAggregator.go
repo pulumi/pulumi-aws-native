@@ -40,12 +40,8 @@ type LookupConfigurationAggregatorResult struct {
 }
 
 func LookupConfigurationAggregatorOutput(ctx *pulumi.Context, args LookupConfigurationAggregatorOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationAggregatorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationAggregatorResultOutput, error) {
-			args := v.(LookupConfigurationAggregatorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:configuration:getConfigurationAggregator", args, LookupConfigurationAggregatorResultOutput{}, options).(LookupConfigurationAggregatorResultOutput), nil
-		}).(LookupConfigurationAggregatorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:configuration:getConfigurationAggregator", args, LookupConfigurationAggregatorResultOutput{}, options).(LookupConfigurationAggregatorResultOutput)
 }
 
 type LookupConfigurationAggregatorOutputArgs struct {

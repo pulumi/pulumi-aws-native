@@ -40,12 +40,8 @@ type LookupVpcEndpointAssociationResult struct {
 }
 
 func LookupVpcEndpointAssociationOutput(ctx *pulumi.Context, args LookupVpcEndpointAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcEndpointAssociationResultOutput, error) {
-			args := v.(LookupVpcEndpointAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:networkfirewall:getVpcEndpointAssociation", args, LookupVpcEndpointAssociationResultOutput{}, options).(LookupVpcEndpointAssociationResultOutput), nil
-		}).(LookupVpcEndpointAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:networkfirewall:getVpcEndpointAssociation", args, LookupVpcEndpointAssociationResultOutput{}, options).(LookupVpcEndpointAssociationResultOutput)
 }
 
 type LookupVpcEndpointAssociationOutputArgs struct {

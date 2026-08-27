@@ -67,12 +67,8 @@ type LookupUserPoolIdentityProviderResult struct {
 }
 
 func LookupUserPoolIdentityProviderOutput(ctx *pulumi.Context, args LookupUserPoolIdentityProviderOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolIdentityProviderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserPoolIdentityProviderResultOutput, error) {
-			args := v.(LookupUserPoolIdentityProviderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getUserPoolIdentityProvider", args, LookupUserPoolIdentityProviderResultOutput{}, options).(LookupUserPoolIdentityProviderResultOutput), nil
-		}).(LookupUserPoolIdentityProviderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getUserPoolIdentityProvider", args, LookupUserPoolIdentityProviderResultOutput{}, options).(LookupUserPoolIdentityProviderResultOutput)
 }
 
 type LookupUserPoolIdentityProviderOutputArgs struct {

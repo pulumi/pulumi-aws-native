@@ -47,12 +47,8 @@ type LookupChannelPlacementGroupResult struct {
 }
 
 func LookupChannelPlacementGroupOutput(ctx *pulumi.Context, args LookupChannelPlacementGroupOutputArgs, opts ...pulumi.InvokeOption) LookupChannelPlacementGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupChannelPlacementGroupResultOutput, error) {
-			args := v.(LookupChannelPlacementGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:medialive:getChannelPlacementGroup", args, LookupChannelPlacementGroupResultOutput{}, options).(LookupChannelPlacementGroupResultOutput), nil
-		}).(LookupChannelPlacementGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:medialive:getChannelPlacementGroup", args, LookupChannelPlacementGroupResultOutput{}, options).(LookupChannelPlacementGroupResultOutput)
 }
 
 type LookupChannelPlacementGroupOutputArgs struct {

@@ -44,12 +44,8 @@ type LookupLagResult struct {
 }
 
 func LookupLagOutput(ctx *pulumi.Context, args LookupLagOutputArgs, opts ...pulumi.InvokeOption) LookupLagResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLagResultOutput, error) {
-			args := v.(LookupLagArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:directconnect:getLag", args, LookupLagResultOutput{}, options).(LookupLagResultOutput), nil
-		}).(LookupLagResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:directconnect:getLag", args, LookupLagResultOutput{}, options).(LookupLagResultOutput)
 }
 
 type LookupLagOutputArgs struct {

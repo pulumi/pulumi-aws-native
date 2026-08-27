@@ -49,12 +49,8 @@ type LookupTransitGatewayMulticastGroupMemberResult struct {
 }
 
 func LookupTransitGatewayMulticastGroupMemberOutput(ctx *pulumi.Context, args LookupTransitGatewayMulticastGroupMemberOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayMulticastGroupMemberResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastGroupMemberResultOutput, error) {
-			args := v.(LookupTransitGatewayMulticastGroupMemberArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMulticastGroupMember", args, LookupTransitGatewayMulticastGroupMemberResultOutput{}, options).(LookupTransitGatewayMulticastGroupMemberResultOutput), nil
-		}).(LookupTransitGatewayMulticastGroupMemberResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMulticastGroupMember", args, LookupTransitGatewayMulticastGroupMemberResultOutput{}, options).(LookupTransitGatewayMulticastGroupMemberResultOutput)
 }
 
 type LookupTransitGatewayMulticastGroupMemberOutputArgs struct {

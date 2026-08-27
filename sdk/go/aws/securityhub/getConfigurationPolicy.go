@@ -49,12 +49,8 @@ type LookupConfigurationPolicyResult struct {
 }
 
 func LookupConfigurationPolicyOutput(ctx *pulumi.Context, args LookupConfigurationPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationPolicyResultOutput, error) {
-			args := v.(LookupConfigurationPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securityhub:getConfigurationPolicy", args, LookupConfigurationPolicyResultOutput{}, options).(LookupConfigurationPolicyResultOutput), nil
-		}).(LookupConfigurationPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securityhub:getConfigurationPolicy", args, LookupConfigurationPolicyResultOutput{}, options).(LookupConfigurationPolicyResultOutput)
 }
 
 type LookupConfigurationPolicyOutputArgs struct {

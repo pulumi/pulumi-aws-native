@@ -45,12 +45,8 @@ type LookupBrowserCustomResult struct {
 }
 
 func LookupBrowserCustomOutput(ctx *pulumi.Context, args LookupBrowserCustomOutputArgs, opts ...pulumi.InvokeOption) LookupBrowserCustomResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBrowserCustomResultOutput, error) {
-			args := v.(LookupBrowserCustomArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getBrowserCustom", args, LookupBrowserCustomResultOutput{}, options).(LookupBrowserCustomResultOutput), nil
-		}).(LookupBrowserCustomResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getBrowserCustom", args, LookupBrowserCustomResultOutput{}, options).(LookupBrowserCustomResultOutput)
 }
 
 type LookupBrowserCustomOutputArgs struct {

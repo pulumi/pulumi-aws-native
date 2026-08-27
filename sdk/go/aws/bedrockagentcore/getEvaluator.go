@@ -52,12 +52,8 @@ type LookupEvaluatorResult struct {
 }
 
 func LookupEvaluatorOutput(ctx *pulumi.Context, args LookupEvaluatorOutputArgs, opts ...pulumi.InvokeOption) LookupEvaluatorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEvaluatorResultOutput, error) {
-			args := v.(LookupEvaluatorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getEvaluator", args, LookupEvaluatorResultOutput{}, options).(LookupEvaluatorResultOutput), nil
-		}).(LookupEvaluatorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getEvaluator", args, LookupEvaluatorResultOutput{}, options).(LookupEvaluatorResultOutput)
 }
 
 type LookupEvaluatorOutputArgs struct {

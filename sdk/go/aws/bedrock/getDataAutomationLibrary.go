@@ -43,12 +43,8 @@ type LookupDataAutomationLibraryResult struct {
 }
 
 func LookupDataAutomationLibraryOutput(ctx *pulumi.Context, args LookupDataAutomationLibraryOutputArgs, opts ...pulumi.InvokeOption) LookupDataAutomationLibraryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataAutomationLibraryResultOutput, error) {
-			args := v.(LookupDataAutomationLibraryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getDataAutomationLibrary", args, LookupDataAutomationLibraryResultOutput{}, options).(LookupDataAutomationLibraryResultOutput), nil
-		}).(LookupDataAutomationLibraryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getDataAutomationLibrary", args, LookupDataAutomationLibraryResultOutput{}, options).(LookupDataAutomationLibraryResultOutput)
 }
 
 type LookupDataAutomationLibraryOutputArgs struct {

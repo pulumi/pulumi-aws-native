@@ -58,12 +58,8 @@ type LookupImageVersionResult struct {
 }
 
 func LookupImageVersionOutput(ctx *pulumi.Context, args LookupImageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupImageVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupImageVersionResultOutput, error) {
-			args := v.(LookupImageVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getImageVersion", args, LookupImageVersionResultOutput{}, options).(LookupImageVersionResultOutput), nil
-		}).(LookupImageVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getImageVersion", args, LookupImageVersionResultOutput{}, options).(LookupImageVersionResultOutput)
 }
 
 type LookupImageVersionOutputArgs struct {

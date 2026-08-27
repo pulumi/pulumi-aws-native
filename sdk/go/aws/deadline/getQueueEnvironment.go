@@ -45,12 +45,8 @@ type LookupQueueEnvironmentResult struct {
 }
 
 func LookupQueueEnvironmentOutput(ctx *pulumi.Context, args LookupQueueEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupQueueEnvironmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupQueueEnvironmentResultOutput, error) {
-			args := v.(LookupQueueEnvironmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:deadline:getQueueEnvironment", args, LookupQueueEnvironmentResultOutput{}, options).(LookupQueueEnvironmentResultOutput), nil
-		}).(LookupQueueEnvironmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:deadline:getQueueEnvironment", args, LookupQueueEnvironmentResultOutput{}, options).(LookupQueueEnvironmentResultOutput)
 }
 
 type LookupQueueEnvironmentOutputArgs struct {

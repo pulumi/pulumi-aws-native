@@ -50,12 +50,8 @@ type LookupFieldResult struct {
 }
 
 func LookupFieldOutput(ctx *pulumi.Context, args LookupFieldOutputArgs, opts ...pulumi.InvokeOption) LookupFieldResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFieldResultOutput, error) {
-			args := v.(LookupFieldArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cases:getField", args, LookupFieldResultOutput{}, options).(LookupFieldResultOutput), nil
-		}).(LookupFieldResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cases:getField", args, LookupFieldResultOutput{}, options).(LookupFieldResultOutput)
 }
 
 type LookupFieldOutputArgs struct {

@@ -46,12 +46,8 @@ type LookupDocumentClassifierResult struct {
 }
 
 func LookupDocumentClassifierOutput(ctx *pulumi.Context, args LookupDocumentClassifierOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentClassifierResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDocumentClassifierResultOutput, error) {
-			args := v.(LookupDocumentClassifierArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:comprehend:getDocumentClassifier", args, LookupDocumentClassifierResultOutput{}, options).(LookupDocumentClassifierResultOutput), nil
-		}).(LookupDocumentClassifierResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:comprehend:getDocumentClassifier", args, LookupDocumentClassifierResultOutput{}, options).(LookupDocumentClassifierResultOutput)
 }
 
 type LookupDocumentClassifierOutputArgs struct {

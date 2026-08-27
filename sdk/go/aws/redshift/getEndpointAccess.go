@@ -45,12 +45,8 @@ type LookupEndpointAccessResult struct {
 }
 
 func LookupEndpointAccessOutput(ctx *pulumi.Context, args LookupEndpointAccessOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointAccessResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEndpointAccessResultOutput, error) {
-			args := v.(LookupEndpointAccessArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:redshift:getEndpointAccess", args, LookupEndpointAccessResultOutput{}, options).(LookupEndpointAccessResultOutput), nil
-		}).(LookupEndpointAccessResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:redshift:getEndpointAccess", args, LookupEndpointAccessResultOutput{}, options).(LookupEndpointAccessResultOutput)
 }
 
 type LookupEndpointAccessOutputArgs struct {

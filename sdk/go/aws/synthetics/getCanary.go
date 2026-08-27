@@ -66,12 +66,8 @@ type LookupCanaryResult struct {
 }
 
 func LookupCanaryOutput(ctx *pulumi.Context, args LookupCanaryOutputArgs, opts ...pulumi.InvokeOption) LookupCanaryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCanaryResultOutput, error) {
-			args := v.(LookupCanaryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:synthetics:getCanary", args, LookupCanaryResultOutput{}, options).(LookupCanaryResultOutput), nil
-		}).(LookupCanaryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:synthetics:getCanary", args, LookupCanaryResultOutput{}, options).(LookupCanaryResultOutput)
 }
 
 type LookupCanaryOutputArgs struct {

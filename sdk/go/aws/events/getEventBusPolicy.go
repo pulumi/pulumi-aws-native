@@ -37,12 +37,8 @@ type LookupEventBusPolicyResult struct {
 }
 
 func LookupEventBusPolicyOutput(ctx *pulumi.Context, args LookupEventBusPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupEventBusPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventBusPolicyResultOutput, error) {
-			args := v.(LookupEventBusPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:events:getEventBusPolicy", args, LookupEventBusPolicyResultOutput{}, options).(LookupEventBusPolicyResultOutput), nil
-		}).(LookupEventBusPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:events:getEventBusPolicy", args, LookupEventBusPolicyResultOutput{}, options).(LookupEventBusPolicyResultOutput)
 }
 
 type LookupEventBusPolicyOutputArgs struct {

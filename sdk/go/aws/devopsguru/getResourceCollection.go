@@ -35,12 +35,8 @@ type LookupResourceCollectionResult struct {
 }
 
 func LookupResourceCollectionOutput(ctx *pulumi.Context, args LookupResourceCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupResourceCollectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceCollectionResultOutput, error) {
-			args := v.(LookupResourceCollectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devopsguru:getResourceCollection", args, LookupResourceCollectionResultOutput{}, options).(LookupResourceCollectionResultOutput), nil
-		}).(LookupResourceCollectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devopsguru:getResourceCollection", args, LookupResourceCollectionResultOutput{}, options).(LookupResourceCollectionResultOutput)
 }
 
 type LookupResourceCollectionOutputArgs struct {

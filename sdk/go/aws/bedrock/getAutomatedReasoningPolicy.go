@@ -51,12 +51,8 @@ type LookupAutomatedReasoningPolicyResult struct {
 }
 
 func LookupAutomatedReasoningPolicyOutput(ctx *pulumi.Context, args LookupAutomatedReasoningPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAutomatedReasoningPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAutomatedReasoningPolicyResultOutput, error) {
-			args := v.(LookupAutomatedReasoningPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getAutomatedReasoningPolicy", args, LookupAutomatedReasoningPolicyResultOutput{}, options).(LookupAutomatedReasoningPolicyResultOutput), nil
-		}).(LookupAutomatedReasoningPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getAutomatedReasoningPolicy", args, LookupAutomatedReasoningPolicyResultOutput{}, options).(LookupAutomatedReasoningPolicyResultOutput)
 }
 
 type LookupAutomatedReasoningPolicyOutputArgs struct {

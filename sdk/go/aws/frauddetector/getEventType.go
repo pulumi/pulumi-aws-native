@@ -48,12 +48,8 @@ type LookupEventTypeResult struct {
 }
 
 func LookupEventTypeOutput(ctx *pulumi.Context, args LookupEventTypeOutputArgs, opts ...pulumi.InvokeOption) LookupEventTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventTypeResultOutput, error) {
-			args := v.(LookupEventTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:frauddetector:getEventType", args, LookupEventTypeResultOutput{}, options).(LookupEventTypeResultOutput), nil
-		}).(LookupEventTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:frauddetector:getEventType", args, LookupEventTypeResultOutput{}, options).(LookupEventTypeResultOutput)
 }
 
 type LookupEventTypeOutputArgs struct {

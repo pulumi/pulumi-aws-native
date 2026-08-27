@@ -48,12 +48,8 @@ type LookupVpceConfigurationResult struct {
 }
 
 func LookupVpceConfigurationOutput(ctx *pulumi.Context, args LookupVpceConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupVpceConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpceConfigurationResultOutput, error) {
-			args := v.(LookupVpceConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devicefarm:getVpceConfiguration", args, LookupVpceConfigurationResultOutput{}, options).(LookupVpceConfigurationResultOutput), nil
-		}).(LookupVpceConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devicefarm:getVpceConfiguration", args, LookupVpceConfigurationResultOutput{}, options).(LookupVpceConfigurationResultOutput)
 }
 
 type LookupVpceConfigurationOutputArgs struct {

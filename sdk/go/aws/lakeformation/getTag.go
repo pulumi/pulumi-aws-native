@@ -33,12 +33,8 @@ type LookupTagResult struct {
 }
 
 func LookupTagOutput(ctx *pulumi.Context, args LookupTagOutputArgs, opts ...pulumi.InvokeOption) LookupTagResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTagResultOutput, error) {
-			args := v.(LookupTagArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lakeformation:getTag", args, LookupTagResultOutput{}, options).(LookupTagResultOutput), nil
-		}).(LookupTagResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lakeformation:getTag", args, LookupTagResultOutput{}, options).(LookupTagResultOutput)
 }
 
 type LookupTagOutputArgs struct {

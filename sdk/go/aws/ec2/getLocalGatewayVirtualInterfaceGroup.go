@@ -44,12 +44,8 @@ type LookupLocalGatewayVirtualInterfaceGroupResult struct {
 }
 
 func LookupLocalGatewayVirtualInterfaceGroupOutput(ctx *pulumi.Context, args LookupLocalGatewayVirtualInterfaceGroupOutputArgs, opts ...pulumi.InvokeOption) LookupLocalGatewayVirtualInterfaceGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocalGatewayVirtualInterfaceGroupResultOutput, error) {
-			args := v.(LookupLocalGatewayVirtualInterfaceGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getLocalGatewayVirtualInterfaceGroup", args, LookupLocalGatewayVirtualInterfaceGroupResultOutput{}, options).(LookupLocalGatewayVirtualInterfaceGroupResultOutput), nil
-		}).(LookupLocalGatewayVirtualInterfaceGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getLocalGatewayVirtualInterfaceGroup", args, LookupLocalGatewayVirtualInterfaceGroupResultOutput{}, options).(LookupLocalGatewayVirtualInterfaceGroupResultOutput)
 }
 
 type LookupLocalGatewayVirtualInterfaceGroupOutputArgs struct {

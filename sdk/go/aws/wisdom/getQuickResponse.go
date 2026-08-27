@@ -61,12 +61,8 @@ type LookupQuickResponseResult struct {
 }
 
 func LookupQuickResponseOutput(ctx *pulumi.Context, args LookupQuickResponseOutputArgs, opts ...pulumi.InvokeOption) LookupQuickResponseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupQuickResponseResultOutput, error) {
-			args := v.(LookupQuickResponseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wisdom:getQuickResponse", args, LookupQuickResponseResultOutput{}, options).(LookupQuickResponseResultOutput), nil
-		}).(LookupQuickResponseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wisdom:getQuickResponse", args, LookupQuickResponseResultOutput{}, options).(LookupQuickResponseResultOutput)
 }
 
 type LookupQuickResponseOutputArgs struct {

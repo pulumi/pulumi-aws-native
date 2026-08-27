@@ -52,12 +52,8 @@ type LookupRetrieverResult struct {
 }
 
 func LookupRetrieverOutput(ctx *pulumi.Context, args LookupRetrieverOutputArgs, opts ...pulumi.InvokeOption) LookupRetrieverResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRetrieverResultOutput, error) {
-			args := v.(LookupRetrieverArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:qbusiness:getRetriever", args, LookupRetrieverResultOutput{}, options).(LookupRetrieverResultOutput), nil
-		}).(LookupRetrieverResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:qbusiness:getRetriever", args, LookupRetrieverResultOutput{}, options).(LookupRetrieverResultOutput)
 }
 
 type LookupRetrieverOutputArgs struct {

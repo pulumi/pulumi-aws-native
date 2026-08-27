@@ -38,12 +38,8 @@ type LookupLimitsProfileResult struct {
 }
 
 func LookupLimitsProfileOutput(ctx *pulumi.Context, args LookupLimitsProfileOutputArgs, opts ...pulumi.InvokeOption) LookupLimitsProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLimitsProfileResultOutput, error) {
-			args := v.(LookupLimitsProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getLimitsProfile", args, LookupLimitsProfileResultOutput{}, options).(LookupLimitsProfileResultOutput), nil
-		}).(LookupLimitsProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getLimitsProfile", args, LookupLimitsProfileResultOutput{}, options).(LookupLimitsProfileResultOutput)
 }
 
 type LookupLimitsProfileOutputArgs struct {

@@ -40,12 +40,8 @@ type LookupUserProfileResult struct {
 }
 
 func LookupUserProfileOutput(ctx *pulumi.Context, args LookupUserProfileOutputArgs, opts ...pulumi.InvokeOption) LookupUserProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserProfileResultOutput, error) {
-			args := v.(LookupUserProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getUserProfile", args, LookupUserProfileResultOutput{}, options).(LookupUserProfileResultOutput), nil
-		}).(LookupUserProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getUserProfile", args, LookupUserProfileResultOutput{}, options).(LookupUserProfileResultOutput)
 }
 
 type LookupUserProfileOutputArgs struct {

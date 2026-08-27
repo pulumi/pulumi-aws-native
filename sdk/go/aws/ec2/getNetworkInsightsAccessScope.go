@@ -42,12 +42,8 @@ type LookupNetworkInsightsAccessScopeResult struct {
 }
 
 func LookupNetworkInsightsAccessScopeOutput(ctx *pulumi.Context, args LookupNetworkInsightsAccessScopeOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsAccessScopeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInsightsAccessScopeResultOutput, error) {
-			args := v.(LookupNetworkInsightsAccessScopeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getNetworkInsightsAccessScope", args, LookupNetworkInsightsAccessScopeResultOutput{}, options).(LookupNetworkInsightsAccessScopeResultOutput), nil
-		}).(LookupNetworkInsightsAccessScopeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getNetworkInsightsAccessScope", args, LookupNetworkInsightsAccessScopeResultOutput{}, options).(LookupNetworkInsightsAccessScopeResultOutput)
 }
 
 type LookupNetworkInsightsAccessScopeOutputArgs struct {

@@ -56,12 +56,8 @@ type LookupServiceLevelObjectiveResult struct {
 }
 
 func LookupServiceLevelObjectiveOutput(ctx *pulumi.Context, args LookupServiceLevelObjectiveOutputArgs, opts ...pulumi.InvokeOption) LookupServiceLevelObjectiveResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceLevelObjectiveResultOutput, error) {
-			args := v.(LookupServiceLevelObjectiveArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:applicationsignals:getServiceLevelObjective", args, LookupServiceLevelObjectiveResultOutput{}, options).(LookupServiceLevelObjectiveResultOutput), nil
-		}).(LookupServiceLevelObjectiveResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:applicationsignals:getServiceLevelObjective", args, LookupServiceLevelObjectiveResultOutput{}, options).(LookupServiceLevelObjectiveResultOutput)
 }
 
 type LookupServiceLevelObjectiveOutputArgs struct {

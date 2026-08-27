@@ -33,12 +33,8 @@ type LookupIpPoolRouteTableAssociationResult struct {
 }
 
 func LookupIpPoolRouteTableAssociationOutput(ctx *pulumi.Context, args LookupIpPoolRouteTableAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupIpPoolRouteTableAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpPoolRouteTableAssociationResultOutput, error) {
-			args := v.(LookupIpPoolRouteTableAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getIpPoolRouteTableAssociation", args, LookupIpPoolRouteTableAssociationResultOutput{}, options).(LookupIpPoolRouteTableAssociationResultOutput), nil
-		}).(LookupIpPoolRouteTableAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getIpPoolRouteTableAssociation", args, LookupIpPoolRouteTableAssociationResultOutput{}, options).(LookupIpPoolRouteTableAssociationResultOutput)
 }
 
 type LookupIpPoolRouteTableAssociationOutputArgs struct {

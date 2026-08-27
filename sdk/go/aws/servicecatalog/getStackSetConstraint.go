@@ -45,12 +45,8 @@ type LookupStackSetConstraintResult struct {
 }
 
 func LookupStackSetConstraintOutput(ctx *pulumi.Context, args LookupStackSetConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupStackSetConstraintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStackSetConstraintResultOutput, error) {
-			args := v.(LookupStackSetConstraintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getStackSetConstraint", args, LookupStackSetConstraintResultOutput{}, options).(LookupStackSetConstraintResultOutput), nil
-		}).(LookupStackSetConstraintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getStackSetConstraint", args, LookupStackSetConstraintResultOutput{}, options).(LookupStackSetConstraintResultOutput)
 }
 
 type LookupStackSetConstraintOutputArgs struct {

@@ -55,12 +55,8 @@ type LookupLocationAzureBlobResult struct {
 }
 
 func LookupLocationAzureBlobOutput(ctx *pulumi.Context, args LookupLocationAzureBlobOutputArgs, opts ...pulumi.InvokeOption) LookupLocationAzureBlobResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocationAzureBlobResultOutput, error) {
-			args := v.(LookupLocationAzureBlobArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datasync:getLocationAzureBlob", args, LookupLocationAzureBlobResultOutput{}, options).(LookupLocationAzureBlobResultOutput), nil
-		}).(LookupLocationAzureBlobResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datasync:getLocationAzureBlob", args, LookupLocationAzureBlobResultOutput{}, options).(LookupLocationAzureBlobResultOutput)
 }
 
 type LookupLocationAzureBlobOutputArgs struct {

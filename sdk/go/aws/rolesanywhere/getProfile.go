@@ -54,12 +54,8 @@ type LookupProfileResult struct {
 }
 
 func LookupProfileOutput(ctx *pulumi.Context, args LookupProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProfileResultOutput, error) {
-			args := v.(LookupProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rolesanywhere:getProfile", args, LookupProfileResultOutput{}, options).(LookupProfileResultOutput), nil
-		}).(LookupProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rolesanywhere:getProfile", args, LookupProfileResultOutput{}, options).(LookupProfileResultOutput)
 }
 
 type LookupProfileOutputArgs struct {

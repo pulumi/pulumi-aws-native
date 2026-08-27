@@ -62,12 +62,8 @@ type LookupOpsItemResult struct {
 }
 
 func LookupOpsItemOutput(ctx *pulumi.Context, args LookupOpsItemOutputArgs, opts ...pulumi.InvokeOption) LookupOpsItemResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOpsItemResultOutput, error) {
-			args := v.(LookupOpsItemArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssm:getOpsItem", args, LookupOpsItemResultOutput{}, options).(LookupOpsItemResultOutput), nil
-		}).(LookupOpsItemResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssm:getOpsItem", args, LookupOpsItemResultOutput{}, options).(LookupOpsItemResultOutput)
 }
 
 type LookupOpsItemOutputArgs struct {

@@ -44,12 +44,8 @@ type LookupIngestConfigurationResult struct {
 }
 
 func LookupIngestConfigurationOutput(ctx *pulumi.Context, args LookupIngestConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupIngestConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIngestConfigurationResultOutput, error) {
-			args := v.(LookupIngestConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ivs:getIngestConfiguration", args, LookupIngestConfigurationResultOutput{}, options).(LookupIngestConfigurationResultOutput), nil
-		}).(LookupIngestConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ivs:getIngestConfiguration", args, LookupIngestConfigurationResultOutput{}, options).(LookupIngestConfigurationResultOutput)
 }
 
 type LookupIngestConfigurationOutputArgs struct {

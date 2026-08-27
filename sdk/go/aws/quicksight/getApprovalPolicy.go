@@ -45,12 +45,8 @@ type LookupApprovalPolicyResult struct {
 }
 
 func LookupApprovalPolicyOutput(ctx *pulumi.Context, args LookupApprovalPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupApprovalPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApprovalPolicyResultOutput, error) {
-			args := v.(LookupApprovalPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getApprovalPolicy", args, LookupApprovalPolicyResultOutput{}, options).(LookupApprovalPolicyResultOutput), nil
-		}).(LookupApprovalPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getApprovalPolicy", args, LookupApprovalPolicyResultOutput{}, options).(LookupApprovalPolicyResultOutput)
 }
 
 type LookupApprovalPolicyOutputArgs struct {

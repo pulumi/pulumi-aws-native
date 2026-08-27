@@ -41,12 +41,8 @@ type LookupIdentityPoolRoleAttachmentResult struct {
 }
 
 func LookupIdentityPoolRoleAttachmentOutput(ctx *pulumi.Context, args LookupIdentityPoolRoleAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupIdentityPoolRoleAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIdentityPoolRoleAttachmentResultOutput, error) {
-			args := v.(LookupIdentityPoolRoleAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getIdentityPoolRoleAttachment", args, LookupIdentityPoolRoleAttachmentResultOutput{}, options).(LookupIdentityPoolRoleAttachmentResultOutput), nil
-		}).(LookupIdentityPoolRoleAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getIdentityPoolRoleAttachment", args, LookupIdentityPoolRoleAttachmentResultOutput{}, options).(LookupIdentityPoolRoleAttachmentResultOutput)
 }
 
 type LookupIdentityPoolRoleAttachmentOutputArgs struct {

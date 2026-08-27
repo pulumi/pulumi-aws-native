@@ -54,12 +54,8 @@ type LookupBillScenarioResult struct {
 }
 
 func LookupBillScenarioOutput(ctx *pulumi.Context, args LookupBillScenarioOutputArgs, opts ...pulumi.InvokeOption) LookupBillScenarioResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBillScenarioResultOutput, error) {
-			args := v.(LookupBillScenarioArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bcmpricingcalculator:getBillScenario", args, LookupBillScenarioResultOutput{}, options).(LookupBillScenarioResultOutput), nil
-		}).(LookupBillScenarioResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bcmpricingcalculator:getBillScenario", args, LookupBillScenarioResultOutput{}, options).(LookupBillScenarioResultOutput)
 }
 
 type LookupBillScenarioOutputArgs struct {

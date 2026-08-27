@@ -33,12 +33,8 @@ type LookupServerlessClusterResult struct {
 }
 
 func LookupServerlessClusterOutput(ctx *pulumi.Context, args LookupServerlessClusterOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServerlessClusterResultOutput, error) {
-			args := v.(LookupServerlessClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:msk:getServerlessCluster", args, LookupServerlessClusterResultOutput{}, options).(LookupServerlessClusterResultOutput), nil
-		}).(LookupServerlessClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:msk:getServerlessCluster", args, LookupServerlessClusterResultOutput{}, options).(LookupServerlessClusterResultOutput)
 }
 
 type LookupServerlessClusterOutputArgs struct {

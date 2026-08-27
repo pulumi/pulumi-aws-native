@@ -47,12 +47,8 @@ type LookupMailManagerArchiveResult struct {
 }
 
 func LookupMailManagerArchiveOutput(ctx *pulumi.Context, args LookupMailManagerArchiveOutputArgs, opts ...pulumi.InvokeOption) LookupMailManagerArchiveResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMailManagerArchiveResultOutput, error) {
-			args := v.(LookupMailManagerArchiveArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getMailManagerArchive", args, LookupMailManagerArchiveResultOutput{}, options).(LookupMailManagerArchiveResultOutput), nil
-		}).(LookupMailManagerArchiveResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getMailManagerArchive", args, LookupMailManagerArchiveResultOutput{}, options).(LookupMailManagerArchiveResultOutput)
 }
 
 type LookupMailManagerArchiveOutputArgs struct {

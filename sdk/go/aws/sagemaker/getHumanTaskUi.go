@@ -38,12 +38,8 @@ type LookupHumanTaskUiResult struct {
 }
 
 func LookupHumanTaskUiOutput(ctx *pulumi.Context, args LookupHumanTaskUiOutputArgs, opts ...pulumi.InvokeOption) LookupHumanTaskUiResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHumanTaskUiResultOutput, error) {
-			args := v.(LookupHumanTaskUiArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getHumanTaskUi", args, LookupHumanTaskUiResultOutput{}, options).(LookupHumanTaskUiResultOutput), nil
-		}).(LookupHumanTaskUiResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getHumanTaskUi", args, LookupHumanTaskUiResultOutput{}, options).(LookupHumanTaskUiResultOutput)
 }
 
 type LookupHumanTaskUiOutputArgs struct {

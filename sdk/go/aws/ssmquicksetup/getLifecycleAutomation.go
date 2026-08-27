@@ -39,12 +39,8 @@ type LookupLifecycleAutomationResult struct {
 }
 
 func LookupLifecycleAutomationOutput(ctx *pulumi.Context, args LookupLifecycleAutomationOutputArgs, opts ...pulumi.InvokeOption) LookupLifecycleAutomationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLifecycleAutomationResultOutput, error) {
-			args := v.(LookupLifecycleAutomationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssmquicksetup:getLifecycleAutomation", args, LookupLifecycleAutomationResultOutput{}, options).(LookupLifecycleAutomationResultOutput), nil
-		}).(LookupLifecycleAutomationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssmquicksetup:getLifecycleAutomation", args, LookupLifecycleAutomationResultOutput{}, options).(LookupLifecycleAutomationResultOutput)
 }
 
 type LookupLifecycleAutomationOutputArgs struct {

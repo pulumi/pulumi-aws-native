@@ -66,12 +66,8 @@ type LookupUserSettingsResult struct {
 }
 
 func LookupUserSettingsOutput(ctx *pulumi.Context, args LookupUserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupUserSettingsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserSettingsResultOutput, error) {
-			args := v.(LookupUserSettingsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:workspacesweb:getUserSettings", args, LookupUserSettingsResultOutput{}, options).(LookupUserSettingsResultOutput), nil
-		}).(LookupUserSettingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:workspacesweb:getUserSettings", args, LookupUserSettingsResultOutput{}, options).(LookupUserSettingsResultOutput)
 }
 
 type LookupUserSettingsOutputArgs struct {

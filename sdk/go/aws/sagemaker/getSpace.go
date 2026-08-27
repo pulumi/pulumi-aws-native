@@ -48,12 +48,8 @@ type LookupSpaceResult struct {
 }
 
 func LookupSpaceOutput(ctx *pulumi.Context, args LookupSpaceOutputArgs, opts ...pulumi.InvokeOption) LookupSpaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSpaceResultOutput, error) {
-			args := v.(LookupSpaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getSpace", args, LookupSpaceResultOutput{}, options).(LookupSpaceResultOutput), nil
-		}).(LookupSpaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getSpace", args, LookupSpaceResultOutput{}, options).(LookupSpaceResultOutput)
 }
 
 type LookupSpaceOutputArgs struct {

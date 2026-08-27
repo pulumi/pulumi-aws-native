@@ -37,12 +37,8 @@ type LookupVpcEndpointConnectionNotificationResult struct {
 }
 
 func LookupVpcEndpointConnectionNotificationOutput(ctx *pulumi.Context, args LookupVpcEndpointConnectionNotificationOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointConnectionNotificationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcEndpointConnectionNotificationResultOutput, error) {
-			args := v.(LookupVpcEndpointConnectionNotificationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpcEndpointConnectionNotification", args, LookupVpcEndpointConnectionNotificationResultOutput{}, options).(LookupVpcEndpointConnectionNotificationResultOutput), nil
-		}).(LookupVpcEndpointConnectionNotificationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpcEndpointConnectionNotification", args, LookupVpcEndpointConnectionNotificationResultOutput{}, options).(LookupVpcEndpointConnectionNotificationResultOutput)
 }
 
 type LookupVpcEndpointConnectionNotificationOutputArgs struct {

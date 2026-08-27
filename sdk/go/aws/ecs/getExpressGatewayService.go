@@ -43,12 +43,8 @@ type LookupExpressGatewayServiceResult struct {
 }
 
 func LookupExpressGatewayServiceOutput(ctx *pulumi.Context, args LookupExpressGatewayServiceOutputArgs, opts ...pulumi.InvokeOption) LookupExpressGatewayServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupExpressGatewayServiceResultOutput, error) {
-			args := v.(LookupExpressGatewayServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecs:getExpressGatewayService", args, LookupExpressGatewayServiceResultOutput{}, options).(LookupExpressGatewayServiceResultOutput), nil
-		}).(LookupExpressGatewayServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecs:getExpressGatewayService", args, LookupExpressGatewayServiceResultOutput{}, options).(LookupExpressGatewayServiceResultOutput)
 }
 
 type LookupExpressGatewayServiceOutputArgs struct {

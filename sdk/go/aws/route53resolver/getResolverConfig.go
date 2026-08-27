@@ -37,12 +37,8 @@ type LookupResolverConfigResult struct {
 }
 
 func LookupResolverConfigOutput(ctx *pulumi.Context, args LookupResolverConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverConfigResultOutput, error) {
-			args := v.(LookupResolverConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53resolver:getResolverConfig", args, LookupResolverConfigResultOutput{}, options).(LookupResolverConfigResultOutput), nil
-		}).(LookupResolverConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53resolver:getResolverConfig", args, LookupResolverConfigResultOutput{}, options).(LookupResolverConfigResultOutput)
 }
 
 type LookupResolverConfigOutputArgs struct {

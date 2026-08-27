@@ -44,12 +44,8 @@ type LookupExtensionAssociationResult struct {
 }
 
 func LookupExtensionAssociationOutput(ctx *pulumi.Context, args LookupExtensionAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupExtensionAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupExtensionAssociationResultOutput, error) {
-			args := v.(LookupExtensionAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appconfig:getExtensionAssociation", args, LookupExtensionAssociationResultOutput{}, options).(LookupExtensionAssociationResultOutput), nil
-		}).(LookupExtensionAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appconfig:getExtensionAssociation", args, LookupExtensionAssociationResultOutput{}, options).(LookupExtensionAssociationResultOutput)
 }
 
 type LookupExtensionAssociationOutputArgs struct {

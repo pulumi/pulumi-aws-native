@@ -52,12 +52,8 @@ type LookupKeyPairResult struct {
 }
 
 func LookupKeyPairOutput(ctx *pulumi.Context, args LookupKeyPairOutputArgs, opts ...pulumi.InvokeOption) LookupKeyPairResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKeyPairResultOutput, error) {
-			args := v.(LookupKeyPairArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getKeyPair", args, LookupKeyPairResultOutput{}, options).(LookupKeyPairResultOutput), nil
-		}).(LookupKeyPairResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getKeyPair", args, LookupKeyPairResultOutput{}, options).(LookupKeyPairResultOutput)
 }
 
 type LookupKeyPairOutputArgs struct {

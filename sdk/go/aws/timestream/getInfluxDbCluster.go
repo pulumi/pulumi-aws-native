@@ -62,12 +62,8 @@ type LookupInfluxDbClusterResult struct {
 }
 
 func LookupInfluxDbClusterOutput(ctx *pulumi.Context, args LookupInfluxDbClusterOutputArgs, opts ...pulumi.InvokeOption) LookupInfluxDbClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInfluxDbClusterResultOutput, error) {
-			args := v.(LookupInfluxDbClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:timestream:getInfluxDbCluster", args, LookupInfluxDbClusterResultOutput{}, options).(LookupInfluxDbClusterResultOutput), nil
-		}).(LookupInfluxDbClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:timestream:getInfluxDbCluster", args, LookupInfluxDbClusterResultOutput{}, options).(LookupInfluxDbClusterResultOutput)
 }
 
 type LookupInfluxDbClusterOutputArgs struct {

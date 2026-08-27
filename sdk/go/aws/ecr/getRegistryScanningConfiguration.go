@@ -37,12 +37,8 @@ type LookupRegistryScanningConfigurationResult struct {
 }
 
 func LookupRegistryScanningConfigurationOutput(ctx *pulumi.Context, args LookupRegistryScanningConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryScanningConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRegistryScanningConfigurationResultOutput, error) {
-			args := v.(LookupRegistryScanningConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecr:getRegistryScanningConfiguration", args, LookupRegistryScanningConfigurationResultOutput{}, options).(LookupRegistryScanningConfigurationResultOutput), nil
-		}).(LookupRegistryScanningConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecr:getRegistryScanningConfiguration", args, LookupRegistryScanningConfigurationResultOutput{}, options).(LookupRegistryScanningConfigurationResultOutput)
 }
 
 type LookupRegistryScanningConfigurationOutputArgs struct {

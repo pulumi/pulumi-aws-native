@@ -64,12 +64,8 @@ type LookupDirectConnectGatewayAttachmentResult struct {
 }
 
 func LookupDirectConnectGatewayAttachmentOutput(ctx *pulumi.Context, args LookupDirectConnectGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupDirectConnectGatewayAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDirectConnectGatewayAttachmentResultOutput, error) {
-			args := v.(LookupDirectConnectGatewayAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:networkmanager:getDirectConnectGatewayAttachment", args, LookupDirectConnectGatewayAttachmentResultOutput{}, options).(LookupDirectConnectGatewayAttachmentResultOutput), nil
-		}).(LookupDirectConnectGatewayAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:networkmanager:getDirectConnectGatewayAttachment", args, LookupDirectConnectGatewayAttachmentResultOutput{}, options).(LookupDirectConnectGatewayAttachmentResultOutput)
 }
 
 type LookupDirectConnectGatewayAttachmentOutputArgs struct {

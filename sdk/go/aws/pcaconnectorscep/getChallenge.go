@@ -34,12 +34,8 @@ type LookupChallengeResult struct {
 }
 
 func LookupChallengeOutput(ctx *pulumi.Context, args LookupChallengeOutputArgs, opts ...pulumi.InvokeOption) LookupChallengeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupChallengeResultOutput, error) {
-			args := v.(LookupChallengeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:pcaconnectorscep:getChallenge", args, LookupChallengeResultOutput{}, options).(LookupChallengeResultOutput), nil
-		}).(LookupChallengeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:pcaconnectorscep:getChallenge", args, LookupChallengeResultOutput{}, options).(LookupChallengeResultOutput)
 }
 
 type LookupChallengeOutputArgs struct {

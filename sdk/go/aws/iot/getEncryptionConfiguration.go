@@ -42,12 +42,8 @@ type LookupEncryptionConfigurationResult struct {
 }
 
 func LookupEncryptionConfigurationOutput(ctx *pulumi.Context, args LookupEncryptionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupEncryptionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEncryptionConfigurationResultOutput, error) {
-			args := v.(LookupEncryptionConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getEncryptionConfiguration", args, LookupEncryptionConfigurationResultOutput{}, options).(LookupEncryptionConfigurationResultOutput), nil
-		}).(LookupEncryptionConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getEncryptionConfiguration", args, LookupEncryptionConfigurationResultOutput{}, options).(LookupEncryptionConfigurationResultOutput)
 }
 
 type LookupEncryptionConfigurationOutputArgs struct {

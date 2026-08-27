@@ -40,12 +40,8 @@ type LookupCellResult struct {
 }
 
 func LookupCellOutput(ctx *pulumi.Context, args LookupCellOutputArgs, opts ...pulumi.InvokeOption) LookupCellResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCellResultOutput, error) {
-			args := v.(LookupCellArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53recoveryreadiness:getCell", args, LookupCellResultOutput{}, options).(LookupCellResultOutput), nil
-		}).(LookupCellResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53recoveryreadiness:getCell", args, LookupCellResultOutput{}, options).(LookupCellResultOutput)
 }
 
 type LookupCellOutputArgs struct {

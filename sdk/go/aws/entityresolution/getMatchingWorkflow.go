@@ -51,12 +51,8 @@ type LookupMatchingWorkflowResult struct {
 }
 
 func LookupMatchingWorkflowOutput(ctx *pulumi.Context, args LookupMatchingWorkflowOutputArgs, opts ...pulumi.InvokeOption) LookupMatchingWorkflowResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMatchingWorkflowResultOutput, error) {
-			args := v.(LookupMatchingWorkflowArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:entityresolution:getMatchingWorkflow", args, LookupMatchingWorkflowResultOutput{}, options).(LookupMatchingWorkflowResultOutput), nil
-		}).(LookupMatchingWorkflowResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:entityresolution:getMatchingWorkflow", args, LookupMatchingWorkflowResultOutput{}, options).(LookupMatchingWorkflowResultOutput)
 }
 
 type LookupMatchingWorkflowOutputArgs struct {

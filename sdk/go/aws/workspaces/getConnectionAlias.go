@@ -37,12 +37,8 @@ type LookupConnectionAliasResult struct {
 }
 
 func LookupConnectionAliasOutput(ctx *pulumi.Context, args LookupConnectionAliasOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionAliasResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectionAliasResultOutput, error) {
-			args := v.(LookupConnectionAliasArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:workspaces:getConnectionAlias", args, LookupConnectionAliasResultOutput{}, options).(LookupConnectionAliasResultOutput), nil
-		}).(LookupConnectionAliasResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:workspaces:getConnectionAlias", args, LookupConnectionAliasResultOutput{}, options).(LookupConnectionAliasResultOutput)
 }
 
 type LookupConnectionAliasOutputArgs struct {

@@ -48,12 +48,8 @@ type LookupTrustStoreResult struct {
 }
 
 func LookupTrustStoreOutput(ctx *pulumi.Context, args LookupTrustStoreOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrustStoreResultOutput, error) {
-			args := v.(LookupTrustStoreArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getTrustStore", args, LookupTrustStoreResultOutput{}, options).(LookupTrustStoreResultOutput), nil
-		}).(LookupTrustStoreResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getTrustStore", args, LookupTrustStoreResultOutput{}, options).(LookupTrustStoreResultOutput)
 }
 
 type LookupTrustStoreOutputArgs struct {

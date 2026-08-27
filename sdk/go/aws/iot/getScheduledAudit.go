@@ -44,12 +44,8 @@ type LookupScheduledAuditResult struct {
 }
 
 func LookupScheduledAuditOutput(ctx *pulumi.Context, args LookupScheduledAuditOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledAuditResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupScheduledAuditResultOutput, error) {
-			args := v.(LookupScheduledAuditArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getScheduledAudit", args, LookupScheduledAuditResultOutput{}, options).(LookupScheduledAuditResultOutput), nil
-		}).(LookupScheduledAuditResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getScheduledAudit", args, LookupScheduledAuditResultOutput{}, options).(LookupScheduledAuditResultOutput)
 }
 
 type LookupScheduledAuditOutputArgs struct {

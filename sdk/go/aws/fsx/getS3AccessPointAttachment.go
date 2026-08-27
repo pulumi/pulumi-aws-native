@@ -33,12 +33,8 @@ type LookupS3AccessPointAttachmentResult struct {
 }
 
 func LookupS3AccessPointAttachmentOutput(ctx *pulumi.Context, args LookupS3AccessPointAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupS3AccessPointAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupS3AccessPointAttachmentResultOutput, error) {
-			args := v.(LookupS3AccessPointAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:fsx:getS3AccessPointAttachment", args, LookupS3AccessPointAttachmentResultOutput{}, options).(LookupS3AccessPointAttachmentResultOutput), nil
-		}).(LookupS3AccessPointAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:fsx:getS3AccessPointAttachment", args, LookupS3AccessPointAttachmentResultOutput{}, options).(LookupS3AccessPointAttachmentResultOutput)
 }
 
 type LookupS3AccessPointAttachmentOutputArgs struct {

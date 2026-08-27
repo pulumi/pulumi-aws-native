@@ -39,12 +39,8 @@ type LookupAssistantAssociationResult struct {
 }
 
 func LookupAssistantAssociationOutput(ctx *pulumi.Context, args LookupAssistantAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAssistantAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAssistantAssociationResultOutput, error) {
-			args := v.(LookupAssistantAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wisdom:getAssistantAssociation", args, LookupAssistantAssociationResultOutput{}, options).(LookupAssistantAssociationResultOutput), nil
-		}).(LookupAssistantAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wisdom:getAssistantAssociation", args, LookupAssistantAssociationResultOutput{}, options).(LookupAssistantAssociationResultOutput)
 }
 
 type LookupAssistantAssociationOutputArgs struct {

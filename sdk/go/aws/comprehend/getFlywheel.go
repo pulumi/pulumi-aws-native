@@ -42,12 +42,8 @@ type LookupFlywheelResult struct {
 }
 
 func LookupFlywheelOutput(ctx *pulumi.Context, args LookupFlywheelOutputArgs, opts ...pulumi.InvokeOption) LookupFlywheelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlywheelResultOutput, error) {
-			args := v.(LookupFlywheelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:comprehend:getFlywheel", args, LookupFlywheelResultOutput{}, options).(LookupFlywheelResultOutput), nil
-		}).(LookupFlywheelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:comprehend:getFlywheel", args, LookupFlywheelResultOutput{}, options).(LookupFlywheelResultOutput)
 }
 
 type LookupFlywheelOutputArgs struct {

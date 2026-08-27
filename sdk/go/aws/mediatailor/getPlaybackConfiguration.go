@@ -79,12 +79,8 @@ type LookupPlaybackConfigurationResult struct {
 }
 
 func LookupPlaybackConfigurationOutput(ctx *pulumi.Context, args LookupPlaybackConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupPlaybackConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPlaybackConfigurationResultOutput, error) {
-			args := v.(LookupPlaybackConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediatailor:getPlaybackConfiguration", args, LookupPlaybackConfigurationResultOutput{}, options).(LookupPlaybackConfigurationResultOutput), nil
-		}).(LookupPlaybackConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediatailor:getPlaybackConfiguration", args, LookupPlaybackConfigurationResultOutput{}, options).(LookupPlaybackConfigurationResultOutput)
 }
 
 type LookupPlaybackConfigurationOutputArgs struct {

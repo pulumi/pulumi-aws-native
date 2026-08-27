@@ -45,12 +45,8 @@ type LookupPolicyGrantResult struct {
 }
 
 func LookupPolicyGrantOutput(ctx *pulumi.Context, args LookupPolicyGrantOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyGrantResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPolicyGrantResultOutput, error) {
-			args := v.(LookupPolicyGrantArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datazone:getPolicyGrant", args, LookupPolicyGrantResultOutput{}, options).(LookupPolicyGrantResultOutput), nil
-		}).(LookupPolicyGrantResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datazone:getPolicyGrant", args, LookupPolicyGrantResultOutput{}, options).(LookupPolicyGrantResultOutput)
 }
 
 type LookupPolicyGrantOutputArgs struct {

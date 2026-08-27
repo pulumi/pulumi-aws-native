@@ -37,12 +37,8 @@ type LookupExportResult struct {
 }
 
 func LookupExportOutput(ctx *pulumi.Context, args LookupExportOutputArgs, opts ...pulumi.InvokeOption) LookupExportResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupExportResultOutput, error) {
-			args := v.(LookupExportArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bcmdataexports:getExport", args, LookupExportResultOutput{}, options).(LookupExportResultOutput), nil
-		}).(LookupExportResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bcmdataexports:getExport", args, LookupExportResultOutput{}, options).(LookupExportResultOutput)
 }
 
 type LookupExportOutputArgs struct {

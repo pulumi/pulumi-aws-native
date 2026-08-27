@@ -35,12 +35,8 @@ type LookupResourceSpecificLoggingResult struct {
 }
 
 func LookupResourceSpecificLoggingOutput(ctx *pulumi.Context, args LookupResourceSpecificLoggingOutputArgs, opts ...pulumi.InvokeOption) LookupResourceSpecificLoggingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceSpecificLoggingResultOutput, error) {
-			args := v.(LookupResourceSpecificLoggingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getResourceSpecificLogging", args, LookupResourceSpecificLoggingResultOutput{}, options).(LookupResourceSpecificLoggingResultOutput), nil
-		}).(LookupResourceSpecificLoggingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getResourceSpecificLogging", args, LookupResourceSpecificLoggingResultOutput{}, options).(LookupResourceSpecificLoggingResultOutput)
 }
 
 type LookupResourceSpecificLoggingOutputArgs struct {

@@ -39,12 +39,8 @@ type LookupCustomPluginResult struct {
 }
 
 func LookupCustomPluginOutput(ctx *pulumi.Context, args LookupCustomPluginOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPluginResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomPluginResultOutput, error) {
-			args := v.(LookupCustomPluginArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:kafkaconnect:getCustomPlugin", args, LookupCustomPluginResultOutput{}, options).(LookupCustomPluginResultOutput), nil
-		}).(LookupCustomPluginResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:kafkaconnect:getCustomPlugin", args, LookupCustomPluginResultOutput{}, options).(LookupCustomPluginResultOutput)
 }
 
 type LookupCustomPluginOutputArgs struct {

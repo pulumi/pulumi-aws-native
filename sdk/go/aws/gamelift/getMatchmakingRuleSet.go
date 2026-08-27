@@ -38,12 +38,8 @@ type LookupMatchmakingRuleSetResult struct {
 }
 
 func LookupMatchmakingRuleSetOutput(ctx *pulumi.Context, args LookupMatchmakingRuleSetOutputArgs, opts ...pulumi.InvokeOption) LookupMatchmakingRuleSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMatchmakingRuleSetResultOutput, error) {
-			args := v.(LookupMatchmakingRuleSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:gamelift:getMatchmakingRuleSet", args, LookupMatchmakingRuleSetResultOutput{}, options).(LookupMatchmakingRuleSetResultOutput), nil
-		}).(LookupMatchmakingRuleSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:gamelift:getMatchmakingRuleSet", args, LookupMatchmakingRuleSetResultOutput{}, options).(LookupMatchmakingRuleSetResultOutput)
 }
 
 type LookupMatchmakingRuleSetOutputArgs struct {

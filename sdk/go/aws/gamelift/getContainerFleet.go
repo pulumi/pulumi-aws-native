@@ -74,12 +74,8 @@ type LookupContainerFleetResult struct {
 }
 
 func LookupContainerFleetOutput(ctx *pulumi.Context, args LookupContainerFleetOutputArgs, opts ...pulumi.InvokeOption) LookupContainerFleetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContainerFleetResultOutput, error) {
-			args := v.(LookupContainerFleetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:gamelift:getContainerFleet", args, LookupContainerFleetResultOutput{}, options).(LookupContainerFleetResultOutput), nil
-		}).(LookupContainerFleetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:gamelift:getContainerFleet", args, LookupContainerFleetResultOutput{}, options).(LookupContainerFleetResultOutput)
 }
 
 type LookupContainerFleetOutputArgs struct {

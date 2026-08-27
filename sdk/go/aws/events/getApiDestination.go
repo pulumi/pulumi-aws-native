@@ -45,12 +45,8 @@ type LookupApiDestinationResult struct {
 }
 
 func LookupApiDestinationOutput(ctx *pulumi.Context, args LookupApiDestinationOutputArgs, opts ...pulumi.InvokeOption) LookupApiDestinationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApiDestinationResultOutput, error) {
-			args := v.(LookupApiDestinationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:events:getApiDestination", args, LookupApiDestinationResultOutput{}, options).(LookupApiDestinationResultOutput), nil
-		}).(LookupApiDestinationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:events:getApiDestination", args, LookupApiDestinationResultOutput{}, options).(LookupApiDestinationResultOutput)
 }
 
 type LookupApiDestinationOutputArgs struct {

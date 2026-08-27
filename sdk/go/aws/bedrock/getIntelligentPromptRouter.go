@@ -44,12 +44,8 @@ type LookupIntelligentPromptRouterResult struct {
 }
 
 func LookupIntelligentPromptRouterOutput(ctx *pulumi.Context, args LookupIntelligentPromptRouterOutputArgs, opts ...pulumi.InvokeOption) LookupIntelligentPromptRouterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIntelligentPromptRouterResultOutput, error) {
-			args := v.(LookupIntelligentPromptRouterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getIntelligentPromptRouter", args, LookupIntelligentPromptRouterResultOutput{}, options).(LookupIntelligentPromptRouterResultOutput), nil
-		}).(LookupIntelligentPromptRouterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getIntelligentPromptRouter", args, LookupIntelligentPromptRouterResultOutput{}, options).(LookupIntelligentPromptRouterResultOutput)
 }
 
 type LookupIntelligentPromptRouterOutputArgs struct {

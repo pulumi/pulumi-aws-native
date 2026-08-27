@@ -42,12 +42,8 @@ type LookupSessionResult struct {
 }
 
 func LookupSessionOutput(ctx *pulumi.Context, args LookupSessionOutputArgs, opts ...pulumi.InvokeOption) LookupSessionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSessionResultOutput, error) {
-			args := v.(LookupSessionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getSession", args, LookupSessionResultOutput{}, options).(LookupSessionResultOutput), nil
-		}).(LookupSessionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getSession", args, LookupSessionResultOutput{}, options).(LookupSessionResultOutput)
 }
 
 type LookupSessionOutputArgs struct {

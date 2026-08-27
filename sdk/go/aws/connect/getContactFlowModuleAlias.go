@@ -41,12 +41,8 @@ type LookupContactFlowModuleAliasResult struct {
 }
 
 func LookupContactFlowModuleAliasOutput(ctx *pulumi.Context, args LookupContactFlowModuleAliasOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowModuleAliasResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContactFlowModuleAliasResultOutput, error) {
-			args := v.(LookupContactFlowModuleAliasArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getContactFlowModuleAlias", args, LookupContactFlowModuleAliasResultOutput{}, options).(LookupContactFlowModuleAliasResultOutput), nil
-		}).(LookupContactFlowModuleAliasResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getContactFlowModuleAlias", args, LookupContactFlowModuleAliasResultOutput{}, options).(LookupContactFlowModuleAliasResultOutput)
 }
 
 type LookupContactFlowModuleAliasOutputArgs struct {

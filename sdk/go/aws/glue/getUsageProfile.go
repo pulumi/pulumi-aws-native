@@ -40,12 +40,8 @@ type LookupUsageProfileResult struct {
 }
 
 func LookupUsageProfileOutput(ctx *pulumi.Context, args LookupUsageProfileOutputArgs, opts ...pulumi.InvokeOption) LookupUsageProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUsageProfileResultOutput, error) {
-			args := v.(LookupUsageProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getUsageProfile", args, LookupUsageProfileResultOutput{}, options).(LookupUsageProfileResultOutput), nil
-		}).(LookupUsageProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getUsageProfile", args, LookupUsageProfileResultOutput{}, options).(LookupUsageProfileResultOutput)
 }
 
 type LookupUsageProfileOutputArgs struct {

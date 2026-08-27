@@ -46,12 +46,8 @@ type LookupSegmentDefinitionResult struct {
 }
 
 func LookupSegmentDefinitionOutput(ctx *pulumi.Context, args LookupSegmentDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupSegmentDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSegmentDefinitionResultOutput, error) {
-			args := v.(LookupSegmentDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:customerprofiles:getSegmentDefinition", args, LookupSegmentDefinitionResultOutput{}, options).(LookupSegmentDefinitionResultOutput), nil
-		}).(LookupSegmentDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:customerprofiles:getSegmentDefinition", args, LookupSegmentDefinitionResultOutput{}, options).(LookupSegmentDefinitionResultOutput)
 }
 
 type LookupSegmentDefinitionOutputArgs struct {

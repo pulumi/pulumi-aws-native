@@ -44,12 +44,8 @@ type LookupOrganizationConformancePackResult struct {
 }
 
 func LookupOrganizationConformancePackOutput(ctx *pulumi.Context, args LookupOrganizationConformancePackOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationConformancePackResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationConformancePackResultOutput, error) {
-			args := v.(LookupOrganizationConformancePackArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:configuration:getOrganizationConformancePack", args, LookupOrganizationConformancePackResultOutput{}, options).(LookupOrganizationConformancePackResultOutput), nil
-		}).(LookupOrganizationConformancePackResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:configuration:getOrganizationConformancePack", args, LookupOrganizationConformancePackResultOutput{}, options).(LookupOrganizationConformancePackResultOutput)
 }
 
 type LookupOrganizationConformancePackOutputArgs struct {

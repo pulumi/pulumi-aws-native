@@ -45,12 +45,8 @@ type LookupWarmPoolResult struct {
 }
 
 func LookupWarmPoolOutput(ctx *pulumi.Context, args LookupWarmPoolOutputArgs, opts ...pulumi.InvokeOption) LookupWarmPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWarmPoolResultOutput, error) {
-			args := v.(LookupWarmPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:autoscaling:getWarmPool", args, LookupWarmPoolResultOutput{}, options).(LookupWarmPoolResultOutput), nil
-		}).(LookupWarmPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:autoscaling:getWarmPool", args, LookupWarmPoolResultOutput{}, options).(LookupWarmPoolResultOutput)
 }
 
 type LookupWarmPoolOutputArgs struct {

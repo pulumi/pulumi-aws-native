@@ -50,12 +50,8 @@ type LookupPrivateVirtualInterfaceResult struct {
 }
 
 func LookupPrivateVirtualInterfaceOutput(ctx *pulumi.Context, args LookupPrivateVirtualInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupPrivateVirtualInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrivateVirtualInterfaceResultOutput, error) {
-			args := v.(LookupPrivateVirtualInterfaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:directconnect:getPrivateVirtualInterface", args, LookupPrivateVirtualInterfaceResultOutput{}, options).(LookupPrivateVirtualInterfaceResultOutput), nil
-		}).(LookupPrivateVirtualInterfaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:directconnect:getPrivateVirtualInterface", args, LookupPrivateVirtualInterfaceResultOutput{}, options).(LookupPrivateVirtualInterfaceResultOutput)
 }
 
 type LookupPrivateVirtualInterfaceOutputArgs struct {

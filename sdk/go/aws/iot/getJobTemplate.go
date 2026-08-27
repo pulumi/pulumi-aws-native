@@ -33,12 +33,8 @@ type LookupJobTemplateResult struct {
 }
 
 func LookupJobTemplateOutput(ctx *pulumi.Context, args LookupJobTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupJobTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupJobTemplateResultOutput, error) {
-			args := v.(LookupJobTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getJobTemplate", args, LookupJobTemplateResultOutput{}, options).(LookupJobTemplateResultOutput), nil
-		}).(LookupJobTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getJobTemplate", args, LookupJobTemplateResultOutput{}, options).(LookupJobTemplateResultOutput)
 }
 
 type LookupJobTemplateOutputArgs struct {

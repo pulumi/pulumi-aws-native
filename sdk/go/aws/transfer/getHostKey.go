@@ -46,12 +46,8 @@ type LookupHostKeyResult struct {
 }
 
 func LookupHostKeyOutput(ctx *pulumi.Context, args LookupHostKeyOutputArgs, opts ...pulumi.InvokeOption) LookupHostKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHostKeyResultOutput, error) {
-			args := v.(LookupHostKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:transfer:getHostKey", args, LookupHostKeyResultOutput{}, options).(LookupHostKeyResultOutput), nil
-		}).(LookupHostKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:transfer:getHostKey", args, LookupHostKeyResultOutput{}, options).(LookupHostKeyResultOutput)
 }
 
 type LookupHostKeyOutputArgs struct {

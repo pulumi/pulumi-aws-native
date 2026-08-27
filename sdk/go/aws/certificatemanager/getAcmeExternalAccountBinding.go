@@ -36,12 +36,8 @@ type LookupAcmeExternalAccountBindingResult struct {
 }
 
 func LookupAcmeExternalAccountBindingOutput(ctx *pulumi.Context, args LookupAcmeExternalAccountBindingOutputArgs, opts ...pulumi.InvokeOption) LookupAcmeExternalAccountBindingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAcmeExternalAccountBindingResultOutput, error) {
-			args := v.(LookupAcmeExternalAccountBindingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:certificatemanager:getAcmeExternalAccountBinding", args, LookupAcmeExternalAccountBindingResultOutput{}, options).(LookupAcmeExternalAccountBindingResultOutput), nil
-		}).(LookupAcmeExternalAccountBindingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:certificatemanager:getAcmeExternalAccountBinding", args, LookupAcmeExternalAccountBindingResultOutput{}, options).(LookupAcmeExternalAccountBindingResultOutput)
 }
 
 type LookupAcmeExternalAccountBindingOutputArgs struct {

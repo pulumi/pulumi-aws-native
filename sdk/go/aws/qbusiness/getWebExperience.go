@@ -70,12 +70,8 @@ type LookupWebExperienceResult struct {
 }
 
 func LookupWebExperienceOutput(ctx *pulumi.Context, args LookupWebExperienceOutputArgs, opts ...pulumi.InvokeOption) LookupWebExperienceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWebExperienceResultOutput, error) {
-			args := v.(LookupWebExperienceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:qbusiness:getWebExperience", args, LookupWebExperienceResultOutput{}, options).(LookupWebExperienceResultOutput), nil
-		}).(LookupWebExperienceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:qbusiness:getWebExperience", args, LookupWebExperienceResultOutput{}, options).(LookupWebExperienceResultOutput)
 }
 
 type LookupWebExperienceOutputArgs struct {

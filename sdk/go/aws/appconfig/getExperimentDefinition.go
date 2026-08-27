@@ -58,12 +58,8 @@ type LookupExperimentDefinitionResult struct {
 }
 
 func LookupExperimentDefinitionOutput(ctx *pulumi.Context, args LookupExperimentDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupExperimentDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupExperimentDefinitionResultOutput, error) {
-			args := v.(LookupExperimentDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appconfig:getExperimentDefinition", args, LookupExperimentDefinitionResultOutput{}, options).(LookupExperimentDefinitionResultOutput), nil
-		}).(LookupExperimentDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appconfig:getExperimentDefinition", args, LookupExperimentDefinitionResultOutput{}, options).(LookupExperimentDefinitionResultOutput)
 }
 
 type LookupExperimentDefinitionOutputArgs struct {

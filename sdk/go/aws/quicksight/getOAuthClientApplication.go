@@ -41,12 +41,8 @@ type LookupOAuthClientApplicationResult struct {
 }
 
 func LookupOAuthClientApplicationOutput(ctx *pulumi.Context, args LookupOAuthClientApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupOAuthClientApplicationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOAuthClientApplicationResultOutput, error) {
-			args := v.(LookupOAuthClientApplicationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getOAuthClientApplication", args, LookupOAuthClientApplicationResultOutput{}, options).(LookupOAuthClientApplicationResultOutput), nil
-		}).(LookupOAuthClientApplicationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getOAuthClientApplication", args, LookupOAuthClientApplicationResultOutput{}, options).(LookupOAuthClientApplicationResultOutput)
 }
 
 type LookupOAuthClientApplicationOutputArgs struct {

@@ -44,12 +44,8 @@ type LookupTopicRuleResult struct {
 }
 
 func LookupTopicRuleOutput(ctx *pulumi.Context, args LookupTopicRuleOutputArgs, opts ...pulumi.InvokeOption) LookupTopicRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTopicRuleResultOutput, error) {
-			args := v.(LookupTopicRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getTopicRule", args, LookupTopicRuleResultOutput{}, options).(LookupTopicRuleResultOutput), nil
-		}).(LookupTopicRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getTopicRule", args, LookupTopicRuleResultOutput{}, options).(LookupTopicRuleResultOutput)
 }
 
 type LookupTopicRuleOutputArgs struct {

@@ -82,12 +82,8 @@ type LookupGraphQlApiResult struct {
 }
 
 func LookupGraphQlApiOutput(ctx *pulumi.Context, args LookupGraphQlApiOutputArgs, opts ...pulumi.InvokeOption) LookupGraphQlApiResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGraphQlApiResultOutput, error) {
-			args := v.(LookupGraphQlApiArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appsync:getGraphQlApi", args, LookupGraphQlApiResultOutput{}, options).(LookupGraphQlApiResultOutput), nil
-		}).(LookupGraphQlApiResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appsync:getGraphQlApi", args, LookupGraphQlApiResultOutput{}, options).(LookupGraphQlApiResultOutput)
 }
 
 type LookupGraphQlApiOutputArgs struct {

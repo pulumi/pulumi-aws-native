@@ -48,12 +48,8 @@ type LookupPrivacyBudgetTemplateResult struct {
 }
 
 func LookupPrivacyBudgetTemplateOutput(ctx *pulumi.Context, args LookupPrivacyBudgetTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupPrivacyBudgetTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrivacyBudgetTemplateResultOutput, error) {
-			args := v.(LookupPrivacyBudgetTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cleanrooms:getPrivacyBudgetTemplate", args, LookupPrivacyBudgetTemplateResultOutput{}, options).(LookupPrivacyBudgetTemplateResultOutput), nil
-		}).(LookupPrivacyBudgetTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cleanrooms:getPrivacyBudgetTemplate", args, LookupPrivacyBudgetTemplateResultOutput{}, options).(LookupPrivacyBudgetTemplateResultOutput)
 }
 
 type LookupPrivacyBudgetTemplateOutputArgs struct {

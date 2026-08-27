@@ -56,12 +56,8 @@ type LookupNetworkMigrationDefinitionResult struct {
 }
 
 func LookupNetworkMigrationDefinitionOutput(ctx *pulumi.Context, args LookupNetworkMigrationDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkMigrationDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkMigrationDefinitionResultOutput, error) {
-			args := v.(LookupNetworkMigrationDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mgn:getNetworkMigrationDefinition", args, LookupNetworkMigrationDefinitionResultOutput{}, options).(LookupNetworkMigrationDefinitionResultOutput), nil
-		}).(LookupNetworkMigrationDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mgn:getNetworkMigrationDefinition", args, LookupNetworkMigrationDefinitionResultOutput{}, options).(LookupNetworkMigrationDefinitionResultOutput)
 }
 
 type LookupNetworkMigrationDefinitionOutputArgs struct {

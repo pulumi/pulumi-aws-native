@@ -49,12 +49,8 @@ type LookupAccountPolicyResult struct {
 }
 
 func LookupAccountPolicyOutput(ctx *pulumi.Context, args LookupAccountPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupAccountPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccountPolicyResultOutput, error) {
-			args := v.(LookupAccountPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:logs:getAccountPolicy", args, LookupAccountPolicyResultOutput{}, options).(LookupAccountPolicyResultOutput), nil
-		}).(LookupAccountPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:logs:getAccountPolicy", args, LookupAccountPolicyResultOutput{}, options).(LookupAccountPolicyResultOutput)
 }
 
 type LookupAccountPolicyOutputArgs struct {

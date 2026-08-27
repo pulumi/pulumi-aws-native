@@ -44,12 +44,8 @@ type LookupEventActionResult struct {
 }
 
 func LookupEventActionOutput(ctx *pulumi.Context, args LookupEventActionOutputArgs, opts ...pulumi.InvokeOption) LookupEventActionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventActionResultOutput, error) {
-			args := v.(LookupEventActionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:dataexchange:getEventAction", args, LookupEventActionResultOutput{}, options).(LookupEventActionResultOutput), nil
-		}).(LookupEventActionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:dataexchange:getEventAction", args, LookupEventActionResultOutput{}, options).(LookupEventActionResultOutput)
 }
 
 type LookupEventActionOutputArgs struct {

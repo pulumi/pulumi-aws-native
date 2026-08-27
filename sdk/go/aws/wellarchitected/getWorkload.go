@@ -64,12 +64,8 @@ type LookupWorkloadResult struct {
 }
 
 func LookupWorkloadOutput(ctx *pulumi.Context, args LookupWorkloadOutputArgs, opts ...pulumi.InvokeOption) LookupWorkloadResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkloadResultOutput, error) {
-			args := v.(LookupWorkloadArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wellarchitected:getWorkload", args, LookupWorkloadResultOutput{}, options).(LookupWorkloadResultOutput), nil
-		}).(LookupWorkloadResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wellarchitected:getWorkload", args, LookupWorkloadResultOutput{}, options).(LookupWorkloadResultOutput)
 }
 
 type LookupWorkloadOutputArgs struct {

@@ -58,12 +58,8 @@ type LookupEmailIdentityResult struct {
 }
 
 func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEmailIdentityResultOutput, error) {
-			args := v.(LookupEmailIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getEmailIdentity", args, LookupEmailIdentityResultOutput{}, options).(LookupEmailIdentityResultOutput), nil
-		}).(LookupEmailIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getEmailIdentity", args, LookupEmailIdentityResultOutput{}, options).(LookupEmailIdentityResultOutput)
 }
 
 type LookupEmailIdentityOutputArgs struct {

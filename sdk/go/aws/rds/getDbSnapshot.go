@@ -78,12 +78,8 @@ type LookupDbSnapshotResult struct {
 }
 
 func LookupDbSnapshotOutput(ctx *pulumi.Context, args LookupDbSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupDbSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDbSnapshotResultOutput, error) {
-			args := v.(LookupDbSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rds:getDbSnapshot", args, LookupDbSnapshotResultOutput{}, options).(LookupDbSnapshotResultOutput), nil
-		}).(LookupDbSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rds:getDbSnapshot", args, LookupDbSnapshotResultOutput{}, options).(LookupDbSnapshotResultOutput)
 }
 
 type LookupDbSnapshotOutputArgs struct {

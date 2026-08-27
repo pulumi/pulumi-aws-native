@@ -47,12 +47,8 @@ type LookupUserPolicyResult struct {
 }
 
 func LookupUserPolicyOutput(ctx *pulumi.Context, args LookupUserPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupUserPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserPolicyResultOutput, error) {
-			args := v.(LookupUserPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iam:getUserPolicy", args, LookupUserPolicyResultOutput{}, options).(LookupUserPolicyResultOutput), nil
-		}).(LookupUserPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iam:getUserPolicy", args, LookupUserPolicyResultOutput{}, options).(LookupUserPolicyResultOutput)
 }
 
 type LookupUserPolicyOutputArgs struct {

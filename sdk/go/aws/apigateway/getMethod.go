@@ -56,12 +56,8 @@ type LookupMethodResult struct {
 }
 
 func LookupMethodOutput(ctx *pulumi.Context, args LookupMethodOutputArgs, opts ...pulumi.InvokeOption) LookupMethodResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMethodResultOutput, error) {
-			args := v.(LookupMethodArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigateway:getMethod", args, LookupMethodResultOutput{}, options).(LookupMethodResultOutput), nil
-		}).(LookupMethodResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigateway:getMethod", args, LookupMethodResultOutput{}, options).(LookupMethodResultOutput)
 }
 
 type LookupMethodOutputArgs struct {

@@ -37,12 +37,8 @@ type LookupAttributeGroupAssociationResult struct {
 }
 
 func LookupAttributeGroupAssociationOutput(ctx *pulumi.Context, args LookupAttributeGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupAttributeGroupAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAttributeGroupAssociationResultOutput, error) {
-			args := v.(LookupAttributeGroupAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", args, LookupAttributeGroupAssociationResultOutput{}, options).(LookupAttributeGroupAssociationResultOutput), nil
-		}).(LookupAttributeGroupAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalogappregistry:getAttributeGroupAssociation", args, LookupAttributeGroupAssociationResultOutput{}, options).(LookupAttributeGroupAssociationResultOutput)
 }
 
 type LookupAttributeGroupAssociationOutputArgs struct {

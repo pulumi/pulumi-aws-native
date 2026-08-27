@@ -35,12 +35,8 @@ type LookupCollectionIndexResult struct {
 }
 
 func LookupCollectionIndexOutput(ctx *pulumi.Context, args LookupCollectionIndexOutputArgs, opts ...pulumi.InvokeOption) LookupCollectionIndexResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCollectionIndexResultOutput, error) {
-			args := v.(LookupCollectionIndexArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:opensearchserverless:getCollectionIndex", args, LookupCollectionIndexResultOutput{}, options).(LookupCollectionIndexResultOutput), nil
-		}).(LookupCollectionIndexResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:opensearchserverless:getCollectionIndex", args, LookupCollectionIndexResultOutput{}, options).(LookupCollectionIndexResultOutput)
 }
 
 type LookupCollectionIndexOutputArgs struct {

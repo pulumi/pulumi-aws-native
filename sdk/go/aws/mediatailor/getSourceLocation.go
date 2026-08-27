@@ -44,12 +44,8 @@ type LookupSourceLocationResult struct {
 }
 
 func LookupSourceLocationOutput(ctx *pulumi.Context, args LookupSourceLocationOutputArgs, opts ...pulumi.InvokeOption) LookupSourceLocationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSourceLocationResultOutput, error) {
-			args := v.(LookupSourceLocationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediatailor:getSourceLocation", args, LookupSourceLocationResultOutput{}, options).(LookupSourceLocationResultOutput), nil
-		}).(LookupSourceLocationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediatailor:getSourceLocation", args, LookupSourceLocationResultOutput{}, options).(LookupSourceLocationResultOutput)
 }
 
 type LookupSourceLocationOutputArgs struct {

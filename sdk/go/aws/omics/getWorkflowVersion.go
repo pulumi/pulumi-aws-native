@@ -45,12 +45,8 @@ type LookupWorkflowVersionResult struct {
 }
 
 func LookupWorkflowVersionOutput(ctx *pulumi.Context, args LookupWorkflowVersionOutputArgs, opts ...pulumi.InvokeOption) LookupWorkflowVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkflowVersionResultOutput, error) {
-			args := v.(LookupWorkflowVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:omics:getWorkflowVersion", args, LookupWorkflowVersionResultOutput{}, options).(LookupWorkflowVersionResultOutput), nil
-		}).(LookupWorkflowVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:omics:getWorkflowVersion", args, LookupWorkflowVersionResultOutput{}, options).(LookupWorkflowVersionResultOutput)
 }
 
 type LookupWorkflowVersionOutputArgs struct {

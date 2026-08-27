@@ -36,12 +36,8 @@ type LookupProjectResult struct {
 }
 
 func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProjectResultOutput, error) {
-			args := v.(LookupProjectArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rekognition:getProject", args, LookupProjectResultOutput{}, options).(LookupProjectResultOutput), nil
-		}).(LookupProjectResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rekognition:getProject", args, LookupProjectResultOutput{}, options).(LookupProjectResultOutput)
 }
 
 type LookupProjectOutputArgs struct {

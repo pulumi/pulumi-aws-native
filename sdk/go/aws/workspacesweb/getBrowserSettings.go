@@ -42,12 +42,8 @@ type LookupBrowserSettingsResult struct {
 }
 
 func LookupBrowserSettingsOutput(ctx *pulumi.Context, args LookupBrowserSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupBrowserSettingsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBrowserSettingsResultOutput, error) {
-			args := v.(LookupBrowserSettingsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:workspacesweb:getBrowserSettings", args, LookupBrowserSettingsResultOutput{}, options).(LookupBrowserSettingsResultOutput), nil
-		}).(LookupBrowserSettingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:workspacesweb:getBrowserSettings", args, LookupBrowserSettingsResultOutput{}, options).(LookupBrowserSettingsResultOutput)
 }
 
 type LookupBrowserSettingsOutputArgs struct {

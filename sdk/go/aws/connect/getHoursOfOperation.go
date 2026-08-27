@@ -52,12 +52,8 @@ type LookupHoursOfOperationResult struct {
 }
 
 func LookupHoursOfOperationOutput(ctx *pulumi.Context, args LookupHoursOfOperationOutputArgs, opts ...pulumi.InvokeOption) LookupHoursOfOperationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHoursOfOperationResultOutput, error) {
-			args := v.(LookupHoursOfOperationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getHoursOfOperation", args, LookupHoursOfOperationResultOutput{}, options).(LookupHoursOfOperationResultOutput), nil
-		}).(LookupHoursOfOperationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getHoursOfOperation", args, LookupHoursOfOperationResultOutput{}, options).(LookupHoursOfOperationResultOutput)
 }
 
 type LookupHoursOfOperationOutputArgs struct {

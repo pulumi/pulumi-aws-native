@@ -46,12 +46,8 @@ type LookupDirectoryBucketResult struct {
 }
 
 func LookupDirectoryBucketOutput(ctx *pulumi.Context, args LookupDirectoryBucketOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryBucketResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDirectoryBucketResultOutput, error) {
-			args := v.(LookupDirectoryBucketArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3express:getDirectoryBucket", args, LookupDirectoryBucketResultOutput{}, options).(LookupDirectoryBucketResultOutput), nil
-		}).(LookupDirectoryBucketResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3express:getDirectoryBucket", args, LookupDirectoryBucketResultOutput{}, options).(LookupDirectoryBucketResultOutput)
 }
 
 type LookupDirectoryBucketOutputArgs struct {

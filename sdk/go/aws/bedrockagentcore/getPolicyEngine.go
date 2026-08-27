@@ -48,12 +48,8 @@ type LookupPolicyEngineResult struct {
 }
 
 func LookupPolicyEngineOutput(ctx *pulumi.Context, args LookupPolicyEngineOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyEngineResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPolicyEngineResultOutput, error) {
-			args := v.(LookupPolicyEngineArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getPolicyEngine", args, LookupPolicyEngineResultOutput{}, options).(LookupPolicyEngineResultOutput), nil
-		}).(LookupPolicyEngineResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getPolicyEngine", args, LookupPolicyEngineResultOutput{}, options).(LookupPolicyEngineResultOutput)
 }
 
 type LookupPolicyEngineOutputArgs struct {

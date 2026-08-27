@@ -32,12 +32,8 @@ type LookupTransactionSearchConfigResult struct {
 }
 
 func LookupTransactionSearchConfigOutput(ctx *pulumi.Context, args LookupTransactionSearchConfigOutputArgs, opts ...pulumi.InvokeOption) LookupTransactionSearchConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransactionSearchConfigResultOutput, error) {
-			args := v.(LookupTransactionSearchConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:xray:getTransactionSearchConfig", args, LookupTransactionSearchConfigResultOutput{}, options).(LookupTransactionSearchConfigResultOutput), nil
-		}).(LookupTransactionSearchConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:xray:getTransactionSearchConfig", args, LookupTransactionSearchConfigResultOutput{}, options).(LookupTransactionSearchConfigResultOutput)
 }
 
 type LookupTransactionSearchConfigOutputArgs struct {

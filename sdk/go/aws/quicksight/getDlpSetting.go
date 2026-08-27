@@ -42,12 +42,8 @@ type LookupDlpSettingResult struct {
 }
 
 func LookupDlpSettingOutput(ctx *pulumi.Context, args LookupDlpSettingOutputArgs, opts ...pulumi.InvokeOption) LookupDlpSettingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDlpSettingResultOutput, error) {
-			args := v.(LookupDlpSettingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getDlpSetting", args, LookupDlpSettingResultOutput{}, options).(LookupDlpSettingResultOutput), nil
-		}).(LookupDlpSettingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getDlpSetting", args, LookupDlpSettingResultOutput{}, options).(LookupDlpSettingResultOutput)
 }
 
 type LookupDlpSettingOutputArgs struct {

@@ -55,12 +55,8 @@ type LookupFunctionConfigurationResult struct {
 }
 
 func LookupFunctionConfigurationOutput(ctx *pulumi.Context, args LookupFunctionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFunctionConfigurationResultOutput, error) {
-			args := v.(LookupFunctionConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appsync:getFunctionConfiguration", args, LookupFunctionConfigurationResultOutput{}, options).(LookupFunctionConfigurationResultOutput), nil
-		}).(LookupFunctionConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appsync:getFunctionConfiguration", args, LookupFunctionConfigurationResultOutput{}, options).(LookupFunctionConfigurationResultOutput)
 }
 
 type LookupFunctionConfigurationOutputArgs struct {

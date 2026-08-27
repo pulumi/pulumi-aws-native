@@ -79,12 +79,8 @@ type LookupRoleResult struct {
 }
 
 func LookupRoleOutput(ctx *pulumi.Context, args LookupRoleOutputArgs, opts ...pulumi.InvokeOption) LookupRoleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRoleResultOutput, error) {
-			args := v.(LookupRoleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iam:getRole", args, LookupRoleResultOutput{}, options).(LookupRoleResultOutput), nil
-		}).(LookupRoleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iam:getRole", args, LookupRoleResultOutput{}, options).(LookupRoleResultOutput)
 }
 
 type LookupRoleOutputArgs struct {

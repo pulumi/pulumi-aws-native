@@ -39,12 +39,8 @@ type LookupPublisherResult struct {
 }
 
 func LookupPublisherOutput(ctx *pulumi.Context, args LookupPublisherOutputArgs, opts ...pulumi.InvokeOption) LookupPublisherResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPublisherResultOutput, error) {
-			args := v.(LookupPublisherArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudformation:getPublisher", args, LookupPublisherResultOutput{}, options).(LookupPublisherResultOutput), nil
-		}).(LookupPublisherResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudformation:getPublisher", args, LookupPublisherResultOutput{}, options).(LookupPublisherResultOutput)
 }
 
 type LookupPublisherOutputArgs struct {

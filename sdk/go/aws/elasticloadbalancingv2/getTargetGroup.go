@@ -66,12 +66,8 @@ type LookupTargetGroupResult struct {
 }
 
 func LookupTargetGroupOutput(ctx *pulumi.Context, args LookupTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupTargetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTargetGroupResultOutput, error) {
-			args := v.(LookupTargetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:elasticloadbalancingv2:getTargetGroup", args, LookupTargetGroupResultOutput{}, options).(LookupTargetGroupResultOutput), nil
-		}).(LookupTargetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:elasticloadbalancingv2:getTargetGroup", args, LookupTargetGroupResultOutput{}, options).(LookupTargetGroupResultOutput)
 }
 
 type LookupTargetGroupOutputArgs struct {

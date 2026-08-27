@@ -70,12 +70,8 @@ type LookupDeploymentGroupResult struct {
 }
 
 func LookupDeploymentGroupOutput(ctx *pulumi.Context, args LookupDeploymentGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDeploymentGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDeploymentGroupResultOutput, error) {
-			args := v.(LookupDeploymentGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:codedeploy:getDeploymentGroup", args, LookupDeploymentGroupResultOutput{}, options).(LookupDeploymentGroupResultOutput), nil
-		}).(LookupDeploymentGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:codedeploy:getDeploymentGroup", args, LookupDeploymentGroupResultOutput{}, options).(LookupDeploymentGroupResultOutput)
 }
 
 type LookupDeploymentGroupOutputArgs struct {

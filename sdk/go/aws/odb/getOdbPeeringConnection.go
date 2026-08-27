@@ -46,12 +46,8 @@ type LookupOdbPeeringConnectionResult struct {
 }
 
 func LookupOdbPeeringConnectionOutput(ctx *pulumi.Context, args LookupOdbPeeringConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupOdbPeeringConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOdbPeeringConnectionResultOutput, error) {
-			args := v.(LookupOdbPeeringConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:odb:getOdbPeeringConnection", args, LookupOdbPeeringConnectionResultOutput{}, options).(LookupOdbPeeringConnectionResultOutput), nil
-		}).(LookupOdbPeeringConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:odb:getOdbPeeringConnection", args, LookupOdbPeeringConnectionResultOutput{}, options).(LookupOdbPeeringConnectionResultOutput)
 }
 
 type LookupOdbPeeringConnectionOutputArgs struct {

@@ -31,12 +31,8 @@ type LookupReceiptFilterResult struct {
 }
 
 func LookupReceiptFilterOutput(ctx *pulumi.Context, args LookupReceiptFilterOutputArgs, opts ...pulumi.InvokeOption) LookupReceiptFilterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReceiptFilterResultOutput, error) {
-			args := v.(LookupReceiptFilterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getReceiptFilter", args, LookupReceiptFilterResultOutput{}, options).(LookupReceiptFilterResultOutput), nil
-		}).(LookupReceiptFilterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getReceiptFilter", args, LookupReceiptFilterResultOutput{}, options).(LookupReceiptFilterResultOutput)
 }
 
 type LookupReceiptFilterOutputArgs struct {

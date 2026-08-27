@@ -58,12 +58,8 @@ type LookupProjectProfileResult struct {
 }
 
 func LookupProjectProfileOutput(ctx *pulumi.Context, args LookupProjectProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProjectProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProjectProfileResultOutput, error) {
-			args := v.(LookupProjectProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datazone:getProjectProfile", args, LookupProjectProfileResultOutput{}, options).(LookupProjectProfileResultOutput), nil
-		}).(LookupProjectProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datazone:getProjectProfile", args, LookupProjectProfileResultOutput{}, options).(LookupProjectProfileResultOutput)
 }
 
 type LookupProjectProfileOutputArgs struct {

@@ -38,12 +38,8 @@ type LookupRecordingConfigurationResult struct {
 }
 
 func LookupRecordingConfigurationOutput(ctx *pulumi.Context, args LookupRecordingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupRecordingConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRecordingConfigurationResultOutput, error) {
-			args := v.(LookupRecordingConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ivs:getRecordingConfiguration", args, LookupRecordingConfigurationResultOutput{}, options).(LookupRecordingConfigurationResultOutput), nil
-		}).(LookupRecordingConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ivs:getRecordingConfiguration", args, LookupRecordingConfigurationResultOutput{}, options).(LookupRecordingConfigurationResultOutput)
 }
 
 type LookupRecordingConfigurationOutputArgs struct {

@@ -42,12 +42,8 @@ type LookupIntegrationResourcePropertyResult struct {
 }
 
 func LookupIntegrationResourcePropertyOutput(ctx *pulumi.Context, args LookupIntegrationResourcePropertyOutputArgs, opts ...pulumi.InvokeOption) LookupIntegrationResourcePropertyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIntegrationResourcePropertyResultOutput, error) {
-			args := v.(LookupIntegrationResourcePropertyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getIntegrationResourceProperty", args, LookupIntegrationResourcePropertyResultOutput{}, options).(LookupIntegrationResourcePropertyResultOutput), nil
-		}).(LookupIntegrationResourcePropertyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getIntegrationResourceProperty", args, LookupIntegrationResourcePropertyResultOutput{}, options).(LookupIntegrationResourcePropertyResultOutput)
 }
 
 type LookupIntegrationResourcePropertyOutputArgs struct {

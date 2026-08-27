@@ -37,12 +37,8 @@ type LookupLaunchNotificationConstraintResult struct {
 }
 
 func LookupLaunchNotificationConstraintOutput(ctx *pulumi.Context, args LookupLaunchNotificationConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchNotificationConstraintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLaunchNotificationConstraintResultOutput, error) {
-			args := v.(LookupLaunchNotificationConstraintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getLaunchNotificationConstraint", args, LookupLaunchNotificationConstraintResultOutput{}, options).(LookupLaunchNotificationConstraintResultOutput), nil
-		}).(LookupLaunchNotificationConstraintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getLaunchNotificationConstraint", args, LookupLaunchNotificationConstraintResultOutput{}, options).(LookupLaunchNotificationConstraintResultOutput)
 }
 
 type LookupLaunchNotificationConstraintOutputArgs struct {

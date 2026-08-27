@@ -41,12 +41,8 @@ type LookupTransitGatewayMulticastDomainAssociationResult struct {
 }
 
 func LookupTransitGatewayMulticastDomainAssociationOutput(ctx *pulumi.Context, args LookupTransitGatewayMulticastDomainAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayMulticastDomainAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastDomainAssociationResultOutput, error) {
-			args := v.(LookupTransitGatewayMulticastDomainAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args, LookupTransitGatewayMulticastDomainAssociationResultOutput{}, options).(LookupTransitGatewayMulticastDomainAssociationResultOutput), nil
-		}).(LookupTransitGatewayMulticastDomainAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMulticastDomainAssociation", args, LookupTransitGatewayMulticastDomainAssociationResultOutput{}, options).(LookupTransitGatewayMulticastDomainAssociationResultOutput)
 }
 
 type LookupTransitGatewayMulticastDomainAssociationOutputArgs struct {

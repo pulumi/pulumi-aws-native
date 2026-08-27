@@ -42,12 +42,8 @@ type LookupOrganizationalUnitResult struct {
 }
 
 func LookupOrganizationalUnitOutput(ctx *pulumi.Context, args LookupOrganizationalUnitOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationalUnitResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationalUnitResultOutput, error) {
-			args := v.(LookupOrganizationalUnitArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:organizations:getOrganizationalUnit", args, LookupOrganizationalUnitResultOutput{}, options).(LookupOrganizationalUnitResultOutput), nil
-		}).(LookupOrganizationalUnitResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:organizations:getOrganizationalUnit", args, LookupOrganizationalUnitResultOutput{}, options).(LookupOrganizationalUnitResultOutput)
 }
 
 type LookupOrganizationalUnitOutputArgs struct {

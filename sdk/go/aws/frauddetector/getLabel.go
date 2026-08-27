@@ -42,12 +42,8 @@ type LookupLabelResult struct {
 }
 
 func LookupLabelOutput(ctx *pulumi.Context, args LookupLabelOutputArgs, opts ...pulumi.InvokeOption) LookupLabelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLabelResultOutput, error) {
-			args := v.(LookupLabelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:frauddetector:getLabel", args, LookupLabelResultOutput{}, options).(LookupLabelResultOutput), nil
-		}).(LookupLabelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:frauddetector:getLabel", args, LookupLabelResultOutput{}, options).(LookupLabelResultOutput)
 }
 
 type LookupLabelOutputArgs struct {

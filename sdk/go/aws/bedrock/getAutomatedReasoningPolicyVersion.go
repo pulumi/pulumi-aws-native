@@ -47,12 +47,8 @@ type LookupAutomatedReasoningPolicyVersionResult struct {
 }
 
 func LookupAutomatedReasoningPolicyVersionOutput(ctx *pulumi.Context, args LookupAutomatedReasoningPolicyVersionOutputArgs, opts ...pulumi.InvokeOption) LookupAutomatedReasoningPolicyVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAutomatedReasoningPolicyVersionResultOutput, error) {
-			args := v.(LookupAutomatedReasoningPolicyVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getAutomatedReasoningPolicyVersion", args, LookupAutomatedReasoningPolicyVersionResultOutput{}, options).(LookupAutomatedReasoningPolicyVersionResultOutput), nil
-		}).(LookupAutomatedReasoningPolicyVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getAutomatedReasoningPolicyVersion", args, LookupAutomatedReasoningPolicyVersionResultOutput{}, options).(LookupAutomatedReasoningPolicyVersionResultOutput)
 }
 
 type LookupAutomatedReasoningPolicyVersionOutputArgs struct {

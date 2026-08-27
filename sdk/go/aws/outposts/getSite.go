@@ -38,12 +38,8 @@ type LookupSiteResult struct {
 }
 
 func LookupSiteOutput(ctx *pulumi.Context, args LookupSiteOutputArgs, opts ...pulumi.InvokeOption) LookupSiteResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSiteResultOutput, error) {
-			args := v.(LookupSiteArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:outposts:getSite", args, LookupSiteResultOutput{}, options).(LookupSiteResultOutput), nil
-		}).(LookupSiteResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:outposts:getSite", args, LookupSiteResultOutput{}, options).(LookupSiteResultOutput)
 }
 
 type LookupSiteOutputArgs struct {

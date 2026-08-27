@@ -35,12 +35,8 @@ type LookupCustomEntityTypeResult struct {
 }
 
 func LookupCustomEntityTypeOutput(ctx *pulumi.Context, args LookupCustomEntityTypeOutputArgs, opts ...pulumi.InvokeOption) LookupCustomEntityTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomEntityTypeResultOutput, error) {
-			args := v.(LookupCustomEntityTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getCustomEntityType", args, LookupCustomEntityTypeResultOutput{}, options).(LookupCustomEntityTypeResultOutput), nil
-		}).(LookupCustomEntityTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getCustomEntityType", args, LookupCustomEntityTypeResultOutput{}, options).(LookupCustomEntityTypeResultOutput)
 }
 
 type LookupCustomEntityTypeOutputArgs struct {

@@ -48,12 +48,8 @@ type LookupBillingViewResult struct {
 }
 
 func LookupBillingViewOutput(ctx *pulumi.Context, args LookupBillingViewOutputArgs, opts ...pulumi.InvokeOption) LookupBillingViewResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBillingViewResultOutput, error) {
-			args := v.(LookupBillingViewArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:billing:getBillingView", args, LookupBillingViewResultOutput{}, options).(LookupBillingViewResultOutput), nil
-		}).(LookupBillingViewResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:billing:getBillingView", args, LookupBillingViewResultOutput{}, options).(LookupBillingViewResultOutput)
 }
 
 type LookupBillingViewOutputArgs struct {

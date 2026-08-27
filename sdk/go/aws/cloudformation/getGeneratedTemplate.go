@@ -45,12 +45,8 @@ type LookupGeneratedTemplateResult struct {
 }
 
 func LookupGeneratedTemplateOutput(ctx *pulumi.Context, args LookupGeneratedTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupGeneratedTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGeneratedTemplateResultOutput, error) {
-			args := v.(LookupGeneratedTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudformation:getGeneratedTemplate", args, LookupGeneratedTemplateResultOutput{}, options).(LookupGeneratedTemplateResultOutput), nil
-		}).(LookupGeneratedTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudformation:getGeneratedTemplate", args, LookupGeneratedTemplateResultOutput{}, options).(LookupGeneratedTemplateResultOutput)
 }
 
 type LookupGeneratedTemplateOutputArgs struct {

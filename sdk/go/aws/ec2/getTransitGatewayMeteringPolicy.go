@@ -42,12 +42,8 @@ type LookupTransitGatewayMeteringPolicyResult struct {
 }
 
 func LookupTransitGatewayMeteringPolicyOutput(ctx *pulumi.Context, args LookupTransitGatewayMeteringPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayMeteringPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayMeteringPolicyResultOutput, error) {
-			args := v.(LookupTransitGatewayMeteringPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMeteringPolicy", args, LookupTransitGatewayMeteringPolicyResultOutput{}, options).(LookupTransitGatewayMeteringPolicyResultOutput), nil
-		}).(LookupTransitGatewayMeteringPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMeteringPolicy", args, LookupTransitGatewayMeteringPolicyResultOutput{}, options).(LookupTransitGatewayMeteringPolicyResultOutput)
 }
 
 type LookupTransitGatewayMeteringPolicyOutputArgs struct {

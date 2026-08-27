@@ -42,12 +42,8 @@ type LookupDbParameterGroupResult struct {
 }
 
 func LookupDbParameterGroupOutput(ctx *pulumi.Context, args LookupDbParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDbParameterGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDbParameterGroupResultOutput, error) {
-			args := v.(LookupDbParameterGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:neptune:getDbParameterGroup", args, LookupDbParameterGroupResultOutput{}, options).(LookupDbParameterGroupResultOutput), nil
-		}).(LookupDbParameterGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:neptune:getDbParameterGroup", args, LookupDbParameterGroupResultOutput{}, options).(LookupDbParameterGroupResultOutput)
 }
 
 type LookupDbParameterGroupOutputArgs struct {

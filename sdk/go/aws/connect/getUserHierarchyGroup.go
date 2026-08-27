@@ -40,12 +40,8 @@ type LookupUserHierarchyGroupResult struct {
 }
 
 func LookupUserHierarchyGroupOutput(ctx *pulumi.Context, args LookupUserHierarchyGroupOutputArgs, opts ...pulumi.InvokeOption) LookupUserHierarchyGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserHierarchyGroupResultOutput, error) {
-			args := v.(LookupUserHierarchyGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getUserHierarchyGroup", args, LookupUserHierarchyGroupResultOutput{}, options).(LookupUserHierarchyGroupResultOutput), nil
-		}).(LookupUserHierarchyGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getUserHierarchyGroup", args, LookupUserHierarchyGroupResultOutput{}, options).(LookupUserHierarchyGroupResultOutput)
 }
 
 type LookupUserHierarchyGroupOutputArgs struct {
