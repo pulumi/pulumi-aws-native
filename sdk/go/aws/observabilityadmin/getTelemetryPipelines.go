@@ -44,12 +44,8 @@ type LookupTelemetryPipelinesResult struct {
 }
 
 func LookupTelemetryPipelinesOutput(ctx *pulumi.Context, args LookupTelemetryPipelinesOutputArgs, opts ...pulumi.InvokeOption) LookupTelemetryPipelinesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTelemetryPipelinesResultOutput, error) {
-			args := v.(LookupTelemetryPipelinesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:observabilityadmin:getTelemetryPipelines", args, LookupTelemetryPipelinesResultOutput{}, options).(LookupTelemetryPipelinesResultOutput), nil
-		}).(LookupTelemetryPipelinesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:observabilityadmin:getTelemetryPipelines", args, LookupTelemetryPipelinesResultOutput{}, options).(LookupTelemetryPipelinesResultOutput)
 }
 
 type LookupTelemetryPipelinesOutputArgs struct {

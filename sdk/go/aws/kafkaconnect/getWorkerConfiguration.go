@@ -38,12 +38,8 @@ type LookupWorkerConfigurationResult struct {
 }
 
 func LookupWorkerConfigurationOutput(ctx *pulumi.Context, args LookupWorkerConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupWorkerConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkerConfigurationResultOutput, error) {
-			args := v.(LookupWorkerConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:kafkaconnect:getWorkerConfiguration", args, LookupWorkerConfigurationResultOutput{}, options).(LookupWorkerConfigurationResultOutput), nil
-		}).(LookupWorkerConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:kafkaconnect:getWorkerConfiguration", args, LookupWorkerConfigurationResultOutput{}, options).(LookupWorkerConfigurationResultOutput)
 }
 
 type LookupWorkerConfigurationOutputArgs struct {

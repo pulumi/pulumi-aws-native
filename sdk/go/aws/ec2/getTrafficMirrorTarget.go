@@ -34,12 +34,8 @@ type LookupTrafficMirrorTargetResult struct {
 }
 
 func LookupTrafficMirrorTargetOutput(ctx *pulumi.Context, args LookupTrafficMirrorTargetOutputArgs, opts ...pulumi.InvokeOption) LookupTrafficMirrorTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrafficMirrorTargetResultOutput, error) {
-			args := v.(LookupTrafficMirrorTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getTrafficMirrorTarget", args, LookupTrafficMirrorTargetResultOutput{}, options).(LookupTrafficMirrorTargetResultOutput), nil
-		}).(LookupTrafficMirrorTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getTrafficMirrorTarget", args, LookupTrafficMirrorTargetResultOutput{}, options).(LookupTrafficMirrorTargetResultOutput)
 }
 
 type LookupTrafficMirrorTargetOutputArgs struct {

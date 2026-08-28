@@ -41,12 +41,8 @@ type LookupLinkRoutingRuleResult struct {
 }
 
 func LookupLinkRoutingRuleOutput(ctx *pulumi.Context, args LookupLinkRoutingRuleOutputArgs, opts ...pulumi.InvokeOption) LookupLinkRoutingRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLinkRoutingRuleResultOutput, error) {
-			args := v.(LookupLinkRoutingRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rtbfabric:getLinkRoutingRule", args, LookupLinkRoutingRuleResultOutput{}, options).(LookupLinkRoutingRuleResultOutput), nil
-		}).(LookupLinkRoutingRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rtbfabric:getLinkRoutingRule", args, LookupLinkRoutingRuleResultOutput{}, options).(LookupLinkRoutingRuleResultOutput)
 }
 
 type LookupLinkRoutingRuleOutputArgs struct {

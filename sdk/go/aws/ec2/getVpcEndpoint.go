@@ -75,12 +75,8 @@ type LookupVpcEndpointResult struct {
 }
 
 func LookupVpcEndpointOutput(ctx *pulumi.Context, args LookupVpcEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcEndpointResultOutput, error) {
-			args := v.(LookupVpcEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpcEndpoint", args, LookupVpcEndpointResultOutput{}, options).(LookupVpcEndpointResultOutput), nil
-		}).(LookupVpcEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpcEndpoint", args, LookupVpcEndpointResultOutput{}, options).(LookupVpcEndpointResultOutput)
 }
 
 type LookupVpcEndpointOutputArgs struct {

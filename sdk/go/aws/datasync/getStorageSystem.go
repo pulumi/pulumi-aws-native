@@ -49,12 +49,8 @@ type LookupStorageSystemResult struct {
 }
 
 func LookupStorageSystemOutput(ctx *pulumi.Context, args LookupStorageSystemOutputArgs, opts ...pulumi.InvokeOption) LookupStorageSystemResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStorageSystemResultOutput, error) {
-			args := v.(LookupStorageSystemArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datasync:getStorageSystem", args, LookupStorageSystemResultOutput{}, options).(LookupStorageSystemResultOutput), nil
-		}).(LookupStorageSystemResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datasync:getStorageSystem", args, LookupStorageSystemResultOutput{}, options).(LookupStorageSystemResultOutput)
 }
 
 type LookupStorageSystemOutputArgs struct {

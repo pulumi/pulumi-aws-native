@@ -40,12 +40,8 @@ type LookupCustomPermissionsResult struct {
 }
 
 func LookupCustomPermissionsOutput(ctx *pulumi.Context, args LookupCustomPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupCustomPermissionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomPermissionsResultOutput, error) {
-			args := v.(LookupCustomPermissionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getCustomPermissions", args, LookupCustomPermissionsResultOutput{}, options).(LookupCustomPermissionsResultOutput), nil
-		}).(LookupCustomPermissionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getCustomPermissions", args, LookupCustomPermissionsResultOutput{}, options).(LookupCustomPermissionsResultOutput)
 }
 
 type LookupCustomPermissionsOutputArgs struct {

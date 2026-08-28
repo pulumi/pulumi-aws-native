@@ -42,12 +42,8 @@ type LookupIpamPrefixListResolverTargetResult struct {
 }
 
 func LookupIpamPrefixListResolverTargetOutput(ctx *pulumi.Context, args LookupIpamPrefixListResolverTargetOutputArgs, opts ...pulumi.InvokeOption) LookupIpamPrefixListResolverTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpamPrefixListResolverTargetResultOutput, error) {
-			args := v.(LookupIpamPrefixListResolverTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getIpamPrefixListResolverTarget", args, LookupIpamPrefixListResolverTargetResultOutput{}, options).(LookupIpamPrefixListResolverTargetResultOutput), nil
-		}).(LookupIpamPrefixListResolverTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getIpamPrefixListResolverTarget", args, LookupIpamPrefixListResolverTargetResultOutput{}, options).(LookupIpamPrefixListResolverTargetResultOutput)
 }
 
 type LookupIpamPrefixListResolverTargetOutputArgs struct {

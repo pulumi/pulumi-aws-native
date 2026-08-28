@@ -39,12 +39,8 @@ type LookupVpcGatewayAttachmentResult struct {
 }
 
 func LookupVpcGatewayAttachmentOutput(ctx *pulumi.Context, args LookupVpcGatewayAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupVpcGatewayAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcGatewayAttachmentResultOutput, error) {
-			args := v.(LookupVpcGatewayAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpcGatewayAttachment", args, LookupVpcGatewayAttachmentResultOutput{}, options).(LookupVpcGatewayAttachmentResultOutput), nil
-		}).(LookupVpcGatewayAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpcGatewayAttachment", args, LookupVpcGatewayAttachmentResultOutput{}, options).(LookupVpcGatewayAttachmentResultOutput)
 }
 
 type LookupVpcGatewayAttachmentOutputArgs struct {

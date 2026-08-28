@@ -41,12 +41,8 @@ type LookupDomainVerificationResult struct {
 }
 
 func LookupDomainVerificationOutput(ctx *pulumi.Context, args LookupDomainVerificationOutputArgs, opts ...pulumi.InvokeOption) LookupDomainVerificationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainVerificationResultOutput, error) {
-			args := v.(LookupDomainVerificationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:vpclattice:getDomainVerification", args, LookupDomainVerificationResultOutput{}, options).(LookupDomainVerificationResultOutput), nil
-		}).(LookupDomainVerificationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:vpclattice:getDomainVerification", args, LookupDomainVerificationResultOutput{}, options).(LookupDomainVerificationResultOutput)
 }
 
 type LookupDomainVerificationOutputArgs struct {

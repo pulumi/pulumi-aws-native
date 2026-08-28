@@ -43,12 +43,8 @@ type LookupPredefinedAttributeResult struct {
 }
 
 func LookupPredefinedAttributeOutput(ctx *pulumi.Context, args LookupPredefinedAttributeOutputArgs, opts ...pulumi.InvokeOption) LookupPredefinedAttributeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPredefinedAttributeResultOutput, error) {
-			args := v.(LookupPredefinedAttributeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getPredefinedAttribute", args, LookupPredefinedAttributeResultOutput{}, options).(LookupPredefinedAttributeResultOutput), nil
-		}).(LookupPredefinedAttributeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getPredefinedAttribute", args, LookupPredefinedAttributeResultOutput{}, options).(LookupPredefinedAttributeResultOutput)
 }
 
 type LookupPredefinedAttributeOutputArgs struct {

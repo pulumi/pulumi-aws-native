@@ -44,12 +44,8 @@ type LookupSecurityRequirementPackResult struct {
 }
 
 func LookupSecurityRequirementPackOutput(ctx *pulumi.Context, args LookupSecurityRequirementPackOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityRequirementPackResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecurityRequirementPackResultOutput, error) {
-			args := v.(LookupSecurityRequirementPackArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securityagent:getSecurityRequirementPack", args, LookupSecurityRequirementPackResultOutput{}, options).(LookupSecurityRequirementPackResultOutput), nil
-		}).(LookupSecurityRequirementPackResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securityagent:getSecurityRequirementPack", args, LookupSecurityRequirementPackResultOutput{}, options).(LookupSecurityRequirementPackResultOutput)
 }
 
 type LookupSecurityRequirementPackOutputArgs struct {

@@ -39,12 +39,8 @@ type LookupVpcCidrBlockResult struct {
 }
 
 func LookupVpcCidrBlockOutput(ctx *pulumi.Context, args LookupVpcCidrBlockOutputArgs, opts ...pulumi.InvokeOption) LookupVpcCidrBlockResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcCidrBlockResultOutput, error) {
-			args := v.(LookupVpcCidrBlockArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpcCidrBlock", args, LookupVpcCidrBlockResultOutput{}, options).(LookupVpcCidrBlockResultOutput), nil
-		}).(LookupVpcCidrBlockResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpcCidrBlock", args, LookupVpcCidrBlockResultOutput{}, options).(LookupVpcCidrBlockResultOutput)
 }
 
 type LookupVpcCidrBlockOutputArgs struct {

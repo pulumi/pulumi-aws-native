@@ -39,12 +39,8 @@ type LookupInputResult struct {
 }
 
 func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...pulumi.InvokeOption) LookupInputResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInputResultOutput, error) {
-			args := v.(LookupInputArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iotevents:getInput", args, LookupInputResultOutput{}, options).(LookupInputResultOutput), nil
-		}).(LookupInputResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iotevents:getInput", args, LookupInputResultOutput{}, options).(LookupInputResultOutput)
 }
 
 type LookupInputOutputArgs struct {

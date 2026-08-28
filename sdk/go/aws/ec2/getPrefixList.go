@@ -50,12 +50,8 @@ type LookupPrefixListResult struct {
 }
 
 func LookupPrefixListOutput(ctx *pulumi.Context, args LookupPrefixListOutputArgs, opts ...pulumi.InvokeOption) LookupPrefixListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrefixListResultOutput, error) {
-			args := v.(LookupPrefixListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getPrefixList", args, LookupPrefixListResultOutput{}, options).(LookupPrefixListResultOutput), nil
-		}).(LookupPrefixListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getPrefixList", args, LookupPrefixListResultOutput{}, options).(LookupPrefixListResultOutput)
 }
 
 type LookupPrefixListOutputArgs struct {

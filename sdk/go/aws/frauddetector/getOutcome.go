@@ -42,12 +42,8 @@ type LookupOutcomeResult struct {
 }
 
 func LookupOutcomeOutput(ctx *pulumi.Context, args LookupOutcomeOutputArgs, opts ...pulumi.InvokeOption) LookupOutcomeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOutcomeResultOutput, error) {
-			args := v.(LookupOutcomeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:frauddetector:getOutcome", args, LookupOutcomeResultOutput{}, options).(LookupOutcomeResultOutput), nil
-		}).(LookupOutcomeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:frauddetector:getOutcome", args, LookupOutcomeResultOutput{}, options).(LookupOutcomeResultOutput)
 }
 
 type LookupOutcomeOutputArgs struct {

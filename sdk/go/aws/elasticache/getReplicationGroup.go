@@ -81,12 +81,8 @@ type LookupReplicationGroupResult struct {
 }
 
 func LookupReplicationGroupOutput(ctx *pulumi.Context, args LookupReplicationGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationGroupResultOutput, error) {
-			args := v.(LookupReplicationGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:elasticache:getReplicationGroup", args, LookupReplicationGroupResultOutput{}, options).(LookupReplicationGroupResultOutput), nil
-		}).(LookupReplicationGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:elasticache:getReplicationGroup", args, LookupReplicationGroupResultOutput{}, options).(LookupReplicationGroupResultOutput)
 }
 
 type LookupReplicationGroupOutputArgs struct {

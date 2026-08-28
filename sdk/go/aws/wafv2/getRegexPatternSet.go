@@ -48,12 +48,8 @@ type LookupRegexPatternSetResult struct {
 }
 
 func LookupRegexPatternSetOutput(ctx *pulumi.Context, args LookupRegexPatternSetOutputArgs, opts ...pulumi.InvokeOption) LookupRegexPatternSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRegexPatternSetResultOutput, error) {
-			args := v.(LookupRegexPatternSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wafv2:getRegexPatternSet", args, LookupRegexPatternSetResultOutput{}, options).(LookupRegexPatternSetResultOutput), nil
-		}).(LookupRegexPatternSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wafv2:getRegexPatternSet", args, LookupRegexPatternSetResultOutput{}, options).(LookupRegexPatternSetResultOutput)
 }
 
 type LookupRegexPatternSetOutputArgs struct {

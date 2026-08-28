@@ -43,12 +43,8 @@ type LookupQuotaShareResult struct {
 }
 
 func LookupQuotaShareOutput(ctx *pulumi.Context, args LookupQuotaShareOutputArgs, opts ...pulumi.InvokeOption) LookupQuotaShareResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupQuotaShareResultOutput, error) {
-			args := v.(LookupQuotaShareArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:batch:getQuotaShare", args, LookupQuotaShareResultOutput{}, options).(LookupQuotaShareResultOutput), nil
-		}).(LookupQuotaShareResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:batch:getQuotaShare", args, LookupQuotaShareResultOutput{}, options).(LookupQuotaShareResultOutput)
 }
 
 type LookupQuotaShareOutputArgs struct {

@@ -43,12 +43,8 @@ type LookupFilterResult struct {
 }
 
 func LookupFilterOutput(ctx *pulumi.Context, args LookupFilterOutputArgs, opts ...pulumi.InvokeOption) LookupFilterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFilterResultOutput, error) {
-			args := v.(LookupFilterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:inspectorv2:getFilter", args, LookupFilterResultOutput{}, options).(LookupFilterResultOutput), nil
-		}).(LookupFilterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:inspectorv2:getFilter", args, LookupFilterResultOutput{}, options).(LookupFilterResultOutput)
 }
 
 type LookupFilterOutputArgs struct {

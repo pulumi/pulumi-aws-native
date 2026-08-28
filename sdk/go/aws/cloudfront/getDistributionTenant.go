@@ -59,12 +59,8 @@ type LookupDistributionTenantResult struct {
 }
 
 func LookupDistributionTenantOutput(ctx *pulumi.Context, args LookupDistributionTenantOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionTenantResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDistributionTenantResultOutput, error) {
-			args := v.(LookupDistributionTenantArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getDistributionTenant", args, LookupDistributionTenantResultOutput{}, options).(LookupDistributionTenantResultOutput), nil
-		}).(LookupDistributionTenantResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getDistributionTenant", args, LookupDistributionTenantResultOutput{}, options).(LookupDistributionTenantResultOutput)
 }
 
 type LookupDistributionTenantOutputArgs struct {

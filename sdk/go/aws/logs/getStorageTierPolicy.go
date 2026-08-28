@@ -37,12 +37,8 @@ type LookupStorageTierPolicyResult struct {
 }
 
 func LookupStorageTierPolicyOutput(ctx *pulumi.Context, args LookupStorageTierPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupStorageTierPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStorageTierPolicyResultOutput, error) {
-			args := v.(LookupStorageTierPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:logs:getStorageTierPolicy", args, LookupStorageTierPolicyResultOutput{}, options).(LookupStorageTierPolicyResultOutput), nil
-		}).(LookupStorageTierPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:logs:getStorageTierPolicy", args, LookupStorageTierPolicyResultOutput{}, options).(LookupStorageTierPolicyResultOutput)
 }
 
 type LookupStorageTierPolicyOutputArgs struct {

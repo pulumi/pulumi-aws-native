@@ -42,12 +42,8 @@ type LookupConformancePackResult struct {
 }
 
 func LookupConformancePackOutput(ctx *pulumi.Context, args LookupConformancePackOutputArgs, opts ...pulumi.InvokeOption) LookupConformancePackResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConformancePackResultOutput, error) {
-			args := v.(LookupConformancePackArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:configuration:getConformancePack", args, LookupConformancePackResultOutput{}, options).(LookupConformancePackResultOutput), nil
-		}).(LookupConformancePackResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:configuration:getConformancePack", args, LookupConformancePackResultOutput{}, options).(LookupConformancePackResultOutput)
 }
 
 type LookupConformancePackOutputArgs struct {

@@ -58,12 +58,8 @@ type LookupComputeNodeGroupResult struct {
 }
 
 func LookupComputeNodeGroupOutput(ctx *pulumi.Context, args LookupComputeNodeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupComputeNodeGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupComputeNodeGroupResultOutput, error) {
-			args := v.(LookupComputeNodeGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:pcs:getComputeNodeGroup", args, LookupComputeNodeGroupResultOutput{}, options).(LookupComputeNodeGroupResultOutput), nil
-		}).(LookupComputeNodeGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:pcs:getComputeNodeGroup", args, LookupComputeNodeGroupResultOutput{}, options).(LookupComputeNodeGroupResultOutput)
 }
 
 type LookupComputeNodeGroupOutputArgs struct {

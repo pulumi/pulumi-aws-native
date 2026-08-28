@@ -33,12 +33,8 @@ type LookupDatasetGroupResult struct {
 }
 
 func LookupDatasetGroupOutput(ctx *pulumi.Context, args LookupDatasetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDatasetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDatasetGroupResultOutput, error) {
-			args := v.(LookupDatasetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:personalize:getDatasetGroup", args, LookupDatasetGroupResultOutput{}, options).(LookupDatasetGroupResultOutput), nil
-		}).(LookupDatasetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:personalize:getDatasetGroup", args, LookupDatasetGroupResultOutput{}, options).(LookupDatasetGroupResultOutput)
 }
 
 type LookupDatasetGroupOutputArgs struct {

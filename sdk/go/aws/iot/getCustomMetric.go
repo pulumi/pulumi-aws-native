@@ -38,12 +38,8 @@ type LookupCustomMetricResult struct {
 }
 
 func LookupCustomMetricOutput(ctx *pulumi.Context, args LookupCustomMetricOutputArgs, opts ...pulumi.InvokeOption) LookupCustomMetricResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomMetricResultOutput, error) {
-			args := v.(LookupCustomMetricArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getCustomMetric", args, LookupCustomMetricResultOutput{}, options).(LookupCustomMetricResultOutput), nil
-		}).(LookupCustomMetricResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getCustomMetric", args, LookupCustomMetricResultOutput{}, options).(LookupCustomMetricResultOutput)
 }
 
 type LookupCustomMetricOutputArgs struct {

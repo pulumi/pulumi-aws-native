@@ -39,12 +39,8 @@ type LookupTransitGatewayPolicyTableEntryResult struct {
 }
 
 func LookupTransitGatewayPolicyTableEntryOutput(ctx *pulumi.Context, args LookupTransitGatewayPolicyTableEntryOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayPolicyTableEntryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayPolicyTableEntryResultOutput, error) {
-			args := v.(LookupTransitGatewayPolicyTableEntryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayPolicyTableEntry", args, LookupTransitGatewayPolicyTableEntryResultOutput{}, options).(LookupTransitGatewayPolicyTableEntryResultOutput), nil
-		}).(LookupTransitGatewayPolicyTableEntryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayPolicyTableEntry", args, LookupTransitGatewayPolicyTableEntryResultOutput{}, options).(LookupTransitGatewayPolicyTableEntryResultOutput)
 }
 
 type LookupTransitGatewayPolicyTableEntryOutputArgs struct {

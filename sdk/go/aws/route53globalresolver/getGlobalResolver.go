@@ -46,12 +46,8 @@ type LookupGlobalResolverResult struct {
 }
 
 func LookupGlobalResolverOutput(ctx *pulumi.Context, args LookupGlobalResolverOutputArgs, opts ...pulumi.InvokeOption) LookupGlobalResolverResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGlobalResolverResultOutput, error) {
-			args := v.(LookupGlobalResolverArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53globalresolver:getGlobalResolver", args, LookupGlobalResolverResultOutput{}, options).(LookupGlobalResolverResultOutput), nil
-		}).(LookupGlobalResolverResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53globalresolver:getGlobalResolver", args, LookupGlobalResolverResultOutput{}, options).(LookupGlobalResolverResultOutput)
 }
 
 type LookupGlobalResolverOutputArgs struct {

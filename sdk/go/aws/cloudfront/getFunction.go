@@ -60,12 +60,8 @@ type LookupFunctionResult struct {
 }
 
 func LookupFunctionOutput(ctx *pulumi.Context, args LookupFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupFunctionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFunctionResultOutput, error) {
-			args := v.(LookupFunctionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getFunction", args, LookupFunctionResultOutput{}, options).(LookupFunctionResultOutput), nil
-		}).(LookupFunctionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getFunction", args, LookupFunctionResultOutput{}, options).(LookupFunctionResultOutput)
 }
 
 type LookupFunctionOutputArgs struct {

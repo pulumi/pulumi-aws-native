@@ -37,12 +37,8 @@ type LookupAutoScalingConfigurationResult struct {
 }
 
 func LookupAutoScalingConfigurationOutput(ctx *pulumi.Context, args LookupAutoScalingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupAutoScalingConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAutoScalingConfigurationResultOutput, error) {
-			args := v.(LookupAutoScalingConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apprunner:getAutoScalingConfiguration", args, LookupAutoScalingConfigurationResultOutput{}, options).(LookupAutoScalingConfigurationResultOutput), nil
-		}).(LookupAutoScalingConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apprunner:getAutoScalingConfiguration", args, LookupAutoScalingConfigurationResultOutput{}, options).(LookupAutoScalingConfigurationResultOutput)
 }
 
 type LookupAutoScalingConfigurationOutputArgs struct {

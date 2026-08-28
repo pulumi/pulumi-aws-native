@@ -44,12 +44,8 @@ type LookupCustomVerificationEmailTemplateResult struct {
 }
 
 func LookupCustomVerificationEmailTemplateOutput(ctx *pulumi.Context, args LookupCustomVerificationEmailTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupCustomVerificationEmailTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomVerificationEmailTemplateResultOutput, error) {
-			args := v.(LookupCustomVerificationEmailTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getCustomVerificationEmailTemplate", args, LookupCustomVerificationEmailTemplateResultOutput{}, options).(LookupCustomVerificationEmailTemplateResultOutput), nil
-		}).(LookupCustomVerificationEmailTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getCustomVerificationEmailTemplate", args, LookupCustomVerificationEmailTemplateResultOutput{}, options).(LookupCustomVerificationEmailTemplateResultOutput)
 }
 
 type LookupCustomVerificationEmailTemplateOutputArgs struct {

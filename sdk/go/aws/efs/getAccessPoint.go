@@ -41,12 +41,8 @@ type LookupAccessPointResult struct {
 }
 
 func LookupAccessPointOutput(ctx *pulumi.Context, args LookupAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupAccessPointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccessPointResultOutput, error) {
-			args := v.(LookupAccessPointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:efs:getAccessPoint", args, LookupAccessPointResultOutput{}, options).(LookupAccessPointResultOutput), nil
-		}).(LookupAccessPointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:efs:getAccessPoint", args, LookupAccessPointResultOutput{}, options).(LookupAccessPointResultOutput)
 }
 
 type LookupAccessPointOutputArgs struct {

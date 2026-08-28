@@ -45,12 +45,8 @@ type LookupTermsResult struct {
 }
 
 func LookupTermsOutput(ctx *pulumi.Context, args LookupTermsOutputArgs, opts ...pulumi.InvokeOption) LookupTermsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTermsResultOutput, error) {
-			args := v.(LookupTermsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getTerms", args, LookupTermsResultOutput{}, options).(LookupTermsResultOutput), nil
-		}).(LookupTermsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getTerms", args, LookupTermsResultOutput{}, options).(LookupTermsResultOutput)
 }
 
 type LookupTermsOutputArgs struct {

@@ -45,12 +45,8 @@ type LookupTriggerResult struct {
 }
 
 func LookupTriggerOutput(ctx *pulumi.Context, args LookupTriggerOutputArgs, opts ...pulumi.InvokeOption) LookupTriggerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTriggerResultOutput, error) {
-			args := v.(LookupTriggerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getTrigger", args, LookupTriggerResultOutput{}, options).(LookupTriggerResultOutput), nil
-		}).(LookupTriggerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getTrigger", args, LookupTriggerResultOutput{}, options).(LookupTriggerResultOutput)
 }
 
 type LookupTriggerOutputArgs struct {

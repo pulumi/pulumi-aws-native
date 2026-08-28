@@ -42,12 +42,8 @@ type LookupRouteServerResult struct {
 }
 
 func LookupRouteServerOutput(ctx *pulumi.Context, args LookupRouteServerOutputArgs, opts ...pulumi.InvokeOption) LookupRouteServerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRouteServerResultOutput, error) {
-			args := v.(LookupRouteServerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getRouteServer", args, LookupRouteServerResultOutput{}, options).(LookupRouteServerResultOutput), nil
-		}).(LookupRouteServerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getRouteServer", args, LookupRouteServerResultOutput{}, options).(LookupRouteServerResultOutput)
 }
 
 type LookupRouteServerOutputArgs struct {

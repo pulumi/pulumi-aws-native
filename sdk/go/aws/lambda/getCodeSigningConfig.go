@@ -44,12 +44,8 @@ type LookupCodeSigningConfigResult struct {
 }
 
 func LookupCodeSigningConfigOutput(ctx *pulumi.Context, args LookupCodeSigningConfigOutputArgs, opts ...pulumi.InvokeOption) LookupCodeSigningConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCodeSigningConfigResultOutput, error) {
-			args := v.(LookupCodeSigningConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lambda:getCodeSigningConfig", args, LookupCodeSigningConfigResultOutput{}, options).(LookupCodeSigningConfigResultOutput), nil
-		}).(LookupCodeSigningConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lambda:getCodeSigningConfig", args, LookupCodeSigningConfigResultOutput{}, options).(LookupCodeSigningConfigResultOutput)
 }
 
 type LookupCodeSigningConfigOutputArgs struct {

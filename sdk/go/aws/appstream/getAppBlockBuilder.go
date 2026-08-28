@@ -56,12 +56,8 @@ type LookupAppBlockBuilderResult struct {
 }
 
 func LookupAppBlockBuilderOutput(ctx *pulumi.Context, args LookupAppBlockBuilderOutputArgs, opts ...pulumi.InvokeOption) LookupAppBlockBuilderResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAppBlockBuilderResultOutput, error) {
-			args := v.(LookupAppBlockBuilderArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appstream:getAppBlockBuilder", args, LookupAppBlockBuilderResultOutput{}, options).(LookupAppBlockBuilderResultOutput), nil
-		}).(LookupAppBlockBuilderResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appstream:getAppBlockBuilder", args, LookupAppBlockBuilderResultOutput{}, options).(LookupAppBlockBuilderResultOutput)
 }
 
 type LookupAppBlockBuilderOutputArgs struct {

@@ -42,12 +42,8 @@ type LookupTestGridProjectResult struct {
 }
 
 func LookupTestGridProjectOutput(ctx *pulumi.Context, args LookupTestGridProjectOutputArgs, opts ...pulumi.InvokeOption) LookupTestGridProjectResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTestGridProjectResultOutput, error) {
-			args := v.(LookupTestGridProjectArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devicefarm:getTestGridProject", args, LookupTestGridProjectResultOutput{}, options).(LookupTestGridProjectResultOutput), nil
-		}).(LookupTestGridProjectResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devicefarm:getTestGridProject", args, LookupTestGridProjectResultOutput{}, options).(LookupTestGridProjectResultOutput)
 }
 
 type LookupTestGridProjectOutputArgs struct {

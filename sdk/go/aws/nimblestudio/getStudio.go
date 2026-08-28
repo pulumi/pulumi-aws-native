@@ -38,12 +38,8 @@ type LookupStudioResult struct {
 }
 
 func LookupStudioOutput(ctx *pulumi.Context, args LookupStudioOutputArgs, opts ...pulumi.InvokeOption) LookupStudioResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStudioResultOutput, error) {
-			args := v.(LookupStudioArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:nimblestudio:getStudio", args, LookupStudioResultOutput{}, options).(LookupStudioResultOutput), nil
-		}).(LookupStudioResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:nimblestudio:getStudio", args, LookupStudioResultOutput{}, options).(LookupStudioResultOutput)
 }
 
 type LookupStudioOutputArgs struct {

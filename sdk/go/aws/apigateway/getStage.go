@@ -58,12 +58,8 @@ type LookupStageResult struct {
 }
 
 func LookupStageOutput(ctx *pulumi.Context, args LookupStageOutputArgs, opts ...pulumi.InvokeOption) LookupStageResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStageResultOutput, error) {
-			args := v.(LookupStageArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigateway:getStage", args, LookupStageResultOutput{}, options).(LookupStageResultOutput), nil
-		}).(LookupStageResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigateway:getStage", args, LookupStageResultOutput{}, options).(LookupStageResultOutput)
 }
 
 type LookupStageOutputArgs struct {

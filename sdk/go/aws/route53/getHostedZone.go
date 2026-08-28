@@ -74,12 +74,8 @@ type LookupHostedZoneResult struct {
 }
 
 func LookupHostedZoneOutput(ctx *pulumi.Context, args LookupHostedZoneOutputArgs, opts ...pulumi.InvokeOption) LookupHostedZoneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHostedZoneResultOutput, error) {
-			args := v.(LookupHostedZoneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53:getHostedZone", args, LookupHostedZoneResultOutput{}, options).(LookupHostedZoneResultOutput), nil
-		}).(LookupHostedZoneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53:getHostedZone", args, LookupHostedZoneResultOutput{}, options).(LookupHostedZoneResultOutput)
 }
 
 type LookupHostedZoneOutputArgs struct {

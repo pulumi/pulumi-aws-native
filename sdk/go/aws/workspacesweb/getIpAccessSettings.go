@@ -46,12 +46,8 @@ type LookupIpAccessSettingsResult struct {
 }
 
 func LookupIpAccessSettingsOutput(ctx *pulumi.Context, args LookupIpAccessSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupIpAccessSettingsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpAccessSettingsResultOutput, error) {
-			args := v.(LookupIpAccessSettingsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:workspacesweb:getIpAccessSettings", args, LookupIpAccessSettingsResultOutput{}, options).(LookupIpAccessSettingsResultOutput), nil
-		}).(LookupIpAccessSettingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:workspacesweb:getIpAccessSettings", args, LookupIpAccessSettingsResultOutput{}, options).(LookupIpAccessSettingsResultOutput)
 }
 
 type LookupIpAccessSettingsOutputArgs struct {

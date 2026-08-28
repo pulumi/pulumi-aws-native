@@ -37,12 +37,8 @@ type LookupMemberResult struct {
 }
 
 func LookupMemberOutput(ctx *pulumi.Context, args LookupMemberOutputArgs, opts ...pulumi.InvokeOption) LookupMemberResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMemberResultOutput, error) {
-			args := v.(LookupMemberArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:guardduty:getMember", args, LookupMemberResultOutput{}, options).(LookupMemberResultOutput), nil
-		}).(LookupMemberResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:guardduty:getMember", args, LookupMemberResultOutput{}, options).(LookupMemberResultOutput)
 }
 
 type LookupMemberOutputArgs struct {

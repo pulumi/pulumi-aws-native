@@ -35,12 +35,8 @@ type LookupGroupMembershipResult struct {
 }
 
 func LookupGroupMembershipOutput(ctx *pulumi.Context, args LookupGroupMembershipOutputArgs, opts ...pulumi.InvokeOption) LookupGroupMembershipResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGroupMembershipResultOutput, error) {
-			args := v.(LookupGroupMembershipArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:identitystore:getGroupMembership", args, LookupGroupMembershipResultOutput{}, options).(LookupGroupMembershipResultOutput), nil
-		}).(LookupGroupMembershipResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:identitystore:getGroupMembership", args, LookupGroupMembershipResultOutput{}, options).(LookupGroupMembershipResultOutput)
 }
 
 type LookupGroupMembershipOutputArgs struct {

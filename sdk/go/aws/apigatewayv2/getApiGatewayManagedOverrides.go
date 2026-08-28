@@ -39,12 +39,8 @@ type LookupApiGatewayManagedOverridesResult struct {
 }
 
 func LookupApiGatewayManagedOverridesOutput(ctx *pulumi.Context, args LookupApiGatewayManagedOverridesOutputArgs, opts ...pulumi.InvokeOption) LookupApiGatewayManagedOverridesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApiGatewayManagedOverridesResultOutput, error) {
-			args := v.(LookupApiGatewayManagedOverridesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigatewayv2:getApiGatewayManagedOverrides", args, LookupApiGatewayManagedOverridesResultOutput{}, options).(LookupApiGatewayManagedOverridesResultOutput), nil
-		}).(LookupApiGatewayManagedOverridesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigatewayv2:getApiGatewayManagedOverrides", args, LookupApiGatewayManagedOverridesResultOutput{}, options).(LookupApiGatewayManagedOverridesResultOutput)
 }
 
 type LookupApiGatewayManagedOverridesOutputArgs struct {

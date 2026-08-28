@@ -36,12 +36,8 @@ type LookupTieringConfigurationResult struct {
 }
 
 func LookupTieringConfigurationOutput(ctx *pulumi.Context, args LookupTieringConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupTieringConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTieringConfigurationResultOutput, error) {
-			args := v.(LookupTieringConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:backup:getTieringConfiguration", args, LookupTieringConfigurationResultOutput{}, options).(LookupTieringConfigurationResultOutput), nil
-		}).(LookupTieringConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:backup:getTieringConfiguration", args, LookupTieringConfigurationResultOutput{}, options).(LookupTieringConfigurationResultOutput)
 }
 
 type LookupTieringConfigurationOutputArgs struct {

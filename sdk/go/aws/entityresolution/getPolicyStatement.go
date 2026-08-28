@@ -45,12 +45,8 @@ type LookupPolicyStatementResult struct {
 }
 
 func LookupPolicyStatementOutput(ctx *pulumi.Context, args LookupPolicyStatementOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyStatementResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPolicyStatementResultOutput, error) {
-			args := v.(LookupPolicyStatementArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:entityresolution:getPolicyStatement", args, LookupPolicyStatementResultOutput{}, options).(LookupPolicyStatementResultOutput), nil
-		}).(LookupPolicyStatementResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:entityresolution:getPolicyStatement", args, LookupPolicyStatementResultOutput{}, options).(LookupPolicyStatementResultOutput)
 }
 
 type LookupPolicyStatementOutputArgs struct {

@@ -54,12 +54,8 @@ type LookupDiskSnapshotResult struct {
 }
 
 func LookupDiskSnapshotOutput(ctx *pulumi.Context, args LookupDiskSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupDiskSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDiskSnapshotResultOutput, error) {
-			args := v.(LookupDiskSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lightsail:getDiskSnapshot", args, LookupDiskSnapshotResultOutput{}, options).(LookupDiskSnapshotResultOutput), nil
-		}).(LookupDiskSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lightsail:getDiskSnapshot", args, LookupDiskSnapshotResultOutput{}, options).(LookupDiskSnapshotResultOutput)
 }
 
 type LookupDiskSnapshotOutputArgs struct {

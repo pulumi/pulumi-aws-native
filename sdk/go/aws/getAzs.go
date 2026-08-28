@@ -30,12 +30,8 @@ type GetAzsResult struct {
 }
 
 func GetAzsOutput(ctx *pulumi.Context, args GetAzsOutputArgs, opts ...pulumi.InvokeOption) GetAzsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAzsResultOutput, error) {
-			args := v.(GetAzsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:index:getAzs", args, GetAzsResultOutput{}, options).(GetAzsResultOutput), nil
-		}).(GetAzsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:index:getAzs", args, GetAzsResultOutput{}, options).(GetAzsResultOutput)
 }
 
 type GetAzsOutputArgs struct {

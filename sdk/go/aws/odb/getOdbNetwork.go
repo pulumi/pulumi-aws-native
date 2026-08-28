@@ -49,12 +49,8 @@ type LookupOdbNetworkResult struct {
 }
 
 func LookupOdbNetworkOutput(ctx *pulumi.Context, args LookupOdbNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupOdbNetworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOdbNetworkResultOutput, error) {
-			args := v.(LookupOdbNetworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:odb:getOdbNetwork", args, LookupOdbNetworkResultOutput{}, options).(LookupOdbNetworkResultOutput), nil
-		}).(LookupOdbNetworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:odb:getOdbNetwork", args, LookupOdbNetworkResultOutput{}, options).(LookupOdbNetworkResultOutput)
 }
 
 type LookupOdbNetworkOutputArgs struct {

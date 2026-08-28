@@ -46,12 +46,8 @@ type LookupListResult struct {
 }
 
 func LookupListOutput(ctx *pulumi.Context, args LookupListOutputArgs, opts ...pulumi.InvokeOption) LookupListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupListResultOutput, error) {
-			args := v.(LookupListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:frauddetector:getList", args, LookupListResultOutput{}, options).(LookupListResultOutput), nil
-		}).(LookupListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:frauddetector:getList", args, LookupListResultOutput{}, options).(LookupListResultOutput)
 }
 
 type LookupListOutputArgs struct {

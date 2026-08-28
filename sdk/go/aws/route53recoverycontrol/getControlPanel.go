@@ -41,12 +41,8 @@ type LookupControlPanelResult struct {
 }
 
 func LookupControlPanelOutput(ctx *pulumi.Context, args LookupControlPanelOutputArgs, opts ...pulumi.InvokeOption) LookupControlPanelResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupControlPanelResultOutput, error) {
-			args := v.(LookupControlPanelArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53recoverycontrol:getControlPanel", args, LookupControlPanelResultOutput{}, options).(LookupControlPanelResultOutput), nil
-		}).(LookupControlPanelResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53recoverycontrol:getControlPanel", args, LookupControlPanelResultOutput{}, options).(LookupControlPanelResultOutput)
 }
 
 type LookupControlPanelOutputArgs struct {

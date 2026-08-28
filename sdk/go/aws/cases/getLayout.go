@@ -46,12 +46,8 @@ type LookupLayoutResult struct {
 }
 
 func LookupLayoutOutput(ctx *pulumi.Context, args LookupLayoutOutputArgs, opts ...pulumi.InvokeOption) LookupLayoutResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLayoutResultOutput, error) {
-			args := v.(LookupLayoutArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cases:getLayout", args, LookupLayoutResultOutput{}, options).(LookupLayoutResultOutput), nil
-		}).(LookupLayoutResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cases:getLayout", args, LookupLayoutResultOutput{}, options).(LookupLayoutResultOutput)
 }
 
 type LookupLayoutOutputArgs struct {

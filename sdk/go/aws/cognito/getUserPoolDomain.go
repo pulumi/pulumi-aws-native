@@ -40,12 +40,8 @@ type LookupUserPoolDomainResult struct {
 }
 
 func LookupUserPoolDomainOutput(ctx *pulumi.Context, args LookupUserPoolDomainOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolDomainResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserPoolDomainResultOutput, error) {
-			args := v.(LookupUserPoolDomainArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getUserPoolDomain", args, LookupUserPoolDomainResultOutput{}, options).(LookupUserPoolDomainResultOutput), nil
-		}).(LookupUserPoolDomainResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getUserPoolDomain", args, LookupUserPoolDomainResultOutput{}, options).(LookupUserPoolDomainResultOutput)
 }
 
 type LookupUserPoolDomainOutputArgs struct {

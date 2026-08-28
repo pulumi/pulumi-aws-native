@@ -48,12 +48,8 @@ type LookupCustomDetectionRuleAssociationResult struct {
 }
 
 func LookupCustomDetectionRuleAssociationOutput(ctx *pulumi.Context, args LookupCustomDetectionRuleAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupCustomDetectionRuleAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomDetectionRuleAssociationResultOutput, error) {
-			args := v.(LookupCustomDetectionRuleAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:guardduty:getCustomDetectionRuleAssociation", args, LookupCustomDetectionRuleAssociationResultOutput{}, options).(LookupCustomDetectionRuleAssociationResultOutput), nil
-		}).(LookupCustomDetectionRuleAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:guardduty:getCustomDetectionRuleAssociation", args, LookupCustomDetectionRuleAssociationResultOutput{}, options).(LookupCustomDetectionRuleAssociationResultOutput)
 }
 
 type LookupCustomDetectionRuleAssociationOutputArgs struct {

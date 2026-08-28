@@ -43,12 +43,8 @@ type LookupIpamPrefixListResolverResult struct {
 }
 
 func LookupIpamPrefixListResolverOutput(ctx *pulumi.Context, args LookupIpamPrefixListResolverOutputArgs, opts ...pulumi.InvokeOption) LookupIpamPrefixListResolverResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpamPrefixListResolverResultOutput, error) {
-			args := v.(LookupIpamPrefixListResolverArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getIpamPrefixListResolver", args, LookupIpamPrefixListResolverResultOutput{}, options).(LookupIpamPrefixListResolverResultOutput), nil
-		}).(LookupIpamPrefixListResolverResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getIpamPrefixListResolver", args, LookupIpamPrefixListResolverResultOutput{}, options).(LookupIpamPrefixListResolverResultOutput)
 }
 
 type LookupIpamPrefixListResolverOutputArgs struct {

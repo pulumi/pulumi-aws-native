@@ -39,12 +39,8 @@ type LookupTypeResult struct {
 }
 
 func LookupTypeOutput(ctx *pulumi.Context, args LookupTypeOutputArgs, opts ...pulumi.InvokeOption) LookupTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTypeResultOutput, error) {
-			args := v.(LookupTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appsync:getType", args, LookupTypeResultOutput{}, options).(LookupTypeResultOutput), nil
-		}).(LookupTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appsync:getType", args, LookupTypeResultOutput{}, options).(LookupTypeResultOutput)
 }
 
 type LookupTypeOutputArgs struct {

@@ -39,12 +39,8 @@ type LookupProactiveEngagementResult struct {
 }
 
 func LookupProactiveEngagementOutput(ctx *pulumi.Context, args LookupProactiveEngagementOutputArgs, opts ...pulumi.InvokeOption) LookupProactiveEngagementResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProactiveEngagementResultOutput, error) {
-			args := v.(LookupProactiveEngagementArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:shield:getProactiveEngagement", args, LookupProactiveEngagementResultOutput{}, options).(LookupProactiveEngagementResultOutput), nil
-		}).(LookupProactiveEngagementResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:shield:getProactiveEngagement", args, LookupProactiveEngagementResultOutput{}, options).(LookupProactiveEngagementResultOutput)
 }
 
 type LookupProactiveEngagementOutputArgs struct {

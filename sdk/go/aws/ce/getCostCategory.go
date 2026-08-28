@@ -46,12 +46,8 @@ type LookupCostCategoryResult struct {
 }
 
 func LookupCostCategoryOutput(ctx *pulumi.Context, args LookupCostCategoryOutputArgs, opts ...pulumi.InvokeOption) LookupCostCategoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCostCategoryResultOutput, error) {
-			args := v.(LookupCostCategoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ce:getCostCategory", args, LookupCostCategoryResultOutput{}, options).(LookupCostCategoryResultOutput), nil
-		}).(LookupCostCategoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ce:getCostCategory", args, LookupCostCategoryResultOutput{}, options).(LookupCostCategoryResultOutput)
 }
 
 type LookupCostCategoryOutputArgs struct {

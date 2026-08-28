@@ -42,12 +42,8 @@ type LookupIntermediateTableResult struct {
 }
 
 func LookupIntermediateTableOutput(ctx *pulumi.Context, args LookupIntermediateTableOutputArgs, opts ...pulumi.InvokeOption) LookupIntermediateTableResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIntermediateTableResultOutput, error) {
-			args := v.(LookupIntermediateTableArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cleanrooms:getIntermediateTable", args, LookupIntermediateTableResultOutput{}, options).(LookupIntermediateTableResultOutput), nil
-		}).(LookupIntermediateTableResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cleanrooms:getIntermediateTable", args, LookupIntermediateTableResultOutput{}, options).(LookupIntermediateTableResultOutput)
 }
 
 type LookupIntermediateTableOutputArgs struct {

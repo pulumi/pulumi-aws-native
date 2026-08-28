@@ -50,12 +50,8 @@ type LookupTransitVirtualInterfaceResult struct {
 }
 
 func LookupTransitVirtualInterfaceOutput(ctx *pulumi.Context, args LookupTransitVirtualInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupTransitVirtualInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransitVirtualInterfaceResultOutput, error) {
-			args := v.(LookupTransitVirtualInterfaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:directconnect:getTransitVirtualInterface", args, LookupTransitVirtualInterfaceResultOutput{}, options).(LookupTransitVirtualInterfaceResultOutput), nil
-		}).(LookupTransitVirtualInterfaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:directconnect:getTransitVirtualInterface", args, LookupTransitVirtualInterfaceResultOutput{}, options).(LookupTransitVirtualInterfaceResultOutput)
 }
 
 type LookupTransitVirtualInterfaceOutputArgs struct {

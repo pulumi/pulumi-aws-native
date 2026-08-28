@@ -50,12 +50,8 @@ type LookupMulticastGroupResult struct {
 }
 
 func LookupMulticastGroupOutput(ctx *pulumi.Context, args LookupMulticastGroupOutputArgs, opts ...pulumi.InvokeOption) LookupMulticastGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMulticastGroupResultOutput, error) {
-			args := v.(LookupMulticastGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iotwireless:getMulticastGroup", args, LookupMulticastGroupResultOutput{}, options).(LookupMulticastGroupResultOutput), nil
-		}).(LookupMulticastGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iotwireless:getMulticastGroup", args, LookupMulticastGroupResultOutput{}, options).(LookupMulticastGroupResultOutput)
 }
 
 type LookupMulticastGroupOutputArgs struct {

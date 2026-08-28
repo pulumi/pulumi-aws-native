@@ -35,12 +35,8 @@ type LookupAccountAliasResult struct {
 }
 
 func LookupAccountAliasOutput(ctx *pulumi.Context, args LookupAccountAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAccountAliasResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccountAliasResultOutput, error) {
-			args := v.(LookupAccountAliasArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:supportapp:getAccountAlias", args, LookupAccountAliasResultOutput{}, options).(LookupAccountAliasResultOutput), nil
-		}).(LookupAccountAliasResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:supportapp:getAccountAlias", args, LookupAccountAliasResultOutput{}, options).(LookupAccountAliasResultOutput)
 }
 
 type LookupAccountAliasOutputArgs struct {

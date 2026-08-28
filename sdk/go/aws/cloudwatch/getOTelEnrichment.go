@@ -34,12 +34,8 @@ type LookupOTelEnrichmentResult struct {
 }
 
 func LookupOTelEnrichmentOutput(ctx *pulumi.Context, args LookupOTelEnrichmentOutputArgs, opts ...pulumi.InvokeOption) LookupOTelEnrichmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOTelEnrichmentResultOutput, error) {
-			args := v.(LookupOTelEnrichmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudwatch:getOTelEnrichment", args, LookupOTelEnrichmentResultOutput{}, options).(LookupOTelEnrichmentResultOutput), nil
-		}).(LookupOTelEnrichmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudwatch:getOTelEnrichment", args, LookupOTelEnrichmentResultOutput{}, options).(LookupOTelEnrichmentResultOutput)
 }
 
 type LookupOTelEnrichmentOutputArgs struct {

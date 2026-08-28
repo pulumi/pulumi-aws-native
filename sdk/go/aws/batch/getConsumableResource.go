@@ -43,12 +43,8 @@ type LookupConsumableResourceResult struct {
 }
 
 func LookupConsumableResourceOutput(ctx *pulumi.Context, args LookupConsumableResourceOutputArgs, opts ...pulumi.InvokeOption) LookupConsumableResourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConsumableResourceResultOutput, error) {
-			args := v.(LookupConsumableResourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:batch:getConsumableResource", args, LookupConsumableResourceResultOutput{}, options).(LookupConsumableResourceResultOutput), nil
-		}).(LookupConsumableResourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:batch:getConsumableResource", args, LookupConsumableResourceResultOutput{}, options).(LookupConsumableResourceResultOutput)
 }
 
 type LookupConsumableResourceOutputArgs struct {

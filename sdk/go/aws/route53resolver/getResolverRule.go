@@ -48,12 +48,8 @@ type LookupResolverRuleResult struct {
 }
 
 func LookupResolverRuleOutput(ctx *pulumi.Context, args LookupResolverRuleOutputArgs, opts ...pulumi.InvokeOption) LookupResolverRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverRuleResultOutput, error) {
-			args := v.(LookupResolverRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53resolver:getResolverRule", args, LookupResolverRuleResultOutput{}, options).(LookupResolverRuleResultOutput), nil
-		}).(LookupResolverRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53resolver:getResolverRule", args, LookupResolverRuleResultOutput{}, options).(LookupResolverRuleResultOutput)
 }
 
 type LookupResolverRuleOutputArgs struct {

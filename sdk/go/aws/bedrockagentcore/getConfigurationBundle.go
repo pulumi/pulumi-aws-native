@@ -51,12 +51,8 @@ type LookupConfigurationBundleResult struct {
 }
 
 func LookupConfigurationBundleOutput(ctx *pulumi.Context, args LookupConfigurationBundleOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationBundleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationBundleResultOutput, error) {
-			args := v.(LookupConfigurationBundleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getConfigurationBundle", args, LookupConfigurationBundleResultOutput{}, options).(LookupConfigurationBundleResultOutput), nil
-		}).(LookupConfigurationBundleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getConfigurationBundle", args, LookupConfigurationBundleResultOutput{}, options).(LookupConfigurationBundleResultOutput)
 }
 
 type LookupConfigurationBundleOutputArgs struct {

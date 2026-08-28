@@ -56,12 +56,8 @@ type LookupFlowAliasResult struct {
 }
 
 func LookupFlowAliasOutput(ctx *pulumi.Context, args LookupFlowAliasOutputArgs, opts ...pulumi.InvokeOption) LookupFlowAliasResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlowAliasResultOutput, error) {
-			args := v.(LookupFlowAliasArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getFlowAlias", args, LookupFlowAliasResultOutput{}, options).(LookupFlowAliasResultOutput), nil
-		}).(LookupFlowAliasResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getFlowAlias", args, LookupFlowAliasResultOutput{}, options).(LookupFlowAliasResultOutput)
 }
 
 type LookupFlowAliasOutputArgs struct {

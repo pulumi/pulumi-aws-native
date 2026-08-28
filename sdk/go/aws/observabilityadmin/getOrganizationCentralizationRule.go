@@ -37,12 +37,8 @@ type LookupOrganizationCentralizationRuleResult struct {
 }
 
 func LookupOrganizationCentralizationRuleOutput(ctx *pulumi.Context, args LookupOrganizationCentralizationRuleOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationCentralizationRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationCentralizationRuleResultOutput, error) {
-			args := v.(LookupOrganizationCentralizationRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:observabilityadmin:getOrganizationCentralizationRule", args, LookupOrganizationCentralizationRuleResultOutput{}, options).(LookupOrganizationCentralizationRuleResultOutput), nil
-		}).(LookupOrganizationCentralizationRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:observabilityadmin:getOrganizationCentralizationRule", args, LookupOrganizationCentralizationRuleResultOutput{}, options).(LookupOrganizationCentralizationRuleResultOutput)
 }
 
 type LookupOrganizationCentralizationRuleOutputArgs struct {

@@ -40,12 +40,8 @@ type LookupFlowResult struct {
 }
 
 func LookupFlowOutput(ctx *pulumi.Context, args LookupFlowOutputArgs, opts ...pulumi.InvokeOption) LookupFlowResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFlowResultOutput, error) {
-			args := v.(LookupFlowArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getFlow", args, LookupFlowResultOutput{}, options).(LookupFlowResultOutput), nil
-		}).(LookupFlowResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getFlow", args, LookupFlowResultOutput{}, options).(LookupFlowResultOutput)
 }
 
 type LookupFlowOutputArgs struct {

@@ -33,12 +33,8 @@ type LookupSimulationResult struct {
 }
 
 func LookupSimulationOutput(ctx *pulumi.Context, args LookupSimulationOutputArgs, opts ...pulumi.InvokeOption) LookupSimulationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSimulationResultOutput, error) {
-			args := v.(LookupSimulationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:simspaceweaver:getSimulation", args, LookupSimulationResultOutput{}, options).(LookupSimulationResultOutput), nil
-		}).(LookupSimulationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:simspaceweaver:getSimulation", args, LookupSimulationResultOutput{}, options).(LookupSimulationResultOutput)
 }
 
 type LookupSimulationOutputArgs struct {

@@ -52,12 +52,8 @@ type LookupDashboardResult struct {
 }
 
 func LookupDashboardOutput(ctx *pulumi.Context, args LookupDashboardOutputArgs, opts ...pulumi.InvokeOption) LookupDashboardResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDashboardResultOutput, error) {
-			args := v.(LookupDashboardArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudtrail:getDashboard", args, LookupDashboardResultOutput{}, options).(LookupDashboardResultOutput), nil
-		}).(LookupDashboardResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudtrail:getDashboard", args, LookupDashboardResultOutput{}, options).(LookupDashboardResultOutput)
 }
 
 type LookupDashboardOutputArgs struct {

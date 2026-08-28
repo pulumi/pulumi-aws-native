@@ -49,12 +49,8 @@ type LookupScheduledActionResult struct {
 }
 
 func LookupScheduledActionOutput(ctx *pulumi.Context, args LookupScheduledActionOutputArgs, opts ...pulumi.InvokeOption) LookupScheduledActionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupScheduledActionResultOutput, error) {
-			args := v.(LookupScheduledActionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:autoscaling:getScheduledAction", args, LookupScheduledActionResultOutput{}, options).(LookupScheduledActionResultOutput), nil
-		}).(LookupScheduledActionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:autoscaling:getScheduledAction", args, LookupScheduledActionResultOutput{}, options).(LookupScheduledActionResultOutput)
 }
 
 type LookupScheduledActionOutputArgs struct {

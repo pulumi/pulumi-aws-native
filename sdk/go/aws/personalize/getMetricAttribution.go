@@ -36,12 +36,8 @@ type LookupMetricAttributionResult struct {
 }
 
 func LookupMetricAttributionOutput(ctx *pulumi.Context, args LookupMetricAttributionOutputArgs, opts ...pulumi.InvokeOption) LookupMetricAttributionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMetricAttributionResultOutput, error) {
-			args := v.(LookupMetricAttributionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:personalize:getMetricAttribution", args, LookupMetricAttributionResultOutput{}, options).(LookupMetricAttributionResultOutput), nil
-		}).(LookupMetricAttributionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:personalize:getMetricAttribution", args, LookupMetricAttributionResultOutput{}, options).(LookupMetricAttributionResultOutput)
 }
 
 type LookupMetricAttributionOutputArgs struct {

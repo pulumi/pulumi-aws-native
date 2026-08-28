@@ -46,12 +46,8 @@ type LookupInsightRuleResult struct {
 }
 
 func LookupInsightRuleOutput(ctx *pulumi.Context, args LookupInsightRuleOutputArgs, opts ...pulumi.InvokeOption) LookupInsightRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInsightRuleResultOutput, error) {
-			args := v.(LookupInsightRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudwatch:getInsightRule", args, LookupInsightRuleResultOutput{}, options).(LookupInsightRuleResultOutput), nil
-		}).(LookupInsightRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudwatch:getInsightRule", args, LookupInsightRuleResultOutput{}, options).(LookupInsightRuleResultOutput)
 }
 
 type LookupInsightRuleOutputArgs struct {

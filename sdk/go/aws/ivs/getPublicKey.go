@@ -38,12 +38,8 @@ type LookupPublicKeyResult struct {
 }
 
 func LookupPublicKeyOutput(ctx *pulumi.Context, args LookupPublicKeyOutputArgs, opts ...pulumi.InvokeOption) LookupPublicKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPublicKeyResultOutput, error) {
-			args := v.(LookupPublicKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ivs:getPublicKey", args, LookupPublicKeyResultOutput{}, options).(LookupPublicKeyResultOutput), nil
-		}).(LookupPublicKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ivs:getPublicKey", args, LookupPublicKeyResultOutput{}, options).(LookupPublicKeyResultOutput)
 }
 
 type LookupPublicKeyOutputArgs struct {

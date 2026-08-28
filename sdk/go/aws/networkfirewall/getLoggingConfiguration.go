@@ -34,12 +34,8 @@ type LookupLoggingConfigurationResult struct {
 }
 
 func LookupLoggingConfigurationOutput(ctx *pulumi.Context, args LookupLoggingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLoggingConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLoggingConfigurationResultOutput, error) {
-			args := v.(LookupLoggingConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:networkfirewall:getLoggingConfiguration", args, LookupLoggingConfigurationResultOutput{}, options).(LookupLoggingConfigurationResultOutput), nil
-		}).(LookupLoggingConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:networkfirewall:getLoggingConfiguration", args, LookupLoggingConfigurationResultOutput{}, options).(LookupLoggingConfigurationResultOutput)
 }
 
 type LookupLoggingConfigurationOutputArgs struct {

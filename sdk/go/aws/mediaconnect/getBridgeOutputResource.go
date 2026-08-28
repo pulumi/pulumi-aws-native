@@ -35,12 +35,8 @@ type LookupBridgeOutputResourceResult struct {
 }
 
 func LookupBridgeOutputResourceOutput(ctx *pulumi.Context, args LookupBridgeOutputResourceOutputArgs, opts ...pulumi.InvokeOption) LookupBridgeOutputResourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBridgeOutputResourceResultOutput, error) {
-			args := v.(LookupBridgeOutputResourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediaconnect:getBridgeOutputResource", args, LookupBridgeOutputResourceResultOutput{}, options).(LookupBridgeOutputResourceResultOutput), nil
-		}).(LookupBridgeOutputResourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediaconnect:getBridgeOutputResource", args, LookupBridgeOutputResourceResultOutput{}, options).(LookupBridgeOutputResourceResultOutput)
 }
 
 type LookupBridgeOutputResourceOutputArgs struct {

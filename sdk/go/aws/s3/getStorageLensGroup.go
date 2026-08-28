@@ -38,12 +38,8 @@ type LookupStorageLensGroupResult struct {
 }
 
 func LookupStorageLensGroupOutput(ctx *pulumi.Context, args LookupStorageLensGroupOutputArgs, opts ...pulumi.InvokeOption) LookupStorageLensGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupStorageLensGroupResultOutput, error) {
-			args := v.(LookupStorageLensGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3:getStorageLensGroup", args, LookupStorageLensGroupResultOutput{}, options).(LookupStorageLensGroupResultOutput), nil
-		}).(LookupStorageLensGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3:getStorageLensGroup", args, LookupStorageLensGroupResultOutput{}, options).(LookupStorageLensGroupResultOutput)
 }
 
 type LookupStorageLensGroupOutputArgs struct {

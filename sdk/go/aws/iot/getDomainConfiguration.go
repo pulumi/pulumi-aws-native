@@ -64,12 +64,8 @@ type LookupDomainConfigurationResult struct {
 }
 
 func LookupDomainConfigurationOutput(ctx *pulumi.Context, args LookupDomainConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDomainConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainConfigurationResultOutput, error) {
-			args := v.(LookupDomainConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getDomainConfiguration", args, LookupDomainConfigurationResultOutput{}, options).(LookupDomainConfigurationResultOutput), nil
-		}).(LookupDomainConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getDomainConfiguration", args, LookupDomainConfigurationResultOutput{}, options).(LookupDomainConfigurationResultOutput)
 }
 
 type LookupDomainConfigurationOutputArgs struct {

@@ -33,12 +33,8 @@ type LookupSubnetNetworkAclAssociationResult struct {
 }
 
 func LookupSubnetNetworkAclAssociationOutput(ctx *pulumi.Context, args LookupSubnetNetworkAclAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetNetworkAclAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubnetNetworkAclAssociationResultOutput, error) {
-			args := v.(LookupSubnetNetworkAclAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getSubnetNetworkAclAssociation", args, LookupSubnetNetworkAclAssociationResultOutput{}, options).(LookupSubnetNetworkAclAssociationResultOutput), nil
-		}).(LookupSubnetNetworkAclAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getSubnetNetworkAclAssociation", args, LookupSubnetNetworkAclAssociationResultOutput{}, options).(LookupSubnetNetworkAclAssociationResultOutput)
 }
 
 type LookupSubnetNetworkAclAssociationOutputArgs struct {

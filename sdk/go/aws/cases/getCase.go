@@ -40,12 +40,8 @@ type LookupCaseResult struct {
 }
 
 func LookupCaseOutput(ctx *pulumi.Context, args LookupCaseOutputArgs, opts ...pulumi.InvokeOption) LookupCaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCaseResultOutput, error) {
-			args := v.(LookupCaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cases:getCase", args, LookupCaseResultOutput{}, options).(LookupCaseResultOutput), nil
-		}).(LookupCaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cases:getCase", args, LookupCaseResultOutput{}, options).(LookupCaseResultOutput)
 }
 
 type LookupCaseOutputArgs struct {

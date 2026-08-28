@@ -49,12 +49,8 @@ type LookupDomainUnitResult struct {
 }
 
 func LookupDomainUnitOutput(ctx *pulumi.Context, args LookupDomainUnitOutputArgs, opts ...pulumi.InvokeOption) LookupDomainUnitResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainUnitResultOutput, error) {
-			args := v.(LookupDomainUnitArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datazone:getDomainUnit", args, LookupDomainUnitResultOutput{}, options).(LookupDomainUnitResultOutput), nil
-		}).(LookupDomainUnitResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datazone:getDomainUnit", args, LookupDomainUnitResultOutput{}, options).(LookupDomainUnitResultOutput)
 }
 
 type LookupDomainUnitOutputArgs struct {

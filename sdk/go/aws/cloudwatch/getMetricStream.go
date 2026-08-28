@@ -56,12 +56,8 @@ type LookupMetricStreamResult struct {
 }
 
 func LookupMetricStreamOutput(ctx *pulumi.Context, args LookupMetricStreamOutputArgs, opts ...pulumi.InvokeOption) LookupMetricStreamResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMetricStreamResultOutput, error) {
-			args := v.(LookupMetricStreamArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudwatch:getMetricStream", args, LookupMetricStreamResultOutput{}, options).(LookupMetricStreamResultOutput), nil
-		}).(LookupMetricStreamResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudwatch:getMetricStream", args, LookupMetricStreamResultOutput{}, options).(LookupMetricStreamResultOutput)
 }
 
 type LookupMetricStreamOutputArgs struct {

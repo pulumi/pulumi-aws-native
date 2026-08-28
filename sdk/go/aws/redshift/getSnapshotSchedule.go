@@ -40,12 +40,8 @@ type LookupSnapshotScheduleResult struct {
 }
 
 func LookupSnapshotScheduleOutput(ctx *pulumi.Context, args LookupSnapshotScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotScheduleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSnapshotScheduleResultOutput, error) {
-			args := v.(LookupSnapshotScheduleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:redshift:getSnapshotSchedule", args, LookupSnapshotScheduleResultOutput{}, options).(LookupSnapshotScheduleResultOutput), nil
-		}).(LookupSnapshotScheduleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:redshift:getSnapshotSchedule", args, LookupSnapshotScheduleResultOutput{}, options).(LookupSnapshotScheduleResultOutput)
 }
 
 type LookupSnapshotScheduleOutputArgs struct {

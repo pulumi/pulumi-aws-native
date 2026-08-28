@@ -53,12 +53,8 @@ type LookupProcessingJobResult struct {
 }
 
 func LookupProcessingJobOutput(ctx *pulumi.Context, args LookupProcessingJobOutputArgs, opts ...pulumi.InvokeOption) LookupProcessingJobResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProcessingJobResultOutput, error) {
-			args := v.(LookupProcessingJobArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getProcessingJob", args, LookupProcessingJobResultOutput{}, options).(LookupProcessingJobResultOutput), nil
-		}).(LookupProcessingJobResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getProcessingJob", args, LookupProcessingJobResultOutput{}, options).(LookupProcessingJobResultOutput)
 }
 
 type LookupProcessingJobOutputArgs struct {

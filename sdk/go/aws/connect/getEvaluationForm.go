@@ -60,12 +60,8 @@ type LookupEvaluationFormResult struct {
 }
 
 func LookupEvaluationFormOutput(ctx *pulumi.Context, args LookupEvaluationFormOutputArgs, opts ...pulumi.InvokeOption) LookupEvaluationFormResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEvaluationFormResultOutput, error) {
-			args := v.(LookupEvaluationFormArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getEvaluationForm", args, LookupEvaluationFormResultOutput{}, options).(LookupEvaluationFormResultOutput), nil
-		}).(LookupEvaluationFormResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getEvaluationForm", args, LookupEvaluationFormResultOutput{}, options).(LookupEvaluationFormResultOutput)
 }
 
 type LookupEvaluationFormOutputArgs struct {

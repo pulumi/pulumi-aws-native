@@ -35,12 +35,8 @@ type LookupUserResult struct {
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserResultOutput, error) {
-			args := v.(LookupUserArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appstream:getUser", args, LookupUserResultOutput{}, options).(LookupUserResultOutput), nil
-		}).(LookupUserResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appstream:getUser", args, LookupUserResultOutput{}, options).(LookupUserResultOutput)
 }
 
 type LookupUserOutputArgs struct {

@@ -37,12 +37,8 @@ type LookupPublicTypeVersionResult struct {
 }
 
 func LookupPublicTypeVersionOutput(ctx *pulumi.Context, args LookupPublicTypeVersionOutputArgs, opts ...pulumi.InvokeOption) LookupPublicTypeVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPublicTypeVersionResultOutput, error) {
-			args := v.(LookupPublicTypeVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudformation:getPublicTypeVersion", args, LookupPublicTypeVersionResultOutput{}, options).(LookupPublicTypeVersionResultOutput), nil
-		}).(LookupPublicTypeVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudformation:getPublicTypeVersion", args, LookupPublicTypeVersionResultOutput{}, options).(LookupPublicTypeVersionResultOutput)
 }
 
 type LookupPublicTypeVersionOutputArgs struct {

@@ -71,12 +71,8 @@ type LookupRuntimeResult struct {
 }
 
 func LookupRuntimeOutput(ctx *pulumi.Context, args LookupRuntimeOutputArgs, opts ...pulumi.InvokeOption) LookupRuntimeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRuntimeResultOutput, error) {
-			args := v.(LookupRuntimeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getRuntime", args, LookupRuntimeResultOutput{}, options).(LookupRuntimeResultOutput), nil
-		}).(LookupRuntimeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getRuntime", args, LookupRuntimeResultOutput{}, options).(LookupRuntimeResultOutput)
 }
 
 type LookupRuntimeOutputArgs struct {

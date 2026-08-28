@@ -48,12 +48,8 @@ type LookupBlueprintResult struct {
 }
 
 func LookupBlueprintOutput(ctx *pulumi.Context, args LookupBlueprintOutputArgs, opts ...pulumi.InvokeOption) LookupBlueprintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBlueprintResultOutput, error) {
-			args := v.(LookupBlueprintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:glue:getBlueprint", args, LookupBlueprintResultOutput{}, options).(LookupBlueprintResultOutput), nil
-		}).(LookupBlueprintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:glue:getBlueprint", args, LookupBlueprintResultOutput{}, options).(LookupBlueprintResultOutput)
 }
 
 type LookupBlueprintOutputArgs struct {

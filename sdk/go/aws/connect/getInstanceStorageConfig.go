@@ -47,12 +47,8 @@ type LookupInstanceStorageConfigResult struct {
 }
 
 func LookupInstanceStorageConfigOutput(ctx *pulumi.Context, args LookupInstanceStorageConfigOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceStorageConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInstanceStorageConfigResultOutput, error) {
-			args := v.(LookupInstanceStorageConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getInstanceStorageConfig", args, LookupInstanceStorageConfigResultOutput{}, options).(LookupInstanceStorageConfigResultOutput), nil
-		}).(LookupInstanceStorageConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getInstanceStorageConfig", args, LookupInstanceStorageConfigResultOutput{}, options).(LookupInstanceStorageConfigResultOutput)
 }
 
 type LookupInstanceStorageConfigOutputArgs struct {

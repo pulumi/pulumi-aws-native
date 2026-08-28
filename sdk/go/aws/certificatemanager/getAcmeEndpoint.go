@@ -43,12 +43,8 @@ type LookupAcmeEndpointResult struct {
 }
 
 func LookupAcmeEndpointOutput(ctx *pulumi.Context, args LookupAcmeEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupAcmeEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAcmeEndpointResultOutput, error) {
-			args := v.(LookupAcmeEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:certificatemanager:getAcmeEndpoint", args, LookupAcmeEndpointResultOutput{}, options).(LookupAcmeEndpointResultOutput), nil
-		}).(LookupAcmeEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:certificatemanager:getAcmeEndpoint", args, LookupAcmeEndpointResultOutput{}, options).(LookupAcmeEndpointResultOutput)
 }
 
 type LookupAcmeEndpointOutputArgs struct {

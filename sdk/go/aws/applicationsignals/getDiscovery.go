@@ -33,12 +33,8 @@ type LookupDiscoveryResult struct {
 }
 
 func LookupDiscoveryOutput(ctx *pulumi.Context, args LookupDiscoveryOutputArgs, opts ...pulumi.InvokeOption) LookupDiscoveryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDiscoveryResultOutput, error) {
-			args := v.(LookupDiscoveryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:applicationsignals:getDiscovery", args, LookupDiscoveryResultOutput{}, options).(LookupDiscoveryResultOutput), nil
-		}).(LookupDiscoveryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:applicationsignals:getDiscovery", args, LookupDiscoveryResultOutput{}, options).(LookupDiscoveryResultOutput)
 }
 
 type LookupDiscoveryOutputArgs struct {

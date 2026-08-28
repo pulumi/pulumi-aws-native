@@ -69,12 +69,8 @@ type LookupTrackerResult struct {
 }
 
 func LookupTrackerOutput(ctx *pulumi.Context, args LookupTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupTrackerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrackerResultOutput, error) {
-			args := v.(LookupTrackerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:location:getTracker", args, LookupTrackerResultOutput{}, options).(LookupTrackerResultOutput), nil
-		}).(LookupTrackerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:location:getTracker", args, LookupTrackerResultOutput{}, options).(LookupTrackerResultOutput)
 }
 
 type LookupTrackerOutputArgs struct {

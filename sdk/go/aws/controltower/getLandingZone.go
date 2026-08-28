@@ -52,12 +52,8 @@ type LookupLandingZoneResult struct {
 }
 
 func LookupLandingZoneOutput(ctx *pulumi.Context, args LookupLandingZoneOutputArgs, opts ...pulumi.InvokeOption) LookupLandingZoneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLandingZoneResultOutput, error) {
-			args := v.(LookupLandingZoneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:controltower:getLandingZone", args, LookupLandingZoneResultOutput{}, options).(LookupLandingZoneResultOutput), nil
-		}).(LookupLandingZoneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:controltower:getLandingZone", args, LookupLandingZoneResultOutput{}, options).(LookupLandingZoneResultOutput)
 }
 
 type LookupLandingZoneOutputArgs struct {

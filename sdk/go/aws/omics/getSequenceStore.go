@@ -63,12 +63,8 @@ type LookupSequenceStoreResult struct {
 }
 
 func LookupSequenceStoreOutput(ctx *pulumi.Context, args LookupSequenceStoreOutputArgs, opts ...pulumi.InvokeOption) LookupSequenceStoreResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSequenceStoreResultOutput, error) {
-			args := v.(LookupSequenceStoreArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:omics:getSequenceStore", args, LookupSequenceStoreResultOutput{}, options).(LookupSequenceStoreResultOutput), nil
-		}).(LookupSequenceStoreResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:omics:getSequenceStore", args, LookupSequenceStoreResultOutput{}, options).(LookupSequenceStoreResultOutput)
 }
 
 type LookupSequenceStoreOutputArgs struct {

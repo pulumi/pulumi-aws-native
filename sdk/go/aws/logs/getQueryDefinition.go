@@ -43,12 +43,8 @@ type LookupQueryDefinitionResult struct {
 }
 
 func LookupQueryDefinitionOutput(ctx *pulumi.Context, args LookupQueryDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupQueryDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupQueryDefinitionResultOutput, error) {
-			args := v.(LookupQueryDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:logs:getQueryDefinition", args, LookupQueryDefinitionResultOutput{}, options).(LookupQueryDefinitionResultOutput), nil
-		}).(LookupQueryDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:logs:getQueryDefinition", args, LookupQueryDefinitionResultOutput{}, options).(LookupQueryDefinitionResultOutput)
 }
 
 type LookupQueryDefinitionOutputArgs struct {

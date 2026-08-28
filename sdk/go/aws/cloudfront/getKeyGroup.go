@@ -39,12 +39,8 @@ type LookupKeyGroupResult struct {
 }
 
 func LookupKeyGroupOutput(ctx *pulumi.Context, args LookupKeyGroupOutputArgs, opts ...pulumi.InvokeOption) LookupKeyGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKeyGroupResultOutput, error) {
-			args := v.(LookupKeyGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cloudfront:getKeyGroup", args, LookupKeyGroupResultOutput{}, options).(LookupKeyGroupResultOutput), nil
-		}).(LookupKeyGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cloudfront:getKeyGroup", args, LookupKeyGroupResultOutput{}, options).(LookupKeyGroupResultOutput)
 }
 
 type LookupKeyGroupOutputArgs struct {

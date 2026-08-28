@@ -64,12 +64,8 @@ type LookupConfigRuleResult struct {
 }
 
 func LookupConfigRuleOutput(ctx *pulumi.Context, args LookupConfigRuleOutputArgs, opts ...pulumi.InvokeOption) LookupConfigRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigRuleResultOutput, error) {
-			args := v.(LookupConfigRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:configuration:getConfigRule", args, LookupConfigRuleResultOutput{}, options).(LookupConfigRuleResultOutput), nil
-		}).(LookupConfigRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:configuration:getConfigRule", args, LookupConfigRuleResultOutput{}, options).(LookupConfigRuleResultOutput)
 }
 
 type LookupConfigRuleOutputArgs struct {

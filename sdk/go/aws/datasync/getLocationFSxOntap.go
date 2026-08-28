@@ -42,12 +42,8 @@ type LookupLocationFSxOntapResult struct {
 }
 
 func LookupLocationFSxOntapOutput(ctx *pulumi.Context, args LookupLocationFSxOntapOutputArgs, opts ...pulumi.InvokeOption) LookupLocationFSxOntapResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLocationFSxOntapResultOutput, error) {
-			args := v.(LookupLocationFSxOntapArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:datasync:getLocationFSxOntap", args, LookupLocationFSxOntapResultOutput{}, options).(LookupLocationFSxOntapResultOutput), nil
-		}).(LookupLocationFSxOntapResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:datasync:getLocationFSxOntap", args, LookupLocationFSxOntapResultOutput{}, options).(LookupLocationFSxOntapResultOutput)
 }
 
 type LookupLocationFSxOntapOutputArgs struct {

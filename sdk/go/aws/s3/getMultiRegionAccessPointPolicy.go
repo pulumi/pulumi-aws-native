@@ -37,12 +37,8 @@ type LookupMultiRegionAccessPointPolicyResult struct {
 }
 
 func LookupMultiRegionAccessPointPolicyOutput(ctx *pulumi.Context, args LookupMultiRegionAccessPointPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionAccessPointPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMultiRegionAccessPointPolicyResultOutput, error) {
-			args := v.(LookupMultiRegionAccessPointPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:s3:getMultiRegionAccessPointPolicy", args, LookupMultiRegionAccessPointPolicyResultOutput{}, options).(LookupMultiRegionAccessPointPolicyResultOutput), nil
-		}).(LookupMultiRegionAccessPointPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:s3:getMultiRegionAccessPointPolicy", args, LookupMultiRegionAccessPointPolicyResultOutput{}, options).(LookupMultiRegionAccessPointPolicyResultOutput)
 }
 
 type LookupMultiRegionAccessPointPolicyOutputArgs struct {

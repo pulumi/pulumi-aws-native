@@ -37,12 +37,8 @@ type LookupPreparedStatementResult struct {
 }
 
 func LookupPreparedStatementOutput(ctx *pulumi.Context, args LookupPreparedStatementOutputArgs, opts ...pulumi.InvokeOption) LookupPreparedStatementResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPreparedStatementResultOutput, error) {
-			args := v.(LookupPreparedStatementArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:athena:getPreparedStatement", args, LookupPreparedStatementResultOutput{}, options).(LookupPreparedStatementResultOutput), nil
-		}).(LookupPreparedStatementResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:athena:getPreparedStatement", args, LookupPreparedStatementResultOutput{}, options).(LookupPreparedStatementResultOutput)
 }
 
 type LookupPreparedStatementOutputArgs struct {

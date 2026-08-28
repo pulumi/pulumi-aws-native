@@ -35,12 +35,8 @@ type LookupSourceCredentialResult struct {
 }
 
 func LookupSourceCredentialOutput(ctx *pulumi.Context, args LookupSourceCredentialOutputArgs, opts ...pulumi.InvokeOption) LookupSourceCredentialResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSourceCredentialResultOutput, error) {
-			args := v.(LookupSourceCredentialArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:codebuild:getSourceCredential", args, LookupSourceCredentialResultOutput{}, options).(LookupSourceCredentialResultOutput), nil
-		}).(LookupSourceCredentialResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:codebuild:getSourceCredential", args, LookupSourceCredentialResultOutput{}, options).(LookupSourceCredentialResultOutput)
 }
 
 type LookupSourceCredentialOutputArgs struct {

@@ -40,12 +40,8 @@ type LookupSigningProfileResult struct {
 }
 
 func LookupSigningProfileOutput(ctx *pulumi.Context, args LookupSigningProfileOutputArgs, opts ...pulumi.InvokeOption) LookupSigningProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSigningProfileResultOutput, error) {
-			args := v.(LookupSigningProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:signer:getSigningProfile", args, LookupSigningProfileResultOutput{}, options).(LookupSigningProfileResultOutput), nil
-		}).(LookupSigningProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:signer:getSigningProfile", args, LookupSigningProfileResultOutput{}, options).(LookupSigningProfileResultOutput)
 }
 
 type LookupSigningProfileOutputArgs struct {

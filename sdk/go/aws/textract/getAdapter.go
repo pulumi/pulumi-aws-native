@@ -43,12 +43,8 @@ type LookupAdapterResult struct {
 }
 
 func LookupAdapterOutput(ctx *pulumi.Context, args LookupAdapterOutputArgs, opts ...pulumi.InvokeOption) LookupAdapterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAdapterResultOutput, error) {
-			args := v.(LookupAdapterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:textract:getAdapter", args, LookupAdapterResultOutput{}, options).(LookupAdapterResultOutput), nil
-		}).(LookupAdapterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:textract:getAdapter", args, LookupAdapterResultOutput{}, options).(LookupAdapterResultOutput)
 }
 
 type LookupAdapterOutputArgs struct {

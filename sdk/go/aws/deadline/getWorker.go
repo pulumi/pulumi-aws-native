@@ -44,12 +44,8 @@ type LookupWorkerResult struct {
 }
 
 func LookupWorkerOutput(ctx *pulumi.Context, args LookupWorkerOutputArgs, opts ...pulumi.InvokeOption) LookupWorkerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkerResultOutput, error) {
-			args := v.(LookupWorkerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:deadline:getWorker", args, LookupWorkerResultOutput{}, options).(LookupWorkerResultOutput), nil
-		}).(LookupWorkerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:deadline:getWorker", args, LookupWorkerResultOutput{}, options).(LookupWorkerResultOutput)
 }
 
 type LookupWorkerOutputArgs struct {

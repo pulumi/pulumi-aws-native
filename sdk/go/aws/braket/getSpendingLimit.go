@@ -47,12 +47,8 @@ type LookupSpendingLimitResult struct {
 }
 
 func LookupSpendingLimitOutput(ctx *pulumi.Context, args LookupSpendingLimitOutputArgs, opts ...pulumi.InvokeOption) LookupSpendingLimitResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSpendingLimitResultOutput, error) {
-			args := v.(LookupSpendingLimitArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:braket:getSpendingLimit", args, LookupSpendingLimitResultOutput{}, options).(LookupSpendingLimitResultOutput), nil
-		}).(LookupSpendingLimitResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:braket:getSpendingLimit", args, LookupSpendingLimitResultOutput{}, options).(LookupSpendingLimitResultOutput)
 }
 
 type LookupSpendingLimitOutputArgs struct {

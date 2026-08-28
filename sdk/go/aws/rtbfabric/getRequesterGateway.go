@@ -49,12 +49,8 @@ type LookupRequesterGatewayResult struct {
 }
 
 func LookupRequesterGatewayOutput(ctx *pulumi.Context, args LookupRequesterGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupRequesterGatewayResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRequesterGatewayResultOutput, error) {
-			args := v.(LookupRequesterGatewayArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rtbfabric:getRequesterGateway", args, LookupRequesterGatewayResultOutput{}, options).(LookupRequesterGatewayResultOutput), nil
-		}).(LookupRequesterGatewayResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rtbfabric:getRequesterGateway", args, LookupRequesterGatewayResultOutput{}, options).(LookupRequesterGatewayResultOutput)
 }
 
 type LookupRequesterGatewayOutputArgs struct {

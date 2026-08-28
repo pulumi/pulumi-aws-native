@@ -62,12 +62,8 @@ type LookupOnlineEvaluationConfigResult struct {
 }
 
 func LookupOnlineEvaluationConfigOutput(ctx *pulumi.Context, args LookupOnlineEvaluationConfigOutputArgs, opts ...pulumi.InvokeOption) LookupOnlineEvaluationConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOnlineEvaluationConfigResultOutput, error) {
-			args := v.(LookupOnlineEvaluationConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getOnlineEvaluationConfig", args, LookupOnlineEvaluationConfigResultOutput{}, options).(LookupOnlineEvaluationConfigResultOutput), nil
-		}).(LookupOnlineEvaluationConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getOnlineEvaluationConfig", args, LookupOnlineEvaluationConfigResultOutput{}, options).(LookupOnlineEvaluationConfigResultOutput)
 }
 
 type LookupOnlineEvaluationConfigOutputArgs struct {

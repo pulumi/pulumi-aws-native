@@ -36,12 +36,8 @@ type LookupUserPoolRegionalConfigurationAttachmentResult struct {
 }
 
 func LookupUserPoolRegionalConfigurationAttachmentOutput(ctx *pulumi.Context, args LookupUserPoolRegionalConfigurationAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupUserPoolRegionalConfigurationAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserPoolRegionalConfigurationAttachmentResultOutput, error) {
-			args := v.(LookupUserPoolRegionalConfigurationAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cognito:getUserPoolRegionalConfigurationAttachment", args, LookupUserPoolRegionalConfigurationAttachmentResultOutput{}, options).(LookupUserPoolRegionalConfigurationAttachmentResultOutput), nil
-		}).(LookupUserPoolRegionalConfigurationAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cognito:getUserPoolRegionalConfigurationAttachment", args, LookupUserPoolRegionalConfigurationAttachmentResultOutput{}, options).(LookupUserPoolRegionalConfigurationAttachmentResultOutput)
 }
 
 type LookupUserPoolRegionalConfigurationAttachmentOutputArgs struct {

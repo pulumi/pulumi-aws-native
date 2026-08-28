@@ -39,12 +39,8 @@ type LookupDomainObjectTypeResult struct {
 }
 
 func LookupDomainObjectTypeOutput(ctx *pulumi.Context, args LookupDomainObjectTypeOutputArgs, opts ...pulumi.InvokeOption) LookupDomainObjectTypeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainObjectTypeResultOutput, error) {
-			args := v.(LookupDomainObjectTypeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:customerprofiles:getDomainObjectType", args, LookupDomainObjectTypeResultOutput{}, options).(LookupDomainObjectTypeResultOutput), nil
-		}).(LookupDomainObjectTypeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:customerprofiles:getDomainObjectType", args, LookupDomainObjectTypeResultOutput{}, options).(LookupDomainObjectTypeResultOutput)
 }
 
 type LookupDomainObjectTypeOutputArgs struct {

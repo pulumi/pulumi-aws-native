@@ -53,12 +53,8 @@ type LookupApplicationInferenceProfileResult struct {
 }
 
 func LookupApplicationInferenceProfileOutput(ctx *pulumi.Context, args LookupApplicationInferenceProfileOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationInferenceProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApplicationInferenceProfileResultOutput, error) {
-			args := v.(LookupApplicationInferenceProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrock:getApplicationInferenceProfile", args, LookupApplicationInferenceProfileResultOutput{}, options).(LookupApplicationInferenceProfileResultOutput), nil
-		}).(LookupApplicationInferenceProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrock:getApplicationInferenceProfile", args, LookupApplicationInferenceProfileResultOutput{}, options).(LookupApplicationInferenceProfileResultOutput)
 }
 
 type LookupApplicationInferenceProfileOutputArgs struct {

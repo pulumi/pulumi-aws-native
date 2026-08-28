@@ -46,12 +46,8 @@ type LookupTopicResult struct {
 }
 
 func LookupTopicOutput(ctx *pulumi.Context, args LookupTopicOutputArgs, opts ...pulumi.InvokeOption) LookupTopicResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTopicResultOutput, error) {
-			args := v.(LookupTopicArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getTopic", args, LookupTopicResultOutput{}, options).(LookupTopicResultOutput), nil
-		}).(LookupTopicResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getTopic", args, LookupTopicResultOutput{}, options).(LookupTopicResultOutput)
 }
 
 type LookupTopicOutputArgs struct {

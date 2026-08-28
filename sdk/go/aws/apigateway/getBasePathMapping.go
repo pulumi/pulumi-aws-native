@@ -37,12 +37,8 @@ type LookupBasePathMappingResult struct {
 }
 
 func LookupBasePathMappingOutput(ctx *pulumi.Context, args LookupBasePathMappingOutputArgs, opts ...pulumi.InvokeOption) LookupBasePathMappingResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBasePathMappingResultOutput, error) {
-			args := v.(LookupBasePathMappingArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigateway:getBasePathMapping", args, LookupBasePathMappingResultOutput{}, options).(LookupBasePathMappingResultOutput), nil
-		}).(LookupBasePathMappingResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigateway:getBasePathMapping", args, LookupBasePathMappingResultOutput{}, options).(LookupBasePathMappingResultOutput)
 }
 
 type LookupBasePathMappingOutputArgs struct {

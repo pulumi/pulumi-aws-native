@@ -37,12 +37,8 @@ type LookupDataflowEndpointGroupV2Result struct {
 }
 
 func LookupDataflowEndpointGroupV2Output(ctx *pulumi.Context, args LookupDataflowEndpointGroupV2OutputArgs, opts ...pulumi.InvokeOption) LookupDataflowEndpointGroupV2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataflowEndpointGroupV2ResultOutput, error) {
-			args := v.(LookupDataflowEndpointGroupV2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:groundstation:getDataflowEndpointGroupV2", args, LookupDataflowEndpointGroupV2ResultOutput{}, options).(LookupDataflowEndpointGroupV2ResultOutput), nil
-		}).(LookupDataflowEndpointGroupV2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:groundstation:getDataflowEndpointGroupV2", args, LookupDataflowEndpointGroupV2ResultOutput{}, options).(LookupDataflowEndpointGroupV2ResultOutput)
 }
 
 type LookupDataflowEndpointGroupV2OutputArgs struct {

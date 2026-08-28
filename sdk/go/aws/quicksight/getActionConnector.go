@@ -41,12 +41,8 @@ type LookupActionConnectorResult struct {
 }
 
 func LookupActionConnectorOutput(ctx *pulumi.Context, args LookupActionConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupActionConnectorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupActionConnectorResultOutput, error) {
-			args := v.(LookupActionConnectorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:quicksight:getActionConnector", args, LookupActionConnectorResultOutput{}, options).(LookupActionConnectorResultOutput), nil
-		}).(LookupActionConnectorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:quicksight:getActionConnector", args, LookupActionConnectorResultOutput{}, options).(LookupActionConnectorResultOutput)
 }
 
 type LookupActionConnectorOutputArgs struct {

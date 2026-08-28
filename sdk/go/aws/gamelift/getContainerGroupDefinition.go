@@ -56,12 +56,8 @@ type LookupContainerGroupDefinitionResult struct {
 }
 
 func LookupContainerGroupDefinitionOutput(ctx *pulumi.Context, args LookupContainerGroupDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupContainerGroupDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContainerGroupDefinitionResultOutput, error) {
-			args := v.(LookupContainerGroupDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:gamelift:getContainerGroupDefinition", args, LookupContainerGroupDefinitionResultOutput{}, options).(LookupContainerGroupDefinitionResultOutput), nil
-		}).(LookupContainerGroupDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:gamelift:getContainerGroupDefinition", args, LookupContainerGroupDefinitionResultOutput{}, options).(LookupContainerGroupDefinitionResultOutput)
 }
 
 type LookupContainerGroupDefinitionOutputArgs struct {

@@ -50,12 +50,8 @@ type LookupMemoryResult struct {
 }
 
 func LookupMemoryOutput(ctx *pulumi.Context, args LookupMemoryOutputArgs, opts ...pulumi.InvokeOption) LookupMemoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMemoryResultOutput, error) {
-			args := v.(LookupMemoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getMemory", args, LookupMemoryResultOutput{}, options).(LookupMemoryResultOutput), nil
-		}).(LookupMemoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getMemory", args, LookupMemoryResultOutput{}, options).(LookupMemoryResultOutput)
 }
 
 type LookupMemoryOutputArgs struct {

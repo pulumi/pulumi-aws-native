@@ -47,12 +47,8 @@ type LookupAnomalySubscriptionResult struct {
 }
 
 func LookupAnomalySubscriptionOutput(ctx *pulumi.Context, args LookupAnomalySubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupAnomalySubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAnomalySubscriptionResultOutput, error) {
-			args := v.(LookupAnomalySubscriptionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ce:getAnomalySubscription", args, LookupAnomalySubscriptionResultOutput{}, options).(LookupAnomalySubscriptionResultOutput), nil
-		}).(LookupAnomalySubscriptionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ce:getAnomalySubscription", args, LookupAnomalySubscriptionResultOutput{}, options).(LookupAnomalySubscriptionResultOutput)
 }
 
 type LookupAnomalySubscriptionOutputArgs struct {

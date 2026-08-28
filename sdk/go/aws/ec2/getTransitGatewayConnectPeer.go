@@ -40,12 +40,8 @@ type LookupTransitGatewayConnectPeerResult struct {
 }
 
 func LookupTransitGatewayConnectPeerOutput(ctx *pulumi.Context, args LookupTransitGatewayConnectPeerOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayConnectPeerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayConnectPeerResultOutput, error) {
-			args := v.(LookupTransitGatewayConnectPeerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayConnectPeer", args, LookupTransitGatewayConnectPeerResultOutput{}, options).(LookupTransitGatewayConnectPeerResultOutput), nil
-		}).(LookupTransitGatewayConnectPeerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayConnectPeer", args, LookupTransitGatewayConnectPeerResultOutput{}, options).(LookupTransitGatewayConnectPeerResultOutput)
 }
 
 type LookupTransitGatewayConnectPeerOutputArgs struct {

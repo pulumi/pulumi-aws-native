@@ -61,12 +61,8 @@ type LookupResolverResult struct {
 }
 
 func LookupResolverOutput(ctx *pulumi.Context, args LookupResolverOutputArgs, opts ...pulumi.InvokeOption) LookupResolverResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverResultOutput, error) {
-			args := v.(LookupResolverArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appsync:getResolver", args, LookupResolverResultOutput{}, options).(LookupResolverResultOutput), nil
-		}).(LookupResolverResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appsync:getResolver", args, LookupResolverResultOutput{}, options).(LookupResolverResultOutput)
 }
 
 type LookupResolverOutputArgs struct {

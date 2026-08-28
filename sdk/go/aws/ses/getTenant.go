@@ -38,12 +38,8 @@ type LookupTenantResult struct {
 }
 
 func LookupTenantOutput(ctx *pulumi.Context, args LookupTenantOutputArgs, opts ...pulumi.InvokeOption) LookupTenantResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTenantResultOutput, error) {
-			args := v.(LookupTenantArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getTenant", args, LookupTenantResultOutput{}, options).(LookupTenantResultOutput), nil
-		}).(LookupTenantResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getTenant", args, LookupTenantResultOutput{}, options).(LookupTenantResultOutput)
 }
 
 type LookupTenantOutputArgs struct {

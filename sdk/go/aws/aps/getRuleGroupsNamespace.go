@@ -38,12 +38,8 @@ type LookupRuleGroupsNamespaceResult struct {
 }
 
 func LookupRuleGroupsNamespaceOutput(ctx *pulumi.Context, args LookupRuleGroupsNamespaceOutputArgs, opts ...pulumi.InvokeOption) LookupRuleGroupsNamespaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRuleGroupsNamespaceResultOutput, error) {
-			args := v.(LookupRuleGroupsNamespaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:aps:getRuleGroupsNamespace", args, LookupRuleGroupsNamespaceResultOutput{}, options).(LookupRuleGroupsNamespaceResultOutput), nil
-		}).(LookupRuleGroupsNamespaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:aps:getRuleGroupsNamespace", args, LookupRuleGroupsNamespaceResultOutput{}, options).(LookupRuleGroupsNamespaceResultOutput)
 }
 
 type LookupRuleGroupsNamespaceOutputArgs struct {

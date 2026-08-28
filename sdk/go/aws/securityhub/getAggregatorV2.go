@@ -41,12 +41,8 @@ type LookupAggregatorV2Result struct {
 }
 
 func LookupAggregatorV2Output(ctx *pulumi.Context, args LookupAggregatorV2OutputArgs, opts ...pulumi.InvokeOption) LookupAggregatorV2ResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAggregatorV2ResultOutput, error) {
-			args := v.(LookupAggregatorV2Args)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:securityhub:getAggregatorV2", args, LookupAggregatorV2ResultOutput{}, options).(LookupAggregatorV2ResultOutput), nil
-		}).(LookupAggregatorV2ResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:securityhub:getAggregatorV2", args, LookupAggregatorV2ResultOutput{}, options).(LookupAggregatorV2ResultOutput)
 }
 
 type LookupAggregatorV2OutputArgs struct {

@@ -38,12 +38,8 @@ type LookupSourceNetworkResult struct {
 }
 
 func LookupSourceNetworkOutput(ctx *pulumi.Context, args LookupSourceNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupSourceNetworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSourceNetworkResultOutput, error) {
-			args := v.(LookupSourceNetworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:drs:getSourceNetwork", args, LookupSourceNetworkResultOutput{}, options).(LookupSourceNetworkResultOutput), nil
-		}).(LookupSourceNetworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:drs:getSourceNetwork", args, LookupSourceNetworkResultOutput{}, options).(LookupSourceNetworkResultOutput)
 }
 
 type LookupSourceNetworkOutputArgs struct {

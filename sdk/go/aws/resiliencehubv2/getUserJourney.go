@@ -43,12 +43,8 @@ type LookupUserJourneyResult struct {
 }
 
 func LookupUserJourneyOutput(ctx *pulumi.Context, args LookupUserJourneyOutputArgs, opts ...pulumi.InvokeOption) LookupUserJourneyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserJourneyResultOutput, error) {
-			args := v.(LookupUserJourneyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:resiliencehubv2:getUserJourney", args, LookupUserJourneyResultOutput{}, options).(LookupUserJourneyResultOutput), nil
-		}).(LookupUserJourneyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:resiliencehubv2:getUserJourney", args, LookupUserJourneyResultOutput{}, options).(LookupUserJourneyResultOutput)
 }
 
 type LookupUserJourneyOutputArgs struct {

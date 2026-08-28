@@ -38,12 +38,8 @@ type LookupVpcBlockPublicAccessExclusionResult struct {
 }
 
 func LookupVpcBlockPublicAccessExclusionOutput(ctx *pulumi.Context, args LookupVpcBlockPublicAccessExclusionOutputArgs, opts ...pulumi.InvokeOption) LookupVpcBlockPublicAccessExclusionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcBlockPublicAccessExclusionResultOutput, error) {
-			args := v.(LookupVpcBlockPublicAccessExclusionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpcBlockPublicAccessExclusion", args, LookupVpcBlockPublicAccessExclusionResultOutput{}, options).(LookupVpcBlockPublicAccessExclusionResultOutput), nil
-		}).(LookupVpcBlockPublicAccessExclusionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpcBlockPublicAccessExclusion", args, LookupVpcBlockPublicAccessExclusionResultOutput{}, options).(LookupVpcBlockPublicAccessExclusionResultOutput)
 }
 
 type LookupVpcBlockPublicAccessExclusionOutputArgs struct {

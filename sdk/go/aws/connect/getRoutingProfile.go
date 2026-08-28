@@ -52,12 +52,8 @@ type LookupRoutingProfileResult struct {
 }
 
 func LookupRoutingProfileOutput(ctx *pulumi.Context, args LookupRoutingProfileOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRoutingProfileResultOutput, error) {
-			args := v.(LookupRoutingProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getRoutingProfile", args, LookupRoutingProfileResultOutput{}, options).(LookupRoutingProfileResultOutput), nil
-		}).(LookupRoutingProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getRoutingProfile", args, LookupRoutingProfileResultOutput{}, options).(LookupRoutingProfileResultOutput)
 }
 
 type LookupRoutingProfileOutputArgs struct {

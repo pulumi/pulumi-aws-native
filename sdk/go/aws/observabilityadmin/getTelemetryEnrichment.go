@@ -31,12 +31,8 @@ type LookupTelemetryEnrichmentResult struct {
 }
 
 func LookupTelemetryEnrichmentOutput(ctx *pulumi.Context, args LookupTelemetryEnrichmentOutputArgs, opts ...pulumi.InvokeOption) LookupTelemetryEnrichmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTelemetryEnrichmentResultOutput, error) {
-			args := v.(LookupTelemetryEnrichmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:observabilityadmin:getTelemetryEnrichment", args, LookupTelemetryEnrichmentResultOutput{}, options).(LookupTelemetryEnrichmentResultOutput), nil
-		}).(LookupTelemetryEnrichmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:observabilityadmin:getTelemetryEnrichment", args, LookupTelemetryEnrichmentResultOutput{}, options).(LookupTelemetryEnrichmentResultOutput)
 }
 
 type LookupTelemetryEnrichmentOutputArgs struct {

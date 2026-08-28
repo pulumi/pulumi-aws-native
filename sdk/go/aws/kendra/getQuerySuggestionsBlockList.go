@@ -45,12 +45,8 @@ type LookupQuerySuggestionsBlockListResult struct {
 }
 
 func LookupQuerySuggestionsBlockListOutput(ctx *pulumi.Context, args LookupQuerySuggestionsBlockListOutputArgs, opts ...pulumi.InvokeOption) LookupQuerySuggestionsBlockListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupQuerySuggestionsBlockListResultOutput, error) {
-			args := v.(LookupQuerySuggestionsBlockListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:kendra:getQuerySuggestionsBlockList", args, LookupQuerySuggestionsBlockListResultOutput{}, options).(LookupQuerySuggestionsBlockListResultOutput), nil
-		}).(LookupQuerySuggestionsBlockListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:kendra:getQuerySuggestionsBlockList", args, LookupQuerySuggestionsBlockListResultOutput{}, options).(LookupQuerySuggestionsBlockListResultOutput)
 }
 
 type LookupQuerySuggestionsBlockListOutputArgs struct {

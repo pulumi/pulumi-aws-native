@@ -44,12 +44,8 @@ type LookupPortalProductResult struct {
 }
 
 func LookupPortalProductOutput(ctx *pulumi.Context, args LookupPortalProductOutputArgs, opts ...pulumi.InvokeOption) LookupPortalProductResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPortalProductResultOutput, error) {
-			args := v.(LookupPortalProductArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigatewayv2:getPortalProduct", args, LookupPortalProductResultOutput{}, options).(LookupPortalProductResultOutput), nil
-		}).(LookupPortalProductResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigatewayv2:getPortalProduct", args, LookupPortalProductResultOutput{}, options).(LookupPortalProductResultOutput)
 }
 
 type LookupPortalProductOutputArgs struct {

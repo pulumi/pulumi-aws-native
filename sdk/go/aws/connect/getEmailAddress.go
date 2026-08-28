@@ -44,12 +44,8 @@ type LookupEmailAddressResult struct {
 }
 
 func LookupEmailAddressOutput(ctx *pulumi.Context, args LookupEmailAddressOutputArgs, opts ...pulumi.InvokeOption) LookupEmailAddressResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEmailAddressResultOutput, error) {
-			args := v.(LookupEmailAddressArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getEmailAddress", args, LookupEmailAddressResultOutput{}, options).(LookupEmailAddressResultOutput), nil
-		}).(LookupEmailAddressResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getEmailAddress", args, LookupEmailAddressResultOutput{}, options).(LookupEmailAddressResultOutput)
 }
 
 type LookupEmailAddressOutputArgs struct {

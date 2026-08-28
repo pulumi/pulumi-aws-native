@@ -35,12 +35,8 @@ type LookupSigningConfigurationResult struct {
 }
 
 func LookupSigningConfigurationOutput(ctx *pulumi.Context, args LookupSigningConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupSigningConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSigningConfigurationResultOutput, error) {
-			args := v.(LookupSigningConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecr:getSigningConfiguration", args, LookupSigningConfigurationResultOutput{}, options).(LookupSigningConfigurationResultOutput), nil
-		}).(LookupSigningConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecr:getSigningConfiguration", args, LookupSigningConfigurationResultOutput{}, options).(LookupSigningConfigurationResultOutput)
 }
 
 type LookupSigningConfigurationOutputArgs struct {

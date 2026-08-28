@@ -49,12 +49,8 @@ type LookupServiceFunctionResult struct {
 }
 
 func LookupServiceFunctionOutput(ctx *pulumi.Context, args LookupServiceFunctionOutputArgs, opts ...pulumi.InvokeOption) LookupServiceFunctionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceFunctionResultOutput, error) {
-			args := v.(LookupServiceFunctionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:resiliencehubv2:getServiceFunction", args, LookupServiceFunctionResultOutput{}, options).(LookupServiceFunctionResultOutput), nil
-		}).(LookupServiceFunctionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:resiliencehubv2:getServiceFunction", args, LookupServiceFunctionResultOutput{}, options).(LookupServiceFunctionResultOutput)
 }
 
 type LookupServiceFunctionOutputArgs struct {

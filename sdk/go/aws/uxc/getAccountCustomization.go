@@ -39,12 +39,8 @@ type LookupAccountCustomizationResult struct {
 }
 
 func LookupAccountCustomizationOutput(ctx *pulumi.Context, args LookupAccountCustomizationOutputArgs, opts ...pulumi.InvokeOption) LookupAccountCustomizationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccountCustomizationResultOutput, error) {
-			args := v.(LookupAccountCustomizationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:uxc:getAccountCustomization", args, LookupAccountCustomizationResultOutput{}, options).(LookupAccountCustomizationResultOutput), nil
-		}).(LookupAccountCustomizationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:uxc:getAccountCustomization", args, LookupAccountCustomizationResultOutput{}, options).(LookupAccountCustomizationResultOutput)
 }
 
 type LookupAccountCustomizationOutputArgs struct {

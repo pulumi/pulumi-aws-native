@@ -48,12 +48,8 @@ type LookupCloudConnectorResult struct {
 }
 
 func LookupCloudConnectorOutput(ctx *pulumi.Context, args LookupCloudConnectorOutputArgs, opts ...pulumi.InvokeOption) LookupCloudConnectorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCloudConnectorResultOutput, error) {
-			args := v.(LookupCloudConnectorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssm:getCloudConnector", args, LookupCloudConnectorResultOutput{}, options).(LookupCloudConnectorResultOutput), nil
-		}).(LookupCloudConnectorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssm:getCloudConnector", args, LookupCloudConnectorResultOutput{}, options).(LookupCloudConnectorResultOutput)
 }
 
 type LookupCloudConnectorOutputArgs struct {

@@ -64,12 +64,8 @@ type LookupAiPromptResult struct {
 }
 
 func LookupAiPromptOutput(ctx *pulumi.Context, args LookupAiPromptOutputArgs, opts ...pulumi.InvokeOption) LookupAiPromptResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAiPromptResultOutput, error) {
-			args := v.(LookupAiPromptArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wisdom:getAiPrompt", args, LookupAiPromptResultOutput{}, options).(LookupAiPromptResultOutput), nil
-		}).(LookupAiPromptResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wisdom:getAiPrompt", args, LookupAiPromptResultOutput{}, options).(LookupAiPromptResultOutput)
 }
 
 type LookupAiPromptOutputArgs struct {

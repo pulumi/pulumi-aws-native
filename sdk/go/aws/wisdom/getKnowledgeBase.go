@@ -39,12 +39,8 @@ type LookupKnowledgeBaseResult struct {
 }
 
 func LookupKnowledgeBaseOutput(ctx *pulumi.Context, args LookupKnowledgeBaseOutputArgs, opts ...pulumi.InvokeOption) LookupKnowledgeBaseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKnowledgeBaseResultOutput, error) {
-			args := v.(LookupKnowledgeBaseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:wisdom:getKnowledgeBase", args, LookupKnowledgeBaseResultOutput{}, options).(LookupKnowledgeBaseResultOutput), nil
-		}).(LookupKnowledgeBaseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:wisdom:getKnowledgeBase", args, LookupKnowledgeBaseResultOutput{}, options).(LookupKnowledgeBaseResultOutput)
 }
 
 type LookupKnowledgeBaseOutputArgs struct {

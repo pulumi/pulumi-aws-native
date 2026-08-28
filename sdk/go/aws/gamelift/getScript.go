@@ -48,12 +48,8 @@ type LookupScriptResult struct {
 }
 
 func LookupScriptOutput(ctx *pulumi.Context, args LookupScriptOutputArgs, opts ...pulumi.InvokeOption) LookupScriptResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupScriptResultOutput, error) {
-			args := v.(LookupScriptArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:gamelift:getScript", args, LookupScriptResultOutput{}, options).(LookupScriptResultOutput), nil
-		}).(LookupScriptResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:gamelift:getScript", args, LookupScriptResultOutput{}, options).(LookupScriptResultOutput)
 }
 
 type LookupScriptOutputArgs struct {

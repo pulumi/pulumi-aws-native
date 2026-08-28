@@ -39,12 +39,8 @@ type LookupSecurityGroupVpcAssociationResult struct {
 }
 
 func LookupSecurityGroupVpcAssociationOutput(ctx *pulumi.Context, args LookupSecurityGroupVpcAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupSecurityGroupVpcAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecurityGroupVpcAssociationResultOutput, error) {
-			args := v.(LookupSecurityGroupVpcAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getSecurityGroupVpcAssociation", args, LookupSecurityGroupVpcAssociationResultOutput{}, options).(LookupSecurityGroupVpcAssociationResultOutput), nil
-		}).(LookupSecurityGroupVpcAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getSecurityGroupVpcAssociation", args, LookupSecurityGroupVpcAssociationResultOutput{}, options).(LookupSecurityGroupVpcAssociationResultOutput)
 }
 
 type LookupSecurityGroupVpcAssociationOutputArgs struct {

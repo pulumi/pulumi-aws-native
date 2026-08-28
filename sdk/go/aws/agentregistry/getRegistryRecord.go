@@ -54,12 +54,8 @@ type LookupRegistryRecordResult struct {
 }
 
 func LookupRegistryRecordOutput(ctx *pulumi.Context, args LookupRegistryRecordOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRegistryRecordResultOutput, error) {
-			args := v.(LookupRegistryRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:agentregistry:getRegistryRecord", args, LookupRegistryRecordResultOutput{}, options).(LookupRegistryRecordResultOutput), nil
-		}).(LookupRegistryRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:agentregistry:getRegistryRecord", args, LookupRegistryRecordResultOutput{}, options).(LookupRegistryRecordResultOutput)
 }
 
 type LookupRegistryRecordOutputArgs struct {

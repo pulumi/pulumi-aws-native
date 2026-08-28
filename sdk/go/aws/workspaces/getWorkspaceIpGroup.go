@@ -40,12 +40,8 @@ type LookupWorkspaceIpGroupResult struct {
 }
 
 func LookupWorkspaceIpGroupOutput(ctx *pulumi.Context, args LookupWorkspaceIpGroupOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceIpGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkspaceIpGroupResultOutput, error) {
-			args := v.(LookupWorkspaceIpGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:workspaces:getWorkspaceIpGroup", args, LookupWorkspaceIpGroupResultOutput{}, options).(LookupWorkspaceIpGroupResultOutput), nil
-		}).(LookupWorkspaceIpGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:workspaces:getWorkspaceIpGroup", args, LookupWorkspaceIpGroupResultOutput{}, options).(LookupWorkspaceIpGroupResultOutput)
 }
 
 type LookupWorkspaceIpGroupOutputArgs struct {

@@ -47,12 +47,8 @@ type LookupLogicallyAirGappedBackupVaultResult struct {
 }
 
 func LookupLogicallyAirGappedBackupVaultOutput(ctx *pulumi.Context, args LookupLogicallyAirGappedBackupVaultOutputArgs, opts ...pulumi.InvokeOption) LookupLogicallyAirGappedBackupVaultResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLogicallyAirGappedBackupVaultResultOutput, error) {
-			args := v.(LookupLogicallyAirGappedBackupVaultArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:backup:getLogicallyAirGappedBackupVault", args, LookupLogicallyAirGappedBackupVaultResultOutput{}, options).(LookupLogicallyAirGappedBackupVaultResultOutput), nil
-		}).(LookupLogicallyAirGappedBackupVaultResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:backup:getLogicallyAirGappedBackupVault", args, LookupLogicallyAirGappedBackupVaultResultOutput{}, options).(LookupLogicallyAirGappedBackupVaultResultOutput)
 }
 
 type LookupLogicallyAirGappedBackupVaultOutputArgs struct {

@@ -56,12 +56,8 @@ type LookupTrustedEntitySetResult struct {
 }
 
 func LookupTrustedEntitySetOutput(ctx *pulumi.Context, args LookupTrustedEntitySetOutputArgs, opts ...pulumi.InvokeOption) LookupTrustedEntitySetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrustedEntitySetResultOutput, error) {
-			args := v.(LookupTrustedEntitySetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:guardduty:getTrustedEntitySet", args, LookupTrustedEntitySetResultOutput{}, options).(LookupTrustedEntitySetResultOutput), nil
-		}).(LookupTrustedEntitySetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:guardduty:getTrustedEntitySet", args, LookupTrustedEntitySetResultOutput{}, options).(LookupTrustedEntitySetResultOutput)
 }
 
 type LookupTrustedEntitySetOutputArgs struct {

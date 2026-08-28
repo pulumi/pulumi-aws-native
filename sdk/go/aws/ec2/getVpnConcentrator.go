@@ -38,12 +38,8 @@ type LookupVpnConcentratorResult struct {
 }
 
 func LookupVpnConcentratorOutput(ctx *pulumi.Context, args LookupVpnConcentratorOutputArgs, opts ...pulumi.InvokeOption) LookupVpnConcentratorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpnConcentratorResultOutput, error) {
-			args := v.(LookupVpnConcentratorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpnConcentrator", args, LookupVpnConcentratorResultOutput{}, options).(LookupVpnConcentratorResultOutput), nil
-		}).(LookupVpnConcentratorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpnConcentrator", args, LookupVpnConcentratorResultOutput{}, options).(LookupVpnConcentratorResultOutput)
 }
 
 type LookupVpnConcentratorOutputArgs struct {

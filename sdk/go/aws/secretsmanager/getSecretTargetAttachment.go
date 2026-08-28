@@ -43,12 +43,8 @@ type LookupSecretTargetAttachmentResult struct {
 }
 
 func LookupSecretTargetAttachmentOutput(ctx *pulumi.Context, args LookupSecretTargetAttachmentOutputArgs, opts ...pulumi.InvokeOption) LookupSecretTargetAttachmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecretTargetAttachmentResultOutput, error) {
-			args := v.(LookupSecretTargetAttachmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:secretsmanager:getSecretTargetAttachment", args, LookupSecretTargetAttachmentResultOutput{}, options).(LookupSecretTargetAttachmentResultOutput), nil
-		}).(LookupSecretTargetAttachmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:secretsmanager:getSecretTargetAttachment", args, LookupSecretTargetAttachmentResultOutput{}, options).(LookupSecretTargetAttachmentResultOutput)
 }
 
 type LookupSecretTargetAttachmentOutputArgs struct {

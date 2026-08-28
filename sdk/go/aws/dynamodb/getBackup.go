@@ -43,12 +43,8 @@ type LookupBackupResult struct {
 }
 
 func LookupBackupOutput(ctx *pulumi.Context, args LookupBackupOutputArgs, opts ...pulumi.InvokeOption) LookupBackupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBackupResultOutput, error) {
-			args := v.(LookupBackupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:dynamodb:getBackup", args, LookupBackupResultOutput{}, options).(LookupBackupResultOutput), nil
-		}).(LookupBackupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:dynamodb:getBackup", args, LookupBackupResultOutput{}, options).(LookupBackupResultOutput)
 }
 
 type LookupBackupOutputArgs struct {

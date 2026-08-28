@@ -42,12 +42,8 @@ type LookupHostResult struct {
 }
 
 func LookupHostOutput(ctx *pulumi.Context, args LookupHostOutputArgs, opts ...pulumi.InvokeOption) LookupHostResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupHostResultOutput, error) {
-			args := v.(LookupHostArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getHost", args, LookupHostResultOutput{}, options).(LookupHostResultOutput), nil
-		}).(LookupHostResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getHost", args, LookupHostResultOutput{}, options).(LookupHostResultOutput)
 }
 
 type LookupHostOutputArgs struct {

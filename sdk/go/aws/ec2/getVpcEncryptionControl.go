@@ -44,12 +44,8 @@ type LookupVpcEncryptionControlResult struct {
 }
 
 func LookupVpcEncryptionControlOutput(ctx *pulumi.Context, args LookupVpcEncryptionControlOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEncryptionControlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcEncryptionControlResultOutput, error) {
-			args := v.(LookupVpcEncryptionControlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getVpcEncryptionControl", args, LookupVpcEncryptionControlResultOutput{}, options).(LookupVpcEncryptionControlResultOutput), nil
-		}).(LookupVpcEncryptionControlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getVpcEncryptionControl", args, LookupVpcEncryptionControlResultOutput{}, options).(LookupVpcEncryptionControlResultOutput)
 }
 
 type LookupVpcEncryptionControlOutputArgs struct {

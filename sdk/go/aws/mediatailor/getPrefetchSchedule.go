@@ -36,12 +36,8 @@ type LookupPrefetchScheduleResult struct {
 }
 
 func LookupPrefetchScheduleOutput(ctx *pulumi.Context, args LookupPrefetchScheduleOutputArgs, opts ...pulumi.InvokeOption) LookupPrefetchScheduleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrefetchScheduleResultOutput, error) {
-			args := v.(LookupPrefetchScheduleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediatailor:getPrefetchSchedule", args, LookupPrefetchScheduleResultOutput{}, options).(LookupPrefetchScheduleResultOutput), nil
-		}).(LookupPrefetchScheduleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediatailor:getPrefetchSchedule", args, LookupPrefetchScheduleResultOutput{}, options).(LookupPrefetchScheduleResultOutput)
 }
 
 type LookupPrefetchScheduleOutputArgs struct {

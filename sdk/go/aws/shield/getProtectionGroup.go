@@ -47,12 +47,8 @@ type LookupProtectionGroupResult struct {
 }
 
 func LookupProtectionGroupOutput(ctx *pulumi.Context, args LookupProtectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProtectionGroupResultOutput, error) {
-			args := v.(LookupProtectionGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:shield:getProtectionGroup", args, LookupProtectionGroupResultOutput{}, options).(LookupProtectionGroupResultOutput), nil
-		}).(LookupProtectionGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:shield:getProtectionGroup", args, LookupProtectionGroupResultOutput{}, options).(LookupProtectionGroupResultOutput)
 }
 
 type LookupProtectionGroupOutputArgs struct {

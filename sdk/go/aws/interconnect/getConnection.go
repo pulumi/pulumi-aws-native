@@ -54,12 +54,8 @@ type LookupConnectionResult struct {
 }
 
 func LookupConnectionOutput(ctx *pulumi.Context, args LookupConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectionResultOutput, error) {
-			args := v.(LookupConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:interconnect:getConnection", args, LookupConnectionResultOutput{}, options).(LookupConnectionResultOutput), nil
-		}).(LookupConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:interconnect:getConnection", args, LookupConnectionResultOutput{}, options).(LookupConnectionResultOutput)
 }
 
 type LookupConnectionOutputArgs struct {

@@ -48,12 +48,8 @@ type LookupCaseRuleResult struct {
 }
 
 func LookupCaseRuleOutput(ctx *pulumi.Context, args LookupCaseRuleOutputArgs, opts ...pulumi.InvokeOption) LookupCaseRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCaseRuleResultOutput, error) {
-			args := v.(LookupCaseRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cases:getCaseRule", args, LookupCaseRuleResultOutput{}, options).(LookupCaseRuleResultOutput), nil
-		}).(LookupCaseRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cases:getCaseRule", args, LookupCaseRuleResultOutput{}, options).(LookupCaseRuleResultOutput)
 }
 
 type LookupCaseRuleOutputArgs struct {

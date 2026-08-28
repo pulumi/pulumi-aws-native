@@ -32,12 +32,8 @@ type CidrResult struct {
 }
 
 func CidrOutput(ctx *pulumi.Context, args CidrOutputArgs, opts ...pulumi.InvokeOption) CidrResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (CidrResultOutput, error) {
-			args := v.(CidrArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:index:cidr", args, CidrResultOutput{}, options).(CidrResultOutput), nil
-		}).(CidrResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:index:cidr", args, CidrResultOutput{}, options).(CidrResultOutput)
 }
 
 type CidrOutputArgs struct {

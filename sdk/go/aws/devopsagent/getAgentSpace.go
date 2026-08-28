@@ -49,12 +49,8 @@ type LookupAgentSpaceResult struct {
 }
 
 func LookupAgentSpaceOutput(ctx *pulumi.Context, args LookupAgentSpaceOutputArgs, opts ...pulumi.InvokeOption) LookupAgentSpaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAgentSpaceResultOutput, error) {
-			args := v.(LookupAgentSpaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:devopsagent:getAgentSpace", args, LookupAgentSpaceResultOutput{}, options).(LookupAgentSpaceResultOutput), nil
-		}).(LookupAgentSpaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:devopsagent:getAgentSpace", args, LookupAgentSpaceResultOutput{}, options).(LookupAgentSpaceResultOutput)
 }
 
 type LookupAgentSpaceOutputArgs struct {

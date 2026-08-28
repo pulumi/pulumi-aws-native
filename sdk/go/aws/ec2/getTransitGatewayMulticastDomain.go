@@ -44,12 +44,8 @@ type LookupTransitGatewayMulticastDomainResult struct {
 }
 
 func LookupTransitGatewayMulticastDomainOutput(ctx *pulumi.Context, args LookupTransitGatewayMulticastDomainOutputArgs, opts ...pulumi.InvokeOption) LookupTransitGatewayMulticastDomainResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTransitGatewayMulticastDomainResultOutput, error) {
-			args := v.(LookupTransitGatewayMulticastDomainArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMulticastDomain", args, LookupTransitGatewayMulticastDomainResultOutput{}, options).(LookupTransitGatewayMulticastDomainResultOutput), nil
-		}).(LookupTransitGatewayMulticastDomainResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getTransitGatewayMulticastDomain", args, LookupTransitGatewayMulticastDomainResultOutput{}, options).(LookupTransitGatewayMulticastDomainResultOutput)
 }
 
 type LookupTransitGatewayMulticastDomainOutputArgs struct {

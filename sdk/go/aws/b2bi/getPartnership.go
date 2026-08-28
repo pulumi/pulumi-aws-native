@@ -50,12 +50,8 @@ type LookupPartnershipResult struct {
 }
 
 func LookupPartnershipOutput(ctx *pulumi.Context, args LookupPartnershipOutputArgs, opts ...pulumi.InvokeOption) LookupPartnershipResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPartnershipResultOutput, error) {
-			args := v.(LookupPartnershipArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:b2bi:getPartnership", args, LookupPartnershipResultOutput{}, options).(LookupPartnershipResultOutput), nil
-		}).(LookupPartnershipResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:b2bi:getPartnership", args, LookupPartnershipResultOutput{}, options).(LookupPartnershipResultOutput)
 }
 
 type LookupPartnershipOutputArgs struct {

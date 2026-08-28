@@ -53,12 +53,8 @@ type LookupSoftwarePackageVersionResult struct {
 }
 
 func LookupSoftwarePackageVersionOutput(ctx *pulumi.Context, args LookupSoftwarePackageVersionOutputArgs, opts ...pulumi.InvokeOption) LookupSoftwarePackageVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSoftwarePackageVersionResultOutput, error) {
-			args := v.(LookupSoftwarePackageVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:iot:getSoftwarePackageVersion", args, LookupSoftwarePackageVersionResultOutput{}, options).(LookupSoftwarePackageVersionResultOutput), nil
-		}).(LookupSoftwarePackageVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:iot:getSoftwarePackageVersion", args, LookupSoftwarePackageVersionResultOutput{}, options).(LookupSoftwarePackageVersionResultOutput)
 }
 
 type LookupSoftwarePackageVersionOutputArgs struct {

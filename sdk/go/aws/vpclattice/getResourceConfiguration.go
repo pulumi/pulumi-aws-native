@@ -50,12 +50,8 @@ type LookupResourceConfigurationResult struct {
 }
 
 func LookupResourceConfigurationOutput(ctx *pulumi.Context, args LookupResourceConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupResourceConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceConfigurationResultOutput, error) {
-			args := v.(LookupResourceConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:vpclattice:getResourceConfiguration", args, LookupResourceConfigurationResultOutput{}, options).(LookupResourceConfigurationResultOutput), nil
-		}).(LookupResourceConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:vpclattice:getResourceConfiguration", args, LookupResourceConfigurationResultOutput{}, options).(LookupResourceConfigurationResultOutput)
 }
 
 type LookupResourceConfigurationOutputArgs struct {

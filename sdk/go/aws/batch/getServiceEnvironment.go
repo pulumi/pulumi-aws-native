@@ -39,12 +39,8 @@ type LookupServiceEnvironmentResult struct {
 }
 
 func LookupServiceEnvironmentOutput(ctx *pulumi.Context, args LookupServiceEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupServiceEnvironmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServiceEnvironmentResultOutput, error) {
-			args := v.(LookupServiceEnvironmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:batch:getServiceEnvironment", args, LookupServiceEnvironmentResultOutput{}, options).(LookupServiceEnvironmentResultOutput), nil
-		}).(LookupServiceEnvironmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:batch:getServiceEnvironment", args, LookupServiceEnvironmentResultOutput{}, options).(LookupServiceEnvironmentResultOutput)
 }
 
 type LookupServiceEnvironmentOutputArgs struct {

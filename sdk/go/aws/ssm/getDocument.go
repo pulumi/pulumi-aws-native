@@ -46,12 +46,8 @@ type LookupDocumentResult struct {
 }
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDocumentResultOutput, error) {
-			args := v.(LookupDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ssm:getDocument", args, LookupDocumentResultOutput{}, options).(LookupDocumentResultOutput), nil
-		}).(LookupDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ssm:getDocument", args, LookupDocumentResultOutput{}, options).(LookupDocumentResultOutput)
 }
 
 type LookupDocumentOutputArgs struct {

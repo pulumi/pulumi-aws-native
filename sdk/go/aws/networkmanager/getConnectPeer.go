@@ -48,12 +48,8 @@ type LookupConnectPeerResult struct {
 }
 
 func LookupConnectPeerOutput(ctx *pulumi.Context, args LookupConnectPeerOutputArgs, opts ...pulumi.InvokeOption) LookupConnectPeerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectPeerResultOutput, error) {
-			args := v.(LookupConnectPeerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:networkmanager:getConnectPeer", args, LookupConnectPeerResultOutput{}, options).(LookupConnectPeerResultOutput), nil
-		}).(LookupConnectPeerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:networkmanager:getConnectPeer", args, LookupConnectPeerResultOutput{}, options).(LookupConnectPeerResultOutput)
 }
 
 type LookupConnectPeerOutputArgs struct {

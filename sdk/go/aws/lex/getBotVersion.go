@@ -37,12 +37,8 @@ type LookupBotVersionResult struct {
 }
 
 func LookupBotVersionOutput(ctx *pulumi.Context, args LookupBotVersionOutputArgs, opts ...pulumi.InvokeOption) LookupBotVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBotVersionResultOutput, error) {
-			args := v.(LookupBotVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:lex:getBotVersion", args, LookupBotVersionResultOutput{}, options).(LookupBotVersionResultOutput), nil
-		}).(LookupBotVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:lex:getBotVersion", args, LookupBotVersionResultOutput{}, options).(LookupBotVersionResultOutput)
 }
 
 type LookupBotVersionOutputArgs struct {

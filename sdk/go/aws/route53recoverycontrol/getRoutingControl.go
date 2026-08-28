@@ -37,12 +37,8 @@ type LookupRoutingControlResult struct {
 }
 
 func LookupRoutingControlOutput(ctx *pulumi.Context, args LookupRoutingControlOutputArgs, opts ...pulumi.InvokeOption) LookupRoutingControlResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRoutingControlResultOutput, error) {
-			args := v.(LookupRoutingControlArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53recoverycontrol:getRoutingControl", args, LookupRoutingControlResultOutput{}, options).(LookupRoutingControlResultOutput), nil
-		}).(LookupRoutingControlResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53recoverycontrol:getRoutingControl", args, LookupRoutingControlResultOutput{}, options).(LookupRoutingControlResultOutput)
 }
 
 type LookupRoutingControlOutputArgs struct {

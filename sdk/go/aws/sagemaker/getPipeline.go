@@ -44,12 +44,8 @@ type LookupPipelineResult struct {
 }
 
 func LookupPipelineOutput(ctx *pulumi.Context, args LookupPipelineOutputArgs, opts ...pulumi.InvokeOption) LookupPipelineResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPipelineResultOutput, error) {
-			args := v.(LookupPipelineArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getPipeline", args, LookupPipelineResultOutput{}, options).(LookupPipelineResultOutput), nil
-		}).(LookupPipelineResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getPipeline", args, LookupPipelineResultOutput{}, options).(LookupPipelineResultOutput)
 }
 
 type LookupPipelineOutputArgs struct {

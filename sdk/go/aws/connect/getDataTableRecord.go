@@ -36,12 +36,8 @@ type LookupDataTableRecordResult struct {
 }
 
 func LookupDataTableRecordOutput(ctx *pulumi.Context, args LookupDataTableRecordOutputArgs, opts ...pulumi.InvokeOption) LookupDataTableRecordResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataTableRecordResultOutput, error) {
-			args := v.(LookupDataTableRecordArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:connect:getDataTableRecord", args, LookupDataTableRecordResultOutput{}, options).(LookupDataTableRecordResultOutput), nil
-		}).(LookupDataTableRecordResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:connect:getDataTableRecord", args, LookupDataTableRecordResultOutput{}, options).(LookupDataTableRecordResultOutput)
 }
 
 type LookupDataTableRecordOutputArgs struct {

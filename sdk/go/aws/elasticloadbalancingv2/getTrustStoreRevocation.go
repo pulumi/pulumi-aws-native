@@ -37,12 +37,8 @@ type LookupTrustStoreRevocationResult struct {
 }
 
 func LookupTrustStoreRevocationOutput(ctx *pulumi.Context, args LookupTrustStoreRevocationOutputArgs, opts ...pulumi.InvokeOption) LookupTrustStoreRevocationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTrustStoreRevocationResultOutput, error) {
-			args := v.(LookupTrustStoreRevocationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:elasticloadbalancingv2:getTrustStoreRevocation", args, LookupTrustStoreRevocationResultOutput{}, options).(LookupTrustStoreRevocationResultOutput), nil
-		}).(LookupTrustStoreRevocationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:elasticloadbalancingv2:getTrustStoreRevocation", args, LookupTrustStoreRevocationResultOutput{}, options).(LookupTrustStoreRevocationResultOutput)
 }
 
 type LookupTrustStoreRevocationOutputArgs struct {

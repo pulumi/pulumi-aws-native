@@ -38,12 +38,8 @@ type LookupEventTrackerResult struct {
 }
 
 func LookupEventTrackerOutput(ctx *pulumi.Context, args LookupEventTrackerOutputArgs, opts ...pulumi.InvokeOption) LookupEventTrackerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventTrackerResultOutput, error) {
-			args := v.(LookupEventTrackerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:personalize:getEventTracker", args, LookupEventTrackerResultOutput{}, options).(LookupEventTrackerResultOutput), nil
-		}).(LookupEventTrackerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:personalize:getEventTracker", args, LookupEventTrackerResultOutput{}, options).(LookupEventTrackerResultOutput)
 }
 
 type LookupEventTrackerOutputArgs struct {

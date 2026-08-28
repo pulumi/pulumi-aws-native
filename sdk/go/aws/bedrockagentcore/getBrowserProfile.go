@@ -40,12 +40,8 @@ type LookupBrowserProfileResult struct {
 }
 
 func LookupBrowserProfileOutput(ctx *pulumi.Context, args LookupBrowserProfileOutputArgs, opts ...pulumi.InvokeOption) LookupBrowserProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBrowserProfileResultOutput, error) {
-			args := v.(LookupBrowserProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:bedrockagentcore:getBrowserProfile", args, LookupBrowserProfileResultOutput{}, options).(LookupBrowserProfileResultOutput), nil
-		}).(LookupBrowserProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:bedrockagentcore:getBrowserProfile", args, LookupBrowserProfileResultOutput{}, options).(LookupBrowserProfileResultOutput)
 }
 
 type LookupBrowserProfileOutputArgs struct {

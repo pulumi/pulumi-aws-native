@@ -42,12 +42,8 @@ type LookupCustomActionResult struct {
 }
 
 func LookupCustomActionOutput(ctx *pulumi.Context, args LookupCustomActionOutputArgs, opts ...pulumi.InvokeOption) LookupCustomActionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomActionResultOutput, error) {
-			args := v.(LookupCustomActionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:chatbot:getCustomAction", args, LookupCustomActionResultOutput{}, options).(LookupCustomActionResultOutput), nil
-		}).(LookupCustomActionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:chatbot:getCustomAction", args, LookupCustomActionResultOutput{}, options).(LookupCustomActionResultOutput)
 }
 
 type LookupCustomActionOutputArgs struct {

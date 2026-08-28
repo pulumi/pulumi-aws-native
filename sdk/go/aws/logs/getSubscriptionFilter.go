@@ -58,12 +58,8 @@ type LookupSubscriptionFilterResult struct {
 }
 
 func LookupSubscriptionFilterOutput(ctx *pulumi.Context, args LookupSubscriptionFilterOutputArgs, opts ...pulumi.InvokeOption) LookupSubscriptionFilterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubscriptionFilterResultOutput, error) {
-			args := v.(LookupSubscriptionFilterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:logs:getSubscriptionFilter", args, LookupSubscriptionFilterResultOutput{}, options).(LookupSubscriptionFilterResultOutput), nil
-		}).(LookupSubscriptionFilterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:logs:getSubscriptionFilter", args, LookupSubscriptionFilterResultOutput{}, options).(LookupSubscriptionFilterResultOutput)
 }
 
 type LookupSubscriptionFilterOutputArgs struct {

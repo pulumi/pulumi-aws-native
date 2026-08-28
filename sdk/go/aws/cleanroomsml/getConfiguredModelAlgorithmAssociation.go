@@ -35,12 +35,8 @@ type LookupConfiguredModelAlgorithmAssociationResult struct {
 }
 
 func LookupConfiguredModelAlgorithmAssociationOutput(ctx *pulumi.Context, args LookupConfiguredModelAlgorithmAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupConfiguredModelAlgorithmAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfiguredModelAlgorithmAssociationResultOutput, error) {
-			args := v.(LookupConfiguredModelAlgorithmAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:cleanroomsml:getConfiguredModelAlgorithmAssociation", args, LookupConfiguredModelAlgorithmAssociationResultOutput{}, options).(LookupConfiguredModelAlgorithmAssociationResultOutput), nil
-		}).(LookupConfiguredModelAlgorithmAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:cleanroomsml:getConfiguredModelAlgorithmAssociation", args, LookupConfiguredModelAlgorithmAssociationResultOutput{}, options).(LookupConfiguredModelAlgorithmAssociationResultOutput)
 }
 
 type LookupConfiguredModelAlgorithmAssociationOutputArgs struct {

@@ -54,12 +54,8 @@ type LookupEndpointResult struct {
 }
 
 func LookupEndpointOutput(ctx *pulumi.Context, args LookupEndpointOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEndpointResultOutput, error) {
-			args := v.(LookupEndpointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:emrcontainers:getEndpoint", args, LookupEndpointResultOutput{}, options).(LookupEndpointResultOutput), nil
-		}).(LookupEndpointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:emrcontainers:getEndpoint", args, LookupEndpointResultOutput{}, options).(LookupEndpointResultOutput)
 }
 
 type LookupEndpointOutputArgs struct {

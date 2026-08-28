@@ -37,12 +37,8 @@ type LookupSubnetCidrBlockResult struct {
 }
 
 func LookupSubnetCidrBlockOutput(ctx *pulumi.Context, args LookupSubnetCidrBlockOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetCidrBlockResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubnetCidrBlockResultOutput, error) {
-			args := v.(LookupSubnetCidrBlockArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ec2:getSubnetCidrBlock", args, LookupSubnetCidrBlockResultOutput{}, options).(LookupSubnetCidrBlockResultOutput), nil
-		}).(LookupSubnetCidrBlockResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ec2:getSubnetCidrBlock", args, LookupSubnetCidrBlockResultOutput{}, options).(LookupSubnetCidrBlockResultOutput)
 }
 
 type LookupSubnetCidrBlockOutputArgs struct {

@@ -42,12 +42,8 @@ type LookupLegalHoldResult struct {
 }
 
 func LookupLegalHoldOutput(ctx *pulumi.Context, args LookupLegalHoldOutputArgs, opts ...pulumi.InvokeOption) LookupLegalHoldResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLegalHoldResultOutput, error) {
-			args := v.(LookupLegalHoldArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:backup:getLegalHold", args, LookupLegalHoldResultOutput{}, options).(LookupLegalHoldResultOutput), nil
-		}).(LookupLegalHoldResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:backup:getLegalHold", args, LookupLegalHoldResultOutput{}, options).(LookupLegalHoldResultOutput)
 }
 
 type LookupLegalHoldOutputArgs struct {

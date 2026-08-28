@@ -63,12 +63,8 @@ type LookupRecordSetResult struct {
 }
 
 func LookupRecordSetOutput(ctx *pulumi.Context, args LookupRecordSetOutputArgs, opts ...pulumi.InvokeOption) LookupRecordSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRecordSetResultOutput, error) {
-			args := v.(LookupRecordSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53:getRecordSet", args, LookupRecordSetResultOutput{}, options).(LookupRecordSetResultOutput), nil
-		}).(LookupRecordSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53:getRecordSet", args, LookupRecordSetResultOutput{}, options).(LookupRecordSetResultOutput)
 }
 
 type LookupRecordSetOutputArgs struct {

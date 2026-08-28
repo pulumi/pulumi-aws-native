@@ -46,12 +46,8 @@ type LookupPackagingConfigurationResult struct {
 }
 
 func LookupPackagingConfigurationOutput(ctx *pulumi.Context, args LookupPackagingConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupPackagingConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPackagingConfigurationResultOutput, error) {
-			args := v.(LookupPackagingConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:mediapackage:getPackagingConfiguration", args, LookupPackagingConfigurationResultOutput{}, options).(LookupPackagingConfigurationResultOutput), nil
-		}).(LookupPackagingConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:mediapackage:getPackagingConfiguration", args, LookupPackagingConfigurationResultOutput{}, options).(LookupPackagingConfigurationResultOutput)
 }
 
 type LookupPackagingConfigurationOutputArgs struct {

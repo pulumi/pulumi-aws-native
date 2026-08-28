@@ -42,12 +42,8 @@ type LookupDnsViewResult struct {
 }
 
 func LookupDnsViewOutput(ctx *pulumi.Context, args LookupDnsViewOutputArgs, opts ...pulumi.InvokeOption) LookupDnsViewResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDnsViewResultOutput, error) {
-			args := v.(LookupDnsViewArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:route53globalresolver:getDnsView", args, LookupDnsViewResultOutput{}, options).(LookupDnsViewResultOutput), nil
-		}).(LookupDnsViewResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:route53globalresolver:getDnsView", args, LookupDnsViewResultOutput{}, options).(LookupDnsViewResultOutput)
 }
 
 type LookupDnsViewOutputArgs struct {

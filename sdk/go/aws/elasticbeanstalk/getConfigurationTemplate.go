@@ -39,12 +39,8 @@ type LookupConfigurationTemplateResult struct {
 }
 
 func LookupConfigurationTemplateOutput(ctx *pulumi.Context, args LookupConfigurationTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationTemplateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationTemplateResultOutput, error) {
-			args := v.(LookupConfigurationTemplateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:elasticbeanstalk:getConfigurationTemplate", args, LookupConfigurationTemplateResultOutput{}, options).(LookupConfigurationTemplateResultOutput), nil
-		}).(LookupConfigurationTemplateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:elasticbeanstalk:getConfigurationTemplate", args, LookupConfigurationTemplateResultOutput{}, options).(LookupConfigurationTemplateResultOutput)
 }
 
 type LookupConfigurationTemplateOutputArgs struct {

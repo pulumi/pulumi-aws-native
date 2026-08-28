@@ -37,12 +37,8 @@ type LookupReceiptRuleResult struct {
 }
 
 func LookupReceiptRuleOutput(ctx *pulumi.Context, args LookupReceiptRuleOutputArgs, opts ...pulumi.InvokeOption) LookupReceiptRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReceiptRuleResultOutput, error) {
-			args := v.(LookupReceiptRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ses:getReceiptRule", args, LookupReceiptRuleResultOutput{}, options).(LookupReceiptRuleResultOutput), nil
-		}).(LookupReceiptRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ses:getReceiptRule", args, LookupReceiptRuleResultOutput{}, options).(LookupReceiptRuleResultOutput)
 }
 
 type LookupReceiptRuleOutputArgs struct {

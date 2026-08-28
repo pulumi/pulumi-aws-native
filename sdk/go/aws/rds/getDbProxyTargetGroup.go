@@ -39,12 +39,8 @@ type LookupDbProxyTargetGroupResult struct {
 }
 
 func LookupDbProxyTargetGroupOutput(ctx *pulumi.Context, args LookupDbProxyTargetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupDbProxyTargetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDbProxyTargetGroupResultOutput, error) {
-			args := v.(LookupDbProxyTargetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:rds:getDbProxyTargetGroup", args, LookupDbProxyTargetGroupResultOutput{}, options).(LookupDbProxyTargetGroupResultOutput), nil
-		}).(LookupDbProxyTargetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:rds:getDbProxyTargetGroup", args, LookupDbProxyTargetGroupResultOutput{}, options).(LookupDbProxyTargetGroupResultOutput)
 }
 
 type LookupDbProxyTargetGroupOutputArgs struct {

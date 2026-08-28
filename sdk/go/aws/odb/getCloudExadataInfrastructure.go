@@ -78,12 +78,8 @@ type LookupCloudExadataInfrastructureResult struct {
 }
 
 func LookupCloudExadataInfrastructureOutput(ctx *pulumi.Context, args LookupCloudExadataInfrastructureOutputArgs, opts ...pulumi.InvokeOption) LookupCloudExadataInfrastructureResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCloudExadataInfrastructureResultOutput, error) {
-			args := v.(LookupCloudExadataInfrastructureArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:odb:getCloudExadataInfrastructure", args, LookupCloudExadataInfrastructureResultOutput{}, options).(LookupCloudExadataInfrastructureResultOutput), nil
-		}).(LookupCloudExadataInfrastructureResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:odb:getCloudExadataInfrastructure", args, LookupCloudExadataInfrastructureResultOutput{}, options).(LookupCloudExadataInfrastructureResultOutput)
 }
 
 type LookupCloudExadataInfrastructureOutputArgs struct {

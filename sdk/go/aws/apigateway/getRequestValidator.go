@@ -39,12 +39,8 @@ type LookupRequestValidatorResult struct {
 }
 
 func LookupRequestValidatorOutput(ctx *pulumi.Context, args LookupRequestValidatorOutputArgs, opts ...pulumi.InvokeOption) LookupRequestValidatorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRequestValidatorResultOutput, error) {
-			args := v.(LookupRequestValidatorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigateway:getRequestValidator", args, LookupRequestValidatorResultOutput{}, options).(LookupRequestValidatorResultOutput), nil
-		}).(LookupRequestValidatorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigateway:getRequestValidator", args, LookupRequestValidatorResultOutput{}, options).(LookupRequestValidatorResultOutput)
 }
 
 type LookupRequestValidatorOutputArgs struct {

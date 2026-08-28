@@ -46,12 +46,8 @@ type LookupAppResult struct {
 }
 
 func LookupAppOutput(ctx *pulumi.Context, args LookupAppOutputArgs, opts ...pulumi.InvokeOption) LookupAppResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAppResultOutput, error) {
-			args := v.(LookupAppArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:sagemaker:getApp", args, LookupAppResultOutput{}, options).(LookupAppResultOutput), nil
-		}).(LookupAppResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:sagemaker:getApp", args, LookupAppResultOutput{}, options).(LookupAppResultOutput)
 }
 
 type LookupAppOutputArgs struct {

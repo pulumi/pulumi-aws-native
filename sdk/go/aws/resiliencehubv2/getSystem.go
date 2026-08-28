@@ -46,12 +46,8 @@ type LookupSystemResult struct {
 }
 
 func LookupSystemOutput(ctx *pulumi.Context, args LookupSystemOutputArgs, opts ...pulumi.InvokeOption) LookupSystemResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSystemResultOutput, error) {
-			args := v.(LookupSystemArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:resiliencehubv2:getSystem", args, LookupSystemResultOutput{}, options).(LookupSystemResultOutput), nil
-		}).(LookupSystemResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:resiliencehubv2:getSystem", args, LookupSystemResultOutput{}, options).(LookupSystemResultOutput)
 }
 
 type LookupSystemOutputArgs struct {

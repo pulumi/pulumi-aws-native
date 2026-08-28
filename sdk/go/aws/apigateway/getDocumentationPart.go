@@ -37,12 +37,8 @@ type LookupDocumentationPartResult struct {
 }
 
 func LookupDocumentationPartOutput(ctx *pulumi.Context, args LookupDocumentationPartOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentationPartResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDocumentationPartResultOutput, error) {
-			args := v.(LookupDocumentationPartArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:apigateway:getDocumentationPart", args, LookupDocumentationPartResultOutput{}, options).(LookupDocumentationPartResultOutput), nil
-		}).(LookupDocumentationPartResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:apigateway:getDocumentationPart", args, LookupDocumentationPartResultOutput{}, options).(LookupDocumentationPartResultOutput)
 }
 
 type LookupDocumentationPartOutputArgs struct {

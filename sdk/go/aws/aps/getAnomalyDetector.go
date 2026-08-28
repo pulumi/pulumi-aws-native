@@ -44,12 +44,8 @@ type LookupAnomalyDetectorResult struct {
 }
 
 func LookupAnomalyDetectorOutput(ctx *pulumi.Context, args LookupAnomalyDetectorOutputArgs, opts ...pulumi.InvokeOption) LookupAnomalyDetectorResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAnomalyDetectorResultOutput, error) {
-			args := v.(LookupAnomalyDetectorArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:aps:getAnomalyDetector", args, LookupAnomalyDetectorResultOutput{}, options).(LookupAnomalyDetectorResultOutput), nil
-		}).(LookupAnomalyDetectorResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:aps:getAnomalyDetector", args, LookupAnomalyDetectorResultOutput{}, options).(LookupAnomalyDetectorResultOutput)
 }
 
 type LookupAnomalyDetectorOutputArgs struct {

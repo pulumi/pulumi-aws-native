@@ -56,12 +56,8 @@ type LookupParallelDataResult struct {
 }
 
 func LookupParallelDataOutput(ctx *pulumi.Context, args LookupParallelDataOutputArgs, opts ...pulumi.InvokeOption) LookupParallelDataResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupParallelDataResultOutput, error) {
-			args := v.(LookupParallelDataArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:translate:getParallelData", args, LookupParallelDataResultOutput{}, options).(LookupParallelDataResultOutput), nil
-		}).(LookupParallelDataResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:translate:getParallelData", args, LookupParallelDataResultOutput{}, options).(LookupParallelDataResultOutput)
 }
 
 type LookupParallelDataOutputArgs struct {

@@ -47,12 +47,8 @@ type LookupFarmResult struct {
 }
 
 func LookupFarmOutput(ctx *pulumi.Context, args LookupFarmOutputArgs, opts ...pulumi.InvokeOption) LookupFarmResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFarmResultOutput, error) {
-			args := v.(LookupFarmArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:deadline:getFarm", args, LookupFarmResultOutput{}, options).(LookupFarmResultOutput), nil
-		}).(LookupFarmResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:deadline:getFarm", args, LookupFarmResultOutput{}, options).(LookupFarmResultOutput)
 }
 
 type LookupFarmOutputArgs struct {

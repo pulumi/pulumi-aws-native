@@ -33,12 +33,8 @@ type LookupDomainNameApiAssociationResult struct {
 }
 
 func LookupDomainNameApiAssociationOutput(ctx *pulumi.Context, args LookupDomainNameApiAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameApiAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainNameApiAssociationResultOutput, error) {
-			args := v.(LookupDomainNameApiAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:appsync:getDomainNameApiAssociation", args, LookupDomainNameApiAssociationResultOutput{}, options).(LookupDomainNameApiAssociationResultOutput), nil
-		}).(LookupDomainNameApiAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:appsync:getDomainNameApiAssociation", args, LookupDomainNameApiAssociationResultOutput{}, options).(LookupDomainNameApiAssociationResultOutput)
 }
 
 type LookupDomainNameApiAssociationOutputArgs struct {

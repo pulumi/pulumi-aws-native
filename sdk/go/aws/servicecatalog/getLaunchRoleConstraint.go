@@ -39,12 +39,8 @@ type LookupLaunchRoleConstraintResult struct {
 }
 
 func LookupLaunchRoleConstraintOutput(ctx *pulumi.Context, args LookupLaunchRoleConstraintOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchRoleConstraintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLaunchRoleConstraintResultOutput, error) {
-			args := v.(LookupLaunchRoleConstraintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:servicecatalog:getLaunchRoleConstraint", args, LookupLaunchRoleConstraintResultOutput{}, options).(LookupLaunchRoleConstraintResultOutput), nil
-		}).(LookupLaunchRoleConstraintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:servicecatalog:getLaunchRoleConstraint", args, LookupLaunchRoleConstraintResultOutput{}, options).(LookupLaunchRoleConstraintResultOutput)
 }
 
 type LookupLaunchRoleConstraintOutputArgs struct {

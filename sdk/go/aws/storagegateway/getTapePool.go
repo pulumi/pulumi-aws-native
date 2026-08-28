@@ -38,12 +38,8 @@ type LookupTapePoolResult struct {
 }
 
 func LookupTapePoolOutput(ctx *pulumi.Context, args LookupTapePoolOutputArgs, opts ...pulumi.InvokeOption) LookupTapePoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTapePoolResultOutput, error) {
-			args := v.(LookupTapePoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:storagegateway:getTapePool", args, LookupTapePoolResultOutput{}, options).(LookupTapePoolResultOutput), nil
-		}).(LookupTapePoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:storagegateway:getTapePool", args, LookupTapePoolResultOutput{}, options).(LookupTapePoolResultOutput)
 }
 
 type LookupTapePoolOutputArgs struct {

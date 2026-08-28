@@ -35,12 +35,8 @@ type LookupPrimaryTaskSetResult struct {
 }
 
 func LookupPrimaryTaskSetOutput(ctx *pulumi.Context, args LookupPrimaryTaskSetOutputArgs, opts ...pulumi.InvokeOption) LookupPrimaryTaskSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrimaryTaskSetResultOutput, error) {
-			args := v.(LookupPrimaryTaskSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:ecs:getPrimaryTaskSet", args, LookupPrimaryTaskSetResultOutput{}, options).(LookupPrimaryTaskSetResultOutput), nil
-		}).(LookupPrimaryTaskSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:ecs:getPrimaryTaskSet", args, LookupPrimaryTaskSetResultOutput{}, options).(LookupPrimaryTaskSetResultOutput)
 }
 
 type LookupPrimaryTaskSetOutputArgs struct {

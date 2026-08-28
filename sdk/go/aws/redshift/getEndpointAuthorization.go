@@ -51,12 +51,8 @@ type LookupEndpointAuthorizationResult struct {
 }
 
 func LookupEndpointAuthorizationOutput(ctx *pulumi.Context, args LookupEndpointAuthorizationOutputArgs, opts ...pulumi.InvokeOption) LookupEndpointAuthorizationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEndpointAuthorizationResultOutput, error) {
-			args := v.(LookupEndpointAuthorizationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws-native:redshift:getEndpointAuthorization", args, LookupEndpointAuthorizationResultOutput{}, options).(LookupEndpointAuthorizationResultOutput), nil
-		}).(LookupEndpointAuthorizationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws-native:redshift:getEndpointAuthorization", args, LookupEndpointAuthorizationResultOutput{}, options).(LookupEndpointAuthorizationResultOutput)
 }
 
 type LookupEndpointAuthorizationOutputArgs struct {
