@@ -2018,7 +2018,7 @@ func (in *containerFleetScalingPolicyComparisonOperatorPtr) ToContainerFleetScal
 	return pulumi.ToOutputWithContext(ctx, in).(ContainerFleetScalingPolicyComparisonOperatorPtrOutput)
 }
 
-// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
 type ContainerFleetScalingPolicyMetricName string
 
 const (
@@ -2208,8 +2208,9 @@ func (in *containerFleetScalingPolicyMetricNamePtr) ToContainerFleetScalingPolic
 type ContainerFleetScalingPolicyPolicyType string
 
 const (
-	ContainerFleetScalingPolicyPolicyTypeRuleBased   = ContainerFleetScalingPolicyPolicyType("RuleBased")
-	ContainerFleetScalingPolicyPolicyTypeTargetBased = ContainerFleetScalingPolicyPolicyType("TargetBased")
+	ContainerFleetScalingPolicyPolicyTypeRuleBased      = ContainerFleetScalingPolicyPolicyType("RuleBased")
+	ContainerFleetScalingPolicyPolicyTypeTargetBased    = ContainerFleetScalingPolicyPolicyType("TargetBased")
+	ContainerFleetScalingPolicyPolicyTypeManagedScaling = ContainerFleetScalingPolicyPolicyType("ManagedScaling")
 )
 
 func (ContainerFleetScalingPolicyPolicyType) ElementType() reflect.Type {
@@ -2336,6 +2337,7 @@ func (o ContainerFleetScalingPolicyPolicyTypePtrOutput) ToStringPtrOutputWithCon
 //
 //	ContainerFleetScalingPolicyPolicyTypeRuleBased
 //	ContainerFleetScalingPolicyPolicyTypeTargetBased
+//	ContainerFleetScalingPolicyPolicyTypeManagedScaling
 type ContainerFleetScalingPolicyPolicyTypeInput interface {
 	pulumi.Input
 
@@ -5884,7 +5886,7 @@ func (in *fleetScalingPolicyComparisonOperatorPtr) ToFleetScalingPolicyCompariso
 	return pulumi.ToOutputWithContext(ctx, in).(FleetScalingPolicyComparisonOperatorPtrOutput)
 }
 
-// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
 type FleetScalingPolicyMetricName string
 
 const (
@@ -6074,8 +6076,9 @@ func (in *fleetScalingPolicyMetricNamePtr) ToFleetScalingPolicyMetricNamePtrOutp
 type FleetScalingPolicyPolicyType string
 
 const (
-	FleetScalingPolicyPolicyTypeRuleBased   = FleetScalingPolicyPolicyType("RuleBased")
-	FleetScalingPolicyPolicyTypeTargetBased = FleetScalingPolicyPolicyType("TargetBased")
+	FleetScalingPolicyPolicyTypeRuleBased      = FleetScalingPolicyPolicyType("RuleBased")
+	FleetScalingPolicyPolicyTypeTargetBased    = FleetScalingPolicyPolicyType("TargetBased")
+	FleetScalingPolicyPolicyTypeManagedScaling = FleetScalingPolicyPolicyType("ManagedScaling")
 )
 
 func (FleetScalingPolicyPolicyType) ElementType() reflect.Type {
@@ -6202,6 +6205,7 @@ func (o FleetScalingPolicyPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 //
 //	FleetScalingPolicyPolicyTypeRuleBased
 //	FleetScalingPolicyPolicyTypeTargetBased
+//	FleetScalingPolicyPolicyTypeManagedScaling
 type FleetScalingPolicyPolicyTypeInput interface {
 	pulumi.Input
 

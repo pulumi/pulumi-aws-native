@@ -9,7 +9,9 @@ import typing
 from ._enums import *
 from .fleet import *
 from .get_fleet import *
+from .get_report_group import *
 from .get_source_credential import *
+from .report_group import *
 from .source_credential import *
 from ._inputs import *
 from . import outputs

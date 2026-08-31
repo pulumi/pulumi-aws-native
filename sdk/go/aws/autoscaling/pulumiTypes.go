@@ -1441,6 +1441,102 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) References() AutoS
 	}).(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput)
 }
 
+type AutoScalingGroupDistributionSegment struct {
+	TargetCapacityTypes []AutoScalingGroupDistributionSegmentTargetCapacityTypesItem `pulumi:"targetCapacityTypes"`
+}
+
+// AutoScalingGroupDistributionSegmentInput is an input type that accepts AutoScalingGroupDistributionSegmentArgs and AutoScalingGroupDistributionSegmentOutput values.
+// You can construct a concrete instance of `AutoScalingGroupDistributionSegmentInput` via:
+//
+//	AutoScalingGroupDistributionSegmentArgs{...}
+type AutoScalingGroupDistributionSegmentInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupDistributionSegmentOutput() AutoScalingGroupDistributionSegmentOutput
+	ToAutoScalingGroupDistributionSegmentOutputWithContext(context.Context) AutoScalingGroupDistributionSegmentOutput
+}
+
+type AutoScalingGroupDistributionSegmentArgs struct {
+	TargetCapacityTypes AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayInput `pulumi:"targetCapacityTypes"`
+}
+
+func (AutoScalingGroupDistributionSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupDistributionSegment)(nil)).Elem()
+}
+
+func (i AutoScalingGroupDistributionSegmentArgs) ToAutoScalingGroupDistributionSegmentOutput() AutoScalingGroupDistributionSegmentOutput {
+	return i.ToAutoScalingGroupDistributionSegmentOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupDistributionSegmentArgs) ToAutoScalingGroupDistributionSegmentOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupDistributionSegmentOutput)
+}
+
+// AutoScalingGroupDistributionSegmentArrayInput is an input type that accepts AutoScalingGroupDistributionSegmentArray and AutoScalingGroupDistributionSegmentArrayOutput values.
+// You can construct a concrete instance of `AutoScalingGroupDistributionSegmentArrayInput` via:
+//
+//	AutoScalingGroupDistributionSegmentArray{ AutoScalingGroupDistributionSegmentArgs{...} }
+type AutoScalingGroupDistributionSegmentArrayInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupDistributionSegmentArrayOutput() AutoScalingGroupDistributionSegmentArrayOutput
+	ToAutoScalingGroupDistributionSegmentArrayOutputWithContext(context.Context) AutoScalingGroupDistributionSegmentArrayOutput
+}
+
+type AutoScalingGroupDistributionSegmentArray []AutoScalingGroupDistributionSegmentInput
+
+func (AutoScalingGroupDistributionSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupDistributionSegment)(nil)).Elem()
+}
+
+func (i AutoScalingGroupDistributionSegmentArray) ToAutoScalingGroupDistributionSegmentArrayOutput() AutoScalingGroupDistributionSegmentArrayOutput {
+	return i.ToAutoScalingGroupDistributionSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupDistributionSegmentArray) ToAutoScalingGroupDistributionSegmentArrayOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupDistributionSegmentArrayOutput)
+}
+
+type AutoScalingGroupDistributionSegmentOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupDistributionSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupDistributionSegment)(nil)).Elem()
+}
+
+func (o AutoScalingGroupDistributionSegmentOutput) ToAutoScalingGroupDistributionSegmentOutput() AutoScalingGroupDistributionSegmentOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentOutput) ToAutoScalingGroupDistributionSegmentOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentOutput) TargetCapacityTypes() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupDistributionSegment) []AutoScalingGroupDistributionSegmentTargetCapacityTypesItem {
+		return v.TargetCapacityTypes
+	}).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput)
+}
+
+type AutoScalingGroupDistributionSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupDistributionSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupDistributionSegment)(nil)).Elem()
+}
+
+func (o AutoScalingGroupDistributionSegmentArrayOutput) ToAutoScalingGroupDistributionSegmentArrayOutput() AutoScalingGroupDistributionSegmentArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentArrayOutput) ToAutoScalingGroupDistributionSegmentArrayOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupDistributionSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupDistributionSegment {
+		return vs[0].([]AutoScalingGroupDistributionSegment)[vs[1].(int)]
+	}).(AutoScalingGroupDistributionSegmentOutput)
+}
+
 // The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a “Retained“ state instead of automatic termination.
 //
 //	For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -2741,6 +2837,7 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) VCpuCount() AutoScalingGr
 //	For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
 //	``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
 type AutoScalingGroupInstancesDistribution struct {
+	DistributionSegments []AutoScalingGroupDistributionSegment `pulumi:"distributionSegments"`
 	// The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
 	//  The following lists the valid values:
 	//   + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
@@ -2783,6 +2880,7 @@ type AutoScalingGroupInstancesDistributionInput interface {
 //	For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
 //	``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
 type AutoScalingGroupInstancesDistributionArgs struct {
+	DistributionSegments AutoScalingGroupDistributionSegmentArrayInput `pulumi:"distributionSegments"`
 	// The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
 	//  The following lists the valid values:
 	//   + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
@@ -2890,6 +2988,12 @@ func (o AutoScalingGroupInstancesDistributionOutput) ToAutoScalingGroupInstances
 	}).(AutoScalingGroupInstancesDistributionPtrOutput)
 }
 
+func (o AutoScalingGroupInstancesDistributionOutput) DistributionSegments() AutoScalingGroupDistributionSegmentArrayOutput {
+	return o.ApplyT(func(v AutoScalingGroupInstancesDistribution) []AutoScalingGroupDistributionSegment {
+		return v.DistributionSegments
+	}).(AutoScalingGroupDistributionSegmentArrayOutput)
+}
+
 // The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
 //
 //	The following lists the valid values:
@@ -2960,6 +3064,15 @@ func (o AutoScalingGroupInstancesDistributionPtrOutput) Elem() AutoScalingGroupI
 		var ret AutoScalingGroupInstancesDistribution
 		return ret
 	}).(AutoScalingGroupInstancesDistributionOutput)
+}
+
+func (o AutoScalingGroupInstancesDistributionPtrOutput) DistributionSegments() AutoScalingGroupDistributionSegmentArrayOutput {
+	return o.ApplyT(func(v *AutoScalingGroupInstancesDistribution) []AutoScalingGroupDistributionSegment {
+		if v == nil {
+			return nil
+		}
+		return v.DistributionSegments
+	}).(AutoScalingGroupDistributionSegmentArrayOutput)
 }
 
 // The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
@@ -9947,6 +10060,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCapacityReservationTargetPtrInput)(nil)).Elem(), AutoScalingGroupCapacityReservationTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupCpuPerformanceFactorRequestPtrInput)(nil)).Elem(), AutoScalingGroupCpuPerformanceFactorRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupDistributionSegmentInput)(nil)).Elem(), AutoScalingGroupDistributionSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupDistributionSegmentArrayInput)(nil)).Elem(), AutoScalingGroupDistributionSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceLifecyclePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceLifecyclePolicyPtrInput)(nil)).Elem(), AutoScalingGroupInstanceLifecyclePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupInstanceMaintenancePolicyInput)(nil)).Elem(), AutoScalingGroupInstanceMaintenancePolicyArgs{})
@@ -10052,6 +10167,8 @@ func init() {
 	pulumi.RegisterOutputType(AutoScalingGroupCapacityReservationTargetPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupCpuPerformanceFactorRequestPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupDistributionSegmentOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupDistributionSegmentArrayOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceLifecyclePolicyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceLifecyclePolicyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupInstanceMaintenancePolicyOutput{})

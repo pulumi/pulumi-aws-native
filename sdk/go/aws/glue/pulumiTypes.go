@@ -1817,6 +1817,1627 @@ func (o ClassifierXmlClassifierPtrOutput) RowTag() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConnectionAuthenticationConfiguration struct {
+	// A structure containing the authentication configuration in the CreateConnection request.
+	AuthenticationType string `pulumi:"authenticationType"`
+	// For supplying basic auth credentials when not providing a SecretArn value
+	BasicAuthenticationCredentials *ConnectionBasicAuthenticationCredentials `pulumi:"basicAuthenticationCredentials"`
+	// A structure containing the authentication credentials in the CreateConnection request.
+	CustomAuthenticationCredentials interface{} `pulumi:"customAuthenticationCredentials"`
+	// The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+	KmsKeyArn *string `pulumi:"kmsKeyArn"`
+	// A structure containing properties for OAuth2 in the CreateConnection request.
+	OAuth2Properties *ConnectionOAuth2Properties `pulumi:"oAuth2Properties"`
+	// The secret manager ARN to store credentials in the CreateConnection request.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// ConnectionAuthenticationConfigurationInput is an input type that accepts ConnectionAuthenticationConfigurationArgs and ConnectionAuthenticationConfigurationOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationInput` via:
+//
+//	ConnectionAuthenticationConfigurationArgs{...}
+type ConnectionAuthenticationConfigurationInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationOutput() ConnectionAuthenticationConfigurationOutput
+	ToConnectionAuthenticationConfigurationOutputWithContext(context.Context) ConnectionAuthenticationConfigurationOutput
+}
+
+type ConnectionAuthenticationConfigurationArgs struct {
+	// A structure containing the authentication configuration in the CreateConnection request.
+	AuthenticationType pulumi.StringInput `pulumi:"authenticationType"`
+	// For supplying basic auth credentials when not providing a SecretArn value
+	BasicAuthenticationCredentials ConnectionBasicAuthenticationCredentialsPtrInput `pulumi:"basicAuthenticationCredentials"`
+	// A structure containing the authentication credentials in the CreateConnection request.
+	CustomAuthenticationCredentials pulumi.Input `pulumi:"customAuthenticationCredentials"`
+	// The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
+	// A structure containing properties for OAuth2 in the CreateConnection request.
+	OAuth2Properties ConnectionOAuth2PropertiesPtrInput `pulumi:"oAuth2Properties"`
+	// The secret manager ARN to store credentials in the CreateConnection request.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (ConnectionAuthenticationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationOutput() ConnectionAuthenticationConfigurationOutput {
+	return i.ToConnectionAuthenticationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOutput)
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthenticationConfigurationArgs) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationOutput).ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthenticationConfigurationPtrInput is an input type that accepts ConnectionAuthenticationConfigurationArgs, ConnectionAuthenticationConfigurationPtr and ConnectionAuthenticationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthenticationConfigurationPtrInput` via:
+//
+//	        ConnectionAuthenticationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthenticationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput
+	ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Context) ConnectionAuthenticationConfigurationPtrOutput
+}
+
+type connectionAuthenticationConfigurationPtrType ConnectionAuthenticationConfigurationArgs
+
+func ConnectionAuthenticationConfigurationPtr(v *ConnectionAuthenticationConfigurationArgs) ConnectionAuthenticationConfigurationPtrInput {
+	return (*connectionAuthenticationConfigurationPtrType)(v)
+}
+
+func (*connectionAuthenticationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (i *connectionAuthenticationConfigurationPtrType) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return i.ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthenticationConfigurationPtrType) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthenticationConfigurationPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationOutput() ConnectionAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return o.ToConnectionAuthenticationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthenticationConfigurationOutput) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthenticationConfiguration) *ConnectionAuthenticationConfiguration {
+		return &v
+	}).(ConnectionAuthenticationConfigurationPtrOutput)
+}
+
+// A structure containing the authentication configuration in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationOutput) AuthenticationType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) string { return v.AuthenticationType }).(pulumi.StringOutput)
+}
+
+// For supplying basic auth credentials when not providing a SecretArn value
+func (o ConnectionAuthenticationConfigurationOutput) BasicAuthenticationCredentials() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *ConnectionBasicAuthenticationCredentials {
+		return v.BasicAuthenticationCredentials
+	}).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationOutput) CustomAuthenticationCredentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) interface{} { return v.CustomAuthenticationCredentials }).(pulumi.AnyOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+func (o ConnectionAuthenticationConfigurationOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
+}
+
+// A structure containing properties for OAuth2 in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationOutput) OAuth2Properties() ConnectionOAuth2PropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *ConnectionOAuth2Properties { return v.OAuth2Properties }).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+// The secret manager ARN to store credentials in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthenticationConfiguration) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthenticationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthenticationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthenticationConfiguration)(nil)).Elem()
+}
+
+func (o ConnectionAuthenticationConfigurationPtrOutput) ToConnectionAuthenticationConfigurationPtrOutput() ConnectionAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationPtrOutput) ToConnectionAuthenticationConfigurationPtrOutputWithContext(ctx context.Context) ConnectionAuthenticationConfigurationPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthenticationConfigurationPtrOutput) Elem() ConnectionAuthenticationConfigurationOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) ConnectionAuthenticationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthenticationConfiguration
+		return ret
+	}).(ConnectionAuthenticationConfigurationOutput)
+}
+
+// A structure containing the authentication configuration in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationPtrOutput) AuthenticationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AuthenticationType
+	}).(pulumi.StringPtrOutput)
+}
+
+// For supplying basic auth credentials when not providing a SecretArn value
+func (o ConnectionAuthenticationConfigurationPtrOutput) BasicAuthenticationCredentials() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *ConnectionBasicAuthenticationCredentials {
+		if v == nil {
+			return nil
+		}
+		return v.BasicAuthenticationCredentials
+	}).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationPtrOutput) CustomAuthenticationCredentials() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.CustomAuthenticationCredentials
+	}).(pulumi.AnyOutput)
+}
+
+// The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+func (o ConnectionAuthenticationConfigurationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure containing properties for OAuth2 in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationPtrOutput) OAuth2Properties() ConnectionOAuth2PropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *ConnectionOAuth2Properties {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2Properties
+	}).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+// The secret manager ARN to store credentials in the CreateConnection request.
+func (o ConnectionAuthenticationConfigurationPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthenticationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure containing the authorization code used in the authentication configuration.
+type ConnectionAuthorizationCodeProperties struct {
+	// The authorization code used in the authentication configuration.
+	AuthorizationCode *string `pulumi:"authorizationCode"`
+	// The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+	RedirectUri *string `pulumi:"redirectUri"`
+}
+
+// ConnectionAuthorizationCodePropertiesInput is an input type that accepts ConnectionAuthorizationCodePropertiesArgs and ConnectionAuthorizationCodePropertiesOutput values.
+// You can construct a concrete instance of `ConnectionAuthorizationCodePropertiesInput` via:
+//
+//	ConnectionAuthorizationCodePropertiesArgs{...}
+type ConnectionAuthorizationCodePropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionAuthorizationCodePropertiesOutput() ConnectionAuthorizationCodePropertiesOutput
+	ToConnectionAuthorizationCodePropertiesOutputWithContext(context.Context) ConnectionAuthorizationCodePropertiesOutput
+}
+
+// A structure containing the authorization code used in the authentication configuration.
+type ConnectionAuthorizationCodePropertiesArgs struct {
+	// The authorization code used in the authentication configuration.
+	AuthorizationCode pulumi.StringPtrInput `pulumi:"authorizationCode"`
+	// The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+	RedirectUri pulumi.StringPtrInput `pulumi:"redirectUri"`
+}
+
+func (ConnectionAuthorizationCodePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesOutput() ConnectionAuthorizationCodePropertiesOutput {
+	return i.ToConnectionAuthorizationCodePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthorizationCodePropertiesOutput)
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return i.ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionAuthorizationCodePropertiesArgs) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthorizationCodePropertiesOutput).ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionAuthorizationCodePropertiesPtrInput is an input type that accepts ConnectionAuthorizationCodePropertiesArgs, ConnectionAuthorizationCodePropertiesPtr and ConnectionAuthorizationCodePropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionAuthorizationCodePropertiesPtrInput` via:
+//
+//	        ConnectionAuthorizationCodePropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionAuthorizationCodePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput
+	ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Context) ConnectionAuthorizationCodePropertiesPtrOutput
+}
+
+type connectionAuthorizationCodePropertiesPtrType ConnectionAuthorizationCodePropertiesArgs
+
+func ConnectionAuthorizationCodePropertiesPtr(v *ConnectionAuthorizationCodePropertiesArgs) ConnectionAuthorizationCodePropertiesPtrInput {
+	return (*connectionAuthorizationCodePropertiesPtrType)(v)
+}
+
+func (*connectionAuthorizationCodePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (i *connectionAuthorizationCodePropertiesPtrType) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return i.ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionAuthorizationCodePropertiesPtrType) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+// A structure containing the authorization code used in the authentication configuration.
+type ConnectionAuthorizationCodePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthorizationCodePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesOutput() ConnectionAuthorizationCodePropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionAuthorizationCodePropertiesOutput) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionAuthorizationCodeProperties) *ConnectionAuthorizationCodeProperties {
+		return &v
+	}).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+// The authorization code used in the authentication configuration.
+func (o ConnectionAuthorizationCodePropertiesOutput) AuthorizationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthorizationCodeProperties) *string { return v.AuthorizationCode }).(pulumi.StringPtrOutput)
+}
+
+// The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+func (o ConnectionAuthorizationCodePropertiesOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionAuthorizationCodeProperties) *string { return v.RedirectUri }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionAuthorizationCodePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionAuthorizationCodePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionAuthorizationCodeProperties)(nil)).Elem()
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) ToConnectionAuthorizationCodePropertiesPtrOutput() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) ToConnectionAuthorizationCodePropertiesPtrOutputWithContext(ctx context.Context) ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) Elem() ConnectionAuthorizationCodePropertiesOutput {
+	return o.ApplyT(func(v *ConnectionAuthorizationCodeProperties) ConnectionAuthorizationCodeProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionAuthorizationCodeProperties
+		return ret
+	}).(ConnectionAuthorizationCodePropertiesOutput)
+}
+
+// The authorization code used in the authentication configuration.
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) AuthorizationCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthorizationCodeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationCode
+	}).(pulumi.StringPtrOutput)
+}
+
+// The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+func (o ConnectionAuthorizationCodePropertiesPtrOutput) RedirectUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionAuthorizationCodeProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RedirectUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+type ConnectionBasicAuthenticationCredentials struct {
+	// The password used in the authentication configuration.
+	Password *string `pulumi:"password"`
+	// The username used in the authentication configuration.
+	Username *string `pulumi:"username"`
+}
+
+// ConnectionBasicAuthenticationCredentialsInput is an input type that accepts ConnectionBasicAuthenticationCredentialsArgs and ConnectionBasicAuthenticationCredentialsOutput values.
+// You can construct a concrete instance of `ConnectionBasicAuthenticationCredentialsInput` via:
+//
+//	ConnectionBasicAuthenticationCredentialsArgs{...}
+type ConnectionBasicAuthenticationCredentialsInput interface {
+	pulumi.Input
+
+	ToConnectionBasicAuthenticationCredentialsOutput() ConnectionBasicAuthenticationCredentialsOutput
+	ToConnectionBasicAuthenticationCredentialsOutputWithContext(context.Context) ConnectionBasicAuthenticationCredentialsOutput
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+type ConnectionBasicAuthenticationCredentialsArgs struct {
+	// The password used in the authentication configuration.
+	Password pulumi.StringPtrInput `pulumi:"password"`
+	// The username used in the authentication configuration.
+	Username pulumi.StringPtrInput `pulumi:"username"`
+}
+
+func (ConnectionBasicAuthenticationCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsOutput() ConnectionBasicAuthenticationCredentialsOutput {
+	return i.ToConnectionBasicAuthenticationCredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthenticationCredentialsOutput)
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return i.ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionBasicAuthenticationCredentialsArgs) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthenticationCredentialsOutput).ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectionBasicAuthenticationCredentialsPtrInput is an input type that accepts ConnectionBasicAuthenticationCredentialsArgs, ConnectionBasicAuthenticationCredentialsPtr and ConnectionBasicAuthenticationCredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectionBasicAuthenticationCredentialsPtrInput` via:
+//
+//	        ConnectionBasicAuthenticationCredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionBasicAuthenticationCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput
+	ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput
+}
+
+type connectionBasicAuthenticationCredentialsPtrType ConnectionBasicAuthenticationCredentialsArgs
+
+func ConnectionBasicAuthenticationCredentialsPtr(v *ConnectionBasicAuthenticationCredentialsArgs) ConnectionBasicAuthenticationCredentialsPtrInput {
+	return (*connectionBasicAuthenticationCredentialsPtrType)(v)
+}
+
+func (*connectionBasicAuthenticationCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (i *connectionBasicAuthenticationCredentialsPtrType) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return i.ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionBasicAuthenticationCredentialsPtrType) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+type ConnectionBasicAuthenticationCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionBasicAuthenticationCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsOutput() ConnectionBasicAuthenticationCredentialsOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionBasicAuthenticationCredentialsOutput) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionBasicAuthenticationCredentials) *ConnectionBasicAuthenticationCredentials {
+		return &v
+	}).(ConnectionBasicAuthenticationCredentialsPtrOutput)
+}
+
+// The password used in the authentication configuration.
+func (o ConnectionBasicAuthenticationCredentialsOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionBasicAuthenticationCredentials) *string { return v.Password }).(pulumi.StringPtrOutput)
+}
+
+// The username used in the authentication configuration.
+func (o ConnectionBasicAuthenticationCredentialsOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionBasicAuthenticationCredentials) *string { return v.Username }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionBasicAuthenticationCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionBasicAuthenticationCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionBasicAuthenticationCredentials)(nil)).Elem()
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) ToConnectionBasicAuthenticationCredentialsPtrOutput() ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) ToConnectionBasicAuthenticationCredentialsPtrOutputWithContext(ctx context.Context) ConnectionBasicAuthenticationCredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) Elem() ConnectionBasicAuthenticationCredentialsOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthenticationCredentials) ConnectionBasicAuthenticationCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionBasicAuthenticationCredentials
+		return ret
+	}).(ConnectionBasicAuthenticationCredentialsOutput)
+}
+
+// The password used in the authentication configuration.
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthenticationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The username used in the authentication configuration.
+func (o ConnectionBasicAuthenticationCredentialsPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionBasicAuthenticationCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionInputType struct {
+	// Connection properties specific to the Athena compute environment.
+	AthenaProperties interface{} `pulumi:"athenaProperties"`
+	// The authentication configuration used to connect to the connection.
+	AuthenticationConfiguration *ConnectionAuthenticationConfiguration `pulumi:"authenticationConfiguration"`
+	// A map of key-value pairs used as parameters for this connection.
+	ConnectionProperties interface{} `pulumi:"connectionProperties"`
+	// The type of the connection that needs to be created.
+	ConnectionType string `pulumi:"connectionType"`
+	// A description of the connection.
+	Description *string `pulumi:"description"`
+	// A list of criteria that can be used in selecting this connection.
+	MatchCriteria []string `pulumi:"matchCriteria"`
+	// The name of the connection.
+	Name *string `pulumi:"name"`
+	// The physical connection requirements.
+	PhysicalConnectionRequirements *ConnectionPhysicalConnectionRequirements `pulumi:"physicalConnectionRequirements"`
+	// Connection properties specific to the Python compute environment.
+	PythonProperties interface{} `pulumi:"pythonProperties"`
+	// Connection properties specific to the Spark compute environment.
+	SparkProperties interface{} `pulumi:"sparkProperties"`
+	// A flag to validate the credentials during create connection. Default is true.
+	ValidateCredentials *bool `pulumi:"validateCredentials"`
+	// The compute environments that the specified connection properties are validated against.
+	ValidateForComputeEnvironments []string `pulumi:"validateForComputeEnvironments"`
+}
+
+// ConnectionInputTypeInput is an input type that accepts ConnectionInputTypeArgs and ConnectionInputTypeOutput values.
+// You can construct a concrete instance of `ConnectionInputTypeInput` via:
+//
+//	ConnectionInputTypeArgs{...}
+type ConnectionInputTypeInput interface {
+	pulumi.Input
+
+	ToConnectionInputTypeOutput() ConnectionInputTypeOutput
+	ToConnectionInputTypeOutputWithContext(context.Context) ConnectionInputTypeOutput
+}
+
+type ConnectionInputTypeArgs struct {
+	// Connection properties specific to the Athena compute environment.
+	AthenaProperties pulumi.Input `pulumi:"athenaProperties"`
+	// The authentication configuration used to connect to the connection.
+	AuthenticationConfiguration ConnectionAuthenticationConfigurationPtrInput `pulumi:"authenticationConfiguration"`
+	// A map of key-value pairs used as parameters for this connection.
+	ConnectionProperties pulumi.Input `pulumi:"connectionProperties"`
+	// The type of the connection that needs to be created.
+	ConnectionType pulumi.StringInput `pulumi:"connectionType"`
+	// A description of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// A list of criteria that can be used in selecting this connection.
+	MatchCriteria pulumi.StringArrayInput `pulumi:"matchCriteria"`
+	// The name of the connection.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The physical connection requirements.
+	PhysicalConnectionRequirements ConnectionPhysicalConnectionRequirementsPtrInput `pulumi:"physicalConnectionRequirements"`
+	// Connection properties specific to the Python compute environment.
+	PythonProperties pulumi.Input `pulumi:"pythonProperties"`
+	// Connection properties specific to the Spark compute environment.
+	SparkProperties pulumi.Input `pulumi:"sparkProperties"`
+	// A flag to validate the credentials during create connection. Default is true.
+	ValidateCredentials pulumi.BoolPtrInput `pulumi:"validateCredentials"`
+	// The compute environments that the specified connection properties are validated against.
+	ValidateForComputeEnvironments pulumi.StringArrayInput `pulumi:"validateForComputeEnvironments"`
+}
+
+func (ConnectionInputTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionInputType)(nil)).Elem()
+}
+
+func (i ConnectionInputTypeArgs) ToConnectionInputTypeOutput() ConnectionInputTypeOutput {
+	return i.ToConnectionInputTypeOutputWithContext(context.Background())
+}
+
+func (i ConnectionInputTypeArgs) ToConnectionInputTypeOutputWithContext(ctx context.Context) ConnectionInputTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionInputTypeOutput)
+}
+
+type ConnectionInputTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionInputTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionInputType)(nil)).Elem()
+}
+
+func (o ConnectionInputTypeOutput) ToConnectionInputTypeOutput() ConnectionInputTypeOutput {
+	return o
+}
+
+func (o ConnectionInputTypeOutput) ToConnectionInputTypeOutputWithContext(ctx context.Context) ConnectionInputTypeOutput {
+	return o
+}
+
+// Connection properties specific to the Athena compute environment.
+func (o ConnectionInputTypeOutput) AthenaProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionInputType) interface{} { return v.AthenaProperties }).(pulumi.AnyOutput)
+}
+
+// The authentication configuration used to connect to the connection.
+func (o ConnectionInputTypeOutput) AuthenticationConfiguration() ConnectionAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *ConnectionAuthenticationConfiguration {
+		return v.AuthenticationConfiguration
+	}).(ConnectionAuthenticationConfigurationPtrOutput)
+}
+
+// A map of key-value pairs used as parameters for this connection.
+func (o ConnectionInputTypeOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionInputType) interface{} { return v.ConnectionProperties }).(pulumi.AnyOutput)
+}
+
+// The type of the connection that needs to be created.
+func (o ConnectionInputTypeOutput) ConnectionType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConnectionInputType) string { return v.ConnectionType }).(pulumi.StringOutput)
+}
+
+// A description of the connection.
+func (o ConnectionInputTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// A list of criteria that can be used in selecting this connection.
+func (o ConnectionInputTypeOutput) MatchCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionInputType) []string { return v.MatchCriteria }).(pulumi.StringArrayOutput)
+}
+
+// The name of the connection.
+func (o ConnectionInputTypeOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// The physical connection requirements.
+func (o ConnectionInputTypeOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *ConnectionPhysicalConnectionRequirements {
+		return v.PhysicalConnectionRequirements
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+// Connection properties specific to the Python compute environment.
+func (o ConnectionInputTypeOutput) PythonProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionInputType) interface{} { return v.PythonProperties }).(pulumi.AnyOutput)
+}
+
+// Connection properties specific to the Spark compute environment.
+func (o ConnectionInputTypeOutput) SparkProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionInputType) interface{} { return v.SparkProperties }).(pulumi.AnyOutput)
+}
+
+// A flag to validate the credentials during create connection. Default is true.
+func (o ConnectionInputTypeOutput) ValidateCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ConnectionInputType) *bool { return v.ValidateCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The compute environments that the specified connection properties are validated against.
+func (o ConnectionInputTypeOutput) ValidateForComputeEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionInputType) []string { return v.ValidateForComputeEnvironments }).(pulumi.StringArrayOutput)
+}
+
+type ConnectionInputTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionInputTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionInputType)(nil)).Elem()
+}
+
+func (o ConnectionInputTypePtrOutput) ToConnectionInputTypePtrOutput() ConnectionInputTypePtrOutput {
+	return o
+}
+
+func (o ConnectionInputTypePtrOutput) ToConnectionInputTypePtrOutputWithContext(ctx context.Context) ConnectionInputTypePtrOutput {
+	return o
+}
+
+func (o ConnectionInputTypePtrOutput) Elem() ConnectionInputTypeOutput {
+	return o.ApplyT(func(v *ConnectionInputType) ConnectionInputType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionInputType
+		return ret
+	}).(ConnectionInputTypeOutput)
+}
+
+// Connection properties specific to the Athena compute environment.
+func (o ConnectionInputTypePtrOutput) AthenaProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.AthenaProperties
+	}).(pulumi.AnyOutput)
+}
+
+// The authentication configuration used to connect to the connection.
+func (o ConnectionInputTypePtrOutput) AuthenticationConfiguration() ConnectionAuthenticationConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *ConnectionAuthenticationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AuthenticationConfiguration
+	}).(ConnectionAuthenticationConfigurationPtrOutput)
+}
+
+// A map of key-value pairs used as parameters for this connection.
+func (o ConnectionInputTypePtrOutput) ConnectionProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionProperties
+	}).(pulumi.AnyOutput)
+}
+
+// The type of the connection that needs to be created.
+func (o ConnectionInputTypePtrOutput) ConnectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConnectionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// A description of the connection.
+func (o ConnectionInputTypePtrOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Description
+	}).(pulumi.StringPtrOutput)
+}
+
+// A list of criteria that can be used in selecting this connection.
+func (o ConnectionInputTypePtrOutput) MatchCriteria() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionInputType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchCriteria
+	}).(pulumi.StringArrayOutput)
+}
+
+// The name of the connection.
+func (o ConnectionInputTypePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The physical connection requirements.
+func (o ConnectionInputTypePtrOutput) PhysicalConnectionRequirements() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *ConnectionPhysicalConnectionRequirements {
+		if v == nil {
+			return nil
+		}
+		return v.PhysicalConnectionRequirements
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+// Connection properties specific to the Python compute environment.
+func (o ConnectionInputTypePtrOutput) PythonProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.PythonProperties
+	}).(pulumi.AnyOutput)
+}
+
+// Connection properties specific to the Spark compute environment.
+func (o ConnectionInputTypePtrOutput) SparkProperties() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionInputType) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.SparkProperties
+	}).(pulumi.AnyOutput)
+}
+
+// A flag to validate the credentials during create connection. Default is true.
+func (o ConnectionInputTypePtrOutput) ValidateCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConnectionInputType) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ValidateCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The compute environments that the specified connection properties are validated against.
+func (o ConnectionInputTypePtrOutput) ValidateForComputeEnvironments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionInputType) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ValidateForComputeEnvironments
+	}).(pulumi.StringArrayOutput)
+}
+
+// The OAuth2 client app used for the connection.
+type ConnectionOAuth2ClientApplication struct {
+	// The reference to the SaaS-side client app that is AWS managed.
+	AwsManagedClientApplicationReference *string `pulumi:"awsManagedClientApplicationReference"`
+	// The client application clientID if the ClientAppType is USER_MANAGED.
+	UserManagedClientApplicationClientId *string `pulumi:"userManagedClientApplicationClientId"`
+}
+
+// ConnectionOAuth2ClientApplicationInput is an input type that accepts ConnectionOAuth2ClientApplicationArgs and ConnectionOAuth2ClientApplicationOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2ClientApplicationInput` via:
+//
+//	ConnectionOAuth2ClientApplicationArgs{...}
+type ConnectionOAuth2ClientApplicationInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2ClientApplicationOutput() ConnectionOAuth2ClientApplicationOutput
+	ToConnectionOAuth2ClientApplicationOutputWithContext(context.Context) ConnectionOAuth2ClientApplicationOutput
+}
+
+// The OAuth2 client app used for the connection.
+type ConnectionOAuth2ClientApplicationArgs struct {
+	// The reference to the SaaS-side client app that is AWS managed.
+	AwsManagedClientApplicationReference pulumi.StringPtrInput `pulumi:"awsManagedClientApplicationReference"`
+	// The client application clientID if the ClientAppType is USER_MANAGED.
+	UserManagedClientApplicationClientId pulumi.StringPtrInput `pulumi:"userManagedClientApplicationClientId"`
+}
+
+func (ConnectionOAuth2ClientApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationOutput() ConnectionOAuth2ClientApplicationOutput {
+	return i.ToConnectionOAuth2ClientApplicationOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2ClientApplicationOutput)
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return i.ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2ClientApplicationArgs) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2ClientApplicationOutput).ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx)
+}
+
+// ConnectionOAuth2ClientApplicationPtrInput is an input type that accepts ConnectionOAuth2ClientApplicationArgs, ConnectionOAuth2ClientApplicationPtr and ConnectionOAuth2ClientApplicationPtrOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2ClientApplicationPtrInput` via:
+//
+//	        ConnectionOAuth2ClientApplicationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionOAuth2ClientApplicationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput
+	ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Context) ConnectionOAuth2ClientApplicationPtrOutput
+}
+
+type connectionOAuth2ClientApplicationPtrType ConnectionOAuth2ClientApplicationArgs
+
+func ConnectionOAuth2ClientApplicationPtr(v *ConnectionOAuth2ClientApplicationArgs) ConnectionOAuth2ClientApplicationPtrInput {
+	return (*connectionOAuth2ClientApplicationPtrType)(v)
+}
+
+func (*connectionOAuth2ClientApplicationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (i *connectionOAuth2ClientApplicationPtrType) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return i.ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionOAuth2ClientApplicationPtrType) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+// The OAuth2 client app used for the connection.
+type ConnectionOAuth2ClientApplicationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2ClientApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationOutput() ConnectionOAuth2ClientApplicationOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ToConnectionOAuth2ClientApplicationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2ClientApplicationOutput) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuth2ClientApplication) *ConnectionOAuth2ClientApplication {
+		return &v
+	}).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+// The reference to the SaaS-side client app that is AWS managed.
+func (o ConnectionOAuth2ClientApplicationOutput) AwsManagedClientApplicationReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2ClientApplication) *string { return v.AwsManagedClientApplicationReference }).(pulumi.StringPtrOutput)
+}
+
+// The client application clientID if the ClientAppType is USER_MANAGED.
+func (o ConnectionOAuth2ClientApplicationOutput) UserManagedClientApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2ClientApplication) *string { return v.UserManagedClientApplicationClientId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionOAuth2ClientApplicationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2ClientApplicationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2ClientApplication)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) ToConnectionOAuth2ClientApplicationPtrOutput() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) ToConnectionOAuth2ClientApplicationPtrOutputWithContext(ctx context.Context) ConnectionOAuth2ClientApplicationPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2ClientApplicationPtrOutput) Elem() ConnectionOAuth2ClientApplicationOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2ClientApplication) ConnectionOAuth2ClientApplication {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuth2ClientApplication
+		return ret
+	}).(ConnectionOAuth2ClientApplicationOutput)
+}
+
+// The reference to the SaaS-side client app that is AWS managed.
+func (o ConnectionOAuth2ClientApplicationPtrOutput) AwsManagedClientApplicationReference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2ClientApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsManagedClientApplicationReference
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client application clientID if the ClientAppType is USER_MANAGED.
+func (o ConnectionOAuth2ClientApplicationPtrOutput) UserManagedClientApplicationClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2ClientApplication) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserManagedClientApplicationClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure containing the OAuth2 credentials used in the authentication configuration.
+type ConnectionOAuth2Credentials struct {
+	// The access token used in the authentication configuration.
+	AccessToken *string `pulumi:"accessToken"`
+	// The JSON Web Token (JWT) used when the authentication type is OAuth2.
+	JwtToken *string `pulumi:"jwtToken"`
+	// The refresh token used when the authentication type is OAuth2.
+	RefreshToken *string `pulumi:"refreshToken"`
+	// The client application client secret if the client application is user managed.
+	UserManagedClientApplicationClientSecret *string `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+// ConnectionOAuth2CredentialsInput is an input type that accepts ConnectionOAuth2CredentialsArgs and ConnectionOAuth2CredentialsOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2CredentialsInput` via:
+//
+//	ConnectionOAuth2CredentialsArgs{...}
+type ConnectionOAuth2CredentialsInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2CredentialsOutput() ConnectionOAuth2CredentialsOutput
+	ToConnectionOAuth2CredentialsOutputWithContext(context.Context) ConnectionOAuth2CredentialsOutput
+}
+
+// A structure containing the OAuth2 credentials used in the authentication configuration.
+type ConnectionOAuth2CredentialsArgs struct {
+	// The access token used in the authentication configuration.
+	AccessToken pulumi.StringPtrInput `pulumi:"accessToken"`
+	// The JSON Web Token (JWT) used when the authentication type is OAuth2.
+	JwtToken pulumi.StringPtrInput `pulumi:"jwtToken"`
+	// The refresh token used when the authentication type is OAuth2.
+	RefreshToken pulumi.StringPtrInput `pulumi:"refreshToken"`
+	// The client application client secret if the client application is user managed.
+	UserManagedClientApplicationClientSecret pulumi.StringPtrInput `pulumi:"userManagedClientApplicationClientSecret"`
+}
+
+func (ConnectionOAuth2CredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2Credentials)(nil)).Elem()
+}
+
+func (i ConnectionOAuth2CredentialsArgs) ToConnectionOAuth2CredentialsOutput() ConnectionOAuth2CredentialsOutput {
+	return i.ToConnectionOAuth2CredentialsOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2CredentialsArgs) ToConnectionOAuth2CredentialsOutputWithContext(ctx context.Context) ConnectionOAuth2CredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2CredentialsOutput)
+}
+
+func (i ConnectionOAuth2CredentialsArgs) ToConnectionOAuth2CredentialsPtrOutput() ConnectionOAuth2CredentialsPtrOutput {
+	return i.ToConnectionOAuth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2CredentialsArgs) ToConnectionOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionOAuth2CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2CredentialsOutput).ToConnectionOAuth2CredentialsPtrOutputWithContext(ctx)
+}
+
+// ConnectionOAuth2CredentialsPtrInput is an input type that accepts ConnectionOAuth2CredentialsArgs, ConnectionOAuth2CredentialsPtr and ConnectionOAuth2CredentialsPtrOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2CredentialsPtrInput` via:
+//
+//	        ConnectionOAuth2CredentialsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionOAuth2CredentialsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2CredentialsPtrOutput() ConnectionOAuth2CredentialsPtrOutput
+	ToConnectionOAuth2CredentialsPtrOutputWithContext(context.Context) ConnectionOAuth2CredentialsPtrOutput
+}
+
+type connectionOAuth2CredentialsPtrType ConnectionOAuth2CredentialsArgs
+
+func ConnectionOAuth2CredentialsPtr(v *ConnectionOAuth2CredentialsArgs) ConnectionOAuth2CredentialsPtrInput {
+	return (*connectionOAuth2CredentialsPtrType)(v)
+}
+
+func (*connectionOAuth2CredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2Credentials)(nil)).Elem()
+}
+
+func (i *connectionOAuth2CredentialsPtrType) ToConnectionOAuth2CredentialsPtrOutput() ConnectionOAuth2CredentialsPtrOutput {
+	return i.ToConnectionOAuth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionOAuth2CredentialsPtrType) ToConnectionOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionOAuth2CredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2CredentialsPtrOutput)
+}
+
+// A structure containing the OAuth2 credentials used in the authentication configuration.
+type ConnectionOAuth2CredentialsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2CredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2Credentials)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2CredentialsOutput) ToConnectionOAuth2CredentialsOutput() ConnectionOAuth2CredentialsOutput {
+	return o
+}
+
+func (o ConnectionOAuth2CredentialsOutput) ToConnectionOAuth2CredentialsOutputWithContext(ctx context.Context) ConnectionOAuth2CredentialsOutput {
+	return o
+}
+
+func (o ConnectionOAuth2CredentialsOutput) ToConnectionOAuth2CredentialsPtrOutput() ConnectionOAuth2CredentialsPtrOutput {
+	return o.ToConnectionOAuth2CredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2CredentialsOutput) ToConnectionOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionOAuth2CredentialsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuth2Credentials) *ConnectionOAuth2Credentials {
+		return &v
+	}).(ConnectionOAuth2CredentialsPtrOutput)
+}
+
+// The access token used in the authentication configuration.
+func (o ConnectionOAuth2CredentialsOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Credentials) *string { return v.AccessToken }).(pulumi.StringPtrOutput)
+}
+
+// The JSON Web Token (JWT) used when the authentication type is OAuth2.
+func (o ConnectionOAuth2CredentialsOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Credentials) *string { return v.JwtToken }).(pulumi.StringPtrOutput)
+}
+
+// The refresh token used when the authentication type is OAuth2.
+func (o ConnectionOAuth2CredentialsOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Credentials) *string { return v.RefreshToken }).(pulumi.StringPtrOutput)
+}
+
+// The client application client secret if the client application is user managed.
+func (o ConnectionOAuth2CredentialsOutput) UserManagedClientApplicationClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Credentials) *string { return v.UserManagedClientApplicationClientSecret }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionOAuth2CredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2CredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2Credentials)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2CredentialsPtrOutput) ToConnectionOAuth2CredentialsPtrOutput() ConnectionOAuth2CredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2CredentialsPtrOutput) ToConnectionOAuth2CredentialsPtrOutputWithContext(ctx context.Context) ConnectionOAuth2CredentialsPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2CredentialsPtrOutput) Elem() ConnectionOAuth2CredentialsOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Credentials) ConnectionOAuth2Credentials {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuth2Credentials
+		return ret
+	}).(ConnectionOAuth2CredentialsOutput)
+}
+
+// The access token used in the authentication configuration.
+func (o ConnectionOAuth2CredentialsPtrOutput) AccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The JSON Web Token (JWT) used when the authentication type is OAuth2.
+func (o ConnectionOAuth2CredentialsPtrOutput) JwtToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JwtToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The refresh token used when the authentication type is OAuth2.
+func (o ConnectionOAuth2CredentialsPtrOutput) RefreshToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RefreshToken
+	}).(pulumi.StringPtrOutput)
+}
+
+// The client application client secret if the client application is user managed.
+func (o ConnectionOAuth2CredentialsPtrOutput) UserManagedClientApplicationClientSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Credentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserManagedClientApplicationClientSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+type ConnectionOAuth2Properties struct {
+	// The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+	AuthorizationCodeProperties *ConnectionAuthorizationCodeProperties `pulumi:"authorizationCodeProperties"`
+	// The OAuth2 client app used for the connection.
+	OAuth2ClientApplication *ConnectionOAuth2ClientApplication `pulumi:"oAuth2ClientApplication"`
+	// A structure containing the OAuth2 credentials used in the authentication configuration.
+	OAuth2Credentials *ConnectionOAuth2Credentials `pulumi:"oAuth2Credentials"`
+	// The grant type used in the authentication configuration.
+	OAuth2GrantType *string `pulumi:"oAuth2GrantType"`
+	// The URL used in the authentication configuration.
+	TokenUrl *string `pulumi:"tokenUrl"`
+	// A map of key-value pairs used in the authentication configuration.
+	TokenUrlParametersMap interface{} `pulumi:"tokenUrlParametersMap"`
+}
+
+// ConnectionOAuth2PropertiesInput is an input type that accepts ConnectionOAuth2PropertiesArgs and ConnectionOAuth2PropertiesOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2PropertiesInput` via:
+//
+//	ConnectionOAuth2PropertiesArgs{...}
+type ConnectionOAuth2PropertiesInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2PropertiesOutput() ConnectionOAuth2PropertiesOutput
+	ToConnectionOAuth2PropertiesOutputWithContext(context.Context) ConnectionOAuth2PropertiesOutput
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+type ConnectionOAuth2PropertiesArgs struct {
+	// The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+	AuthorizationCodeProperties ConnectionAuthorizationCodePropertiesPtrInput `pulumi:"authorizationCodeProperties"`
+	// The OAuth2 client app used for the connection.
+	OAuth2ClientApplication ConnectionOAuth2ClientApplicationPtrInput `pulumi:"oAuth2ClientApplication"`
+	// A structure containing the OAuth2 credentials used in the authentication configuration.
+	OAuth2Credentials ConnectionOAuth2CredentialsPtrInput `pulumi:"oAuth2Credentials"`
+	// The grant type used in the authentication configuration.
+	OAuth2GrantType pulumi.StringPtrInput `pulumi:"oAuth2GrantType"`
+	// The URL used in the authentication configuration.
+	TokenUrl pulumi.StringPtrInput `pulumi:"tokenUrl"`
+	// A map of key-value pairs used in the authentication configuration.
+	TokenUrlParametersMap pulumi.Input `pulumi:"tokenUrlParametersMap"`
+}
+
+func (ConnectionOAuth2PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesOutput() ConnectionOAuth2PropertiesOutput {
+	return i.ToConnectionOAuth2PropertiesOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2PropertiesOutput)
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return i.ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionOAuth2PropertiesArgs) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2PropertiesOutput).ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx)
+}
+
+// ConnectionOAuth2PropertiesPtrInput is an input type that accepts ConnectionOAuth2PropertiesArgs, ConnectionOAuth2PropertiesPtr and ConnectionOAuth2PropertiesPtrOutput values.
+// You can construct a concrete instance of `ConnectionOAuth2PropertiesPtrInput` via:
+//
+//	        ConnectionOAuth2PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionOAuth2PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput
+	ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Context) ConnectionOAuth2PropertiesPtrOutput
+}
+
+type connectionOAuth2PropertiesPtrType ConnectionOAuth2PropertiesArgs
+
+func ConnectionOAuth2PropertiesPtr(v *ConnectionOAuth2PropertiesArgs) ConnectionOAuth2PropertiesPtrInput {
+	return (*connectionOAuth2PropertiesPtrType)(v)
+}
+
+func (*connectionOAuth2PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (i *connectionOAuth2PropertiesPtrType) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return i.ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionOAuth2PropertiesPtrType) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+// A structure containing the authentication credentials in the CreateConnection request.
+type ConnectionOAuth2PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesOutput() ConnectionOAuth2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return o.ToConnectionOAuth2PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionOAuth2PropertiesOutput) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionOAuth2Properties) *ConnectionOAuth2Properties {
+		return &v
+	}).(ConnectionOAuth2PropertiesPtrOutput)
+}
+
+// The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+func (o ConnectionOAuth2PropertiesOutput) AuthorizationCodeProperties() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *ConnectionAuthorizationCodeProperties {
+		return v.AuthorizationCodeProperties
+	}).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+// The OAuth2 client app used for the connection.
+func (o ConnectionOAuth2PropertiesOutput) OAuth2ClientApplication() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *ConnectionOAuth2ClientApplication {
+		return v.OAuth2ClientApplication
+	}).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+// A structure containing the OAuth2 credentials used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesOutput) OAuth2Credentials() ConnectionOAuth2CredentialsPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *ConnectionOAuth2Credentials { return v.OAuth2Credentials }).(ConnectionOAuth2CredentialsPtrOutput)
+}
+
+// The grant type used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesOutput) OAuth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *string { return v.OAuth2GrantType }).(pulumi.StringPtrOutput)
+}
+
+// The URL used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) *string { return v.TokenUrl }).(pulumi.StringPtrOutput)
+}
+
+// A map of key-value pairs used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesOutput) TokenUrlParametersMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConnectionOAuth2Properties) interface{} { return v.TokenUrlParametersMap }).(pulumi.AnyOutput)
+}
+
+type ConnectionOAuth2PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionOAuth2PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionOAuth2Properties)(nil)).Elem()
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) ToConnectionOAuth2PropertiesPtrOutput() ConnectionOAuth2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) ToConnectionOAuth2PropertiesPtrOutputWithContext(ctx context.Context) ConnectionOAuth2PropertiesPtrOutput {
+	return o
+}
+
+func (o ConnectionOAuth2PropertiesPtrOutput) Elem() ConnectionOAuth2PropertiesOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) ConnectionOAuth2Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionOAuth2Properties
+		return ret
+	}).(ConnectionOAuth2PropertiesOutput)
+}
+
+// The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+func (o ConnectionOAuth2PropertiesPtrOutput) AuthorizationCodeProperties() ConnectionAuthorizationCodePropertiesPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *ConnectionAuthorizationCodeProperties {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorizationCodeProperties
+	}).(ConnectionAuthorizationCodePropertiesPtrOutput)
+}
+
+// The OAuth2 client app used for the connection.
+func (o ConnectionOAuth2PropertiesPtrOutput) OAuth2ClientApplication() ConnectionOAuth2ClientApplicationPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *ConnectionOAuth2ClientApplication {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2ClientApplication
+	}).(ConnectionOAuth2ClientApplicationPtrOutput)
+}
+
+// A structure containing the OAuth2 credentials used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesPtrOutput) OAuth2Credentials() ConnectionOAuth2CredentialsPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *ConnectionOAuth2Credentials {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2Credentials
+	}).(ConnectionOAuth2CredentialsPtrOutput)
+}
+
+// The grant type used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesPtrOutput) OAuth2GrantType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OAuth2GrantType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesPtrOutput) TokenUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// A map of key-value pairs used in the authentication configuration.
+func (o ConnectionOAuth2PropertiesPtrOutput) TokenUrlParametersMap() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConnectionOAuth2Properties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.TokenUrlParametersMap
+	}).(pulumi.AnyOutput)
+}
+
+type ConnectionPhysicalConnectionRequirements struct {
+	// The availability zone where the connection is located.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The security group ID list used by the connection.
+	SecurityGroupIdList []string `pulumi:"securityGroupIdList"`
+	// The subnet ID used by the connection.
+	SubnetId *string `pulumi:"subnetId"`
+}
+
+// ConnectionPhysicalConnectionRequirementsInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs and ConnectionPhysicalConnectionRequirementsOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsInput` via:
+//
+//	ConnectionPhysicalConnectionRequirementsArgs{...}
+type ConnectionPhysicalConnectionRequirementsInput interface {
+	pulumi.Input
+
+	ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput
+	ToConnectionPhysicalConnectionRequirementsOutputWithContext(context.Context) ConnectionPhysicalConnectionRequirementsOutput
+}
+
+type ConnectionPhysicalConnectionRequirementsArgs struct {
+	// The availability zone where the connection is located.
+	AvailabilityZone pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	// The security group ID list used by the connection.
+	SecurityGroupIdList pulumi.StringArrayInput `pulumi:"securityGroupIdList"`
+	// The subnet ID used by the connection.
+	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
+}
+
+func (ConnectionPhysicalConnectionRequirementsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsOutputWithContext(context.Background())
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i ConnectionPhysicalConnectionRequirementsArgs) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsOutput).ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx)
+}
+
+// ConnectionPhysicalConnectionRequirementsPtrInput is an input type that accepts ConnectionPhysicalConnectionRequirementsArgs, ConnectionPhysicalConnectionRequirementsPtr and ConnectionPhysicalConnectionRequirementsPtrOutput values.
+// You can construct a concrete instance of `ConnectionPhysicalConnectionRequirementsPtrInput` via:
+//
+//	        ConnectionPhysicalConnectionRequirementsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConnectionPhysicalConnectionRequirementsPtrInput interface {
+	pulumi.Input
+
+	ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput
+	ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput
+}
+
+type connectionPhysicalConnectionRequirementsPtrType ConnectionPhysicalConnectionRequirementsArgs
+
+func ConnectionPhysicalConnectionRequirementsPtr(v *ConnectionPhysicalConnectionRequirementsArgs) ConnectionPhysicalConnectionRequirementsPtrInput {
+	return (*connectionPhysicalConnectionRequirementsPtrType)(v)
+}
+
+func (*connectionPhysicalConnectionRequirementsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (i *connectionPhysicalConnectionRequirementsPtrType) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return i.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (i *connectionPhysicalConnectionRequirementsPtrType) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+type ConnectionPhysicalConnectionRequirementsOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPhysicalConnectionRequirementsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutput() ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionPhysicalConnectionRequirementsOutput) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionPhysicalConnectionRequirements) *ConnectionPhysicalConnectionRequirements {
+		return &v
+	}).(ConnectionPhysicalConnectionRequirementsPtrOutput)
+}
+
+// The availability zone where the connection is located.
+func (o ConnectionPhysicalConnectionRequirementsOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The security group ID list used by the connection.
+func (o ConnectionPhysicalConnectionRequirementsOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) []string { return v.SecurityGroupIdList }).(pulumi.StringArrayOutput)
+}
+
+// The subnet ID used by the connection.
+func (o ConnectionPhysicalConnectionRequirementsOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ConnectionPhysicalConnectionRequirements) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+type ConnectionPhysicalConnectionRequirementsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionPhysicalConnectionRequirementsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionPhysicalConnectionRequirements)(nil)).Elem()
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalConnectionRequirementsPtrOutput() ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) ToConnectionPhysicalConnectionRequirementsPtrOutputWithContext(ctx context.Context) ConnectionPhysicalConnectionRequirementsPtrOutput {
+	return o
+}
+
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) Elem() ConnectionPhysicalConnectionRequirementsOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) ConnectionPhysicalConnectionRequirements {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionPhysicalConnectionRequirements
+		return ret
+	}).(ConnectionPhysicalConnectionRequirementsOutput)
+}
+
+// The availability zone where the connection is located.
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The security group ID list used by the connection.
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SecurityGroupIdList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIdList
+	}).(pulumi.StringArrayOutput)
+}
+
+// The subnet ID used by the connection.
+func (o ConnectionPhysicalConnectionRequirementsPtrOutput) SubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConnectionPhysicalConnectionRequirements) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies an AWS Glue Data Catalog target.
 type CrawlerCatalogTarget struct {
 	// The name of the connection for an Amazon S3-backed Data Catalog table to be a target of the crawl when using a Catalog connection type paired with a NETWORK Connection type.
@@ -10510,6 +12131,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierJsonClassifierPtrInput)(nil)).Elem(), ClassifierJsonClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClassifierXmlClassifierPtrInput)(nil)).Elem(), ClassifierXmlClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationInput)(nil)).Elem(), ConnectionAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthenticationConfigurationPtrInput)(nil)).Elem(), ConnectionAuthenticationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthorizationCodePropertiesInput)(nil)).Elem(), ConnectionAuthorizationCodePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionAuthorizationCodePropertiesPtrInput)(nil)).Elem(), ConnectionAuthorizationCodePropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionBasicAuthenticationCredentialsInput)(nil)).Elem(), ConnectionBasicAuthenticationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionBasicAuthenticationCredentialsPtrInput)(nil)).Elem(), ConnectionBasicAuthenticationCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionInputTypeInput)(nil)).Elem(), ConnectionInputTypeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2ClientApplicationInput)(nil)).Elem(), ConnectionOAuth2ClientApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2ClientApplicationPtrInput)(nil)).Elem(), ConnectionOAuth2ClientApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2CredentialsInput)(nil)).Elem(), ConnectionOAuth2CredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2CredentialsPtrInput)(nil)).Elem(), ConnectionOAuth2CredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2PropertiesInput)(nil)).Elem(), ConnectionOAuth2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionOAuth2PropertiesPtrInput)(nil)).Elem(), ConnectionOAuth2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionPhysicalConnectionRequirementsPtrInput)(nil)).Elem(), ConnectionPhysicalConnectionRequirementsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetInput)(nil)).Elem(), CrawlerCatalogTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerCatalogTargetArrayInput)(nil)).Elem(), CrawlerCatalogTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CrawlerDeltaTargetInput)(nil)).Elem(), CrawlerDeltaTargetArgs{})
@@ -10640,6 +12276,22 @@ func init() {
 	pulumi.RegisterOutputType(ClassifierJsonClassifierPtrOutput{})
 	pulumi.RegisterOutputType(ClassifierXmlClassifierOutput{})
 	pulumi.RegisterOutputType(ClassifierXmlClassifierPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthenticationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthorizationCodePropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionAuthorizationCodePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionBasicAuthenticationCredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectionBasicAuthenticationCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionInputTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionInputTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2ClientApplicationOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2ClientApplicationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2CredentialsOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2CredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2PropertiesOutput{})
+	pulumi.RegisterOutputType(ConnectionOAuth2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsOutput{})
+	pulumi.RegisterOutputType(ConnectionPhysicalConnectionRequirementsPtrOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetOutput{})
 	pulumi.RegisterOutputType(CrawlerCatalogTargetArrayOutput{})
 	pulumi.RegisterOutputType(CrawlerDeltaTargetOutput{})

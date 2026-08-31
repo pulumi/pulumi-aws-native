@@ -697,7 +697,6 @@ namespace Pulumi.AwsNative.Rds
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "availabilityZones[*]",
                     "clusterScalabilityType",
                     "databaseName",
                     "dbClusterIdentifier",

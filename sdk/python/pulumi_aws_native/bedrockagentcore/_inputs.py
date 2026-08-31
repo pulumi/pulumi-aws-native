@@ -300,6 +300,8 @@ __all__ = [
     'GatewayTargetToolSchema0PropertiesArgsDict',
     'GatewayTargetToolSchema1PropertiesArgs',
     'GatewayTargetToolSchema1PropertiesArgsDict',
+    'GatewayWafConfigurationArgs',
+    'GatewayWafConfigurationArgsDict',
     'HarnessAgentCoreBrowserConfigArgs',
     'HarnessAgentCoreBrowserConfigArgsDict',
     'HarnessAgentCoreCodeInterpreterConfigArgs',
@@ -6209,6 +6211,26 @@ class GatewayTargetToolSchema1PropertiesArgs:
     @inline_payload.setter
     def inline_payload(self, value: pulumi.Input[Sequence[pulumi.Input['GatewayTargetToolDefinitionArgs']]]):
         pulumi.set(self, "inline_payload", value)
+
+
+class GatewayWafConfigurationArgsDict(TypedDict):
+    failure_mode: NotRequired[pulumi.Input[Optional['GatewayWafFailureMode']]]
+
+@pulumi.input_type
+class GatewayWafConfigurationArgs:
+    def __init__(__self__, *,
+                 failure_mode: pulumi.Input[Optional['GatewayWafFailureMode']] = None):
+        if failure_mode is not None:
+            pulumi.set(__self__, "failure_mode", failure_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="failureMode")
+    def failure_mode(self) -> pulumi.Input[Optional['GatewayWafFailureMode']]:
+        return pulumi.get(self, "failure_mode")
+
+    @failure_mode.setter
+    def failure_mode(self, value: pulumi.Input[Optional['GatewayWafFailureMode']]):
+        pulumi.set(self, "failure_mode", value)
 
 
 class HarnessAgentCoreBrowserConfigArgsDict(TypedDict):

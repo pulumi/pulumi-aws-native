@@ -54,7 +54,7 @@ namespace Pulumi.AwsNative.Ec2
         public Output<string?> OutsideIpAddressType { get; private set; } = null!;
 
         /// <summary>
-        /// Describes the storage location for an instance store-backed AMI.
+        /// Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
         /// </summary>
         [Output("preSharedKeyStorage")]
         public Output<Pulumi.AwsNative.Ec2.VpnConnectionPreSharedKeyStorage?> PreSharedKeyStorage { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.AwsNative.Ec2
         public Input<string>? OutsideIpAddressType { get; set; }
 
         /// <summary>
-        /// Describes the storage location for an instance store-backed AMI.
+        /// Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
         /// </summary>
         [Input("preSharedKeyStorage")]
         public Input<Pulumi.AwsNative.Ec2.VpnConnectionPreSharedKeyStorage>? PreSharedKeyStorage { get; set; }

@@ -34,6 +34,7 @@ __all__ = [
     'PentestActor',
     'PentestAssets',
     'PentestAuthentication',
+    'PentestCaCertificateSource',
     'PentestCloudWatchLog',
     'PentestCustomHeader',
     'PentestDocumentInfo',
@@ -42,6 +43,7 @@ __all__ = [
     'PentestNetworkTrafficConfig',
     'PentestNetworkTrafficRule',
     'PentestSourceCodeRepository',
+    'PentestTrustedCaCertificate',
     'PentestVpcConfig',
     'SecurityRequirementPackSecurityRequirement',
     'TargetDomainDnsVerification',
@@ -1016,6 +1018,8 @@ class PentestAssets(dict):
             suggest = "integrated_repositories"
         elif key == "sourceCode":
             suggest = "source_code"
+        elif key == "trustedCaCertificates":
+            suggest = "trusted_ca_certificates"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in PentestAssets. Access the value via the '{suggest}' property getter instead.")
@@ -1033,7 +1037,8 @@ class PentestAssets(dict):
                  documents: Optional[Sequence['outputs.PentestDocumentInfo']] = None,
                  endpoints: Optional[Sequence['outputs.PentestEndpoint']] = None,
                  integrated_repositories: Optional[Sequence['outputs.PentestIntegratedRepository']] = None,
-                 source_code: Optional[Sequence['outputs.PentestSourceCodeRepository']] = None):
+                 source_code: Optional[Sequence['outputs.PentestSourceCodeRepository']] = None,
+                 trusted_ca_certificates: Optional[Sequence['outputs.PentestTrustedCaCertificate']] = None):
         """
         Collection of assets to be tested during the pentest
 
@@ -1042,6 +1047,7 @@ class PentestAssets(dict):
         :param Sequence['PentestEndpoint'] endpoints: List of endpoints to test
         :param Sequence['PentestIntegratedRepository'] integrated_repositories: List of repositories connected via provider integrations
         :param Sequence['PentestSourceCodeRepository'] source_code: List of source code repositories to analyze
+        :param Sequence['PentestTrustedCaCertificate'] trusted_ca_certificates: Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
         """
         if actors is not None:
             pulumi.set(__self__, "actors", actors)
@@ -1053,6 +1059,8 @@ class PentestAssets(dict):
             pulumi.set(__self__, "integrated_repositories", integrated_repositories)
         if source_code is not None:
             pulumi.set(__self__, "source_code", source_code)
+        if trusted_ca_certificates is not None:
+            pulumi.set(__self__, "trusted_ca_certificates", trusted_ca_certificates)
 
     @_builtins.property
     @pulumi.getter
@@ -1093,6 +1101,14 @@ class PentestAssets(dict):
         List of source code repositories to analyze
         """
         return pulumi.get(self, "source_code")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedCaCertificates")
+    def trusted_ca_certificates(self) -> Optional[Sequence['outputs.PentestTrustedCaCertificate']]:
+        """
+        Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+        """
+        return pulumi.get(self, "trusted_ca_certificates")
 
 
 @pulumi.output_type
@@ -1146,6 +1162,75 @@ class PentestAuthentication(dict):
         Reference value for the authentication provider, such as a secret ARN or Lambda ARN
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class PentestCaCertificateSource(dict):
+    """
+    Source of a trusted CA certificate. Exactly one member must be set.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactId":
+            suggest = "artifact_id"
+        elif key == "inlinePem":
+            suggest = "inline_pem"
+        elif key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PentestCaCertificateSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PentestCaCertificateSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PentestCaCertificateSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_id: Optional[_builtins.str] = None,
+                 inline_pem: Optional[_builtins.str] = None,
+                 s3_location: Optional[_builtins.str] = None):
+        """
+        Source of a trusted CA certificate. Exactly one member must be set.
+
+        :param _builtins.str artifact_id: Artifact ID of an uploaded certificate file
+        :param _builtins.str inline_pem: PEM-encoded X.509 certificate supplied inline
+        :param _builtins.str s3_location: Amazon S3 location URI of a customer-staged certificate
+        """
+        if artifact_id is not None:
+            pulumi.set(__self__, "artifact_id", artifact_id)
+        if inline_pem is not None:
+            pulumi.set(__self__, "inline_pem", inline_pem)
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactId")
+    def artifact_id(self) -> Optional[_builtins.str]:
+        """
+        Artifact ID of an uploaded certificate file
+        """
+        return pulumi.get(self, "artifact_id")
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePem")
+    def inline_pem(self) -> Optional[_builtins.str]:
+        """
+        PEM-encoded X.509 certificate supplied inline
+        """
+        return pulumi.get(self, "inline_pem")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional[_builtins.str]:
+        """
+        Amazon S3 location URI of a customer-staged certificate
+        """
+        return pulumi.get(self, "s3_location")
 
 
 @pulumi.output_type
@@ -1540,6 +1625,29 @@ class PentestSourceCodeRepository(dict):
         S3 source code location
         """
         return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class PentestTrustedCaCertificate(dict):
+    """
+    Trust anchor used when validating a target endpoint's TLS certificate
+    """
+    def __init__(__self__, *,
+                 source: 'outputs.PentestCaCertificateSource'):
+        """
+        Trust anchor used when validating a target endpoint's TLS certificate
+
+        :param 'PentestCaCertificateSource' source: Where to read the certificate from
+        """
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.PentestCaCertificateSource':
+        """
+        Where to read the certificate from
+        """
+        return pulumi.get(self, "source")
 
 
 @pulumi.output_type

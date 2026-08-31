@@ -66,7 +66,7 @@ export class VpnConnection extends pulumi.CustomResource {
      */
     declare public readonly outsideIpAddressType: pulumi.Output<string | undefined>;
     /**
-     * Describes the storage location for an instance store-backed AMI.
+     * Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
      */
     declare public readonly preSharedKeyStorage: pulumi.Output<enums.ec2.VpnConnectionPreSharedKeyStorage | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface VpnConnectionArgs {
      */
     outsideIpAddressType?: pulumi.Input<string | undefined>;
     /**
-     * Describes the storage location for an instance store-backed AMI.
+     * Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
      */
     preSharedKeyStorage?: pulumi.Input<enums.ec2.VpnConnectionPreSharedKeyStorage | undefined>;
     /**

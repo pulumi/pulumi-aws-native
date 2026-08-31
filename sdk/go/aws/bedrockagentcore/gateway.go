@@ -50,6 +50,8 @@ type Gateway struct {
 	// The tags for the gateway.
 	Tags                    pulumi.StringMapOutput               `pulumi:"tags"`
 	UpdatedAt               pulumi.StringOutput                  `pulumi:"updatedAt"`
+	WafConfiguration        GatewayWafConfigurationPtrOutput     `pulumi:"wafConfiguration"`
+	WebAclArn               pulumi.StringOutput                  `pulumi:"webAclArn"`
 	WorkloadIdentityDetails GatewayWorkloadIdentityDetailsOutput `pulumi:"workloadIdentityDetails"`
 }
 
@@ -120,7 +122,8 @@ type gatewayArgs struct {
 	ProtocolType interface{} `pulumi:"protocolType"`
 	RoleArn      string      `pulumi:"roleArn"`
 	// The tags for the gateway.
-	Tags map[string]string `pulumi:"tags"`
+	Tags             map[string]string        `pulumi:"tags"`
+	WafConfiguration *GatewayWafConfiguration `pulumi:"wafConfiguration"`
 }
 
 // The set of arguments for constructing a Gateway resource.
@@ -146,7 +149,8 @@ type GatewayArgs struct {
 	ProtocolType pulumi.Input
 	RoleArn      pulumi.StringInput
 	// The tags for the gateway.
-	Tags pulumi.StringMapInput
+	Tags             pulumi.StringMapInput
+	WafConfiguration GatewayWafConfigurationPtrInput
 }
 
 func (GatewayArgs) ElementType() reflect.Type {
@@ -275,6 +279,14 @@ func (o GatewayOutput) Tags() pulumi.StringMapOutput {
 
 func (o GatewayOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+func (o GatewayOutput) WafConfiguration() GatewayWafConfigurationPtrOutput {
+	return o.ApplyT(func(v *Gateway) GatewayWafConfigurationPtrOutput { return v.WafConfiguration }).(GatewayWafConfigurationPtrOutput)
+}
+
+func (o GatewayOutput) WebAclArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Gateway) pulumi.StringOutput { return v.WebAclArn }).(pulumi.StringOutput)
 }
 
 func (o GatewayOutput) WorkloadIdentityDetails() GatewayWorkloadIdentityDetailsOutput {

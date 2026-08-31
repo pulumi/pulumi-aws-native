@@ -344,6 +344,8 @@ class FilterCondition(dict):
             suggest = "less_than_or_equal"
         elif key == "notEquals":
             suggest = "not_equals"
+        elif key == "notMatches":
+            suggest = "not_matches"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FilterCondition. Access the value via the '{suggest}' property getter instead.")
@@ -367,8 +369,10 @@ class FilterCondition(dict):
                  less_than_or_equal: Optional[_builtins.int] = None,
                  lt: Optional[_builtins.int] = None,
                  lte: Optional[_builtins.int] = None,
+                 matches: Optional[Sequence[_builtins.str]] = None,
                  neq: Optional[Sequence[_builtins.str]] = None,
-                 not_equals: Optional[Sequence[_builtins.str]] = None):
+                 not_equals: Optional[Sequence[_builtins.str]] = None,
+                 not_matches: Optional[Sequence[_builtins.str]] = None):
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if equals is not None:
@@ -389,10 +393,14 @@ class FilterCondition(dict):
             pulumi.set(__self__, "lt", lt)
         if lte is not None:
             pulumi.set(__self__, "lte", lte)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
         if neq is not None:
             pulumi.set(__self__, "neq", neq)
         if not_equals is not None:
             pulumi.set(__self__, "not_equals", not_equals)
+        if not_matches is not None:
+            pulumi.set(__self__, "not_matches", not_matches)
 
     @_builtins.property
     @pulumi.getter
@@ -446,6 +454,11 @@ class FilterCondition(dict):
 
     @_builtins.property
     @pulumi.getter
+    def matches(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "matches")
+
+    @_builtins.property
+    @pulumi.getter
     def neq(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "neq")
 
@@ -453,6 +466,11 @@ class FilterCondition(dict):
     @pulumi.getter(name="notEquals")
     def not_equals(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "not_equals")
+
+    @_builtins.property
+    @pulumi.getter(name="notMatches")
+    def not_matches(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "not_matches")
 
 
 @pulumi.output_type

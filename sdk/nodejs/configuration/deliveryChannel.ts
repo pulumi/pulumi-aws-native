@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for AWS::Config::DeliveryChannel
+ * Resource Type definition for AWS::Config::DeliveryChannel
  */
 export class DeliveryChannel extends pulumi.CustomResource {
     /**
@@ -37,16 +37,21 @@ export class DeliveryChannel extends pulumi.CustomResource {
         return obj['__pulumiType'] === DeliveryChannel.__pulumiType;
     }
 
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
      */
     declare public readonly configSnapshotDeliveryProperties: pulumi.Output<outputs.configuration.DeliveryChannelConfigSnapshotDeliveryProperties | undefined>;
     /**
-     * The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+     * A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+     *
+     * Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
      */
     declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+     *
+     * If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
      */
     declare public readonly s3BucketName: pulumi.Output<string>;
     /**
@@ -54,11 +59,13 @@ export class DeliveryChannel extends pulumi.CustomResource {
      */
     declare public readonly s3KeyPrefix: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+     * The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
      */
     declare public readonly s3KmsKeyArn: pulumi.Output<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+     *
+     * If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
      */
     declare public readonly snsTopicArn: pulumi.Output<string | undefined>;
 
@@ -82,7 +89,9 @@ export class DeliveryChannel extends pulumi.CustomResource {
             resourceInputs["s3KeyPrefix"] = args?.s3KeyPrefix;
             resourceInputs["s3KmsKeyArn"] = args?.s3KmsKeyArn;
             resourceInputs["snsTopicArn"] = args?.snsTopicArn;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configSnapshotDeliveryProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["s3BucketName"] = undefined /*out*/;
@@ -106,11 +115,15 @@ export interface DeliveryChannelArgs {
      */
     configSnapshotDeliveryProperties?: pulumi.Input<inputs.configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesArgs | undefined>;
     /**
-     * The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+     * A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+     *
+     * Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+     *
+     * If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
      */
     s3BucketName: pulumi.Input<string>;
     /**
@@ -118,11 +131,13 @@ export interface DeliveryChannelArgs {
      */
     s3KeyPrefix?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+     * The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
      */
     s3KmsKeyArn?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+     *
+     * If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
      */
     snsTopicArn?: pulumi.Input<string | undefined>;
 }

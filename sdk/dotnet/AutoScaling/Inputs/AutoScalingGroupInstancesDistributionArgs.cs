@@ -17,6 +17,14 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     /// </summary>
     public sealed class AutoScalingGroupInstancesDistributionArgs : global::Pulumi.ResourceArgs
     {
+        [Input("distributionSegments")]
+        private InputList<Inputs.AutoScalingGroupDistributionSegmentArgs>? _distributionSegments;
+        public InputList<Inputs.AutoScalingGroupDistributionSegmentArgs> DistributionSegments
+        {
+            get => _distributionSegments ?? (_distributionSegments = new InputList<Inputs.AutoScalingGroupDistributionSegmentArgs>());
+            set => _distributionSegments = value;
+        }
+
         /// <summary>
         /// The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
         ///  The following lists the valid values:

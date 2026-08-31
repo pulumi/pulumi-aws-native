@@ -24,15 +24,19 @@ namespace Pulumi.AwsNative.Lambda.Outputs
         /// The path where the function can access the file system, starting with ``/mnt/``.
         /// </summary>
         public readonly string LocalMountPath;
+        public readonly Outputs.FunctionS3FilesConfig? S3FilesConfig;
 
         [OutputConstructor]
         private FunctionFileSystemConfig(
             string arn,
 
-            string localMountPath)
+            string localMountPath,
+
+            Outputs.FunctionS3FilesConfig? s3FilesConfig)
         {
             Arn = arn;
             LocalMountPath = localMountPath;
+            S3FilesConfig = s3FilesConfig;
         }
     }
 }

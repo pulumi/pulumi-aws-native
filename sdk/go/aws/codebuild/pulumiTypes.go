@@ -966,6 +966,376 @@ func (o FleetVpcConfigPtrOutput) VpcId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type ReportGroupReportExportConfig struct {
+	// The export configuration type. Valid values are:
+	//
+	// - `S3` : The report results are exported to an S3 bucket.
+	// - `NO_EXPORT` : The report results are not exported.
+	ExportConfigType ReportGroupReportExportConfigExportConfigType `pulumi:"exportConfigType"`
+	// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+	S3Destination *ReportGroupS3ReportExportConfig `pulumi:"s3Destination"`
+}
+
+// ReportGroupReportExportConfigInput is an input type that accepts ReportGroupReportExportConfigArgs and ReportGroupReportExportConfigOutput values.
+// You can construct a concrete instance of `ReportGroupReportExportConfigInput` via:
+//
+//	ReportGroupReportExportConfigArgs{...}
+type ReportGroupReportExportConfigInput interface {
+	pulumi.Input
+
+	ToReportGroupReportExportConfigOutput() ReportGroupReportExportConfigOutput
+	ToReportGroupReportExportConfigOutputWithContext(context.Context) ReportGroupReportExportConfigOutput
+}
+
+type ReportGroupReportExportConfigArgs struct {
+	// The export configuration type. Valid values are:
+	//
+	// - `S3` : The report results are exported to an S3 bucket.
+	// - `NO_EXPORT` : The report results are not exported.
+	ExportConfigType ReportGroupReportExportConfigExportConfigTypeInput `pulumi:"exportConfigType"`
+	// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+	S3Destination ReportGroupS3ReportExportConfigPtrInput `pulumi:"s3Destination"`
+}
+
+func (ReportGroupReportExportConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupReportExportConfig)(nil)).Elem()
+}
+
+func (i ReportGroupReportExportConfigArgs) ToReportGroupReportExportConfigOutput() ReportGroupReportExportConfigOutput {
+	return i.ToReportGroupReportExportConfigOutputWithContext(context.Background())
+}
+
+func (i ReportGroupReportExportConfigArgs) ToReportGroupReportExportConfigOutputWithContext(ctx context.Context) ReportGroupReportExportConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupReportExportConfigOutput)
+}
+
+type ReportGroupReportExportConfigOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupReportExportConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupReportExportConfig)(nil)).Elem()
+}
+
+func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigOutput() ReportGroupReportExportConfigOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigOutput) ToReportGroupReportExportConfigOutputWithContext(ctx context.Context) ReportGroupReportExportConfigOutput {
+	return o
+}
+
+// The export configuration type. Valid values are:
+//
+// - `S3` : The report results are exported to an S3 bucket.
+// - `NO_EXPORT` : The report results are not exported.
+func (o ReportGroupReportExportConfigOutput) ExportConfigType() ReportGroupReportExportConfigExportConfigTypeOutput {
+	return o.ApplyT(func(v ReportGroupReportExportConfig) ReportGroupReportExportConfigExportConfigType {
+		return v.ExportConfigType
+	}).(ReportGroupReportExportConfigExportConfigTypeOutput)
+}
+
+// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+func (o ReportGroupReportExportConfigOutput) S3Destination() ReportGroupS3ReportExportConfigPtrOutput {
+	return o.ApplyT(func(v ReportGroupReportExportConfig) *ReportGroupS3ReportExportConfig { return v.S3Destination }).(ReportGroupS3ReportExportConfigPtrOutput)
+}
+
+type ReportGroupReportExportConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupReportExportConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupReportExportConfig)(nil)).Elem()
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigPtrOutput() ReportGroupReportExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) ToReportGroupReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupReportExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupReportExportConfigPtrOutput) Elem() ReportGroupReportExportConfigOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfig) ReportGroupReportExportConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupReportExportConfig
+		return ret
+	}).(ReportGroupReportExportConfigOutput)
+}
+
+// The export configuration type. Valid values are:
+//
+// - `S3` : The report results are exported to an S3 bucket.
+// - `NO_EXPORT` : The report results are not exported.
+func (o ReportGroupReportExportConfigPtrOutput) ExportConfigType() ReportGroupReportExportConfigExportConfigTypePtrOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfig) *ReportGroupReportExportConfigExportConfigType {
+		if v == nil {
+			return nil
+		}
+		return &v.ExportConfigType
+	}).(ReportGroupReportExportConfigExportConfigTypePtrOutput)
+}
+
+// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+func (o ReportGroupReportExportConfigPtrOutput) S3Destination() ReportGroupS3ReportExportConfigPtrOutput {
+	return o.ApplyT(func(v *ReportGroupReportExportConfig) *ReportGroupS3ReportExportConfig {
+		if v == nil {
+			return nil
+		}
+		return v.S3Destination
+	}).(ReportGroupS3ReportExportConfigPtrOutput)
+}
+
+type ReportGroupS3ReportExportConfig struct {
+	// The name of the S3 bucket where the raw data of a report are exported.
+	Bucket string `pulumi:"bucket"`
+	// The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+	BucketOwner *string `pulumi:"bucketOwner"`
+	// A boolean value that specifies if the results of a report are encrypted.
+	EncryptionDisabled *bool `pulumi:"encryptionDisabled"`
+	// The encryption key for the report's encrypted raw data.
+	EncryptionKey *string `pulumi:"encryptionKey"`
+	// The type of build output artifact to create. Valid values include:
+	//
+	// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+	// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+	Packaging *ReportGroupS3ReportExportConfigPackaging `pulumi:"packaging"`
+	// The path to the exported report's raw data results.
+	Path *string `pulumi:"path"`
+}
+
+// ReportGroupS3ReportExportConfigInput is an input type that accepts ReportGroupS3ReportExportConfigArgs and ReportGroupS3ReportExportConfigOutput values.
+// You can construct a concrete instance of `ReportGroupS3ReportExportConfigInput` via:
+//
+//	ReportGroupS3ReportExportConfigArgs{...}
+type ReportGroupS3ReportExportConfigInput interface {
+	pulumi.Input
+
+	ToReportGroupS3ReportExportConfigOutput() ReportGroupS3ReportExportConfigOutput
+	ToReportGroupS3ReportExportConfigOutputWithContext(context.Context) ReportGroupS3ReportExportConfigOutput
+}
+
+type ReportGroupS3ReportExportConfigArgs struct {
+	// The name of the S3 bucket where the raw data of a report are exported.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+	BucketOwner pulumi.StringPtrInput `pulumi:"bucketOwner"`
+	// A boolean value that specifies if the results of a report are encrypted.
+	EncryptionDisabled pulumi.BoolPtrInput `pulumi:"encryptionDisabled"`
+	// The encryption key for the report's encrypted raw data.
+	EncryptionKey pulumi.StringPtrInput `pulumi:"encryptionKey"`
+	// The type of build output artifact to create. Valid values include:
+	//
+	// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+	// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+	Packaging ReportGroupS3ReportExportConfigPackagingPtrInput `pulumi:"packaging"`
+	// The path to the exported report's raw data results.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (ReportGroupS3ReportExportConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupS3ReportExportConfig)(nil)).Elem()
+}
+
+func (i ReportGroupS3ReportExportConfigArgs) ToReportGroupS3ReportExportConfigOutput() ReportGroupS3ReportExportConfigOutput {
+	return i.ToReportGroupS3ReportExportConfigOutputWithContext(context.Background())
+}
+
+func (i ReportGroupS3ReportExportConfigArgs) ToReportGroupS3ReportExportConfigOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupS3ReportExportConfigOutput)
+}
+
+func (i ReportGroupS3ReportExportConfigArgs) ToReportGroupS3ReportExportConfigPtrOutput() ReportGroupS3ReportExportConfigPtrOutput {
+	return i.ToReportGroupS3ReportExportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ReportGroupS3ReportExportConfigArgs) ToReportGroupS3ReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupS3ReportExportConfigOutput).ToReportGroupS3ReportExportConfigPtrOutputWithContext(ctx)
+}
+
+// ReportGroupS3ReportExportConfigPtrInput is an input type that accepts ReportGroupS3ReportExportConfigArgs, ReportGroupS3ReportExportConfigPtr and ReportGroupS3ReportExportConfigPtrOutput values.
+// You can construct a concrete instance of `ReportGroupS3ReportExportConfigPtrInput` via:
+//
+//	        ReportGroupS3ReportExportConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ReportGroupS3ReportExportConfigPtrInput interface {
+	pulumi.Input
+
+	ToReportGroupS3ReportExportConfigPtrOutput() ReportGroupS3ReportExportConfigPtrOutput
+	ToReportGroupS3ReportExportConfigPtrOutputWithContext(context.Context) ReportGroupS3ReportExportConfigPtrOutput
+}
+
+type reportGroupS3ReportExportConfigPtrType ReportGroupS3ReportExportConfigArgs
+
+func ReportGroupS3ReportExportConfigPtr(v *ReportGroupS3ReportExportConfigArgs) ReportGroupS3ReportExportConfigPtrInput {
+	return (*reportGroupS3ReportExportConfigPtrType)(v)
+}
+
+func (*reportGroupS3ReportExportConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupS3ReportExportConfig)(nil)).Elem()
+}
+
+func (i *reportGroupS3ReportExportConfigPtrType) ToReportGroupS3ReportExportConfigPtrOutput() ReportGroupS3ReportExportConfigPtrOutput {
+	return i.ToReportGroupS3ReportExportConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *reportGroupS3ReportExportConfigPtrType) ToReportGroupS3ReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ReportGroupS3ReportExportConfigPtrOutput)
+}
+
+type ReportGroupS3ReportExportConfigOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupS3ReportExportConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReportGroupS3ReportExportConfig)(nil)).Elem()
+}
+
+func (o ReportGroupS3ReportExportConfigOutput) ToReportGroupS3ReportExportConfigOutput() ReportGroupS3ReportExportConfigOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigOutput) ToReportGroupS3ReportExportConfigOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigOutput) ToReportGroupS3ReportExportConfigPtrOutput() ReportGroupS3ReportExportConfigPtrOutput {
+	return o.ToReportGroupS3ReportExportConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ReportGroupS3ReportExportConfigOutput) ToReportGroupS3ReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReportGroupS3ReportExportConfig) *ReportGroupS3ReportExportConfig {
+		return &v
+	}).(ReportGroupS3ReportExportConfigPtrOutput)
+}
+
+// The name of the S3 bucket where the raw data of a report are exported.
+func (o ReportGroupS3ReportExportConfigOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+func (o ReportGroupS3ReportExportConfigOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) *string { return v.BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that specifies if the results of a report are encrypted.
+func (o ReportGroupS3ReportExportConfigOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) *bool { return v.EncryptionDisabled }).(pulumi.BoolPtrOutput)
+}
+
+// The encryption key for the report's encrypted raw data.
+func (o ReportGroupS3ReportExportConfigOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) *string { return v.EncryptionKey }).(pulumi.StringPtrOutput)
+}
+
+// The type of build output artifact to create. Valid values include:
+//
+// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+func (o ReportGroupS3ReportExportConfigOutput) Packaging() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) *ReportGroupS3ReportExportConfigPackaging { return v.Packaging }).(ReportGroupS3ReportExportConfigPackagingPtrOutput)
+}
+
+// The path to the exported report's raw data results.
+func (o ReportGroupS3ReportExportConfigOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReportGroupS3ReportExportConfig) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type ReportGroupS3ReportExportConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ReportGroupS3ReportExportConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReportGroupS3ReportExportConfig)(nil)).Elem()
+}
+
+func (o ReportGroupS3ReportExportConfigPtrOutput) ToReportGroupS3ReportExportConfigPtrOutput() ReportGroupS3ReportExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigPtrOutput) ToReportGroupS3ReportExportConfigPtrOutputWithContext(ctx context.Context) ReportGroupS3ReportExportConfigPtrOutput {
+	return o
+}
+
+func (o ReportGroupS3ReportExportConfigPtrOutput) Elem() ReportGroupS3ReportExportConfigOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) ReportGroupS3ReportExportConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ReportGroupS3ReportExportConfig
+		return ret
+	}).(ReportGroupS3ReportExportConfigOutput)
+}
+
+// The name of the S3 bucket where the raw data of a report are exported.
+func (o ReportGroupS3ReportExportConfigPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+func (o ReportGroupS3ReportExportConfigPtrOutput) BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// A boolean value that specifies if the results of a report are encrypted.
+func (o ReportGroupS3ReportExportConfigPtrOutput) EncryptionDisabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionDisabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The encryption key for the report's encrypted raw data.
+func (o ReportGroupS3ReportExportConfigPtrOutput) EncryptionKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of build output artifact to create. Valid values include:
+//
+// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+func (o ReportGroupS3ReportExportConfigPtrOutput) Packaging() ReportGroupS3ReportExportConfigPackagingPtrOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *ReportGroupS3ReportExportConfigPackaging {
+		if v == nil {
+			return nil
+		}
+		return v.Packaging
+	}).(ReportGroupS3ReportExportConfigPackagingPtrOutput)
+}
+
+// The path to the exported report's raw data results.
+func (o ReportGroupS3ReportExportConfigPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReportGroupS3ReportExportConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReportGroupTag struct {
+	// The tag's key.
+	Key string `pulumi:"key"`
+	// The tag's value.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationInput)(nil)).Elem(), FleetComputeConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetComputeConfigurationPtrInput)(nil)).Elem(), FleetComputeConfigurationArgs{})
@@ -979,6 +1349,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetTargetTrackingScalingConfigurationArrayInput)(nil)).Elem(), FleetTargetTrackingScalingConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigInput)(nil)).Elem(), FleetVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetVpcConfigPtrInput)(nil)).Elem(), FleetVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupReportExportConfigInput)(nil)).Elem(), ReportGroupReportExportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ReportGroupS3ReportExportConfigPtrInput)(nil)).Elem(), ReportGroupS3ReportExportConfigArgs{})
 	pulumi.RegisterOutputType(FleetComputeConfigurationOutput{})
 	pulumi.RegisterOutputType(FleetComputeConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FleetProxyConfigurationOutput{})
@@ -991,4 +1364,8 @@ func init() {
 	pulumi.RegisterOutputType(FleetTargetTrackingScalingConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigOutput{})
 	pulumi.RegisterOutputType(FleetVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReportGroupReportExportConfigOutput{})
+	pulumi.RegisterOutputType(ReportGroupReportExportConfigPtrOutput{})
+	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigOutput{})
+	pulumi.RegisterOutputType(ReportGroupS3ReportExportConfigPtrOutput{})
 }

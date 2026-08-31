@@ -27,6 +27,7 @@ type LookupFeedArgs struct {
 }
 
 type LookupFeedResult struct {
+	AccessRoleArn *string           `pulumi:"accessRoleArn"`
 	Arn           *string           `pulumi:"arn"`
 	DataEndpoints []string          `pulumi:"dataEndpoints"`
 	Id            *string           `pulumi:"id"`
@@ -60,6 +61,10 @@ func (o LookupFeedResultOutput) ToLookupFeedResultOutput() LookupFeedResultOutpu
 
 func (o LookupFeedResultOutput) ToLookupFeedResultOutputWithContext(ctx context.Context) LookupFeedResultOutput {
 	return o
+}
+
+func (o LookupFeedResultOutput) AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupFeedResult) *string { return v.AccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupFeedResultOutput) Arn() pulumi.StringPtrOutput {

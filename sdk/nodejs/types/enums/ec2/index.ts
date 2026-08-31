@@ -504,6 +504,30 @@ export const InstancePrivateDnsNameOptionsHostnameType = {
  */
 export type InstancePrivateDnsNameOptionsHostnameType = (typeof InstancePrivateDnsNameOptionsHostnameType)[keyof typeof InstancePrivateDnsNameOptionsHostnameType];
 
+export const IpamExternalResourceVerificationTokenState = {
+    CreateInProgress: "create-in-progress",
+    CreateComplete: "create-complete",
+    CreateFailed: "create-failed",
+    DeleteInProgress: "delete-in-progress",
+    DeleteComplete: "delete-complete",
+    DeleteFailed: "delete-failed",
+} as const;
+
+/**
+ * The token state.
+ */
+export type IpamExternalResourceVerificationTokenState = (typeof IpamExternalResourceVerificationTokenState)[keyof typeof IpamExternalResourceVerificationTokenState];
+
+export const IpamExternalResourceVerificationTokenStatus = {
+    Valid: "valid",
+    Expired: "expired",
+} as const;
+
+/**
+ * The token status.
+ */
+export type IpamExternalResourceVerificationTokenStatus = (typeof IpamExternalResourceVerificationTokenStatus)[keyof typeof IpamExternalResourceVerificationTokenStatus];
+
 export const IpamMeteredAccount = {
     IpamOwner: "ipam-owner",
     ResourceOwner: "resource-owner",
@@ -1437,7 +1461,7 @@ export const VpnConnectionPreSharedKeyStorage = {
 } as const;
 
 /**
- * Describes the storage location for an instance store-backed AMI.
+ * Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
  */
 export type VpnConnectionPreSharedKeyStorage = (typeof VpnConnectionPreSharedKeyStorage)[keyof typeof VpnConnectionPreSharedKeyStorage];
 

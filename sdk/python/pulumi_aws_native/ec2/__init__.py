@@ -19,6 +19,7 @@ from .eip import *
 from .eip_association import *
 from .enclave_certificate_iam_role_association import *
 from .flow_log import *
+from .fpga_image import *
 from .gateway_route_table_association import *
 from .get_capacity_manager_data_export import *
 from .get_capacity_reservation import *
@@ -32,6 +33,7 @@ from .get_eip import *
 from .get_eip_association import *
 from .get_enclave_certificate_iam_role_association import *
 from .get_flow_log import *
+from .get_fpga_image import *
 from .get_gateway_route_table_association import *
 from .get_host import *
 from .get_instance import *
@@ -40,6 +42,7 @@ from .get_internet_gateway import *
 from .get_ip_pool_route_table_association import *
 from .get_ipam import *
 from .get_ipam_allocation import *
+from .get_ipam_external_resource_verification_token import *
 from .get_ipam_pool import *
 from .get_ipam_pool_cidr import *
 from .get_ipam_prefix_list_resolver import *
@@ -127,6 +130,7 @@ from .internet_gateway import *
 from .ip_pool_route_table_association import *
 from .ipam import *
 from .ipam_allocation import *
+from .ipam_external_resource_verification_token import *
 from .ipam_pool import *
 from .ipam_pool_cidr import *
 from .ipam_prefix_list_resolver import *

@@ -1,4 +1,5 @@
 AWS::AppStream::StackFleetAssociation
+AWS::Config::DeliveryChannel
 AWS::DAX::SubnetGroup
 AWS::DataSync::StorageSystem
 AWS::GameCast::Application

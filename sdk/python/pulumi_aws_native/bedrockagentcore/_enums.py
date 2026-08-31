@@ -48,6 +48,7 @@ __all__ = [
     'GatewayTargetSchemaType',
     'GatewayTargetTargetProtocolType',
     'GatewayTargetTargetStatus',
+    'GatewayWafFailureMode',
     'HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator',
     'HarnessBedrockModelConfigApiFormat',
     'HarnessCustomClaimValidationTypeInboundTokenClaimValueType',
@@ -226,8 +227,6 @@ class CapacityProviderLaunchParametersOperatingSystem(_builtins.str, Enum):
     """
     LINUX_X8664 = "LINUX_X86_64"
     LINUX_ARM64 = "LINUX_ARM64"
-    MAC_ARM64 = "MAC_ARM64"
-    WINDOWS_X8664 = "WINDOWS_X86_64"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:CapacityProviderRootVolumeConfigurationVolumeType")
@@ -493,6 +492,12 @@ class GatewayTargetTargetStatus(_builtins.str, Enum):
     CREATE_PENDING_AUTH = "CREATE_PENDING_AUTH"
     UPDATE_PENDING_AUTH = "UPDATE_PENDING_AUTH"
     SYNCHRONIZE_PENDING_AUTH = "SYNCHRONIZE_PENDING_AUTH"
+
+
+@pulumi.type_token("aws-native:bedrockagentcore:GatewayWafFailureMode")
+class GatewayWafFailureMode(_builtins.str, Enum):
+    FAIL_CLOSE = "FAIL_CLOSE"
+    FAIL_OPEN = "FAIL_OPEN"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator")

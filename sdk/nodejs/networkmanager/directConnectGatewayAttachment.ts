@@ -84,11 +84,11 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one network function group to another.
      */
-    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public /*out*/ readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange>;
     /**
      * The attachment to move from one segment to another.
      */
-    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedSegmentChange | undefined>;
+    declare public /*out*/ readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.DirectConnectGatewayAttachmentProposedSegmentChange>;
     /**
      * The ARN of the Resource.
      */
@@ -137,8 +137,6 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["coreNetworkId"] = args?.coreNetworkId;
             resourceInputs["directConnectGatewayArn"] = args?.directConnectGatewayArn;
             resourceInputs["edgeLocations"] = args?.edgeLocations;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
-            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
             resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["attachmentId"] = undefined /*out*/;
@@ -149,6 +147,8 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
+            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -197,14 +197,6 @@ export interface DirectConnectGatewayAttachmentArgs {
      * The Regions where the edges are located.
      */
     edgeLocations: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
-    /**
-     * The attachment to move from one segment to another.
-     */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */

@@ -62,6 +62,7 @@ __all__ = [
     'FunctionLambdaManagedInstancesCapacityProviderConfig',
     'FunctionLoggingConfig',
     'FunctionRuntimeManagementConfig',
+    'FunctionS3FilesConfig',
     'FunctionScalingConfig',
     'FunctionSnapStart',
     'FunctionSnapStartResponse',
@@ -1977,6 +1978,8 @@ class FunctionFileSystemConfig(dict):
         suggest = None
         if key == "localMountPath":
             suggest = "local_mount_path"
+        elif key == "s3FilesConfig":
+            suggest = "s3_files_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in FunctionFileSystemConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1991,7 +1994,8 @@ class FunctionFileSystemConfig(dict):
 
     def __init__(__self__, *,
                  arn: _builtins.str,
-                 local_mount_path: _builtins.str):
+                 local_mount_path: _builtins.str,
+                 s3_files_config: Optional['outputs.FunctionS3FilesConfig'] = None):
         """
         Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 
@@ -2000,6 +2004,8 @@ class FunctionFileSystemConfig(dict):
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
+        if s3_files_config is not None:
+            pulumi.set(__self__, "s3_files_config", s3_files_config)
 
     @_builtins.property
     @pulumi.getter
@@ -2016,6 +2022,11 @@ class FunctionFileSystemConfig(dict):
         The path where the function can access the file system, starting with ``/mnt/``.
         """
         return pulumi.get(self, "local_mount_path")
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesConfig")
+    def s3_files_config(self) -> Optional['outputs.FunctionS3FilesConfig']:
+        return pulumi.get(self, "s3_files_config")
 
 
 @pulumi.output_type
@@ -2300,6 +2311,42 @@ class FunctionRuntimeManagementConfig(dict):
           This is only required if you're using the *Manual* runtime update mode.
         """
         return pulumi.get(self, "runtime_version_arn")
+
+
+@pulumi.output_type
+class FunctionS3FilesConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "directS3Read":
+            suggest = "direct_s3_read"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionS3FilesConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionS3FilesConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionS3FilesConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 direct_s3_read: Optional['FunctionS3FilesConfigDirectS3Read'] = None):
+        """
+        :param 'FunctionS3FilesConfigDirectS3Read' direct_s3_read: Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+        """
+        if direct_s3_read is not None:
+            pulumi.set(__self__, "direct_s3_read", direct_s3_read)
+
+    @_builtins.property
+    @pulumi.getter(name="directS3Read")
+    def direct_s3_read(self) -> Optional['FunctionS3FilesConfigDirectS3Read']:
+        """
+        Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+        """
+        return pulumi.get(self, "direct_s3_read")
 
 
 @pulumi.output_type

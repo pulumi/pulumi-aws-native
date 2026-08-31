@@ -7855,6 +7855,10 @@ export namespace arcregionswitch {
         neptuneGlobalDatabaseConfig: pulumi.Input<inputs.arcregionswitch.PlanNeptuneGlobalDatabaseConfigurationArgs>;
     }
 
+    export interface PlanExecutionBlockConfiguration17PropertiesArgs {
+        rdsSwitchoverReadReplicaConfig: pulumi.Input<inputs.arcregionswitch.PlanRdsSwitchoverReadReplicaConfigurationArgs>;
+    }
+
     export interface PlanExecutionBlockConfiguration1PropertiesArgs {
         ec2AsgCapacityIncreaseConfig: pulumi.Input<inputs.arcregionswitch.PlanEc2AsgCapacityIncreaseConfigurationArgs>;
     }
@@ -7963,6 +7967,18 @@ export namespace arcregionswitch {
         timeoutMinutes?: pulumi.Input<number | undefined>;
     }
 
+    export interface PlanRdsSwitchoverReadReplicaConfigurationArgs {
+        crossAccountRole?: pulumi.Input<string | undefined>;
+        dbInstanceArnMap: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        externalId?: pulumi.Input<string | undefined>;
+        timeoutMinutes?: pulumi.Input<number | undefined>;
+        ungraceful?: pulumi.Input<inputs.arcregionswitch.PlanRdsUngracefulArgs | undefined>;
+    }
+
+    export interface PlanRdsUngracefulArgs {
+        ungraceful?: pulumi.Input<enums.arcregionswitch.PlanRdsUngracefulBehavior | undefined>;
+    }
+
     export interface PlanRegionSwitchPlanConfigurationArgs {
         arn: pulumi.Input<string>;
         crossAccountRole?: pulumi.Input<string | undefined>;
@@ -8014,7 +8030,7 @@ export namespace arcregionswitch {
         /**
          * The configuration for an execution block in a workflow.
          */
-        executionBlockConfiguration: pulumi.Input<inputs.arcregionswitch.PlanExecutionBlockConfiguration0PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration1PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration2PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration3PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration4PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration5PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration6PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration7PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration8PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration9PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration10PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration11PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration12PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration13PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration14PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration15PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration16PropertiesArgs>;
+        executionBlockConfiguration: pulumi.Input<inputs.arcregionswitch.PlanExecutionBlockConfiguration0PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration1PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration2PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration3PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration4PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration5PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration6PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration7PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration8PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration9PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration10PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration11PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration12PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration13PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration14PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration15PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration16PropertiesArgs | inputs.arcregionswitch.PlanExecutionBlockConfiguration17PropertiesArgs>;
         /**
          * The type of an execution block in a workflow.
          */
@@ -8721,6 +8737,10 @@ export namespace autoscaling {
         references?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupPerformanceFactorReferenceRequestArgs>[] | undefined>;
     }
 
+    export interface AutoScalingGroupDistributionSegmentArgs {
+        targetCapacityTypes: pulumi.Input<pulumi.Input<enums.autoscaling.AutoScalingGroupDistributionSegmentTargetCapacityTypesItem>[]>;
+    }
+
     /**
      * The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination.
      *  For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -8933,6 +8953,7 @@ export namespace autoscaling {
      *  ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
      */
     export interface AutoScalingGroupInstancesDistributionArgs {
+        distributionSegments?: pulumi.Input<pulumi.Input<inputs.autoscaling.AutoScalingGroupDistributionSegmentArgs>[] | undefined>;
         /**
          * The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
          *  The following lists the valid values:
@@ -17344,6 +17365,10 @@ export namespace bedrockagentcore {
         inlinePayload: pulumi.Input<pulumi.Input<inputs.bedrockagentcore.GatewayTargetToolDefinitionArgs>[]>;
     }
 
+    export interface GatewayWafConfigurationArgs {
+        failureMode?: pulumi.Input<enums.bedrockagentcore.GatewayWafFailureMode | undefined>;
+    }
+
     export interface HarnessAgentCoreBrowserConfigArgs {
         browserArn?: pulumi.Input<string | undefined>;
     }
@@ -23633,6 +23658,51 @@ export namespace codebuild {
          */
         vpcId?: pulumi.Input<string | undefined>;
     }
+
+    export interface ReportGroupReportExportConfigArgs {
+        /**
+         * The export configuration type. Valid values are:
+         *
+         * - `S3` : The report results are exported to an S3 bucket.
+         * - `NO_EXPORT` : The report results are not exported.
+         */
+        exportConfigType: pulumi.Input<enums.codebuild.ReportGroupReportExportConfigExportConfigType>;
+        /**
+         * A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+         */
+        s3Destination?: pulumi.Input<inputs.codebuild.ReportGroupS3ReportExportConfigArgs | undefined>;
+    }
+
+    export interface ReportGroupS3ReportExportConfigArgs {
+        /**
+         * The name of the S3 bucket where the raw data of a report are exported.
+         */
+        bucket: pulumi.Input<string>;
+        /**
+         * The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+         */
+        bucketOwner?: pulumi.Input<string | undefined>;
+        /**
+         * A boolean value that specifies if the results of a report are encrypted.
+         */
+        encryptionDisabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * The encryption key for the report's encrypted raw data.
+         */
+        encryptionKey?: pulumi.Input<string | undefined>;
+        /**
+         * The type of build output artifact to create. Valid values include:
+         *
+         * - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+         * - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+         */
+        packaging?: pulumi.Input<enums.codebuild.ReportGroupS3ReportExportConfigPackaging | undefined>;
+        /**
+         * The path to the exported report's raw data results.
+         */
+        path?: pulumi.Input<string | undefined>;
+    }
+
 }
 
 export namespace codecommit {
@@ -26051,7 +26121,7 @@ export namespace configuration {
         /**
          * The frequency with which AWS Config delivers configuration snapshots.
          */
-        deliveryFrequency?: pulumi.Input<enums.configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency | undefined>;
+        deliveryFrequency?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -36767,6 +36837,20 @@ export namespace ec2 {
     }
 
     /**
+     * Describes a storage location in Amazon S3.
+     */
+    export interface FpgaImageStorageLocationArgs {
+        /**
+         * The name of the S3 bucket.
+         */
+        bucket?: pulumi.Input<string | undefined>;
+        /**
+         * The key.
+         */
+        key?: pulumi.Input<string | undefined>;
+    }
+
+    /**
      * Indicates whether an instance is enabled for hibernation.
      */
     export interface HibernationOptionsPropertiesArgs {
@@ -46346,6 +46430,7 @@ export namespace elementalinference {
     }
 
     export interface FeedCroppingConfigArgs {
+        templateGroups?: pulumi.Input<pulumi.Input<inputs.elementalinference.FeedTemplateGroupArgs>[] | undefined>;
     }
 
     export interface FeedDataSourceConfigurationArgs {
@@ -46376,6 +46461,11 @@ export namespace elementalinference {
         dictionary?: pulumi.Input<string | undefined>;
         language: pulumi.Input<enums.elementalinference.FeedTranscriptionLanguage>;
         profanityFilter?: pulumi.Input<enums.elementalinference.FeedProfanityFilterMode | undefined>;
+    }
+
+    export interface FeedTemplateGroupArgs {
+        name: pulumi.Input<string>;
+        templateUris: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -49662,9 +49752,9 @@ export namespace gamelift {
          */
         evaluationPeriods?: pulumi.Input<number | undefined>;
         /**
-         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
          */
-        metricName: pulumi.Input<enums.gamelift.ContainerFleetScalingPolicyMetricName>;
+        metricName?: pulumi.Input<enums.gamelift.ContainerFleetScalingPolicyMetricName | undefined>;
         /**
          * A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
          */
@@ -50075,9 +50165,9 @@ export namespace gamelift {
          */
         location?: pulumi.Input<string | undefined>;
         /**
-         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
          */
-        metricName: pulumi.Input<enums.gamelift.FleetScalingPolicyMetricName>;
+        metricName?: pulumi.Input<enums.gamelift.FleetScalingPolicyMetricName | undefined>;
         /**
          * A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
          */
@@ -50574,6 +50664,193 @@ export namespace glue {
          * The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
          */
         rowTag: pulumi.Input<string>;
+    }
+
+    export interface ConnectionAuthenticationConfigurationArgs {
+        /**
+         * A structure containing the authentication configuration in the CreateConnection request.
+         */
+        authenticationType: pulumi.Input<string>;
+        /**
+         * For supplying basic auth credentials when not providing a SecretArn value
+         */
+        basicAuthenticationCredentials?: pulumi.Input<inputs.glue.ConnectionBasicAuthenticationCredentialsArgs | undefined>;
+        /**
+         * A structure containing the authentication credentials in the CreateConnection request.
+         */
+        customAuthenticationCredentials?: any | undefined;
+        /**
+         * The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+         */
+        kmsKeyArn?: pulumi.Input<string | undefined>;
+        /**
+         * A structure containing properties for OAuth2 in the CreateConnection request.
+         */
+        oAuth2Properties?: pulumi.Input<inputs.glue.ConnectionOAuth2PropertiesArgs | undefined>;
+        /**
+         * The secret manager ARN to store credentials in the CreateConnection request.
+         */
+        secretArn?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A structure containing the authorization code used in the authentication configuration.
+     */
+    export interface ConnectionAuthorizationCodePropertiesArgs {
+        /**
+         * The authorization code used in the authentication configuration.
+         */
+        authorizationCode?: pulumi.Input<string | undefined>;
+        /**
+         * The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+         */
+        redirectUri?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A structure containing the authentication credentials in the CreateConnection request.
+     */
+    export interface ConnectionBasicAuthenticationCredentialsArgs {
+        /**
+         * The password used in the authentication configuration.
+         */
+        password?: pulumi.Input<string | undefined>;
+        /**
+         * The username used in the authentication configuration.
+         */
+        username?: pulumi.Input<string | undefined>;
+    }
+
+    export interface ConnectionInputArgs {
+        /**
+         * Connection properties specific to the Athena compute environment.
+         */
+        athenaProperties?: any | undefined;
+        /**
+         * The authentication configuration used to connect to the connection.
+         */
+        authenticationConfiguration?: pulumi.Input<inputs.glue.ConnectionAuthenticationConfigurationArgs | undefined>;
+        /**
+         * A map of key-value pairs used as parameters for this connection.
+         */
+        connectionProperties?: any | undefined;
+        /**
+         * The type of the connection that needs to be created.
+         */
+        connectionType: pulumi.Input<string>;
+        /**
+         * A description of the connection.
+         */
+        description?: pulumi.Input<string | undefined>;
+        /**
+         * A list of criteria that can be used in selecting this connection.
+         */
+        matchCriteria?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The name of the connection.
+         */
+        name?: pulumi.Input<string | undefined>;
+        /**
+         * The physical connection requirements.
+         */
+        physicalConnectionRequirements?: pulumi.Input<inputs.glue.ConnectionPhysicalConnectionRequirementsArgs | undefined>;
+        /**
+         * Connection properties specific to the Python compute environment.
+         */
+        pythonProperties?: any | undefined;
+        /**
+         * Connection properties specific to the Spark compute environment.
+         */
+        sparkProperties?: any | undefined;
+        /**
+         * A flag to validate the credentials during create connection. Default is true.
+         */
+        validateCredentials?: pulumi.Input<boolean | undefined>;
+        /**
+         * The compute environments that the specified connection properties are validated against.
+         */
+        validateForComputeEnvironments?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * The OAuth2 client app used for the connection.
+     */
+    export interface ConnectionOAuth2ClientApplicationArgs {
+        /**
+         * The reference to the SaaS-side client app that is AWS managed.
+         */
+        awsManagedClientApplicationReference?: pulumi.Input<string | undefined>;
+        /**
+         * The client application clientID if the ClientAppType is USER_MANAGED.
+         */
+        userManagedClientApplicationClientId?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A structure containing the OAuth2 credentials used in the authentication configuration.
+     */
+    export interface ConnectionOAuth2CredentialsArgs {
+        /**
+         * The access token used in the authentication configuration.
+         */
+        accessToken?: pulumi.Input<string | undefined>;
+        /**
+         * The JSON Web Token (JWT) used when the authentication type is OAuth2.
+         */
+        jwtToken?: pulumi.Input<string | undefined>;
+        /**
+         * The refresh token used when the authentication type is OAuth2.
+         */
+        refreshToken?: pulumi.Input<string | undefined>;
+        /**
+         * The client application client secret if the client application is user managed.
+         */
+        userManagedClientApplicationClientSecret?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * A structure containing the authentication credentials in the CreateConnection request.
+     */
+    export interface ConnectionOAuth2PropertiesArgs {
+        /**
+         * The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+         */
+        authorizationCodeProperties?: pulumi.Input<inputs.glue.ConnectionAuthorizationCodePropertiesArgs | undefined>;
+        /**
+         * The OAuth2 client app used for the connection.
+         */
+        oAuth2ClientApplication?: pulumi.Input<inputs.glue.ConnectionOAuth2ClientApplicationArgs | undefined>;
+        /**
+         * A structure containing the OAuth2 credentials used in the authentication configuration.
+         */
+        oAuth2Credentials?: pulumi.Input<inputs.glue.ConnectionOAuth2CredentialsArgs | undefined>;
+        /**
+         * The grant type used in the authentication configuration.
+         */
+        oAuth2GrantType?: pulumi.Input<string | undefined>;
+        /**
+         * The URL used in the authentication configuration.
+         */
+        tokenUrl?: pulumi.Input<string | undefined>;
+        /**
+         * A map of key-value pairs used in the authentication configuration.
+         */
+        tokenUrlParametersMap?: any | undefined;
+    }
+
+    export interface ConnectionPhysicalConnectionRequirementsArgs {
+        /**
+         * The availability zone where the connection is located.
+         */
+        availabilityZone?: pulumi.Input<string | undefined>;
+        /**
+         * The security group ID list used by the connection.
+         */
+        securityGroupIdList?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * The subnet ID used by the connection.
+         */
+        subnetId?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -52601,8 +52878,10 @@ export namespace guardduty {
         lessThanOrEqual?: pulumi.Input<number | undefined>;
         lt?: pulumi.Input<number | undefined>;
         lte?: pulumi.Input<number | undefined>;
+        matches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         neq?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         notEquals?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        notMatches?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     }
 
     export interface FilterFindingCriteriaArgs {
@@ -54316,6 +54595,104 @@ export namespace invoicing {
          * The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
          */
         linkedAccounts: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    /**
+     * Contact information for a person or role associated with the procurement portal preference.
+     */
+    export interface ProcurementPortalPreferenceContactArgs {
+        /**
+         * The email address of the contact person or role.
+         */
+        email?: pulumi.Input<string | undefined>;
+        /**
+         * The name of the contact person or role.
+         */
+        name?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Specifies the preferences for e-invoice delivery.
+     */
+    export interface ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs {
+        /**
+         * The method to use for testing the connection to the procurement portal.
+         */
+        connectionTestingMethod?: pulumi.Input<enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod | undefined>;
+        /**
+         * The ISO 8601 date-time when e-invoice delivery should be activated.
+         */
+        einvoiceDeliveryActivationDate?: pulumi.Input<string | undefined>;
+        /**
+         * The types of attachments to include with the e-invoice delivery.
+         */
+        einvoiceDeliveryAttachmentTypes?: pulumi.Input<pulumi.Input<enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem>[] | undefined>;
+        /**
+         * The types of e-invoice documents to be delivered.
+         */
+        einvoiceDeliveryDocumentTypes?: pulumi.Input<pulumi.Input<enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem>[] | undefined>;
+        /**
+         * The communication protocol to use for e-invoice delivery.
+         */
+        protocol?: pulumi.Input<enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol | undefined>;
+        /**
+         * The sources of purchase order data.
+         */
+        purchaseOrderDataSources?: pulumi.Input<pulumi.Input<inputs.invoicing.ProcurementPortalPreferencePurchaseOrderDataSourceArgs>[] | undefined>;
+    }
+
+    /**
+     * Specifies the source configuration for retrieving purchase order data.
+     */
+    export interface ProcurementPortalPreferencePurchaseOrderDataSourceArgs {
+        /**
+         * The type of e-invoice document that requires purchase order data.
+         */
+        einvoiceDeliveryDocumentType?: pulumi.Input<enums.invoicing.ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType | undefined>;
+        /**
+         * The type of source for purchase order data.
+         */
+        purchaseOrderDataSourceType?: pulumi.Input<enums.invoicing.ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType | undefined>;
+    }
+
+    /**
+     * Specifies criteria for selecting which invoices should be processed.
+     */
+    export interface ProcurementPortalPreferenceSelectorArgs {
+        /**
+         * The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+         */
+        invoiceUnitArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * Configuration settings for the test environment of the procurement portal.
+     */
+    export interface ProcurementPortalPreferenceTestEnvPreferenceArgs {
+        /**
+         * The domain identifier for the buyer in the test environment.
+         */
+        buyerDomain?: pulumi.Input<enums.invoicing.ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain | undefined>;
+        /**
+         * The unique identifier for the buyer in the test environment.
+         */
+        buyerIdentifier?: pulumi.Input<string | undefined>;
+        /**
+         * The endpoint URL for e-invoice delivery in the test environment.
+         */
+        procurementPortalInstanceEndpoint?: pulumi.Input<string | undefined>;
+        /**
+         * The shared secret for secure communication in the test environment.
+         */
+        procurementPortalSharedSecret?: pulumi.Input<string | undefined>;
+        /**
+         * The domain identifier for the supplier in the test environment.
+         */
+        supplierDomain?: pulumi.Input<enums.invoicing.ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain | undefined>;
+        /**
+         * The unique identifier for the supplier in the test environment.
+         */
+        supplierIdentifier?: pulumi.Input<string | undefined>;
     }
 }
 
@@ -63721,6 +64098,7 @@ export namespace lambda {
          * The path where the function can access the file system, starting with ``/mnt/``.
          */
         localMountPath: pulumi.Input<string>;
+        s3FilesConfig?: pulumi.Input<inputs.lambda.FunctionS3FilesConfigArgs | undefined>;
     }
 
     /**
@@ -63799,6 +64177,13 @@ export namespace lambda {
          *  *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
          */
         updateRuntimeOn: pulumi.Input<enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn>;
+    }
+
+    export interface FunctionS3FilesConfigArgs {
+        /**
+         * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+         */
+        directS3Read?: pulumi.Input<enums.lambda.FunctionS3FilesConfigDirectS3Read | undefined>;
     }
 
     /**
@@ -70440,6 +70825,7 @@ export namespace mediatailor {
      */
     export interface PlaybackConfigurationAdDecisionServerConfigurationArgs {
         httpRequest: pulumi.Input<inputs.mediatailor.PlaybackConfigurationHttpRequestArgs>;
+        vastResponse?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationVastResponseArgs | undefined>;
     }
 
     /**
@@ -70597,6 +70983,7 @@ export namespace mediatailor {
      * The configuration for pre-roll ad insertion.
      */
     export interface PlaybackConfigurationLivePreRollConfigurationArgs {
+        adDecisionServerConfiguration?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs | undefined>;
         /**
          * The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
          */
@@ -70641,6 +71028,33 @@ export namespace mediatailor {
          * Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
          */
         excludeEventTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * The configuration for the request to the pre-roll Ad Decision Server.
+     */
+    export interface PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs {
+        vastResponse?: pulumi.Input<inputs.mediatailor.PlaybackConfigurationPreRollVastResponseArgs | undefined>;
+    }
+
+    /**
+     * The configuration for how MediaTailor processes the VAST response returned by the pre-roll Ad Decision Server.
+     */
+    export interface PlaybackConfigurationPreRollVastResponseArgs {
+        /**
+         * Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+         */
+        adSequencingMode?: pulumi.Input<enums.mediatailor.PlaybackConfigurationPreRollVastResponseAdSequencingMode | undefined>;
+    }
+
+    /**
+     * The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+     */
+    export interface PlaybackConfigurationVastResponseArgs {
+        /**
+         * Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+         */
+        adSequencingMode?: pulumi.Input<enums.mediatailor.PlaybackConfigurationVastResponseAdSequencingMode | undefined>;
     }
 
     export interface PrefetchScheduleAvailMatchingCriteriaArgs {
@@ -72832,56 +73246,6 @@ export namespace networkmanager {
     }
 
     /**
-     * The attachment to move from one network function group to another.
-     */
-    export interface ConnectAttachmentProposedNetworkFunctionGroupChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the network function group to change.
-         */
-        networkFunctionGroupName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the network function group.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * The attachment to move from one segment to another.
-     */
-    export interface ConnectAttachmentProposedSegmentChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the segment to change.
-         */
-        segmentName?: pulumi.Input<string | undefined>;
-        /**
-         * The list of key-value tags that changed for the segment.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.ConnectAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface ConnectAttachmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * Bgp options
      */
     export interface ConnectPeerBgpOptionsArgs {
@@ -72924,56 +73288,6 @@ export namespace networkmanager {
     }
 
     /**
-     * The attachment to move from one network function group to another.
-     */
-    export interface DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the network function group to change.
-         */
-        networkFunctionGroupName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the network function group.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * The attachment to move from one segment to another.
-     */
-    export interface DirectConnectGatewayAttachmentProposedSegmentChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the segment to change.
-         */
-        segmentName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the segment.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.DirectConnectGatewayAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface DirectConnectGatewayAttachmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
      * The bandwidth for the link.
      */
     export interface LinkBandwidthArgs {
@@ -73003,156 +73317,6 @@ export namespace networkmanager {
          * The longitude.
          */
         longitude?: pulumi.Input<string | undefined>;
-    }
-
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    export interface SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the network function group to change.
-         */
-        networkFunctionGroupName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the network function group.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * The attachment to move from one segment to another.
-     */
-    export interface SiteToSiteVpnAttachmentProposedSegmentChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the segment to change.
-         */
-        segmentName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the segment.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface SiteToSiteVpnAttachmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    export interface TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the network function group to change.
-         */
-        networkFunctionGroupName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the network function group.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * The attachment to move from one segment to another.
-     */
-    export interface TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the segment to change.
-         */
-        segmentName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the segment.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface TransitGatewayRouteTableAttachmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
-    }
-
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    export interface VpcAttachmentProposedNetworkFunctionGroupChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the network function group to change.
-         */
-        networkFunctionGroupName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the network function group.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.VpcAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * The attachment to move from one segment to another.
-     */
-    export interface VpcAttachmentProposedSegmentChangeArgs {
-        /**
-         * The rule number in the policy document that applies to this change.
-         */
-        attachmentPolicyRuleNumber?: pulumi.Input<number | undefined>;
-        /**
-         * The name of the segment to change.
-         */
-        segmentName?: pulumi.Input<string | undefined>;
-        /**
-         * The key-value tags that changed for the segment.
-         */
-        tags?: pulumi.Input<pulumi.Input<inputs.networkmanager.VpcAttachmentTagArgs>[] | undefined>;
-    }
-
-    /**
-     * A key-value pair to associate with a resource.
-     */
-    export interface VpcAttachmentTagArgs {
-        /**
-         * The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        key: pulumi.Input<string>;
-        /**
-         * The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-         */
-        value: pulumi.Input<string>;
     }
 
     /**
@@ -73363,6 +73527,7 @@ export namespace observabilityadmin {
          * The encryption configuration for centralization destination log groups.
          */
         logsEncryptionConfiguration?: pulumi.Input<inputs.observabilityadmin.OrganizationCentralizationRuleLogsEncryptionConfigurationArgs | undefined>;
+        tagPropagationConfiguration?: pulumi.Input<inputs.observabilityadmin.OrganizationCentralizationRuleTagPropagationConfigurationArgs | undefined>;
     }
 
     export interface OrganizationCentralizationRuleDestinationMetricsConfigurationArgs {
@@ -73418,6 +73583,17 @@ export namespace observabilityadmin {
 
     export interface OrganizationCentralizationRuleSourceMetricsConfigurationArgs {
         metricsSelectionCriteria?: pulumi.Input<string | undefined>;
+    }
+
+    export interface OrganizationCentralizationRuleTagPropagationConfigurationArgs {
+        /**
+         * The ARN of the destination account IAM role used for tag propagation.
+         */
+        destinationRoleArn: pulumi.Input<string>;
+        /**
+         * The strategy to resolve tag conflicts during propagation.
+         */
+        tagConflictResolutionStrategy?: pulumi.Input<enums.observabilityadmin.OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy | undefined>;
     }
 
     /**
@@ -116130,6 +116306,17 @@ export namespace sagemaker {
     }
 
     /**
+     * Configuration for balancing inference component copies across Availability Zones
+     */
+    export interface InferenceComponentAvailabilityZoneBalanceArgs {
+        enforcementMode: pulumi.Input<enums.sagemaker.InferenceComponentAvailabilityZoneBalanceEnforcementMode>;
+        /**
+         * The maximum allowed difference in the number of inference component copies between any two Availability Zones
+         */
+        maxImbalance?: pulumi.Input<number | undefined>;
+    }
+
+    /**
      * Capacity size configuration for the inference component
      */
     export interface InferenceComponentCapacitySizeArgs {
@@ -116165,11 +116352,19 @@ export namespace sagemaker {
         numberOfCpuCoresRequired?: pulumi.Input<number | undefined>;
     }
 
+    /**
+     * The configuration for container metrics scraping
+     */
+    export interface InferenceComponentContainerMetricsConfigArgs {
+        metricsEndpoints: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceComponentMetricsEndpointArgs>[]>;
+    }
+
     export interface InferenceComponentContainerSpecificationArgs {
         /**
          * The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
          */
         artifactUrl?: pulumi.Input<string | undefined>;
+        containerMetricsConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentContainerMetricsConfigArgs | undefined>;
         deployedImage?: pulumi.Input<inputs.sagemaker.InferenceComponentDeployedImageArgs | undefined>;
         /**
          * The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
@@ -116179,6 +116374,26 @@ export namespace sagemaker {
          * The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
          */
         image?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Container specification for one Specifications entry. Distinct from InferenceComponentContainerSpecification: DescribeInferenceComponent returns no per-entry DeployedImage (VERIFIED in us-west-2), so DeployedImage is intentionally omitted here and this definition can never be aggregated into a plural READ response. The singular InferenceComponentContainerSpecification keeps DeployedImage - the service DOES return it there.
+     */
+    export interface InferenceComponentContainerSpecificationForInstanceTypeArgs {
+        artifactUrl?: pulumi.Input<string | undefined>;
+        containerMetricsConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentContainerMetricsConfigArgs | undefined>;
+        environment?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        image?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Settings that affect how the inference component caches data
+     */
+    export interface InferenceComponentDataCacheConfigArgs {
+        /**
+         * Whether the endpoint caches the model artifacts and container image on each instance it provisions for the inference component
+         */
+        enableCaching: pulumi.Input<boolean>;
     }
 
     export interface InferenceComponentDeployedImageArgs {
@@ -116205,6 +116420,28 @@ export namespace sagemaker {
          * Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
          */
         rollingUpdatePolicy?: pulumi.Input<inputs.sagemaker.InferenceComponentRollingUpdatePolicyArgs | undefined>;
+    }
+
+    /**
+     * A metrics endpoint exposed by the container
+     */
+    export interface InferenceComponentMetricsEndpointArgs {
+        /**
+         * The interval, in seconds, at which container metrics scraped from the endpoint are published to Amazon CloudWatch. Valid values per the SageMaker API Reference are 10, 30, 60, 120, 180, 240 and 300; the service validates the value.
+         */
+        metricPublishFrequencyInSeconds?: pulumi.Input<number | undefined>;
+        /**
+         * The path to the Prometheus formatted metrics endpoint exposed by the container
+         */
+        metricsEndpointPath: pulumi.Input<string>;
+    }
+
+    /**
+     * The number of inference component copies currently placed on instances of a given type
+     */
+    export interface InferenceComponentPlacementStatusArgs {
+        currentCopyCount: pulumi.Input<number>;
+        instanceType: pulumi.Input<string>;
     }
 
     /**
@@ -116239,10 +116476,22 @@ export namespace sagemaker {
         copyCount?: pulumi.Input<number | undefined>;
         currentCopyCount?: pulumi.Input<number | undefined>;
         desiredCopyCount?: pulumi.Input<number | undefined>;
+        /**
+         * The placement status of the inference component across instance types
+         */
+        placementStatus?: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceComponentPlacementStatusArgs>[] | undefined>;
     }
 
     /**
-     * The specification for the inference component
+     * The scheduling configuration that determines how inference component copies are placed across available instances
+     */
+    export interface InferenceComponentSchedulingConfigArgs {
+        availabilityZoneBalance: pulumi.Input<inputs.sagemaker.InferenceComponentAvailabilityZoneBalanceArgs>;
+        placementStrategy: pulumi.Input<enums.sagemaker.InferenceComponentPlacementStrategy>;
+    }
+
+    /**
+     * The specification for the inference component, for an endpoint with a single instance type. Specify exactly one of Specification or Specifications. InstanceType is not accepted here; use Specifications for per instance type configuration.
      */
     export interface InferenceComponentSpecificationArgs {
         /**
@@ -116266,12 +116515,35 @@ export namespace sagemaker {
          */
         container?: pulumi.Input<inputs.sagemaker.InferenceComponentContainerSpecificationArgs | undefined>;
         /**
+         * The data caching configuration actually in effect, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+         */
+        currentDataCacheConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDataCacheConfigArgs | undefined>;
+        dataCacheConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDataCacheConfigArgs | undefined>;
+        /**
          * The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
          */
         modelName?: pulumi.Input<string | undefined>;
+        schedulingConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentSchedulingConfigArgs | undefined>;
         /**
          * Settings that take effect while the model container starts up.
          */
+        startupParameters?: pulumi.Input<inputs.sagemaker.InferenceComponentStartupParametersArgs | undefined>;
+    }
+
+    /**
+     * A specification for one instance type, for use in Specifications. InstanceType is required here, and is not accepted on the singular Specification. BaseInferenceComponentName is not accepted here either: adapter inference components are supported only on the singular Specification.
+     */
+    export interface InferenceComponentSpecificationForInstanceTypeArgs {
+        computeResourceRequirements?: pulumi.Input<inputs.sagemaker.InferenceComponentComputeResourceRequirementsArgs | undefined>;
+        container?: pulumi.Input<inputs.sagemaker.InferenceComponentContainerSpecificationForInstanceTypeArgs | undefined>;
+        /**
+         * The data caching configuration actually in effect for this instance type, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+         */
+        currentDataCacheConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDataCacheConfigArgs | undefined>;
+        dataCacheConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentDataCacheConfigArgs | undefined>;
+        instanceType: pulumi.Input<string>;
+        modelName?: pulumi.Input<string | undefined>;
+        schedulingConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentSchedulingConfigArgs | undefined>;
         startupParameters?: pulumi.Input<inputs.sagemaker.InferenceComponentStartupParametersArgs | undefined>;
     }
 
@@ -120958,6 +121230,10 @@ export namespace securityagent {
          * List of source code repositories to analyze
          */
         sourceCode?: pulumi.Input<pulumi.Input<inputs.securityagent.PentestSourceCodeRepositoryArgs>[] | undefined>;
+        /**
+         * Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+         */
+        trustedCaCertificates?: pulumi.Input<pulumi.Input<inputs.securityagent.PentestTrustedCaCertificateArgs>[] | undefined>;
     }
 
     /**
@@ -120972,6 +121248,24 @@ export namespace securityagent {
          * Reference value for the authentication provider, such as a secret ARN or Lambda ARN
          */
         value?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Source of a trusted CA certificate. Exactly one member must be set.
+     */
+    export interface PentestCaCertificateSourceArgs {
+        /**
+         * Artifact ID of an uploaded certificate file
+         */
+        artifactId?: pulumi.Input<string | undefined>;
+        /**
+         * PEM-encoded X.509 certificate supplied inline
+         */
+        inlinePem?: pulumi.Input<string | undefined>;
+        /**
+         * Amazon S3 location URI of a customer-staged certificate
+         */
+        s3Location?: pulumi.Input<string | undefined>;
     }
 
     /**
@@ -121084,6 +121378,16 @@ export namespace securityagent {
          * S3 source code location
          */
         s3Location?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * Trust anchor used when validating a target endpoint's TLS certificate
+     */
+    export interface PentestTrustedCaCertificateArgs {
+        /**
+         * Where to read the certificate from
+         */
+        source: pulumi.Input<inputs.securityagent.PentestCaCertificateSourceArgs>;
     }
 
     /**
@@ -125869,6 +126173,73 @@ export namespace stepfunctions {
 }
 
 export namespace storagegateway {
+}
+
+export namespace supportauthz {
+    /**
+     * The set of actions a support permit grants. Exactly one of AllActions or Actions must be provided.
+     */
+    export interface SupportPermitActionSetArgs {
+        /**
+         * An explicit list of actions to grant.
+         */
+        actions?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Grants all actions.
+         */
+        allActions?: any | undefined;
+    }
+
+    /**
+     * A time-bound condition controlling when the permit is active. Exactly one of AllowAfter or AllowBefore must be provided.
+     */
+    export interface SupportPermitConditionArgs {
+        /**
+         * The permit is active only after this time.
+         */
+        allowAfter?: pulumi.Input<string | undefined>;
+        /**
+         * The permit is active only before this time.
+         */
+        allowBefore?: pulumi.Input<string | undefined>;
+    }
+
+    /**
+     * The grant definition: which actions on which resources, optionally constrained by time conditions.
+     */
+    export interface SupportPermitPermitArgs {
+        actions: pulumi.Input<inputs.supportauthz.SupportPermitActionSetArgs>;
+        /**
+         * Optional time-bound conditions (at most two).
+         */
+        conditions?: pulumi.Input<pulumi.Input<inputs.supportauthz.SupportPermitConditionArgs>[] | undefined>;
+        resources: pulumi.Input<inputs.supportauthz.SupportPermitResourceSetArgs>;
+    }
+
+    /**
+     * The set of resources a support permit applies to. Exactly one of AllResourcesInRegion or Resources must be provided.
+     */
+    export interface SupportPermitResourceSetArgs {
+        /**
+         * Applies to all resources in the region.
+         */
+        allResourcesInRegion?: any | undefined;
+        /**
+         * An explicit list of resource ARNs.
+         */
+        resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    /**
+     * The signing key used by the permit. Exactly one key type must be provided.
+     */
+    export interface SupportPermitSigningKeyInfoArgs {
+        /**
+         * The ARN of the KMS key used to sign permit grants.
+         */
+        kmsKey: pulumi.Input<string>;
+    }
+
 }
 
 export namespace synthetics {

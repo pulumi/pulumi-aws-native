@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
         [Input("httpRequest", required: true)]
         public Input<Inputs.PlaybackConfigurationHttpRequestArgs> HttpRequest { get; set; } = null!;
 
+        [Input("vastResponse")]
+        public Input<Inputs.PlaybackConfigurationVastResponseArgs>? VastResponse { get; set; }
+
         public PlaybackConfigurationAdDecisionServerConfigurationArgs()
         {
         }

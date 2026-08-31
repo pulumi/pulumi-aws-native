@@ -25,7 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetFeedResult:
-    def __init__(__self__, arn=None, data_endpoints=None, id=None, name=None, outputs=None, tags=None):
+    def __init__(__self__, access_role_arn=None, arn=None, data_endpoints=None, id=None, name=None, outputs=None, tags=None):
+        if access_role_arn and not isinstance(access_role_arn, str):
+            raise TypeError("Expected argument 'access_role_arn' to be a str")
+        pulumi.set(__self__, "access_role_arn", access_role_arn)
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -44,6 +47,11 @@ class GetFeedResult:
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRoleArn")
+    def access_role_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "access_role_arn")
 
     @_builtins.property
     @pulumi.getter
@@ -82,6 +90,7 @@ class AwaitableGetFeedResult(GetFeedResult):
         if False:
             yield self
         return GetFeedResult(
+            access_role_arn=self.access_role_arn,
             arn=self.arn,
             data_endpoints=self.data_endpoints,
             id=self.id,
@@ -101,6 +110,7 @@ def get_feed(id: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:elementalinference:getFeed', __args__, opts=opts, typ=GetFeedResult).value
 
     return AwaitableGetFeedResult(
+        access_role_arn=pulumi.get(__ret__, 'access_role_arn'),
         arn=pulumi.get(__ret__, 'arn'),
         data_endpoints=pulumi.get(__ret__, 'data_endpoints'),
         id=pulumi.get(__ret__, 'id'),
@@ -117,6 +127,7 @@ def get_feed_output(id: pulumi.Input[Optional[_builtins.str]] = None,
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:elementalinference:getFeed', __args__, opts=opts, typ=GetFeedResult)
     return __ret__.apply(lambda __response__: GetFeedResult(
+        access_role_arn=pulumi.get(__response__, 'access_role_arn'),
         arn=pulumi.get(__response__, 'arn'),
         data_endpoints=pulumi.get(__response__, 'data_endpoints'),
         id=pulumi.get(__response__, 'id'),

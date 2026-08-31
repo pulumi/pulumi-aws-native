@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy',
     'AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior',
+    'AutoScalingGroupDistributionSegmentTargetCapacityTypesItem',
 ]
 
 
@@ -32,3 +33,11 @@ class AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBeh
     """
     IGNORE_UNHEALTHY = "IgnoreUnhealthy"
     REPLACE_UNHEALTHY = "ReplaceUnhealthy"
+
+
+@pulumi.type_token("aws-native:autoscaling:AutoScalingGroupDistributionSegmentTargetCapacityTypesItem")
+class AutoScalingGroupDistributionSegmentTargetCapacityTypesItem(_builtins.str, Enum):
+    ON_DEMAND_CAPACITY_RESERVATION = "on-demand-capacity-reservation"
+    CAPACITY_BLOCK = "capacity-block"
+    INTERRUPTIBLE_CAPACITY_RESERVATION = "interruptible-capacity-reservation"
+    ON_DEMAND = "on-demand"

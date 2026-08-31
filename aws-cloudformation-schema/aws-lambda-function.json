@@ -291,6 +291,18 @@
         }
       }
     },
+    "S3FilesConfig" : {
+      "description" : "",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "DirectS3Read" : {
+          "description" : "Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature \"direct Amazon S3 bucket reads\" for the highest throughput",
+          "type" : "string",
+          "enum" : [ "ENABLED", "DISABLED", "AUTO" ]
+        }
+      }
+    },
     "LoggingConfig" : {
       "description" : "The function's Amazon CloudWatch Logs configuration settings.",
       "additionalProperties" : false,
@@ -347,6 +359,10 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "S3FilesConfig" : {
+          "description" : "",
+          "$ref" : "#/definitions/S3FilesConfig"
+        },
         "Arn" : {
           "pattern" : "^arn:aws[a-zA-Z-]*:elasticfilesystem:(eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1}:\\d{12}:access-point/fsap-[a-f0-9]{17}$|^arn:aws[-a-z]*:s3files:[0-9a-z-:]+:file-system/fs-[0-9a-f]{17,40}/access-point/fsap-[0-9a-f]{17,40}$",
           "description" : "The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.",

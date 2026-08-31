@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Configuration.Inputs
         /// The frequency with which AWS Config delivers configuration snapshots.
         /// </summary>
         [Input("deliveryFrequency")]
-        public Input<Pulumi.AwsNative.Configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency>? DeliveryFrequency { get; set; }
+        public Input<string>? DeliveryFrequency { get; set; }
 
         public DeliveryChannelConfigSnapshotDeliveryPropertiesArgs()
         {

@@ -16,10 +16,10 @@ namespace Pulumi.AwsNative.Configuration.Outputs
         /// <summary>
         /// The frequency with which AWS Config delivers configuration snapshots.
         /// </summary>
-        public readonly Pulumi.AwsNative.Configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency? DeliveryFrequency;
+        public readonly string? DeliveryFrequency;
 
         [OutputConstructor]
-        private DeliveryChannelConfigSnapshotDeliveryProperties(Pulumi.AwsNative.Configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency? deliveryFrequency)
+        private DeliveryChannelConfigSnapshotDeliveryProperties(string? deliveryFrequency)
         {
             DeliveryFrequency = deliveryFrequency;
         }

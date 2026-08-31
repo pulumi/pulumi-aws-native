@@ -72,4 +72,34 @@ namespace Pulumi.AwsNative.AutoScaling
 
         public override string ToString() => _value;
     }
+
+    [EnumType]
+    public readonly struct AutoScalingGroupDistributionSegmentTargetCapacityTypesItem : IEquatable<AutoScalingGroupDistributionSegmentTargetCapacityTypesItem>
+    {
+        private readonly string _value;
+
+        private AutoScalingGroupDistributionSegmentTargetCapacityTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoScalingGroupDistributionSegmentTargetCapacityTypesItem OnDemandCapacityReservation { get; } = new AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("on-demand-capacity-reservation");
+        public static AutoScalingGroupDistributionSegmentTargetCapacityTypesItem CapacityBlock { get; } = new AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("capacity-block");
+        public static AutoScalingGroupDistributionSegmentTargetCapacityTypesItem InterruptibleCapacityReservation { get; } = new AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("interruptible-capacity-reservation");
+        public static AutoScalingGroupDistributionSegmentTargetCapacityTypesItem OnDemand { get; } = new AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("on-demand");
+
+        public static bool operator ==(AutoScalingGroupDistributionSegmentTargetCapacityTypesItem left, AutoScalingGroupDistributionSegmentTargetCapacityTypesItem right) => left.Equals(right);
+        public static bool operator !=(AutoScalingGroupDistributionSegmentTargetCapacityTypesItem left, AutoScalingGroupDistributionSegmentTargetCapacityTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(AutoScalingGroupDistributionSegmentTargetCapacityTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoScalingGroupDistributionSegmentTargetCapacityTypesItem other && Equals(other);
+        public bool Equals(AutoScalingGroupDistributionSegmentTargetCapacityTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

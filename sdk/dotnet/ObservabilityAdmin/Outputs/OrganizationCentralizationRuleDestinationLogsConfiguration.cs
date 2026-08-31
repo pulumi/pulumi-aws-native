@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
         /// The encryption configuration for centralization destination log groups.
         /// </summary>
         public readonly Outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration? LogsEncryptionConfiguration;
+        public readonly Outputs.OrganizationCentralizationRuleTagPropagationConfiguration? TagPropagationConfiguration;
 
         [OutputConstructor]
         private OrganizationCentralizationRuleDestinationLogsConfiguration(
@@ -29,11 +30,14 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Outputs
 
             Outputs.OrganizationCentralizationRuleLogGroupNameConfiguration? logGroupNameConfiguration,
 
-            Outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration? logsEncryptionConfiguration)
+            Outputs.OrganizationCentralizationRuleLogsEncryptionConfiguration? logsEncryptionConfiguration,
+
+            Outputs.OrganizationCentralizationRuleTagPropagationConfiguration? tagPropagationConfiguration)
         {
             BackupConfiguration = backupConfiguration;
             LogGroupNameConfiguration = logGroupNameConfiguration;
             LogsEncryptionConfiguration = logsEncryptionConfiguration;
+            TagPropagationConfiguration = tagPropagationConfiguration;
         }
     }
 }

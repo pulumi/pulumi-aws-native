@@ -78,80 +78,6 @@ type ConnectAttachmentProposedNetworkFunctionGroupChange struct {
 	Tags []ConnectAttachmentTag `pulumi:"tags"`
 }
 
-// ConnectAttachmentProposedNetworkFunctionGroupChangeInput is an input type that accepts ConnectAttachmentProposedNetworkFunctionGroupChangeArgs and ConnectAttachmentProposedNetworkFunctionGroupChangeOutput values.
-// You can construct a concrete instance of `ConnectAttachmentProposedNetworkFunctionGroupChangeInput` via:
-//
-//	ConnectAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-type ConnectAttachmentProposedNetworkFunctionGroupChangeInput interface {
-	pulumi.Input
-
-	ToConnectAttachmentProposedNetworkFunctionGroupChangeOutput() ConnectAttachmentProposedNetworkFunctionGroupChangeOutput
-	ToConnectAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Context) ConnectAttachmentProposedNetworkFunctionGroupChangeOutput
-}
-
-// The attachment to move from one network function group to another.
-type ConnectAttachmentProposedNetworkFunctionGroupChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the network function group to change.
-	NetworkFunctionGroupName pulumi.StringPtrInput `pulumi:"networkFunctionGroupName"`
-	// The key-value tags that changed for the network function group.
-	Tags ConnectAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (ConnectAttachmentProposedNetworkFunctionGroupChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i ConnectAttachmentProposedNetworkFunctionGroupChangeArgs) ToConnectAttachmentProposedNetworkFunctionGroupChangeOutput() ConnectAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return i.ToConnectAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Background())
-}
-
-func (i ConnectAttachmentProposedNetworkFunctionGroupChangeArgs) ToConnectAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) ConnectAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedNetworkFunctionGroupChangeOutput)
-}
-
-func (i ConnectAttachmentProposedNetworkFunctionGroupChangeArgs) ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput() ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectAttachmentProposedNetworkFunctionGroupChangeArgs) ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedNetworkFunctionGroupChangeOutput).ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx)
-}
-
-// ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput is an input type that accepts ConnectAttachmentProposedNetworkFunctionGroupChangeArgs, ConnectAttachmentProposedNetworkFunctionGroupChangePtr and ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput values.
-// You can construct a concrete instance of `ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput` via:
-//
-//	        ConnectAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput interface {
-	pulumi.Input
-
-	ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput() ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput
-	ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Context) ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput
-}
-
-type connectAttachmentProposedNetworkFunctionGroupChangePtrType ConnectAttachmentProposedNetworkFunctionGroupChangeArgs
-
-func ConnectAttachmentProposedNetworkFunctionGroupChangePtr(v *ConnectAttachmentProposedNetworkFunctionGroupChangeArgs) ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput {
-	return (*connectAttachmentProposedNetworkFunctionGroupChangePtrType)(v)
-}
-
-func (*connectAttachmentProposedNetworkFunctionGroupChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i *connectAttachmentProposedNetworkFunctionGroupChangePtrType) ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput() ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i *connectAttachmentProposedNetworkFunctionGroupChangePtrType) ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput)
-}
-
 // The attachment to move from one network function group to another.
 type ConnectAttachmentProposedNetworkFunctionGroupChangeOutput struct{ *pulumi.OutputState }
 
@@ -165,16 +91,6 @@ func (o ConnectAttachmentProposedNetworkFunctionGroupChangeOutput) ToConnectAtta
 
 func (o ConnectAttachmentProposedNetworkFunctionGroupChangeOutput) ToConnectAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) ConnectAttachmentProposedNetworkFunctionGroupChangeOutput {
 	return o
-}
-
-func (o ConnectAttachmentProposedNetworkFunctionGroupChangeOutput) ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput() ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectAttachmentProposedNetworkFunctionGroupChangeOutput) ToConnectAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentProposedNetworkFunctionGroupChange) *ConnectAttachmentProposedNetworkFunctionGroupChange {
-		return &v
-	}).(ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -256,80 +172,6 @@ type ConnectAttachmentProposedSegmentChange struct {
 	Tags []ConnectAttachmentTag `pulumi:"tags"`
 }
 
-// ConnectAttachmentProposedSegmentChangeInput is an input type that accepts ConnectAttachmentProposedSegmentChangeArgs and ConnectAttachmentProposedSegmentChangeOutput values.
-// You can construct a concrete instance of `ConnectAttachmentProposedSegmentChangeInput` via:
-//
-//	ConnectAttachmentProposedSegmentChangeArgs{...}
-type ConnectAttachmentProposedSegmentChangeInput interface {
-	pulumi.Input
-
-	ToConnectAttachmentProposedSegmentChangeOutput() ConnectAttachmentProposedSegmentChangeOutput
-	ToConnectAttachmentProposedSegmentChangeOutputWithContext(context.Context) ConnectAttachmentProposedSegmentChangeOutput
-}
-
-// The attachment to move from one segment to another.
-type ConnectAttachmentProposedSegmentChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the segment to change.
-	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
-	// The list of key-value tags that changed for the segment.
-	Tags ConnectAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (ConnectAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangeOutput() ConnectAttachmentProposedSegmentChangeOutput {
-	return i.ToConnectAttachmentProposedSegmentChangeOutputWithContext(context.Background())
-}
-
-func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangeOutput)
-}
-
-func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
-	return i.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i ConnectAttachmentProposedSegmentChangeArgs) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangeOutput).ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
-}
-
-// ConnectAttachmentProposedSegmentChangePtrInput is an input type that accepts ConnectAttachmentProposedSegmentChangeArgs, ConnectAttachmentProposedSegmentChangePtr and ConnectAttachmentProposedSegmentChangePtrOutput values.
-// You can construct a concrete instance of `ConnectAttachmentProposedSegmentChangePtrInput` via:
-//
-//	        ConnectAttachmentProposedSegmentChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type ConnectAttachmentProposedSegmentChangePtrInput interface {
-	pulumi.Input
-
-	ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput
-	ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) ConnectAttachmentProposedSegmentChangePtrOutput
-}
-
-type connectAttachmentProposedSegmentChangePtrType ConnectAttachmentProposedSegmentChangeArgs
-
-func ConnectAttachmentProposedSegmentChangePtr(v *ConnectAttachmentProposedSegmentChangeArgs) ConnectAttachmentProposedSegmentChangePtrInput {
-	return (*connectAttachmentProposedSegmentChangePtrType)(v)
-}
-
-func (*connectAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConnectAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i *connectAttachmentProposedSegmentChangePtrType) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
-	return i.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i *connectAttachmentProposedSegmentChangePtrType) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentProposedSegmentChangePtrOutput)
-}
-
 // The attachment to move from one segment to another.
 type ConnectAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -343,16 +185,6 @@ func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentPropose
 
 func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangeOutput {
 	return o
-}
-
-func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentProposedSegmentChangePtrOutput() ConnectAttachmentProposedSegmentChangePtrOutput {
-	return o.ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (o ConnectAttachmentProposedSegmentChangeOutput) ToConnectAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) ConnectAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectAttachmentProposedSegmentChange) *ConnectAttachmentProposedSegmentChange {
-		return &v
-	}).(ConnectAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -430,62 +262,6 @@ type ConnectAttachmentTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// ConnectAttachmentTagInput is an input type that accepts ConnectAttachmentTagArgs and ConnectAttachmentTagOutput values.
-// You can construct a concrete instance of `ConnectAttachmentTagInput` via:
-//
-//	ConnectAttachmentTagArgs{...}
-type ConnectAttachmentTagInput interface {
-	pulumi.Input
-
-	ToConnectAttachmentTagOutput() ConnectAttachmentTagOutput
-	ToConnectAttachmentTagOutputWithContext(context.Context) ConnectAttachmentTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type ConnectAttachmentTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (ConnectAttachmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConnectAttachmentTag)(nil)).Elem()
-}
-
-func (i ConnectAttachmentTagArgs) ToConnectAttachmentTagOutput() ConnectAttachmentTagOutput {
-	return i.ToConnectAttachmentTagOutputWithContext(context.Background())
-}
-
-func (i ConnectAttachmentTagArgs) ToConnectAttachmentTagOutputWithContext(ctx context.Context) ConnectAttachmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentTagOutput)
-}
-
-// ConnectAttachmentTagArrayInput is an input type that accepts ConnectAttachmentTagArray and ConnectAttachmentTagArrayOutput values.
-// You can construct a concrete instance of `ConnectAttachmentTagArrayInput` via:
-//
-//	ConnectAttachmentTagArray{ ConnectAttachmentTagArgs{...} }
-type ConnectAttachmentTagArrayInput interface {
-	pulumi.Input
-
-	ToConnectAttachmentTagArrayOutput() ConnectAttachmentTagArrayOutput
-	ToConnectAttachmentTagArrayOutputWithContext(context.Context) ConnectAttachmentTagArrayOutput
-}
-
-type ConnectAttachmentTagArray []ConnectAttachmentTagInput
-
-func (ConnectAttachmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ConnectAttachmentTag)(nil)).Elem()
-}
-
-func (i ConnectAttachmentTagArray) ToConnectAttachmentTagArrayOutput() ConnectAttachmentTagArrayOutput {
-	return i.ToConnectAttachmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i ConnectAttachmentTagArray) ToConnectAttachmentTagArrayOutputWithContext(ctx context.Context) ConnectAttachmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ConnectAttachmentTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -1484,80 +1260,6 @@ type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange struct {
 	Tags []DirectConnectGatewayAttachmentTag `pulumi:"tags"`
 }
 
-// DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput is an input type that accepts DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs and DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput values.
-// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput` via:
-//
-//	DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput interface {
-	pulumi.Input
-
-	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput
-	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput
-}
-
-// The attachment to move from one network function group to another.
-type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the network function group to change.
-	NetworkFunctionGroupName pulumi.StringPtrInput `pulumi:"networkFunctionGroupName"`
-	// The key-value tags that changed for the network function group.
-	Tags DirectConnectGatewayAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return i.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Background())
-}
-
-func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput)
-}
-
-func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput).ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx)
-}
-
-// DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput is an input type that accepts DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs, DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtr and DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput values.
-// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput` via:
-//
-//	        DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput interface {
-	pulumi.Input
-
-	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput
-	ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput
-}
-
-type directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs
-
-func DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtr(v *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput {
-	return (*directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType)(v)
-}
-
-func (*directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i *directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i *directConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrType) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput)
-}
-
 // The attachment to move from one network function group to another.
 type DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput struct{ *pulumi.OutputState }
 
@@ -1571,16 +1273,6 @@ func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) 
 
 func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
 	return o
-}
-
-func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (o DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput) ToDirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange) *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange {
-		return &v
-	}).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -1668,80 +1360,6 @@ type DirectConnectGatewayAttachmentProposedSegmentChange struct {
 	Tags []DirectConnectGatewayAttachmentTag `pulumi:"tags"`
 }
 
-// DirectConnectGatewayAttachmentProposedSegmentChangeInput is an input type that accepts DirectConnectGatewayAttachmentProposedSegmentChangeArgs and DirectConnectGatewayAttachmentProposedSegmentChangeOutput values.
-// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedSegmentChangeInput` via:
-//
-//	DirectConnectGatewayAttachmentProposedSegmentChangeArgs{...}
-type DirectConnectGatewayAttachmentProposedSegmentChangeInput interface {
-	pulumi.Input
-
-	ToDirectConnectGatewayAttachmentProposedSegmentChangeOutput() DirectConnectGatewayAttachmentProposedSegmentChangeOutput
-	ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedSegmentChangeOutput
-}
-
-// The attachment to move from one segment to another.
-type DirectConnectGatewayAttachmentProposedSegmentChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the segment to change.
-	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
-	// The key-value tags that changed for the segment.
-	Tags DirectConnectGatewayAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectConnectGatewayAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangeOutput() DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
-	return i.ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(context.Background())
-}
-
-func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedSegmentChangeOutput)
-}
-
-func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
-	return i.ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i DirectConnectGatewayAttachmentProposedSegmentChangeArgs) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedSegmentChangeOutput).ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
-}
-
-// DirectConnectGatewayAttachmentProposedSegmentChangePtrInput is an input type that accepts DirectConnectGatewayAttachmentProposedSegmentChangeArgs, DirectConnectGatewayAttachmentProposedSegmentChangePtr and DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput values.
-// You can construct a concrete instance of `DirectConnectGatewayAttachmentProposedSegmentChangePtrInput` via:
-//
-//	        DirectConnectGatewayAttachmentProposedSegmentChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DirectConnectGatewayAttachmentProposedSegmentChangePtrInput interface {
-	pulumi.Input
-
-	ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput
-	ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput
-}
-
-type directConnectGatewayAttachmentProposedSegmentChangePtrType DirectConnectGatewayAttachmentProposedSegmentChangeArgs
-
-func DirectConnectGatewayAttachmentProposedSegmentChangePtr(v *DirectConnectGatewayAttachmentProposedSegmentChangeArgs) DirectConnectGatewayAttachmentProposedSegmentChangePtrInput {
-	return (*directConnectGatewayAttachmentProposedSegmentChangePtrType)(v)
-}
-
-func (*directConnectGatewayAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DirectConnectGatewayAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i *directConnectGatewayAttachmentProposedSegmentChangePtrType) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
-	return i.ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i *directConnectGatewayAttachmentProposedSegmentChangePtrType) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput)
-}
-
 // The attachment to move from one segment to another.
 type DirectConnectGatewayAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -1755,16 +1373,6 @@ func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConne
 
 func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
 	return o
-}
-
-func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutput() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
-	return o.ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (o DirectConnectGatewayAttachmentProposedSegmentChangeOutput) ToDirectConnectGatewayAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DirectConnectGatewayAttachmentProposedSegmentChange) *DirectConnectGatewayAttachmentProposedSegmentChange {
-		return &v
-	}).(DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -1844,62 +1452,6 @@ type DirectConnectGatewayAttachmentTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// DirectConnectGatewayAttachmentTagInput is an input type that accepts DirectConnectGatewayAttachmentTagArgs and DirectConnectGatewayAttachmentTagOutput values.
-// You can construct a concrete instance of `DirectConnectGatewayAttachmentTagInput` via:
-//
-//	DirectConnectGatewayAttachmentTagArgs{...}
-type DirectConnectGatewayAttachmentTagInput interface {
-	pulumi.Input
-
-	ToDirectConnectGatewayAttachmentTagOutput() DirectConnectGatewayAttachmentTagOutput
-	ToDirectConnectGatewayAttachmentTagOutputWithContext(context.Context) DirectConnectGatewayAttachmentTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type DirectConnectGatewayAttachmentTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (DirectConnectGatewayAttachmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DirectConnectGatewayAttachmentTag)(nil)).Elem()
-}
-
-func (i DirectConnectGatewayAttachmentTagArgs) ToDirectConnectGatewayAttachmentTagOutput() DirectConnectGatewayAttachmentTagOutput {
-	return i.ToDirectConnectGatewayAttachmentTagOutputWithContext(context.Background())
-}
-
-func (i DirectConnectGatewayAttachmentTagArgs) ToDirectConnectGatewayAttachmentTagOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentTagOutput)
-}
-
-// DirectConnectGatewayAttachmentTagArrayInput is an input type that accepts DirectConnectGatewayAttachmentTagArray and DirectConnectGatewayAttachmentTagArrayOutput values.
-// You can construct a concrete instance of `DirectConnectGatewayAttachmentTagArrayInput` via:
-//
-//	DirectConnectGatewayAttachmentTagArray{ DirectConnectGatewayAttachmentTagArgs{...} }
-type DirectConnectGatewayAttachmentTagArrayInput interface {
-	pulumi.Input
-
-	ToDirectConnectGatewayAttachmentTagArrayOutput() DirectConnectGatewayAttachmentTagArrayOutput
-	ToDirectConnectGatewayAttachmentTagArrayOutputWithContext(context.Context) DirectConnectGatewayAttachmentTagArrayOutput
-}
-
-type DirectConnectGatewayAttachmentTagArray []DirectConnectGatewayAttachmentTagInput
-
-func (DirectConnectGatewayAttachmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DirectConnectGatewayAttachmentTag)(nil)).Elem()
-}
-
-func (i DirectConnectGatewayAttachmentTagArray) ToDirectConnectGatewayAttachmentTagArrayOutput() DirectConnectGatewayAttachmentTagArrayOutput {
-	return i.ToDirectConnectGatewayAttachmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i DirectConnectGatewayAttachmentTagArray) ToDirectConnectGatewayAttachmentTagArrayOutputWithContext(ctx context.Context) DirectConnectGatewayAttachmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DirectConnectGatewayAttachmentTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -2267,80 +1819,6 @@ type SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange struct {
 	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
 }
 
-// SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeInput is an input type that accepts SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs and SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput values.
-// You can construct a concrete instance of `SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeInput` via:
-//
-//	SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-type SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeInput interface {
-	pulumi.Input
-
-	ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput
-	ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Context) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput
-}
-
-// The attachment to move from one network function group to another.
-type SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the network function group to change.
-	NetworkFunctionGroupName pulumi.StringPtrInput `pulumi:"networkFunctionGroupName"`
-	// The key-value tags that changed for the network function group.
-	Tags SiteToSiteVpnAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return i.ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Background())
-}
-
-func (i SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput)
-}
-
-func (i SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput).ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx)
-}
-
-// SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrInput is an input type that accepts SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs, SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtr and SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput values.
-// You can construct a concrete instance of `SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrInput` via:
-//
-//	        SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrInput interface {
-	pulumi.Input
-
-	ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput
-	ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Context) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput
-}
-
-type siteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrType SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs
-
-func SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtr(v *SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrInput {
-	return (*siteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrType)(v)
-}
-
-func (*siteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i *siteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrType) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i *siteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrType) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput)
-}
-
 // The attachment to move from one network function group to another.
 type SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput struct{ *pulumi.OutputState }
 
@@ -2354,16 +1832,6 @@ func (o SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput) ToSiteT
 
 func (o SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput {
 	return o
-}
-
-func (o SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput() SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (o SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeOutput) ToSiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange) *SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange {
-		return &v
-	}).(SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2451,80 +1919,6 @@ type SiteToSiteVpnAttachmentProposedSegmentChange struct {
 	Tags []SiteToSiteVpnAttachmentTag `pulumi:"tags"`
 }
 
-// SiteToSiteVpnAttachmentProposedSegmentChangeInput is an input type that accepts SiteToSiteVpnAttachmentProposedSegmentChangeArgs and SiteToSiteVpnAttachmentProposedSegmentChangeOutput values.
-// You can construct a concrete instance of `SiteToSiteVpnAttachmentProposedSegmentChangeInput` via:
-//
-//	SiteToSiteVpnAttachmentProposedSegmentChangeArgs{...}
-type SiteToSiteVpnAttachmentProposedSegmentChangeInput interface {
-	pulumi.Input
-
-	ToSiteToSiteVpnAttachmentProposedSegmentChangeOutput() SiteToSiteVpnAttachmentProposedSegmentChangeOutput
-	ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(context.Context) SiteToSiteVpnAttachmentProposedSegmentChangeOutput
-}
-
-// The attachment to move from one segment to another.
-type SiteToSiteVpnAttachmentProposedSegmentChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the segment to change.
-	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
-	// The key-value tags that changed for the segment.
-	Tags SiteToSiteVpnAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutput() SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
-	return i.ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(context.Background())
-}
-
-func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangeOutput)
-}
-
-func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
-	return i.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i SiteToSiteVpnAttachmentProposedSegmentChangeArgs) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangeOutput).ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
-}
-
-// SiteToSiteVpnAttachmentProposedSegmentChangePtrInput is an input type that accepts SiteToSiteVpnAttachmentProposedSegmentChangeArgs, SiteToSiteVpnAttachmentProposedSegmentChangePtr and SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput values.
-// You can construct a concrete instance of `SiteToSiteVpnAttachmentProposedSegmentChangePtrInput` via:
-//
-//	        SiteToSiteVpnAttachmentProposedSegmentChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type SiteToSiteVpnAttachmentProposedSegmentChangePtrInput interface {
-	pulumi.Input
-
-	ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput
-	ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput
-}
-
-type siteToSiteVpnAttachmentProposedSegmentChangePtrType SiteToSiteVpnAttachmentProposedSegmentChangeArgs
-
-func SiteToSiteVpnAttachmentProposedSegmentChangePtr(v *SiteToSiteVpnAttachmentProposedSegmentChangeArgs) SiteToSiteVpnAttachmentProposedSegmentChangePtrInput {
-	return (*siteToSiteVpnAttachmentProposedSegmentChangePtrType)(v)
-}
-
-func (*siteToSiteVpnAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**SiteToSiteVpnAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i *siteToSiteVpnAttachmentProposedSegmentChangePtrType) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
-	return i.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i *siteToSiteVpnAttachmentProposedSegmentChangePtrType) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput)
-}
-
 // The attachment to move from one segment to another.
 type SiteToSiteVpnAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -2538,16 +1932,6 @@ func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttac
 
 func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangeOutput {
 	return o
-}
-
-func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutput() SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
-	return o.ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (o SiteToSiteVpnAttachmentProposedSegmentChangeOutput) ToSiteToSiteVpnAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v SiteToSiteVpnAttachmentProposedSegmentChange) *SiteToSiteVpnAttachmentProposedSegmentChange {
-		return &v
-	}).(SiteToSiteVpnAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2627,62 +2011,6 @@ type SiteToSiteVpnAttachmentTag struct {
 	Value string `pulumi:"value"`
 }
 
-// SiteToSiteVpnAttachmentTagInput is an input type that accepts SiteToSiteVpnAttachmentTagArgs and SiteToSiteVpnAttachmentTagOutput values.
-// You can construct a concrete instance of `SiteToSiteVpnAttachmentTagInput` via:
-//
-//	SiteToSiteVpnAttachmentTagArgs{...}
-type SiteToSiteVpnAttachmentTagInput interface {
-	pulumi.Input
-
-	ToSiteToSiteVpnAttachmentTagOutput() SiteToSiteVpnAttachmentTagOutput
-	ToSiteToSiteVpnAttachmentTagOutputWithContext(context.Context) SiteToSiteVpnAttachmentTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type SiteToSiteVpnAttachmentTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (SiteToSiteVpnAttachmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*SiteToSiteVpnAttachmentTag)(nil)).Elem()
-}
-
-func (i SiteToSiteVpnAttachmentTagArgs) ToSiteToSiteVpnAttachmentTagOutput() SiteToSiteVpnAttachmentTagOutput {
-	return i.ToSiteToSiteVpnAttachmentTagOutputWithContext(context.Background())
-}
-
-func (i SiteToSiteVpnAttachmentTagArgs) ToSiteToSiteVpnAttachmentTagOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentTagOutput)
-}
-
-// SiteToSiteVpnAttachmentTagArrayInput is an input type that accepts SiteToSiteVpnAttachmentTagArray and SiteToSiteVpnAttachmentTagArrayOutput values.
-// You can construct a concrete instance of `SiteToSiteVpnAttachmentTagArrayInput` via:
-//
-//	SiteToSiteVpnAttachmentTagArray{ SiteToSiteVpnAttachmentTagArgs{...} }
-type SiteToSiteVpnAttachmentTagArrayInput interface {
-	pulumi.Input
-
-	ToSiteToSiteVpnAttachmentTagArrayOutput() SiteToSiteVpnAttachmentTagArrayOutput
-	ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(context.Context) SiteToSiteVpnAttachmentTagArrayOutput
-}
-
-type SiteToSiteVpnAttachmentTagArray []SiteToSiteVpnAttachmentTagInput
-
-func (SiteToSiteVpnAttachmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]SiteToSiteVpnAttachmentTag)(nil)).Elem()
-}
-
-func (i SiteToSiteVpnAttachmentTagArray) ToSiteToSiteVpnAttachmentTagArrayOutput() SiteToSiteVpnAttachmentTagArrayOutput {
-	return i.ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i SiteToSiteVpnAttachmentTagArray) ToSiteToSiteVpnAttachmentTagArrayOutputWithContext(ctx context.Context) SiteToSiteVpnAttachmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(SiteToSiteVpnAttachmentTagArrayOutput)
-}
-
 // A key-value pair to associate with a resource.
 type SiteToSiteVpnAttachmentTagOutput struct{ *pulumi.OutputState }
 
@@ -2746,80 +2074,6 @@ type TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange struct
 	Tags []TransitGatewayRouteTableAttachmentTag `pulumi:"tags"`
 }
 
-// TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeInput is an input type that accepts TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs and TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeInput` via:
-//
-//	TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-type TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput
-	ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput
-}
-
-// The attachment to move from one network function group to another.
-type TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the network function group to change.
-	NetworkFunctionGroupName pulumi.StringPtrInput `pulumi:"networkFunctionGroupName"`
-	// The key-value tags that changed for the network function group.
-	Tags TransitGatewayRouteTableAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return i.ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput)
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput).ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx)
-}
-
-// TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput is an input type that accepts TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs, TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtr and TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput` via:
-//
-//	        TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput
-	ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput
-}
-
-type transitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrType TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs
-
-func TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtr(v *TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput {
-	return (*transitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrType)(v)
-}
-
-func (*transitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i *transitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrType) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i *transitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrType) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput)
-}
-
 // The attachment to move from one network function group to another.
 type TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput struct{ *pulumi.OutputState }
 
@@ -2833,16 +2087,6 @@ func (o TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutp
 
 func (o TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput {
 	return o
-}
-
-func (o TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (o TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput) ToTransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange) *TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange {
-		return &v
-	}).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -2930,80 +2174,6 @@ type TransitGatewayRouteTableAttachmentProposedSegmentChange struct {
 	Tags []TransitGatewayRouteTableAttachmentTag `pulumi:"tags"`
 }
 
-// TransitGatewayRouteTableAttachmentProposedSegmentChangeInput is an input type that accepts TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs and TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentProposedSegmentChangeInput` via:
-//
-//	TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{...}
-type TransitGatewayRouteTableAttachmentProposedSegmentChangeInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput
-	ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput
-}
-
-// The attachment to move from one segment to another.
-type TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the segment to change.
-	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
-	// The key-value tags that changed for the segment.
-	Tags TransitGatewayRouteTableAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
-	return i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput)
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
-	return i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput).ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
-}
-
-// TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput is an input type that accepts TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs, TransitGatewayRouteTableAttachmentProposedSegmentChangePtr and TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput` via:
-//
-//	        TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput
-	ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput
-}
-
-type transitGatewayRouteTableAttachmentProposedSegmentChangePtrType TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs
-
-func TransitGatewayRouteTableAttachmentProposedSegmentChangePtr(v *TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput {
-	return (*transitGatewayRouteTableAttachmentProposedSegmentChangePtrType)(v)
-}
-
-func (*transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TransitGatewayRouteTableAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i *transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
-	return i.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i *transitGatewayRouteTableAttachmentProposedSegmentChangePtrType) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput)
-}
-
 // The attachment to move from one segment to another.
 type TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -3017,16 +2187,6 @@ func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransit
 
 func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
 	return o
-}
-
-func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
-	return o.ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (o TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput) ToTransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TransitGatewayRouteTableAttachmentProposedSegmentChange) *TransitGatewayRouteTableAttachmentProposedSegmentChange {
-		return &v
-	}).(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -3110,62 +2270,6 @@ type TransitGatewayRouteTableAttachmentTag struct {
 	Value string `pulumi:"value"`
 }
 
-// TransitGatewayRouteTableAttachmentTagInput is an input type that accepts TransitGatewayRouteTableAttachmentTagArgs and TransitGatewayRouteTableAttachmentTagOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentTagInput` via:
-//
-//	TransitGatewayRouteTableAttachmentTagArgs{...}
-type TransitGatewayRouteTableAttachmentTagInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableAttachmentTagOutput() TransitGatewayRouteTableAttachmentTagOutput
-	ToTransitGatewayRouteTableAttachmentTagOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type TransitGatewayRouteTableAttachmentTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (TransitGatewayRouteTableAttachmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TransitGatewayRouteTableAttachmentTag)(nil)).Elem()
-}
-
-func (i TransitGatewayRouteTableAttachmentTagArgs) ToTransitGatewayRouteTableAttachmentTagOutput() TransitGatewayRouteTableAttachmentTagOutput {
-	return i.ToTransitGatewayRouteTableAttachmentTagOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableAttachmentTagArgs) ToTransitGatewayRouteTableAttachmentTagOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentTagOutput)
-}
-
-// TransitGatewayRouteTableAttachmentTagArrayInput is an input type that accepts TransitGatewayRouteTableAttachmentTagArray and TransitGatewayRouteTableAttachmentTagArrayOutput values.
-// You can construct a concrete instance of `TransitGatewayRouteTableAttachmentTagArrayInput` via:
-//
-//	TransitGatewayRouteTableAttachmentTagArray{ TransitGatewayRouteTableAttachmentTagArgs{...} }
-type TransitGatewayRouteTableAttachmentTagArrayInput interface {
-	pulumi.Input
-
-	ToTransitGatewayRouteTableAttachmentTagArrayOutput() TransitGatewayRouteTableAttachmentTagArrayOutput
-	ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(context.Context) TransitGatewayRouteTableAttachmentTagArrayOutput
-}
-
-type TransitGatewayRouteTableAttachmentTagArray []TransitGatewayRouteTableAttachmentTagInput
-
-func (TransitGatewayRouteTableAttachmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TransitGatewayRouteTableAttachmentTag)(nil)).Elem()
-}
-
-func (i TransitGatewayRouteTableAttachmentTagArray) ToTransitGatewayRouteTableAttachmentTagArrayOutput() TransitGatewayRouteTableAttachmentTagArrayOutput {
-	return i.ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i TransitGatewayRouteTableAttachmentTagArray) ToTransitGatewayRouteTableAttachmentTagArrayOutputWithContext(ctx context.Context) TransitGatewayRouteTableAttachmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TransitGatewayRouteTableAttachmentTagArrayOutput)
-}
-
 // A key-value pair to associate with a resource.
 type TransitGatewayRouteTableAttachmentTagOutput struct{ *pulumi.OutputState }
 
@@ -3221,80 +2325,6 @@ type VpcAttachmentProposedNetworkFunctionGroupChange struct {
 	Tags []VpcAttachmentTag `pulumi:"tags"`
 }
 
-// VpcAttachmentProposedNetworkFunctionGroupChangeInput is an input type that accepts VpcAttachmentProposedNetworkFunctionGroupChangeArgs and VpcAttachmentProposedNetworkFunctionGroupChangeOutput values.
-// You can construct a concrete instance of `VpcAttachmentProposedNetworkFunctionGroupChangeInput` via:
-//
-//	VpcAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-type VpcAttachmentProposedNetworkFunctionGroupChangeInput interface {
-	pulumi.Input
-
-	ToVpcAttachmentProposedNetworkFunctionGroupChangeOutput() VpcAttachmentProposedNetworkFunctionGroupChangeOutput
-	ToVpcAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Context) VpcAttachmentProposedNetworkFunctionGroupChangeOutput
-}
-
-// The attachment to move from one network function group to another.
-type VpcAttachmentProposedNetworkFunctionGroupChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the network function group to change.
-	NetworkFunctionGroupName pulumi.StringPtrInput `pulumi:"networkFunctionGroupName"`
-	// The key-value tags that changed for the network function group.
-	Tags VpcAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (VpcAttachmentProposedNetworkFunctionGroupChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i VpcAttachmentProposedNetworkFunctionGroupChangeArgs) ToVpcAttachmentProposedNetworkFunctionGroupChangeOutput() VpcAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return i.ToVpcAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(context.Background())
-}
-
-func (i VpcAttachmentProposedNetworkFunctionGroupChangeArgs) ToVpcAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) VpcAttachmentProposedNetworkFunctionGroupChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedNetworkFunctionGroupChangeOutput)
-}
-
-func (i VpcAttachmentProposedNetworkFunctionGroupChangeArgs) ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutput() VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i VpcAttachmentProposedNetworkFunctionGroupChangeArgs) ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedNetworkFunctionGroupChangeOutput).ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx)
-}
-
-// VpcAttachmentProposedNetworkFunctionGroupChangePtrInput is an input type that accepts VpcAttachmentProposedNetworkFunctionGroupChangeArgs, VpcAttachmentProposedNetworkFunctionGroupChangePtr and VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput values.
-// You can construct a concrete instance of `VpcAttachmentProposedNetworkFunctionGroupChangePtrInput` via:
-//
-//	        VpcAttachmentProposedNetworkFunctionGroupChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type VpcAttachmentProposedNetworkFunctionGroupChangePtrInput interface {
-	pulumi.Input
-
-	ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutput() VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput
-	ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Context) VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput
-}
-
-type vpcAttachmentProposedNetworkFunctionGroupChangePtrType VpcAttachmentProposedNetworkFunctionGroupChangeArgs
-
-func VpcAttachmentProposedNetworkFunctionGroupChangePtr(v *VpcAttachmentProposedNetworkFunctionGroupChangeArgs) VpcAttachmentProposedNetworkFunctionGroupChangePtrInput {
-	return (*vpcAttachmentProposedNetworkFunctionGroupChangePtrType)(v)
-}
-
-func (*vpcAttachmentProposedNetworkFunctionGroupChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcAttachmentProposedNetworkFunctionGroupChange)(nil)).Elem()
-}
-
-func (i *vpcAttachmentProposedNetworkFunctionGroupChangePtrType) ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutput() VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return i.ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (i *vpcAttachmentProposedNetworkFunctionGroupChangePtrType) ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput)
-}
-
 // The attachment to move from one network function group to another.
 type VpcAttachmentProposedNetworkFunctionGroupChangeOutput struct{ *pulumi.OutputState }
 
@@ -3308,16 +2338,6 @@ func (o VpcAttachmentProposedNetworkFunctionGroupChangeOutput) ToVpcAttachmentPr
 
 func (o VpcAttachmentProposedNetworkFunctionGroupChangeOutput) ToVpcAttachmentProposedNetworkFunctionGroupChangeOutputWithContext(ctx context.Context) VpcAttachmentProposedNetworkFunctionGroupChangeOutput {
 	return o
-}
-
-func (o VpcAttachmentProposedNetworkFunctionGroupChangeOutput) ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutput() VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(context.Background())
-}
-
-func (o VpcAttachmentProposedNetworkFunctionGroupChangeOutput) ToVpcAttachmentProposedNetworkFunctionGroupChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachmentProposedNetworkFunctionGroupChange) *VpcAttachmentProposedNetworkFunctionGroupChange {
-		return &v
-	}).(VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -3399,80 +2419,6 @@ type VpcAttachmentProposedSegmentChange struct {
 	Tags []VpcAttachmentTag `pulumi:"tags"`
 }
 
-// VpcAttachmentProposedSegmentChangeInput is an input type that accepts VpcAttachmentProposedSegmentChangeArgs and VpcAttachmentProposedSegmentChangeOutput values.
-// You can construct a concrete instance of `VpcAttachmentProposedSegmentChangeInput` via:
-//
-//	VpcAttachmentProposedSegmentChangeArgs{...}
-type VpcAttachmentProposedSegmentChangeInput interface {
-	pulumi.Input
-
-	ToVpcAttachmentProposedSegmentChangeOutput() VpcAttachmentProposedSegmentChangeOutput
-	ToVpcAttachmentProposedSegmentChangeOutputWithContext(context.Context) VpcAttachmentProposedSegmentChangeOutput
-}
-
-// The attachment to move from one segment to another.
-type VpcAttachmentProposedSegmentChangeArgs struct {
-	// The rule number in the policy document that applies to this change.
-	AttachmentPolicyRuleNumber pulumi.IntPtrInput `pulumi:"attachmentPolicyRuleNumber"`
-	// The name of the segment to change.
-	SegmentName pulumi.StringPtrInput `pulumi:"segmentName"`
-	// The key-value tags that changed for the segment.
-	Tags VpcAttachmentTagArrayInput `pulumi:"tags"`
-}
-
-func (VpcAttachmentProposedSegmentChangeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangeOutput() VpcAttachmentProposedSegmentChangeOutput {
-	return i.ToVpcAttachmentProposedSegmentChangeOutputWithContext(context.Background())
-}
-
-func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangeOutput)
-}
-
-func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
-	return i.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i VpcAttachmentProposedSegmentChangeArgs) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangeOutput).ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx)
-}
-
-// VpcAttachmentProposedSegmentChangePtrInput is an input type that accepts VpcAttachmentProposedSegmentChangeArgs, VpcAttachmentProposedSegmentChangePtr and VpcAttachmentProposedSegmentChangePtrOutput values.
-// You can construct a concrete instance of `VpcAttachmentProposedSegmentChangePtrInput` via:
-//
-//	        VpcAttachmentProposedSegmentChangeArgs{...}
-//
-//	or:
-//
-//	        nil
-type VpcAttachmentProposedSegmentChangePtrInput interface {
-	pulumi.Input
-
-	ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput
-	ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Context) VpcAttachmentProposedSegmentChangePtrOutput
-}
-
-type vpcAttachmentProposedSegmentChangePtrType VpcAttachmentProposedSegmentChangeArgs
-
-func VpcAttachmentProposedSegmentChangePtr(v *VpcAttachmentProposedSegmentChangeArgs) VpcAttachmentProposedSegmentChangePtrInput {
-	return (*vpcAttachmentProposedSegmentChangePtrType)(v)
-}
-
-func (*vpcAttachmentProposedSegmentChangePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**VpcAttachmentProposedSegmentChange)(nil)).Elem()
-}
-
-func (i *vpcAttachmentProposedSegmentChangePtrType) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
-	return i.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (i *vpcAttachmentProposedSegmentChangePtrType) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentProposedSegmentChangePtrOutput)
-}
-
 // The attachment to move from one segment to another.
 type VpcAttachmentProposedSegmentChangeOutput struct{ *pulumi.OutputState }
 
@@ -3486,16 +2432,6 @@ func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegment
 
 func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangeOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangeOutput {
 	return o
-}
-
-func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangePtrOutput() VpcAttachmentProposedSegmentChangePtrOutput {
-	return o.ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(context.Background())
-}
-
-func (o VpcAttachmentProposedSegmentChangeOutput) ToVpcAttachmentProposedSegmentChangePtrOutputWithContext(ctx context.Context) VpcAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcAttachmentProposedSegmentChange) *VpcAttachmentProposedSegmentChange {
-		return &v
-	}).(VpcAttachmentProposedSegmentChangePtrOutput)
 }
 
 // The rule number in the policy document that applies to this change.
@@ -3573,62 +2509,6 @@ type VpcAttachmentTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
-}
-
-// VpcAttachmentTagInput is an input type that accepts VpcAttachmentTagArgs and VpcAttachmentTagOutput values.
-// You can construct a concrete instance of `VpcAttachmentTagInput` via:
-//
-//	VpcAttachmentTagArgs{...}
-type VpcAttachmentTagInput interface {
-	pulumi.Input
-
-	ToVpcAttachmentTagOutput() VpcAttachmentTagOutput
-	ToVpcAttachmentTagOutputWithContext(context.Context) VpcAttachmentTagOutput
-}
-
-// A key-value pair to associate with a resource.
-type VpcAttachmentTagArgs struct {
-	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Key pulumi.StringInput `pulumi:"key"`
-	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
-	Value pulumi.StringInput `pulumi:"value"`
-}
-
-func (VpcAttachmentTagArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*VpcAttachmentTag)(nil)).Elem()
-}
-
-func (i VpcAttachmentTagArgs) ToVpcAttachmentTagOutput() VpcAttachmentTagOutput {
-	return i.ToVpcAttachmentTagOutputWithContext(context.Background())
-}
-
-func (i VpcAttachmentTagArgs) ToVpcAttachmentTagOutputWithContext(ctx context.Context) VpcAttachmentTagOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentTagOutput)
-}
-
-// VpcAttachmentTagArrayInput is an input type that accepts VpcAttachmentTagArray and VpcAttachmentTagArrayOutput values.
-// You can construct a concrete instance of `VpcAttachmentTagArrayInput` via:
-//
-//	VpcAttachmentTagArray{ VpcAttachmentTagArgs{...} }
-type VpcAttachmentTagArrayInput interface {
-	pulumi.Input
-
-	ToVpcAttachmentTagArrayOutput() VpcAttachmentTagArrayOutput
-	ToVpcAttachmentTagArrayOutputWithContext(context.Context) VpcAttachmentTagArrayOutput
-}
-
-type VpcAttachmentTagArray []VpcAttachmentTagInput
-
-func (VpcAttachmentTagArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]VpcAttachmentTag)(nil)).Elem()
-}
-
-func (i VpcAttachmentTagArray) ToVpcAttachmentTagArrayOutput() VpcAttachmentTagArrayOutput {
-	return i.ToVpcAttachmentTagArrayOutputWithContext(context.Background())
-}
-
-func (i VpcAttachmentTagArray) ToVpcAttachmentTagArrayOutputWithContext(ctx context.Context) VpcAttachmentTagArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(VpcAttachmentTagArrayOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -3875,45 +2755,15 @@ func (o VpcAttachmentVpcOptionsPtrOutput) SecurityGroupReferencingSupport() pulu
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentOptionsInput)(nil)).Elem(), ConnectAttachmentOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentProposedNetworkFunctionGroupChangeInput)(nil)).Elem(), ConnectAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput)(nil)).Elem(), ConnectAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentProposedSegmentChangeInput)(nil)).Elem(), ConnectAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), ConnectAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagInput)(nil)).Elem(), ConnectAttachmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ConnectAttachmentTagArrayInput)(nil)).Elem(), ConnectAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectPeerBgpOptionsPtrInput)(nil)).Elem(), ConnectPeerBgpOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceAwsLocationPtrInput)(nil)).Elem(), DeviceAwsLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationInput)(nil)).Elem(), DeviceLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DeviceLocationPtrInput)(nil)).Elem(), DeviceLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedSegmentChangeInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), DirectConnectGatewayAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentTagInput)(nil)).Elem(), DirectConnectGatewayAttachmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DirectConnectGatewayAttachmentTagArrayInput)(nil)).Elem(), DirectConnectGatewayAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LinkBandwidthInput)(nil)).Elem(), LinkBandwidthArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationInput)(nil)).Elem(), SiteLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteLocationPtrInput)(nil)).Elem(), SiteLocationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangePtrInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChangeInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), SiteToSiteVpnAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*SiteToSiteVpnAttachmentTagArrayInput)(nil)).Elem(), SiteToSiteVpnAttachmentTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChangeInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentTagInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TransitGatewayRouteTableAttachmentTagArrayInput)(nil)).Elem(), TransitGatewayRouteTableAttachmentTagArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentProposedNetworkFunctionGroupChangeInput)(nil)).Elem(), VpcAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentProposedNetworkFunctionGroupChangePtrInput)(nil)).Elem(), VpcAttachmentProposedNetworkFunctionGroupChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentProposedSegmentChangeInput)(nil)).Elem(), VpcAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentProposedSegmentChangePtrInput)(nil)).Elem(), VpcAttachmentProposedSegmentChangeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagInput)(nil)).Elem(), VpcAttachmentTagArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentTagArrayInput)(nil)).Elem(), VpcAttachmentTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcAttachmentVpcOptionsPtrInput)(nil)).Elem(), VpcAttachmentVpcOptionsArgs{})
 	pulumi.RegisterOutputType(ConnectAttachmentOptionsOutput{})

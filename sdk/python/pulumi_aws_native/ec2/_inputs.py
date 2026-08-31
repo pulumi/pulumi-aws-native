@@ -102,6 +102,8 @@ __all__ = [
     'EnclaveOptionsPropertiesArgsDict',
     'FlowLogTagFieldSpecificationArgs',
     'FlowLogTagFieldSpecificationArgsDict',
+    'FpgaImageStorageLocationArgs',
+    'FpgaImageStorageLocationArgsDict',
     'HibernationOptionsPropertiesArgs',
     'HibernationOptionsPropertiesArgsDict',
     'InstanceAssociationParameterArgs',
@@ -4736,6 +4738,60 @@ class FlowLogTagFieldSpecificationArgs:
     @tag_keys.setter
     def tag_keys(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "tag_keys", value)
+
+
+class FpgaImageStorageLocationArgsDict(TypedDict):
+    """
+    Describes a storage location in Amazon S3.
+    """
+    bucket: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the S3 bucket.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The key.
+    """
+
+@pulumi.input_type
+class FpgaImageStorageLocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes a storage location in Amazon S3.
+
+        :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket.
+        :param pulumi.Input[_builtins.str] key: The key.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The key.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
 
 
 class HibernationOptionsPropertiesArgsDict(TypedDict):

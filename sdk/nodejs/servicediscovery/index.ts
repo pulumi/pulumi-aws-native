@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetHttpNamespaceArgs, GetHttpNamespaceResult, GetHttpNamespaceOutputArgs } from "./getHttpNamespace";
+export const getHttpNamespace: typeof import("./getHttpNamespace").getHttpNamespace = null as any;
+export const getHttpNamespaceOutput: typeof import("./getHttpNamespace").getHttpNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getHttpNamespace","getHttpNamespaceOutput"], () => require("./getHttpNamespace"));
+
 export { GetPrivateDnsNamespaceArgs, GetPrivateDnsNamespaceResult, GetPrivateDnsNamespaceOutputArgs } from "./getPrivateDnsNamespace";
 export const getPrivateDnsNamespace: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespace = null as any;
 export const getPrivateDnsNamespaceOutput: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespaceOutput = null as any;
@@ -19,6 +24,11 @@ export { GetServiceArgs, GetServiceResult, GetServiceOutputArgs } from "./getSer
 export const getService: typeof import("./getService").getService = null as any;
 export const getServiceOutput: typeof import("./getService").getServiceOutput = null as any;
 utilities.lazyLoad(exports, ["getService","getServiceOutput"], () => require("./getService"));
+
+export { HttpNamespaceArgs } from "./httpNamespace";
+export type HttpNamespace = import("./httpNamespace").HttpNamespace;
+export const HttpNamespace: typeof import("./httpNamespace").HttpNamespace = null as any;
+utilities.lazyLoad(exports, ["HttpNamespace"], () => require("./httpNamespace"));
 
 export { PrivateDnsNamespaceArgs } from "./privateDnsNamespace";
 export type PrivateDnsNamespace = import("./privateDnsNamespace").PrivateDnsNamespace;
@@ -40,6 +50,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:servicediscovery:HttpNamespace":
+                return new HttpNamespace(name, <any>undefined, { urn })
             case "aws-native:servicediscovery:PrivateDnsNamespace":
                 return new PrivateDnsNamespace(name, <any>undefined, { urn })
             case "aws-native:servicediscovery:PublicDnsNamespace":

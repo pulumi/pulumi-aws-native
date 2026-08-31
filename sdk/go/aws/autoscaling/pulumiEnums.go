@@ -347,13 +347,233 @@ func (in *autoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthChec
 	return pulumi.ToOutputWithContext(ctx, in).(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput)
 }
 
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItem string
+
+const (
+	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOnDemandCapacityReservation      = AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("on-demand-capacity-reservation")
+	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemCapacityBlock                    = AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("capacity-block")
+	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemInterruptibleCapacityReservation = AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("interruptible-capacity-reservation")
+	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOnDemand                         = AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("on-demand")
+)
+
+func (AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupDistributionSegmentTargetCapacityTypesItem)(nil)).Elem()
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput {
+	return pulumi.ToOutput(e).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput)
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput)
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return e.ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return AutoScalingGroupDistributionSegmentTargetCapacityTypesItem(e).ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutputWithContext(ctx).ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AutoScalingGroupDistributionSegmentTargetCapacityTypesItem)(nil)).Elem()
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return o.ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) *AutoScalingGroupDistributionSegmentTargetCapacityTypesItem {
+		return &v
+	}).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput)
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AutoScalingGroupDistributionSegmentTargetCapacityTypesItem)(nil)).Elem()
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput) Elem() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput {
+	return o.ApplyT(func(v *AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) AutoScalingGroupDistributionSegmentTargetCapacityTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret AutoScalingGroupDistributionSegmentTargetCapacityTypesItem
+		return ret
+	}).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput)
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AutoScalingGroupDistributionSegmentTargetCapacityTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AutoScalingGroupDistributionSegmentTargetCapacityTypesItemInput is an input type that accepts values of the AutoScalingGroupDistributionSegmentTargetCapacityTypesItem enum
+// A concrete instance of `AutoScalingGroupDistributionSegmentTargetCapacityTypesItemInput` can be one of the following:
+//
+//	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOnDemandCapacityReservation
+//	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemCapacityBlock
+//	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemInterruptibleCapacityReservation
+//	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOnDemand
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItemInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput
+	ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutputWithContext(context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput
+}
+
+var autoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrType = reflect.TypeOf((**AutoScalingGroupDistributionSegmentTargetCapacityTypesItem)(nil)).Elem()
+
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput
+	ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput
+}
+
+type autoScalingGroupDistributionSegmentTargetCapacityTypesItemPtr string
+
+func AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtr(v string) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrInput {
+	return (*autoScalingGroupDistributionSegmentTargetCapacityTypesItemPtr)(&v)
+}
+
+func (*autoScalingGroupDistributionSegmentTargetCapacityTypesItemPtr) ElementType() reflect.Type {
+	return autoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrType
+}
+
+func (in *autoScalingGroupDistributionSegmentTargetCapacityTypesItemPtr) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput)
+}
+
+func (in *autoScalingGroupDistributionSegmentTargetCapacityTypesItemPtr) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput)
+}
+
+// AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayInput is an input type that accepts AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArray and AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput values.
+// You can construct a concrete instance of `AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayInput` via:
+//
+//	AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArray{ AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArgs{...} }
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput
+	ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutputWithContext(context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput
+}
+
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArray []AutoScalingGroupDistributionSegmentTargetCapacityTypesItem
+
+func (AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupDistributionSegmentTargetCapacityTypesItem)(nil)).Elem()
+}
+
+func (i AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArray) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput {
+	return i.ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArray) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput)
+}
+
+type AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AutoScalingGroupDistributionSegmentTargetCapacityTypesItem)(nil)).Elem()
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput) ToAutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutputWithContext(ctx context.Context) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput {
+	return o
+}
+
+func (o AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput) Index(i pulumi.IntInput) AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AutoScalingGroupDistributionSegmentTargetCapacityTypesItem {
+		return vs[0].([]AutoScalingGroupDistributionSegmentTargetCapacityTypesItem)[vs[1].(int)]
+	}).(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy("balanced-best-effort"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategy("balanced-best-effort"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior("IgnoreUnhealthy"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrInput)(nil)).Elem(), AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehavior("IgnoreUnhealthy"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupDistributionSegmentTargetCapacityTypesItemInput)(nil)).Elem(), AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("on-demand-capacity-reservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrInput)(nil)).Elem(), AutoScalingGroupDistributionSegmentTargetCapacityTypesItem("on-demand-capacity-reservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayInput)(nil)).Elem(), AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArray{})
 	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneDistributionCapacityDistributionStrategyPtrOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorOutput{})
 	pulumi.RegisterOutputType(AutoScalingGroupAvailabilityZoneImpairmentPolicyImpairedZoneHealthCheckBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput{})
 }

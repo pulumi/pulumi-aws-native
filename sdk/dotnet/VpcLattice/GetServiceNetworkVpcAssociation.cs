@@ -72,9 +72,17 @@ namespace Pulumi.AwsNative.VpcLattice
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// The DNS options for the service network VPC association.
+        /// </summary>
+        public readonly Outputs.ServiceNetworkVpcAssociationDnsOptions? DnsOptions;
+        /// <summary>
         /// The ID of the specified association between the service network and the VPC.
         /// </summary>
         public readonly string? Id;
+        /// <summary>
+        /// Indicates if private DNS is enabled for the service network VPC association.
+        /// </summary>
+        public readonly bool? PrivateDnsEnabled;
         /// <summary>
         /// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
         /// </summary>
@@ -110,7 +118,11 @@ namespace Pulumi.AwsNative.VpcLattice
 
             string? createdAt,
 
+            Outputs.ServiceNetworkVpcAssociationDnsOptions? dnsOptions,
+
             string? id,
+
+            bool? privateDnsEnabled,
 
             ImmutableArray<string> securityGroupIds,
 
@@ -128,7 +140,9 @@ namespace Pulumi.AwsNative.VpcLattice
         {
             Arn = arn;
             CreatedAt = createdAt;
+            DnsOptions = dnsOptions;
             Id = id;
+            PrivateDnsEnabled = privateDnsEnabled;
             SecurityGroupIds = securityGroupIds;
             ServiceNetworkArn = serviceNetworkArn;
             ServiceNetworkId = serviceNetworkId;

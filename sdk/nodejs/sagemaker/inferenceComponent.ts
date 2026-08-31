@@ -71,7 +71,8 @@ export class InferenceComponent extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     declare public readonly runtimeConfig: pulumi.Output<outputs.sagemaker.InferenceComponentRuntimeConfig | undefined>;
-    declare public readonly specification: pulumi.Output<outputs.sagemaker.InferenceComponentSpecification>;
+    declare public readonly specification: pulumi.Output<outputs.sagemaker.InferenceComponentSpecification | undefined>;
+    declare public readonly specifications: pulumi.Output<outputs.sagemaker.InferenceComponentSpecificationForInstanceType[] | undefined>;
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
      * The name of the production variant that hosts the inference component.
@@ -92,15 +93,13 @@ export class InferenceComponent extends pulumi.CustomResource {
             if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if (args?.specification === undefined && !opts.urn) {
-                throw new Error("Missing required property 'specification'");
-            }
             resourceInputs["deploymentConfig"] = args?.deploymentConfig;
             resourceInputs["endpointArn"] = args?.endpointArn;
             resourceInputs["endpointName"] = args?.endpointName;
             resourceInputs["inferenceComponentName"] = args?.inferenceComponentName;
             resourceInputs["runtimeConfig"] = args?.runtimeConfig;
             resourceInputs["specification"] = args?.specification;
+            resourceInputs["specifications"] = args?.specifications;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["variantName"] = args?.variantName;
             resourceInputs["creationTime"] = undefined /*out*/;
@@ -120,6 +119,7 @@ export class InferenceComponent extends pulumi.CustomResource {
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["runtimeConfig"] = undefined /*out*/;
             resourceInputs["specification"] = undefined /*out*/;
+            resourceInputs["specifications"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["variantName"] = undefined /*out*/;
         }
@@ -149,7 +149,8 @@ export interface InferenceComponentArgs {
      */
     inferenceComponentName?: pulumi.Input<string | undefined>;
     runtimeConfig?: pulumi.Input<inputs.sagemaker.InferenceComponentRuntimeConfigArgs | undefined>;
-    specification: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationArgs>;
+    specification?: pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationArgs | undefined>;
+    specifications?: pulumi.Input<pulumi.Input<inputs.sagemaker.InferenceComponentSpecificationForInstanceTypeArgs>[] | undefined>;
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**
      * The name of the production variant that hosts the inference component.

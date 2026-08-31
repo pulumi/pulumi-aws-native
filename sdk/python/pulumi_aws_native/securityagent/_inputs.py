@@ -50,6 +50,8 @@ __all__ = [
     'PentestAssetsArgsDict',
     'PentestAuthenticationArgs',
     'PentestAuthenticationArgsDict',
+    'PentestCaCertificateSourceArgs',
+    'PentestCaCertificateSourceArgsDict',
     'PentestCloudWatchLogArgs',
     'PentestCloudWatchLogArgsDict',
     'PentestCustomHeaderArgs',
@@ -66,6 +68,8 @@ __all__ = [
     'PentestNetworkTrafficRuleArgsDict',
     'PentestSourceCodeRepositoryArgs',
     'PentestSourceCodeRepositoryArgsDict',
+    'PentestTrustedCaCertificateArgs',
+    'PentestTrustedCaCertificateArgsDict',
     'PentestVpcConfigArgs',
     'PentestVpcConfigArgsDict',
     'SecurityRequirementPackSecurityRequirementArgs',
@@ -1193,6 +1197,10 @@ class PentestAssetsArgsDict(TypedDict):
     """
     List of source code repositories to analyze
     """
+    trusted_ca_certificates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['PentestTrustedCaCertificateArgsDict']]]]]
+    """
+    Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+    """
 
 @pulumi.input_type
 class PentestAssetsArgs:
@@ -1201,7 +1209,8 @@ class PentestAssetsArgs:
                  documents: pulumi.Input[Optional[Sequence[pulumi.Input['PentestDocumentInfoArgs']]]] = None,
                  endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['PentestEndpointArgs']]]] = None,
                  integrated_repositories: pulumi.Input[Optional[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]]] = None,
-                 source_code: pulumi.Input[Optional[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]] = None):
+                 source_code: pulumi.Input[Optional[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]] = None,
+                 trusted_ca_certificates: pulumi.Input[Optional[Sequence[pulumi.Input['PentestTrustedCaCertificateArgs']]]] = None):
         """
         Collection of assets to be tested during the pentest
 
@@ -1210,6 +1219,7 @@ class PentestAssetsArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PentestEndpointArgs']]] endpoints: List of endpoints to test
         :param pulumi.Input[Sequence[pulumi.Input['PentestIntegratedRepositoryArgs']]] integrated_repositories: List of repositories connected via provider integrations
         :param pulumi.Input[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]] source_code: List of source code repositories to analyze
+        :param pulumi.Input[Sequence[pulumi.Input['PentestTrustedCaCertificateArgs']]] trusted_ca_certificates: Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
         """
         if actors is not None:
             pulumi.set(__self__, "actors", actors)
@@ -1221,6 +1231,8 @@ class PentestAssetsArgs:
             pulumi.set(__self__, "integrated_repositories", integrated_repositories)
         if source_code is not None:
             pulumi.set(__self__, "source_code", source_code)
+        if trusted_ca_certificates is not None:
+            pulumi.set(__self__, "trusted_ca_certificates", trusted_ca_certificates)
 
     @_builtins.property
     @pulumi.getter
@@ -1282,6 +1294,18 @@ class PentestAssetsArgs:
     def source_code(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestSourceCodeRepositoryArgs']]]]):
         pulumi.set(self, "source_code", value)
 
+    @_builtins.property
+    @pulumi.getter(name="trustedCaCertificates")
+    def trusted_ca_certificates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['PentestTrustedCaCertificateArgs']]]]:
+        """
+        Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+        """
+        return pulumi.get(self, "trusted_ca_certificates")
+
+    @trusted_ca_certificates.setter
+    def trusted_ca_certificates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['PentestTrustedCaCertificateArgs']]]]):
+        pulumi.set(self, "trusted_ca_certificates", value)
+
 
 class PentestAuthenticationArgsDict(TypedDict):
     """
@@ -1335,6 +1359,80 @@ class PentestAuthenticationArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+class PentestCaCertificateSourceArgsDict(TypedDict):
+    """
+    Source of a trusted CA certificate. Exactly one member must be set.
+    """
+    artifact_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Artifact ID of an uploaded certificate file
+    """
+    inline_pem: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    PEM-encoded X.509 certificate supplied inline
+    """
+    s3_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Amazon S3 location URI of a customer-staged certificate
+    """
+
+@pulumi.input_type
+class PentestCaCertificateSourceArgs:
+    def __init__(__self__, *,
+                 artifact_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 inline_pem: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_location: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Source of a trusted CA certificate. Exactly one member must be set.
+
+        :param pulumi.Input[_builtins.str] artifact_id: Artifact ID of an uploaded certificate file
+        :param pulumi.Input[_builtins.str] inline_pem: PEM-encoded X.509 certificate supplied inline
+        :param pulumi.Input[_builtins.str] s3_location: Amazon S3 location URI of a customer-staged certificate
+        """
+        if artifact_id is not None:
+            pulumi.set(__self__, "artifact_id", artifact_id)
+        if inline_pem is not None:
+            pulumi.set(__self__, "inline_pem", inline_pem)
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactId")
+    def artifact_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Artifact ID of an uploaded certificate file
+        """
+        return pulumi.get(self, "artifact_id")
+
+    @artifact_id.setter
+    def artifact_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "artifact_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inlinePem")
+    def inline_pem(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        PEM-encoded X.509 certificate supplied inline
+        """
+        return pulumi.get(self, "inline_pem")
+
+    @inline_pem.setter
+    def inline_pem(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "inline_pem", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Amazon S3 location URI of a customer-staged certificate
+        """
+        return pulumi.get(self, "s3_location")
+
+    @s3_location.setter
+    def s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_location", value)
 
 
 class PentestCloudWatchLogArgsDict(TypedDict):
@@ -1765,6 +1863,39 @@ class PentestSourceCodeRepositoryArgs:
     @s3_location.setter
     def s3_location(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "s3_location", value)
+
+
+class PentestTrustedCaCertificateArgsDict(TypedDict):
+    """
+    Trust anchor used when validating a target endpoint's TLS certificate
+    """
+    source: pulumi.Input['PentestCaCertificateSourceArgsDict']
+    """
+    Where to read the certificate from
+    """
+
+@pulumi.input_type
+class PentestTrustedCaCertificateArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['PentestCaCertificateSourceArgs']):
+        """
+        Trust anchor used when validating a target endpoint's TLS certificate
+
+        :param pulumi.Input['PentestCaCertificateSourceArgs'] source: Where to read the certificate from
+        """
+        pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['PentestCaCertificateSourceArgs']:
+        """
+        Where to read the certificate from
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['PentestCaCertificateSourceArgs']):
+        pulumi.set(self, "source", value)
 
 
 class PentestVpcConfigArgsDict(TypedDict):

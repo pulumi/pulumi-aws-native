@@ -84,11 +84,11 @@ export class ConnectAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one network function group to another.
      */
-    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public /*out*/ readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChange>;
     /**
      * The attachment to move from one segment to another.
      */
-    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedSegmentChange | undefined>;
+    declare public /*out*/ readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.ConnectAttachmentProposedSegmentChange>;
     /**
      * The attachment resource ARN.
      */
@@ -145,8 +145,6 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["edgeLocation"] = args?.edgeLocation;
             resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
             resourceInputs["options"] = args?.options;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
-            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
             resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transportAttachmentId"] = args?.transportAttachmentId;
@@ -157,6 +155,8 @@ export class ConnectAttachment extends pulumi.CustomResource {
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
+            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -210,14 +210,6 @@ export interface ConnectAttachmentArgs {
      * Protocol options for connect attachment
      */
     options: pulumi.Input<inputs.networkmanager.ConnectAttachmentOptionsArgs>;
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
-    /**
-     * The attachment to move from one segment to another.
-     */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.ConnectAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */

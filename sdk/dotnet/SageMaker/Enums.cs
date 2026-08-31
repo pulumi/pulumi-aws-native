@@ -2049,6 +2049,33 @@ namespace Pulumi.AwsNative.SageMaker
     }
 
     [EnumType]
+    public readonly struct InferenceComponentAvailabilityZoneBalanceEnforcementMode : IEquatable<InferenceComponentAvailabilityZoneBalanceEnforcementMode>
+    {
+        private readonly string _value;
+
+        private InferenceComponentAvailabilityZoneBalanceEnforcementMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceComponentAvailabilityZoneBalanceEnforcementMode Permissive { get; } = new InferenceComponentAvailabilityZoneBalanceEnforcementMode("PERMISSIVE");
+
+        public static bool operator ==(InferenceComponentAvailabilityZoneBalanceEnforcementMode left, InferenceComponentAvailabilityZoneBalanceEnforcementMode right) => left.Equals(right);
+        public static bool operator !=(InferenceComponentAvailabilityZoneBalanceEnforcementMode left, InferenceComponentAvailabilityZoneBalanceEnforcementMode right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceComponentAvailabilityZoneBalanceEnforcementMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceComponentAvailabilityZoneBalanceEnforcementMode other && Equals(other);
+        public bool Equals(InferenceComponentAvailabilityZoneBalanceEnforcementMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct InferenceComponentCapacitySizeType : IEquatable<InferenceComponentCapacitySizeType>
     {
         private readonly string _value;
@@ -2069,6 +2096,34 @@ namespace Pulumi.AwsNative.SageMaker
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is InferenceComponentCapacitySizeType other && Equals(other);
         public bool Equals(InferenceComponentCapacitySizeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct InferenceComponentPlacementStrategy : IEquatable<InferenceComponentPlacementStrategy>
+    {
+        private readonly string _value;
+
+        private InferenceComponentPlacementStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static InferenceComponentPlacementStrategy Spread { get; } = new InferenceComponentPlacementStrategy("SPREAD");
+        public static InferenceComponentPlacementStrategy Binpack { get; } = new InferenceComponentPlacementStrategy("BINPACK");
+
+        public static bool operator ==(InferenceComponentPlacementStrategy left, InferenceComponentPlacementStrategy right) => left.Equals(right);
+        public static bool operator !=(InferenceComponentPlacementStrategy left, InferenceComponentPlacementStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(InferenceComponentPlacementStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is InferenceComponentPlacementStrategy other && Equals(other);
+        public bool Equals(InferenceComponentPlacementStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

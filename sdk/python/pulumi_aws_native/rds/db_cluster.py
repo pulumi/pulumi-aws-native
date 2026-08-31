@@ -2071,7 +2071,7 @@ class DbCluster(pulumi.CustomResource):
             __props__.__dict__["read_endpoint"] = None
             __props__.__dict__["storage_encryption_type"] = None
             __props__.__dict__["storage_throughput"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbCluster, __self__).__init__(
             'aws-native:rds:DbCluster',

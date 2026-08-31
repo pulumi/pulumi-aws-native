@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
 {
 
     /// <summary>
-    /// The specification for the inference component
+    /// The specification for the inference component, for an endpoint with a single instance type. Specify exactly one of Specification or Specifications. InstanceType is not accepted here; use Specifications for per instance type configuration.
     /// </summary>
     public sealed class InferenceComponentSpecificationArgs : global::Pulumi.ResourceArgs
     {
@@ -42,10 +42,22 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         public Input<Inputs.InferenceComponentContainerSpecificationArgs>? Container { get; set; }
 
         /// <summary>
+        /// The data caching configuration actually in effect, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+        /// </summary>
+        [Input("currentDataCacheConfig")]
+        public Input<Inputs.InferenceComponentDataCacheConfigArgs>? CurrentDataCacheConfig { get; set; }
+
+        [Input("dataCacheConfig")]
+        public Input<Inputs.InferenceComponentDataCacheConfigArgs>? DataCacheConfig { get; set; }
+
+        /// <summary>
         /// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
         /// </summary>
         [Input("modelName")]
         public Input<string>? ModelName { get; set; }
+
+        [Input("schedulingConfig")]
+        public Input<Inputs.InferenceComponentSchedulingConfigArgs>? SchedulingConfig { get; set; }
 
         /// <summary>
         /// Settings that take effect while the model container starts up.

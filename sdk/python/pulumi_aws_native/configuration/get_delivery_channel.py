@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'GetDeliveryChannelResult',
@@ -25,10 +24,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryChannelResult:
-    def __init__(__self__, config_snapshot_delivery_properties=None, s3_bucket_name=None, s3_key_prefix=None, s3_kms_key_arn=None, sns_topic_arn=None):
+    def __init__(__self__, config_snapshot_delivery_properties=None, id=None, s3_bucket_name=None, s3_key_prefix=None, s3_kms_key_arn=None, sns_topic_arn=None):
         if config_snapshot_delivery_properties and not isinstance(config_snapshot_delivery_properties, dict):
             raise TypeError("Expected argument 'config_snapshot_delivery_properties' to be a dict")
         pulumi.set(__self__, "config_snapshot_delivery_properties", config_snapshot_delivery_properties)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if s3_bucket_name and not isinstance(s3_bucket_name, str):
             raise TypeError("Expected argument 's3_bucket_name' to be a str")
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -51,10 +53,17 @@ class GetDeliveryChannelResult:
         return pulumi.get(self, "config_snapshot_delivery_properties")
 
     @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
     @pulumi.getter(name="s3BucketName")
     def s3_bucket_name(self) -> Optional[_builtins.str]:
         """
         The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+
+        If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -70,7 +79,7 @@ class GetDeliveryChannelResult:
     @pulumi.getter(name="s3KmsKeyArn")
     def s3_kms_key_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
         """
         return pulumi.get(self, "s3_kms_key_arn")
 
@@ -79,6 +88,8 @@ class GetDeliveryChannelResult:
     def sns_topic_arn(self) -> Optional[_builtins.str]:
         """
         The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+
+        If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -90,43 +101,42 @@ class AwaitableGetDeliveryChannelResult(GetDeliveryChannelResult):
             yield self
         return GetDeliveryChannelResult(
             config_snapshot_delivery_properties=self.config_snapshot_delivery_properties,
+            id=self.id,
             s3_bucket_name=self.s3_bucket_name,
             s3_key_prefix=self.s3_key_prefix,
             s3_kms_key_arn=self.s3_kms_key_arn,
             sns_topic_arn=self.sns_topic_arn)
 
 
-def get_delivery_channel(name: Optional[_builtins.str] = None,
+def get_delivery_channel(id: Optional[_builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeliveryChannelResult:
     """
-    Resource type definition for AWS::Config::DeliveryChannel
-
-    :param _builtins.str name: The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+    Resource Type definition for AWS::Config::DeliveryChannel
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:configuration:getDeliveryChannel', __args__, opts=opts, typ=GetDeliveryChannelResult).value
 
     return AwaitableGetDeliveryChannelResult(
         config_snapshot_delivery_properties=pulumi.get(__ret__, 'config_snapshot_delivery_properties'),
+        id=pulumi.get(__ret__, 'id'),
         s3_bucket_name=pulumi.get(__ret__, 's3_bucket_name'),
         s3_key_prefix=pulumi.get(__ret__, 's3_key_prefix'),
         s3_kms_key_arn=pulumi.get(__ret__, 's3_kms_key_arn'),
         sns_topic_arn=pulumi.get(__ret__, 'sns_topic_arn'))
-def get_delivery_channel_output(name: pulumi.Input[Optional[_builtins.str]] = None,
+def get_delivery_channel_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryChannelResult]:
     """
-    Resource type definition for AWS::Config::DeliveryChannel
-
-    :param _builtins.str name: The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+    Resource Type definition for AWS::Config::DeliveryChannel
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:configuration:getDeliveryChannel', __args__, opts=opts, typ=GetDeliveryChannelResult)
     return __ret__.apply(lambda __response__: GetDeliveryChannelResult(
         config_snapshot_delivery_properties=pulumi.get(__response__, 'config_snapshot_delivery_properties'),
+        id=pulumi.get(__response__, 'id'),
         s3_bucket_name=pulumi.get(__response__, 's3_bucket_name'),
         s3_key_prefix=pulumi.get(__response__, 's3_key_prefix'),
         s3_kms_key_arn=pulumi.get(__response__, 's3_kms_key_arn'),

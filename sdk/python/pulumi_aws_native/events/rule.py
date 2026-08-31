@@ -360,6 +360,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["targets"] = targets
             __props__.__dict__["arn"] = None
+            __props__.__dict__["rule_name"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Rule, __self__).__init__(
@@ -390,6 +391,7 @@ class Rule(pulumi.CustomResource):
         __props__.__dict__["event_pattern"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["role_arn"] = None
+        __props__.__dict__["rule_name"] = None
         __props__.__dict__["schedule_expression"] = None
         __props__.__dict__["state"] = None
         __props__.__dict__["tags"] = None
@@ -445,6 +447,14 @@ class Rule(pulumi.CustomResource):
         The Amazon Resource Name (ARN) of the role that is used for target invocation.
         """
         return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+        """
+        return pulumi.get(self, "rule_name")
 
     @_builtins.property
     @pulumi.getter(name="scheduleExpression")

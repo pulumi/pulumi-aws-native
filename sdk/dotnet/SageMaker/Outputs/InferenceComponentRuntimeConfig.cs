@@ -22,6 +22,10 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         public readonly int? CopyCount;
         public readonly int? CurrentCopyCount;
         public readonly int? DesiredCopyCount;
+        /// <summary>
+        /// The placement status of the inference component across instance types
+        /// </summary>
+        public readonly ImmutableArray<Outputs.InferenceComponentPlacementStatus> PlacementStatus;
 
         [OutputConstructor]
         private InferenceComponentRuntimeConfig(
@@ -29,11 +33,14 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             int? currentCopyCount,
 
-            int? desiredCopyCount)
+            int? desiredCopyCount,
+
+            ImmutableArray<Outputs.InferenceComponentPlacementStatus> placementStatus)
         {
             CopyCount = copyCount;
             CurrentCopyCount = currentCopyCount;
             DesiredCopyCount = desiredCopyCount;
+            PlacementStatus = placementStatus;
         }
     }
 }

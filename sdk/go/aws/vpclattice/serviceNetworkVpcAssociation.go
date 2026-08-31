@@ -54,8 +54,6 @@ func NewServiceNetworkVpcAssociation(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"dnsOptions",
-		"privateDnsEnabled",
 		"serviceNetworkIdentifier",
 		"vpcIdentifier",
 	})

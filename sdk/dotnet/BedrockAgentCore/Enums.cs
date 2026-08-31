@@ -318,8 +318,6 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
         public static CapacityProviderLaunchParametersOperatingSystem LinuxX8664 { get; } = new CapacityProviderLaunchParametersOperatingSystem("LINUX_X86_64");
         public static CapacityProviderLaunchParametersOperatingSystem LinuxArm64 { get; } = new CapacityProviderLaunchParametersOperatingSystem("LINUX_ARM64");
-        public static CapacityProviderLaunchParametersOperatingSystem MacArm64 { get; } = new CapacityProviderLaunchParametersOperatingSystem("MAC_ARM64");
-        public static CapacityProviderLaunchParametersOperatingSystem WindowsX8664 { get; } = new CapacityProviderLaunchParametersOperatingSystem("WINDOWS_X86_64");
 
         public static bool operator ==(CapacityProviderLaunchParametersOperatingSystem left, CapacityProviderLaunchParametersOperatingSystem right) => left.Equals(right);
         public static bool operator !=(CapacityProviderLaunchParametersOperatingSystem left, CapacityProviderLaunchParametersOperatingSystem right) => !left.Equals(right);
@@ -1276,6 +1274,34 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is GatewayTargetTargetStatus other && Equals(other);
         public bool Equals(GatewayTargetTargetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct GatewayWafFailureMode : IEquatable<GatewayWafFailureMode>
+    {
+        private readonly string _value;
+
+        private GatewayWafFailureMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GatewayWafFailureMode FailClose { get; } = new GatewayWafFailureMode("FAIL_CLOSE");
+        public static GatewayWafFailureMode FailOpen { get; } = new GatewayWafFailureMode("FAIL_OPEN");
+
+        public static bool operator ==(GatewayWafFailureMode left, GatewayWafFailureMode right) => left.Equals(right);
+        public static bool operator !=(GatewayWafFailureMode left, GatewayWafFailureMode right) => !left.Equals(right);
+
+        public static explicit operator string(GatewayWafFailureMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GatewayWafFailureMode other && Equals(other);
+        public bool Equals(GatewayWafFailureMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

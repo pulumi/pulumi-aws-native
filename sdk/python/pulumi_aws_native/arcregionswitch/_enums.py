@@ -15,6 +15,7 @@ __all__ = [
     'PlanLambdaEventSourceMappingConfigurationAction',
     'PlanLambdaEventSourceMappingUngracefulBehavior',
     'PlanNeptuneUngracefulBehavior',
+    'PlanRdsUngracefulBehavior',
     'PlanRecoveryApproach',
     'PlanRegionToRunIn',
     'PlanRoutingControlStateChange',
@@ -57,6 +58,7 @@ class PlanExecutionBlockType(_builtins.str, Enum):
     PARALLEL = "Parallel"
     RDS_CREATE_CROSS_REGION_REPLICA = "RdsCreateCrossRegionReplica"
     RDS_PROMOTE_READ_REPLICA = "RdsPromoteReadReplica"
+    RDS_SWITCHOVER_READ_REPLICA = "RdsSwitchoverReadReplica"
     ROUTE53_HEALTH_CHECK = "Route53HealthCheck"
 
 
@@ -79,6 +81,11 @@ class PlanLambdaEventSourceMappingUngracefulBehavior(_builtins.str, Enum):
 @pulumi.type_token("aws-native:arcregionswitch:PlanNeptuneUngracefulBehavior")
 class PlanNeptuneUngracefulBehavior(_builtins.str, Enum):
     FAILOVER = "failover"
+
+
+@pulumi.type_token("aws-native:arcregionswitch:PlanRdsUngracefulBehavior")
+class PlanRdsUngracefulBehavior(_builtins.str, Enum):
+    PROMOTE_READ_REPLICA = "promoteReadReplica"
 
 
 @pulumi.type_token("aws-native:arcregionswitch:PlanRecoveryApproach")

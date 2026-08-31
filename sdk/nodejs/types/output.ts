@@ -7773,6 +7773,10 @@ export namespace arcregionswitch {
         neptuneGlobalDatabaseConfig: outputs.arcregionswitch.PlanNeptuneGlobalDatabaseConfiguration;
     }
 
+    export interface PlanExecutionBlockConfiguration17Properties {
+        rdsSwitchoverReadReplicaConfig: outputs.arcregionswitch.PlanRdsSwitchoverReadReplicaConfiguration;
+    }
+
     export interface PlanExecutionBlockConfiguration1Properties {
         ec2AsgCapacityIncreaseConfig: outputs.arcregionswitch.PlanEc2AsgCapacityIncreaseConfiguration;
     }
@@ -7886,6 +7890,18 @@ export namespace arcregionswitch {
         timeoutMinutes?: number;
     }
 
+    export interface PlanRdsSwitchoverReadReplicaConfiguration {
+        crossAccountRole?: string;
+        dbInstanceArnMap: {[key: string]: string};
+        externalId?: string;
+        timeoutMinutes?: number;
+        ungraceful?: outputs.arcregionswitch.PlanRdsUngraceful;
+    }
+
+    export interface PlanRdsUngraceful {
+        ungraceful?: enums.arcregionswitch.PlanRdsUngracefulBehavior;
+    }
+
     export interface PlanRegionSwitchPlanConfiguration {
         arn: string;
         crossAccountRole?: string;
@@ -7937,7 +7953,7 @@ export namespace arcregionswitch {
         /**
          * The configuration for an execution block in a workflow.
          */
-        executionBlockConfiguration: outputs.arcregionswitch.PlanExecutionBlockConfiguration0Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration1Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration2Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration3Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration4Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration5Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration6Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration7Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration8Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration9Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration10Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration11Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration12Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration13Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration14Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration15Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration16Properties;
+        executionBlockConfiguration: outputs.arcregionswitch.PlanExecutionBlockConfiguration0Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration1Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration2Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration3Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration4Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration5Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration6Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration7Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration8Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration9Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration10Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration11Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration12Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration13Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration14Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration15Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration16Properties | outputs.arcregionswitch.PlanExecutionBlockConfiguration17Properties;
         /**
          * The type of an execution block in a workflow.
          */
@@ -8652,6 +8668,10 @@ export namespace autoscaling {
         references?: outputs.autoscaling.AutoScalingGroupPerformanceFactorReferenceRequest[];
     }
 
+    export interface AutoScalingGroupDistributionSegment {
+        targetCapacityTypes: enums.autoscaling.AutoScalingGroupDistributionSegmentTargetCapacityTypesItem[];
+    }
+
     /**
      * The instance lifecycle policy for the Auto Scaling group. This policy controls instance behavior when an instance transitions through its lifecycle states. Configure retention triggers to specify when instances should move to a ``Retained`` state instead of automatic termination.
      *  For more information, see [Control instance retention with instance lifecycle policies](https://docs.aws.amazon.com/autoscaling/ec2/userguide/instance-lifecycle-policy.html) in the *Amazon EC2 Auto Scaling User Guide*.
@@ -8864,6 +8884,7 @@ export namespace autoscaling {
      *  ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
      */
     export interface AutoScalingGroupInstancesDistribution {
+        distributionSegments?: outputs.autoscaling.AutoScalingGroupDistributionSegment[];
         /**
          * The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
          *  The following lists the valid values:
@@ -18298,6 +18319,10 @@ export namespace bedrockagentcore {
         inlinePayload: outputs.bedrockagentcore.GatewayTargetToolDefinition[];
     }
 
+    export interface GatewayWafConfiguration {
+        failureMode?: enums.bedrockagentcore.GatewayWafFailureMode;
+    }
+
     export interface GatewayWorkloadIdentityDetails {
         workloadIdentityArn: string;
     }
@@ -24811,6 +24836,50 @@ export namespace codebuild {
         vpcId?: string;
     }
 
+    export interface ReportGroupReportExportConfig {
+        /**
+         * The export configuration type. Valid values are:
+         *
+         * - `S3` : The report results are exported to an S3 bucket.
+         * - `NO_EXPORT` : The report results are not exported.
+         */
+        exportConfigType: enums.codebuild.ReportGroupReportExportConfigExportConfigType;
+        /**
+         * A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+         */
+        s3Destination?: outputs.codebuild.ReportGroupS3ReportExportConfig;
+    }
+
+    export interface ReportGroupS3ReportExportConfig {
+        /**
+         * The name of the S3 bucket where the raw data of a report are exported.
+         */
+        bucket: string;
+        /**
+         * The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+         */
+        bucketOwner?: string;
+        /**
+         * A boolean value that specifies if the results of a report are encrypted.
+         */
+        encryptionDisabled?: boolean;
+        /**
+         * The encryption key for the report's encrypted raw data.
+         */
+        encryptionKey?: string;
+        /**
+         * The type of build output artifact to create. Valid values include:
+         *
+         * - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+         * - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+         */
+        packaging?: enums.codebuild.ReportGroupS3ReportExportConfigPackaging;
+        /**
+         * The path to the exported report's raw data results.
+         */
+        path?: string;
+    }
+
 }
 
 export namespace codecommit {
@@ -27346,7 +27415,7 @@ export namespace configuration {
         /**
          * The frequency with which AWS Config delivers configuration snapshots.
          */
-        deliveryFrequency?: enums.configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency;
+        deliveryFrequency?: string;
     }
 
     /**
@@ -38528,6 +38597,20 @@ export namespace ec2 {
     }
 
     /**
+     * Describes a storage location in Amazon S3.
+     */
+    export interface FpgaImageStorageLocation {
+        /**
+         * The name of the S3 bucket.
+         */
+        bucket?: string;
+        /**
+         * The key.
+         */
+        key?: string;
+    }
+
+    /**
      * Indicates whether an instance is enabled for hibernation.
      */
     export interface HibernationOptionsProperties {
@@ -48947,6 +49030,7 @@ export namespace elementalinference {
     }
 
     export interface FeedCroppingConfig {
+        templateGroups?: outputs.elementalinference.FeedTemplateGroup[];
     }
 
     export interface FeedDataSourceConfiguration {
@@ -48977,6 +49061,11 @@ export namespace elementalinference {
         dictionary?: string;
         language: enums.elementalinference.FeedTranscriptionLanguage;
         profanityFilter?: enums.elementalinference.FeedProfanityFilterMode;
+    }
+
+    export interface FeedTemplateGroup {
+        name: string;
+        templateUris: string[];
     }
 
 }
@@ -52313,9 +52402,9 @@ export namespace gamelift {
          */
         evaluationPeriods?: number;
         /**
-         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
          */
-        metricName: enums.gamelift.ContainerFleetScalingPolicyMetricName;
+        metricName?: enums.gamelift.ContainerFleetScalingPolicyMetricName;
         /**
          * A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
          */
@@ -52726,9 +52815,9 @@ export namespace gamelift {
          */
         location?: string;
         /**
-         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+         * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
          */
-        metricName: enums.gamelift.FleetScalingPolicyMetricName;
+        metricName?: enums.gamelift.FleetScalingPolicyMetricName;
         /**
          * A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
          */
@@ -53227,6 +53316,193 @@ export namespace glue {
          * The XML tag designating the element that contains each record in an XML document being parsed. This can't identify a self-closing element (closed by />). An empty row element that contains only attributes can be parsed as long as it ends with a closing tag (for example, <row item_a="A" item_b="B"></row> is okay, but <row item_a="A" item_b="B" /> is not).
          */
         rowTag: string;
+    }
+
+    export interface ConnectionAuthenticationConfiguration {
+        /**
+         * A structure containing the authentication configuration in the CreateConnection request.
+         */
+        authenticationType: string;
+        /**
+         * For supplying basic auth credentials when not providing a SecretArn value
+         */
+        basicAuthenticationCredentials?: outputs.glue.ConnectionBasicAuthenticationCredentials;
+        /**
+         * A structure containing the authentication credentials in the CreateConnection request.
+         */
+        customAuthenticationCredentials?: any;
+        /**
+         * The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+         */
+        kmsKeyArn?: string;
+        /**
+         * A structure containing properties for OAuth2 in the CreateConnection request.
+         */
+        oAuth2Properties?: outputs.glue.ConnectionOAuth2Properties;
+        /**
+         * The secret manager ARN to store credentials in the CreateConnection request.
+         */
+        secretArn?: string;
+    }
+
+    /**
+     * A structure containing the authorization code used in the authentication configuration.
+     */
+    export interface ConnectionAuthorizationCodeProperties {
+        /**
+         * The authorization code used in the authentication configuration.
+         */
+        authorizationCode?: string;
+        /**
+         * The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+         */
+        redirectUri?: string;
+    }
+
+    /**
+     * A structure containing the authentication credentials in the CreateConnection request.
+     */
+    export interface ConnectionBasicAuthenticationCredentials {
+        /**
+         * The password used in the authentication configuration.
+         */
+        password?: string;
+        /**
+         * The username used in the authentication configuration.
+         */
+        username?: string;
+    }
+
+    export interface ConnectionInput {
+        /**
+         * Connection properties specific to the Athena compute environment.
+         */
+        athenaProperties?: any;
+        /**
+         * The authentication configuration used to connect to the connection.
+         */
+        authenticationConfiguration?: outputs.glue.ConnectionAuthenticationConfiguration;
+        /**
+         * A map of key-value pairs used as parameters for this connection.
+         */
+        connectionProperties?: any;
+        /**
+         * The type of the connection that needs to be created.
+         */
+        connectionType: string;
+        /**
+         * A description of the connection.
+         */
+        description?: string;
+        /**
+         * A list of criteria that can be used in selecting this connection.
+         */
+        matchCriteria?: string[];
+        /**
+         * The name of the connection.
+         */
+        name?: string;
+        /**
+         * The physical connection requirements.
+         */
+        physicalConnectionRequirements?: outputs.glue.ConnectionPhysicalConnectionRequirements;
+        /**
+         * Connection properties specific to the Python compute environment.
+         */
+        pythonProperties?: any;
+        /**
+         * Connection properties specific to the Spark compute environment.
+         */
+        sparkProperties?: any;
+        /**
+         * A flag to validate the credentials during create connection. Default is true.
+         */
+        validateCredentials?: boolean;
+        /**
+         * The compute environments that the specified connection properties are validated against.
+         */
+        validateForComputeEnvironments?: string[];
+    }
+
+    /**
+     * The OAuth2 client app used for the connection.
+     */
+    export interface ConnectionOAuth2ClientApplication {
+        /**
+         * The reference to the SaaS-side client app that is AWS managed.
+         */
+        awsManagedClientApplicationReference?: string;
+        /**
+         * The client application clientID if the ClientAppType is USER_MANAGED.
+         */
+        userManagedClientApplicationClientId?: string;
+    }
+
+    /**
+     * A structure containing the OAuth2 credentials used in the authentication configuration.
+     */
+    export interface ConnectionOAuth2Credentials {
+        /**
+         * The access token used in the authentication configuration.
+         */
+        accessToken?: string;
+        /**
+         * The JSON Web Token (JWT) used when the authentication type is OAuth2.
+         */
+        jwtToken?: string;
+        /**
+         * The refresh token used when the authentication type is OAuth2.
+         */
+        refreshToken?: string;
+        /**
+         * The client application client secret if the client application is user managed.
+         */
+        userManagedClientApplicationClientSecret?: string;
+    }
+
+    /**
+     * A structure containing the authentication credentials in the CreateConnection request.
+     */
+    export interface ConnectionOAuth2Properties {
+        /**
+         * The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+         */
+        authorizationCodeProperties?: outputs.glue.ConnectionAuthorizationCodeProperties;
+        /**
+         * The OAuth2 client app used for the connection.
+         */
+        oAuth2ClientApplication?: outputs.glue.ConnectionOAuth2ClientApplication;
+        /**
+         * A structure containing the OAuth2 credentials used in the authentication configuration.
+         */
+        oAuth2Credentials?: outputs.glue.ConnectionOAuth2Credentials;
+        /**
+         * The grant type used in the authentication configuration.
+         */
+        oAuth2GrantType?: string;
+        /**
+         * The URL used in the authentication configuration.
+         */
+        tokenUrl?: string;
+        /**
+         * A map of key-value pairs used in the authentication configuration.
+         */
+        tokenUrlParametersMap?: any;
+    }
+
+    export interface ConnectionPhysicalConnectionRequirements {
+        /**
+         * The availability zone where the connection is located.
+         */
+        availabilityZone?: string;
+        /**
+         * The security group ID list used by the connection.
+         */
+        securityGroupIdList?: string[];
+        /**
+         * The subnet ID used by the connection.
+         */
+        subnetId?: string;
     }
 
     /**
@@ -55312,8 +55588,10 @@ export namespace guardduty {
         lessThanOrEqual?: number;
         lt?: number;
         lte?: number;
+        matches?: string[];
         neq?: string[];
         notEquals?: string[];
+        notMatches?: string[];
     }
 
     export interface FilterFindingCriteria {
@@ -57186,6 +57464,104 @@ export namespace invoicing {
          * The list of `LINKED_ACCOUNT` IDs where charges are included within the invoice unit.
          */
         linkedAccounts: string[];
+    }
+
+    /**
+     * Contact information for a person or role associated with the procurement portal preference.
+     */
+    export interface ProcurementPortalPreferenceContact {
+        /**
+         * The email address of the contact person or role.
+         */
+        email?: string;
+        /**
+         * The name of the contact person or role.
+         */
+        name?: string;
+    }
+
+    /**
+     * Specifies the preferences for e-invoice delivery.
+     */
+    export interface ProcurementPortalPreferenceEinvoiceDeliveryPreference {
+        /**
+         * The method to use for testing the connection to the procurement portal.
+         */
+        connectionTestingMethod?: enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod;
+        /**
+         * The ISO 8601 date-time when e-invoice delivery should be activated.
+         */
+        einvoiceDeliveryActivationDate?: string;
+        /**
+         * The types of attachments to include with the e-invoice delivery.
+         */
+        einvoiceDeliveryAttachmentTypes?: enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem[];
+        /**
+         * The types of e-invoice documents to be delivered.
+         */
+        einvoiceDeliveryDocumentTypes?: enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem[];
+        /**
+         * The communication protocol to use for e-invoice delivery.
+         */
+        protocol?: enums.invoicing.ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol;
+        /**
+         * The sources of purchase order data.
+         */
+        purchaseOrderDataSources?: outputs.invoicing.ProcurementPortalPreferencePurchaseOrderDataSource[];
+    }
+
+    /**
+     * Specifies the source configuration for retrieving purchase order data.
+     */
+    export interface ProcurementPortalPreferencePurchaseOrderDataSource {
+        /**
+         * The type of e-invoice document that requires purchase order data.
+         */
+        einvoiceDeliveryDocumentType?: enums.invoicing.ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType;
+        /**
+         * The type of source for purchase order data.
+         */
+        purchaseOrderDataSourceType?: enums.invoicing.ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType;
+    }
+
+    /**
+     * Specifies criteria for selecting which invoices should be processed.
+     */
+    export interface ProcurementPortalPreferenceSelector {
+        /**
+         * The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+         */
+        invoiceUnitArns?: string[];
+    }
+
+    /**
+     * Configuration settings for the test environment of the procurement portal.
+     */
+    export interface ProcurementPortalPreferenceTestEnvPreference {
+        /**
+         * The domain identifier for the buyer in the test environment.
+         */
+        buyerDomain?: enums.invoicing.ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain;
+        /**
+         * The unique identifier for the buyer in the test environment.
+         */
+        buyerIdentifier?: string;
+        /**
+         * The endpoint URL for e-invoice delivery in the test environment.
+         */
+        procurementPortalInstanceEndpoint?: string;
+        /**
+         * The shared secret for secure communication in the test environment.
+         */
+        procurementPortalSharedSecret?: string;
+        /**
+         * The domain identifier for the supplier in the test environment.
+         */
+        supplierDomain?: enums.invoicing.ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain;
+        /**
+         * The unique identifier for the supplier in the test environment.
+         */
+        supplierIdentifier?: string;
     }
 
 }
@@ -66676,6 +67052,7 @@ export namespace lambda {
          * The path where the function can access the file system, starting with ``/mnt/``.
          */
         localMountPath: string;
+        s3FilesConfig?: outputs.lambda.FunctionS3FilesConfig;
     }
 
     /**
@@ -66754,6 +67131,13 @@ export namespace lambda {
          *  *Valid Values*: ``Auto`` | ``FunctionUpdate`` | ``Manual``
          */
         updateRuntimeOn: enums.lambda.FunctionRuntimeManagementConfigUpdateRuntimeOn;
+    }
+
+    export interface FunctionS3FilesConfig {
+        /**
+         * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+         */
+        directS3Read?: enums.lambda.FunctionS3FilesConfigDirectS3Read;
     }
 
     /**
@@ -73520,6 +73904,7 @@ export namespace mediatailor {
      */
     export interface PlaybackConfigurationAdDecisionServerConfiguration {
         httpRequest: outputs.mediatailor.PlaybackConfigurationHttpRequest;
+        vastResponse?: outputs.mediatailor.PlaybackConfigurationVastResponse;
     }
 
     /**
@@ -73677,6 +74062,7 @@ export namespace mediatailor {
      * The configuration for pre-roll ad insertion.
      */
     export interface PlaybackConfigurationLivePreRollConfiguration {
+        adDecisionServerConfiguration?: outputs.mediatailor.PlaybackConfigurationPreRollAdDecisionServerConfiguration;
         /**
          * The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
          */
@@ -73721,6 +74107,33 @@ export namespace mediatailor {
          * Indicates that MediaTailor won't emit the selected events in the logs for playback sessions that are initialized with this configuration.
          */
         excludeEventTypes?: string[];
+    }
+
+    /**
+     * The configuration for the request to the pre-roll Ad Decision Server.
+     */
+    export interface PlaybackConfigurationPreRollAdDecisionServerConfiguration {
+        vastResponse?: outputs.mediatailor.PlaybackConfigurationPreRollVastResponse;
+    }
+
+    /**
+     * The configuration for how MediaTailor processes the VAST response returned by the pre-roll Ad Decision Server.
+     */
+    export interface PlaybackConfigurationPreRollVastResponse {
+        /**
+         * Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+         */
+        adSequencingMode?: enums.mediatailor.PlaybackConfigurationPreRollVastResponseAdSequencingMode;
+    }
+
+    /**
+     * The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+     */
+    export interface PlaybackConfigurationVastResponse {
+        /**
+         * Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+         */
+        adSequencingMode?: enums.mediatailor.PlaybackConfigurationVastResponseAdSequencingMode;
     }
 
     export interface PrefetchScheduleAvailMatchingCriteria {
@@ -76571,6 +76984,7 @@ export namespace observabilityadmin {
          * The encryption configuration for centralization destination log groups.
          */
         logsEncryptionConfiguration?: outputs.observabilityadmin.OrganizationCentralizationRuleLogsEncryptionConfiguration;
+        tagPropagationConfiguration?: outputs.observabilityadmin.OrganizationCentralizationRuleTagPropagationConfiguration;
     }
 
     export interface OrganizationCentralizationRuleDestinationMetricsConfiguration {
@@ -76626,6 +77040,17 @@ export namespace observabilityadmin {
 
     export interface OrganizationCentralizationRuleSourceMetricsConfiguration {
         metricsSelectionCriteria?: string;
+    }
+
+    export interface OrganizationCentralizationRuleTagPropagationConfiguration {
+        /**
+         * The ARN of the destination account IAM role used for tag propagation.
+         */
+        destinationRoleArn: string;
+        /**
+         * The strategy to resolve tag conflicts during propagation.
+         */
+        tagConflictResolutionStrategy?: enums.observabilityadmin.OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy;
     }
 
     /**
@@ -120485,6 +120910,17 @@ export namespace sagemaker {
     }
 
     /**
+     * Configuration for balancing inference component copies across Availability Zones
+     */
+    export interface InferenceComponentAvailabilityZoneBalance {
+        enforcementMode: enums.sagemaker.InferenceComponentAvailabilityZoneBalanceEnforcementMode;
+        /**
+         * The maximum allowed difference in the number of inference component copies between any two Availability Zones
+         */
+        maxImbalance?: number;
+    }
+
+    /**
      * Capacity size configuration for the inference component
      */
     export interface InferenceComponentCapacitySize {
@@ -120520,11 +120956,19 @@ export namespace sagemaker {
         numberOfCpuCoresRequired?: number;
     }
 
+    /**
+     * The configuration for container metrics scraping
+     */
+    export interface InferenceComponentContainerMetricsConfig {
+        metricsEndpoints: outputs.sagemaker.InferenceComponentMetricsEndpoint[];
+    }
+
     export interface InferenceComponentContainerSpecification {
         /**
          * The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
          */
         artifactUrl?: string;
+        containerMetricsConfig?: outputs.sagemaker.InferenceComponentContainerMetricsConfig;
         deployedImage?: outputs.sagemaker.InferenceComponentDeployedImage;
         /**
          * The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
@@ -120534,6 +120978,26 @@ export namespace sagemaker {
          * The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
          */
         image?: string;
+    }
+
+    /**
+     * Container specification for one Specifications entry. Distinct from InferenceComponentContainerSpecification: DescribeInferenceComponent returns no per-entry DeployedImage (VERIFIED in us-west-2), so DeployedImage is intentionally omitted here and this definition can never be aggregated into a plural READ response. The singular InferenceComponentContainerSpecification keeps DeployedImage - the service DOES return it there.
+     */
+    export interface InferenceComponentContainerSpecificationForInstanceType {
+        artifactUrl?: string;
+        containerMetricsConfig?: outputs.sagemaker.InferenceComponentContainerMetricsConfig;
+        environment?: {[key: string]: string};
+        image?: string;
+    }
+
+    /**
+     * Settings that affect how the inference component caches data
+     */
+    export interface InferenceComponentDataCacheConfig {
+        /**
+         * Whether the endpoint caches the model artifacts and container image on each instance it provisions for the inference component
+         */
+        enableCaching: boolean;
     }
 
     export interface InferenceComponentDeployedImage {
@@ -120560,6 +121024,28 @@ export namespace sagemaker {
          * Specifies a rolling deployment strategy for updating a SageMaker AI endpoint.
          */
         rollingUpdatePolicy?: outputs.sagemaker.InferenceComponentRollingUpdatePolicy;
+    }
+
+    /**
+     * A metrics endpoint exposed by the container
+     */
+    export interface InferenceComponentMetricsEndpoint {
+        /**
+         * The interval, in seconds, at which container metrics scraped from the endpoint are published to Amazon CloudWatch. Valid values per the SageMaker API Reference are 10, 30, 60, 120, 180, 240 and 300; the service validates the value.
+         */
+        metricPublishFrequencyInSeconds?: number;
+        /**
+         * The path to the Prometheus formatted metrics endpoint exposed by the container
+         */
+        metricsEndpointPath: string;
+    }
+
+    /**
+     * The number of inference component copies currently placed on instances of a given type
+     */
+    export interface InferenceComponentPlacementStatus {
+        currentCopyCount: number;
+        instanceType: string;
     }
 
     /**
@@ -120594,10 +121080,22 @@ export namespace sagemaker {
         copyCount?: number;
         currentCopyCount?: number;
         desiredCopyCount?: number;
+        /**
+         * The placement status of the inference component across instance types
+         */
+        placementStatus?: outputs.sagemaker.InferenceComponentPlacementStatus[];
     }
 
     /**
-     * The specification for the inference component
+     * The scheduling configuration that determines how inference component copies are placed across available instances
+     */
+    export interface InferenceComponentSchedulingConfig {
+        availabilityZoneBalance: outputs.sagemaker.InferenceComponentAvailabilityZoneBalance;
+        placementStrategy: enums.sagemaker.InferenceComponentPlacementStrategy;
+    }
+
+    /**
+     * The specification for the inference component, for an endpoint with a single instance type. Specify exactly one of Specification or Specifications. InstanceType is not accepted here; use Specifications for per instance type configuration.
      */
     export interface InferenceComponentSpecification {
         /**
@@ -120621,12 +121119,35 @@ export namespace sagemaker {
          */
         container?: outputs.sagemaker.InferenceComponentContainerSpecification;
         /**
+         * The data caching configuration actually in effect, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+         */
+        currentDataCacheConfig?: outputs.sagemaker.InferenceComponentDataCacheConfig;
+        dataCacheConfig?: outputs.sagemaker.InferenceComponentDataCacheConfig;
+        /**
          * The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
          */
         modelName?: string;
+        schedulingConfig?: outputs.sagemaker.InferenceComponentSchedulingConfig;
         /**
          * Settings that take effect while the model container starts up.
          */
+        startupParameters?: outputs.sagemaker.InferenceComponentStartupParameters;
+    }
+
+    /**
+     * A specification for one instance type, for use in Specifications. InstanceType is required here, and is not accepted on the singular Specification. BaseInferenceComponentName is not accepted here either: adapter inference components are supported only on the singular Specification.
+     */
+    export interface InferenceComponentSpecificationForInstanceType {
+        computeResourceRequirements?: outputs.sagemaker.InferenceComponentComputeResourceRequirements;
+        container?: outputs.sagemaker.InferenceComponentContainerSpecificationForInstanceType;
+        /**
+         * The data caching configuration actually in effect for this instance type, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+         */
+        currentDataCacheConfig?: outputs.sagemaker.InferenceComponentDataCacheConfig;
+        dataCacheConfig?: outputs.sagemaker.InferenceComponentDataCacheConfig;
+        instanceType: string;
+        modelName?: string;
+        schedulingConfig?: outputs.sagemaker.InferenceComponentSchedulingConfig;
         startupParameters?: outputs.sagemaker.InferenceComponentStartupParameters;
     }
 
@@ -125333,6 +125854,10 @@ export namespace securityagent {
          * List of source code repositories to analyze
          */
         sourceCode?: outputs.securityagent.PentestSourceCodeRepository[];
+        /**
+         * Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+         */
+        trustedCaCertificates?: outputs.securityagent.PentestTrustedCaCertificate[];
     }
 
     /**
@@ -125347,6 +125872,24 @@ export namespace securityagent {
          * Reference value for the authentication provider, such as a secret ARN or Lambda ARN
          */
         value?: string;
+    }
+
+    /**
+     * Source of a trusted CA certificate. Exactly one member must be set.
+     */
+    export interface PentestCaCertificateSource {
+        /**
+         * Artifact ID of an uploaded certificate file
+         */
+        artifactId?: string;
+        /**
+         * PEM-encoded X.509 certificate supplied inline
+         */
+        inlinePem?: string;
+        /**
+         * Amazon S3 location URI of a customer-staged certificate
+         */
+        s3Location?: string;
     }
 
     /**
@@ -125459,6 +126002,16 @@ export namespace securityagent {
          * S3 source code location
          */
         s3Location?: string;
+    }
+
+    /**
+     * Trust anchor used when validating a target endpoint's TLS certificate
+     */
+    export interface PentestTrustedCaCertificate {
+        /**
+         * Where to read the certificate from
+         */
+        source: outputs.securityagent.PentestCaCertificateSource;
     }
 
     /**
@@ -130349,6 +130902,73 @@ export namespace stepfunctions {
 }
 
 export namespace storagegateway {
+}
+
+export namespace supportauthz {
+    /**
+     * The set of actions a support permit grants. Exactly one of AllActions or Actions must be provided.
+     */
+    export interface SupportPermitActionSet {
+        /**
+         * An explicit list of actions to grant.
+         */
+        actions?: string[];
+        /**
+         * Grants all actions.
+         */
+        allActions?: any;
+    }
+
+    /**
+     * A time-bound condition controlling when the permit is active. Exactly one of AllowAfter or AllowBefore must be provided.
+     */
+    export interface SupportPermitCondition {
+        /**
+         * The permit is active only after this time.
+         */
+        allowAfter?: string;
+        /**
+         * The permit is active only before this time.
+         */
+        allowBefore?: string;
+    }
+
+    /**
+     * The grant definition: which actions on which resources, optionally constrained by time conditions.
+     */
+    export interface SupportPermitPermit {
+        actions: outputs.supportauthz.SupportPermitActionSet;
+        /**
+         * Optional time-bound conditions (at most two).
+         */
+        conditions?: outputs.supportauthz.SupportPermitCondition[];
+        resources: outputs.supportauthz.SupportPermitResourceSet;
+    }
+
+    /**
+     * The set of resources a support permit applies to. Exactly one of AllResourcesInRegion or Resources must be provided.
+     */
+    export interface SupportPermitResourceSet {
+        /**
+         * Applies to all resources in the region.
+         */
+        allResourcesInRegion?: any;
+        /**
+         * An explicit list of resource ARNs.
+         */
+        resources?: string[];
+    }
+
+    /**
+     * The signing key used by the permit. Exactly one key type must be provided.
+     */
+    export interface SupportPermitSigningKeyInfo {
+        /**
+         * The ARN of the KMS key used to sign permit grants.
+         */
+        kmsKey: string;
+    }
+
 }
 
 export namespace synthetics {

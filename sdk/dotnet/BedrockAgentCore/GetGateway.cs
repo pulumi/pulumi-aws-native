@@ -117,6 +117,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? UpdatedAt;
+        public readonly Outputs.GatewayWafConfiguration? WafConfiguration;
+        public readonly string? WebAclArn;
         public readonly Outputs.GatewayWorkloadIdentityDetails? WorkloadIdentityDetails;
 
         [OutputConstructor]
@@ -159,6 +161,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             string? updatedAt,
 
+            Outputs.GatewayWafConfiguration? wafConfiguration,
+
+            string? webAclArn,
+
             Outputs.GatewayWorkloadIdentityDetails? workloadIdentityDetails)
         {
             AuthorizerConfiguration = authorizerConfiguration;
@@ -180,6 +186,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             StatusReasons = statusReasons;
             Tags = tags;
             UpdatedAt = updatedAt;
+            WafConfiguration = wafConfiguration;
+            WebAclArn = webAclArn;
             WorkloadIdentityDetails = workloadIdentityDetails;
         }
     }

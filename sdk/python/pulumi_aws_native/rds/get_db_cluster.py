@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbClusterResult:
-    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, enable_local_write_forwarding=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_encryption_type=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
+    def __init__(__self__, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, availability_zones=None, backtrack_window=None, backup_retention_period=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_arn=None, db_cluster_instance_class=None, db_cluster_parameter_group_name=None, db_cluster_resource_id=None, deletion_protection=None, domain=None, domain_iam_role_name=None, enable_cloudwatch_logs_exports=None, enable_global_write_forwarding=None, enable_http_endpoint=None, enable_iam_database_authentication=None, enable_local_write_forwarding=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, global_cluster_identifier=None, iops=None, manage_master_user_password=None, master_user_secret=None, master_username=None, monitoring_interval=None, monitoring_role_arn=None, network_type=None, performance_insights_enabled=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, read_endpoint=None, replication_source_identifier=None, scaling_configuration=None, serverless_v2_scaling_configuration=None, storage_encryption_type=None, storage_throughput=None, storage_type=None, tags=None, vpc_security_group_ids=None):
         if allocated_storage and not isinstance(allocated_storage, int):
             raise TypeError("Expected argument 'allocated_storage' to be a int")
         pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -35,6 +35,9 @@ class GetDbClusterResult:
         if auto_minor_version_upgrade and not isinstance(auto_minor_version_upgrade, bool):
             raise TypeError("Expected argument 'auto_minor_version_upgrade' to be a bool")
         pulumi.set(__self__, "auto_minor_version_upgrade", auto_minor_version_upgrade)
+        if availability_zones and not isinstance(availability_zones, list):
+            raise TypeError("Expected argument 'availability_zones' to be a list")
+        pulumi.set(__self__, "availability_zones", availability_zones)
         if backtrack_window and not isinstance(backtrack_window, int):
             raise TypeError("Expected argument 'backtrack_window' to be a int")
         pulumi.set(__self__, "backtrack_window", backtrack_window)
@@ -193,6 +196,15 @@ class GetDbClusterResult:
          For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZones")
+    def availability_zones(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
+         Valid for: Aurora DB clusters only
+        """
+        return pulumi.get(self, "availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="backtrackWindow")
@@ -695,6 +707,7 @@ class AwaitableGetDbClusterResult(GetDbClusterResult):
             allocated_storage=self.allocated_storage,
             associated_roles=self.associated_roles,
             auto_minor_version_upgrade=self.auto_minor_version_upgrade,
+            availability_zones=self.availability_zones,
             backtrack_window=self.backtrack_window,
             backup_retention_period=self.backup_retention_period,
             copy_tags_to_snapshot=self.copy_tags_to_snapshot,
@@ -779,6 +792,7 @@ def get_db_cluster(db_cluster_identifier: Optional[_builtins.str] = None,
         allocated_storage=pulumi.get(__ret__, 'allocated_storage'),
         associated_roles=pulumi.get(__ret__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__ret__, 'auto_minor_version_upgrade'),
+        availability_zones=pulumi.get(__ret__, 'availability_zones'),
         backtrack_window=pulumi.get(__ret__, 'backtrack_window'),
         backup_retention_period=pulumi.get(__ret__, 'backup_retention_period'),
         copy_tags_to_snapshot=pulumi.get(__ret__, 'copy_tags_to_snapshot'),
@@ -860,6 +874,7 @@ def get_db_cluster_output(db_cluster_identifier: pulumi.Input[Optional[_builtins
         allocated_storage=pulumi.get(__response__, 'allocated_storage'),
         associated_roles=pulumi.get(__response__, 'associated_roles'),
         auto_minor_version_upgrade=pulumi.get(__response__, 'auto_minor_version_upgrade'),
+        availability_zones=pulumi.get(__response__, 'availability_zones'),
         backtrack_window=pulumi.get(__response__, 'backtrack_window'),
         backup_retention_period=pulumi.get(__response__, 'backup_retention_period'),
         copy_tags_to_snapshot=pulumi.get(__response__, 'copy_tags_to_snapshot'),

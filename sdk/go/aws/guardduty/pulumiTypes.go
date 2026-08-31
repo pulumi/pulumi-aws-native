@@ -1125,8 +1125,10 @@ type FilterCondition struct {
 	LessThanOrEqual    *int     `pulumi:"lessThanOrEqual"`
 	Lt                 *int     `pulumi:"lt"`
 	Lte                *int     `pulumi:"lte"`
+	Matches            []string `pulumi:"matches"`
 	Neq                []string `pulumi:"neq"`
 	NotEquals          []string `pulumi:"notEquals"`
+	NotMatches         []string `pulumi:"notMatches"`
 }
 
 // FilterConditionInput is an input type that accepts FilterConditionArgs and FilterConditionOutput values.
@@ -1151,8 +1153,10 @@ type FilterConditionArgs struct {
 	LessThanOrEqual    pulumi.IntPtrInput      `pulumi:"lessThanOrEqual"`
 	Lt                 pulumi.IntPtrInput      `pulumi:"lt"`
 	Lte                pulumi.IntPtrInput      `pulumi:"lte"`
+	Matches            pulumi.StringArrayInput `pulumi:"matches"`
 	Neq                pulumi.StringArrayInput `pulumi:"neq"`
 	NotEquals          pulumi.StringArrayInput `pulumi:"notEquals"`
+	NotMatches         pulumi.StringArrayInput `pulumi:"notMatches"`
 }
 
 func (FilterConditionArgs) ElementType() reflect.Type {
@@ -1246,12 +1250,20 @@ func (o FilterConditionOutput) Lte() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v FilterCondition) *int { return v.Lte }).(pulumi.IntPtrOutput)
 }
 
+func (o FilterConditionOutput) Matches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.Matches }).(pulumi.StringArrayOutput)
+}
+
 func (o FilterConditionOutput) Neq() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterCondition) []string { return v.Neq }).(pulumi.StringArrayOutput)
 }
 
 func (o FilterConditionOutput) NotEquals() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v FilterCondition) []string { return v.NotEquals }).(pulumi.StringArrayOutput)
+}
+
+func (o FilterConditionOutput) NotMatches() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FilterCondition) []string { return v.NotMatches }).(pulumi.StringArrayOutput)
 }
 
 type FilterConditionMapOutput struct{ *pulumi.OutputState }

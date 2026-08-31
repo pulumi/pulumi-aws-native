@@ -144,8 +144,30 @@
         },
         "LogGroupNameConfiguration" : {
           "$ref" : "#/definitions/LogGroupNameConfiguration"
+        },
+        "TagPropagationConfiguration" : {
+          "$ref" : "#/definitions/TagPropagationConfiguration"
         }
       },
+      "additionalProperties" : false
+    },
+    "TagPropagationConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "DestinationRoleArn" : {
+          "type" : "string",
+          "description" : "The ARN of the destination account IAM role used for tag propagation.",
+          "minLength" : 20,
+          "maxLength" : 2048,
+          "pattern" : "^arn:aws[a-zA-Z-]*:iam::\\d{12}:role/[\\w+=,.@/-]+$"
+        },
+        "TagConflictResolutionStrategy" : {
+          "type" : "string",
+          "description" : "The strategy to resolve tag conflicts during propagation.",
+          "enum" : [ "IN_SYNC", "ADD_ONLY", "UPDATE_SYNC" ]
+        }
+      },
+      "required" : [ "DestinationRoleArn" ],
       "additionalProperties" : false
     },
     "DestinationMetricsConfiguration" : {
@@ -250,14 +272,14 @@
   "additionalIdentifiers" : [ [ "/properties/RuleName" ] ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "observabilityadmin:CreateCentralizationRuleForOrganization", "observabilityadmin:GetCentralizationRuleForOrganization", "observabilityadmin:ListTagsForResource", "observabilityadmin:TagResource" ],
+      "permissions" : [ "observabilityadmin:CreateCentralizationRuleForOrganization", "observabilityadmin:GetCentralizationRuleForOrganization", "observabilityadmin:ListTagsForResource", "observabilityadmin:TagResource", "iam:PassRole" ],
       "timeoutInMinutes" : 90
     },
     "read" : {
       "permissions" : [ "observabilityadmin:GetCentralizationRuleForOrganization", "observabilityadmin:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "observabilityadmin:UpdateCentralizationRuleForOrganization", "observabilityadmin:GetCentralizationRuleForOrganization", "observabilityadmin:ListTagsForResource", "observabilityadmin:TagResource", "observabilityadmin:UntagResource" ]
+      "permissions" : [ "observabilityadmin:UpdateCentralizationRuleForOrganization", "observabilityadmin:GetCentralizationRuleForOrganization", "observabilityadmin:ListTagsForResource", "observabilityadmin:TagResource", "observabilityadmin:UntagResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "observabilityadmin:DeleteCentralizationRuleForOrganization" ]

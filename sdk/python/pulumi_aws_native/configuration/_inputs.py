@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from ._enums import *
 
 __all__ = [
     'CompliancePropertiesArgs',
@@ -765,7 +764,7 @@ class ConnectorConfigurationArgs:
 
 
 class DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict(TypedDict):
-    delivery_frequency: NotRequired[pulumi.Input[Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency']]]
+    delivery_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The frequency with which AWS Config delivers configuration snapshots.
     """
@@ -773,23 +772,23 @@ class DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DeliveryChannelConfigSnapshotDeliveryPropertiesArgs:
     def __init__(__self__, *,
-                 delivery_frequency: pulumi.Input[Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency']] = None):
+                 delivery_frequency: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency'] delivery_frequency: The frequency with which AWS Config delivers configuration snapshots.
+        :param pulumi.Input[_builtins.str] delivery_frequency: The frequency with which AWS Config delivers configuration snapshots.
         """
         if delivery_frequency is not None:
             pulumi.set(__self__, "delivery_frequency", delivery_frequency)
 
     @_builtins.property
     @pulumi.getter(name="deliveryFrequency")
-    def delivery_frequency(self) -> pulumi.Input[Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency']]:
+    def delivery_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The frequency with which AWS Config delivers configuration snapshots.
         """
         return pulumi.get(self, "delivery_frequency")
 
     @delivery_frequency.setter
-    def delivery_frequency(self, value: pulumi.Input[Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency']]):
+    def delivery_frequency(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "delivery_frequency", value)
 
 

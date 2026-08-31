@@ -31,6 +31,16 @@
     },
     "CroppingConfig" : {
       "type" : "object",
+      "properties" : {
+        "TemplateGroups" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/TemplateGroup"
+          },
+          "maxItems" : 4,
+          "minItems" : 1
+        }
+      },
       "additionalProperties" : false
     },
     "DataSourceConfiguration" : {
@@ -140,12 +150,40 @@
       },
       "additionalProperties" : false
     },
+    "TemplateGroup" : {
+      "type" : "object",
+      "properties" : {
+        "Name" : {
+          "type" : "string",
+          "pattern" : "^[a-zA-Z0-9]([a-zA-Z0-9-_]{0,126}[a-zA-Z0-9])?$"
+        },
+        "TemplateUris" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "maxLength" : 255,
+            "minLength" : 10,
+            "pattern" : "^s3://[a-z0-9][a-z0-9.-]{1,61}[a-z0-9]/.+$"
+          },
+          "maxItems" : 2,
+          "minItems" : 1
+        }
+      },
+      "required" : [ "Name", "TemplateUris" ],
+      "additionalProperties" : false
+    },
     "TranscriptionLanguage" : {
       "type" : "string",
       "enum" : [ "eng", "eng-au", "eng-gb", "eng-us", "fra", "ita", "deu", "spa", "por" ]
     }
   },
   "properties" : {
+    "AccessRoleArn" : {
+      "type" : "string",
+      "maxLength" : 255,
+      "minLength" : 32,
+      "pattern" : "^arn:aws[a-z\\-]*:iam::[0-9]{12}:role/.+$"
+    },
     "Arn" : {
       "type" : "string"
     },
@@ -186,13 +224,13 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "elemental-inference:CreateFeed", "elemental-inference:TagResource" ]
+      "permissions" : [ "elemental-inference:CreateFeed", "elemental-inference:TagResource", "iam:PassRole" ]
     },
     "read" : {
       "permissions" : [ "elemental-inference:GetFeed", "elemental-inference:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "elemental-inference:UpdateFeed", "elemental-inference:GetFeed", "elemental-inference:TagResource", "elemental-inference:UntagResource", "elemental-inference:ListTagsForResource" ]
+      "permissions" : [ "elemental-inference:UpdateFeed", "elemental-inference:GetFeed", "elemental-inference:TagResource", "elemental-inference:UntagResource", "elemental-inference:ListTagsForResource", "iam:PassRole" ]
     },
     "delete" : {
       "permissions" : [ "elemental-inference:DeleteFeed", "elemental-inference:GetFeed" ]

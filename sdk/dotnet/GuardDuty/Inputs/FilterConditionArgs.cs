@@ -52,6 +52,14 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         [Input("lte")]
         public Input<int>? Lte { get; set; }
 
+        [Input("matches")]
+        private InputList<string>? _matches;
+        public InputList<string> Matches
+        {
+            get => _matches ?? (_matches = new InputList<string>());
+            set => _matches = value;
+        }
+
         [Input("neq")]
         private InputList<string>? _neq;
         public InputList<string> Neq
@@ -66,6 +74,14 @@ namespace Pulumi.AwsNative.GuardDuty.Inputs
         {
             get => _notEquals ?? (_notEquals = new InputList<string>());
             set => _notEquals = value;
+        }
+
+        [Input("notMatches")]
+        private InputList<string>? _notMatches;
+        public InputList<string> NotMatches
+        {
+            get => _notMatches ?? (_notMatches = new InputList<string>());
+            set => _notMatches = value;
         }
 
         public FilterConditionArgs()

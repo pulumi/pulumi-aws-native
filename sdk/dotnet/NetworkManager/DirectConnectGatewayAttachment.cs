@@ -85,13 +85,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The attachment to move from one network function group to another.
         /// </summary>
         [Output("proposedNetworkFunctionGroupChange")]
-        public Output<Outputs.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
+        public Output<Outputs.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
         /// </summary>
         [Output("proposedSegmentChange")]
-        public Output<Outputs.DirectConnectGatewayAttachmentProposedSegmentChange?> ProposedSegmentChange { get; private set; } = null!;
+        public Output<Outputs.DirectConnectGatewayAttachmentProposedSegmentChange> ProposedSegmentChange { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Resource.
@@ -203,18 +203,6 @@ namespace Pulumi.AwsNative.NetworkManager
             get => _edgeLocations ?? (_edgeLocations = new InputList<string>());
             set => _edgeLocations = value;
         }
-
-        /// <summary>
-        /// The attachment to move from one network function group to another.
-        /// </summary>
-        [Input("proposedNetworkFunctionGroupChange")]
-        public Input<Inputs.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
-
-        /// <summary>
-        /// The attachment to move from one segment to another.
-        /// </summary>
-        [Input("proposedSegmentChange")]
-        public Input<Inputs.DirectConnectGatewayAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         /// <summary>
         /// Routing policy label

@@ -143,6 +143,11 @@ namespace Pulumi.AwsNative.Rds
         /// </summary>
         public readonly bool? AutoMinorVersionUpgrade;
         /// <summary>
+        /// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. 
+        ///  Valid for: Aurora DB clusters only
+        /// </summary>
+        public readonly ImmutableArray<string> AvailabilityZones;
+        /// <summary>
         /// The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
         ///  Valid for Cluster Type: Aurora MySQL DB clusters only
         ///  Default: ``0``
@@ -470,6 +475,8 @@ namespace Pulumi.AwsNative.Rds
 
             bool? autoMinorVersionUpgrade,
 
+            ImmutableArray<string> availabilityZones,
+
             int? backtrackWindow,
 
             int? backupRetentionPeriod,
@@ -559,6 +566,7 @@ namespace Pulumi.AwsNative.Rds
             AllocatedStorage = allocatedStorage;
             AssociatedRoles = associatedRoles;
             AutoMinorVersionUpgrade = autoMinorVersionUpgrade;
+            AvailabilityZones = availabilityZones;
             BacktrackWindow = backtrackWindow;
             BackupRetentionPeriod = backupRetentionPeriod;
             CopyTagsToSnapshot = copyTagsToSnapshot;

@@ -116,6 +116,7 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         public static PlanExecutionBlockType Parallel { get; } = new PlanExecutionBlockType("Parallel");
         public static PlanExecutionBlockType RdsCreateCrossRegionReplica { get; } = new PlanExecutionBlockType("RdsCreateCrossRegionReplica");
         public static PlanExecutionBlockType RdsPromoteReadReplica { get; } = new PlanExecutionBlockType("RdsPromoteReadReplica");
+        public static PlanExecutionBlockType RdsSwitchoverReadReplica { get; } = new PlanExecutionBlockType("RdsSwitchoverReadReplica");
         public static PlanExecutionBlockType Route53HealthCheck { get; } = new PlanExecutionBlockType("Route53HealthCheck");
 
         public static bool operator ==(PlanExecutionBlockType left, PlanExecutionBlockType right) => left.Equals(right);
@@ -235,6 +236,33 @@ namespace Pulumi.AwsNative.ArcRegionSwitch
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlanNeptuneUngracefulBehavior other && Equals(other);
         public bool Equals(PlanNeptuneUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct PlanRdsUngracefulBehavior : IEquatable<PlanRdsUngracefulBehavior>
+    {
+        private readonly string _value;
+
+        private PlanRdsUngracefulBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlanRdsUngracefulBehavior PromoteReadReplica { get; } = new PlanRdsUngracefulBehavior("promoteReadReplica");
+
+        public static bool operator ==(PlanRdsUngracefulBehavior left, PlanRdsUngracefulBehavior right) => left.Equals(right);
+        public static bool operator !=(PlanRdsUngracefulBehavior left, PlanRdsUngracefulBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(PlanRdsUngracefulBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlanRdsUngracefulBehavior other && Equals(other);
+        public bool Equals(PlanRdsUngracefulBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

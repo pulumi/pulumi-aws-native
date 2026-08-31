@@ -256,6 +256,17 @@ export const FunctionRuntimeManagementConfigUpdateRuntimeOn = {
  */
 export type FunctionRuntimeManagementConfigUpdateRuntimeOn = (typeof FunctionRuntimeManagementConfigUpdateRuntimeOn)[keyof typeof FunctionRuntimeManagementConfigUpdateRuntimeOn];
 
+export const FunctionS3FilesConfigDirectS3Read = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+    Auto: "AUTO",
+} as const;
+
+/**
+ * Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+ */
+export type FunctionS3FilesConfigDirectS3Read = (typeof FunctionS3FilesConfigDirectS3Read)[keyof typeof FunctionS3FilesConfigDirectS3Read];
+
 export const FunctionSnapStartApplyOn = {
     PublishedVersions: "PublishedVersions",
     None: "None",

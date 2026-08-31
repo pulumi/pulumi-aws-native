@@ -40,9 +40,9 @@ type DirectConnectGatewayAttachment struct {
 	// Owner account of the attachment.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
+	ProposedNetworkFunctionGroupChange DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
-	ProposedSegmentChange DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
+	ProposedSegmentChange DirectConnectGatewayAttachmentProposedSegmentChangeOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Routing policy label
@@ -118,10 +118,6 @@ type directConnectGatewayAttachmentArgs struct {
 	DirectConnectGatewayArn string `pulumi:"directConnectGatewayArn"`
 	// The Regions where the edges are located.
 	EdgeLocations []string `pulumi:"edgeLocations"`
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange *DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange *DirectConnectGatewayAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Routing policy label
 	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Tags for the attachment.
@@ -136,10 +132,6 @@ type DirectConnectGatewayAttachmentArgs struct {
 	DirectConnectGatewayArn pulumi.StringInput
 	// The Regions where the edges are located.
 	EdgeLocations pulumi.StringArrayInput
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrInput
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange DirectConnectGatewayAttachmentProposedSegmentChangePtrInput
 	// Routing policy label
 	RoutingPolicyLabel pulumi.StringPtrInput
 	// Tags for the attachment.
@@ -239,17 +231,17 @@ func (o DirectConnectGatewayAttachmentOutput) OwnerAccountId() pulumi.StringOutp
 }
 
 // The attachment to move from one network function group to another.
-func (o DirectConnectGatewayAttachmentOutput) ProposedNetworkFunctionGroupChange() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyT(func(v *DirectConnectGatewayAttachment) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+func (o DirectConnectGatewayAttachmentOutput) ProposedNetworkFunctionGroupChange() DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachment) DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput {
 		return v.ProposedNetworkFunctionGroupChange
-	}).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangePtrOutput)
+	}).(DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeOutput)
 }
 
 // The attachment to move from one segment to another.
-func (o DirectConnectGatewayAttachmentOutput) ProposedSegmentChange() DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyT(func(v *DirectConnectGatewayAttachment) DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput {
+func (o DirectConnectGatewayAttachmentOutput) ProposedSegmentChange() DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *DirectConnectGatewayAttachment) DirectConnectGatewayAttachmentProposedSegmentChangeOutput {
 		return v.ProposedSegmentChange
-	}).(DirectConnectGatewayAttachmentProposedSegmentChangePtrOutput)
+	}).(DirectConnectGatewayAttachmentProposedSegmentChangeOutput)
 }
 
 // The ARN of the Resource.

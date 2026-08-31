@@ -11,6 +11,7 @@ __all__ = [
     'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionScope',
     'OrganizationCentralizationRuleLogsEncryptionConfigurationEncryptionStrategy',
     'OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy',
+    'OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy',
     'OrganizationTelemetryRuleAction',
     'OrganizationTelemetryRuleDestinationType',
     'OrganizationTelemetryRuleElbLoadBalancerLoggingParametersOutputFormat',
@@ -69,6 +70,16 @@ class OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStra
     """
     ALLOW = "ALLOW"
     SKIP = "SKIP"
+
+
+@pulumi.type_token("aws-native:observabilityadmin:OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy")
+class OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy(_builtins.str, Enum):
+    """
+    The strategy to resolve tag conflicts during propagation.
+    """
+    IN_SYNC = "IN_SYNC"
+    ADD_ONLY = "ADD_ONLY"
+    UPDATE_SYNC = "UPDATE_SYNC"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleAction")

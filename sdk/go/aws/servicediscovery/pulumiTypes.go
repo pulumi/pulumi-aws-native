@@ -13,6 +13,13 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type HttpNamespaceTag struct {
+	// The key identifier, or name, of the tag.
+	Key string `pulumi:"key"`
+	// The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null.
+	Value string `pulumi:"value"`
+}
+
 type PrivateDnsNamespacePrivateDnsPropertiesMutable struct {
 	// Fields for the Start of Authority (SOA) record for the hosted zone for the private DNS namespace.
 	Soa *PrivateDnsNamespaceSoa `pulumi:"soa"`

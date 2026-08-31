@@ -146,13 +146,14 @@ export const ContainerFleetScalingPolicyMetricName = {
 } as const;
 
 /**
- * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+ * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
  */
 export type ContainerFleetScalingPolicyMetricName = (typeof ContainerFleetScalingPolicyMetricName)[keyof typeof ContainerFleetScalingPolicyMetricName];
 
 export const ContainerFleetScalingPolicyPolicyType = {
     RuleBased: "RuleBased",
     TargetBased: "TargetBased",
+    ManagedScaling: "ManagedScaling",
 } as const;
 
 /**
@@ -431,13 +432,14 @@ export const FleetScalingPolicyMetricName = {
 } as const;
 
 /**
- * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+ * Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
  */
 export type FleetScalingPolicyMetricName = (typeof FleetScalingPolicyMetricName)[keyof typeof FleetScalingPolicyMetricName];
 
 export const FleetScalingPolicyPolicyType = {
     RuleBased: "RuleBased",
     TargetBased: "TargetBased",
+    ManagedScaling: "ManagedScaling",
 } as const;
 
 /**

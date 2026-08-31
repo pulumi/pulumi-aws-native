@@ -58,10 +58,6 @@ export interface GetAssociationResult {
      */
     readonly documentVersion?: string;
     /**
-     * The ID of the instance that the SSM document is associated with.
-     */
-    readonly instanceId?: string;
-    /**
      * The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%. The default value is 100%, which means all targets run the association at the same time.
      *
      * If a new managed node starts and attempts to run an association while Systems Manager is running `MaxConcurrency` associations, the association is allowed to run. During the next association interval, the new managed node will process its association within the limit specified for `MaxConcurrency` .

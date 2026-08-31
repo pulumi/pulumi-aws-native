@@ -10,11 +10,24 @@ export const getInvoiceUnit: typeof import("./getInvoiceUnit").getInvoiceUnit = 
 export const getInvoiceUnitOutput: typeof import("./getInvoiceUnit").getInvoiceUnitOutput = null as any;
 utilities.lazyLoad(exports, ["getInvoiceUnit","getInvoiceUnitOutput"], () => require("./getInvoiceUnit"));
 
+export { GetProcurementPortalPreferenceArgs, GetProcurementPortalPreferenceResult, GetProcurementPortalPreferenceOutputArgs } from "./getProcurementPortalPreference";
+export const getProcurementPortalPreference: typeof import("./getProcurementPortalPreference").getProcurementPortalPreference = null as any;
+export const getProcurementPortalPreferenceOutput: typeof import("./getProcurementPortalPreference").getProcurementPortalPreferenceOutput = null as any;
+utilities.lazyLoad(exports, ["getProcurementPortalPreference","getProcurementPortalPreferenceOutput"], () => require("./getProcurementPortalPreference"));
+
 export { InvoiceUnitArgs } from "./invoiceUnit";
 export type InvoiceUnit = import("./invoiceUnit").InvoiceUnit;
 export const InvoiceUnit: typeof import("./invoiceUnit").InvoiceUnit = null as any;
 utilities.lazyLoad(exports, ["InvoiceUnit"], () => require("./invoiceUnit"));
 
+export { ProcurementPortalPreferenceArgs } from "./procurementPortalPreference";
+export type ProcurementPortalPreference = import("./procurementPortalPreference").ProcurementPortalPreference;
+export const ProcurementPortalPreference: typeof import("./procurementPortalPreference").ProcurementPortalPreference = null as any;
+utilities.lazyLoad(exports, ["ProcurementPortalPreference"], () => require("./procurementPortalPreference"));
+
+
+// Export enums:
+export * from "../types/enums/invoicing";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:invoicing:InvoiceUnit":
                 return new InvoiceUnit(name, <any>undefined, { urn })
+            case "aws-native:invoicing:ProcurementPortalPreference":
+                return new ProcurementPortalPreference(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

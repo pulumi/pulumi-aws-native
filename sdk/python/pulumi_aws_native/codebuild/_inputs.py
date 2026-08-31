@@ -28,6 +28,10 @@ __all__ = [
     'FleetTargetTrackingScalingConfigurationArgsDict',
     'FleetVpcConfigArgs',
     'FleetVpcConfigArgsDict',
+    'ReportGroupReportExportConfigArgs',
+    'ReportGroupReportExportConfigArgsDict',
+    'ReportGroupS3ReportExportConfigArgs',
+    'ReportGroupS3ReportExportConfigArgsDict',
 ]
 
 class FleetComputeConfigurationArgsDict(TypedDict):
@@ -442,5 +446,199 @@ class FleetVpcConfigArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "vpc_id", value)
+
+
+class ReportGroupReportExportConfigArgsDict(TypedDict):
+    export_config_type: pulumi.Input['ReportGroupReportExportConfigExportConfigType']
+    """
+    The export configuration type. Valid values are:
+
+    - `S3` : The report results are exported to an S3 bucket.
+    - `NO_EXPORT` : The report results are not exported.
+    """
+    s3_destination: NotRequired[pulumi.Input[Optional['ReportGroupS3ReportExportConfigArgsDict']]]
+    """
+    A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+    """
+
+@pulumi.input_type
+class ReportGroupReportExportConfigArgs:
+    def __init__(__self__, *,
+                 export_config_type: pulumi.Input['ReportGroupReportExportConfigExportConfigType'],
+                 s3_destination: pulumi.Input[Optional['ReportGroupS3ReportExportConfigArgs']] = None):
+        """
+        :param pulumi.Input['ReportGroupReportExportConfigExportConfigType'] export_config_type: The export configuration type. Valid values are:
+               
+               - `S3` : The report results are exported to an S3 bucket.
+               - `NO_EXPORT` : The report results are not exported.
+        :param pulumi.Input['ReportGroupS3ReportExportConfigArgs'] s3_destination: A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+        """
+        pulumi.set(__self__, "export_config_type", export_config_type)
+        if s3_destination is not None:
+            pulumi.set(__self__, "s3_destination", s3_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="exportConfigType")
+    def export_config_type(self) -> pulumi.Input['ReportGroupReportExportConfigExportConfigType']:
+        """
+        The export configuration type. Valid values are:
+
+        - `S3` : The report results are exported to an S3 bucket.
+        - `NO_EXPORT` : The report results are not exported.
+        """
+        return pulumi.get(self, "export_config_type")
+
+    @export_config_type.setter
+    def export_config_type(self, value: pulumi.Input['ReportGroupReportExportConfigExportConfigType']):
+        pulumi.set(self, "export_config_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Destination")
+    def s3_destination(self) -> pulumi.Input[Optional['ReportGroupS3ReportExportConfigArgs']]:
+        """
+        A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
+        """
+        return pulumi.get(self, "s3_destination")
+
+    @s3_destination.setter
+    def s3_destination(self, value: pulumi.Input[Optional['ReportGroupS3ReportExportConfigArgs']]):
+        pulumi.set(self, "s3_destination", value)
+
+
+class ReportGroupS3ReportExportConfigArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket where the raw data of a report are exported.
+    """
+    bucket_owner: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+    """
+    encryption_disabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A boolean value that specifies if the results of a report are encrypted.
+    """
+    encryption_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The encryption key for the report's encrypted raw data.
+    """
+    packaging: NotRequired[pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']]]
+    """
+    The type of build output artifact to create. Valid values include:
+
+    - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+    - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+    """
+    path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The path to the exported report's raw data results.
+    """
+
+@pulumi.input_type
+class ReportGroupS3ReportExportConfigArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 packaging: pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']] = None,
+                 path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket where the raw data of a report are exported.
+        :param pulumi.Input[_builtins.str] bucket_owner: The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+        :param pulumi.Input[_builtins.bool] encryption_disabled: A boolean value that specifies if the results of a report are encrypted.
+        :param pulumi.Input[_builtins.str] encryption_key: The encryption key for the report's encrypted raw data.
+        :param pulumi.Input['ReportGroupS3ReportExportConfigPackaging'] packaging: The type of build output artifact to create. Valid values include:
+               
+               - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+               - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+        :param pulumi.Input[_builtins.str] path: The path to the exported report's raw data results.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        if bucket_owner is not None:
+            pulumi.set(__self__, "bucket_owner", bucket_owner)
+        if encryption_disabled is not None:
+            pulumi.set(__self__, "encryption_disabled", encryption_disabled)
+        if encryption_key is not None:
+            pulumi.set(__self__, "encryption_key", encryption_key)
+        if packaging is not None:
+            pulumi.set(__self__, "packaging", packaging)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the S3 bucket where the raw data of a report are exported.
+        """
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketOwner")
+    def bucket_owner(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
+        """
+        return pulumi.get(self, "bucket_owner")
+
+    @bucket_owner.setter
+    def bucket_owner(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bucket_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionDisabled")
+    def encryption_disabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A boolean value that specifies if the results of a report are encrypted.
+        """
+        return pulumi.get(self, "encryption_disabled")
+
+    @encryption_disabled.setter
+    def encryption_disabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "encryption_disabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionKey")
+    def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The encryption key for the report's encrypted raw data.
+        """
+        return pulumi.get(self, "encryption_key")
+
+    @encryption_key.setter
+    def encryption_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "encryption_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def packaging(self) -> pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']]:
+        """
+        The type of build output artifact to create. Valid values include:
+
+        - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+        - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+        """
+        return pulumi.get(self, "packaging")
+
+    @packaging.setter
+    def packaging(self, value: pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']]):
+        pulumi.set(self, "packaging", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The path to the exported report's raw data results.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "path", value)
 
 

@@ -86,6 +86,10 @@ namespace Pulumi.AwsNative.Events
         /// </summary>
         public readonly string? RoleArn;
         /// <summary>
+        /// The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+        /// </summary>
+        public readonly string? RuleName;
+        /// <summary>
         /// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
         /// </summary>
         public readonly string? ScheduleExpression;
@@ -115,6 +119,8 @@ namespace Pulumi.AwsNative.Events
 
             string? roleArn,
 
+            string? ruleName,
+
             string? scheduleExpression,
 
             Pulumi.AwsNative.Events.RuleState? state,
@@ -128,6 +134,7 @@ namespace Pulumi.AwsNative.Events
             EventBusName = eventBusName;
             EventPattern = eventPattern;
             RoleArn = roleArn;
+            RuleName = ruleName;
             ScheduleExpression = scheduleExpression;
             State = state;
             Tags = tags;

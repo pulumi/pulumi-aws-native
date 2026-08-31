@@ -745,6 +745,38 @@ namespace Pulumi.AwsNative.Lambda
     }
 
     /// <summary>
+    /// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+    /// </summary>
+    [EnumType]
+    public readonly struct FunctionS3FilesConfigDirectS3Read : IEquatable<FunctionS3FilesConfigDirectS3Read>
+    {
+        private readonly string _value;
+
+        private FunctionS3FilesConfigDirectS3Read(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FunctionS3FilesConfigDirectS3Read Enabled { get; } = new FunctionS3FilesConfigDirectS3Read("ENABLED");
+        public static FunctionS3FilesConfigDirectS3Read Disabled { get; } = new FunctionS3FilesConfigDirectS3Read("DISABLED");
+        public static FunctionS3FilesConfigDirectS3Read Auto { get; } = new FunctionS3FilesConfigDirectS3Read("AUTO");
+
+        public static bool operator ==(FunctionS3FilesConfigDirectS3Read left, FunctionS3FilesConfigDirectS3Read right) => left.Equals(right);
+        public static bool operator !=(FunctionS3FilesConfigDirectS3Read left, FunctionS3FilesConfigDirectS3Read right) => !left.Equals(right);
+
+        public static explicit operator string(FunctionS3FilesConfigDirectS3Read value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FunctionS3FilesConfigDirectS3Read other && Equals(other);
+        public bool Equals(FunctionS3FilesConfigDirectS3Read other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Set ``ApplyOn`` to ``PublishedVersions`` to create a snapshot of the initialized execution environment when you publish a function version.
     /// </summary>
     [EnumType]

@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRuleResult:
-    def __init__(__self__, arn=None, description=None, event_bus_name=None, event_pattern=None, role_arn=None, schedule_expression=None, state=None, tags=None, targets=None):
+    def __init__(__self__, arn=None, description=None, event_bus_name=None, event_pattern=None, role_arn=None, rule_name=None, schedule_expression=None, state=None, tags=None, targets=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -42,6 +42,9 @@ class GetRuleResult:
         if role_arn and not isinstance(role_arn, str):
             raise TypeError("Expected argument 'role_arn' to be a str")
         pulumi.set(__self__, "role_arn", role_arn)
+        if rule_name and not isinstance(rule_name, str):
+            raise TypeError("Expected argument 'rule_name' to be a str")
+        pulumi.set(__self__, "rule_name", rule_name)
         if schedule_expression and not isinstance(schedule_expression, str):
             raise TypeError("Expected argument 'schedule_expression' to be a str")
         pulumi.set(__self__, "schedule_expression", schedule_expression)
@@ -98,6 +101,14 @@ class GetRuleResult:
         return pulumi.get(self, "role_arn")
 
     @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @_builtins.property
     @pulumi.getter(name="scheduleExpression")
     def schedule_expression(self) -> Optional[_builtins.str]:
         """
@@ -142,6 +153,7 @@ class AwaitableGetRuleResult(GetRuleResult):
             event_bus_name=self.event_bus_name,
             event_pattern=self.event_pattern,
             role_arn=self.role_arn,
+            rule_name=self.rule_name,
             schedule_expression=self.schedule_expression,
             state=self.state,
             tags=self.tags,
@@ -166,6 +178,7 @@ def get_rule(arn: Optional[_builtins.str] = None,
         event_bus_name=pulumi.get(__ret__, 'event_bus_name'),
         event_pattern=pulumi.get(__ret__, 'event_pattern'),
         role_arn=pulumi.get(__ret__, 'role_arn'),
+        rule_name=pulumi.get(__ret__, 'rule_name'),
         schedule_expression=pulumi.get(__ret__, 'schedule_expression'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -187,6 +200,7 @@ def get_rule_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         event_bus_name=pulumi.get(__response__, 'event_bus_name'),
         event_pattern=pulumi.get(__response__, 'event_pattern'),
         role_arn=pulumi.get(__response__, 'role_arn'),
+        rule_name=pulumi.get(__response__, 'rule_name'),
         schedule_expression=pulumi.get(__response__, 'schedule_expression'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),

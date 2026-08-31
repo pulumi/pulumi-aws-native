@@ -56,6 +56,7 @@ export interface GetInferenceComponentResult {
     readonly lastModifiedTime?: string;
     readonly runtimeConfig?: outputs.sagemaker.InferenceComponentRuntimeConfig;
     readonly specification?: outputs.sagemaker.InferenceComponentSpecification;
+    readonly specifications?: outputs.sagemaker.InferenceComponentSpecificationForInstanceType[];
     readonly tags?: outputs.Tag[];
     /**
      * The name of the production variant that hosts the inference component.

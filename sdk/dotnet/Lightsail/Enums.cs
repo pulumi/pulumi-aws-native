@@ -8,6 +8,69 @@ using Pulumi;
 namespace Pulumi.AwsNative.Lightsail
 {
     /// <summary>
+    /// The protocol of the contact method, such as Email or SMS (text messaging).
+    /// </summary>
+    [EnumType]
+    public readonly struct ContactMethodProtocol : IEquatable<ContactMethodProtocol>
+    {
+        private readonly string _value;
+
+        private ContactMethodProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContactMethodProtocol Email { get; } = new ContactMethodProtocol("Email");
+        public static ContactMethodProtocol Sms { get; } = new ContactMethodProtocol("SMS");
+
+        public static bool operator ==(ContactMethodProtocol left, ContactMethodProtocol right) => left.Equals(right);
+        public static bool operator !=(ContactMethodProtocol left, ContactMethodProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ContactMethodProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContactMethodProtocol other && Equals(other);
+        public bool Equals(ContactMethodProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The current status of the contact method.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContactMethodStatus : IEquatable<ContactMethodStatus>
+    {
+        private readonly string _value;
+
+        private ContactMethodStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContactMethodStatus PendingVerification { get; } = new ContactMethodStatus("PendingVerification");
+        public static ContactMethodStatus Valid { get; } = new ContactMethodStatus("Valid");
+        public static ContactMethodStatus Invalid { get; } = new ContactMethodStatus("Invalid");
+
+        public static bool operator ==(ContactMethodStatus left, ContactMethodStatus right) => left.Equals(right);
+        public static bool operator !=(ContactMethodStatus left, ContactMethodStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContactMethodStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContactMethodStatus other && Equals(other);
+        public bool Equals(ContactMethodStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The Lightsail resource type.
     /// </summary>
     [EnumType]

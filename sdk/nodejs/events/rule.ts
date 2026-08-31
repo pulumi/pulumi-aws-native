@@ -112,6 +112,10 @@ export class Rule extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string | undefined>;
     /**
+     * The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+     */
+    declare public /*out*/ readonly ruleName: pulumi.Output<string>;
+    /**
      * The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
      */
     declare public readonly scheduleExpression: pulumi.Output<string | undefined>;
@@ -150,6 +154,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["targets"] = args?.targets;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["ruleName"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -157,6 +162,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["eventPattern"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
+            resourceInputs["ruleName"] = undefined /*out*/;
             resourceInputs["scheduleExpression"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

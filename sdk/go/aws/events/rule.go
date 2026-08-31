@@ -112,6 +112,8 @@ type Rule struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
+	// The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+	RuleName pulumi.StringOutput `pulumi:"ruleName"`
 	// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
 	ScheduleExpression pulumi.StringPtrOutput `pulumi:"scheduleExpression"`
 	// The state of the rule.
@@ -282,6 +284,11 @@ func (o RuleOutput) Name() pulumi.StringPtrOutput {
 // The Amazon Resource Name (ARN) of the role that is used for target invocation.
 func (o RuleOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Rule) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+func (o RuleOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Rule) pulumi.StringOutput { return v.RuleName }).(pulumi.StringOutput)
 }
 
 // The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.

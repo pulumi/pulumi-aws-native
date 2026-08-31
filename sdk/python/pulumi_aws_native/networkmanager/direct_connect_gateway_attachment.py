@@ -16,7 +16,6 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._inputs import *
 
 __all__ = ['DirectConnectGatewayAttachmentArgs', 'DirectConnectGatewayAttachment']
 
@@ -26,8 +25,6 @@ class DirectConnectGatewayAttachmentArgs:
                  core_network_id: pulumi.Input[_builtins.str],
                  direct_connect_gateway_arn: pulumi.Input[_builtins.str],
                  edge_locations: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
-                 proposed_network_function_group_change: pulumi.Input[Optional['DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs']] = None,
-                 proposed_segment_change: pulumi.Input[Optional['DirectConnectGatewayAttachmentProposedSegmentChangeArgs']] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -36,18 +33,12 @@ class DirectConnectGatewayAttachmentArgs:
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network for the Direct Connect Gateway attachment.
         :param pulumi.Input[_builtins.str] direct_connect_gateway_arn: The ARN of the Direct Connect Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: The Regions where the edges are located.
-        :param pulumi.Input['DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs'] proposed_network_function_group_change: The attachment to move from one network function group to another.
-        :param pulumi.Input['DirectConnectGatewayAttachmentProposedSegmentChangeArgs'] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags for the attachment.
         """
         pulumi.set(__self__, "core_network_id", core_network_id)
         pulumi.set(__self__, "direct_connect_gateway_arn", direct_connect_gateway_arn)
         pulumi.set(__self__, "edge_locations", edge_locations)
-        if proposed_network_function_group_change is not None:
-            pulumi.set(__self__, "proposed_network_function_group_change", proposed_network_function_group_change)
-        if proposed_segment_change is not None:
-            pulumi.set(__self__, "proposed_segment_change", proposed_segment_change)
         if routing_policy_label is not None:
             pulumi.set(__self__, "routing_policy_label", routing_policy_label)
         if tags is not None:
@@ -90,30 +81,6 @@ class DirectConnectGatewayAttachmentArgs:
         pulumi.set(self, "edge_locations", value)
 
     @_builtins.property
-    @pulumi.getter(name="proposedNetworkFunctionGroupChange")
-    def proposed_network_function_group_change(self) -> pulumi.Input[Optional['DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs']]:
-        """
-        The attachment to move from one network function group to another.
-        """
-        return pulumi.get(self, "proposed_network_function_group_change")
-
-    @proposed_network_function_group_change.setter
-    def proposed_network_function_group_change(self, value: pulumi.Input[Optional['DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs']]):
-        pulumi.set(self, "proposed_network_function_group_change", value)
-
-    @_builtins.property
-    @pulumi.getter(name="proposedSegmentChange")
-    def proposed_segment_change(self) -> pulumi.Input[Optional['DirectConnectGatewayAttachmentProposedSegmentChangeArgs']]:
-        """
-        The attachment to move from one segment to another.
-        """
-        return pulumi.get(self, "proposed_segment_change")
-
-    @proposed_segment_change.setter
-    def proposed_segment_change(self, value: pulumi.Input[Optional['DirectConnectGatewayAttachmentProposedSegmentChangeArgs']]):
-        pulumi.set(self, "proposed_segment_change", value)
-
-    @_builtins.property
     @pulumi.getter(name="routingPolicyLabel")
     def routing_policy_label(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -147,8 +114,6 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proposed_network_function_group_change: pulumi.Input[Optional[Union['DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs', 'DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
-                 proposed_segment_change: pulumi.Input[Optional[Union['DirectConnectGatewayAttachmentProposedSegmentChangeArgs', 'DirectConnectGatewayAttachmentProposedSegmentChangeArgsDict']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -160,8 +125,6 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network for the Direct Connect Gateway attachment.
         :param pulumi.Input[_builtins.str] direct_connect_gateway_arn: The ARN of the Direct Connect Gateway.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] edge_locations: The Regions where the edges are located.
-        :param pulumi.Input[Union['DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs', 'DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgsDict']] proposed_network_function_group_change: The attachment to move from one network function group to another.
-        :param pulumi.Input[Union['DirectConnectGatewayAttachmentProposedSegmentChangeArgs', 'DirectConnectGatewayAttachmentProposedSegmentChangeArgsDict']] proposed_segment_change: The attachment to move from one segment to another.
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the attachment.
         """
@@ -192,8 +155,6 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  direct_connect_gateway_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  edge_locations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 proposed_network_function_group_change: pulumi.Input[Optional[Union['DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgs', 'DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChangeArgsDict']]] = None,
-                 proposed_segment_change: pulumi.Input[Optional[Union['DirectConnectGatewayAttachmentProposedSegmentChangeArgs', 'DirectConnectGatewayAttachmentProposedSegmentChangeArgsDict']]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -214,8 +175,6 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
             if edge_locations is None and not opts.urn:
                 raise TypeError("Missing required property 'edge_locations'")
             __props__.__dict__["edge_locations"] = edge_locations
-            __props__.__dict__["proposed_network_function_group_change"] = proposed_network_function_group_change
-            __props__.__dict__["proposed_segment_change"] = proposed_segment_change
             __props__.__dict__["routing_policy_label"] = routing_policy_label
             __props__.__dict__["tags"] = tags
             __props__.__dict__["attachment_id"] = None
@@ -226,6 +185,8 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
             __props__.__dict__["last_modification_errors"] = None
             __props__.__dict__["network_function_group_name"] = None
             __props__.__dict__["owner_account_id"] = None
+            __props__.__dict__["proposed_network_function_group_change"] = None
+            __props__.__dict__["proposed_segment_change"] = None
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
@@ -365,7 +326,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="proposedNetworkFunctionGroupChange")
-    def proposed_network_function_group_change(self) -> pulumi.Output[Optional['outputs.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange']]:
+    def proposed_network_function_group_change(self) -> pulumi.Output['outputs.DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange']:
         """
         The attachment to move from one network function group to another.
         """
@@ -373,7 +334,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="proposedSegmentChange")
-    def proposed_segment_change(self) -> pulumi.Output[Optional['outputs.DirectConnectGatewayAttachmentProposedSegmentChange']]:
+    def proposed_segment_change(self) -> pulumi.Output['outputs.DirectConnectGatewayAttachmentProposedSegmentChange']:
         """
         The attachment to move from one segment to another.
         """

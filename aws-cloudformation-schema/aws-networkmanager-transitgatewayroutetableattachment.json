@@ -171,7 +171,7 @@
   "required" : [ "PeeringId", "TransitGatewayRouteTableArn" ],
   "createOnlyProperties" : [ "/properties/PeeringId", "/properties/TransitGatewayRouteTableArn" ],
   "writeOnlyProperties" : [ "/properties/RoutingPolicyLabel" ],
-  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CoreNetworkId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors" ],
+  "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CoreNetworkId", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors", "/properties/ProposedSegmentChange", "/properties/ProposedNetworkFunctionGroupChange" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
   "handlers" : {
     "create" : {

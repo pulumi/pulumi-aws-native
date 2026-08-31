@@ -537,6 +537,8 @@ if typing.TYPE_CHECKING:
     storagegateway = __storagegateway
     import pulumi_aws_native.supportapp as __supportapp
     supportapp = __supportapp
+    import pulumi_aws_native.supportauthz as __supportauthz
+    supportauthz = __supportauthz
     import pulumi_aws_native.synthetics as __synthetics
     synthetics = __synthetics
     import pulumi_aws_native.systemsmanagersap as __systemsmanagersap
@@ -833,6 +835,7 @@ else:
     stepfunctions = _utilities.lazy_import('pulumi_aws_native.stepfunctions')
     storagegateway = _utilities.lazy_import('pulumi_aws_native.storagegateway')
     supportapp = _utilities.lazy_import('pulumi_aws_native.supportapp')
+    supportauthz = _utilities.lazy_import('pulumi_aws_native.supportauthz')
     synthetics = _utilities.lazy_import('pulumi_aws_native.synthetics')
     systemsmanagersap = _utilities.lazy_import('pulumi_aws_native.systemsmanagersap')
     textract = _utilities.lazy_import('pulumi_aws_native.textract')
@@ -1512,6 +1515,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.codebuild",
   "classes": {
    "aws-native:codebuild:Fleet": "Fleet",
+   "aws-native:codebuild:ReportGroup": "ReportGroup",
    "aws-native:codebuild:SourceCredential": "SourceCredential"
   }
  },
@@ -1981,6 +1985,7 @@ _utilities.register(
    "aws-native:ec2:EipAssociation": "EipAssociation",
    "aws-native:ec2:EnclaveCertificateIamRoleAssociation": "EnclaveCertificateIamRoleAssociation",
    "aws-native:ec2:FlowLog": "FlowLog",
+   "aws-native:ec2:FpgaImage": "FpgaImage",
    "aws-native:ec2:GatewayRouteTableAssociation": "GatewayRouteTableAssociation",
    "aws-native:ec2:Host": "Host",
    "aws-native:ec2:Instance": "Instance",
@@ -1989,6 +1994,7 @@ _utilities.register(
    "aws-native:ec2:IpPoolRouteTableAssociation": "IpPoolRouteTableAssociation",
    "aws-native:ec2:Ipam": "Ipam",
    "aws-native:ec2:IpamAllocation": "IpamAllocation",
+   "aws-native:ec2:IpamExternalResourceVerificationToken": "IpamExternalResourceVerificationToken",
    "aws-native:ec2:IpamPool": "IpamPool",
    "aws-native:ec2:IpamPoolCidr": "IpamPoolCidr",
    "aws-native:ec2:IpamPrefixListResolver": "IpamPrefixListResolver",
@@ -2387,6 +2393,7 @@ _utilities.register(
    "aws-native:glue:Blueprint": "Blueprint",
    "aws-native:glue:Catalog": "Catalog",
    "aws-native:glue:Classifier": "Classifier",
+   "aws-native:glue:Connection": "Connection",
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:CustomEntityType": "CustomEntityType",
    "aws-native:glue:DataCatalogEncryptionSettings": "DataCatalogEncryptionSettings",
@@ -2569,7 +2576,8 @@ _utilities.register(
   "mod": "invoicing",
   "fqn": "pulumi_aws_native.invoicing",
   "classes": {
-   "aws-native:invoicing:InvoiceUnit": "InvoiceUnit"
+   "aws-native:invoicing:InvoiceUnit": "InvoiceUnit",
+   "aws-native:invoicing:ProcurementPortalPreference": "ProcurementPortalPreference"
   }
  },
  {
@@ -2867,6 +2875,7 @@ _utilities.register(
    "aws-native:lightsail:Alarm": "Alarm",
    "aws-native:lightsail:Bucket": "Bucket",
    "aws-native:lightsail:Certificate": "Certificate",
+   "aws-native:lightsail:ContactMethod": "ContactMethod",
    "aws-native:lightsail:Container": "Container",
    "aws-native:lightsail:Database": "Database",
    "aws-native:lightsail:DatabaseSnapshot": "DatabaseSnapshot",
@@ -3918,6 +3927,7 @@ _utilities.register(
   "mod": "servicediscovery",
   "fqn": "pulumi_aws_native.servicediscovery",
   "classes": {
+   "aws-native:servicediscovery:HttpNamespace": "HttpNamespace",
    "aws-native:servicediscovery:PrivateDnsNamespace": "PrivateDnsNamespace",
    "aws-native:servicediscovery:PublicDnsNamespace": "PublicDnsNamespace",
    "aws-native:servicediscovery:Service": "Service"
@@ -4110,6 +4120,14 @@ _utilities.register(
    "aws-native:supportapp:AccountAlias": "AccountAlias",
    "aws-native:supportapp:SlackChannelConfiguration": "SlackChannelConfiguration",
    "aws-native:supportapp:SlackWorkspaceConfiguration": "SlackWorkspaceConfiguration"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "supportauthz",
+  "fqn": "pulumi_aws_native.supportauthz",
+  "classes": {
+   "aws-native:supportauthz:SupportPermit": "SupportPermit"
   }
  },
  {

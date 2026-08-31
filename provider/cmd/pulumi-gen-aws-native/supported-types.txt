@@ -284,6 +284,7 @@ AWS::CodeArtifact::Domain
 AWS::CodeArtifact::PackageGroup
 AWS::CodeArtifact::Repository
 AWS::CodeBuild::Fleet
+AWS::CodeBuild::ReportGroup
 AWS::CodeBuild::SourceCredential
 AWS::CodeCommit::Repository
 AWS::CodeConnections::Connection
@@ -494,6 +495,7 @@ AWS::EC2::EIPAssociation
 AWS::EC2::EgressOnlyInternetGateway
 AWS::EC2::EnclaveCertificateIamRoleAssociation
 AWS::EC2::FlowLog
+AWS::EC2::FpgaImage
 AWS::EC2::GatewayRouteTableAssociation
 AWS::EC2::Host
 AWS::EC2::IPAM
@@ -509,6 +511,7 @@ AWS::EC2::Instance
 AWS::EC2::InstanceConnectEndpoint
 AWS::EC2::InternetGateway
 AWS::EC2::IpPoolRouteTableAssociation
+AWS::EC2::IpamExternalResourceVerificationToken
 AWS::EC2::KeyPair
 AWS::EC2::LaunchTemplate
 AWS::EC2::LocalGatewayRoute
@@ -713,6 +716,7 @@ AWS::GlobalAccelerator::Listener
 AWS::Glue::Blueprint
 AWS::Glue::Catalog
 AWS::Glue::Classifier
+AWS::Glue::Connection
 AWS::Glue::Crawler
 AWS::Glue::CustomEntityType
 AWS::Glue::DataCatalogEncryptionSettings
@@ -802,6 +806,7 @@ AWS::InspectorV2::Filter
 AWS::Interconnect::Connection
 AWS::InternetMonitor::Monitor
 AWS::Invoicing::InvoiceUnit
+AWS::Invoicing::ProcurementPortalPreference
 AWS::IoT::AccountAuditConfiguration
 AWS::IoT::Authorizer
 AWS::IoT::BillingGroup
@@ -912,6 +917,7 @@ AWS::LicenseManager::LicenseAssetRuleSet
 AWS::Lightsail::Alarm
 AWS::Lightsail::Bucket
 AWS::Lightsail::Certificate
+AWS::Lightsail::ContactMethod
 AWS::Lightsail::Container
 AWS::Lightsail::Database
 AWS::Lightsail::DatabaseSnapshot
@@ -1439,6 +1445,7 @@ AWS::ServiceCatalogAppRegistry::Application
 AWS::ServiceCatalogAppRegistry::AttributeGroup
 AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation
 AWS::ServiceCatalogAppRegistry::ResourceAssociation
+AWS::ServiceDiscovery::HttpNamespace
 AWS::ServiceDiscovery::PrivateDnsNamespace
 AWS::ServiceDiscovery::PublicDnsNamespace
 AWS::ServiceDiscovery::Service
@@ -1457,6 +1464,7 @@ AWS::StorageGateway::TapePool
 AWS::SupportApp::AccountAlias
 AWS::SupportApp::SlackChannelConfiguration
 AWS::SupportApp::SlackWorkspaceConfiguration
+AWS::SupportAuthZ::SupportPermit
 AWS::Synthetics::Canary
 AWS::Synthetics::Group
 AWS::SystemsManagerSAP::Application

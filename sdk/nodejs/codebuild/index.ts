@@ -15,10 +15,20 @@ export const getFleet: typeof import("./getFleet").getFleet = null as any;
 export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
 utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
 
+export { GetReportGroupArgs, GetReportGroupResult, GetReportGroupOutputArgs } from "./getReportGroup";
+export const getReportGroup: typeof import("./getReportGroup").getReportGroup = null as any;
+export const getReportGroupOutput: typeof import("./getReportGroup").getReportGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getReportGroup","getReportGroupOutput"], () => require("./getReportGroup"));
+
 export { GetSourceCredentialArgs, GetSourceCredentialResult, GetSourceCredentialOutputArgs } from "./getSourceCredential";
 export const getSourceCredential: typeof import("./getSourceCredential").getSourceCredential = null as any;
 export const getSourceCredentialOutput: typeof import("./getSourceCredential").getSourceCredentialOutput = null as any;
 utilities.lazyLoad(exports, ["getSourceCredential","getSourceCredentialOutput"], () => require("./getSourceCredential"));
+
+export { ReportGroupArgs } from "./reportGroup";
+export type ReportGroup = import("./reportGroup").ReportGroup;
+export const ReportGroup: typeof import("./reportGroup").ReportGroup = null as any;
+utilities.lazyLoad(exports, ["ReportGroup"], () => require("./reportGroup"));
 
 export { SourceCredentialArgs } from "./sourceCredential";
 export type SourceCredential = import("./sourceCredential").SourceCredential;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:codebuild:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
+            case "aws-native:codebuild:ReportGroup":
+                return new ReportGroup(name, <any>undefined, { urn })
             case "aws-native:codebuild:SourceCredential":
                 return new SourceCredential(name, <any>undefined, { urn })
             default:

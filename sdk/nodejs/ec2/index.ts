@@ -65,6 +65,11 @@ export type FlowLog = import("./flowLog").FlowLog;
 export const FlowLog: typeof import("./flowLog").FlowLog = null as any;
 utilities.lazyLoad(exports, ["FlowLog"], () => require("./flowLog"));
 
+export { FpgaImageArgs } from "./fpgaImage";
+export type FpgaImage = import("./fpgaImage").FpgaImage;
+export const FpgaImage: typeof import("./fpgaImage").FpgaImage = null as any;
+utilities.lazyLoad(exports, ["FpgaImage"], () => require("./fpgaImage"));
+
 export { GatewayRouteTableAssociationArgs } from "./gatewayRouteTableAssociation";
 export type GatewayRouteTableAssociation = import("./gatewayRouteTableAssociation").GatewayRouteTableAssociation;
 export const GatewayRouteTableAssociation: typeof import("./gatewayRouteTableAssociation").GatewayRouteTableAssociation = null as any;
@@ -130,6 +135,11 @@ export const getFlowLog: typeof import("./getFlowLog").getFlowLog = null as any;
 export const getFlowLogOutput: typeof import("./getFlowLog").getFlowLogOutput = null as any;
 utilities.lazyLoad(exports, ["getFlowLog","getFlowLogOutput"], () => require("./getFlowLog"));
 
+export { GetFpgaImageArgs, GetFpgaImageResult, GetFpgaImageOutputArgs } from "./getFpgaImage";
+export const getFpgaImage: typeof import("./getFpgaImage").getFpgaImage = null as any;
+export const getFpgaImageOutput: typeof import("./getFpgaImage").getFpgaImageOutput = null as any;
+utilities.lazyLoad(exports, ["getFpgaImage","getFpgaImageOutput"], () => require("./getFpgaImage"));
+
 export { GetGatewayRouteTableAssociationArgs, GetGatewayRouteTableAssociationResult, GetGatewayRouteTableAssociationOutputArgs } from "./getGatewayRouteTableAssociation";
 export const getGatewayRouteTableAssociation: typeof import("./getGatewayRouteTableAssociation").getGatewayRouteTableAssociation = null as any;
 export const getGatewayRouteTableAssociationOutput: typeof import("./getGatewayRouteTableAssociation").getGatewayRouteTableAssociationOutput = null as any;
@@ -169,6 +179,11 @@ export { GetIpamAllocationArgs, GetIpamAllocationResult, GetIpamAllocationOutput
 export const getIpamAllocation: typeof import("./getIpamAllocation").getIpamAllocation = null as any;
 export const getIpamAllocationOutput: typeof import("./getIpamAllocation").getIpamAllocationOutput = null as any;
 utilities.lazyLoad(exports, ["getIpamAllocation","getIpamAllocationOutput"], () => require("./getIpamAllocation"));
+
+export { GetIpamExternalResourceVerificationTokenArgs, GetIpamExternalResourceVerificationTokenResult, GetIpamExternalResourceVerificationTokenOutputArgs } from "./getIpamExternalResourceVerificationToken";
+export const getIpamExternalResourceVerificationToken: typeof import("./getIpamExternalResourceVerificationToken").getIpamExternalResourceVerificationToken = null as any;
+export const getIpamExternalResourceVerificationTokenOutput: typeof import("./getIpamExternalResourceVerificationToken").getIpamExternalResourceVerificationTokenOutput = null as any;
+utilities.lazyLoad(exports, ["getIpamExternalResourceVerificationToken","getIpamExternalResourceVerificationTokenOutput"], () => require("./getIpamExternalResourceVerificationToken"));
 
 export { GetIpamPoolArgs, GetIpamPoolResult, GetIpamPoolOutputArgs } from "./getIpamPool";
 export const getIpamPool: typeof import("./getIpamPool").getIpamPool = null as any;
@@ -604,6 +619,11 @@ export { IpamAllocationArgs } from "./ipamAllocation";
 export type IpamAllocation = import("./ipamAllocation").IpamAllocation;
 export const IpamAllocation: typeof import("./ipamAllocation").IpamAllocation = null as any;
 utilities.lazyLoad(exports, ["IpamAllocation"], () => require("./ipamAllocation"));
+
+export { IpamExternalResourceVerificationTokenArgs } from "./ipamExternalResourceVerificationToken";
+export type IpamExternalResourceVerificationToken = import("./ipamExternalResourceVerificationToken").IpamExternalResourceVerificationToken;
+export const IpamExternalResourceVerificationToken: typeof import("./ipamExternalResourceVerificationToken").IpamExternalResourceVerificationToken = null as any;
+utilities.lazyLoad(exports, ["IpamExternalResourceVerificationToken"], () => require("./ipamExternalResourceVerificationToken"));
 
 export { IpamPoolArgs } from "./ipamPool";
 export type IpamPool = import("./ipamPool").IpamPool;
@@ -1082,6 +1102,8 @@ const _module = {
                 return new EnclaveCertificateIamRoleAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:FlowLog":
                 return new FlowLog(name, <any>undefined, { urn })
+            case "aws-native:ec2:FpgaImage":
+                return new FpgaImage(name, <any>undefined, { urn })
             case "aws-native:ec2:GatewayRouteTableAssociation":
                 return new GatewayRouteTableAssociation(name, <any>undefined, { urn })
             case "aws-native:ec2:Host":
@@ -1098,6 +1120,8 @@ const _module = {
                 return new Ipam(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamAllocation":
                 return new IpamAllocation(name, <any>undefined, { urn })
+            case "aws-native:ec2:IpamExternalResourceVerificationToken":
+                return new IpamExternalResourceVerificationToken(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamPool":
                 return new IpamPool(name, <any>undefined, { urn })
             case "aws-native:ec2:IpamPoolCidr":

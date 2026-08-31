@@ -33,10 +33,11 @@ type InferenceComponent struct {
 	// The status of the inference component.
 	InferenceComponentStatus InferenceComponentStatusOutput `pulumi:"inferenceComponentStatus"`
 	// The time when the inference component was last updated.
-	LastModifiedTime pulumi.StringOutput                      `pulumi:"lastModifiedTime"`
-	RuntimeConfig    InferenceComponentRuntimeConfigPtrOutput `pulumi:"runtimeConfig"`
-	Specification    InferenceComponentSpecificationOutput    `pulumi:"specification"`
-	Tags             aws.TagArrayOutput                       `pulumi:"tags"`
+	LastModifiedTime pulumi.StringOutput                                       `pulumi:"lastModifiedTime"`
+	RuntimeConfig    InferenceComponentRuntimeConfigPtrOutput                  `pulumi:"runtimeConfig"`
+	Specification    InferenceComponentSpecificationPtrOutput                  `pulumi:"specification"`
+	Specifications   InferenceComponentSpecificationForInstanceTypeArrayOutput `pulumi:"specifications"`
+	Tags             aws.TagArrayOutput                                        `pulumi:"tags"`
 	// The name of the production variant that hosts the inference component.
 	VariantName pulumi.StringPtrOutput `pulumi:"variantName"`
 }
@@ -50,9 +51,6 @@ func NewInferenceComponent(ctx *pulumi.Context,
 
 	if args.EndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'EndpointName'")
-	}
-	if args.Specification == nil {
-		return nil, errors.New("invalid value for required argument 'Specification'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InferenceComponent
@@ -94,10 +92,11 @@ type inferenceComponentArgs struct {
 	// The name of the endpoint that hosts the inference component.
 	EndpointName string `pulumi:"endpointName"`
 	// The name of the inference component.
-	InferenceComponentName *string                          `pulumi:"inferenceComponentName"`
-	RuntimeConfig          *InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
-	Specification          InferenceComponentSpecification  `pulumi:"specification"`
-	Tags                   []aws.Tag                        `pulumi:"tags"`
+	InferenceComponentName *string                                          `pulumi:"inferenceComponentName"`
+	RuntimeConfig          *InferenceComponentRuntimeConfig                 `pulumi:"runtimeConfig"`
+	Specification          *InferenceComponentSpecification                 `pulumi:"specification"`
+	Specifications         []InferenceComponentSpecificationForInstanceType `pulumi:"specifications"`
+	Tags                   []aws.Tag                                        `pulumi:"tags"`
 	// The name of the production variant that hosts the inference component.
 	VariantName *string `pulumi:"variantName"`
 }
@@ -113,7 +112,8 @@ type InferenceComponentArgs struct {
 	// The name of the inference component.
 	InferenceComponentName pulumi.StringPtrInput
 	RuntimeConfig          InferenceComponentRuntimeConfigPtrInput
-	Specification          InferenceComponentSpecificationInput
+	Specification          InferenceComponentSpecificationPtrInput
+	Specifications         InferenceComponentSpecificationForInstanceTypeArrayInput
 	Tags                   aws.TagArrayInput
 	// The name of the production variant that hosts the inference component.
 	VariantName pulumi.StringPtrInput
@@ -204,8 +204,14 @@ func (o InferenceComponentOutput) RuntimeConfig() InferenceComponentRuntimeConfi
 	return o.ApplyT(func(v *InferenceComponent) InferenceComponentRuntimeConfigPtrOutput { return v.RuntimeConfig }).(InferenceComponentRuntimeConfigPtrOutput)
 }
 
-func (o InferenceComponentOutput) Specification() InferenceComponentSpecificationOutput {
-	return o.ApplyT(func(v *InferenceComponent) InferenceComponentSpecificationOutput { return v.Specification }).(InferenceComponentSpecificationOutput)
+func (o InferenceComponentOutput) Specification() InferenceComponentSpecificationPtrOutput {
+	return o.ApplyT(func(v *InferenceComponent) InferenceComponentSpecificationPtrOutput { return v.Specification }).(InferenceComponentSpecificationPtrOutput)
+}
+
+func (o InferenceComponentOutput) Specifications() InferenceComponentSpecificationForInstanceTypeArrayOutput {
+	return o.ApplyT(func(v *InferenceComponent) InferenceComponentSpecificationForInstanceTypeArrayOutput {
+		return v.Specifications
+	}).(InferenceComponentSpecificationForInstanceTypeArrayOutput)
 }
 
 func (o InferenceComponentOutput) Tags() aws.TagArrayOutput {

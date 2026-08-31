@@ -414,6 +414,7 @@ type OrganizationCentralizationRuleDestinationLogsConfiguration struct {
 	LogGroupNameConfiguration *OrganizationCentralizationRuleLogGroupNameConfiguration `pulumi:"logGroupNameConfiguration"`
 	// The encryption configuration for centralization destination log groups.
 	LogsEncryptionConfiguration *OrganizationCentralizationRuleLogsEncryptionConfiguration `pulumi:"logsEncryptionConfiguration"`
+	TagPropagationConfiguration *OrganizationCentralizationRuleTagPropagationConfiguration `pulumi:"tagPropagationConfiguration"`
 }
 
 // OrganizationCentralizationRuleDestinationLogsConfigurationInput is an input type that accepts OrganizationCentralizationRuleDestinationLogsConfigurationArgs and OrganizationCentralizationRuleDestinationLogsConfigurationOutput values.
@@ -433,6 +434,7 @@ type OrganizationCentralizationRuleDestinationLogsConfigurationArgs struct {
 	LogGroupNameConfiguration OrganizationCentralizationRuleLogGroupNameConfigurationPtrInput `pulumi:"logGroupNameConfiguration"`
 	// The encryption configuration for centralization destination log groups.
 	LogsEncryptionConfiguration OrganizationCentralizationRuleLogsEncryptionConfigurationPtrInput `pulumi:"logsEncryptionConfiguration"`
+	TagPropagationConfiguration OrganizationCentralizationRuleTagPropagationConfigurationPtrInput `pulumi:"tagPropagationConfiguration"`
 }
 
 func (OrganizationCentralizationRuleDestinationLogsConfigurationArgs) ElementType() reflect.Type {
@@ -532,6 +534,12 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) LogsEn
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput)
 }
 
+func (o OrganizationCentralizationRuleDestinationLogsConfigurationOutput) TagPropagationConfiguration() OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleTagPropagationConfiguration {
+		return v.TagPropagationConfiguration
+	}).(OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput)
+}
+
 type OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) ElementType() reflect.Type {
@@ -583,6 +591,15 @@ func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) Log
 		}
 		return v.LogsEncryptionConfiguration
 	}).(OrganizationCentralizationRuleLogsEncryptionConfigurationPtrOutput)
+}
+
+func (o OrganizationCentralizationRuleDestinationLogsConfigurationPtrOutput) TagPropagationConfiguration() OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleDestinationLogsConfiguration) *OrganizationCentralizationRuleTagPropagationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.TagPropagationConfiguration
+	}).(OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput)
 }
 
 type OrganizationCentralizationRuleDestinationMetricsConfiguration struct {
@@ -1656,6 +1673,164 @@ type OrganizationCentralizationRuleTag struct {
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Value string `pulumi:"value"`
+}
+
+type OrganizationCentralizationRuleTagPropagationConfiguration struct {
+	// The ARN of the destination account IAM role used for tag propagation.
+	DestinationRoleArn string `pulumi:"destinationRoleArn"`
+	// The strategy to resolve tag conflicts during propagation.
+	TagConflictResolutionStrategy *OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy `pulumi:"tagConflictResolutionStrategy"`
+}
+
+// OrganizationCentralizationRuleTagPropagationConfigurationInput is an input type that accepts OrganizationCentralizationRuleTagPropagationConfigurationArgs and OrganizationCentralizationRuleTagPropagationConfigurationOutput values.
+// You can construct a concrete instance of `OrganizationCentralizationRuleTagPropagationConfigurationInput` via:
+//
+//	OrganizationCentralizationRuleTagPropagationConfigurationArgs{...}
+type OrganizationCentralizationRuleTagPropagationConfigurationInput interface {
+	pulumi.Input
+
+	ToOrganizationCentralizationRuleTagPropagationConfigurationOutput() OrganizationCentralizationRuleTagPropagationConfigurationOutput
+	ToOrganizationCentralizationRuleTagPropagationConfigurationOutputWithContext(context.Context) OrganizationCentralizationRuleTagPropagationConfigurationOutput
+}
+
+type OrganizationCentralizationRuleTagPropagationConfigurationArgs struct {
+	// The ARN of the destination account IAM role used for tag propagation.
+	DestinationRoleArn pulumi.StringInput `pulumi:"destinationRoleArn"`
+	// The strategy to resolve tag conflicts during propagation.
+	TagConflictResolutionStrategy OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategyPtrInput `pulumi:"tagConflictResolutionStrategy"`
+}
+
+func (OrganizationCentralizationRuleTagPropagationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCentralizationRuleTagPropagationConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationCentralizationRuleTagPropagationConfigurationArgs) ToOrganizationCentralizationRuleTagPropagationConfigurationOutput() OrganizationCentralizationRuleTagPropagationConfigurationOutput {
+	return i.ToOrganizationCentralizationRuleTagPropagationConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrganizationCentralizationRuleTagPropagationConfigurationArgs) ToOrganizationCentralizationRuleTagPropagationConfigurationOutputWithContext(ctx context.Context) OrganizationCentralizationRuleTagPropagationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCentralizationRuleTagPropagationConfigurationOutput)
+}
+
+func (i OrganizationCentralizationRuleTagPropagationConfigurationArgs) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutput() OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return i.ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationCentralizationRuleTagPropagationConfigurationArgs) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCentralizationRuleTagPropagationConfigurationOutput).ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(ctx)
+}
+
+// OrganizationCentralizationRuleTagPropagationConfigurationPtrInput is an input type that accepts OrganizationCentralizationRuleTagPropagationConfigurationArgs, OrganizationCentralizationRuleTagPropagationConfigurationPtr and OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput values.
+// You can construct a concrete instance of `OrganizationCentralizationRuleTagPropagationConfigurationPtrInput` via:
+//
+//	        OrganizationCentralizationRuleTagPropagationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationCentralizationRuleTagPropagationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutput() OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput
+	ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(context.Context) OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput
+}
+
+type organizationCentralizationRuleTagPropagationConfigurationPtrType OrganizationCentralizationRuleTagPropagationConfigurationArgs
+
+func OrganizationCentralizationRuleTagPropagationConfigurationPtr(v *OrganizationCentralizationRuleTagPropagationConfigurationArgs) OrganizationCentralizationRuleTagPropagationConfigurationPtrInput {
+	return (*organizationCentralizationRuleTagPropagationConfigurationPtrType)(v)
+}
+
+func (*organizationCentralizationRuleTagPropagationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationCentralizationRuleTagPropagationConfiguration)(nil)).Elem()
+}
+
+func (i *organizationCentralizationRuleTagPropagationConfigurationPtrType) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutput() OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return i.ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationCentralizationRuleTagPropagationConfigurationPtrType) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput)
+}
+
+type OrganizationCentralizationRuleTagPropagationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrganizationCentralizationRuleTagPropagationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationCentralizationRuleTagPropagationConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationCentralizationRuleTagPropagationConfigurationOutput) ToOrganizationCentralizationRuleTagPropagationConfigurationOutput() OrganizationCentralizationRuleTagPropagationConfigurationOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleTagPropagationConfigurationOutput) ToOrganizationCentralizationRuleTagPropagationConfigurationOutputWithContext(ctx context.Context) OrganizationCentralizationRuleTagPropagationConfigurationOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleTagPropagationConfigurationOutput) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutput() OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return o.ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationCentralizationRuleTagPropagationConfigurationOutput) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationCentralizationRuleTagPropagationConfiguration) *OrganizationCentralizationRuleTagPropagationConfiguration {
+		return &v
+	}).(OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput)
+}
+
+// The ARN of the destination account IAM role used for tag propagation.
+func (o OrganizationCentralizationRuleTagPropagationConfigurationOutput) DestinationRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleTagPropagationConfiguration) string { return v.DestinationRoleArn }).(pulumi.StringOutput)
+}
+
+// The strategy to resolve tag conflicts during propagation.
+func (o OrganizationCentralizationRuleTagPropagationConfigurationOutput) TagConflictResolutionStrategy() OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategyPtrOutput {
+	return o.ApplyT(func(v OrganizationCentralizationRuleTagPropagationConfiguration) *OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy {
+		return v.TagConflictResolutionStrategy
+	}).(OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategyPtrOutput)
+}
+
+type OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationCentralizationRuleTagPropagationConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutput() OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput) ToOrganizationCentralizationRuleTagPropagationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput) Elem() OrganizationCentralizationRuleTagPropagationConfigurationOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleTagPropagationConfiguration) OrganizationCentralizationRuleTagPropagationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationCentralizationRuleTagPropagationConfiguration
+		return ret
+	}).(OrganizationCentralizationRuleTagPropagationConfigurationOutput)
+}
+
+// The ARN of the destination account IAM role used for tag propagation.
+func (o OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput) DestinationRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleTagPropagationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The strategy to resolve tag conflicts during propagation.
+func (o OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput) TagConflictResolutionStrategy() OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategyPtrOutput {
+	return o.ApplyT(func(v *OrganizationCentralizationRuleTagPropagationConfiguration) *OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy {
+		if v == nil {
+			return nil
+		}
+		return v.TagConflictResolutionStrategy
+	}).(OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategyPtrOutput)
 }
 
 // The condition of the action desired in the filter.
@@ -7423,6 +7598,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleSourceLogsConfigurationPtrInput)(nil)).Elem(), OrganizationCentralizationRuleSourceLogsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleSourceMetricsConfigurationInput)(nil)).Elem(), OrganizationCentralizationRuleSourceMetricsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleSourceMetricsConfigurationPtrInput)(nil)).Elem(), OrganizationCentralizationRuleSourceMetricsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleTagPropagationConfigurationInput)(nil)).Elem(), OrganizationCentralizationRuleTagPropagationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationCentralizationRuleTagPropagationConfigurationPtrInput)(nil)).Elem(), OrganizationCentralizationRuleTagPropagationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleActionConditionInput)(nil)).Elem(), OrganizationTelemetryRuleActionConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleActionConditionPtrInput)(nil)).Elem(), OrganizationTelemetryRuleActionConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationTelemetryRuleAdvancedEventSelectorInput)(nil)).Elem(), OrganizationTelemetryRuleAdvancedEventSelectorArgs{})
@@ -7511,6 +7688,8 @@ func init() {
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleSourceLogsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleSourceMetricsConfigurationOutput{})
 	pulumi.RegisterOutputType(OrganizationCentralizationRuleSourceMetricsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationCentralizationRuleTagPropagationConfigurationOutput{})
+	pulumi.RegisterOutputType(OrganizationCentralizationRuleTagPropagationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleActionConditionOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleActionConditionPtrOutput{})
 	pulumi.RegisterOutputType(OrganizationTelemetryRuleAdvancedEventSelectorOutput{})

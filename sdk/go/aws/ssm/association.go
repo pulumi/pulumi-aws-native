@@ -299,6 +299,10 @@ func NewAssociation(ctx *pulumi.Context,
 		args = &AssociationArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"instanceId",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Association
 	err := ctx.RegisterResource("aws-native:ssm:Association", name, args, &resource, opts...)

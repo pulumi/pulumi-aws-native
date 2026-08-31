@@ -32,7 +32,8 @@ class GetResourcePolicyResult:
     @pulumi.getter(name="policyDocument")
     def policy_document(self) -> Optional[Any]:
         """
-        The resource policy of your Lambda resource
+        The policy document you want to add to your LAM resource. This is formatted as a JSON string.
+         For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.
 
         Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property.
         """
@@ -51,9 +52,21 @@ class AwaitableGetResourcePolicyResult(GetResourcePolicyResult):
 def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourcePolicyResult:
     """
-    Resource Type definition for AWS::Lambda::ResourcePolicy
+    Use the ``AWS::Lambda::ResourcePolicy`` resource to attach a resource-based policy to a LAM resource. A resource-based policy applies to a single LAM resource, for example, a function, function version, or function alias. To learn more about using resource-based policies with LAM, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.
+     You can use resource-based policies to grant permissions to other AWS services, AWS accounts and organizations, and IAM users and roles to access your LAM resource. You can also deny access to specific entities, and use the full range of IAM global condition keys to further restrict who has access to your LAM resource. For example, you can limit access to calls originating from a specified IP address or VPC.
+     A resource-based policy is a JSON document containing a number of statements. Each statement defines the entities you want to grant permission to, the API actions you want to allow or deny, and the LAM resource you want the statement to apply to. A statement can also optionally include an array of logical conditions using the IAM global condition keys.
+     To use the ``AWS::Lambda::ResourcePolicy`` resource, make sure that you have the [resource-based policy permissions for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-resource-based-permissions).
+     To learn more about creating resource-based policies, see [Policies and permissions in](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *User Guide*. For more information about example policies for providing permissions to AWS services, other AWS accounts, and IAM users and roles, see [Example resource-based policies for functions](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-examples.html) in the *Developer Guide*.
+      **Avoid mixing permission resource types**
+     To grant permissions to access your function, we recommend using the ``AWS::Lambda::ResourcePolicy`` resource to set access permissions. With this resource, you have more flexibility and fine-grained control than ``AWS::Lambda::Permission``. This resource grants an AWS service or another account permission to call a particular API action on a function.
+     You can also use the ``AWS::Lambda::Permission`` resource, however using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
+     To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
+      1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
+      2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+      3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+      4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
 
-    :param _builtins.str resource_arn: The resource arn of your Lambda resource
+    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn
@@ -65,9 +78,21 @@ def get_resource_policy(resource_arn: Optional[_builtins.str] = None,
 def get_resource_policy_output(resource_arn: pulumi.Input[Optional[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourcePolicyResult]:
     """
-    Resource Type definition for AWS::Lambda::ResourcePolicy
+    Use the ``AWS::Lambda::ResourcePolicy`` resource to attach a resource-based policy to a LAM resource. A resource-based policy applies to a single LAM resource, for example, a function, function version, or function alias. To learn more about using resource-based policies with LAM, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.
+     You can use resource-based policies to grant permissions to other AWS services, AWS accounts and organizations, and IAM users and roles to access your LAM resource. You can also deny access to specific entities, and use the full range of IAM global condition keys to further restrict who has access to your LAM resource. For example, you can limit access to calls originating from a specified IP address or VPC.
+     A resource-based policy is a JSON document containing a number of statements. Each statement defines the entities you want to grant permission to, the API actions you want to allow or deny, and the LAM resource you want the statement to apply to. A statement can also optionally include an array of logical conditions using the IAM global condition keys.
+     To use the ``AWS::Lambda::ResourcePolicy`` resource, make sure that you have the [resource-based policy permissions for Lambda](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html#access-control-resource-based-permissions).
+     To learn more about creating resource-based policies, see [Policies and permissions in](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html) in the *User Guide*. For more information about example policies for providing permissions to AWS services, other AWS accounts, and IAM users and roles, see [Example resource-based policies for functions](https://docs.aws.amazon.com/lambda/latest/dg/permissions-function-examples.html) in the *Developer Guide*.
+      **Avoid mixing permission resource types**
+     To grant permissions to access your function, we recommend using the ``AWS::Lambda::ResourcePolicy`` resource to set access permissions. With this resource, you have more flexibility and fine-grained control than ``AWS::Lambda::Permission``. This resource grants an AWS service or another account permission to call a particular API action on a function.
+     You can also use the ``AWS::Lambda::Permission`` resource, however using both ``AWS::Lambda::Permission`` and ``AWS::Lambda::ResourcePolicy`` to set permissions on a function can result in errors. Permissions defined in ``AWS::Lambda::Permission`` can be unintentionally overwritten, whether in a single CFN stack or across multiple stacks. Don't use both resource types to set permissions on a function.
+     To migrate existing permissions for a function from ``AWS::Lambda::Permission`` to ``AWS::Lambda::ResourcePolicy``, do the following:
+      1.  Set a ``Retain``[deletion policy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-deletionpolicy.html) on the ``AWS::Lambda::Permission`` resources you want to migrate. This is necessary so that Lambda does not delete statements with the same statement ID when you delete these resources.
+      2.  Use the [GetResourcePolicy](https://docs.aws.amazon.com/lambda/latest/api/API_GetResourcePolicy.html)LAM API to retrieve the resource-based policy currently attached to the function.
+      3.  Use this policy to create a new ``AWS::Lambda::ResourcePolicy`` resource.
+      4.  Delete all the existing ``AWS::Lambda::Permission`` resources for the function.
 
-    :param _builtins.str resource_arn: The resource arn of your Lambda resource
+    :param _builtins.str resource_arn: The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.
     """
     __args__ = dict()
     __args__['resourceArn'] = resource_arn

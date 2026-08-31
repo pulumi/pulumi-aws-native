@@ -36,6 +36,22 @@ __all__ = [
     'ClassifierJsonClassifierArgsDict',
     'ClassifierXmlClassifierArgs',
     'ClassifierXmlClassifierArgsDict',
+    'ConnectionAuthenticationConfigurationArgs',
+    'ConnectionAuthenticationConfigurationArgsDict',
+    'ConnectionAuthorizationCodePropertiesArgs',
+    'ConnectionAuthorizationCodePropertiesArgsDict',
+    'ConnectionBasicAuthenticationCredentialsArgs',
+    'ConnectionBasicAuthenticationCredentialsArgsDict',
+    'ConnectionInputArgs',
+    'ConnectionInputArgsDict',
+    'ConnectionOAuth2ClientApplicationArgs',
+    'ConnectionOAuth2ClientApplicationArgsDict',
+    'ConnectionOAuth2CredentialsArgs',
+    'ConnectionOAuth2CredentialsArgsDict',
+    'ConnectionOAuth2PropertiesArgs',
+    'ConnectionOAuth2PropertiesArgsDict',
+    'ConnectionPhysicalConnectionRequirementsArgs',
+    'ConnectionPhysicalConnectionRequirementsArgsDict',
     'CrawlerCatalogTargetArgs',
     'CrawlerCatalogTargetArgsDict',
     'CrawlerDeltaTargetArgs',
@@ -936,6 +952,841 @@ class ClassifierXmlClassifierArgs:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+
+class ConnectionAuthenticationConfigurationArgsDict(TypedDict):
+    authentication_type: pulumi.Input[_builtins.str]
+    """
+    A structure containing the authentication configuration in the CreateConnection request.
+    """
+    basic_authentication_credentials: NotRequired[pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgsDict']]]
+    """
+    For supplying basic auth credentials when not providing a SecretArn value
+    """
+    custom_authentication_credentials: NotRequired[Any]
+    """
+    A structure containing the authentication credentials in the CreateConnection request.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+    """
+    o_auth2_properties: NotRequired[pulumi.Input[Optional['ConnectionOAuth2PropertiesArgsDict']]]
+    """
+    A structure containing properties for OAuth2 in the CreateConnection request.
+    """
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The secret manager ARN to store credentials in the CreateConnection request.
+    """
+
+@pulumi.input_type
+class ConnectionAuthenticationConfigurationArgs:
+    def __init__(__self__, *,
+                 authentication_type: pulumi.Input[_builtins.str],
+                 basic_authentication_credentials: pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgs']] = None,
+                 custom_authentication_credentials: Optional[Any] = None,
+                 kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 o_auth2_properties: pulumi.Input[Optional['ConnectionOAuth2PropertiesArgs']] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] authentication_type: A structure containing the authentication configuration in the CreateConnection request.
+        :param pulumi.Input['ConnectionBasicAuthenticationCredentialsArgs'] basic_authentication_credentials: For supplying basic auth credentials when not providing a SecretArn value
+        :param Any custom_authentication_credentials: A structure containing the authentication credentials in the CreateConnection request.
+        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+        :param pulumi.Input['ConnectionOAuth2PropertiesArgs'] o_auth2_properties: A structure containing properties for OAuth2 in the CreateConnection request.
+        :param pulumi.Input[_builtins.str] secret_arn: The secret manager ARN to store credentials in the CreateConnection request.
+        """
+        pulumi.set(__self__, "authentication_type", authentication_type)
+        if basic_authentication_credentials is not None:
+            pulumi.set(__self__, "basic_authentication_credentials", basic_authentication_credentials)
+        if custom_authentication_credentials is not None:
+            pulumi.set(__self__, "custom_authentication_credentials", custom_authentication_credentials)
+        if kms_key_arn is not None:
+            pulumi.set(__self__, "kms_key_arn", kms_key_arn)
+        if o_auth2_properties is not None:
+            pulumi.set(__self__, "o_auth2_properties", o_auth2_properties)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        A structure containing the authentication configuration in the CreateConnection request.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @authentication_type.setter
+    def authentication_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "authentication_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="basicAuthenticationCredentials")
+    def basic_authentication_credentials(self) -> pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgs']]:
+        """
+        For supplying basic auth credentials when not providing a SecretArn value
+        """
+        return pulumi.get(self, "basic_authentication_credentials")
+
+    @basic_authentication_credentials.setter
+    def basic_authentication_credentials(self, value: pulumi.Input[Optional['ConnectionBasicAuthenticationCredentialsArgs']]):
+        pulumi.set(self, "basic_authentication_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customAuthenticationCredentials")
+    def custom_authentication_credentials(self) -> Optional[Any]:
+        """
+        A structure containing the authentication credentials in the CreateConnection request.
+        """
+        return pulumi.get(self, "custom_authentication_credentials")
+
+    @custom_authentication_credentials.setter
+    def custom_authentication_credentials(self, value: Optional[Any]):
+        pulumi.set(self, "custom_authentication_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyArn")
+    def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration.
+        """
+        return pulumi.get(self, "kms_key_arn")
+
+    @kms_key_arn.setter
+    def kms_key_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "kms_key_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2Properties")
+    def o_auth2_properties(self) -> pulumi.Input[Optional['ConnectionOAuth2PropertiesArgs']]:
+        """
+        A structure containing properties for OAuth2 in the CreateConnection request.
+        """
+        return pulumi.get(self, "o_auth2_properties")
+
+    @o_auth2_properties.setter
+    def o_auth2_properties(self, value: pulumi.Input[Optional['ConnectionOAuth2PropertiesArgs']]):
+        pulumi.set(self, "o_auth2_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The secret manager ARN to store credentials in the CreateConnection request.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
+
+
+class ConnectionAuthorizationCodePropertiesArgsDict(TypedDict):
+    """
+    A structure containing the authorization code used in the authentication configuration.
+    """
+    authorization_code: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The authorization code used in the authentication configuration.
+    """
+    redirect_uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+    """
+
+@pulumi.input_type
+class ConnectionAuthorizationCodePropertiesArgs:
+    def __init__(__self__, *,
+                 authorization_code: pulumi.Input[Optional[_builtins.str]] = None,
+                 redirect_uri: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure containing the authorization code used in the authentication configuration.
+
+        :param pulumi.Input[_builtins.str] authorization_code: The authorization code used in the authentication configuration.
+        :param pulumi.Input[_builtins.str] redirect_uri: The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+        """
+        if authorization_code is not None:
+            pulumi.set(__self__, "authorization_code", authorization_code)
+        if redirect_uri is not None:
+            pulumi.set(__self__, "redirect_uri", redirect_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCode")
+    def authorization_code(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The authorization code used in the authentication configuration.
+        """
+        return pulumi.get(self, "authorization_code")
+
+    @authorization_code.setter
+    def authorization_code(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "authorization_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The redirect URI where the user gets redirected to by authorization server when issuing an authorization code.
+        """
+        return pulumi.get(self, "redirect_uri")
+
+    @redirect_uri.setter
+    def redirect_uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "redirect_uri", value)
+
+
+class ConnectionBasicAuthenticationCredentialsArgsDict(TypedDict):
+    """
+    A structure containing the authentication credentials in the CreateConnection request.
+    """
+    password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The password used in the authentication configuration.
+    """
+    username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The username used in the authentication configuration.
+    """
+
+@pulumi.input_type
+class ConnectionBasicAuthenticationCredentialsArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[Optional[_builtins.str]] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure containing the authentication credentials in the CreateConnection request.
+
+        :param pulumi.Input[_builtins.str] password: The password used in the authentication configuration.
+        :param pulumi.Input[_builtins.str] username: The username used in the authentication configuration.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The password used in the authentication configuration.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The username used in the authentication configuration.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+class ConnectionInputArgsDict(TypedDict):
+    connection_type: pulumi.Input[_builtins.str]
+    """
+    The type of the connection that needs to be created.
+    """
+    athena_properties: NotRequired[Any]
+    """
+    Connection properties specific to the Athena compute environment.
+    """
+    authentication_configuration: NotRequired[pulumi.Input[Optional['ConnectionAuthenticationConfigurationArgsDict']]]
+    """
+    The authentication configuration used to connect to the connection.
+    """
+    connection_properties: NotRequired[Any]
+    """
+    A map of key-value pairs used as parameters for this connection.
+    """
+    description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A description of the connection.
+    """
+    match_criteria: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of criteria that can be used in selecting this connection.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the connection.
+    """
+    physical_connection_requirements: NotRequired[pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgsDict']]]
+    """
+    The physical connection requirements.
+    """
+    python_properties: NotRequired[Any]
+    """
+    Connection properties specific to the Python compute environment.
+    """
+    spark_properties: NotRequired[Any]
+    """
+    Connection properties specific to the Spark compute environment.
+    """
+    validate_credentials: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A flag to validate the credentials during create connection. Default is true.
+    """
+    validate_for_compute_environments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The compute environments that the specified connection properties are validated against.
+    """
+
+@pulumi.input_type
+class ConnectionInputArgs:
+    def __init__(__self__, *,
+                 connection_type: pulumi.Input[_builtins.str],
+                 athena_properties: Optional[Any] = None,
+                 authentication_configuration: pulumi.Input[Optional['ConnectionAuthenticationConfigurationArgs']] = None,
+                 connection_properties: Optional[Any] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 match_criteria: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
+                 physical_connection_requirements: pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgs']] = None,
+                 python_properties: Optional[Any] = None,
+                 spark_properties: Optional[Any] = None,
+                 validate_credentials: pulumi.Input[Optional[_builtins.bool]] = None,
+                 validate_for_compute_environments: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] connection_type: The type of the connection that needs to be created.
+        :param Any athena_properties: Connection properties specific to the Athena compute environment.
+        :param pulumi.Input['ConnectionAuthenticationConfigurationArgs'] authentication_configuration: The authentication configuration used to connect to the connection.
+        :param Any connection_properties: A map of key-value pairs used as parameters for this connection.
+        :param pulumi.Input[_builtins.str] description: A description of the connection.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] match_criteria: A list of criteria that can be used in selecting this connection.
+        :param pulumi.Input[_builtins.str] name: The name of the connection.
+        :param pulumi.Input['ConnectionPhysicalConnectionRequirementsArgs'] physical_connection_requirements: The physical connection requirements.
+        :param Any python_properties: Connection properties specific to the Python compute environment.
+        :param Any spark_properties: Connection properties specific to the Spark compute environment.
+        :param pulumi.Input[_builtins.bool] validate_credentials: A flag to validate the credentials during create connection. Default is true.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] validate_for_compute_environments: The compute environments that the specified connection properties are validated against.
+        """
+        pulumi.set(__self__, "connection_type", connection_type)
+        if athena_properties is not None:
+            pulumi.set(__self__, "athena_properties", athena_properties)
+        if authentication_configuration is not None:
+            pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if connection_properties is not None:
+            pulumi.set(__self__, "connection_properties", connection_properties)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if match_criteria is not None:
+            pulumi.set(__self__, "match_criteria", match_criteria)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if physical_connection_requirements is not None:
+            pulumi.set(__self__, "physical_connection_requirements", physical_connection_requirements)
+        if python_properties is not None:
+            pulumi.set(__self__, "python_properties", python_properties)
+        if spark_properties is not None:
+            pulumi.set(__self__, "spark_properties", spark_properties)
+        if validate_credentials is not None:
+            pulumi.set(__self__, "validate_credentials", validate_credentials)
+        if validate_for_compute_environments is not None:
+            pulumi.set(__self__, "validate_for_compute_environments", validate_for_compute_environments)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionType")
+    def connection_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of the connection that needs to be created.
+        """
+        return pulumi.get(self, "connection_type")
+
+    @connection_type.setter
+    def connection_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="athenaProperties")
+    def athena_properties(self) -> Optional[Any]:
+        """
+        Connection properties specific to the Athena compute environment.
+        """
+        return pulumi.get(self, "athena_properties")
+
+    @athena_properties.setter
+    def athena_properties(self, value: Optional[Any]):
+        pulumi.set(self, "athena_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationConfiguration")
+    def authentication_configuration(self) -> pulumi.Input[Optional['ConnectionAuthenticationConfigurationArgs']]:
+        """
+        The authentication configuration used to connect to the connection.
+        """
+        return pulumi.get(self, "authentication_configuration")
+
+    @authentication_configuration.setter
+    def authentication_configuration(self, value: pulumi.Input[Optional['ConnectionAuthenticationConfigurationArgs']]):
+        pulumi.set(self, "authentication_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionProperties")
+    def connection_properties(self) -> Optional[Any]:
+        """
+        A map of key-value pairs used as parameters for this connection.
+        """
+        return pulumi.get(self, "connection_properties")
+
+    @connection_properties.setter
+    def connection_properties(self, value: Optional[Any]):
+        pulumi.set(self, "connection_properties", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A description of the connection.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchCriteria")
+    def match_criteria(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of criteria that can be used in selecting this connection.
+        """
+        return pulumi.get(self, "match_criteria")
+
+    @match_criteria.setter
+    def match_criteria(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_criteria", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the connection.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="physicalConnectionRequirements")
+    def physical_connection_requirements(self) -> pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgs']]:
+        """
+        The physical connection requirements.
+        """
+        return pulumi.get(self, "physical_connection_requirements")
+
+    @physical_connection_requirements.setter
+    def physical_connection_requirements(self, value: pulumi.Input[Optional['ConnectionPhysicalConnectionRequirementsArgs']]):
+        pulumi.set(self, "physical_connection_requirements", value)
+
+    @_builtins.property
+    @pulumi.getter(name="pythonProperties")
+    def python_properties(self) -> Optional[Any]:
+        """
+        Connection properties specific to the Python compute environment.
+        """
+        return pulumi.get(self, "python_properties")
+
+    @python_properties.setter
+    def python_properties(self, value: Optional[Any]):
+        pulumi.set(self, "python_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sparkProperties")
+    def spark_properties(self) -> Optional[Any]:
+        """
+        Connection properties specific to the Spark compute environment.
+        """
+        return pulumi.get(self, "spark_properties")
+
+    @spark_properties.setter
+    def spark_properties(self, value: Optional[Any]):
+        pulumi.set(self, "spark_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validateCredentials")
+    def validate_credentials(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A flag to validate the credentials during create connection. Default is true.
+        """
+        return pulumi.get(self, "validate_credentials")
+
+    @validate_credentials.setter
+    def validate_credentials(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "validate_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validateForComputeEnvironments")
+    def validate_for_compute_environments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The compute environments that the specified connection properties are validated against.
+        """
+        return pulumi.get(self, "validate_for_compute_environments")
+
+    @validate_for_compute_environments.setter
+    def validate_for_compute_environments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "validate_for_compute_environments", value)
+
+
+class ConnectionOAuth2ClientApplicationArgsDict(TypedDict):
+    """
+    The OAuth2 client app used for the connection.
+    """
+    aws_managed_client_application_reference: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The reference to the SaaS-side client app that is AWS managed.
+    """
+    user_managed_client_application_client_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The client application clientID if the ClientAppType is USER_MANAGED.
+    """
+
+@pulumi.input_type
+class ConnectionOAuth2ClientApplicationArgs:
+    def __init__(__self__, *,
+                 aws_managed_client_application_reference: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_client_application_client_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        The OAuth2 client app used for the connection.
+
+        :param pulumi.Input[_builtins.str] aws_managed_client_application_reference: The reference to the SaaS-side client app that is AWS managed.
+        :param pulumi.Input[_builtins.str] user_managed_client_application_client_id: The client application clientID if the ClientAppType is USER_MANAGED.
+        """
+        if aws_managed_client_application_reference is not None:
+            pulumi.set(__self__, "aws_managed_client_application_reference", aws_managed_client_application_reference)
+        if user_managed_client_application_client_id is not None:
+            pulumi.set(__self__, "user_managed_client_application_client_id", user_managed_client_application_client_id)
+
+    @_builtins.property
+    @pulumi.getter(name="awsManagedClientApplicationReference")
+    def aws_managed_client_application_reference(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The reference to the SaaS-side client app that is AWS managed.
+        """
+        return pulumi.get(self, "aws_managed_client_application_reference")
+
+    @aws_managed_client_application_reference.setter
+    def aws_managed_client_application_reference(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_managed_client_application_reference", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userManagedClientApplicationClientId")
+    def user_managed_client_application_client_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The client application clientID if the ClientAppType is USER_MANAGED.
+        """
+        return pulumi.get(self, "user_managed_client_application_client_id")
+
+    @user_managed_client_application_client_id.setter
+    def user_managed_client_application_client_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_managed_client_application_client_id", value)
+
+
+class ConnectionOAuth2CredentialsArgsDict(TypedDict):
+    """
+    A structure containing the OAuth2 credentials used in the authentication configuration.
+    """
+    access_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The access token used in the authentication configuration.
+    """
+    jwt_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The JSON Web Token (JWT) used when the authentication type is OAuth2.
+    """
+    refresh_token: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The refresh token used when the authentication type is OAuth2.
+    """
+    user_managed_client_application_client_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The client application client secret if the client application is user managed.
+    """
+
+@pulumi.input_type
+class ConnectionOAuth2CredentialsArgs:
+    def __init__(__self__, *,
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 jwt_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 refresh_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 user_managed_client_application_client_secret: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A structure containing the OAuth2 credentials used in the authentication configuration.
+
+        :param pulumi.Input[_builtins.str] access_token: The access token used in the authentication configuration.
+        :param pulumi.Input[_builtins.str] jwt_token: The JSON Web Token (JWT) used when the authentication type is OAuth2.
+        :param pulumi.Input[_builtins.str] refresh_token: The refresh token used when the authentication type is OAuth2.
+        :param pulumi.Input[_builtins.str] user_managed_client_application_client_secret: The client application client secret if the client application is user managed.
+        """
+        if access_token is not None:
+            pulumi.set(__self__, "access_token", access_token)
+        if jwt_token is not None:
+            pulumi.set(__self__, "jwt_token", jwt_token)
+        if refresh_token is not None:
+            pulumi.set(__self__, "refresh_token", refresh_token)
+        if user_managed_client_application_client_secret is not None:
+            pulumi.set(__self__, "user_managed_client_application_client_secret", user_managed_client_application_client_secret)
+
+    @_builtins.property
+    @pulumi.getter(name="accessToken")
+    def access_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The access token used in the authentication configuration.
+        """
+        return pulumi.get(self, "access_token")
+
+    @access_token.setter
+    def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jwtToken")
+    def jwt_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The JSON Web Token (JWT) used when the authentication type is OAuth2.
+        """
+        return pulumi.get(self, "jwt_token")
+
+    @jwt_token.setter
+    def jwt_token(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "jwt_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="refreshToken")
+    def refresh_token(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The refresh token used when the authentication type is OAuth2.
+        """
+        return pulumi.get(self, "refresh_token")
+
+    @refresh_token.setter
+    def refresh_token(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "refresh_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userManagedClientApplicationClientSecret")
+    def user_managed_client_application_client_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The client application client secret if the client application is user managed.
+        """
+        return pulumi.get(self, "user_managed_client_application_client_secret")
+
+    @user_managed_client_application_client_secret.setter
+    def user_managed_client_application_client_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "user_managed_client_application_client_secret", value)
+
+
+class ConnectionOAuth2PropertiesArgsDict(TypedDict):
+    """
+    A structure containing the authentication credentials in the CreateConnection request.
+    """
+    authorization_code_properties: NotRequired[pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgsDict']]]
+    """
+    The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+    """
+    o_auth2_client_application: NotRequired[pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgsDict']]]
+    """
+    The OAuth2 client app used for the connection.
+    """
+    o_auth2_credentials: NotRequired[pulumi.Input[Optional['ConnectionOAuth2CredentialsArgsDict']]]
+    """
+    A structure containing the OAuth2 credentials used in the authentication configuration.
+    """
+    o_auth2_grant_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The grant type used in the authentication configuration.
+    """
+    token_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL used in the authentication configuration.
+    """
+    token_url_parameters_map: NotRequired[Any]
+    """
+    A map of key-value pairs used in the authentication configuration.
+    """
+
+@pulumi.input_type
+class ConnectionOAuth2PropertiesArgs:
+    def __init__(__self__, *,
+                 authorization_code_properties: pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgs']] = None,
+                 o_auth2_client_application: pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgs']] = None,
+                 o_auth2_credentials: pulumi.Input[Optional['ConnectionOAuth2CredentialsArgs']] = None,
+                 o_auth2_grant_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 token_url_parameters_map: Optional[Any] = None):
+        """
+        A structure containing the authentication credentials in the CreateConnection request.
+
+        :param pulumi.Input['ConnectionAuthorizationCodePropertiesArgs'] authorization_code_properties: The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+        :param pulumi.Input['ConnectionOAuth2ClientApplicationArgs'] o_auth2_client_application: The OAuth2 client app used for the connection.
+        :param pulumi.Input['ConnectionOAuth2CredentialsArgs'] o_auth2_credentials: A structure containing the OAuth2 credentials used in the authentication configuration.
+        :param pulumi.Input[_builtins.str] o_auth2_grant_type: The grant type used in the authentication configuration.
+        :param pulumi.Input[_builtins.str] token_url: The URL used in the authentication configuration.
+        :param Any token_url_parameters_map: A map of key-value pairs used in the authentication configuration.
+        """
+        if authorization_code_properties is not None:
+            pulumi.set(__self__, "authorization_code_properties", authorization_code_properties)
+        if o_auth2_client_application is not None:
+            pulumi.set(__self__, "o_auth2_client_application", o_auth2_client_application)
+        if o_auth2_credentials is not None:
+            pulumi.set(__self__, "o_auth2_credentials", o_auth2_credentials)
+        if o_auth2_grant_type is not None:
+            pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters_map is not None:
+            pulumi.set(__self__, "token_url_parameters_map", token_url_parameters_map)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCodeProperties")
+    def authorization_code_properties(self) -> pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgs']]:
+        """
+        The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow.
+        """
+        return pulumi.get(self, "authorization_code_properties")
+
+    @authorization_code_properties.setter
+    def authorization_code_properties(self, value: pulumi.Input[Optional['ConnectionAuthorizationCodePropertiesArgs']]):
+        pulumi.set(self, "authorization_code_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2ClientApplication")
+    def o_auth2_client_application(self) -> pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgs']]:
+        """
+        The OAuth2 client app used for the connection.
+        """
+        return pulumi.get(self, "o_auth2_client_application")
+
+    @o_auth2_client_application.setter
+    def o_auth2_client_application(self, value: pulumi.Input[Optional['ConnectionOAuth2ClientApplicationArgs']]):
+        pulumi.set(self, "o_auth2_client_application", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2Credentials")
+    def o_auth2_credentials(self) -> pulumi.Input[Optional['ConnectionOAuth2CredentialsArgs']]:
+        """
+        A structure containing the OAuth2 credentials used in the authentication configuration.
+        """
+        return pulumi.get(self, "o_auth2_credentials")
+
+    @o_auth2_credentials.setter
+    def o_auth2_credentials(self, value: pulumi.Input[Optional['ConnectionOAuth2CredentialsArgs']]):
+        pulumi.set(self, "o_auth2_credentials", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2GrantType")
+    def o_auth2_grant_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The grant type used in the authentication configuration.
+        """
+        return pulumi.get(self, "o_auth2_grant_type")
+
+    @o_auth2_grant_type.setter
+    def o_auth2_grant_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "o_auth2_grant_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL used in the authentication configuration.
+        """
+        return pulumi.get(self, "token_url")
+
+    @token_url.setter
+    def token_url(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "token_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrlParametersMap")
+    def token_url_parameters_map(self) -> Optional[Any]:
+        """
+        A map of key-value pairs used in the authentication configuration.
+        """
+        return pulumi.get(self, "token_url_parameters_map")
+
+    @token_url_parameters_map.setter
+    def token_url_parameters_map(self, value: Optional[Any]):
+        pulumi.set(self, "token_url_parameters_map", value)
+
+
+class ConnectionPhysicalConnectionRequirementsArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The availability zone where the connection is located.
+    """
+    security_group_id_list: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The security group ID list used by the connection.
+    """
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The subnet ID used by the connection.
+    """
+
+@pulumi.input_type
+class ConnectionPhysicalConnectionRequirementsArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_group_id_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] availability_zone: The availability zone where the connection is located.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_id_list: The security group ID list used by the connection.
+        :param pulumi.Input[_builtins.str] subnet_id: The subnet ID used by the connection.
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if security_group_id_list is not None:
+            pulumi.set(__self__, "security_group_id_list", security_group_id_list)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The availability zone where the connection is located.
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIdList")
+    def security_group_id_list(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The security group ID list used by the connection.
+        """
+        return pulumi.get(self, "security_group_id_list")
+
+    @security_group_id_list.setter
+    def security_group_id_list(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "security_group_id_list", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The subnet ID used by the connection.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
 
 
 class CrawlerCatalogTargetArgsDict(TypedDict):

@@ -104,8 +104,886 @@ func (o InvoiceUnitRulePtrOutput) LinkedAccounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
+// Contact information for a person or role associated with the procurement portal preference.
+type ProcurementPortalPreferenceContact struct {
+	// The email address of the contact person or role.
+	Email *string `pulumi:"email"`
+	// The name of the contact person or role.
+	Name *string `pulumi:"name"`
+}
+
+// ProcurementPortalPreferenceContactInput is an input type that accepts ProcurementPortalPreferenceContactArgs and ProcurementPortalPreferenceContactOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceContactInput` via:
+//
+//	ProcurementPortalPreferenceContactArgs{...}
+type ProcurementPortalPreferenceContactInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceContactOutput() ProcurementPortalPreferenceContactOutput
+	ToProcurementPortalPreferenceContactOutputWithContext(context.Context) ProcurementPortalPreferenceContactOutput
+}
+
+// Contact information for a person or role associated with the procurement portal preference.
+type ProcurementPortalPreferenceContactArgs struct {
+	// The email address of the contact person or role.
+	Email pulumi.StringPtrInput `pulumi:"email"`
+	// The name of the contact person or role.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (ProcurementPortalPreferenceContactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceContact)(nil)).Elem()
+}
+
+func (i ProcurementPortalPreferenceContactArgs) ToProcurementPortalPreferenceContactOutput() ProcurementPortalPreferenceContactOutput {
+	return i.ToProcurementPortalPreferenceContactOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceContactArgs) ToProcurementPortalPreferenceContactOutputWithContext(ctx context.Context) ProcurementPortalPreferenceContactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceContactOutput)
+}
+
+// ProcurementPortalPreferenceContactArrayInput is an input type that accepts ProcurementPortalPreferenceContactArray and ProcurementPortalPreferenceContactArrayOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceContactArrayInput` via:
+//
+//	ProcurementPortalPreferenceContactArray{ ProcurementPortalPreferenceContactArgs{...} }
+type ProcurementPortalPreferenceContactArrayInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceContactArrayOutput() ProcurementPortalPreferenceContactArrayOutput
+	ToProcurementPortalPreferenceContactArrayOutputWithContext(context.Context) ProcurementPortalPreferenceContactArrayOutput
+}
+
+type ProcurementPortalPreferenceContactArray []ProcurementPortalPreferenceContactInput
+
+func (ProcurementPortalPreferenceContactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcurementPortalPreferenceContact)(nil)).Elem()
+}
+
+func (i ProcurementPortalPreferenceContactArray) ToProcurementPortalPreferenceContactArrayOutput() ProcurementPortalPreferenceContactArrayOutput {
+	return i.ToProcurementPortalPreferenceContactArrayOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceContactArray) ToProcurementPortalPreferenceContactArrayOutputWithContext(ctx context.Context) ProcurementPortalPreferenceContactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceContactArrayOutput)
+}
+
+// Contact information for a person or role associated with the procurement portal preference.
+type ProcurementPortalPreferenceContactOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceContactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceContact)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceContactOutput) ToProcurementPortalPreferenceContactOutput() ProcurementPortalPreferenceContactOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceContactOutput) ToProcurementPortalPreferenceContactOutputWithContext(ctx context.Context) ProcurementPortalPreferenceContactOutput {
+	return o
+}
+
+// The email address of the contact person or role.
+func (o ProcurementPortalPreferenceContactOutput) Email() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceContact) *string { return v.Email }).(pulumi.StringPtrOutput)
+}
+
+// The name of the contact person or role.
+func (o ProcurementPortalPreferenceContactOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceContact) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ProcurementPortalPreferenceContactArrayOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceContactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcurementPortalPreferenceContact)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceContactArrayOutput) ToProcurementPortalPreferenceContactArrayOutput() ProcurementPortalPreferenceContactArrayOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceContactArrayOutput) ToProcurementPortalPreferenceContactArrayOutputWithContext(ctx context.Context) ProcurementPortalPreferenceContactArrayOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceContactArrayOutput) Index(i pulumi.IntInput) ProcurementPortalPreferenceContactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcurementPortalPreferenceContact {
+		return vs[0].([]ProcurementPortalPreferenceContact)[vs[1].(int)]
+	}).(ProcurementPortalPreferenceContactOutput)
+}
+
+// Specifies the preferences for e-invoice delivery.
+type ProcurementPortalPreferenceEinvoiceDeliveryPreference struct {
+	// The method to use for testing the connection to the procurement portal.
+	ConnectionTestingMethod *ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod `pulumi:"connectionTestingMethod"`
+	// The ISO 8601 date-time when e-invoice delivery should be activated.
+	EinvoiceDeliveryActivationDate *string `pulumi:"einvoiceDeliveryActivationDate"`
+	// The types of attachments to include with the e-invoice delivery.
+	EinvoiceDeliveryAttachmentTypes []ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem `pulumi:"einvoiceDeliveryAttachmentTypes"`
+	// The types of e-invoice documents to be delivered.
+	EinvoiceDeliveryDocumentTypes []ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem `pulumi:"einvoiceDeliveryDocumentTypes"`
+	// The communication protocol to use for e-invoice delivery.
+	Protocol *ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol `pulumi:"protocol"`
+	// The sources of purchase order data.
+	PurchaseOrderDataSources []ProcurementPortalPreferencePurchaseOrderDataSource `pulumi:"purchaseOrderDataSources"`
+}
+
+// ProcurementPortalPreferenceEinvoiceDeliveryPreferenceInput is an input type that accepts ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs and ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceEinvoiceDeliveryPreferenceInput` via:
+//
+//	ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs{...}
+type ProcurementPortalPreferenceEinvoiceDeliveryPreferenceInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput
+	ToProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutputWithContext(context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput
+}
+
+// Specifies the preferences for e-invoice delivery.
+type ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs struct {
+	// The method to use for testing the connection to the procurement portal.
+	ConnectionTestingMethod ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethodPtrInput `pulumi:"connectionTestingMethod"`
+	// The ISO 8601 date-time when e-invoice delivery should be activated.
+	EinvoiceDeliveryActivationDate pulumi.StringPtrInput `pulumi:"einvoiceDeliveryActivationDate"`
+	// The types of attachments to include with the e-invoice delivery.
+	EinvoiceDeliveryAttachmentTypes ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItemArrayInput `pulumi:"einvoiceDeliveryAttachmentTypes"`
+	// The types of e-invoice documents to be delivered.
+	EinvoiceDeliveryDocumentTypes ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItemArrayInput `pulumi:"einvoiceDeliveryDocumentTypes"`
+	// The communication protocol to use for e-invoice delivery.
+	Protocol ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocolPtrInput `pulumi:"protocol"`
+	// The sources of purchase order data.
+	PurchaseOrderDataSources ProcurementPortalPreferencePurchaseOrderDataSourceArrayInput `pulumi:"purchaseOrderDataSources"`
+}
+
+func (ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceEinvoiceDeliveryPreference)(nil)).Elem()
+}
+
+func (i ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs) ToProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput {
+	return i.ToProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs) ToProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutputWithContext(ctx context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput)
+}
+
+func (i ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return i.ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput).ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(ctx)
+}
+
+// ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrInput is an input type that accepts ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs, ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtr and ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrInput` via:
+//
+//	        ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput
+	ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput
+}
+
+type procurementPortalPreferenceEinvoiceDeliveryPreferencePtrType ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs
+
+func ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtr(v *ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs) ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrInput {
+	return (*procurementPortalPreferenceEinvoiceDeliveryPreferencePtrType)(v)
+}
+
+func (*procurementPortalPreferenceEinvoiceDeliveryPreferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcurementPortalPreferenceEinvoiceDeliveryPreference)(nil)).Elem()
+}
+
+func (i *procurementPortalPreferenceEinvoiceDeliveryPreferencePtrType) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return i.ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i *procurementPortalPreferenceEinvoiceDeliveryPreferencePtrType) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput)
+}
+
+// Specifies the preferences for e-invoice delivery.
+type ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceEinvoiceDeliveryPreference)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) ToProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) ToProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutputWithContext(ctx context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return o.ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcurementPortalPreferenceEinvoiceDeliveryPreference) *ProcurementPortalPreferenceEinvoiceDeliveryPreference {
+		return &v
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput)
+}
+
+// The method to use for testing the connection to the procurement portal.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) ConnectionTestingMethod() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethodPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceEinvoiceDeliveryPreference) *ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod {
+		return v.ConnectionTestingMethod
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethodPtrOutput)
+}
+
+// The ISO 8601 date-time when e-invoice delivery should be activated.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) EinvoiceDeliveryActivationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceEinvoiceDeliveryPreference) *string {
+		return v.EinvoiceDeliveryActivationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The types of attachments to include with the e-invoice delivery.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) EinvoiceDeliveryAttachmentTypes() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItemArrayOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceEinvoiceDeliveryPreference) []ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem {
+		return v.EinvoiceDeliveryAttachmentTypes
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItemArrayOutput)
+}
+
+// The types of e-invoice documents to be delivered.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) EinvoiceDeliveryDocumentTypes() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItemArrayOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceEinvoiceDeliveryPreference) []ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem {
+		return v.EinvoiceDeliveryDocumentTypes
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItemArrayOutput)
+}
+
+// The communication protocol to use for e-invoice delivery.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) Protocol() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocolPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceEinvoiceDeliveryPreference) *ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol {
+		return v.Protocol
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocolPtrOutput)
+}
+
+// The sources of purchase order data.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput) PurchaseOrderDataSources() ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceEinvoiceDeliveryPreference) []ProcurementPortalPreferencePurchaseOrderDataSource {
+		return v.PurchaseOrderDataSources
+	}).(ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput)
+}
+
+type ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcurementPortalPreferenceEinvoiceDeliveryPreference)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput() ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) ToProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) Elem() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceEinvoiceDeliveryPreference) ProcurementPortalPreferenceEinvoiceDeliveryPreference {
+		if v != nil {
+			return *v
+		}
+		var ret ProcurementPortalPreferenceEinvoiceDeliveryPreference
+		return ret
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput)
+}
+
+// The method to use for testing the connection to the procurement portal.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) ConnectionTestingMethod() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethodPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceEinvoiceDeliveryPreference) *ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod {
+		if v == nil {
+			return nil
+		}
+		return v.ConnectionTestingMethod
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethodPtrOutput)
+}
+
+// The ISO 8601 date-time when e-invoice delivery should be activated.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) EinvoiceDeliveryActivationDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceEinvoiceDeliveryPreference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EinvoiceDeliveryActivationDate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The types of attachments to include with the e-invoice delivery.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) EinvoiceDeliveryAttachmentTypes() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItemArrayOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceEinvoiceDeliveryPreference) []ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.EinvoiceDeliveryAttachmentTypes
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItemArrayOutput)
+}
+
+// The types of e-invoice documents to be delivered.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) EinvoiceDeliveryDocumentTypes() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItemArrayOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceEinvoiceDeliveryPreference) []ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.EinvoiceDeliveryDocumentTypes
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItemArrayOutput)
+}
+
+// The communication protocol to use for e-invoice delivery.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) Protocol() ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocolPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceEinvoiceDeliveryPreference) *ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol {
+		if v == nil {
+			return nil
+		}
+		return v.Protocol
+	}).(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocolPtrOutput)
+}
+
+// The sources of purchase order data.
+func (o ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput) PurchaseOrderDataSources() ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceEinvoiceDeliveryPreference) []ProcurementPortalPreferencePurchaseOrderDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.PurchaseOrderDataSources
+	}).(ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput)
+}
+
+// Specifies the source configuration for retrieving purchase order data.
+type ProcurementPortalPreferencePurchaseOrderDataSource struct {
+	// The type of e-invoice document that requires purchase order data.
+	EinvoiceDeliveryDocumentType *ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType `pulumi:"einvoiceDeliveryDocumentType"`
+	// The type of source for purchase order data.
+	PurchaseOrderDataSourceType *ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType `pulumi:"purchaseOrderDataSourceType"`
+}
+
+// ProcurementPortalPreferencePurchaseOrderDataSourceInput is an input type that accepts ProcurementPortalPreferencePurchaseOrderDataSourceArgs and ProcurementPortalPreferencePurchaseOrderDataSourceOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferencePurchaseOrderDataSourceInput` via:
+//
+//	ProcurementPortalPreferencePurchaseOrderDataSourceArgs{...}
+type ProcurementPortalPreferencePurchaseOrderDataSourceInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferencePurchaseOrderDataSourceOutput() ProcurementPortalPreferencePurchaseOrderDataSourceOutput
+	ToProcurementPortalPreferencePurchaseOrderDataSourceOutputWithContext(context.Context) ProcurementPortalPreferencePurchaseOrderDataSourceOutput
+}
+
+// Specifies the source configuration for retrieving purchase order data.
+type ProcurementPortalPreferencePurchaseOrderDataSourceArgs struct {
+	// The type of e-invoice document that requires purchase order data.
+	EinvoiceDeliveryDocumentType ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentTypePtrInput `pulumi:"einvoiceDeliveryDocumentType"`
+	// The type of source for purchase order data.
+	PurchaseOrderDataSourceType ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceTypePtrInput `pulumi:"purchaseOrderDataSourceType"`
+}
+
+func (ProcurementPortalPreferencePurchaseOrderDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferencePurchaseOrderDataSource)(nil)).Elem()
+}
+
+func (i ProcurementPortalPreferencePurchaseOrderDataSourceArgs) ToProcurementPortalPreferencePurchaseOrderDataSourceOutput() ProcurementPortalPreferencePurchaseOrderDataSourceOutput {
+	return i.ToProcurementPortalPreferencePurchaseOrderDataSourceOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferencePurchaseOrderDataSourceArgs) ToProcurementPortalPreferencePurchaseOrderDataSourceOutputWithContext(ctx context.Context) ProcurementPortalPreferencePurchaseOrderDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferencePurchaseOrderDataSourceOutput)
+}
+
+// ProcurementPortalPreferencePurchaseOrderDataSourceArrayInput is an input type that accepts ProcurementPortalPreferencePurchaseOrderDataSourceArray and ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferencePurchaseOrderDataSourceArrayInput` via:
+//
+//	ProcurementPortalPreferencePurchaseOrderDataSourceArray{ ProcurementPortalPreferencePurchaseOrderDataSourceArgs{...} }
+type ProcurementPortalPreferencePurchaseOrderDataSourceArrayInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput() ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput
+	ToProcurementPortalPreferencePurchaseOrderDataSourceArrayOutputWithContext(context.Context) ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput
+}
+
+type ProcurementPortalPreferencePurchaseOrderDataSourceArray []ProcurementPortalPreferencePurchaseOrderDataSourceInput
+
+func (ProcurementPortalPreferencePurchaseOrderDataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcurementPortalPreferencePurchaseOrderDataSource)(nil)).Elem()
+}
+
+func (i ProcurementPortalPreferencePurchaseOrderDataSourceArray) ToProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput() ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput {
+	return i.ToProcurementPortalPreferencePurchaseOrderDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferencePurchaseOrderDataSourceArray) ToProcurementPortalPreferencePurchaseOrderDataSourceArrayOutputWithContext(ctx context.Context) ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput)
+}
+
+// Specifies the source configuration for retrieving purchase order data.
+type ProcurementPortalPreferencePurchaseOrderDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferencePurchaseOrderDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferencePurchaseOrderDataSource)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferencePurchaseOrderDataSourceOutput) ToProcurementPortalPreferencePurchaseOrderDataSourceOutput() ProcurementPortalPreferencePurchaseOrderDataSourceOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferencePurchaseOrderDataSourceOutput) ToProcurementPortalPreferencePurchaseOrderDataSourceOutputWithContext(ctx context.Context) ProcurementPortalPreferencePurchaseOrderDataSourceOutput {
+	return o
+}
+
+// The type of e-invoice document that requires purchase order data.
+func (o ProcurementPortalPreferencePurchaseOrderDataSourceOutput) EinvoiceDeliveryDocumentType() ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentTypePtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferencePurchaseOrderDataSource) *ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType {
+		return v.EinvoiceDeliveryDocumentType
+	}).(ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentTypePtrOutput)
+}
+
+// The type of source for purchase order data.
+func (o ProcurementPortalPreferencePurchaseOrderDataSourceOutput) PurchaseOrderDataSourceType() ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceTypePtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferencePurchaseOrderDataSource) *ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType {
+		return v.PurchaseOrderDataSourceType
+	}).(ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceTypePtrOutput)
+}
+
+type ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProcurementPortalPreferencePurchaseOrderDataSource)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput) ToProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput() ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput) ToProcurementPortalPreferencePurchaseOrderDataSourceArrayOutputWithContext(ctx context.Context) ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput) Index(i pulumi.IntInput) ProcurementPortalPreferencePurchaseOrderDataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProcurementPortalPreferencePurchaseOrderDataSource {
+		return vs[0].([]ProcurementPortalPreferencePurchaseOrderDataSource)[vs[1].(int)]
+	}).(ProcurementPortalPreferencePurchaseOrderDataSourceOutput)
+}
+
+// Specifies criteria for selecting which invoices should be processed.
+type ProcurementPortalPreferenceSelector struct {
+	// The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+	InvoiceUnitArns []string `pulumi:"invoiceUnitArns"`
+}
+
+// ProcurementPortalPreferenceSelectorInput is an input type that accepts ProcurementPortalPreferenceSelectorArgs and ProcurementPortalPreferenceSelectorOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceSelectorInput` via:
+//
+//	ProcurementPortalPreferenceSelectorArgs{...}
+type ProcurementPortalPreferenceSelectorInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceSelectorOutput() ProcurementPortalPreferenceSelectorOutput
+	ToProcurementPortalPreferenceSelectorOutputWithContext(context.Context) ProcurementPortalPreferenceSelectorOutput
+}
+
+// Specifies criteria for selecting which invoices should be processed.
+type ProcurementPortalPreferenceSelectorArgs struct {
+	// The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+	InvoiceUnitArns pulumi.StringArrayInput `pulumi:"invoiceUnitArns"`
+}
+
+func (ProcurementPortalPreferenceSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceSelector)(nil)).Elem()
+}
+
+func (i ProcurementPortalPreferenceSelectorArgs) ToProcurementPortalPreferenceSelectorOutput() ProcurementPortalPreferenceSelectorOutput {
+	return i.ToProcurementPortalPreferenceSelectorOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceSelectorArgs) ToProcurementPortalPreferenceSelectorOutputWithContext(ctx context.Context) ProcurementPortalPreferenceSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceSelectorOutput)
+}
+
+func (i ProcurementPortalPreferenceSelectorArgs) ToProcurementPortalPreferenceSelectorPtrOutput() ProcurementPortalPreferenceSelectorPtrOutput {
+	return i.ToProcurementPortalPreferenceSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceSelectorArgs) ToProcurementPortalPreferenceSelectorPtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceSelectorOutput).ToProcurementPortalPreferenceSelectorPtrOutputWithContext(ctx)
+}
+
+// ProcurementPortalPreferenceSelectorPtrInput is an input type that accepts ProcurementPortalPreferenceSelectorArgs, ProcurementPortalPreferenceSelectorPtr and ProcurementPortalPreferenceSelectorPtrOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceSelectorPtrInput` via:
+//
+//	        ProcurementPortalPreferenceSelectorArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcurementPortalPreferenceSelectorPtrInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceSelectorPtrOutput() ProcurementPortalPreferenceSelectorPtrOutput
+	ToProcurementPortalPreferenceSelectorPtrOutputWithContext(context.Context) ProcurementPortalPreferenceSelectorPtrOutput
+}
+
+type procurementPortalPreferenceSelectorPtrType ProcurementPortalPreferenceSelectorArgs
+
+func ProcurementPortalPreferenceSelectorPtr(v *ProcurementPortalPreferenceSelectorArgs) ProcurementPortalPreferenceSelectorPtrInput {
+	return (*procurementPortalPreferenceSelectorPtrType)(v)
+}
+
+func (*procurementPortalPreferenceSelectorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcurementPortalPreferenceSelector)(nil)).Elem()
+}
+
+func (i *procurementPortalPreferenceSelectorPtrType) ToProcurementPortalPreferenceSelectorPtrOutput() ProcurementPortalPreferenceSelectorPtrOutput {
+	return i.ToProcurementPortalPreferenceSelectorPtrOutputWithContext(context.Background())
+}
+
+func (i *procurementPortalPreferenceSelectorPtrType) ToProcurementPortalPreferenceSelectorPtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceSelectorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceSelectorPtrOutput)
+}
+
+// Specifies criteria for selecting which invoices should be processed.
+type ProcurementPortalPreferenceSelectorOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceSelector)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceSelectorOutput) ToProcurementPortalPreferenceSelectorOutput() ProcurementPortalPreferenceSelectorOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceSelectorOutput) ToProcurementPortalPreferenceSelectorOutputWithContext(ctx context.Context) ProcurementPortalPreferenceSelectorOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceSelectorOutput) ToProcurementPortalPreferenceSelectorPtrOutput() ProcurementPortalPreferenceSelectorPtrOutput {
+	return o.ToProcurementPortalPreferenceSelectorPtrOutputWithContext(context.Background())
+}
+
+func (o ProcurementPortalPreferenceSelectorOutput) ToProcurementPortalPreferenceSelectorPtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceSelectorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcurementPortalPreferenceSelector) *ProcurementPortalPreferenceSelector {
+		return &v
+	}).(ProcurementPortalPreferenceSelectorPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+func (o ProcurementPortalPreferenceSelectorOutput) InvoiceUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceSelector) []string { return v.InvoiceUnitArns }).(pulumi.StringArrayOutput)
+}
+
+type ProcurementPortalPreferenceSelectorPtrOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceSelectorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcurementPortalPreferenceSelector)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceSelectorPtrOutput) ToProcurementPortalPreferenceSelectorPtrOutput() ProcurementPortalPreferenceSelectorPtrOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceSelectorPtrOutput) ToProcurementPortalPreferenceSelectorPtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceSelectorPtrOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceSelectorPtrOutput) Elem() ProcurementPortalPreferenceSelectorOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceSelector) ProcurementPortalPreferenceSelector {
+		if v != nil {
+			return *v
+		}
+		var ret ProcurementPortalPreferenceSelector
+		return ret
+	}).(ProcurementPortalPreferenceSelectorOutput)
+}
+
+// The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+func (o ProcurementPortalPreferenceSelectorPtrOutput) InvoiceUnitArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceSelector) []string {
+		if v == nil {
+			return nil
+		}
+		return v.InvoiceUnitArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// A tag key-value pair.
+type ProcurementPortalPreferenceTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// Configuration settings for the test environment of the procurement portal.
+type ProcurementPortalPreferenceTestEnvPreference struct {
+	// The domain identifier for the buyer in the test environment.
+	BuyerDomain *ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain `pulumi:"buyerDomain"`
+	// The unique identifier for the buyer in the test environment.
+	BuyerIdentifier *string `pulumi:"buyerIdentifier"`
+	// The endpoint URL for e-invoice delivery in the test environment.
+	ProcurementPortalInstanceEndpoint *string `pulumi:"procurementPortalInstanceEndpoint"`
+	// The shared secret for secure communication in the test environment.
+	ProcurementPortalSharedSecret *string `pulumi:"procurementPortalSharedSecret"`
+	// The domain identifier for the supplier in the test environment.
+	SupplierDomain *ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain `pulumi:"supplierDomain"`
+	// The unique identifier for the supplier in the test environment.
+	SupplierIdentifier *string `pulumi:"supplierIdentifier"`
+}
+
+// ProcurementPortalPreferenceTestEnvPreferenceInput is an input type that accepts ProcurementPortalPreferenceTestEnvPreferenceArgs and ProcurementPortalPreferenceTestEnvPreferenceOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceTestEnvPreferenceInput` via:
+//
+//	ProcurementPortalPreferenceTestEnvPreferenceArgs{...}
+type ProcurementPortalPreferenceTestEnvPreferenceInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceTestEnvPreferenceOutput() ProcurementPortalPreferenceTestEnvPreferenceOutput
+	ToProcurementPortalPreferenceTestEnvPreferenceOutputWithContext(context.Context) ProcurementPortalPreferenceTestEnvPreferenceOutput
+}
+
+// Configuration settings for the test environment of the procurement portal.
+type ProcurementPortalPreferenceTestEnvPreferenceArgs struct {
+	// The domain identifier for the buyer in the test environment.
+	BuyerDomain ProcurementPortalPreferenceTestEnvPreferenceBuyerDomainPtrInput `pulumi:"buyerDomain"`
+	// The unique identifier for the buyer in the test environment.
+	BuyerIdentifier pulumi.StringPtrInput `pulumi:"buyerIdentifier"`
+	// The endpoint URL for e-invoice delivery in the test environment.
+	ProcurementPortalInstanceEndpoint pulumi.StringPtrInput `pulumi:"procurementPortalInstanceEndpoint"`
+	// The shared secret for secure communication in the test environment.
+	ProcurementPortalSharedSecret pulumi.StringPtrInput `pulumi:"procurementPortalSharedSecret"`
+	// The domain identifier for the supplier in the test environment.
+	SupplierDomain ProcurementPortalPreferenceTestEnvPreferenceSupplierDomainPtrInput `pulumi:"supplierDomain"`
+	// The unique identifier for the supplier in the test environment.
+	SupplierIdentifier pulumi.StringPtrInput `pulumi:"supplierIdentifier"`
+}
+
+func (ProcurementPortalPreferenceTestEnvPreferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceTestEnvPreference)(nil)).Elem()
+}
+
+func (i ProcurementPortalPreferenceTestEnvPreferenceArgs) ToProcurementPortalPreferenceTestEnvPreferenceOutput() ProcurementPortalPreferenceTestEnvPreferenceOutput {
+	return i.ToProcurementPortalPreferenceTestEnvPreferenceOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceTestEnvPreferenceArgs) ToProcurementPortalPreferenceTestEnvPreferenceOutputWithContext(ctx context.Context) ProcurementPortalPreferenceTestEnvPreferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceTestEnvPreferenceOutput)
+}
+
+func (i ProcurementPortalPreferenceTestEnvPreferenceArgs) ToProcurementPortalPreferenceTestEnvPreferencePtrOutput() ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return i.ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i ProcurementPortalPreferenceTestEnvPreferenceArgs) ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceTestEnvPreferenceOutput).ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(ctx)
+}
+
+// ProcurementPortalPreferenceTestEnvPreferencePtrInput is an input type that accepts ProcurementPortalPreferenceTestEnvPreferenceArgs, ProcurementPortalPreferenceTestEnvPreferencePtr and ProcurementPortalPreferenceTestEnvPreferencePtrOutput values.
+// You can construct a concrete instance of `ProcurementPortalPreferenceTestEnvPreferencePtrInput` via:
+//
+//	        ProcurementPortalPreferenceTestEnvPreferenceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ProcurementPortalPreferenceTestEnvPreferencePtrInput interface {
+	pulumi.Input
+
+	ToProcurementPortalPreferenceTestEnvPreferencePtrOutput() ProcurementPortalPreferenceTestEnvPreferencePtrOutput
+	ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(context.Context) ProcurementPortalPreferenceTestEnvPreferencePtrOutput
+}
+
+type procurementPortalPreferenceTestEnvPreferencePtrType ProcurementPortalPreferenceTestEnvPreferenceArgs
+
+func ProcurementPortalPreferenceTestEnvPreferencePtr(v *ProcurementPortalPreferenceTestEnvPreferenceArgs) ProcurementPortalPreferenceTestEnvPreferencePtrInput {
+	return (*procurementPortalPreferenceTestEnvPreferencePtrType)(v)
+}
+
+func (*procurementPortalPreferenceTestEnvPreferencePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcurementPortalPreferenceTestEnvPreference)(nil)).Elem()
+}
+
+func (i *procurementPortalPreferenceTestEnvPreferencePtrType) ToProcurementPortalPreferenceTestEnvPreferencePtrOutput() ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return i.ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(context.Background())
+}
+
+func (i *procurementPortalPreferenceTestEnvPreferencePtrType) ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProcurementPortalPreferenceTestEnvPreferencePtrOutput)
+}
+
+// Configuration settings for the test environment of the procurement portal.
+type ProcurementPortalPreferenceTestEnvPreferenceOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceTestEnvPreferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProcurementPortalPreferenceTestEnvPreference)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) ToProcurementPortalPreferenceTestEnvPreferenceOutput() ProcurementPortalPreferenceTestEnvPreferenceOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) ToProcurementPortalPreferenceTestEnvPreferenceOutputWithContext(ctx context.Context) ProcurementPortalPreferenceTestEnvPreferenceOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) ToProcurementPortalPreferenceTestEnvPreferencePtrOutput() ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return o.ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(context.Background())
+}
+
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProcurementPortalPreferenceTestEnvPreference) *ProcurementPortalPreferenceTestEnvPreference {
+		return &v
+	}).(ProcurementPortalPreferenceTestEnvPreferencePtrOutput)
+}
+
+// The domain identifier for the buyer in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) BuyerDomain() ProcurementPortalPreferenceTestEnvPreferenceBuyerDomainPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceTestEnvPreference) *ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain {
+		return v.BuyerDomain
+	}).(ProcurementPortalPreferenceTestEnvPreferenceBuyerDomainPtrOutput)
+}
+
+// The unique identifier for the buyer in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) BuyerIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceTestEnvPreference) *string { return v.BuyerIdentifier }).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL for e-invoice delivery in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) ProcurementPortalInstanceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceTestEnvPreference) *string {
+		return v.ProcurementPortalInstanceEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The shared secret for secure communication in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) ProcurementPortalSharedSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceTestEnvPreference) *string { return v.ProcurementPortalSharedSecret }).(pulumi.StringPtrOutput)
+}
+
+// The domain identifier for the supplier in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) SupplierDomain() ProcurementPortalPreferenceTestEnvPreferenceSupplierDomainPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceTestEnvPreference) *ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain {
+		return v.SupplierDomain
+	}).(ProcurementPortalPreferenceTestEnvPreferenceSupplierDomainPtrOutput)
+}
+
+// The unique identifier for the supplier in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferenceOutput) SupplierIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ProcurementPortalPreferenceTestEnvPreference) *string { return v.SupplierIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type ProcurementPortalPreferenceTestEnvPreferencePtrOutput struct{ *pulumi.OutputState }
+
+func (ProcurementPortalPreferenceTestEnvPreferencePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProcurementPortalPreferenceTestEnvPreference)(nil)).Elem()
+}
+
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) ToProcurementPortalPreferenceTestEnvPreferencePtrOutput() ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) ToProcurementPortalPreferenceTestEnvPreferencePtrOutputWithContext(ctx context.Context) ProcurementPortalPreferenceTestEnvPreferencePtrOutput {
+	return o
+}
+
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) Elem() ProcurementPortalPreferenceTestEnvPreferenceOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceTestEnvPreference) ProcurementPortalPreferenceTestEnvPreference {
+		if v != nil {
+			return *v
+		}
+		var ret ProcurementPortalPreferenceTestEnvPreference
+		return ret
+	}).(ProcurementPortalPreferenceTestEnvPreferenceOutput)
+}
+
+// The domain identifier for the buyer in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) BuyerDomain() ProcurementPortalPreferenceTestEnvPreferenceBuyerDomainPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceTestEnvPreference) *ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain {
+		if v == nil {
+			return nil
+		}
+		return v.BuyerDomain
+	}).(ProcurementPortalPreferenceTestEnvPreferenceBuyerDomainPtrOutput)
+}
+
+// The unique identifier for the buyer in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) BuyerIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceTestEnvPreference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BuyerIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The endpoint URL for e-invoice delivery in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) ProcurementPortalInstanceEndpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceTestEnvPreference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcurementPortalInstanceEndpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The shared secret for secure communication in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) ProcurementPortalSharedSecret() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceTestEnvPreference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProcurementPortalSharedSecret
+	}).(pulumi.StringPtrOutput)
+}
+
+// The domain identifier for the supplier in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) SupplierDomain() ProcurementPortalPreferenceTestEnvPreferenceSupplierDomainPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceTestEnvPreference) *ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain {
+		if v == nil {
+			return nil
+		}
+		return v.SupplierDomain
+	}).(ProcurementPortalPreferenceTestEnvPreferenceSupplierDomainPtrOutput)
+}
+
+// The unique identifier for the supplier in the test environment.
+func (o ProcurementPortalPreferenceTestEnvPreferencePtrOutput) SupplierIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ProcurementPortalPreferenceTestEnvPreference) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SupplierIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InvoiceUnitRuleInput)(nil)).Elem(), InvoiceUnitRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceContactInput)(nil)).Elem(), ProcurementPortalPreferenceContactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceContactArrayInput)(nil)).Elem(), ProcurementPortalPreferenceContactArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceEinvoiceDeliveryPreferenceInput)(nil)).Elem(), ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrInput)(nil)).Elem(), ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferencePurchaseOrderDataSourceInput)(nil)).Elem(), ProcurementPortalPreferencePurchaseOrderDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferencePurchaseOrderDataSourceArrayInput)(nil)).Elem(), ProcurementPortalPreferencePurchaseOrderDataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceSelectorInput)(nil)).Elem(), ProcurementPortalPreferenceSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceSelectorPtrInput)(nil)).Elem(), ProcurementPortalPreferenceSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceTestEnvPreferenceInput)(nil)).Elem(), ProcurementPortalPreferenceTestEnvPreferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProcurementPortalPreferenceTestEnvPreferencePtrInput)(nil)).Elem(), ProcurementPortalPreferenceTestEnvPreferenceArgs{})
 	pulumi.RegisterOutputType(InvoiceUnitRuleOutput{})
 	pulumi.RegisterOutputType(InvoiceUnitRulePtrOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceContactOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceContactArrayOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceEinvoiceDeliveryPreferenceOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceEinvoiceDeliveryPreferencePtrOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferencePurchaseOrderDataSourceOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferencePurchaseOrderDataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceSelectorOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceSelectorPtrOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceTestEnvPreferenceOutput{})
+	pulumi.RegisterOutputType(ProcurementPortalPreferenceTestEnvPreferencePtrOutput{})
 }

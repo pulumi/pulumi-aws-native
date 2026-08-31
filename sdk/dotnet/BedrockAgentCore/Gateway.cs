@@ -113,6 +113,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        [Output("wafConfiguration")]
+        public Output<Outputs.GatewayWafConfiguration?> WafConfiguration { get; private set; } = null!;
+
+        [Output("webAclArn")]
+        public Output<string> WebAclArn { get; private set; } = null!;
+
         [Output("workloadIdentityDetails")]
         public Output<Outputs.GatewayWorkloadIdentityDetails> WorkloadIdentityDetails { get; private set; } = null!;
 
@@ -233,6 +239,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("wafConfiguration")]
+        public Input<Inputs.GatewayWafConfigurationArgs>? WafConfiguration { get; set; }
 
         public GatewayArgs()
         {

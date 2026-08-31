@@ -23,12 +23,15 @@ __all__ = ['FeedArgs', 'Feed']
 class FeedArgs:
     def __init__(__self__, *,
                  outputs: pulumi.Input[Sequence[pulumi.Input['FeedGetOutputArgs']]],
+                 access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Feed resource.
         """
         pulumi.set(__self__, "outputs", outputs)
+        if access_role_arn is not None:
+            pulumi.set(__self__, "access_role_arn", access_role_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if tags is not None:
@@ -42,6 +45,15 @@ class FeedArgs:
     @outputs.setter
     def outputs(self, value: pulumi.Input[Sequence[pulumi.Input['FeedGetOutputArgs']]]):
         pulumi.set(self, "outputs", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRoleArn")
+    def access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "access_role_arn")
+
+    @access_role_arn.setter
+    def access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "access_role_arn", value)
 
     @_builtins.property
     @pulumi.getter
@@ -68,6 +80,7 @@ class Feed(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedGetOutputArgs', 'FeedGetOutputArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -102,6 +115,7 @@ class Feed(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FeedGetOutputArgs', 'FeedGetOutputArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -114,6 +128,7 @@ class Feed(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FeedArgs.__new__(FeedArgs)
 
+            __props__.__dict__["access_role_arn"] = access_role_arn
             __props__.__dict__["name"] = name
             if outputs is None and not opts.urn:
                 raise TypeError("Missing required property 'outputs'")
@@ -144,6 +159,7 @@ class Feed(pulumi.CustomResource):
 
         __props__ = FeedArgs.__new__(FeedArgs)
 
+        __props__.__dict__["access_role_arn"] = None
         __props__.__dict__["arn"] = None
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["data_endpoints"] = None
@@ -151,6 +167,11 @@ class Feed(pulumi.CustomResource):
         __props__.__dict__["outputs"] = None
         __props__.__dict__["tags"] = None
         return Feed(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter(name="accessRoleArn")
+    def access_role_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
+        return pulumi.get(self, "access_role_arn")
 
     @_builtins.property
     @pulumi.getter

@@ -2448,6 +2448,8 @@ type PentestAssets struct {
 	IntegratedRepositories []PentestIntegratedRepository `pulumi:"integratedRepositories"`
 	// List of source code repositories to analyze
 	SourceCode []PentestSourceCodeRepository `pulumi:"sourceCode"`
+	// Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+	TrustedCaCertificates []PentestTrustedCaCertificate `pulumi:"trustedCaCertificates"`
 }
 
 // PentestAssetsInput is an input type that accepts PentestAssetsArgs and PentestAssetsOutput values.
@@ -2473,6 +2475,8 @@ type PentestAssetsArgs struct {
 	IntegratedRepositories PentestIntegratedRepositoryArrayInput `pulumi:"integratedRepositories"`
 	// List of source code repositories to analyze
 	SourceCode PentestSourceCodeRepositoryArrayInput `pulumi:"sourceCode"`
+	// Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+	TrustedCaCertificates PentestTrustedCaCertificateArrayInput `pulumi:"trustedCaCertificates"`
 }
 
 func (PentestAssetsArgs) ElementType() reflect.Type {
@@ -2525,6 +2529,11 @@ func (o PentestAssetsOutput) IntegratedRepositories() PentestIntegratedRepositor
 // List of source code repositories to analyze
 func (o PentestAssetsOutput) SourceCode() PentestSourceCodeRepositoryArrayOutput {
 	return o.ApplyT(func(v PentestAssets) []PentestSourceCodeRepository { return v.SourceCode }).(PentestSourceCodeRepositoryArrayOutput)
+}
+
+// Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+func (o PentestAssetsOutput) TrustedCaCertificates() PentestTrustedCaCertificateArrayOutput {
+	return o.ApplyT(func(v PentestAssets) []PentestTrustedCaCertificate { return v.TrustedCaCertificates }).(PentestTrustedCaCertificateArrayOutput)
 }
 
 type PentestAssetsPtrOutput struct{ *pulumi.OutputState }
@@ -2599,6 +2608,16 @@ func (o PentestAssetsPtrOutput) SourceCode() PentestSourceCodeRepositoryArrayOut
 		}
 		return v.SourceCode
 	}).(PentestSourceCodeRepositoryArrayOutput)
+}
+
+// Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate
+func (o PentestAssetsPtrOutput) TrustedCaCertificates() PentestTrustedCaCertificateArrayOutput {
+	return o.ApplyT(func(v *PentestAssets) []PentestTrustedCaCertificate {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedCaCertificates
+	}).(PentestTrustedCaCertificateArrayOutput)
 }
 
 // Authentication configuration for a pentest actor
@@ -2758,6 +2777,79 @@ func (o PentestAuthenticationPtrOutput) Value() pulumi.StringPtrOutput {
 		}
 		return v.Value
 	}).(pulumi.StringPtrOutput)
+}
+
+// Source of a trusted CA certificate. Exactly one member must be set.
+type PentestCaCertificateSource struct {
+	// Artifact ID of an uploaded certificate file
+	ArtifactId *string `pulumi:"artifactId"`
+	// PEM-encoded X.509 certificate supplied inline
+	InlinePem *string `pulumi:"inlinePem"`
+	// Amazon S3 location URI of a customer-staged certificate
+	S3Location *string `pulumi:"s3Location"`
+}
+
+// PentestCaCertificateSourceInput is an input type that accepts PentestCaCertificateSourceArgs and PentestCaCertificateSourceOutput values.
+// You can construct a concrete instance of `PentestCaCertificateSourceInput` via:
+//
+//	PentestCaCertificateSourceArgs{...}
+type PentestCaCertificateSourceInput interface {
+	pulumi.Input
+
+	ToPentestCaCertificateSourceOutput() PentestCaCertificateSourceOutput
+	ToPentestCaCertificateSourceOutputWithContext(context.Context) PentestCaCertificateSourceOutput
+}
+
+// Source of a trusted CA certificate. Exactly one member must be set.
+type PentestCaCertificateSourceArgs struct {
+	// Artifact ID of an uploaded certificate file
+	ArtifactId pulumi.StringPtrInput `pulumi:"artifactId"`
+	// PEM-encoded X.509 certificate supplied inline
+	InlinePem pulumi.StringPtrInput `pulumi:"inlinePem"`
+	// Amazon S3 location URI of a customer-staged certificate
+	S3Location pulumi.StringPtrInput `pulumi:"s3Location"`
+}
+
+func (PentestCaCertificateSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestCaCertificateSource)(nil)).Elem()
+}
+
+func (i PentestCaCertificateSourceArgs) ToPentestCaCertificateSourceOutput() PentestCaCertificateSourceOutput {
+	return i.ToPentestCaCertificateSourceOutputWithContext(context.Background())
+}
+
+func (i PentestCaCertificateSourceArgs) ToPentestCaCertificateSourceOutputWithContext(ctx context.Context) PentestCaCertificateSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestCaCertificateSourceOutput)
+}
+
+// Source of a trusted CA certificate. Exactly one member must be set.
+type PentestCaCertificateSourceOutput struct{ *pulumi.OutputState }
+
+func (PentestCaCertificateSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestCaCertificateSource)(nil)).Elem()
+}
+
+func (o PentestCaCertificateSourceOutput) ToPentestCaCertificateSourceOutput() PentestCaCertificateSourceOutput {
+	return o
+}
+
+func (o PentestCaCertificateSourceOutput) ToPentestCaCertificateSourceOutputWithContext(ctx context.Context) PentestCaCertificateSourceOutput {
+	return o
+}
+
+// Artifact ID of an uploaded certificate file
+func (o PentestCaCertificateSourceOutput) ArtifactId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PentestCaCertificateSource) *string { return v.ArtifactId }).(pulumi.StringPtrOutput)
+}
+
+// PEM-encoded X.509 certificate supplied inline
+func (o PentestCaCertificateSourceOutput) InlinePem() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PentestCaCertificateSource) *string { return v.InlinePem }).(pulumi.StringPtrOutput)
+}
+
+// Amazon S3 location URI of a customer-staged certificate
+func (o PentestCaCertificateSourceOutput) S3Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PentestCaCertificateSource) *string { return v.S3Location }).(pulumi.StringPtrOutput)
 }
 
 // CloudWatch Logs configuration for pentest output
@@ -3734,6 +3826,106 @@ func (o PentestSourceCodeRepositoryArrayOutput) Index(i pulumi.IntInput) Pentest
 	}).(PentestSourceCodeRepositoryOutput)
 }
 
+// Trust anchor used when validating a target endpoint's TLS certificate
+type PentestTrustedCaCertificate struct {
+	// Where to read the certificate from
+	Source PentestCaCertificateSource `pulumi:"source"`
+}
+
+// PentestTrustedCaCertificateInput is an input type that accepts PentestTrustedCaCertificateArgs and PentestTrustedCaCertificateOutput values.
+// You can construct a concrete instance of `PentestTrustedCaCertificateInput` via:
+//
+//	PentestTrustedCaCertificateArgs{...}
+type PentestTrustedCaCertificateInput interface {
+	pulumi.Input
+
+	ToPentestTrustedCaCertificateOutput() PentestTrustedCaCertificateOutput
+	ToPentestTrustedCaCertificateOutputWithContext(context.Context) PentestTrustedCaCertificateOutput
+}
+
+// Trust anchor used when validating a target endpoint's TLS certificate
+type PentestTrustedCaCertificateArgs struct {
+	// Where to read the certificate from
+	Source PentestCaCertificateSourceInput `pulumi:"source"`
+}
+
+func (PentestTrustedCaCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestTrustedCaCertificate)(nil)).Elem()
+}
+
+func (i PentestTrustedCaCertificateArgs) ToPentestTrustedCaCertificateOutput() PentestTrustedCaCertificateOutput {
+	return i.ToPentestTrustedCaCertificateOutputWithContext(context.Background())
+}
+
+func (i PentestTrustedCaCertificateArgs) ToPentestTrustedCaCertificateOutputWithContext(ctx context.Context) PentestTrustedCaCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestTrustedCaCertificateOutput)
+}
+
+// PentestTrustedCaCertificateArrayInput is an input type that accepts PentestTrustedCaCertificateArray and PentestTrustedCaCertificateArrayOutput values.
+// You can construct a concrete instance of `PentestTrustedCaCertificateArrayInput` via:
+//
+//	PentestTrustedCaCertificateArray{ PentestTrustedCaCertificateArgs{...} }
+type PentestTrustedCaCertificateArrayInput interface {
+	pulumi.Input
+
+	ToPentestTrustedCaCertificateArrayOutput() PentestTrustedCaCertificateArrayOutput
+	ToPentestTrustedCaCertificateArrayOutputWithContext(context.Context) PentestTrustedCaCertificateArrayOutput
+}
+
+type PentestTrustedCaCertificateArray []PentestTrustedCaCertificateInput
+
+func (PentestTrustedCaCertificateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestTrustedCaCertificate)(nil)).Elem()
+}
+
+func (i PentestTrustedCaCertificateArray) ToPentestTrustedCaCertificateArrayOutput() PentestTrustedCaCertificateArrayOutput {
+	return i.ToPentestTrustedCaCertificateArrayOutputWithContext(context.Background())
+}
+
+func (i PentestTrustedCaCertificateArray) ToPentestTrustedCaCertificateArrayOutputWithContext(ctx context.Context) PentestTrustedCaCertificateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PentestTrustedCaCertificateArrayOutput)
+}
+
+// Trust anchor used when validating a target endpoint's TLS certificate
+type PentestTrustedCaCertificateOutput struct{ *pulumi.OutputState }
+
+func (PentestTrustedCaCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PentestTrustedCaCertificate)(nil)).Elem()
+}
+
+func (o PentestTrustedCaCertificateOutput) ToPentestTrustedCaCertificateOutput() PentestTrustedCaCertificateOutput {
+	return o
+}
+
+func (o PentestTrustedCaCertificateOutput) ToPentestTrustedCaCertificateOutputWithContext(ctx context.Context) PentestTrustedCaCertificateOutput {
+	return o
+}
+
+// Where to read the certificate from
+func (o PentestTrustedCaCertificateOutput) Source() PentestCaCertificateSourceOutput {
+	return o.ApplyT(func(v PentestTrustedCaCertificate) PentestCaCertificateSource { return v.Source }).(PentestCaCertificateSourceOutput)
+}
+
+type PentestTrustedCaCertificateArrayOutput struct{ *pulumi.OutputState }
+
+func (PentestTrustedCaCertificateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PentestTrustedCaCertificate)(nil)).Elem()
+}
+
+func (o PentestTrustedCaCertificateArrayOutput) ToPentestTrustedCaCertificateArrayOutput() PentestTrustedCaCertificateArrayOutput {
+	return o
+}
+
+func (o PentestTrustedCaCertificateArrayOutput) ToPentestTrustedCaCertificateArrayOutputWithContext(ctx context.Context) PentestTrustedCaCertificateArrayOutput {
+	return o
+}
+
+func (o PentestTrustedCaCertificateArrayOutput) Index(i pulumi.IntInput) PentestTrustedCaCertificateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PentestTrustedCaCertificate {
+		return vs[0].([]PentestTrustedCaCertificate)[vs[1].(int)]
+	}).(PentestTrustedCaCertificateOutput)
+}
+
 // VPC configuration that the pentest agent accesses
 type PentestVpcConfig struct {
 	// List of security groups in the VPC
@@ -4350,6 +4542,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAssetsInput)(nil)).Elem(), PentestAssetsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationInput)(nil)).Elem(), PentestAuthenticationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestAuthenticationPtrInput)(nil)).Elem(), PentestAuthenticationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestCaCertificateSourceInput)(nil)).Elem(), PentestCaCertificateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCloudWatchLogInput)(nil)).Elem(), PentestCloudWatchLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCloudWatchLogPtrInput)(nil)).Elem(), PentestCloudWatchLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestCustomHeaderInput)(nil)).Elem(), PentestCustomHeaderArgs{})
@@ -4366,6 +4559,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestNetworkTrafficRuleArrayInput)(nil)).Elem(), PentestNetworkTrafficRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSourceCodeRepositoryInput)(nil)).Elem(), PentestSourceCodeRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestSourceCodeRepositoryArrayInput)(nil)).Elem(), PentestSourceCodeRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestTrustedCaCertificateInput)(nil)).Elem(), PentestTrustedCaCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PentestTrustedCaCertificateArrayInput)(nil)).Elem(), PentestTrustedCaCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestVpcConfigInput)(nil)).Elem(), PentestVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PentestVpcConfigPtrInput)(nil)).Elem(), PentestVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecurityRequirementPackSecurityRequirementInput)(nil)).Elem(), SecurityRequirementPackSecurityRequirementArgs{})
@@ -4404,6 +4599,7 @@ func init() {
 	pulumi.RegisterOutputType(PentestAssetsPtrOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationOutput{})
 	pulumi.RegisterOutputType(PentestAuthenticationPtrOutput{})
+	pulumi.RegisterOutputType(PentestCaCertificateSourceOutput{})
 	pulumi.RegisterOutputType(PentestCloudWatchLogOutput{})
 	pulumi.RegisterOutputType(PentestCloudWatchLogPtrOutput{})
 	pulumi.RegisterOutputType(PentestCustomHeaderOutput{})
@@ -4420,6 +4616,8 @@ func init() {
 	pulumi.RegisterOutputType(PentestNetworkTrafficRuleArrayOutput{})
 	pulumi.RegisterOutputType(PentestSourceCodeRepositoryOutput{})
 	pulumi.RegisterOutputType(PentestSourceCodeRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(PentestTrustedCaCertificateOutput{})
+	pulumi.RegisterOutputType(PentestTrustedCaCertificateArrayOutput{})
 	pulumi.RegisterOutputType(PentestVpcConfigOutput{})
 	pulumi.RegisterOutputType(PentestVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(SecurityRequirementPackSecurityRequirementOutput{})

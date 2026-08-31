@@ -6328,6 +6328,22 @@
       }
     }
   },
+  "aws-native:ec2:IpamExternalResourceVerificationToken": {
+    "cfTypeName": "AWS::EC2::IpamExternalResourceVerificationToken",
+    "properties": {
+      "ipamId": {
+        "type": "string",
+        "description": "The ID of the IPAM that will create the token."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags for the token."
+      }
+    }
+  },
   "aws-native:ec2:IpamPool": {
     "cfTypeName": "AWS::EC2::IPAMPool",
     "properties": {
@@ -8913,7 +8929,7 @@
       },
       "preSharedKeyStorage": {
         "$ref": "#/types/aws-native:ec2:VpnConnectionPreSharedKeyStorage",
-        "description": "Describes the storage location for an instance store-backed AMI."
+        "description": "Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager)."
       },
       "remoteIpv4NetworkCidr": {
         "type": "string",
@@ -10686,6 +10702,23 @@
       }
     }
   },
+  "aws-native:glue:Connection": {
+    "cfTypeName": "AWS::Glue::Connection",
+    "properties": {
+      "catalogId": {
+        "type": "string",
+        "description": "The ID of the data catalog to create the catalog object in. Currently, this should be the AWS account ID."
+      },
+      "connectionInput": {
+        "$ref": "#/types/aws-native:glue:ConnectionInput",
+        "description": "The connection properties used for this connection."
+      },
+      "tags": {
+        "$ref": "pulumi.json#/Any",
+        "description": "The collection of tags. Each tag element is associated with a given resource.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Connection` for more information about the expected schema for this property."
+      }
+    }
+  },
   "aws-native:glue:DataCatalogEncryptionSettings": {
     "cfTypeName": "AWS::Glue::DataCatalogEncryptionSettings",
     "properties": {
@@ -11312,6 +11345,70 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An array of key-value pairs to apply to this resource."
+      }
+    }
+  },
+  "aws-native:invoicing:ProcurementPortalPreference": {
+    "cfTypeName": "AWS::Invoicing::ProcurementPortalPreference",
+    "properties": {
+      "buyerDomain": {
+        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceBuyerDomain",
+        "description": "The domain identifier for the buyer in the procurement portal."
+      },
+      "buyerIdentifier": {
+        "type": "string",
+        "description": "The unique identifier for the buyer in the procurement portal."
+      },
+      "contacts": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceContact"
+        },
+        "description": "List of contact information for portal administrators and technical contacts."
+      },
+      "einvoiceDeliveryEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether e-invoice delivery is enabled for this procurement portal preference."
+      },
+      "einvoiceDeliveryPreference": {
+        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreference"
+      },
+      "procurementPortalInstanceEndpoint": {
+        "type": "string",
+        "description": "The endpoint URL where e-invoices are delivered to the procurement portal."
+      },
+      "procurementPortalName": {
+        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceProcurementPortalName",
+        "description": "The name of the procurement portal."
+      },
+      "procurementPortalSharedSecret": {
+        "type": "string",
+        "description": "The shared secret or authentication credential used for secure communication with the procurement portal."
+      },
+      "purchaseOrderRetrievalEnabled": {
+        "type": "boolean",
+        "description": "Indicates whether purchase order retrieval is enabled for this procurement portal preference."
+      },
+      "selector": {
+        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceSelector"
+      },
+      "supplierDomain": {
+        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceSupplierDomain",
+        "description": "The domain identifier for the supplier in the procurement portal."
+      },
+      "supplierIdentifier": {
+        "type": "string",
+        "description": "The unique identifier for the supplier in the procurement portal."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags associated with this procurement portal preference."
+      },
+      "testEnvPreference": {
+        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreference"
       }
     }
   },
@@ -12430,11 +12527,11 @@
     "properties": {
       "policyDocument": {
         "$ref": "pulumi.json#/Any",
-        "description": "The resource policy of your Lambda resource\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
+        "description": "The policy document you want to add to your LAM resource. This is formatted as a JSON string.\n For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
       },
       "resourceArn": {
         "type": "string",
-        "description": "The resource arn of your Lambda resource"
+        "description": "The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters."
       }
     }
   },
@@ -12522,6 +12619,19 @@
       "resourceArn": {
         "type": "string",
         "description": "The Amazon Resource Name (ARN) of the bot or bot alias that the resource policy is attached to."
+      }
+    }
+  },
+  "aws-native:lightsail:ContactMethod": {
+    "cfTypeName": "AWS::Lightsail::ContactMethod",
+    "properties": {
+      "contactEndpoint": {
+        "type": "string",
+        "description": "The destination of the contact method, such as an email address or a mobile phone number."
+      },
+      "protocol": {
+        "$ref": "#/types/aws-native:lightsail:ContactMethodProtocol",
+        "description": "The protocol of the contact method, such as Email or SMS (text messaging)."
       }
     }
   },
@@ -13486,14 +13596,6 @@
         "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentOptions",
         "description": "Protocol options for connect attachment"
       },
-      "proposedNetworkFunctionGroupChange": {
-        "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentProposedNetworkFunctionGroupChange",
-        "description": "The attachment to move from one network function group to another."
-      },
-      "proposedSegmentChange": {
-        "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentProposedSegmentChange",
-        "description": "The attachment to move from one segment to another."
-      },
       "routingPolicyLabel": {
         "type": "string",
         "description": "Routing policy label"
@@ -13678,14 +13780,6 @@
         },
         "description": "The Regions where the edges are located."
       },
-      "proposedNetworkFunctionGroupChange": {
-        "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange",
-        "description": "The attachment to move from one network function group to another."
-      },
-      "proposedSegmentChange": {
-        "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentProposedSegmentChange",
-        "description": "The attachment to move from one segment to another."
-      },
       "routingPolicyLabel": {
         "type": "string",
         "description": "Routing policy label"
@@ -13811,14 +13905,6 @@
         "type": "string",
         "description": "The name of the network function group attachment."
       },
-      "proposedNetworkFunctionGroupChange": {
-        "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange",
-        "description": "The attachment to move from one network function group to another."
-      },
-      "proposedSegmentChange": {
-        "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentProposedSegmentChange",
-        "description": "The attachment to move from one segment to another."
-      },
       "routingPolicyLabel": {
         "type": "string",
         "description": "Routing policy label"
@@ -13880,14 +13966,6 @@
         "type": "string",
         "description": "The Id of peering between transit gateway and core network."
       },
-      "proposedNetworkFunctionGroupChange": {
-        "$ref": "#/types/aws-native:networkmanager:TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange",
-        "description": "The attachment to move from one network function group to another."
-      },
-      "proposedSegmentChange": {
-        "$ref": "#/types/aws-native:networkmanager:TransitGatewayRouteTableAttachmentProposedSegmentChange",
-        "description": "The attachment to move from one segment to another."
-      },
       "routingPolicyLabel": {
         "type": "string",
         "description": "Routing policy label"
@@ -13915,14 +13993,6 @@
       "options": {
         "$ref": "#/types/aws-native:networkmanager:VpcAttachmentVpcOptions",
         "description": "Vpc options of the attachment."
-      },
-      "proposedNetworkFunctionGroupChange": {
-        "$ref": "#/types/aws-native:networkmanager:VpcAttachmentProposedNetworkFunctionGroupChange",
-        "description": "The attachment to move from one network function group to another."
-      },
-      "proposedSegmentChange": {
-        "$ref": "#/types/aws-native:networkmanager:VpcAttachmentProposedSegmentChange",
-        "description": "The attachment to move from one segment to another."
       },
       "routingPolicyLabel": {
         "type": "string",

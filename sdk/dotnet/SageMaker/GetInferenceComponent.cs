@@ -94,6 +94,7 @@ namespace Pulumi.AwsNative.SageMaker
         public readonly string? LastModifiedTime;
         public readonly Outputs.InferenceComponentRuntimeConfig? RuntimeConfig;
         public readonly Outputs.InferenceComponentSpecification? Specification;
+        public readonly ImmutableArray<Outputs.InferenceComponentSpecificationForInstanceType> Specifications;
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
         /// The name of the production variant that hosts the inference component.
@@ -122,6 +123,8 @@ namespace Pulumi.AwsNative.SageMaker
 
             Outputs.InferenceComponentSpecification? specification,
 
+            ImmutableArray<Outputs.InferenceComponentSpecificationForInstanceType> specifications,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             string? variantName)
@@ -136,6 +139,7 @@ namespace Pulumi.AwsNative.SageMaker
             LastModifiedTime = lastModifiedTime;
             RuntimeConfig = runtimeConfig;
             Specification = specification;
+            Specifications = specifications;
             Tags = tags;
             VariantName = variantName;
         }

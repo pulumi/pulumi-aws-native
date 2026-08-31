@@ -13,9 +13,12 @@ namespace Pulumi.AwsNative.ElementalInference.Outputs
     [OutputType]
     public sealed class FeedCroppingConfig
     {
+        public readonly ImmutableArray<Outputs.FeedTemplateGroup> TemplateGroups;
+
         [OutputConstructor]
-        private FeedCroppingConfig()
+        private FeedCroppingConfig(ImmutableArray<Outputs.FeedTemplateGroup> templateGroups)
         {
+            TemplateGroups = templateGroups;
         }
     }
 }

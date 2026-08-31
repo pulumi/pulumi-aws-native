@@ -96,9 +96,6 @@ export const StoredQuery: typeof import("./storedQuery").StoredQuery = null as a
 utilities.lazyLoad(exports, ["StoredQuery"], () => require("./storedQuery"));
 
 
-// Export enums:
-export * from "../types/enums/configuration";
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

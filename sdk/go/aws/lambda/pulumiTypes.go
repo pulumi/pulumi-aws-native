@@ -5762,7 +5762,8 @@ type FunctionFileSystemConfig struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn string `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
-	LocalMountPath string `pulumi:"localMountPath"`
+	LocalMountPath string                 `pulumi:"localMountPath"`
+	S3FilesConfig  *FunctionS3FilesConfig `pulumi:"s3FilesConfig"`
 }
 
 // FunctionFileSystemConfigInput is an input type that accepts FunctionFileSystemConfigArgs and FunctionFileSystemConfigOutput values.
@@ -5781,7 +5782,8 @@ type FunctionFileSystemConfigArgs struct {
 	// The Amazon Resource Name (ARN) of the Amazon EFS or Amazon S3 Files access point that provides access to the file system.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The path where the function can access the file system, starting with ``/mnt/``.
-	LocalMountPath pulumi.StringInput `pulumi:"localMountPath"`
+	LocalMountPath pulumi.StringInput            `pulumi:"localMountPath"`
+	S3FilesConfig  FunctionS3FilesConfigPtrInput `pulumi:"s3FilesConfig"`
 }
 
 func (FunctionFileSystemConfigArgs) ElementType() reflect.Type {
@@ -5844,6 +5846,10 @@ func (o FunctionFileSystemConfigOutput) Arn() pulumi.StringOutput {
 // The path where the function can access the file system, starting with “/mnt/“.
 func (o FunctionFileSystemConfigOutput) LocalMountPath() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionFileSystemConfig) string { return v.LocalMountPath }).(pulumi.StringOutput)
+}
+
+func (o FunctionFileSystemConfigOutput) S3FilesConfig() FunctionS3FilesConfigPtrOutput {
+	return o.ApplyT(func(v FunctionFileSystemConfig) *FunctionS3FilesConfig { return v.S3FilesConfig }).(FunctionS3FilesConfigPtrOutput)
 }
 
 type FunctionFileSystemConfigArrayOutput struct{ *pulumi.OutputState }
@@ -6614,6 +6620,143 @@ func (o FunctionRuntimeManagementConfigPtrOutput) UpdateRuntimeOn() FunctionRunt
 		}
 		return &v.UpdateRuntimeOn
 	}).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
+}
+
+type FunctionS3FilesConfig struct {
+	// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+	DirectS3Read *FunctionS3FilesConfigDirectS3Read `pulumi:"directS3Read"`
+}
+
+// FunctionS3FilesConfigInput is an input type that accepts FunctionS3FilesConfigArgs and FunctionS3FilesConfigOutput values.
+// You can construct a concrete instance of `FunctionS3FilesConfigInput` via:
+//
+//	FunctionS3FilesConfigArgs{...}
+type FunctionS3FilesConfigInput interface {
+	pulumi.Input
+
+	ToFunctionS3FilesConfigOutput() FunctionS3FilesConfigOutput
+	ToFunctionS3FilesConfigOutputWithContext(context.Context) FunctionS3FilesConfigOutput
+}
+
+type FunctionS3FilesConfigArgs struct {
+	// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+	DirectS3Read FunctionS3FilesConfigDirectS3ReadPtrInput `pulumi:"directS3Read"`
+}
+
+func (FunctionS3FilesConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionS3FilesConfig)(nil)).Elem()
+}
+
+func (i FunctionS3FilesConfigArgs) ToFunctionS3FilesConfigOutput() FunctionS3FilesConfigOutput {
+	return i.ToFunctionS3FilesConfigOutputWithContext(context.Background())
+}
+
+func (i FunctionS3FilesConfigArgs) ToFunctionS3FilesConfigOutputWithContext(ctx context.Context) FunctionS3FilesConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionS3FilesConfigOutput)
+}
+
+func (i FunctionS3FilesConfigArgs) ToFunctionS3FilesConfigPtrOutput() FunctionS3FilesConfigPtrOutput {
+	return i.ToFunctionS3FilesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionS3FilesConfigArgs) ToFunctionS3FilesConfigPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionS3FilesConfigOutput).ToFunctionS3FilesConfigPtrOutputWithContext(ctx)
+}
+
+// FunctionS3FilesConfigPtrInput is an input type that accepts FunctionS3FilesConfigArgs, FunctionS3FilesConfigPtr and FunctionS3FilesConfigPtrOutput values.
+// You can construct a concrete instance of `FunctionS3FilesConfigPtrInput` via:
+//
+//	        FunctionS3FilesConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionS3FilesConfigPtrInput interface {
+	pulumi.Input
+
+	ToFunctionS3FilesConfigPtrOutput() FunctionS3FilesConfigPtrOutput
+	ToFunctionS3FilesConfigPtrOutputWithContext(context.Context) FunctionS3FilesConfigPtrOutput
+}
+
+type functionS3FilesConfigPtrType FunctionS3FilesConfigArgs
+
+func FunctionS3FilesConfigPtr(v *FunctionS3FilesConfigArgs) FunctionS3FilesConfigPtrInput {
+	return (*functionS3FilesConfigPtrType)(v)
+}
+
+func (*functionS3FilesConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionS3FilesConfig)(nil)).Elem()
+}
+
+func (i *functionS3FilesConfigPtrType) ToFunctionS3FilesConfigPtrOutput() FunctionS3FilesConfigPtrOutput {
+	return i.ToFunctionS3FilesConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *functionS3FilesConfigPtrType) ToFunctionS3FilesConfigPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionS3FilesConfigPtrOutput)
+}
+
+type FunctionS3FilesConfigOutput struct{ *pulumi.OutputState }
+
+func (FunctionS3FilesConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionS3FilesConfig)(nil)).Elem()
+}
+
+func (o FunctionS3FilesConfigOutput) ToFunctionS3FilesConfigOutput() FunctionS3FilesConfigOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigOutput) ToFunctionS3FilesConfigOutputWithContext(ctx context.Context) FunctionS3FilesConfigOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigOutput) ToFunctionS3FilesConfigPtrOutput() FunctionS3FilesConfigPtrOutput {
+	return o.ToFunctionS3FilesConfigPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionS3FilesConfigOutput) ToFunctionS3FilesConfigPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionS3FilesConfig) *FunctionS3FilesConfig {
+		return &v
+	}).(FunctionS3FilesConfigPtrOutput)
+}
+
+// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+func (o FunctionS3FilesConfigOutput) DirectS3Read() FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return o.ApplyT(func(v FunctionS3FilesConfig) *FunctionS3FilesConfigDirectS3Read { return v.DirectS3Read }).(FunctionS3FilesConfigDirectS3ReadPtrOutput)
+}
+
+type FunctionS3FilesConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionS3FilesConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionS3FilesConfig)(nil)).Elem()
+}
+
+func (o FunctionS3FilesConfigPtrOutput) ToFunctionS3FilesConfigPtrOutput() FunctionS3FilesConfigPtrOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigPtrOutput) ToFunctionS3FilesConfigPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigPtrOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigPtrOutput) Elem() FunctionS3FilesConfigOutput {
+	return o.ApplyT(func(v *FunctionS3FilesConfig) FunctionS3FilesConfig {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionS3FilesConfig
+		return ret
+	}).(FunctionS3FilesConfigOutput)
+}
+
+// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+func (o FunctionS3FilesConfigPtrOutput) DirectS3Read() FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return o.ApplyT(func(v *FunctionS3FilesConfig) *FunctionS3FilesConfigDirectS3Read {
+		if v == nil {
+			return nil
+		}
+		return v.DirectS3Read
+	}).(FunctionS3FilesConfigDirectS3ReadPtrOutput)
 }
 
 // Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
@@ -9592,6 +9735,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionLoggingConfigPtrInput)(nil)).Elem(), FunctionLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionS3FilesConfigInput)(nil)).Elem(), FunctionS3FilesConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionS3FilesConfigPtrInput)(nil)).Elem(), FunctionS3FilesConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigInput)(nil)).Elem(), FunctionScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionScalingConfigPtrInput)(nil)).Elem(), FunctionScalingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartInput)(nil)).Elem(), FunctionSnapStartArgs{})
@@ -9716,6 +9861,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigPtrOutput{})
+	pulumi.RegisterOutputType(FunctionS3FilesConfigOutput{})
+	pulumi.RegisterOutputType(FunctionS3FilesConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionScalingConfigOutput{})
 	pulumi.RegisterOutputType(FunctionScalingConfigPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartOutput{})

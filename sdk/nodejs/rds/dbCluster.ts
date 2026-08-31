@@ -709,7 +709,7 @@ export class DbCluster extends pulumi.CustomResource {
             resourceInputs["vpcSecurityGroupIds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["availabilityZones[*]", "clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"] };
+        const replaceOnChanges = { replaceOnChanges: ["clusterScalabilityType", "databaseName", "dbClusterIdentifier", "dbSubnetGroupName", "dbSystemId", "engineMode", "kmsKeyId", "publiclyAccessible", "restoreToTime", "restoreType", "snapshotIdentifier", "sourceDbClusterIdentifier", "sourceDbClusterResourceId", "sourceRegion", "storageEncrypted", "useLatestRestorableTime"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DbCluster.__pulumiType, name, resourceInputs, opts);
     }

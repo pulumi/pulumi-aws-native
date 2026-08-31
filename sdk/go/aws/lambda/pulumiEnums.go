@@ -3981,6 +3981,174 @@ func (in *functionRuntimeManagementConfigUpdateRuntimeOnPtr) ToFunctionRuntimeMa
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput)
 }
 
+// Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+type FunctionS3FilesConfigDirectS3Read string
+
+const (
+	FunctionS3FilesConfigDirectS3ReadEnabled  = FunctionS3FilesConfigDirectS3Read("ENABLED")
+	FunctionS3FilesConfigDirectS3ReadDisabled = FunctionS3FilesConfigDirectS3Read("DISABLED")
+	FunctionS3FilesConfigDirectS3ReadAuto     = FunctionS3FilesConfigDirectS3Read("AUTO")
+)
+
+func (FunctionS3FilesConfigDirectS3Read) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionS3FilesConfigDirectS3Read)(nil)).Elem()
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToFunctionS3FilesConfigDirectS3ReadOutput() FunctionS3FilesConfigDirectS3ReadOutput {
+	return pulumi.ToOutput(e).(FunctionS3FilesConfigDirectS3ReadOutput)
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToFunctionS3FilesConfigDirectS3ReadOutputWithContext(ctx context.Context) FunctionS3FilesConfigDirectS3ReadOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FunctionS3FilesConfigDirectS3ReadOutput)
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToFunctionS3FilesConfigDirectS3ReadPtrOutput() FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return e.ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return FunctionS3FilesConfigDirectS3Read(e).ToFunctionS3FilesConfigDirectS3ReadOutputWithContext(ctx).ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(ctx)
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FunctionS3FilesConfigDirectS3Read) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FunctionS3FilesConfigDirectS3ReadOutput struct{ *pulumi.OutputState }
+
+func (FunctionS3FilesConfigDirectS3ReadOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionS3FilesConfigDirectS3Read)(nil)).Elem()
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToFunctionS3FilesConfigDirectS3ReadOutput() FunctionS3FilesConfigDirectS3ReadOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToFunctionS3FilesConfigDirectS3ReadOutputWithContext(ctx context.Context) FunctionS3FilesConfigDirectS3ReadOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToFunctionS3FilesConfigDirectS3ReadPtrOutput() FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return o.ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionS3FilesConfigDirectS3Read) *FunctionS3FilesConfigDirectS3Read {
+		return &v
+	}).(FunctionS3FilesConfigDirectS3ReadPtrOutput)
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionS3FilesConfigDirectS3Read) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FunctionS3FilesConfigDirectS3Read) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FunctionS3FilesConfigDirectS3ReadPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionS3FilesConfigDirectS3ReadPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionS3FilesConfigDirectS3Read)(nil)).Elem()
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadPtrOutput) ToFunctionS3FilesConfigDirectS3ReadPtrOutput() FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadPtrOutput) ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return o
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadPtrOutput) Elem() FunctionS3FilesConfigDirectS3ReadOutput {
+	return o.ApplyT(func(v *FunctionS3FilesConfigDirectS3Read) FunctionS3FilesConfigDirectS3Read {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionS3FilesConfigDirectS3Read
+		return ret
+	}).(FunctionS3FilesConfigDirectS3ReadOutput)
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionS3FilesConfigDirectS3ReadPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FunctionS3FilesConfigDirectS3Read) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FunctionS3FilesConfigDirectS3ReadInput is an input type that accepts values of the FunctionS3FilesConfigDirectS3Read enum
+// A concrete instance of `FunctionS3FilesConfigDirectS3ReadInput` can be one of the following:
+//
+//	FunctionS3FilesConfigDirectS3ReadEnabled
+//	FunctionS3FilesConfigDirectS3ReadDisabled
+//	FunctionS3FilesConfigDirectS3ReadAuto
+type FunctionS3FilesConfigDirectS3ReadInput interface {
+	pulumi.Input
+
+	ToFunctionS3FilesConfigDirectS3ReadOutput() FunctionS3FilesConfigDirectS3ReadOutput
+	ToFunctionS3FilesConfigDirectS3ReadOutputWithContext(context.Context) FunctionS3FilesConfigDirectS3ReadOutput
+}
+
+var functionS3FilesConfigDirectS3ReadPtrType = reflect.TypeOf((**FunctionS3FilesConfigDirectS3Read)(nil)).Elem()
+
+type FunctionS3FilesConfigDirectS3ReadPtrInput interface {
+	pulumi.Input
+
+	ToFunctionS3FilesConfigDirectS3ReadPtrOutput() FunctionS3FilesConfigDirectS3ReadPtrOutput
+	ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(context.Context) FunctionS3FilesConfigDirectS3ReadPtrOutput
+}
+
+type functionS3FilesConfigDirectS3ReadPtr string
+
+func FunctionS3FilesConfigDirectS3ReadPtr(v string) FunctionS3FilesConfigDirectS3ReadPtrInput {
+	return (*functionS3FilesConfigDirectS3ReadPtr)(&v)
+}
+
+func (*functionS3FilesConfigDirectS3ReadPtr) ElementType() reflect.Type {
+	return functionS3FilesConfigDirectS3ReadPtrType
+}
+
+func (in *functionS3FilesConfigDirectS3ReadPtr) ToFunctionS3FilesConfigDirectS3ReadPtrOutput() FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return pulumi.ToOutput(in).(FunctionS3FilesConfigDirectS3ReadPtrOutput)
+}
+
+func (in *functionS3FilesConfigDirectS3ReadPtr) ToFunctionS3FilesConfigDirectS3ReadPtrOutputWithContext(ctx context.Context) FunctionS3FilesConfigDirectS3ReadPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FunctionS3FilesConfigDirectS3ReadPtrOutput)
+}
+
 // Set “ApplyOn“ to “PublishedVersions“ to create a snapshot of the initialized execution environment when you publish a function version.
 type FunctionSnapStartApplyOn string
 
@@ -6694,6 +6862,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRecursiveLoopPtrInput)(nil)).Elem(), FunctionRecursiveLoop("Allow"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigUpdateRuntimeOnInput)(nil)).Elem(), FunctionRuntimeManagementConfigUpdateRuntimeOn("Auto"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionRuntimeManagementConfigUpdateRuntimeOnPtrInput)(nil)).Elem(), FunctionRuntimeManagementConfigUpdateRuntimeOn("Auto"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionS3FilesConfigDirectS3ReadInput)(nil)).Elem(), FunctionS3FilesConfigDirectS3Read("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionS3FilesConfigDirectS3ReadPtrInput)(nil)).Elem(), FunctionS3FilesConfigDirectS3Read("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartApplyOnInput)(nil)).Elem(), FunctionSnapStartApplyOn("PublishedVersions"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSnapStartApplyOnPtrInput)(nil)).Elem(), FunctionSnapStartApplyOn("PublishedVersions"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionTenancyConfigTenantIsolationModeInput)(nil)).Elem(), FunctionTenancyConfigTenantIsolationMode("PER_TENANT"))
@@ -6773,6 +6943,8 @@ func init() {
 	pulumi.RegisterOutputType(FunctionRecursiveLoopPtrOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigUpdateRuntimeOnOutput{})
 	pulumi.RegisterOutputType(FunctionRuntimeManagementConfigUpdateRuntimeOnPtrOutput{})
+	pulumi.RegisterOutputType(FunctionS3FilesConfigDirectS3ReadOutput{})
+	pulumi.RegisterOutputType(FunctionS3FilesConfigDirectS3ReadPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartApplyOnOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartApplyOnPtrOutput{})
 	pulumi.RegisterOutputType(FunctionSnapStartResponseApplyOnOutput{})

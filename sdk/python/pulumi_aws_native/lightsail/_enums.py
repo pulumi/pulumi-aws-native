@@ -7,12 +7,33 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ContactMethodProtocol',
+    'ContactMethodStatus',
     'DatabaseSnapshotResourceType',
     'DiskAddOnStatus',
     'DiskSnapshotResourceType',
     'DiskSnapshotState',
     'InstanceAddOnStatus',
 ]
+
+
+@pulumi.type_token("aws-native:lightsail:ContactMethodProtocol")
+class ContactMethodProtocol(_builtins.str, Enum):
+    """
+    The protocol of the contact method, such as Email or SMS (text messaging).
+    """
+    EMAIL = "Email"
+    SMS = "SMS"
+
+
+@pulumi.type_token("aws-native:lightsail:ContactMethodStatus")
+class ContactMethodStatus(_builtins.str, Enum):
+    """
+    The current status of the contact method.
+    """
+    PENDING_VERIFICATION = "PendingVerification"
+    VALID = "Valid"
+    INVALID = "Invalid"
 
 
 @pulumi.type_token("aws-native:lightsail:DatabaseSnapshotResourceType")

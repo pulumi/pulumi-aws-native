@@ -290,6 +290,8 @@ export class Association extends pulumi.CustomResource {
             resourceInputs["waitForSuccessTimeoutSeconds"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const replaceOnChanges = { replaceOnChanges: ["instanceId"] };
+        opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Association.__pulumiType, name, resourceInputs, opts);
     }
 }

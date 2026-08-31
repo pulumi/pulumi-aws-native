@@ -36,7 +36,7 @@ type VpnConnection struct {
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType pulumi.StringPtrOutput `pulumi:"outsideIpAddressType"`
-	// Describes the storage location for an instance store-backed AMI.
+	// Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
 	PreSharedKeyStorage VpnConnectionPreSharedKeyStoragePtrOutput `pulumi:"preSharedKeyStorage"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
@@ -149,7 +149,7 @@ type vpnConnectionArgs struct {
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType *string `pulumi:"outsideIpAddressType"`
-	// Describes the storage location for an instance store-backed AMI.
+	// Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
 	PreSharedKeyStorage *VpnConnectionPreSharedKeyStorage `pulumi:"preSharedKeyStorage"`
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
@@ -201,7 +201,7 @@ type VpnConnectionArgs struct {
 	//  Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
 	//  Default: ``PublicIpv4``
 	OutsideIpAddressType pulumi.StringPtrInput
-	// Describes the storage location for an instance store-backed AMI.
+	// Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
 	PreSharedKeyStorage VpnConnectionPreSharedKeyStoragePtrInput
 	// The IPv4 CIDR on the AWS side of the VPN connection.
 	//  Default: ``0.0.0.0/0``
@@ -307,7 +307,7 @@ func (o VpnConnectionOutput) OutsideIpAddressType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpnConnection) pulumi.StringPtrOutput { return v.OutsideIpAddressType }).(pulumi.StringPtrOutput)
 }
 
-// Describes the storage location for an instance store-backed AMI.
+// Specifies the storage mode for the pre-shared key (PSK). Valid values are “Standard“ (stored in the S2Slong service) or “SecretsManager“ (stored in AWS Secrets Manager).
 func (o VpnConnectionOutput) PreSharedKeyStorage() VpnConnectionPreSharedKeyStoragePtrOutput {
 	return o.ApplyT(func(v *VpnConnection) VpnConnectionPreSharedKeyStoragePtrOutput { return v.PreSharedKeyStorage }).(VpnConnectionPreSharedKeyStoragePtrOutput)
 }

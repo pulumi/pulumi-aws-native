@@ -63,6 +63,7 @@ __all__ = [
     'Ec2FleetVCpuCountRangeRequest',
     'EnclaveOptionsProperties',
     'FlowLogTagFieldSpecification',
+    'FpgaImageStorageLocation',
     'HibernationOptionsProperties',
     'InstanceAssociationParameter',
     'InstanceBlockDeviceMapping',
@@ -3731,6 +3732,42 @@ class FlowLogTagFieldSpecification(dict):
     @pulumi.getter(name="tagKeys")
     def tag_keys(self) -> Sequence[_builtins.str]:
         return pulumi.get(self, "tag_keys")
+
+
+@pulumi.output_type
+class FpgaImageStorageLocation(dict):
+    """
+    Describes a storage location in Amazon S3.
+    """
+    def __init__(__self__, *,
+                 bucket: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None):
+        """
+        Describes a storage location in Amazon S3.
+
+        :param _builtins.str bucket: The name of the S3 bucket.
+        :param _builtins.str key: The key.
+        """
+        if bucket is not None:
+            pulumi.set(__self__, "bucket", bucket)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> Optional[_builtins.str]:
+        """
+        The name of the S3 bucket.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        The key.
+        """
+        return pulumi.get(self, "key")
 
 
 @pulumi.output_type

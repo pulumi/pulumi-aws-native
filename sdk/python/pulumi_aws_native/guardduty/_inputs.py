@@ -386,8 +386,10 @@ class FilterConditionArgsDict(TypedDict):
     less_than_or_equal: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     lt: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     lte: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     neq: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     not_equals: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    not_matches: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class FilterConditionArgs:
@@ -402,8 +404,10 @@ class FilterConditionArgs:
                  less_than_or_equal: pulumi.Input[Optional[_builtins.int]] = None,
                  lt: pulumi.Input[Optional[_builtins.int]] = None,
                  lte: pulumi.Input[Optional[_builtins.int]] = None,
+                 matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  neq: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 not_equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 not_equals: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 not_matches: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         if eq is not None:
             pulumi.set(__self__, "eq", eq)
         if equals is not None:
@@ -424,10 +428,14 @@ class FilterConditionArgs:
             pulumi.set(__self__, "lt", lt)
         if lte is not None:
             pulumi.set(__self__, "lte", lte)
+        if matches is not None:
+            pulumi.set(__self__, "matches", matches)
         if neq is not None:
             pulumi.set(__self__, "neq", neq)
         if not_equals is not None:
             pulumi.set(__self__, "not_equals", not_equals)
+        if not_matches is not None:
+            pulumi.set(__self__, "not_matches", not_matches)
 
     @_builtins.property
     @pulumi.getter
@@ -521,6 +529,15 @@ class FilterConditionArgs:
 
     @_builtins.property
     @pulumi.getter
+    def matches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "matches")
+
+    @matches.setter
+    def matches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "matches", value)
+
+    @_builtins.property
+    @pulumi.getter
     def neq(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "neq")
 
@@ -536,6 +553,15 @@ class FilterConditionArgs:
     @not_equals.setter
     def not_equals(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "not_equals", value)
+
+    @_builtins.property
+    @pulumi.getter(name="notMatches")
+    def not_matches(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "not_matches")
+
+    @not_matches.setter
+    def not_matches(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "not_matches", value)
 
 
 class FilterFindingCriteriaArgsDict(TypedDict):

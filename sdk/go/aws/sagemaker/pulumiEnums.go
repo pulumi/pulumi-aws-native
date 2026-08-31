@@ -9848,6 +9848,169 @@ func (in *imageVersionVendorGuidancePtr) ToImageVersionVendorGuidancePtrOutputWi
 	return pulumi.ToOutputWithContext(ctx, in).(ImageVersionVendorGuidancePtrOutput)
 }
 
+type InferenceComponentAvailabilityZoneBalanceEnforcementMode string
+
+const (
+	InferenceComponentAvailabilityZoneBalanceEnforcementModePermissive = InferenceComponentAvailabilityZoneBalanceEnforcementMode("PERMISSIVE")
+)
+
+func (InferenceComponentAvailabilityZoneBalanceEnforcementMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentAvailabilityZoneBalanceEnforcementMode)(nil)).Elem()
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToInferenceComponentAvailabilityZoneBalanceEnforcementModeOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput {
+	return pulumi.ToOutput(e).(InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput)
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToInferenceComponentAvailabilityZoneBalanceEnforcementModeOutputWithContext(ctx context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput)
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return e.ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(context.Background())
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(ctx context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return InferenceComponentAvailabilityZoneBalanceEnforcementMode(e).ToInferenceComponentAvailabilityZoneBalanceEnforcementModeOutputWithContext(ctx).ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(ctx)
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceComponentAvailabilityZoneBalanceEnforcementMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentAvailabilityZoneBalanceEnforcementMode)(nil)).Elem()
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToInferenceComponentAvailabilityZoneBalanceEnforcementModeOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput {
+	return o
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToInferenceComponentAvailabilityZoneBalanceEnforcementModeOutputWithContext(ctx context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput {
+	return o
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return o.ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(ctx context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentAvailabilityZoneBalanceEnforcementMode) *InferenceComponentAvailabilityZoneBalanceEnforcementMode {
+		return &v
+	}).(InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput)
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentAvailabilityZoneBalanceEnforcementMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentAvailabilityZoneBalanceEnforcementMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentAvailabilityZoneBalanceEnforcementMode)(nil)).Elem()
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return o
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(ctx context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return o
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput) Elem() InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput {
+	return o.ApplyT(func(v *InferenceComponentAvailabilityZoneBalanceEnforcementMode) InferenceComponentAvailabilityZoneBalanceEnforcementMode {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentAvailabilityZoneBalanceEnforcementMode
+		return ret
+	}).(InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput)
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceComponentAvailabilityZoneBalanceEnforcementMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InferenceComponentAvailabilityZoneBalanceEnforcementModeInput is an input type that accepts values of the InferenceComponentAvailabilityZoneBalanceEnforcementMode enum
+// A concrete instance of `InferenceComponentAvailabilityZoneBalanceEnforcementModeInput` can be one of the following:
+//
+//	InferenceComponentAvailabilityZoneBalanceEnforcementModePermissive
+type InferenceComponentAvailabilityZoneBalanceEnforcementModeInput interface {
+	pulumi.Input
+
+	ToInferenceComponentAvailabilityZoneBalanceEnforcementModeOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput
+	ToInferenceComponentAvailabilityZoneBalanceEnforcementModeOutputWithContext(context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput
+}
+
+var inferenceComponentAvailabilityZoneBalanceEnforcementModePtrType = reflect.TypeOf((**InferenceComponentAvailabilityZoneBalanceEnforcementMode)(nil)).Elem()
+
+type InferenceComponentAvailabilityZoneBalanceEnforcementModePtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput
+	ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput
+}
+
+type inferenceComponentAvailabilityZoneBalanceEnforcementModePtr string
+
+func InferenceComponentAvailabilityZoneBalanceEnforcementModePtr(v string) InferenceComponentAvailabilityZoneBalanceEnforcementModePtrInput {
+	return (*inferenceComponentAvailabilityZoneBalanceEnforcementModePtr)(&v)
+}
+
+func (*inferenceComponentAvailabilityZoneBalanceEnforcementModePtr) ElementType() reflect.Type {
+	return inferenceComponentAvailabilityZoneBalanceEnforcementModePtrType
+}
+
+func (in *inferenceComponentAvailabilityZoneBalanceEnforcementModePtr) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput() InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return pulumi.ToOutput(in).(InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput)
+}
+
+func (in *inferenceComponentAvailabilityZoneBalanceEnforcementModePtr) ToInferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutputWithContext(ctx context.Context) InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput)
+}
+
 type InferenceComponentCapacitySizeType string
 
 const (
@@ -10011,6 +10174,171 @@ func (in *inferenceComponentCapacitySizeTypePtr) ToInferenceComponentCapacitySiz
 
 func (in *inferenceComponentCapacitySizeTypePtr) ToInferenceComponentCapacitySizeTypePtrOutputWithContext(ctx context.Context) InferenceComponentCapacitySizeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InferenceComponentCapacitySizeTypePtrOutput)
+}
+
+type InferenceComponentPlacementStrategy string
+
+const (
+	InferenceComponentPlacementStrategySpread  = InferenceComponentPlacementStrategy("SPREAD")
+	InferenceComponentPlacementStrategyBinpack = InferenceComponentPlacementStrategy("BINPACK")
+)
+
+func (InferenceComponentPlacementStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentPlacementStrategy)(nil)).Elem()
+}
+
+func (e InferenceComponentPlacementStrategy) ToInferenceComponentPlacementStrategyOutput() InferenceComponentPlacementStrategyOutput {
+	return pulumi.ToOutput(e).(InferenceComponentPlacementStrategyOutput)
+}
+
+func (e InferenceComponentPlacementStrategy) ToInferenceComponentPlacementStrategyOutputWithContext(ctx context.Context) InferenceComponentPlacementStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(InferenceComponentPlacementStrategyOutput)
+}
+
+func (e InferenceComponentPlacementStrategy) ToInferenceComponentPlacementStrategyPtrOutput() InferenceComponentPlacementStrategyPtrOutput {
+	return e.ToInferenceComponentPlacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceComponentPlacementStrategy) ToInferenceComponentPlacementStrategyPtrOutputWithContext(ctx context.Context) InferenceComponentPlacementStrategyPtrOutput {
+	return InferenceComponentPlacementStrategy(e).ToInferenceComponentPlacementStrategyOutputWithContext(ctx).ToInferenceComponentPlacementStrategyPtrOutputWithContext(ctx)
+}
+
+func (e InferenceComponentPlacementStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceComponentPlacementStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e InferenceComponentPlacementStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e InferenceComponentPlacementStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type InferenceComponentPlacementStrategyOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentPlacementStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InferenceComponentPlacementStrategy)(nil)).Elem()
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToInferenceComponentPlacementStrategyOutput() InferenceComponentPlacementStrategyOutput {
+	return o
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToInferenceComponentPlacementStrategyOutputWithContext(ctx context.Context) InferenceComponentPlacementStrategyOutput {
+	return o
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToInferenceComponentPlacementStrategyPtrOutput() InferenceComponentPlacementStrategyPtrOutput {
+	return o.ToInferenceComponentPlacementStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToInferenceComponentPlacementStrategyPtrOutputWithContext(ctx context.Context) InferenceComponentPlacementStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InferenceComponentPlacementStrategy) *InferenceComponentPlacementStrategy {
+		return &v
+	}).(InferenceComponentPlacementStrategyPtrOutput)
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentPlacementStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentPlacementStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e InferenceComponentPlacementStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type InferenceComponentPlacementStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (InferenceComponentPlacementStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InferenceComponentPlacementStrategy)(nil)).Elem()
+}
+
+func (o InferenceComponentPlacementStrategyPtrOutput) ToInferenceComponentPlacementStrategyPtrOutput() InferenceComponentPlacementStrategyPtrOutput {
+	return o
+}
+
+func (o InferenceComponentPlacementStrategyPtrOutput) ToInferenceComponentPlacementStrategyPtrOutputWithContext(ctx context.Context) InferenceComponentPlacementStrategyPtrOutput {
+	return o
+}
+
+func (o InferenceComponentPlacementStrategyPtrOutput) Elem() InferenceComponentPlacementStrategyOutput {
+	return o.ApplyT(func(v *InferenceComponentPlacementStrategy) InferenceComponentPlacementStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret InferenceComponentPlacementStrategy
+		return ret
+	}).(InferenceComponentPlacementStrategyOutput)
+}
+
+func (o InferenceComponentPlacementStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o InferenceComponentPlacementStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *InferenceComponentPlacementStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// InferenceComponentPlacementStrategyInput is an input type that accepts values of the InferenceComponentPlacementStrategy enum
+// A concrete instance of `InferenceComponentPlacementStrategyInput` can be one of the following:
+//
+//	InferenceComponentPlacementStrategySpread
+//	InferenceComponentPlacementStrategyBinpack
+type InferenceComponentPlacementStrategyInput interface {
+	pulumi.Input
+
+	ToInferenceComponentPlacementStrategyOutput() InferenceComponentPlacementStrategyOutput
+	ToInferenceComponentPlacementStrategyOutputWithContext(context.Context) InferenceComponentPlacementStrategyOutput
+}
+
+var inferenceComponentPlacementStrategyPtrType = reflect.TypeOf((**InferenceComponentPlacementStrategy)(nil)).Elem()
+
+type InferenceComponentPlacementStrategyPtrInput interface {
+	pulumi.Input
+
+	ToInferenceComponentPlacementStrategyPtrOutput() InferenceComponentPlacementStrategyPtrOutput
+	ToInferenceComponentPlacementStrategyPtrOutputWithContext(context.Context) InferenceComponentPlacementStrategyPtrOutput
+}
+
+type inferenceComponentPlacementStrategyPtr string
+
+func InferenceComponentPlacementStrategyPtr(v string) InferenceComponentPlacementStrategyPtrInput {
+	return (*inferenceComponentPlacementStrategyPtr)(&v)
+}
+
+func (*inferenceComponentPlacementStrategyPtr) ElementType() reflect.Type {
+	return inferenceComponentPlacementStrategyPtrType
+}
+
+func (in *inferenceComponentPlacementStrategyPtr) ToInferenceComponentPlacementStrategyPtrOutput() InferenceComponentPlacementStrategyPtrOutput {
+	return pulumi.ToOutput(in).(InferenceComponentPlacementStrategyPtrOutput)
+}
+
+func (in *inferenceComponentPlacementStrategyPtr) ToInferenceComponentPlacementStrategyPtrOutputWithContext(ctx context.Context) InferenceComponentPlacementStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(InferenceComponentPlacementStrategyPtrOutput)
 }
 
 type InferenceComponentStatus string
@@ -26607,8 +26935,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionProcessorPtrInput)(nil)).Elem(), ImageVersionProcessor("CPU"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionVendorGuidanceInput)(nil)).Elem(), ImageVersionVendorGuidance("NOT_PROVIDED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ImageVersionVendorGuidancePtrInput)(nil)).Elem(), ImageVersionVendorGuidance("NOT_PROVIDED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentAvailabilityZoneBalanceEnforcementModeInput)(nil)).Elem(), InferenceComponentAvailabilityZoneBalanceEnforcementMode("PERMISSIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentAvailabilityZoneBalanceEnforcementModePtrInput)(nil)).Elem(), InferenceComponentAvailabilityZoneBalanceEnforcementMode("PERMISSIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentCapacitySizeTypeInput)(nil)).Elem(), InferenceComponentCapacitySizeType("COPY_COUNT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentCapacitySizeTypePtrInput)(nil)).Elem(), InferenceComponentCapacitySizeType("COPY_COUNT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentPlacementStrategyInput)(nil)).Elem(), InferenceComponentPlacementStrategy("SPREAD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*InferenceComponentPlacementStrategyPtrInput)(nil)).Elem(), InferenceComponentPlacementStrategy("SPREAD"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStateInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentDesiredStatePtrInput)(nil)).Elem(), InferenceExperimentDesiredState("Running"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InferenceExperimentModelInfrastructureConfigInfrastructureTypeInput)(nil)).Elem(), InferenceExperimentModelInfrastructureConfigInfrastructureType("RealTimeInference"))
@@ -26900,8 +27232,12 @@ func init() {
 	pulumi.RegisterOutputType(ImageVersionProcessorPtrOutput{})
 	pulumi.RegisterOutputType(ImageVersionVendorGuidanceOutput{})
 	pulumi.RegisterOutputType(ImageVersionVendorGuidancePtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentAvailabilityZoneBalanceEnforcementModeOutput{})
+	pulumi.RegisterOutputType(InferenceComponentAvailabilityZoneBalanceEnforcementModePtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentCapacitySizeTypeOutput{})
 	pulumi.RegisterOutputType(InferenceComponentCapacitySizeTypePtrOutput{})
+	pulumi.RegisterOutputType(InferenceComponentPlacementStrategyOutput{})
+	pulumi.RegisterOutputType(InferenceComponentPlacementStrategyPtrOutput{})
 	pulumi.RegisterOutputType(InferenceComponentStatusOutput{})
 	pulumi.RegisterOutputType(InferenceComponentStatusPtrOutput{})
 	pulumi.RegisterOutputType(InferenceExperimentDesiredStateOutput{})

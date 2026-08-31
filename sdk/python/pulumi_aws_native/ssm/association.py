@@ -693,6 +693,8 @@ class Association(pulumi.CustomResource):
             __props__.__dict__["targets"] = targets
             __props__.__dict__["wait_for_success_timeout_seconds"] = wait_for_success_timeout_seconds
             __props__.__dict__["association_id"] = None
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceId"])
+        opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Association, __self__).__init__(
             'aws-native:ssm:Association',
             resource_name,

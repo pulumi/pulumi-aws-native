@@ -16,6 +16,7 @@ import (
 type Feed struct {
 	pulumi.CustomResourceState
 
+	AccessRoleArn pulumi.StringPtrOutput   `pulumi:"accessRoleArn"`
 	Arn           pulumi.StringOutput      `pulumi:"arn"`
 	AwsId         pulumi.StringOutput      `pulumi:"awsId"`
 	DataEndpoints pulumi.StringArrayOutput `pulumi:"dataEndpoints"`
@@ -67,16 +68,18 @@ func (FeedState) ElementType() reflect.Type {
 }
 
 type feedArgs struct {
-	Name    *string           `pulumi:"name"`
-	Outputs []FeedGetOutput   `pulumi:"outputs"`
-	Tags    map[string]string `pulumi:"tags"`
+	AccessRoleArn *string           `pulumi:"accessRoleArn"`
+	Name          *string           `pulumi:"name"`
+	Outputs       []FeedGetOutput   `pulumi:"outputs"`
+	Tags          map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a Feed resource.
 type FeedArgs struct {
-	Name    pulumi.StringPtrInput
-	Outputs FeedGetOutputArrayInput
-	Tags    pulumi.StringMapInput
+	AccessRoleArn pulumi.StringPtrInput
+	Name          pulumi.StringPtrInput
+	Outputs       FeedGetOutputArrayInput
+	Tags          pulumi.StringMapInput
 }
 
 func (FeedArgs) ElementType() reflect.Type {
@@ -114,6 +117,10 @@ func (o FeedOutput) ToFeedOutput() FeedOutput {
 
 func (o FeedOutput) ToFeedOutputWithContext(ctx context.Context) FeedOutput {
 	return o
+}
+
+func (o FeedOutput) AccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Feed) pulumi.StringPtrOutput { return v.AccessRoleArn }).(pulumi.StringPtrOutput)
 }
 
 func (o FeedOutput) Arn() pulumi.StringOutput {

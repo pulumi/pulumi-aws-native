@@ -40,9 +40,9 @@ type TransitGatewayRouteTableAttachment struct {
 	// The Id of peering between transit gateway and core network.
 	PeeringId pulumi.StringOutput `pulumi:"peeringId"`
 	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
+	ProposedNetworkFunctionGroupChange TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
-	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
+	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Routing policy label
@@ -114,10 +114,6 @@ type transitGatewayRouteTableAttachmentArgs struct {
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// The Id of peering between transit gateway and core network.
 	PeeringId string `pulumi:"peeringId"`
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange *TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange *TransitGatewayRouteTableAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Routing policy label
 	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// An array of key-value pairs to apply to this resource.
@@ -132,10 +128,6 @@ type TransitGatewayRouteTableAttachmentArgs struct {
 	NetworkFunctionGroupName pulumi.StringPtrInput
 	// The Id of peering between transit gateway and core network.
 	PeeringId pulumi.StringInput
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrInput
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange TransitGatewayRouteTableAttachmentProposedSegmentChangePtrInput
 	// Routing policy label
 	RoutingPolicyLabel pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -237,17 +229,17 @@ func (o TransitGatewayRouteTableAttachmentOutput) PeeringId() pulumi.StringOutpu
 }
 
 // The attachment to move from one network function group to another.
-func (o TransitGatewayRouteTableAttachmentOutput) ProposedNetworkFunctionGroupChange() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+func (o TransitGatewayRouteTableAttachmentOutput) ProposedNetworkFunctionGroupChange() TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput {
 		return v.ProposedNetworkFunctionGroupChange
-	}).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangePtrOutput)
+	}).(TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeOutput)
 }
 
 // The attachment to move from one segment to another.
-func (o TransitGatewayRouteTableAttachmentOutput) ProposedSegmentChange() TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput {
+func (o TransitGatewayRouteTableAttachmentOutput) ProposedSegmentChange() TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *TransitGatewayRouteTableAttachment) TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput {
 		return v.ProposedSegmentChange
-	}).(TransitGatewayRouteTableAttachmentProposedSegmentChangePtrOutput)
+	}).(TransitGatewayRouteTableAttachmentProposedSegmentChangeOutput)
 }
 
 // The ARN of the Resource.

@@ -37,6 +37,7 @@ export class Feed extends pulumi.CustomResource {
         return obj['__pulumiType'] === Feed.__pulumiType;
     }
 
+    declare public readonly accessRoleArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     declare public /*out*/ readonly dataEndpoints: pulumi.Output<string[]>;
@@ -58,6 +59,7 @@ export class Feed extends pulumi.CustomResource {
             if (args?.outputs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'outputs'");
             }
+            resourceInputs["accessRoleArn"] = args?.accessRoleArn;
             resourceInputs["name"] = args?.name;
             resourceInputs["outputs"] = args?.outputs;
             resourceInputs["tags"] = args?.tags;
@@ -65,6 +67,7 @@ export class Feed extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataEndpoints"] = undefined /*out*/;
         } else {
+            resourceInputs["accessRoleArn"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["dataEndpoints"] = undefined /*out*/;
@@ -81,6 +84,7 @@ export class Feed extends pulumi.CustomResource {
  * The set of arguments for constructing a Feed resource.
  */
 export interface FeedArgs {
+    accessRoleArn?: pulumi.Input<string | undefined>;
     name?: pulumi.Input<string | undefined>;
     outputs: pulumi.Input<pulumi.Input<inputs.elementalinference.FeedGetOutputArgs>[]>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;

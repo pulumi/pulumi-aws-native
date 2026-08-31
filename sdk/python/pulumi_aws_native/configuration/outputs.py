@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._enums import *
 
 __all__ = [
     'ComplianceProperties',
@@ -684,16 +683,16 @@ class DeliveryChannelConfigSnapshotDeliveryProperties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 delivery_frequency: Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency'] = None):
+                 delivery_frequency: Optional[_builtins.str] = None):
         """
-        :param 'DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency' delivery_frequency: The frequency with which AWS Config delivers configuration snapshots.
+        :param _builtins.str delivery_frequency: The frequency with which AWS Config delivers configuration snapshots.
         """
         if delivery_frequency is not None:
             pulumi.set(__self__, "delivery_frequency", delivery_frequency)
 
     @_builtins.property
     @pulumi.getter(name="deliveryFrequency")
-    def delivery_frequency(self) -> Optional['DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency']:
+    def delivery_frequency(self) -> Optional[_builtins.str]:
         """
         The frequency with which AWS Config delivers configuration snapshots.
         """

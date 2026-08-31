@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EnclaveCertificateIamRoleAssociation{}
 	case "aws-native:ec2:FlowLog":
 		r = &FlowLog{}
+	case "aws-native:ec2:FpgaImage":
+		r = &FpgaImage{}
 	case "aws-native:ec2:GatewayRouteTableAssociation":
 		r = &GatewayRouteTableAssociation{}
 	case "aws-native:ec2:Host":
@@ -61,6 +63,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Ipam{}
 	case "aws-native:ec2:IpamAllocation":
 		r = &IpamAllocation{}
+	case "aws-native:ec2:IpamExternalResourceVerificationToken":
+		r = &IpamExternalResourceVerificationToken{}
 	case "aws-native:ec2:IpamPool":
 		r = &IpamPool{}
 	case "aws-native:ec2:IpamPoolCidr":

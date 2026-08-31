@@ -106,6 +106,8 @@ __all__ = [
     'FunctionLoggingConfigArgsDict',
     'FunctionRuntimeManagementConfigArgs',
     'FunctionRuntimeManagementConfigArgsDict',
+    'FunctionS3FilesConfigArgs',
+    'FunctionS3FilesConfigArgsDict',
     'FunctionScalingConfigArgs',
     'FunctionScalingConfigArgsDict',
     'FunctionSnapStartArgs',
@@ -2204,12 +2206,14 @@ class FunctionFileSystemConfigArgsDict(TypedDict):
     """
     The path where the function can access the file system, starting with ``/mnt/``.
     """
+    s3_files_config: NotRequired[pulumi.Input[Optional['FunctionS3FilesConfigArgsDict']]]
 
 @pulumi.input_type
 class FunctionFileSystemConfigArgs:
     def __init__(__self__, *,
                  arn: pulumi.Input[_builtins.str],
-                 local_mount_path: pulumi.Input[_builtins.str]):
+                 local_mount_path: pulumi.Input[_builtins.str],
+                 s3_files_config: pulumi.Input[Optional['FunctionS3FilesConfigArgs']] = None):
         """
         Details about the connection between a Lambda function and an [Amazon EFS file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html) or an [Amazon S3 Files file system](https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html).
 
@@ -2218,6 +2222,8 @@ class FunctionFileSystemConfigArgs:
         """
         pulumi.set(__self__, "arn", arn)
         pulumi.set(__self__, "local_mount_path", local_mount_path)
+        if s3_files_config is not None:
+            pulumi.set(__self__, "s3_files_config", s3_files_config)
 
     @_builtins.property
     @pulumi.getter
@@ -2242,6 +2248,15 @@ class FunctionFileSystemConfigArgs:
     @local_mount_path.setter
     def local_mount_path(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "local_mount_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3FilesConfig")
+    def s3_files_config(self) -> pulumi.Input[Optional['FunctionS3FilesConfigArgs']]:
+        return pulumi.get(self, "s3_files_config")
+
+    @s3_files_config.setter
+    def s3_files_config(self, value: pulumi.Input[Optional['FunctionS3FilesConfigArgs']]):
+        pulumi.set(self, "s3_files_config", value)
 
 
 class FunctionImageConfigArgsDict(TypedDict):
@@ -2554,6 +2569,35 @@ class FunctionRuntimeManagementConfigArgs:
     @runtime_version_arn.setter
     def runtime_version_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "runtime_version_arn", value)
+
+
+class FunctionS3FilesConfigArgsDict(TypedDict):
+    direct_s3_read: NotRequired[pulumi.Input[Optional['FunctionS3FilesConfigDirectS3Read']]]
+    """
+    Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+    """
+
+@pulumi.input_type
+class FunctionS3FilesConfigArgs:
+    def __init__(__self__, *,
+                 direct_s3_read: pulumi.Input[Optional['FunctionS3FilesConfigDirectS3Read']] = None):
+        """
+        :param pulumi.Input['FunctionS3FilesConfigDirectS3Read'] direct_s3_read: Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+        """
+        if direct_s3_read is not None:
+            pulumi.set(__self__, "direct_s3_read", direct_s3_read)
+
+    @_builtins.property
+    @pulumi.getter(name="directS3Read")
+    def direct_s3_read(self) -> pulumi.Input[Optional['FunctionS3FilesConfigDirectS3Read']]:
+        """
+        Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+        """
+        return pulumi.get(self, "direct_s3_read")
+
+    @direct_s3_read.setter
+    def direct_s3_read(self, value: pulumi.Input[Optional['FunctionS3FilesConfigDirectS3Read']]):
+        pulumi.set(self, "direct_s3_read", value)
 
 
 class FunctionScalingConfigArgsDict(TypedDict):

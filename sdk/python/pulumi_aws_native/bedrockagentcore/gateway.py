@@ -33,7 +33,8 @@ class GatewayArgs:
                  policy_engine_configuration: pulumi.Input[Optional['GatewayPolicyEngineConfigurationArgs']] = None,
                  protocol_configuration: pulumi.Input[Optional['GatewayProtocolConfigurationPropertiesArgs']] = None,
                  protocol_type: Optional[Any] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 waf_configuration: pulumi.Input[Optional['GatewayWafConfigurationArgs']] = None):
         """
         The set of arguments for constructing a Gateway resource.
 
@@ -70,6 +71,8 @@ class GatewayArgs:
             pulumi.set(__self__, "protocol_type", protocol_type)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if waf_configuration is not None:
+            pulumi.set(__self__, "waf_configuration", waf_configuration)
 
     @_builtins.property
     @pulumi.getter(name="authorizerType")
@@ -205,6 +208,15 @@ class GatewayArgs:
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @_builtins.property
+    @pulumi.getter(name="wafConfiguration")
+    def waf_configuration(self) -> pulumi.Input[Optional['GatewayWafConfigurationArgs']]:
+        return pulumi.get(self, "waf_configuration")
+
+    @waf_configuration.setter
+    def waf_configuration(self, value: pulumi.Input[Optional['GatewayWafConfigurationArgs']]):
+        pulumi.set(self, "waf_configuration", value)
+
 
 @pulumi.type_token("aws-native:bedrockagentcore:Gateway")
 class Gateway(pulumi.CustomResource):
@@ -224,6 +236,7 @@ class Gateway(pulumi.CustomResource):
                  protocol_type: Optional[Any] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 waf_configuration: pulumi.Input[Optional[Union['GatewayWafConfigurationArgs', 'GatewayWafConfigurationArgsDict']]] = None,
                  __props__=None):
         """
         Definition of AWS::BedrockAgentCore::Gateway Resource Type
@@ -277,6 +290,7 @@ class Gateway(pulumi.CustomResource):
                  protocol_type: Optional[Any] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 waf_configuration: pulumi.Input[Optional[Union['GatewayWafConfigurationArgs', 'GatewayWafConfigurationArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -302,6 +316,7 @@ class Gateway(pulumi.CustomResource):
                 raise TypeError("Missing required property 'role_arn'")
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["waf_configuration"] = waf_configuration
             __props__.__dict__["created_at"] = None
             __props__.__dict__["gateway_arn"] = None
             __props__.__dict__["gateway_identifier"] = None
@@ -309,6 +324,7 @@ class Gateway(pulumi.CustomResource):
             __props__.__dict__["status"] = None
             __props__.__dict__["status_reasons"] = None
             __props__.__dict__["updated_at"] = None
+            __props__.__dict__["web_acl_arn"] = None
             __props__.__dict__["workload_identity_details"] = None
         super(Gateway, __self__).__init__(
             'aws-native:bedrockagentcore:Gateway',
@@ -351,6 +367,8 @@ class Gateway(pulumi.CustomResource):
         __props__.__dict__["status_reasons"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["updated_at"] = None
+        __props__.__dict__["waf_configuration"] = None
+        __props__.__dict__["web_acl_arn"] = None
         __props__.__dict__["workload_identity_details"] = None
         return Gateway(resource_name, opts=opts, __props__=__props__)
 
@@ -489,6 +507,16 @@ class Gateway(pulumi.CustomResource):
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "updated_at")
+
+    @_builtins.property
+    @pulumi.getter(name="wafConfiguration")
+    def waf_configuration(self) -> pulumi.Output[Optional['outputs.GatewayWafConfiguration']]:
+        return pulumi.get(self, "waf_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="webAclArn")
+    def web_acl_arn(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "web_acl_arn")
 
     @_builtins.property
     @pulumi.getter(name="workloadIdentityDetails")

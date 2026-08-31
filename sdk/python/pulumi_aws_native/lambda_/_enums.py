@@ -30,6 +30,7 @@ __all__ = [
     'FunctionPackageType',
     'FunctionRecursiveLoop',
     'FunctionRuntimeManagementConfigUpdateRuntimeOn',
+    'FunctionS3FilesConfigDirectS3Read',
     'FunctionSnapStartApplyOn',
     'FunctionSnapStartResponseApplyOn',
     'FunctionSnapStartResponseOptimizationStatus',
@@ -279,6 +280,16 @@ class FunctionRuntimeManagementConfigUpdateRuntimeOn(_builtins.str, Enum):
     AUTO = "Auto"
     FUNCTION_UPDATE = "FunctionUpdate"
     MANUAL = "Manual"
+
+
+@pulumi.type_token("aws-native:lambda:FunctionS3FilesConfigDirectS3Read")
+class FunctionS3FilesConfigDirectS3Read(_builtins.str, Enum):
+    """
+    Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature "direct Amazon S3 bucket reads" for the highest throughput
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
+    AUTO = "AUTO"
 
 
 @pulumi.type_token("aws-native:lambda:FunctionSnapStartApplyOn")

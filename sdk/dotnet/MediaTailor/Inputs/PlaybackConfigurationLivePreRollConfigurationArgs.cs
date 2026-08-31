@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.MediaTailor.Inputs
     /// </summary>
     public sealed class PlaybackConfigurationLivePreRollConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("adDecisionServerConfiguration")]
+        public Input<Inputs.PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs>? AdDecisionServerConfiguration { get; set; }
+
         /// <summary>
         /// The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
         /// </summary>

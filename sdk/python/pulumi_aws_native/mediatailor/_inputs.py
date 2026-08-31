@@ -70,6 +70,12 @@ __all__ = [
     'PlaybackConfigurationManifestProcessingRulesArgsDict',
     'PlaybackConfigurationManifestServiceInteractionLogArgs',
     'PlaybackConfigurationManifestServiceInteractionLogArgsDict',
+    'PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs',
+    'PlaybackConfigurationPreRollAdDecisionServerConfigurationArgsDict',
+    'PlaybackConfigurationPreRollVastResponseArgs',
+    'PlaybackConfigurationPreRollVastResponseArgsDict',
+    'PlaybackConfigurationVastResponseArgs',
+    'PlaybackConfigurationVastResponseArgsDict',
     'PrefetchScheduleAvailMatchingCriteriaArgs',
     'PrefetchScheduleAvailMatchingCriteriaArgsDict',
     'PrefetchSchedulePrefetchConsumptionArgs',
@@ -918,15 +924,19 @@ class PlaybackConfigurationAdDecisionServerConfigurationArgsDict(TypedDict):
     The configuration for the request to the specified Ad Decision Server URL.
     """
     http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgsDict']
+    vast_response: NotRequired[pulumi.Input[Optional['PlaybackConfigurationVastResponseArgsDict']]]
 
 @pulumi.input_type
 class PlaybackConfigurationAdDecisionServerConfigurationArgs:
     def __init__(__self__, *,
-                 http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgs']):
+                 http_request: pulumi.Input['PlaybackConfigurationHttpRequestArgs'],
+                 vast_response: pulumi.Input[Optional['PlaybackConfigurationVastResponseArgs']] = None):
         """
         The configuration for the request to the specified Ad Decision Server URL.
         """
         pulumi.set(__self__, "http_request", http_request)
+        if vast_response is not None:
+            pulumi.set(__self__, "vast_response", vast_response)
 
     @_builtins.property
     @pulumi.getter(name="httpRequest")
@@ -936,6 +946,15 @@ class PlaybackConfigurationAdDecisionServerConfigurationArgs:
     @http_request.setter
     def http_request(self, value: pulumi.Input['PlaybackConfigurationHttpRequestArgs']):
         pulumi.set(self, "http_request", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vastResponse")
+    def vast_response(self) -> pulumi.Input[Optional['PlaybackConfigurationVastResponseArgs']]:
+        return pulumi.get(self, "vast_response")
+
+    @vast_response.setter
+    def vast_response(self, value: pulumi.Input[Optional['PlaybackConfigurationVastResponseArgs']]):
+        pulumi.set(self, "vast_response", value)
 
 
 class PlaybackConfigurationAdMarkerPassthroughArgsDict(TypedDict):
@@ -1565,6 +1584,7 @@ class PlaybackConfigurationLivePreRollConfigurationArgsDict(TypedDict):
     """
     The configuration for pre-roll ad insertion.
     """
+    ad_decision_server_configuration: NotRequired[pulumi.Input[Optional['PlaybackConfigurationPreRollAdDecisionServerConfigurationArgsDict']]]
     ad_decision_server_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
@@ -1577,6 +1597,7 @@ class PlaybackConfigurationLivePreRollConfigurationArgsDict(TypedDict):
 @pulumi.input_type
 class PlaybackConfigurationLivePreRollConfigurationArgs:
     def __init__(__self__, *,
+                 ad_decision_server_configuration: pulumi.Input[Optional['PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs']] = None,
                  ad_decision_server_url: pulumi.Input[Optional[_builtins.str]] = None,
                  max_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None):
         """
@@ -1585,10 +1606,21 @@ class PlaybackConfigurationLivePreRollConfigurationArgs:
         :param pulumi.Input[_builtins.str] ad_decision_server_url: The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
         :param pulumi.Input[_builtins.int] max_duration_seconds: The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
         """
+        if ad_decision_server_configuration is not None:
+            pulumi.set(__self__, "ad_decision_server_configuration", ad_decision_server_configuration)
         if ad_decision_server_url is not None:
             pulumi.set(__self__, "ad_decision_server_url", ad_decision_server_url)
         if max_duration_seconds is not None:
             pulumi.set(__self__, "max_duration_seconds", max_duration_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="adDecisionServerConfiguration")
+    def ad_decision_server_configuration(self) -> pulumi.Input[Optional['PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs']]:
+        return pulumi.get(self, "ad_decision_server_configuration")
+
+    @ad_decision_server_configuration.setter
+    def ad_decision_server_configuration(self, value: pulumi.Input[Optional['PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs']]):
+        pulumi.set(self, "ad_decision_server_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="adDecisionServerUrl")
@@ -1764,6 +1796,100 @@ class PlaybackConfigurationManifestServiceInteractionLogArgs:
     @exclude_event_types.setter
     def exclude_event_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "exclude_event_types", value)
+
+
+class PlaybackConfigurationPreRollAdDecisionServerConfigurationArgsDict(TypedDict):
+    """
+    The configuration for the request to the pre-roll Ad Decision Server.
+    """
+    vast_response: NotRequired[pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseArgsDict']]]
+
+@pulumi.input_type
+class PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs:
+    def __init__(__self__, *,
+                 vast_response: pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseArgs']] = None):
+        """
+        The configuration for the request to the pre-roll Ad Decision Server.
+        """
+        if vast_response is not None:
+            pulumi.set(__self__, "vast_response", vast_response)
+
+    @_builtins.property
+    @pulumi.getter(name="vastResponse")
+    def vast_response(self) -> pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseArgs']]:
+        return pulumi.get(self, "vast_response")
+
+    @vast_response.setter
+    def vast_response(self, value: pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseArgs']]):
+        pulumi.set(self, "vast_response", value)
+
+
+class PlaybackConfigurationPreRollVastResponseArgsDict(TypedDict):
+    """
+    The configuration for how MediaTailor processes the VAST response returned by the pre-roll Ad Decision Server.
+    """
+    ad_sequencing_mode: NotRequired[pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseAdSequencingMode']]]
+    """
+    Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+    """
+
+@pulumi.input_type
+class PlaybackConfigurationPreRollVastResponseArgs:
+    def __init__(__self__, *,
+                 ad_sequencing_mode: pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseAdSequencingMode']] = None):
+        """
+        The configuration for how MediaTailor processes the VAST response returned by the pre-roll Ad Decision Server.
+
+        :param pulumi.Input['PlaybackConfigurationPreRollVastResponseAdSequencingMode'] ad_sequencing_mode: Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+        """
+        if ad_sequencing_mode is not None:
+            pulumi.set(__self__, "ad_sequencing_mode", ad_sequencing_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="adSequencingMode")
+    def ad_sequencing_mode(self) -> pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseAdSequencingMode']]:
+        """
+        Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+        """
+        return pulumi.get(self, "ad_sequencing_mode")
+
+    @ad_sequencing_mode.setter
+    def ad_sequencing_mode(self, value: pulumi.Input[Optional['PlaybackConfigurationPreRollVastResponseAdSequencingMode']]):
+        pulumi.set(self, "ad_sequencing_mode", value)
+
+
+class PlaybackConfigurationVastResponseArgsDict(TypedDict):
+    """
+    The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+    """
+    ad_sequencing_mode: NotRequired[pulumi.Input[Optional['PlaybackConfigurationVastResponseAdSequencingMode']]]
+    """
+    Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+    """
+
+@pulumi.input_type
+class PlaybackConfigurationVastResponseArgs:
+    def __init__(__self__, *,
+                 ad_sequencing_mode: pulumi.Input[Optional['PlaybackConfigurationVastResponseAdSequencingMode']] = None):
+        """
+        The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+
+        :param pulumi.Input['PlaybackConfigurationVastResponseAdSequencingMode'] ad_sequencing_mode: Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+        """
+        if ad_sequencing_mode is not None:
+            pulumi.set(__self__, "ad_sequencing_mode", ad_sequencing_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="adSequencingMode")
+    def ad_sequencing_mode(self) -> pulumi.Input[Optional['PlaybackConfigurationVastResponseAdSequencingMode']]:
+        """
+        Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+        """
+        return pulumi.get(self, "ad_sequencing_mode")
+
+    @ad_sequencing_mode.setter
+    def ad_sequencing_mode(self, value: pulumi.Input[Optional['PlaybackConfigurationVastResponseAdSequencingMode']]):
+        pulumi.set(self, "ad_sequencing_mode", value)
 
 
 class PrefetchScheduleAvailMatchingCriteriaArgsDict(TypedDict):
