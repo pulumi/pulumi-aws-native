@@ -129,7 +129,7 @@
   },
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreatedAt", "/properties/Id", "/properties/ServiceNetworkArn", "/properties/ServiceNetworkId", "/properties/ServiceNetworkName", "/properties/Status", "/properties/VpcId" ],
   "writeOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier" ],
-  "createOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier", "/properties/PrivateDnsEnabled", "/properties/DnsOptions", "/properties/DnsOptions/PrivateDnsPreference", "/properties/DnsOptions/PrivateDnsSpecifiedDomains" ],
+  "createOnlyProperties" : [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "additionalIdentifiers" : [ [ "/properties/Id" ], [ "/properties/ServiceNetworkIdentifier", "/properties/VpcIdentifier" ] ],
   "handlers" : {

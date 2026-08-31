@@ -22,6 +22,7 @@ export interface GetFeedArgs {
 }
 
 export interface GetFeedResult {
+    readonly accessRoleArn?: string;
     readonly arn?: string;
     readonly dataEndpoints?: string[];
     readonly id?: string;

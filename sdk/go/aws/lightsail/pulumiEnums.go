@@ -10,6 +10,264 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The protocol of the contact method, such as Email or SMS (text messaging).
+type ContactMethodProtocol string
+
+const (
+	ContactMethodProtocolEmail = ContactMethodProtocol("Email")
+	ContactMethodProtocolSms   = ContactMethodProtocol("SMS")
+)
+
+func (ContactMethodProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactMethodProtocol)(nil)).Elem()
+}
+
+func (e ContactMethodProtocol) ToContactMethodProtocolOutput() ContactMethodProtocolOutput {
+	return pulumi.ToOutput(e).(ContactMethodProtocolOutput)
+}
+
+func (e ContactMethodProtocol) ToContactMethodProtocolOutputWithContext(ctx context.Context) ContactMethodProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContactMethodProtocolOutput)
+}
+
+func (e ContactMethodProtocol) ToContactMethodProtocolPtrOutput() ContactMethodProtocolPtrOutput {
+	return e.ToContactMethodProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ContactMethodProtocol) ToContactMethodProtocolPtrOutputWithContext(ctx context.Context) ContactMethodProtocolPtrOutput {
+	return ContactMethodProtocol(e).ToContactMethodProtocolOutputWithContext(ctx).ToContactMethodProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ContactMethodProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContactMethodProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContactMethodProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContactMethodProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContactMethodProtocolOutput struct{ *pulumi.OutputState }
+
+func (ContactMethodProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactMethodProtocol)(nil)).Elem()
+}
+
+func (o ContactMethodProtocolOutput) ToContactMethodProtocolOutput() ContactMethodProtocolOutput {
+	return o
+}
+
+func (o ContactMethodProtocolOutput) ToContactMethodProtocolOutputWithContext(ctx context.Context) ContactMethodProtocolOutput {
+	return o
+}
+
+func (o ContactMethodProtocolOutput) ToContactMethodProtocolPtrOutput() ContactMethodProtocolPtrOutput {
+	return o.ToContactMethodProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ContactMethodProtocolOutput) ToContactMethodProtocolPtrOutputWithContext(ctx context.Context) ContactMethodProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactMethodProtocol) *ContactMethodProtocol {
+		return &v
+	}).(ContactMethodProtocolPtrOutput)
+}
+
+func (o ContactMethodProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContactMethodProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContactMethodProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContactMethodProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContactMethodProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContactMethodProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContactMethodProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ContactMethodProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactMethodProtocol)(nil)).Elem()
+}
+
+func (o ContactMethodProtocolPtrOutput) ToContactMethodProtocolPtrOutput() ContactMethodProtocolPtrOutput {
+	return o
+}
+
+func (o ContactMethodProtocolPtrOutput) ToContactMethodProtocolPtrOutputWithContext(ctx context.Context) ContactMethodProtocolPtrOutput {
+	return o
+}
+
+func (o ContactMethodProtocolPtrOutput) Elem() ContactMethodProtocolOutput {
+	return o.ApplyT(func(v *ContactMethodProtocol) ContactMethodProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ContactMethodProtocol
+		return ret
+	}).(ContactMethodProtocolOutput)
+}
+
+func (o ContactMethodProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContactMethodProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContactMethodProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContactMethodProtocolInput is an input type that accepts values of the ContactMethodProtocol enum
+// A concrete instance of `ContactMethodProtocolInput` can be one of the following:
+//
+//	ContactMethodProtocolEmail
+//	ContactMethodProtocolSms
+type ContactMethodProtocolInput interface {
+	pulumi.Input
+
+	ToContactMethodProtocolOutput() ContactMethodProtocolOutput
+	ToContactMethodProtocolOutputWithContext(context.Context) ContactMethodProtocolOutput
+}
+
+var contactMethodProtocolPtrType = reflect.TypeOf((**ContactMethodProtocol)(nil)).Elem()
+
+type ContactMethodProtocolPtrInput interface {
+	pulumi.Input
+
+	ToContactMethodProtocolPtrOutput() ContactMethodProtocolPtrOutput
+	ToContactMethodProtocolPtrOutputWithContext(context.Context) ContactMethodProtocolPtrOutput
+}
+
+type contactMethodProtocolPtr string
+
+func ContactMethodProtocolPtr(v string) ContactMethodProtocolPtrInput {
+	return (*contactMethodProtocolPtr)(&v)
+}
+
+func (*contactMethodProtocolPtr) ElementType() reflect.Type {
+	return contactMethodProtocolPtrType
+}
+
+func (in *contactMethodProtocolPtr) ToContactMethodProtocolPtrOutput() ContactMethodProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ContactMethodProtocolPtrOutput)
+}
+
+func (in *contactMethodProtocolPtr) ToContactMethodProtocolPtrOutputWithContext(ctx context.Context) ContactMethodProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContactMethodProtocolPtrOutput)
+}
+
+// The current status of the contact method.
+type ContactMethodStatus string
+
+const (
+	ContactMethodStatusPendingVerification = ContactMethodStatus("PendingVerification")
+	ContactMethodStatusValid               = ContactMethodStatus("Valid")
+	ContactMethodStatusInvalid             = ContactMethodStatus("Invalid")
+)
+
+type ContactMethodStatusOutput struct{ *pulumi.OutputState }
+
+func (ContactMethodStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContactMethodStatus)(nil)).Elem()
+}
+
+func (o ContactMethodStatusOutput) ToContactMethodStatusOutput() ContactMethodStatusOutput {
+	return o
+}
+
+func (o ContactMethodStatusOutput) ToContactMethodStatusOutputWithContext(ctx context.Context) ContactMethodStatusOutput {
+	return o
+}
+
+func (o ContactMethodStatusOutput) ToContactMethodStatusPtrOutput() ContactMethodStatusPtrOutput {
+	return o.ToContactMethodStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ContactMethodStatusOutput) ToContactMethodStatusPtrOutputWithContext(ctx context.Context) ContactMethodStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContactMethodStatus) *ContactMethodStatus {
+		return &v
+	}).(ContactMethodStatusPtrOutput)
+}
+
+func (o ContactMethodStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContactMethodStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContactMethodStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContactMethodStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContactMethodStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContactMethodStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContactMethodStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ContactMethodStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContactMethodStatus)(nil)).Elem()
+}
+
+func (o ContactMethodStatusPtrOutput) ToContactMethodStatusPtrOutput() ContactMethodStatusPtrOutput {
+	return o
+}
+
+func (o ContactMethodStatusPtrOutput) ToContactMethodStatusPtrOutputWithContext(ctx context.Context) ContactMethodStatusPtrOutput {
+	return o
+}
+
+func (o ContactMethodStatusPtrOutput) Elem() ContactMethodStatusOutput {
+	return o.ApplyT(func(v *ContactMethodStatus) ContactMethodStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ContactMethodStatus
+		return ret
+	}).(ContactMethodStatusOutput)
+}
+
+func (o ContactMethodStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContactMethodStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContactMethodStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The Lightsail resource type.
 type DatabaseSnapshotResourceType string
 
@@ -636,10 +894,16 @@ func (in *instanceAddOnStatusPtr) ToInstanceAddOnStatusPtrOutputWithContext(ctx 
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactMethodProtocolInput)(nil)).Elem(), ContactMethodProtocol("Email"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContactMethodProtocolPtrInput)(nil)).Elem(), ContactMethodProtocol("Email"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnStatusInput)(nil)).Elem(), DiskAddOnStatus("Enabling"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DiskAddOnStatusPtrInput)(nil)).Elem(), DiskAddOnStatus("Enabling"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnStatusInput)(nil)).Elem(), InstanceAddOnStatus("Enabling"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAddOnStatusPtrInput)(nil)).Elem(), InstanceAddOnStatus("Enabling"))
+	pulumi.RegisterOutputType(ContactMethodProtocolOutput{})
+	pulumi.RegisterOutputType(ContactMethodProtocolPtrOutput{})
+	pulumi.RegisterOutputType(ContactMethodStatusOutput{})
+	pulumi.RegisterOutputType(ContactMethodStatusPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseSnapshotResourceTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseSnapshotResourceTypePtrOutput{})
 	pulumi.RegisterOutputType(DiskAddOnStatusOutput{})

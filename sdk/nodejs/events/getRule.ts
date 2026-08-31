@@ -48,6 +48,10 @@ export interface GetRuleResult {
      */
     readonly roleArn?: string;
     /**
+     * The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+     */
+    readonly ruleName?: string;
+    /**
      * The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
      */
     readonly scheduleExpression?: string;

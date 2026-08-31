@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:invoicing:InvoiceUnit":
 		r = &InvoiceUnit{}
+	case "aws-native:invoicing:ProcurementPortalPreference":
+		r = &ProcurementPortalPreference{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

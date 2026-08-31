@@ -86,7 +86,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "codestar-notifications:TagResource", "codestar-notifications:UntagResource" ]
   },
@@ -97,7 +97,7 @@
   "writeOnlyProperties" : [ "/properties/EventTypeId", "/properties/TargetAddress" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "codestar-notifications:createNotificationRule" ]
+      "permissions" : [ "codestar-notifications:createNotificationRule", "codestar-notifications:TagResource" ]
     },
     "list" : {
       "permissions" : [ "codestar-notifications:listNotificationRules" ]

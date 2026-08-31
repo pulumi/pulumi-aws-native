@@ -61,6 +61,8 @@ type LookupGatewayResult struct {
 	// The tags for the gateway.
 	Tags                    map[string]string               `pulumi:"tags"`
 	UpdatedAt               *string                         `pulumi:"updatedAt"`
+	WafConfiguration        *GatewayWafConfiguration        `pulumi:"wafConfiguration"`
+	WebAclArn               *string                         `pulumi:"webAclArn"`
 	WorkloadIdentityDetails *GatewayWorkloadIdentityDetails `pulumi:"workloadIdentityDetails"`
 }
 
@@ -182,6 +184,14 @@ func (o LookupGatewayResultOutput) Tags() pulumi.StringMapOutput {
 
 func (o LookupGatewayResultOutput) UpdatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupGatewayResult) *string { return v.UpdatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupGatewayResultOutput) WafConfiguration() GatewayWafConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupGatewayResult) *GatewayWafConfiguration { return v.WafConfiguration }).(GatewayWafConfigurationPtrOutput)
+}
+
+func (o LookupGatewayResultOutput) WebAclArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGatewayResult) *string { return v.WebAclArn }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupGatewayResultOutput) WorkloadIdentityDetails() GatewayWorkloadIdentityDetailsPtrOutput {

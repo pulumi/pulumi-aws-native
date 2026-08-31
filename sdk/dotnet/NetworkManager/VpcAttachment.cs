@@ -85,13 +85,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The attachment to move from one network function group to another.
         /// </summary>
         [Output("proposedNetworkFunctionGroupChange")]
-        public Output<Outputs.VpcAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
+        public Output<Outputs.VpcAttachmentProposedNetworkFunctionGroupChange> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
         /// </summary>
         [Output("proposedSegmentChange")]
-        public Output<Outputs.VpcAttachmentProposedSegmentChange?> ProposedSegmentChange { get; private set; } = null!;
+        public Output<Outputs.VpcAttachmentProposedSegmentChange> ProposedSegmentChange { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Resource.
@@ -203,18 +203,6 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("options")]
         public Input<Inputs.VpcAttachmentVpcOptionsArgs>? Options { get; set; }
-
-        /// <summary>
-        /// The attachment to move from one network function group to another.
-        /// </summary>
-        [Input("proposedNetworkFunctionGroupChange")]
-        public Input<Inputs.VpcAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
-
-        /// <summary>
-        /// The attachment to move from one segment to another.
-        /// </summary>
-        [Input("proposedSegmentChange")]
-        public Input<Inputs.VpcAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         /// <summary>
         /// Routing policy label

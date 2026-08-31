@@ -12,21 +12,28 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::Config::DeliveryChannel
+// Resource Type definition for AWS::Config::DeliveryChannel
 type DeliveryChannel struct {
 	pulumi.CustomResourceState
 
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 	ConfigSnapshotDeliveryProperties DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput `pulumi:"configSnapshotDeliveryProperties"`
-	// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+	// A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+	//
+	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 	S3BucketName pulumi.StringOutput `pulumi:"s3BucketName"`
 	// The prefix for the specified Amazon S3 bucket.
 	S3KeyPrefix pulumi.StringPtrOutput `pulumi:"s3KeyPrefix"`
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
 	S3KmsKeyArn pulumi.StringPtrOutput `pulumi:"s3KmsKeyArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+	//
+	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 	SnsTopicArn pulumi.StringPtrOutput `pulumi:"snsTopicArn"`
 }
 
@@ -79,15 +86,21 @@ func (DeliveryChannelState) ElementType() reflect.Type {
 type deliveryChannelArgs struct {
 	// The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 	ConfigSnapshotDeliveryProperties *DeliveryChannelConfigSnapshotDeliveryProperties `pulumi:"configSnapshotDeliveryProperties"`
-	// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+	// A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
 	Name *string `pulumi:"name"`
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+	//
+	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 	S3BucketName string `pulumi:"s3BucketName"`
 	// The prefix for the specified Amazon S3 bucket.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
 	S3KmsKeyArn *string `pulumi:"s3KmsKeyArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+	//
+	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
@@ -95,15 +108,21 @@ type deliveryChannelArgs struct {
 type DeliveryChannelArgs struct {
 	// The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 	ConfigSnapshotDeliveryProperties DeliveryChannelConfigSnapshotDeliveryPropertiesPtrInput
-	// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+	// A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+	//
+	// Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
 	Name pulumi.StringPtrInput
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+	//
+	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 	S3BucketName pulumi.StringInput
 	// The prefix for the specified Amazon S3 bucket.
 	S3KeyPrefix pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
 	S3KmsKeyArn pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+	//
+	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 	SnsTopicArn pulumi.StringPtrInput
 }
 
@@ -144,6 +163,10 @@ func (o DeliveryChannelOutput) ToDeliveryChannelOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o DeliveryChannelOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
 // The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 func (o DeliveryChannelOutput) ConfigSnapshotDeliveryProperties() DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannel) DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput {
@@ -151,12 +174,16 @@ func (o DeliveryChannelOutput) ConfigSnapshotDeliveryProperties() DeliveryChanne
 	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
 }
 
-// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+// A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
+//
+// Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
 func (o DeliveryChannelOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+//
+// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 func (o DeliveryChannelOutput) S3BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringOutput { return v.S3BucketName }).(pulumi.StringOutput)
 }
@@ -166,12 +193,14 @@ func (o DeliveryChannelOutput) S3KeyPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
 func (o DeliveryChannelOutput) S3KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.S3KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+//
+// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 func (o DeliveryChannelOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DeliveryChannel) pulumi.StringPtrOutput { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }

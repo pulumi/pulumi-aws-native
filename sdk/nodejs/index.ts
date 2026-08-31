@@ -322,6 +322,7 @@ import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as storagegateway from "./storagegateway";
 import * as supportapp from "./supportapp";
+import * as supportauthz from "./supportauthz";
 import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as textract from "./textract";
@@ -601,6 +602,7 @@ export {
     stepfunctions,
     storagegateway,
     supportapp,
+    supportauthz,
     synthetics,
     systemsmanagersap,
     textract,

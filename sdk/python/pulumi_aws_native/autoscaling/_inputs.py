@@ -34,6 +34,8 @@ __all__ = [
     'AutoScalingGroupCapacityReservationTargetArgsDict',
     'AutoScalingGroupCpuPerformanceFactorRequestArgs',
     'AutoScalingGroupCpuPerformanceFactorRequestArgsDict',
+    'AutoScalingGroupDistributionSegmentArgs',
+    'AutoScalingGroupDistributionSegmentArgsDict',
     'AutoScalingGroupInstanceLifecyclePolicyArgs',
     'AutoScalingGroupInstanceLifecyclePolicyArgsDict',
     'AutoScalingGroupInstanceMaintenancePolicyArgs',
@@ -569,6 +571,25 @@ class AutoScalingGroupCpuPerformanceFactorRequestArgs:
     @references.setter
     def references(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupPerformanceFactorReferenceRequestArgs']]]]):
         pulumi.set(self, "references", value)
+
+
+class AutoScalingGroupDistributionSegmentArgsDict(TypedDict):
+    target_capacity_types: pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']]]
+
+@pulumi.input_type
+class AutoScalingGroupDistributionSegmentArgs:
+    def __init__(__self__, *,
+                 target_capacity_types: pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']]]):
+        pulumi.set(__self__, "target_capacity_types", target_capacity_types)
+
+    @_builtins.property
+    @pulumi.getter(name="targetCapacityTypes")
+    def target_capacity_types(self) -> pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']]]:
+        return pulumi.get(self, "target_capacity_types")
+
+    @target_capacity_types.setter
+    def target_capacity_types(self, value: pulumi.Input[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']]]):
+        pulumi.set(self, "target_capacity_types", value)
 
 
 class AutoScalingGroupInstanceLifecyclePolicyArgsDict(TypedDict):
@@ -1394,6 +1415,7 @@ class AutoScalingGroupInstancesDistributionArgsDict(TypedDict):
      For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
      ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
     """
+    distribution_segments: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentArgsDict']]]]]
     on_demand_allocation_strategy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
@@ -1434,6 +1456,7 @@ class AutoScalingGroupInstancesDistributionArgsDict(TypedDict):
 @pulumi.input_type
 class AutoScalingGroupInstancesDistributionArgs:
     def __init__(__self__, *,
+                 distribution_segments: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentArgs']]]] = None,
                  on_demand_allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  on_demand_base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  on_demand_percentage_above_base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
@@ -1464,6 +1487,8 @@ class AutoScalingGroupInstancesDistributionArgs:
                  If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.
                  Valid Range: Minimum value of 0.001
         """
+        if distribution_segments is not None:
+            pulumi.set(__self__, "distribution_segments", distribution_segments)
         if on_demand_allocation_strategy is not None:
             pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_base_capacity is not None:
@@ -1476,6 +1501,15 @@ class AutoScalingGroupInstancesDistributionArgs:
             pulumi.set(__self__, "spot_instance_pools", spot_instance_pools)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
+
+    @_builtins.property
+    @pulumi.getter(name="distributionSegments")
+    def distribution_segments(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentArgs']]]]:
+        return pulumi.get(self, "distribution_segments")
+
+    @distribution_segments.setter
+    def distribution_segments(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['AutoScalingGroupDistributionSegmentArgs']]]]):
+        pulumi.set(self, "distribution_segments", value)
 
     @_builtins.property
     @pulumi.getter(name="onDemandAllocationStrategy")

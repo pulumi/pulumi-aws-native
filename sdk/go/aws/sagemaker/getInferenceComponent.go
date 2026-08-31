@@ -43,10 +43,11 @@ type LookupInferenceComponentResult struct {
 	// The status of the inference component.
 	InferenceComponentStatus *InferenceComponentStatus `pulumi:"inferenceComponentStatus"`
 	// The time when the inference component was last updated.
-	LastModifiedTime *string                          `pulumi:"lastModifiedTime"`
-	RuntimeConfig    *InferenceComponentRuntimeConfig `pulumi:"runtimeConfig"`
-	Specification    *InferenceComponentSpecification `pulumi:"specification"`
-	Tags             []aws.Tag                        `pulumi:"tags"`
+	LastModifiedTime *string                                          `pulumi:"lastModifiedTime"`
+	RuntimeConfig    *InferenceComponentRuntimeConfig                 `pulumi:"runtimeConfig"`
+	Specification    *InferenceComponentSpecification                 `pulumi:"specification"`
+	Specifications   []InferenceComponentSpecificationForInstanceType `pulumi:"specifications"`
+	Tags             []aws.Tag                                        `pulumi:"tags"`
 	// The name of the production variant that hosts the inference component.
 	VariantName *string `pulumi:"variantName"`
 }
@@ -124,6 +125,12 @@ func (o LookupInferenceComponentResultOutput) RuntimeConfig() InferenceComponent
 
 func (o LookupInferenceComponentResultOutput) Specification() InferenceComponentSpecificationPtrOutput {
 	return o.ApplyT(func(v LookupInferenceComponentResult) *InferenceComponentSpecification { return v.Specification }).(InferenceComponentSpecificationPtrOutput)
+}
+
+func (o LookupInferenceComponentResultOutput) Specifications() InferenceComponentSpecificationForInstanceTypeArrayOutput {
+	return o.ApplyT(func(v LookupInferenceComponentResult) []InferenceComponentSpecificationForInstanceType {
+		return v.Specifications
+	}).(InferenceComponentSpecificationForInstanceTypeArrayOutput)
 }
 
 func (o LookupInferenceComponentResultOutput) Tags() aws.TagArrayOutput {

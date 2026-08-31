@@ -39,6 +39,7 @@ export const PlanExecutionBlockType = {
     Parallel: "Parallel",
     RdsCreateCrossRegionReplica: "RdsCreateCrossRegionReplica",
     RdsPromoteReadReplica: "RdsPromoteReadReplica",
+    RdsSwitchoverReadReplica: "RdsSwitchoverReadReplica",
     Route53HealthCheck: "Route53HealthCheck",
 } as const;
 
@@ -68,6 +69,12 @@ export const PlanNeptuneUngracefulBehavior = {
 } as const;
 
 export type PlanNeptuneUngracefulBehavior = (typeof PlanNeptuneUngracefulBehavior)[keyof typeof PlanNeptuneUngracefulBehavior];
+
+export const PlanRdsUngracefulBehavior = {
+    PromoteReadReplica: "promoteReadReplica",
+} as const;
+
+export type PlanRdsUngracefulBehavior = (typeof PlanRdsUngracefulBehavior)[keyof typeof PlanRdsUngracefulBehavior];
 
 export const PlanRecoveryApproach = {
     ActiveActive: "activeActive",

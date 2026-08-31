@@ -82,6 +82,8 @@ export interface GetGatewayResult {
      */
     readonly tags?: {[key: string]: string};
     readonly updatedAt?: string;
+    readonly wafConfiguration?: outputs.bedrockagentcore.GatewayWafConfiguration;
+    readonly webAclArn?: string;
     readonly workloadIdentityDetails?: outputs.bedrockagentcore.GatewayWorkloadIdentityDetails;
 }
 /**

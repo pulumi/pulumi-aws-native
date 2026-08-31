@@ -57,6 +57,7 @@ namespace Pulumi.AwsNative.ElementalInference
     [OutputType]
     public sealed class GetFeedResult
     {
+        public readonly string? AccessRoleArn;
         public readonly string? Arn;
         public readonly ImmutableArray<string> DataEndpoints;
         public readonly string? Id;
@@ -66,6 +67,8 @@ namespace Pulumi.AwsNative.ElementalInference
 
         [OutputConstructor]
         private GetFeedResult(
+            string? accessRoleArn,
+
             string? arn,
 
             ImmutableArray<string> dataEndpoints,
@@ -78,6 +81,7 @@ namespace Pulumi.AwsNative.ElementalInference
 
             ImmutableDictionary<string, string>? tags)
         {
+            AccessRoleArn = accessRoleArn;
             Arn = arn;
             DataEndpoints = dataEndpoints;
             Id = id;

@@ -13,10 +13,21 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'InvoiceUnitRuleArgs',
     'InvoiceUnitRuleArgsDict',
+    'ProcurementPortalPreferenceContactArgs',
+    'ProcurementPortalPreferenceContactArgsDict',
+    'ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs',
+    'ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgsDict',
+    'ProcurementPortalPreferencePurchaseOrderDataSourceArgs',
+    'ProcurementPortalPreferencePurchaseOrderDataSourceArgsDict',
+    'ProcurementPortalPreferenceSelectorArgs',
+    'ProcurementPortalPreferenceSelectorArgsDict',
+    'ProcurementPortalPreferenceTestEnvPreferenceArgs',
+    'ProcurementPortalPreferenceTestEnvPreferenceArgsDict',
 ]
 
 class InvoiceUnitRuleArgsDict(TypedDict):
@@ -45,5 +56,415 @@ class InvoiceUnitRuleArgs:
     @linked_accounts.setter
     def linked_accounts(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "linked_accounts", value)
+
+
+class ProcurementPortalPreferenceContactArgsDict(TypedDict):
+    """
+    Contact information for a person or role associated with the procurement portal preference.
+    """
+    email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The email address of the contact person or role.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the contact person or role.
+    """
+
+@pulumi.input_type
+class ProcurementPortalPreferenceContactArgs:
+    def __init__(__self__, *,
+                 email: pulumi.Input[Optional[_builtins.str]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Contact information for a person or role associated with the procurement portal preference.
+
+        :param pulumi.Input[_builtins.str] email: The email address of the contact person or role.
+        :param pulumi.Input[_builtins.str] name: The name of the contact person or role.
+        """
+        if email is not None:
+            pulumi.set(__self__, "email", email)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def email(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The email address of the contact person or role.
+        """
+        return pulumi.get(self, "email")
+
+    @email.setter
+    def email(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "email", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the contact person or role.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgsDict(TypedDict):
+    """
+    Specifies the preferences for e-invoice delivery.
+    """
+    connection_testing_method: NotRequired[pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod']]]
+    """
+    The method to use for testing the connection to the procurement portal.
+    """
+    einvoice_delivery_activation_date: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The ISO 8601 date-time when e-invoice delivery should be activated.
+    """
+    einvoice_delivery_attachment_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem']]]]]
+    """
+    The types of attachments to include with the e-invoice delivery.
+    """
+    einvoice_delivery_document_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem']]]]]
+    """
+    The types of e-invoice documents to be delivered.
+    """
+    protocol: NotRequired[pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol']]]
+    """
+    The communication protocol to use for e-invoice delivery.
+    """
+    purchase_order_data_sources: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferencePurchaseOrderDataSourceArgsDict']]]]]
+    """
+    The sources of purchase order data.
+    """
+
+@pulumi.input_type
+class ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs:
+    def __init__(__self__, *,
+                 connection_testing_method: pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod']] = None,
+                 einvoice_delivery_activation_date: pulumi.Input[Optional[_builtins.str]] = None,
+                 einvoice_delivery_attachment_types: pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem']]]] = None,
+                 einvoice_delivery_document_types: pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem']]]] = None,
+                 protocol: pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol']] = None,
+                 purchase_order_data_sources: pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferencePurchaseOrderDataSourceArgs']]]] = None):
+        """
+        Specifies the preferences for e-invoice delivery.
+
+        :param pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod'] connection_testing_method: The method to use for testing the connection to the procurement portal.
+        :param pulumi.Input[_builtins.str] einvoice_delivery_activation_date: The ISO 8601 date-time when e-invoice delivery should be activated.
+        :param pulumi.Input[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem']]] einvoice_delivery_attachment_types: The types of attachments to include with the e-invoice delivery.
+        :param pulumi.Input[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem']]] einvoice_delivery_document_types: The types of e-invoice documents to be delivered.
+        :param pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol'] protocol: The communication protocol to use for e-invoice delivery.
+        :param pulumi.Input[Sequence[pulumi.Input['ProcurementPortalPreferencePurchaseOrderDataSourceArgs']]] purchase_order_data_sources: The sources of purchase order data.
+        """
+        if connection_testing_method is not None:
+            pulumi.set(__self__, "connection_testing_method", connection_testing_method)
+        if einvoice_delivery_activation_date is not None:
+            pulumi.set(__self__, "einvoice_delivery_activation_date", einvoice_delivery_activation_date)
+        if einvoice_delivery_attachment_types is not None:
+            pulumi.set(__self__, "einvoice_delivery_attachment_types", einvoice_delivery_attachment_types)
+        if einvoice_delivery_document_types is not None:
+            pulumi.set(__self__, "einvoice_delivery_document_types", einvoice_delivery_document_types)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if purchase_order_data_sources is not None:
+            pulumi.set(__self__, "purchase_order_data_sources", purchase_order_data_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionTestingMethod")
+    def connection_testing_method(self) -> pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod']]:
+        """
+        The method to use for testing the connection to the procurement portal.
+        """
+        return pulumi.get(self, "connection_testing_method")
+
+    @connection_testing_method.setter
+    def connection_testing_method(self, value: pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod']]):
+        pulumi.set(self, "connection_testing_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="einvoiceDeliveryActivationDate")
+    def einvoice_delivery_activation_date(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The ISO 8601 date-time when e-invoice delivery should be activated.
+        """
+        return pulumi.get(self, "einvoice_delivery_activation_date")
+
+    @einvoice_delivery_activation_date.setter
+    def einvoice_delivery_activation_date(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "einvoice_delivery_activation_date", value)
+
+    @_builtins.property
+    @pulumi.getter(name="einvoiceDeliveryAttachmentTypes")
+    def einvoice_delivery_attachment_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem']]]]:
+        """
+        The types of attachments to include with the e-invoice delivery.
+        """
+        return pulumi.get(self, "einvoice_delivery_attachment_types")
+
+    @einvoice_delivery_attachment_types.setter
+    def einvoice_delivery_attachment_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem']]]]):
+        pulumi.set(self, "einvoice_delivery_attachment_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="einvoiceDeliveryDocumentTypes")
+    def einvoice_delivery_document_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem']]]]:
+        """
+        The types of e-invoice documents to be delivered.
+        """
+        return pulumi.get(self, "einvoice_delivery_document_types")
+
+    @einvoice_delivery_document_types.setter
+    def einvoice_delivery_document_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem']]]]):
+        pulumi.set(self, "einvoice_delivery_document_types", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol']]:
+        """
+        The communication protocol to use for e-invoice delivery.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Optional['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="purchaseOrderDataSources")
+    def purchase_order_data_sources(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferencePurchaseOrderDataSourceArgs']]]]:
+        """
+        The sources of purchase order data.
+        """
+        return pulumi.get(self, "purchase_order_data_sources")
+
+    @purchase_order_data_sources.setter
+    def purchase_order_data_sources(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ProcurementPortalPreferencePurchaseOrderDataSourceArgs']]]]):
+        pulumi.set(self, "purchase_order_data_sources", value)
+
+
+class ProcurementPortalPreferencePurchaseOrderDataSourceArgsDict(TypedDict):
+    """
+    Specifies the source configuration for retrieving purchase order data.
+    """
+    einvoice_delivery_document_type: NotRequired[pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType']]]
+    """
+    The type of e-invoice document that requires purchase order data.
+    """
+    purchase_order_data_source_type: NotRequired[pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType']]]
+    """
+    The type of source for purchase order data.
+    """
+
+@pulumi.input_type
+class ProcurementPortalPreferencePurchaseOrderDataSourceArgs:
+    def __init__(__self__, *,
+                 einvoice_delivery_document_type: pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType']] = None,
+                 purchase_order_data_source_type: pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType']] = None):
+        """
+        Specifies the source configuration for retrieving purchase order data.
+
+        :param pulumi.Input['ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType'] einvoice_delivery_document_type: The type of e-invoice document that requires purchase order data.
+        :param pulumi.Input['ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType'] purchase_order_data_source_type: The type of source for purchase order data.
+        """
+        if einvoice_delivery_document_type is not None:
+            pulumi.set(__self__, "einvoice_delivery_document_type", einvoice_delivery_document_type)
+        if purchase_order_data_source_type is not None:
+            pulumi.set(__self__, "purchase_order_data_source_type", purchase_order_data_source_type)
+
+    @_builtins.property
+    @pulumi.getter(name="einvoiceDeliveryDocumentType")
+    def einvoice_delivery_document_type(self) -> pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType']]:
+        """
+        The type of e-invoice document that requires purchase order data.
+        """
+        return pulumi.get(self, "einvoice_delivery_document_type")
+
+    @einvoice_delivery_document_type.setter
+    def einvoice_delivery_document_type(self, value: pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType']]):
+        pulumi.set(self, "einvoice_delivery_document_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="purchaseOrderDataSourceType")
+    def purchase_order_data_source_type(self) -> pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType']]:
+        """
+        The type of source for purchase order data.
+        """
+        return pulumi.get(self, "purchase_order_data_source_type")
+
+    @purchase_order_data_source_type.setter
+    def purchase_order_data_source_type(self, value: pulumi.Input[Optional['ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType']]):
+        pulumi.set(self, "purchase_order_data_source_type", value)
+
+
+class ProcurementPortalPreferenceSelectorArgsDict(TypedDict):
+    """
+    Specifies criteria for selecting which invoices should be processed.
+    """
+    invoice_unit_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+    """
+
+@pulumi.input_type
+class ProcurementPortalPreferenceSelectorArgs:
+    def __init__(__self__, *,
+                 invoice_unit_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        Specifies criteria for selecting which invoices should be processed.
+
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] invoice_unit_arns: The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+        """
+        if invoice_unit_arns is not None:
+            pulumi.set(__self__, "invoice_unit_arns", invoice_unit_arns)
+
+    @_builtins.property
+    @pulumi.getter(name="invoiceUnitArns")
+    def invoice_unit_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies.
+        """
+        return pulumi.get(self, "invoice_unit_arns")
+
+    @invoice_unit_arns.setter
+    def invoice_unit_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "invoice_unit_arns", value)
+
+
+class ProcurementPortalPreferenceTestEnvPreferenceArgsDict(TypedDict):
+    """
+    Configuration settings for the test environment of the procurement portal.
+    """
+    buyer_domain: NotRequired[pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain']]]
+    """
+    The domain identifier for the buyer in the test environment.
+    """
+    buyer_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique identifier for the buyer in the test environment.
+    """
+    procurement_portal_instance_endpoint: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The endpoint URL for e-invoice delivery in the test environment.
+    """
+    procurement_portal_shared_secret: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The shared secret for secure communication in the test environment.
+    """
+    supplier_domain: NotRequired[pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain']]]
+    """
+    The domain identifier for the supplier in the test environment.
+    """
+    supplier_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The unique identifier for the supplier in the test environment.
+    """
+
+@pulumi.input_type
+class ProcurementPortalPreferenceTestEnvPreferenceArgs:
+    def __init__(__self__, *,
+                 buyer_domain: pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain']] = None,
+                 buyer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
+                 procurement_portal_instance_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
+                 procurement_portal_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
+                 supplier_domain: pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain']] = None,
+                 supplier_identifier: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration settings for the test environment of the procurement portal.
+
+        :param pulumi.Input['ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain'] buyer_domain: The domain identifier for the buyer in the test environment.
+        :param pulumi.Input[_builtins.str] buyer_identifier: The unique identifier for the buyer in the test environment.
+        :param pulumi.Input[_builtins.str] procurement_portal_instance_endpoint: The endpoint URL for e-invoice delivery in the test environment.
+        :param pulumi.Input[_builtins.str] procurement_portal_shared_secret: The shared secret for secure communication in the test environment.
+        :param pulumi.Input['ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain'] supplier_domain: The domain identifier for the supplier in the test environment.
+        :param pulumi.Input[_builtins.str] supplier_identifier: The unique identifier for the supplier in the test environment.
+        """
+        if buyer_domain is not None:
+            pulumi.set(__self__, "buyer_domain", buyer_domain)
+        if buyer_identifier is not None:
+            pulumi.set(__self__, "buyer_identifier", buyer_identifier)
+        if procurement_portal_instance_endpoint is not None:
+            pulumi.set(__self__, "procurement_portal_instance_endpoint", procurement_portal_instance_endpoint)
+        if procurement_portal_shared_secret is not None:
+            pulumi.set(__self__, "procurement_portal_shared_secret", procurement_portal_shared_secret)
+        if supplier_domain is not None:
+            pulumi.set(__self__, "supplier_domain", supplier_domain)
+        if supplier_identifier is not None:
+            pulumi.set(__self__, "supplier_identifier", supplier_identifier)
+
+    @_builtins.property
+    @pulumi.getter(name="buyerDomain")
+    def buyer_domain(self) -> pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain']]:
+        """
+        The domain identifier for the buyer in the test environment.
+        """
+        return pulumi.get(self, "buyer_domain")
+
+    @buyer_domain.setter
+    def buyer_domain(self, value: pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain']]):
+        pulumi.set(self, "buyer_domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="buyerIdentifier")
+    def buyer_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique identifier for the buyer in the test environment.
+        """
+        return pulumi.get(self, "buyer_identifier")
+
+    @buyer_identifier.setter
+    def buyer_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "buyer_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="procurementPortalInstanceEndpoint")
+    def procurement_portal_instance_endpoint(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The endpoint URL for e-invoice delivery in the test environment.
+        """
+        return pulumi.get(self, "procurement_portal_instance_endpoint")
+
+    @procurement_portal_instance_endpoint.setter
+    def procurement_portal_instance_endpoint(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "procurement_portal_instance_endpoint", value)
+
+    @_builtins.property
+    @pulumi.getter(name="procurementPortalSharedSecret")
+    def procurement_portal_shared_secret(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The shared secret for secure communication in the test environment.
+        """
+        return pulumi.get(self, "procurement_portal_shared_secret")
+
+    @procurement_portal_shared_secret.setter
+    def procurement_portal_shared_secret(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "procurement_portal_shared_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supplierDomain")
+    def supplier_domain(self) -> pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain']]:
+        """
+        The domain identifier for the supplier in the test environment.
+        """
+        return pulumi.get(self, "supplier_domain")
+
+    @supplier_domain.setter
+    def supplier_domain(self, value: pulumi.Input[Optional['ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain']]):
+        pulumi.set(self, "supplier_domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supplierIdentifier")
+    def supplier_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The unique identifier for the supplier in the test environment.
+        """
+        return pulumi.get(self, "supplier_identifier")
+
+    @supplier_identifier.setter
+    def supplier_identifier(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "supplier_identifier", value)
 
 

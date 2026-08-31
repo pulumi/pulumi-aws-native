@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 {
 
     /// <summary>
-    /// The specification for the inference component
+    /// The specification for the inference component, for an endpoint with a single instance type. Specify exactly one of Specification or Specifications. InstanceType is not accepted here; use Specifications for per instance type configuration.
     /// </summary>
     [OutputType]
     public sealed class InferenceComponentSpecification
@@ -37,9 +37,15 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// </summary>
         public readonly Outputs.InferenceComponentContainerSpecification? Container;
         /// <summary>
+        /// The data caching configuration actually in effect, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+        /// </summary>
+        public readonly Outputs.InferenceComponentDataCacheConfig? CurrentDataCacheConfig;
+        public readonly Outputs.InferenceComponentDataCacheConfig? DataCacheConfig;
+        /// <summary>
         /// The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
         /// </summary>
         public readonly string? ModelName;
+        public readonly Outputs.InferenceComponentSchedulingConfig? SchedulingConfig;
         /// <summary>
         /// Settings that take effect while the model container starts up.
         /// </summary>
@@ -53,14 +59,23 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
 
             Outputs.InferenceComponentContainerSpecification? container,
 
+            Outputs.InferenceComponentDataCacheConfig? currentDataCacheConfig,
+
+            Outputs.InferenceComponentDataCacheConfig? dataCacheConfig,
+
             string? modelName,
+
+            Outputs.InferenceComponentSchedulingConfig? schedulingConfig,
 
             Outputs.InferenceComponentStartupParameters? startupParameters)
         {
             BaseInferenceComponentName = baseInferenceComponentName;
             ComputeResourceRequirements = computeResourceRequirements;
             Container = container;
+            CurrentDataCacheConfig = currentDataCacheConfig;
+            DataCacheConfig = dataCacheConfig;
             ModelName = modelName;
+            SchedulingConfig = schedulingConfig;
             StartupParameters = startupParameters;
         }
     }

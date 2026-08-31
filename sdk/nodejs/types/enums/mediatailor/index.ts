@@ -115,12 +115,34 @@ export const PlaybackConfigurationInsertionMode = {
 
 export type PlaybackConfigurationInsertionMode = (typeof PlaybackConfigurationInsertionMode)[keyof typeof PlaybackConfigurationInsertionMode];
 
+export const PlaybackConfigurationPreRollVastResponseAdSequencingMode = {
+    FollowAdSequence: "FOLLOW_AD_SEQUENCE",
+    IgnoreAdSequence: "IGNORE_AD_SEQUENCE",
+} as const;
+
+/**
+ * Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+ */
+export type PlaybackConfigurationPreRollVastResponseAdSequencingMode = (typeof PlaybackConfigurationPreRollVastResponseAdSequencingMode)[keyof typeof PlaybackConfigurationPreRollVastResponseAdSequencingMode];
+
 export const PlaybackConfigurationStreamingMediaFileConditioning = {
     Transcode: "TRANSCODE",
     None: "NONE",
 } as const;
 
 export type PlaybackConfigurationStreamingMediaFileConditioning = (typeof PlaybackConfigurationStreamingMediaFileConditioning)[keyof typeof PlaybackConfigurationStreamingMediaFileConditioning];
+
+export const PlaybackConfigurationVastResponseAdSequencingMode = {
+    FollowAdSequence: "FOLLOW_AD_SEQUENCE",
+    IgnoreAdSequence: "IGNORE_AD_SEQUENCE",
+    FollowAdSequenceOnlyLive: "FOLLOW_AD_SEQUENCE_ONLY_LIVE",
+    FollowAdSequenceOnlyVod: "FOLLOW_AD_SEQUENCE_ONLY_VOD",
+} as const;
+
+/**
+ * Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+ */
+export type PlaybackConfigurationVastResponseAdSequencingMode = (typeof PlaybackConfigurationVastResponseAdSequencingMode)[keyof typeof PlaybackConfigurationVastResponseAdSequencingMode];
 
 export const PrefetchScheduleAvailMatchingCriteriaOperator = {
     Equals: "EQUALS",

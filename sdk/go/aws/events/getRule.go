@@ -41,6 +41,8 @@ type LookupRuleResult struct {
 	EventPattern interface{} `pulumi:"eventPattern"`
 	// The Amazon Resource Name (ARN) of the role that is used for target invocation.
 	RoleArn *string `pulumi:"roleArn"`
+	// The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+	RuleName *string `pulumi:"ruleName"`
 	// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
 	ScheduleExpression *string `pulumi:"scheduleExpression"`
 	// The state of the rule.
@@ -105,6 +107,11 @@ func (o LookupRuleResultOutput) EventPattern() pulumi.AnyOutput {
 // The Amazon Resource Name (ARN) of the role that is used for target invocation.
 func (o LookupRuleResultOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRuleResult) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
+}
+
+// The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+func (o LookupRuleResultOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuleResult) *string { return v.RuleName }).(pulumi.StringPtrOutput)
 }
 
 // The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.

@@ -20,6 +20,11 @@ export type Certificate = import("./certificate").Certificate;
 export const Certificate: typeof import("./certificate").Certificate = null as any;
 utilities.lazyLoad(exports, ["Certificate"], () => require("./certificate"));
 
+export { ContactMethodArgs } from "./contactMethod";
+export type ContactMethod = import("./contactMethod").ContactMethod;
+export const ContactMethod: typeof import("./contactMethod").ContactMethod = null as any;
+utilities.lazyLoad(exports, ["ContactMethod"], () => require("./contactMethod"));
+
 export { ContainerArgs } from "./container";
 export type Container = import("./container").Container;
 export const Container: typeof import("./container").Container = null as any;
@@ -59,6 +64,11 @@ export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } fr
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
 utilities.lazyLoad(exports, ["getCertificate","getCertificateOutput"], () => require("./getCertificate"));
+
+export { GetContactMethodArgs, GetContactMethodResult, GetContactMethodOutputArgs } from "./getContactMethod";
+export const getContactMethod: typeof import("./getContactMethod").getContactMethod = null as any;
+export const getContactMethodOutput: typeof import("./getContactMethod").getContactMethodOutput = null as any;
+utilities.lazyLoad(exports, ["getContactMethod","getContactMethodOutput"], () => require("./getContactMethod"));
 
 export { GetContainerArgs, GetContainerResult, GetContainerOutputArgs } from "./getContainer";
 export const getContainer: typeof import("./getContainer").getContainer = null as any;
@@ -149,6 +159,8 @@ const _module = {
                 return new Bucket(name, <any>undefined, { urn })
             case "aws-native:lightsail:Certificate":
                 return new Certificate(name, <any>undefined, { urn })
+            case "aws-native:lightsail:ContactMethod":
+                return new ContactMethod(name, <any>undefined, { urn })
             case "aws-native:lightsail:Container":
                 return new Container(name, <any>undefined, { urn })
             case "aws-native:lightsail:Database":

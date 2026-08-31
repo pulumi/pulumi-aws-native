@@ -21642,6 +21642,9 @@
                         "type": "string"
                     },
                     "description": "The tags for the gateway."
+                },
+                "wafConfiguration": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:GatewayWafConfiguration"
                 }
             },
             "outputs": {
@@ -21724,6 +21727,12 @@
                 "updatedAt": {
                     "type": "string"
                 },
+                "wafConfiguration": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:GatewayWafConfiguration"
+                },
+                "webAclArn": {
+                    "type": "string"
+                },
                 "workloadIdentityDetails": {
                     "$ref": "#/types/aws-native:bedrockagentcore:GatewayWorkloadIdentityDetails"
                 }
@@ -21743,6 +21752,7 @@
                 "status",
                 "statusReasons",
                 "updatedAt",
+                "webAclArn",
                 "workloadIdentityDetails"
             ],
             "tagsProperty": "tags",
@@ -33992,6 +34002,91 @@
             },
             "hasListHandler": true
         },
+        "aws-native:codebuild:ReportGroup": {
+            "cf": "AWS::CodeBuild::ReportGroup",
+            "inputs": {
+                "deleteReports": {
+                    "type": "boolean",
+                    "description": "When deleting a report group, specifies if reports within the report group should be deleted.\n\n- **true** - Deletes any reports that belong to the report group before deleting the report group.\n- **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown."
+                },
+                "exportConfig": {
+                    "$ref": "#/types/aws-native:codebuild:ReportGroupReportExportConfig",
+                    "description": "Information about the destination where the raw data of this `ReportGroup` is exported."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the `ReportGroup` ."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "A list of tag key and value pairs associated with this report group.\n\nThese tags are available for use by AWS services that support AWS CodeBuild report group tags."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:codebuild:ReportGroupType",
+                    "description": "The type of the `ReportGroup` . This can be one of the following values:\n\n- **CODE_COVERAGE** - The report group contains code coverage reports.\n- **TEST** - The report group contains test reports."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` ."
+                },
+                "deleteReports": {
+                    "type": "boolean",
+                    "description": "When deleting a report group, specifies if reports within the report group should be deleted.\n\n- **true** - Deletes any reports that belong to the report group before deleting the report group.\n- **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown."
+                },
+                "exportConfig": {
+                    "$ref": "#/types/aws-native:codebuild:ReportGroupReportExportConfig",
+                    "description": "Information about the destination where the raw data of this `ReportGroup` is exported."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the `ReportGroup` .",
+                    "replaceOnChanges": true
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "A list of tag key and value pairs associated with this report group.\n\nThese tags are available for use by AWS services that support AWS CodeBuild report group tags."
+                },
+                "type": {
+                    "$ref": "#/types/aws-native:codebuild:ReportGroupType",
+                    "description": "The type of the `ReportGroup` . This can be one of the following values:\n\n- **CODE_COVERAGE** - The report group contains code coverage reports.\n- **TEST** - The report group contains test reports.",
+                    "replaceOnChanges": true
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "required": [
+                "exportConfig",
+                "type"
+            ],
+            "createOnly": [
+                "name",
+                "type"
+            ],
+            "readOnly": [
+                "arn"
+            ],
+            "writeOnly": [
+                "deleteReports"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "arn"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true
+        },
         "aws-native:codebuild:SourceCredential": {
             "cf": "AWS::CodeBuild::SourceCredential",
             "inputs": {
@@ -38787,11 +38882,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name."
+                    "description": "A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .\n\nUpdates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update."
                 },
                 "s3BucketName": {
                     "type": "string",
-                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files."
+                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.\n\nIf you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* ."
                 },
                 "s3KeyPrefix": {
                     "type": "string",
@@ -38799,26 +38894,29 @@
                 },
                 "s3KmsKeyArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket."
+                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket."
                 },
                 "snsTopicArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes."
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.\n\nIf you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* ."
                 }
             },
             "outputs": {
+                "awsId": {
+                    "type": "string"
+                },
                 "configSnapshotDeliveryProperties": {
                     "$ref": "#/types/aws-native:configuration:DeliveryChannelConfigSnapshotDeliveryProperties",
                     "description": "The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket."
                 },
                 "name": {
                     "type": "string",
-                    "description": "The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.",
+                    "description": "A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .\n\nUpdates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.",
                     "replaceOnChanges": true
                 },
                 "s3BucketName": {
                     "type": "string",
-                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files."
+                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.\n\nIf you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* ."
                 },
                 "s3KeyPrefix": {
                     "type": "string",
@@ -38826,11 +38924,11 @@
                 },
                 "s3KmsKeyArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket."
+                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket."
                 },
                 "snsTopicArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes."
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.\n\nIf you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* ."
                 }
             },
             "autoNamingSpec": {
@@ -38842,7 +38940,11 @@
             "createOnly": [
                 "name"
             ],
+            "readOnly": [
+                "id"
+            ],
             "irreversibleNames": {
+                "awsId": "Id",
                 "s3BucketName": "S3BucketName",
                 "s3KeyPrefix": "S3KeyPrefix",
                 "s3KmsKeyArn": "S3KmsKeyArn",
@@ -38852,12 +38954,8 @@
                 "property": "Name"
             },
             "primaryIdentifier": [
-                "name"
-            ],
-            "listInputs": {
-                "type": "object"
-            },
-            "hasListHandler": true
+                "id"
+            ]
         },
         "aws-native:configuration:OrganizationConformancePack": {
             "cf": "AWS::Config::OrganizationConformancePack",
@@ -59501,6 +59599,128 @@
             },
             "hasListHandler": true
         },
+        "aws-native:ec2:FpgaImage": {
+            "cf": "AWS::EC2::FpgaImage",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the AFI."
+                },
+                "inputStorageLocation": {
+                    "$ref": "#/types/aws-native:ec2:FpgaImageStorageLocation",
+                    "description": "The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball."
+                },
+                "logsStorageLocation": {
+                    "$ref": "#/types/aws-native:ec2:FpgaImageStorageLocation",
+                    "description": "The location in Amazon S3 for the output logs."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name for the AFI."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags assigned to the FPGA image."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The ARN of the FPGA image."
+                },
+                "createTime": {
+                    "type": "string",
+                    "description": "The date and time the AFI was created."
+                },
+                "dataRetentionSupport": {
+                    "type": "boolean",
+                    "description": "Indicates whether data retention support is enabled for the AFI."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for the AFI."
+                },
+                "fpgaImageGlobalId": {
+                    "type": "string",
+                    "description": "The global FPGA image identifier (AGFI ID)."
+                },
+                "fpgaImageId": {
+                    "type": "string",
+                    "description": "The FPGA image identifier (AFI ID)."
+                },
+                "inputStorageLocation": {
+                    "$ref": "#/types/aws-native:ec2:FpgaImageStorageLocation",
+                    "description": "The location of the encrypted design checkpoint in Amazon S3. The input must be a tarball.",
+                    "replaceOnChanges": true
+                },
+                "logsStorageLocation": {
+                    "$ref": "#/types/aws-native:ec2:FpgaImageStorageLocation",
+                    "description": "The location in Amazon S3 for the output logs.",
+                    "replaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "A name for the AFI."
+                },
+                "ownerId": {
+                    "type": "string",
+                    "description": "The ID of the AWS account that owns the AFI."
+                },
+                "public": {
+                    "type": "boolean",
+                    "description": "Indicates whether the AFI is public."
+                },
+                "state": {
+                    "type": "string",
+                    "description": "The state of the AFI (pending | available | failed | unavailable)."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags assigned to the FPGA image."
+                },
+                "updateTime": {
+                    "type": "string",
+                    "description": "The time of the most recent update to the AFI."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name"
+            },
+            "createOnly": [
+                "inputStorageLocation",
+                "logsStorageLocation"
+            ],
+            "readOnly": [
+                "arn",
+                "createTime",
+                "dataRetentionSupport",
+                "fpgaImageGlobalId",
+                "fpgaImageId",
+                "ownerId",
+                "public",
+                "state",
+                "updateTime"
+            ],
+            "writeOnly": [
+                "inputStorageLocation",
+                "logsStorageLocation"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "arn"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true
+        },
         "aws-native:ec2:GatewayRouteTableAssociation": {
             "cf": "AWS::EC2::GatewayRouteTableAssociation",
             "inputs": {
@@ -60649,6 +60869,101 @@
                 "required": [
                     "ipamPoolId"
                 ]
+            },
+            "hasListHandler": true
+        },
+        "aws-native:ec2:IpamExternalResourceVerificationToken": {
+            "cf": "AWS::EC2::IpamExternalResourceVerificationToken",
+            "inputs": {
+                "ipamId": {
+                    "type": "string",
+                    "description": "The ID of the IPAM that will create the token."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags for the token."
+                }
+            },
+            "outputs": {
+                "ipamArn": {
+                    "type": "string",
+                    "description": "The ARN of the IPAM that created the token."
+                },
+                "ipamExternalResourceVerificationTokenArn": {
+                    "type": "string",
+                    "description": "The ARN of the IPAM external resource verification token."
+                },
+                "ipamExternalResourceVerificationTokenId": {
+                    "type": "string",
+                    "description": "The ID of the token."
+                },
+                "ipamId": {
+                    "type": "string",
+                    "description": "The ID of the IPAM that will create the token.",
+                    "replaceOnChanges": true
+                },
+                "ipamRegion": {
+                    "type": "string",
+                    "description": "The Region of the IPAM that created the token."
+                },
+                "notAfter": {
+                    "type": "string",
+                    "description": "The token expiration."
+                },
+                "state": {
+                    "$ref": "#/types/aws-native:ec2:IpamExternalResourceVerificationTokenState",
+                    "description": "The token state."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:ec2:IpamExternalResourceVerificationTokenStatus",
+                    "description": "The token status."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags for the token."
+                },
+                "tokenName": {
+                    "type": "string",
+                    "description": "The token name."
+                },
+                "tokenValue": {
+                    "type": "string",
+                    "description": "The token value."
+                }
+            },
+            "required": [
+                "ipamId"
+            ],
+            "createOnly": [
+                "ipamId"
+            ],
+            "readOnly": [
+                "ipamArn",
+                "ipamExternalResourceVerificationTokenArn",
+                "ipamExternalResourceVerificationTokenId",
+                "ipamRegion",
+                "notAfter",
+                "state",
+                "status",
+                "tokenName",
+                "tokenValue"
+            ],
+            "unorderedCollections": [
+                "tags"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "ipamExternalResourceVerificationTokenArn"
+            ],
+            "listInputs": {
+                "type": "object"
             },
             "hasListHandler": true
         },
@@ -69639,7 +69954,7 @@
                 },
                 "preSharedKeyStorage": {
                     "$ref": "#/types/aws-native:ec2:VpnConnectionPreSharedKeyStorage",
-                    "description": "Describes the storage location for an instance store-backed AMI."
+                    "description": "Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager)."
                 },
                 "remoteIpv4NetworkCidr": {
                     "type": "string",
@@ -69723,7 +70038,7 @@
                 },
                 "preSharedKeyStorage": {
                     "$ref": "#/types/aws-native:ec2:VpnConnectionPreSharedKeyStorage",
-                    "description": "Describes the storage location for an instance store-backed AMI.",
+                    "description": "Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).",
                     "replaceOnChanges": true
                 },
                 "remoteIpv4NetworkCidr": {
@@ -72361,6 +72676,7 @@
             },
             "hasListHandler": true,
             "propertyTransforms": {
+                "encrypted": "Encrypted and Encrypted $OR true",
                 "fileSystemProtection/replicationOverwriteProtection": "$uppercase(FileSystemProtection.ReplicationOverwriteProtection)='DISABLED' ? 'REPLICATING' : $uppercase(FileSystemProtection.ReplicationOverwriteProtection)",
                 "kmsKeyId": "\"arn:aws[-a-z]*:kms:[a-z0-9-]+:[0-9]{12}:key/[a-zA-Z0-9-]+\"",
                 "replicationConfiguration/destinations/*/fileSystemId": "$split(FileSystemId, \"/\")[-1]"
@@ -77350,6 +77666,9 @@
         "aws-native:elementalinference:Feed": {
             "cf": "AWS::ElementalInference::Feed",
             "inputs": {
+                "accessRoleArn": {
+                    "type": "string"
+                },
                 "name": {
                     "type": "string"
                 },
@@ -77367,6 +77686,9 @@
                 }
             },
             "outputs": {
+                "accessRoleArn": {
+                    "type": "string"
+                },
                 "arn": {
                     "type": "string"
                 },
@@ -79741,6 +80063,10 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the role that is used for target invocation."
                 },
+                "ruleName": {
+                    "type": "string",
+                    "description": "The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt."
+                },
                 "scheduleExpression": {
                     "type": "string",
                     "description": "The scheduling expression. For example, \"cron(0 20 * * ? *)\", \"rate(5 minutes)\". For more information, see Creating an Amazon EventBridge rule that runs on a schedule."
@@ -79771,7 +80097,8 @@
                 "name"
             ],
             "readOnly": [
-                "arn"
+                "arn",
+                "ruleName"
             ],
             "unorderedCollections": [
                 "tags",
@@ -85376,6 +85703,95 @@
             ],
             "listInputs": {
                 "type": "object"
+            },
+            "hasListHandler": true
+        },
+        "aws-native:glue:Connection": {
+            "cf": "AWS::Glue::Connection",
+            "inputs": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "The ID of the data catalog to create the catalog object in. Currently, this should be the AWS account ID."
+                },
+                "connectionInput": {
+                    "$ref": "#/types/aws-native:glue:ConnectionInput",
+                    "description": "The connection properties used for this connection."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The collection of tags. Each tag element is associated with a given resource.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Connection` for more information about the expected schema for this property."
+                }
+            },
+            "outputs": {
+                "catalogId": {
+                    "type": "string",
+                    "description": "The ID of the data catalog to create the catalog object in. Currently, this should be the AWS account ID.",
+                    "replaceOnChanges": true
+                },
+                "connectionInput": {
+                    "$ref": "#/types/aws-native:glue:ConnectionInput",
+                    "description": "The connection properties used for this connection."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the connection."
+                },
+                "tags": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "The collection of tags. Each tag element is associated with a given resource.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Connection` for more information about the expected schema for this property."
+                }
+            },
+            "required": [
+                "catalogId",
+                "connectionInput"
+            ],
+            "createOnly": [
+                "catalogId",
+                "connectionInput/name"
+            ],
+            "readOnly": [
+                "name"
+            ],
+            "writeOnly": [
+                "connectionInput/authenticationConfiguration",
+                "connectionInput/authenticationConfiguration/authenticationType",
+                "connectionInput/authenticationConfiguration/basicAuthenticationCredentials",
+                "connectionInput/authenticationConfiguration/customAuthenticationCredentials",
+                "connectionInput/authenticationConfiguration/kmsKeyArn",
+                "connectionInput/authenticationConfiguration/oAuth2Properties/authorizationCodeProperties",
+                "connectionInput/authenticationConfiguration/oAuth2Properties/oAuth2Credentials",
+                "connectionInput/validateCredentials",
+                "connectionInput/validateForComputeEnvironments"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "untyped",
+            "cfRef": {
+                "property": "Id"
+            },
+            "primaryIdentifier": [
+                "catalogId",
+                "name"
+            ],
+            "listHandlerSchema": {
+                "properties": {
+                    "CatalogId": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "CatalogId"
+                ]
+            },
+            "listInputs": {
+                "properties": {
+                    "catalogId": {
+                        "type": "string"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "catalogId"
+                ]
             },
             "hasListHandler": true
         },
@@ -93797,6 +94213,207 @@
             "tagsStyle": "keyValueArray",
             "primaryIdentifier": [
                 "invoiceUnitArn"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true
+        },
+        "aws-native:invoicing:ProcurementPortalPreference": {
+            "cf": "AWS::Invoicing::ProcurementPortalPreference",
+            "inputs": {
+                "buyerDomain": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceBuyerDomain",
+                    "description": "The domain identifier for the buyer in the procurement portal."
+                },
+                "buyerIdentifier": {
+                    "type": "string",
+                    "description": "The unique identifier for the buyer in the procurement portal."
+                },
+                "contacts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceContact"
+                    },
+                    "description": "List of contact information for portal administrators and technical contacts."
+                },
+                "einvoiceDeliveryEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether e-invoice delivery is enabled for this procurement portal preference."
+                },
+                "einvoiceDeliveryPreference": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreference"
+                },
+                "procurementPortalInstanceEndpoint": {
+                    "type": "string",
+                    "description": "The endpoint URL where e-invoices are delivered to the procurement portal."
+                },
+                "procurementPortalName": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceProcurementPortalName",
+                    "description": "The name of the procurement portal."
+                },
+                "procurementPortalSharedSecret": {
+                    "type": "string",
+                    "description": "The shared secret or authentication credential used for secure communication with the procurement portal."
+                },
+                "purchaseOrderRetrievalEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether purchase order retrieval is enabled for this procurement portal preference."
+                },
+                "selector": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceSelector"
+                },
+                "supplierDomain": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceSupplierDomain",
+                    "description": "The domain identifier for the supplier in the procurement portal."
+                },
+                "supplierIdentifier": {
+                    "type": "string",
+                    "description": "The unique identifier for the supplier in the procurement portal."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags associated with this procurement portal preference."
+                },
+                "testEnvPreference": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreference"
+                }
+            },
+            "outputs": {
+                "awsAccountId": {
+                    "type": "string",
+                    "description": "The AWS account ID associated with this procurement portal preference."
+                },
+                "buyerDomain": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceBuyerDomain",
+                    "description": "The domain identifier for the buyer in the procurement portal.",
+                    "replaceOnChanges": true
+                },
+                "buyerIdentifier": {
+                    "type": "string",
+                    "description": "The unique identifier for the buyer in the procurement portal.",
+                    "replaceOnChanges": true
+                },
+                "contacts": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceContact"
+                    },
+                    "description": "List of contact information for portal administrators and technical contacts."
+                },
+                "createDate": {
+                    "type": "string",
+                    "description": "The date and time when the procurement portal preference was created."
+                },
+                "einvoiceDeliveryEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether e-invoice delivery is enabled for this procurement portal preference."
+                },
+                "einvoiceDeliveryPreference": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreference"
+                },
+                "einvoiceDeliveryPreferenceStatus": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceStatus",
+                    "description": "The current status of the e-invoice delivery preference."
+                },
+                "lastUpdateDate": {
+                    "type": "string",
+                    "description": "The date and time when the procurement portal preference was last updated."
+                },
+                "procurementPortalInstanceEndpoint": {
+                    "type": "string",
+                    "description": "The endpoint URL where e-invoices are delivered to the procurement portal."
+                },
+                "procurementPortalName": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceProcurementPortalName",
+                    "description": "The name of the procurement portal.",
+                    "replaceOnChanges": true
+                },
+                "procurementPortalPreferenceArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the procurement portal preference."
+                },
+                "procurementPortalSharedSecret": {
+                    "type": "string",
+                    "description": "The shared secret or authentication credential used for secure communication with the procurement portal."
+                },
+                "purchaseOrderRetrievalEnabled": {
+                    "type": "boolean",
+                    "description": "Indicates whether purchase order retrieval is enabled for this procurement portal preference."
+                },
+                "purchaseOrderRetrievalEndpoint": {
+                    "type": "string",
+                    "description": "The endpoint URL used for retrieving purchase orders from the procurement portal."
+                },
+                "purchaseOrderRetrievalPreferenceStatus": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderRetrievalPreferenceStatus",
+                    "description": "The current status of the purchase order retrieval preference."
+                },
+                "selector": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceSelector"
+                },
+                "supplierDomain": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceSupplierDomain",
+                    "description": "The domain identifier for the supplier in the procurement portal.",
+                    "replaceOnChanges": true
+                },
+                "supplierIdentifier": {
+                    "type": "string",
+                    "description": "The unique identifier for the supplier in the procurement portal.",
+                    "replaceOnChanges": true
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags associated with this procurement portal preference."
+                },
+                "testEnvPreference": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreference"
+                },
+                "version": {
+                    "type": "integer",
+                    "description": "The version number of the procurement portal preference configuration."
+                }
+            },
+            "required": [
+                "buyerDomain",
+                "buyerIdentifier",
+                "contacts",
+                "einvoiceDeliveryEnabled",
+                "procurementPortalName",
+                "purchaseOrderRetrievalEnabled",
+                "supplierDomain",
+                "supplierIdentifier"
+            ],
+            "createOnly": [
+                "buyerDomain",
+                "buyerIdentifier",
+                "procurementPortalName",
+                "supplierDomain",
+                "supplierIdentifier"
+            ],
+            "readOnly": [
+                "awsAccountId",
+                "createDate",
+                "einvoiceDeliveryPreferenceStatus",
+                "lastUpdateDate",
+                "procurementPortalPreferenceArn",
+                "purchaseOrderRetrievalEndpoint",
+                "purchaseOrderRetrievalPreferenceStatus",
+                "version"
+            ],
+            "writeOnly": [
+                "procurementPortalSharedSecret"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "procurementPortalPreferenceArn"
             ],
             "listInputs": {
                 "type": "object"
@@ -105601,21 +106218,21 @@
             "inputs": {
                 "policyDocument": {
                     "$ref": "pulumi.json#/Any",
-                    "description": "The resource policy of your Lambda resource\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
+                    "description": "The policy document you want to add to your LAM resource. This is formatted as a JSON string.\n For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
                 },
                 "resourceArn": {
                     "type": "string",
-                    "description": "The resource arn of your Lambda resource"
+                    "description": "The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters."
                 }
             },
             "outputs": {
                 "policyDocument": {
                     "$ref": "pulumi.json#/Any",
-                    "description": "The resource policy of your Lambda resource\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
+                    "description": "The policy document you want to add to your LAM resource. This is formatted as a JSON string.\n For more information, see [Working with resource-based policies in](https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html) in the *Developer Guide*.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Lambda::ResourcePolicy` for more information about the expected schema for this property."
                 },
                 "resourceArn": {
                     "type": "string",
-                    "description": "The resource arn of your Lambda resource",
+                    "description": "The Amazon Resource Name (ARN) of the LAM resource you want to add the policy to. For a function, you can use a qualified or an unqualified ARN. The value must be a complete ARN, and the operation does not accept wildcard characters.",
                     "replaceOnChanges": true
                 }
             },
@@ -107655,6 +108272,78 @@
             },
             "primaryIdentifier": [
                 "certificateName"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true
+        },
+        "aws-native:lightsail:ContactMethod": {
+            "cf": "AWS::Lightsail::ContactMethod",
+            "inputs": {
+                "contactEndpoint": {
+                    "type": "string",
+                    "description": "The destination of the contact method, such as an email address or a mobile phone number."
+                },
+                "protocol": {
+                    "$ref": "#/types/aws-native:lightsail:ContactMethodProtocol",
+                    "description": "The protocol of the contact method, such as Email or SMS (text messaging)."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the contact method."
+                },
+                "contactEndpoint": {
+                    "type": "string",
+                    "description": "The destination of the contact method, such as an email address or a mobile phone number.",
+                    "replaceOnChanges": true
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "The timestamp when the contact method was created."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the contact method."
+                },
+                "protocol": {
+                    "$ref": "#/types/aws-native:lightsail:ContactMethodProtocol",
+                    "description": "The protocol of the contact method, such as Email or SMS (text messaging).",
+                    "replaceOnChanges": true
+                },
+                "resourceType": {
+                    "type": "string",
+                    "description": "The Lightsail resource type of the contact method."
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:lightsail:ContactMethodStatus",
+                    "description": "The current status of the contact method."
+                },
+                "supportCode": {
+                    "type": "string",
+                    "description": "The support code for the contact method."
+                }
+            },
+            "required": [
+                "contactEndpoint",
+                "protocol"
+            ],
+            "createOnly": [
+                "contactEndpoint",
+                "protocol"
+            ],
+            "readOnly": [
+                "arn",
+                "createdAt",
+                "name",
+                "resourceType",
+                "status",
+                "supportCode"
+            ],
+            "primaryIdentifier": [
+                "arn"
             ],
             "listInputs": {
                 "type": "object"
@@ -121791,14 +122480,6 @@
                     "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentOptions",
                     "description": "Protocol options for connect attachment"
                 },
-                "proposedNetworkFunctionGroupChange": {
-                    "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentProposedNetworkFunctionGroupChange",
-                    "description": "The attachment to move from one network function group to another."
-                },
-                "proposedSegmentChange": {
-                    "$ref": "#/types/aws-native:networkmanager:ConnectAttachmentProposedSegmentChange",
-                    "description": "The attachment to move from one segment to another."
-                },
                 "routingPolicyLabel": {
                     "type": "string",
                     "description": "Routing policy label"
@@ -121929,6 +122610,8 @@
                 "createdAt",
                 "lastModificationErrors",
                 "ownerAccountId",
+                "proposedNetworkFunctionGroupChange",
+                "proposedSegmentChange",
                 "resourceArn",
                 "segmentName",
                 "state",
@@ -122565,14 +123248,6 @@
                     },
                     "description": "The Regions where the edges are located."
                 },
-                "proposedNetworkFunctionGroupChange": {
-                    "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentProposedNetworkFunctionGroupChange",
-                    "description": "The attachment to move from one network function group to another."
-                },
-                "proposedSegmentChange": {
-                    "$ref": "#/types/aws-native:networkmanager:DirectConnectGatewayAttachmentProposedSegmentChange",
-                    "description": "The attachment to move from one segment to another."
-                },
                 "routingPolicyLabel": {
                     "type": "string",
                     "description": "Routing policy label"
@@ -122694,6 +123369,8 @@
                 "lastModificationErrors",
                 "networkFunctionGroupName",
                 "ownerAccountId",
+                "proposedNetworkFunctionGroupChange",
+                "proposedSegmentChange",
                 "resourceArn",
                 "segmentName",
                 "state",
@@ -123129,14 +123806,6 @@
                     "type": "string",
                     "description": "The name of the network function group attachment."
                 },
-                "proposedNetworkFunctionGroupChange": {
-                    "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange",
-                    "description": "The attachment to move from one network function group to another."
-                },
-                "proposedSegmentChange": {
-                    "$ref": "#/types/aws-native:networkmanager:SiteToSiteVpnAttachmentProposedSegmentChange",
-                    "description": "The attachment to move from one segment to another."
-                },
                 "routingPolicyLabel": {
                     "type": "string",
                     "description": "Routing policy label"
@@ -123258,6 +123927,8 @@
                 "edgeLocation",
                 "lastModificationErrors",
                 "ownerAccountId",
+                "proposedNetworkFunctionGroupChange",
+                "proposedSegmentChange",
                 "resourceArn",
                 "segmentName",
                 "state",
@@ -123467,14 +124138,6 @@
                     "type": "string",
                     "description": "The Id of peering between transit gateway and core network."
                 },
-                "proposedNetworkFunctionGroupChange": {
-                    "$ref": "#/types/aws-native:networkmanager:TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange",
-                    "description": "The attachment to move from one network function group to another."
-                },
-                "proposedSegmentChange": {
-                    "$ref": "#/types/aws-native:networkmanager:TransitGatewayRouteTableAttachmentProposedSegmentChange",
-                    "description": "The attachment to move from one segment to another."
-                },
                 "routingPolicyLabel": {
                     "type": "string",
                     "description": "Routing policy label"
@@ -123599,6 +124262,8 @@
                 "edgeLocation",
                 "lastModificationErrors",
                 "ownerAccountId",
+                "proposedNetworkFunctionGroupChange",
+                "proposedSegmentChange",
                 "resourceArn",
                 "segmentName",
                 "state",
@@ -123635,14 +124300,6 @@
                 "options": {
                     "$ref": "#/types/aws-native:networkmanager:VpcAttachmentVpcOptions",
                     "description": "Vpc options of the attachment."
-                },
-                "proposedNetworkFunctionGroupChange": {
-                    "$ref": "#/types/aws-native:networkmanager:VpcAttachmentProposedNetworkFunctionGroupChange",
-                    "description": "The attachment to move from one network function group to another."
-                },
-                "proposedSegmentChange": {
-                    "$ref": "#/types/aws-native:networkmanager:VpcAttachmentProposedSegmentChange",
-                    "description": "The attachment to move from one segment to another."
                 },
                 "routingPolicyLabel": {
                     "type": "string",
@@ -123785,6 +124442,8 @@
                 "lastModificationErrors",
                 "networkFunctionGroupName",
                 "ownerAccountId",
+                "proposedNetworkFunctionGroupChange",
+                "proposedSegmentChange",
                 "resourceArn",
                 "segmentName",
                 "state",
@@ -138153,8 +138812,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. \n Valid for: Aurora DB clusters only",
-                    "replaceOnChanges": true
+                    "description": "A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*. \n Valid for: Aurora DB clusters only"
                 },
                 "backtrackWindow": {
                     "type": "integer",
@@ -138432,7 +139090,6 @@
                 }
             },
             "createOnly": [
-                "availabilityZones",
                 "clusterScalabilityType",
                 "databaseName",
                 "dbClusterIdentifier",
@@ -155302,6 +155959,12 @@
                 "specification": {
                     "$ref": "#/types/aws-native:sagemaker:InferenceComponentSpecification"
                 },
+                "specifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sagemaker:InferenceComponentSpecificationForInstanceType"
+                    }
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -155355,6 +156018,12 @@
                 "specification": {
                     "$ref": "#/types/aws-native:sagemaker:InferenceComponentSpecification"
                 },
+                "specifications": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sagemaker:InferenceComponentSpecificationForInstanceType"
+                    }
+                },
                 "tags": {
                     "type": "array",
                     "items": {
@@ -155370,8 +156039,7 @@
                 "sdkName": "inferenceComponentName"
             },
             "required": [
-                "endpointName",
-                "specification"
+                "endpointName"
             ],
             "readOnly": [
                 "creationTime",
@@ -155381,12 +156049,24 @@
                 "lastModifiedTime",
                 "runtimeConfig/currentCopyCount",
                 "runtimeConfig/desiredCopyCount",
-                "specification/container/deployedImage"
+                "runtimeConfig/placementStatus",
+                "specification/container/deployedImage",
+                "specification/currentDataCacheConfig",
+                "specifications/*/currentDataCacheConfig"
             ],
             "writeOnly": [
                 "deploymentConfig",
                 "runtimeConfig/copyCount",
-                "specification/container/image"
+                "specification/container/image",
+                "specification/dataCacheConfig",
+                "specifications/*/container/image",
+                "specifications/*/dataCacheConfig"
+            ],
+            "unorderedCollections": [
+                "runtimeConfig/placementStatus",
+                "specification/container/containerMetricsConfig/metricsEndpoints",
+                "specifications",
+                "specifications/*/container/containerMetricsConfig/metricsEndpoints"
             ],
             "tagsProperty": "tags",
             "tagsStyle": "keyValueArray",
@@ -159231,6 +159911,7 @@
                 "assets/endpoints",
                 "assets/integratedRepositories",
                 "assets/sourceCode",
+                "assets/trustedCaCertificates",
                 "disableManagedSkills",
                 "excludeRiskTypes",
                 "vpcConfig/securityGroupArns",
@@ -162987,6 +163668,79 @@
                 "required": [
                     "applicationArn"
                 ]
+            },
+            "hasListHandler": true
+        },
+        "aws-native:servicediscovery:HttpNamespace": {
+            "cf": "AWS::ServiceDiscovery::HttpNamespace",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "A description for the namespace."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name that you want to assign to this namespace."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the namespace."
+                },
+                "awsId": {
+                    "type": "string",
+                    "description": "The ID of the namespace."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description for the namespace."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name that you want to assign to this namespace.",
+                    "replaceOnChanges": true
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "The tags for the namespace. Each tag consists of a key and an optional value, both of which you define. Tag keys can have a maximum character length of 128 characters, and tag values can have a maximum length of 256 characters."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 1024
+            },
+            "createOnly": [
+                "name"
+            ],
+            "readOnly": [
+                "arn",
+                "id"
+            ],
+            "irreversibleNames": {
+                "awsId": "Id"
+            },
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "cfRef": {
+                "property": "Name"
+            },
+            "primaryIdentifier": [
+                "id"
+            ],
+            "listInputs": {
+                "type": "object"
             },
             "hasListHandler": true
         },
@@ -166924,7 +167678,8 @@
                 },
                 "instanceId": {
                     "type": "string",
-                    "description": "The ID of the instance that the SSM document is associated with."
+                    "description": "The ID of the instance that the SSM document is associated with.",
+                    "replaceOnChanges": true
                 },
                 "maxConcurrency": {
                     "type": "string",
@@ -166986,6 +167741,9 @@
             "autoNamingSpec": {
                 "sdkName": "name"
             },
+            "createOnly": [
+                "instanceId"
+            ],
             "readOnly": [
                 "associationId"
             ],
@@ -170488,6 +171246,118 @@
             },
             "primaryIdentifier": [
                 "teamId"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true
+        },
+        "aws-native:supportauthz:SupportPermit": {
+            "cf": "AWS::SupportAuthZ::SupportPermit",
+            "inputs": {
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the support permit."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the support permit."
+                },
+                "permit": {
+                    "$ref": "#/types/aws-native:supportauthz:SupportPermitPermit"
+                },
+                "signingKeyInfo": {
+                    "$ref": "#/types/aws-native:supportauthz:SupportPermitSigningKeyInfo"
+                },
+                "supportCaseDisplayId": {
+                    "type": "string",
+                    "description": "The support case display identifier associated with the permit. When provided, the permit is linked to the specified AWS Support case."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "A list of key-value pairs to apply to this resource."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the support permit."
+                },
+                "createdAt": {
+                    "type": "string",
+                    "description": "The time at which the support permit was created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "An optional description of the support permit.",
+                    "replaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the support permit.",
+                    "replaceOnChanges": true
+                },
+                "permit": {
+                    "$ref": "#/types/aws-native:supportauthz:SupportPermitPermit",
+                    "replaceOnChanges": true
+                },
+                "permitId": {
+                    "type": "string",
+                    "description": "The service-generated identifier of the support permit (the resource segment of the ARN)."
+                },
+                "signingKeyInfo": {
+                    "$ref": "#/types/aws-native:supportauthz:SupportPermitSigningKeyInfo",
+                    "replaceOnChanges": true
+                },
+                "status": {
+                    "$ref": "#/types/aws-native:supportauthz:SupportPermitStatus",
+                    "description": "The current status of the support permit."
+                },
+                "supportCaseDisplayId": {
+                    "type": "string",
+                    "description": "The support case display identifier associated with the permit. When provided, the permit is linked to the specified AWS Support case.",
+                    "replaceOnChanges": true
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:Tag"
+                    },
+                    "description": "A list of key-value pairs to apply to this resource."
+                }
+            },
+            "autoNamingSpec": {
+                "sdkName": "name",
+                "minLength": 1,
+                "maxLength": 256
+            },
+            "required": [
+                "permit",
+                "signingKeyInfo"
+            ],
+            "createOnly": [
+                "description",
+                "name",
+                "permit",
+                "signingKeyInfo",
+                "supportCaseDisplayId"
+            ],
+            "readOnly": [
+                "arn",
+                "createdAt",
+                "permitId",
+                "status"
+            ],
+            "unorderedCollections": [
+                "tags"
+            ],
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArray",
+            "primaryIdentifier": [
+                "arn"
             ],
             "listInputs": {
                 "type": "object"
@@ -175387,13 +176257,11 @@
                 },
                 "dnsOptions": {
                     "$ref": "#/types/aws-native:vpclattice:ServiceNetworkVpcAssociationDnsOptions",
-                    "description": "The DNS options for the service network VPC association.",
-                    "replaceOnChanges": true
+                    "description": "The DNS options for the service network VPC association."
                 },
                 "privateDnsEnabled": {
                     "type": "boolean",
-                    "description": "Indicates if private DNS is enabled for the service network VPC association.",
-                    "replaceOnChanges": true
+                    "description": "Indicates if private DNS is enabled for the service network VPC association."
                 },
                 "securityGroupIds": {
                     "type": "array",
@@ -175441,10 +176309,6 @@
                 }
             },
             "createOnly": [
-                "dnsOptions",
-                "dnsOptions/privateDnsPreference",
-                "dnsOptions/privateDnsSpecifiedDomains",
-                "privateDnsEnabled",
                 "serviceNetworkIdentifier",
                 "vpcIdentifier"
             ],
@@ -191781,6 +192645,17 @@
                 "neptuneGlobalDatabaseConfig"
             ]
         },
+        "aws-native:arcregionswitch:PlanExecutionBlockConfiguration17Properties": {
+            "type": "object",
+            "properties": {
+                "rdsSwitchoverReadReplicaConfig": {
+                    "$ref": "#/types/aws-native:arcregionswitch:PlanRdsSwitchoverReadReplicaConfiguration"
+                }
+            },
+            "required": [
+                "rdsSwitchoverReadReplicaConfig"
+            ]
+        },
         "aws-native:arcregionswitch:PlanExecutionBlockConfiguration1Properties": {
             "type": "object",
             "properties": {
@@ -192137,6 +193012,43 @@
                 "dbInstanceArnMap"
             ]
         },
+        "aws-native:arcregionswitch:PlanRdsSwitchoverReadReplicaConfiguration": {
+            "type": "object",
+            "properties": {
+                "crossAccountRole": {
+                    "type": "string"
+                },
+                "dbInstanceArnMap": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "externalId": {
+                    "type": "string"
+                },
+                "timeoutMinutes": {
+                    "type": "number"
+                },
+                "ungraceful": {
+                    "$ref": "#/types/aws-native:arcregionswitch:PlanRdsUngraceful"
+                }
+            },
+            "required": [
+                "dbInstanceArnMap"
+            ]
+        },
+        "aws-native:arcregionswitch:PlanRdsUngraceful": {
+            "type": "object",
+            "properties": {
+                "ungraceful": {
+                    "$ref": "#/types/aws-native:arcregionswitch:PlanRdsUngracefulBehavior"
+                }
+            }
+        },
+        "aws-native:arcregionswitch:PlanRdsUngracefulBehavior": {
+            "type": "string"
+        },
         "aws-native:arcregionswitch:PlanRecoveryApproach": {
             "type": "string"
         },
@@ -192331,6 +193243,9 @@
                         },
                         {
                             "$ref": "#/types/aws-native:arcregionswitch:PlanExecutionBlockConfiguration16Properties"
+                        },
+                        {
+                            "$ref": "#/types/aws-native:arcregionswitch:PlanExecutionBlockConfiguration17Properties"
                         }
                     ],
                     "description": "The configuration for an execution block in a workflow."
@@ -193254,6 +194169,23 @@
                 }
             }
         },
+        "aws-native:autoscaling:AutoScalingGroupDistributionSegment": {
+            "type": "object",
+            "properties": {
+                "targetCapacityTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:autoscaling:AutoScalingGroupDistributionSegmentTargetCapacityTypesItem"
+                    }
+                }
+            },
+            "required": [
+                "targetCapacityTypes"
+            ]
+        },
+        "aws-native:autoscaling:AutoScalingGroupDistributionSegmentTargetCapacityTypesItem": {
+            "type": "string"
+        },
         "aws-native:autoscaling:AutoScalingGroupInstanceLifecyclePolicy": {
             "type": "object",
             "properties": {
@@ -193415,6 +194347,12 @@
         "aws-native:autoscaling:AutoScalingGroupInstancesDistribution": {
             "type": "object",
             "properties": {
+                "distributionSegments": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:autoscaling:AutoScalingGroupDistributionSegment"
+                    }
+                },
                 "onDemandAllocationStrategy": {
                     "type": "string",
                     "description": "The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.\n The following lists the valid values:\n  + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do."
@@ -207792,6 +208730,17 @@
                 "inlinePayload"
             ]
         },
+        "aws-native:bedrockagentcore:GatewayWafConfiguration": {
+            "type": "object",
+            "properties": {
+                "failureMode": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:GatewayWafFailureMode"
+                }
+            }
+        },
+        "aws-native:bedrockagentcore:GatewayWafFailureMode": {
+            "type": "string"
+        },
         "aws-native:bedrockagentcore:GatewayWorkloadIdentityDetails": {
             "type": "object",
             "properties": {
@@ -218937,6 +219886,83 @@
                 }
             }
         },
+        "aws-native:codebuild:ReportGroupReportExportConfig": {
+            "type": "object",
+            "properties": {
+                "exportConfigType": {
+                    "$ref": "#/types/aws-native:codebuild:ReportGroupReportExportConfigExportConfigType",
+                    "description": "The export configuration type. Valid values are:\n\n- `S3` : The report results are exported to an S3 bucket.\n- `NO_EXPORT` : The report results are not exported."
+                },
+                "s3Destination": {
+                    "$ref": "#/types/aws-native:codebuild:ReportGroupS3ReportExportConfig",
+                    "description": "A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported."
+                }
+            },
+            "required": [
+                "exportConfigType"
+            ],
+            "irreversibleNames": {
+                "s3Destination": "S3Destination"
+            }
+        },
+        "aws-native:codebuild:ReportGroupReportExportConfigExportConfigType": {
+            "type": "string"
+        },
+        "aws-native:codebuild:ReportGroupS3ReportExportConfig": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "The name of the S3 bucket where the raw data of a report are exported."
+                },
+                "bucketOwner": {
+                    "type": "string",
+                    "description": "The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build."
+                },
+                "encryptionDisabled": {
+                    "type": "boolean",
+                    "description": "A boolean value that specifies if the results of a report are encrypted."
+                },
+                "encryptionKey": {
+                    "type": "string",
+                    "description": "The encryption key for the report's encrypted raw data."
+                },
+                "packaging": {
+                    "$ref": "#/types/aws-native:codebuild:ReportGroupS3ReportExportConfigPackaging",
+                    "description": "The type of build output artifact to create. Valid values include:\n\n- `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.\n- `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket."
+                },
+                "path": {
+                    "type": "string",
+                    "description": "The path to the exported report's raw data results."
+                }
+            },
+            "required": [
+                "bucket"
+            ]
+        },
+        "aws-native:codebuild:ReportGroupS3ReportExportConfigPackaging": {
+            "type": "string"
+        },
+        "aws-native:codebuild:ReportGroupTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag's key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag's value."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:codebuild:ReportGroupType": {
+            "type": "string"
+        },
         "aws-native:codecommit:RepositoryCode": {
             "type": "object",
             "properties": {
@@ -222462,13 +223488,10 @@
             "type": "object",
             "properties": {
                 "deliveryFrequency": {
-                    "$ref": "#/types/aws-native:configuration:DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency",
+                    "type": "string",
                     "description": "The frequency with which AWS Config delivers configuration snapshots."
                 }
             }
-        },
-        "aws-native:configuration:DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency": {
-            "type": "string"
         },
         "aws-native:configuration:OrganizationConformancePackConformancePackInputParameter": {
             "type": "object",
@@ -239744,6 +240767,36 @@
         "aws-native:ec2:FlowLogTrafficType": {
             "type": "string"
         },
+        "aws-native:ec2:FpgaImageStorageLocation": {
+            "type": "object",
+            "properties": {
+                "bucket": {
+                    "type": "string",
+                    "description": "The name of the S3 bucket."
+                },
+                "key": {
+                    "type": "string",
+                    "description": "The key."
+                }
+            }
+        },
+        "aws-native:ec2:FpgaImageTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag value."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:ec2:HibernationOptionsProperties": {
             "type": "object",
             "properties": {
@@ -240213,6 +241266,29 @@
             ]
         },
         "aws-native:ec2:InternetGatewayTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag value."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:ec2:IpamExternalResourceVerificationTokenState": {
+            "type": "string"
+        },
+        "aws-native:ec2:IpamExternalResourceVerificationTokenStatus": {
+            "type": "string"
+        },
+        "aws-native:ec2:IpamExternalResourceVerificationTokenTag": {
             "type": "object",
             "properties": {
                 "key": {
@@ -252258,7 +253334,15 @@
             }
         },
         "aws-native:elementalinference:FeedCroppingConfig": {
-            "type": "object"
+            "type": "object",
+            "properties": {
+                "templateGroups": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:elementalinference:FeedTemplateGroup"
+                    }
+                }
+            }
         },
         "aws-native:elementalinference:FeedDataSourceConfiguration": {
             "type": "object",
@@ -252360,6 +253444,24 @@
             },
             "required": [
                 "language"
+            ]
+        },
+        "aws-native:elementalinference:FeedTemplateGroup": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "templateUris": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "name",
+                "templateUris"
             ]
         },
         "aws-native:elementalinference:FeedTranscriptionLanguage": {
@@ -257270,7 +258372,7 @@
                 },
                 "metricName": {
                     "$ref": "#/types/aws-native:gamelift:ContainerFleetScalingPolicyMetricName",
-                    "description": "Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment."
+                    "description": "Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies."
                 },
                 "name": {
                     "type": "string",
@@ -257298,7 +258400,6 @@
                 }
             },
             "required": [
-                "metricName",
                 "name"
             ]
         },
@@ -257845,7 +258946,7 @@
                 },
                 "metricName": {
                     "$ref": "#/types/aws-native:gamelift:FleetScalingPolicyMetricName",
-                    "description": "Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment."
+                    "description": "Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies."
                 },
                 "name": {
                     "type": "string",
@@ -257881,7 +258982,6 @@
                 }
             },
             "required": [
-                "metricName",
                 "name"
             ]
         },
@@ -258691,6 +259791,213 @@
                 "classification",
                 "rowTag"
             ]
+        },
+        "aws-native:glue:ConnectionAuthenticationConfiguration": {
+            "type": "object",
+            "properties": {
+                "authenticationType": {
+                    "type": "string",
+                    "description": "A structure containing the authentication configuration in the CreateConnection request."
+                },
+                "basicAuthenticationCredentials": {
+                    "$ref": "#/types/aws-native:glue:ConnectionBasicAuthenticationCredentials",
+                    "description": "For supplying basic auth credentials when not providing a SecretArn value"
+                },
+                "customAuthenticationCredentials": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A structure containing the authentication credentials in the CreateConnection request."
+                },
+                "kmsKeyArn": {
+                    "type": "string",
+                    "description": "The Amazon Resource Name (ARN) of the KMS key used in the authentication configuration."
+                },
+                "oAuth2Properties": {
+                    "$ref": "#/types/aws-native:glue:ConnectionOAuth2Properties",
+                    "description": "A structure containing properties for OAuth2 in the CreateConnection request."
+                },
+                "secretArn": {
+                    "type": "string",
+                    "description": "The secret manager ARN to store credentials in the CreateConnection request."
+                }
+            },
+            "required": [
+                "authenticationType"
+            ]
+        },
+        "aws-native:glue:ConnectionAuthorizationCodeProperties": {
+            "type": "object",
+            "properties": {
+                "authorizationCode": {
+                    "type": "string",
+                    "description": "The authorization code used in the authentication configuration."
+                },
+                "redirectUri": {
+                    "type": "string",
+                    "description": "The redirect URI where the user gets redirected to by authorization server when issuing an authorization code."
+                }
+            }
+        },
+        "aws-native:glue:ConnectionBasicAuthenticationCredentials": {
+            "type": "object",
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "The password used in the authentication configuration."
+                },
+                "username": {
+                    "type": "string",
+                    "description": "The username used in the authentication configuration."
+                }
+            }
+        },
+        "aws-native:glue:ConnectionInput": {
+            "type": "object",
+            "properties": {
+                "athenaProperties": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Connection properties specific to the Athena compute environment."
+                },
+                "authenticationConfiguration": {
+                    "$ref": "#/types/aws-native:glue:ConnectionAuthenticationConfiguration",
+                    "description": "The authentication configuration used to connect to the connection."
+                },
+                "connectionProperties": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of key-value pairs used as parameters for this connection."
+                },
+                "connectionType": {
+                    "type": "string",
+                    "description": "The type of the connection that needs to be created."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "A description of the connection."
+                },
+                "matchCriteria": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "A list of criteria that can be used in selecting this connection."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the connection.",
+                    "replaceOnChanges": true
+                },
+                "physicalConnectionRequirements": {
+                    "$ref": "#/types/aws-native:glue:ConnectionPhysicalConnectionRequirements",
+                    "description": "The physical connection requirements."
+                },
+                "pythonProperties": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Connection properties specific to the Python compute environment."
+                },
+                "sparkProperties": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Connection properties specific to the Spark compute environment."
+                },
+                "validateCredentials": {
+                    "type": "boolean",
+                    "description": "A flag to validate the credentials during create connection. Default is true."
+                },
+                "validateForComputeEnvironments": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The compute environments that the specified connection properties are validated against."
+                }
+            },
+            "required": [
+                "connectionType"
+            ]
+        },
+        "aws-native:glue:ConnectionOAuth2ClientApplication": {
+            "type": "object",
+            "properties": {
+                "awsManagedClientApplicationReference": {
+                    "type": "string",
+                    "description": "The reference to the SaaS-side client app that is AWS managed."
+                },
+                "userManagedClientApplicationClientId": {
+                    "type": "string",
+                    "description": "The client application clientID if the ClientAppType is USER_MANAGED."
+                }
+            },
+            "irreversibleNames": {
+                "awsManagedClientApplicationReference": "AWSManagedClientApplicationReference"
+            }
+        },
+        "aws-native:glue:ConnectionOAuth2Credentials": {
+            "type": "object",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "description": "The access token used in the authentication configuration."
+                },
+                "jwtToken": {
+                    "type": "string",
+                    "description": "The JSON Web Token (JWT) used when the authentication type is OAuth2."
+                },
+                "refreshToken": {
+                    "type": "string",
+                    "description": "The refresh token used when the authentication type is OAuth2."
+                },
+                "userManagedClientApplicationClientSecret": {
+                    "type": "string",
+                    "description": "The client application client secret if the client application is user managed."
+                }
+            }
+        },
+        "aws-native:glue:ConnectionOAuth2Properties": {
+            "type": "object",
+            "properties": {
+                "authorizationCodeProperties": {
+                    "$ref": "#/types/aws-native:glue:ConnectionAuthorizationCodeProperties",
+                    "description": "The set of properties required for the the OAuth2 AUTHORIZATION_CODE grant type workflow."
+                },
+                "oAuth2ClientApplication": {
+                    "$ref": "#/types/aws-native:glue:ConnectionOAuth2ClientApplication",
+                    "description": "The OAuth2 client app used for the connection."
+                },
+                "oAuth2Credentials": {
+                    "$ref": "#/types/aws-native:glue:ConnectionOAuth2Credentials",
+                    "description": "A structure containing the OAuth2 credentials used in the authentication configuration."
+                },
+                "oAuth2GrantType": {
+                    "type": "string",
+                    "description": "The grant type used in the authentication configuration."
+                },
+                "tokenUrl": {
+                    "type": "string",
+                    "description": "The URL used in the authentication configuration."
+                },
+                "tokenUrlParametersMap": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A map of key-value pairs used in the authentication configuration."
+                }
+            }
+        },
+        "aws-native:glue:ConnectionPhysicalConnectionRequirements": {
+            "type": "object",
+            "properties": {
+                "availabilityZone": {
+                    "type": "string",
+                    "description": "The availability zone where the connection is located."
+                },
+                "securityGroupIdList": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The security group ID list used by the connection."
+                },
+                "subnetId": {
+                    "type": "string",
+                    "description": "The subnet ID used by the connection."
+                }
+            }
         },
         "aws-native:glue:CrawlerCatalogTarget": {
             "type": "object",
@@ -261471,6 +262778,12 @@
                 "lte": {
                     "type": "integer"
                 },
+                "matches": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
                 "neq": {
                     "type": "array",
                     "items": {
@@ -261478,6 +262791,12 @@
                     }
                 },
                 "notEquals": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "notMatches": {
                     "type": "array",
                     "items": {
                         "type": "string"
@@ -264245,6 +265564,167 @@
             "required": [
                 "linkedAccounts"
             ]
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceBuyerDomain": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceContact": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "description": "The email address of the contact person or role."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the contact person or role."
+                }
+            }
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreference": {
+            "type": "object",
+            "properties": {
+                "connectionTestingMethod": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod",
+                    "description": "The method to use for testing the connection to the procurement portal."
+                },
+                "einvoiceDeliveryActivationDate": {
+                    "type": "string",
+                    "description": "The ISO 8601 date-time when e-invoice delivery should be activated."
+                },
+                "einvoiceDeliveryAttachmentTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem"
+                    },
+                    "description": "The types of attachments to include with the e-invoice delivery."
+                },
+                "einvoiceDeliveryDocumentTypes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem"
+                    },
+                    "description": "The types of e-invoice documents to be delivered."
+                },
+                "protocol": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol",
+                    "description": "The communication protocol to use for e-invoice delivery."
+                },
+                "purchaseOrderDataSources": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderDataSource"
+                    },
+                    "description": "The sources of purchase order data."
+                }
+            }
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceConnectionTestingMethod": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryAttachmentTypesItem": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceEinvoiceDeliveryDocumentTypesItem": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceProtocol": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceEinvoiceDeliveryPreferenceStatus": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceProcurementPortalName": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderDataSource": {
+            "type": "object",
+            "properties": {
+                "einvoiceDeliveryDocumentType": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType",
+                    "description": "The type of e-invoice document that requires purchase order data."
+                },
+                "purchaseOrderDataSourceType": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType",
+                    "description": "The type of source for purchase order data."
+                }
+            }
+        },
+        "aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderDataSourceEinvoiceDeliveryDocumentType": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderDataSourcePurchaseOrderDataSourceType": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferencePurchaseOrderRetrievalPreferenceStatus": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceSelector": {
+            "type": "object",
+            "properties": {
+                "invoiceUnitArns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "The Amazon Resource Name (ARN) of invoice unit identifiers to which this preference applies."
+                }
+            }
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceSupplierDomain": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The tag key."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The tag value."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreference": {
+            "type": "object",
+            "properties": {
+                "buyerDomain": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain",
+                    "description": "The domain identifier for the buyer in the test environment."
+                },
+                "buyerIdentifier": {
+                    "type": "string",
+                    "description": "The unique identifier for the buyer in the test environment."
+                },
+                "procurementPortalInstanceEndpoint": {
+                    "type": "string",
+                    "description": "The endpoint URL for e-invoice delivery in the test environment."
+                },
+                "procurementPortalSharedSecret": {
+                    "type": "string",
+                    "description": "The shared secret for secure communication in the test environment."
+                },
+                "supplierDomain": {
+                    "$ref": "#/types/aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain",
+                    "description": "The domain identifier for the supplier in the test environment."
+                },
+                "supplierIdentifier": {
+                    "type": "string",
+                    "description": "The unique identifier for the supplier in the test environment."
+                }
+            }
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreferenceBuyerDomain": {
+            "type": "string"
+        },
+        "aws-native:invoicing:ProcurementPortalPreferenceTestEnvPreferenceSupplierDomain": {
+            "type": "string"
         },
         "aws-native:iot:AbortConfigProperties": {
             "type": "object",
@@ -277523,12 +279003,18 @@
                 "localMountPath": {
                     "type": "string",
                     "description": "The path where the function can access the file system, starting with ``/mnt/``."
+                },
+                "s3FilesConfig": {
+                    "$ref": "#/types/aws-native:lambda:FunctionS3FilesConfig"
                 }
             },
             "required": [
                 "arn",
                 "localMountPath"
-            ]
+            ],
+            "irreversibleNames": {
+                "s3FilesConfig": "S3FilesConfig"
+            }
         },
         "aws-native:lambda:FunctionImageConfig": {
             "type": "object",
@@ -277626,6 +279112,21 @@
             ]
         },
         "aws-native:lambda:FunctionRuntimeManagementConfigUpdateRuntimeOn": {
+            "type": "string"
+        },
+        "aws-native:lambda:FunctionS3FilesConfig": {
+            "type": "object",
+            "properties": {
+                "directS3Read": {
+                    "$ref": "#/types/aws-native:lambda:FunctionS3FilesConfigDirectS3Read",
+                    "description": "Specifies if a function reads from the file system for the lowest latency, or through Amazon S3 Files feature \"direct Amazon S3 bucket reads\" for the highest throughput"
+                }
+            },
+            "irreversibleNames": {
+                "directS3Read": "DirectS3Read"
+            }
+        },
+        "aws-native:lambda:FunctionS3FilesConfigDirectS3Read": {
             "type": "string"
         },
         "aws-native:lambda:FunctionScalingConfig": {
@@ -280919,6 +282420,12 @@
             "required": [
                 "key"
             ]
+        },
+        "aws-native:lightsail:ContactMethodProtocol": {
+            "type": "string"
+        },
+        "aws-native:lightsail:ContactMethodStatus": {
+            "type": "string"
         },
         "aws-native:lightsail:Container": {
             "type": "object",
@@ -288165,6 +289672,9 @@
             "properties": {
                 "httpRequest": {
                     "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationHttpRequest"
+                },
+                "vastResponse": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationVastResponse"
                 }
             },
             "required": [
@@ -288350,6 +289860,9 @@
         "aws-native:mediatailor:PlaybackConfigurationLivePreRollConfiguration": {
             "type": "object",
             "properties": {
+                "adDecisionServerConfiguration": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationPreRollAdDecisionServerConfiguration"
+                },
                 "adDecisionServerUrl": {
                     "type": "string",
                     "description": "The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters."
@@ -288408,6 +289921,26 @@
                 }
             }
         },
+        "aws-native:mediatailor:PlaybackConfigurationPreRollAdDecisionServerConfiguration": {
+            "type": "object",
+            "properties": {
+                "vastResponse": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationPreRollVastResponse"
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationPreRollVastResponse": {
+            "type": "object",
+            "properties": {
+                "adSequencingMode": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationPreRollVastResponseAdSequencingMode",
+                    "description": "Determines how MediaTailor sequences ads returned in the pre-roll VAST response."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationPreRollVastResponseAdSequencingMode": {
+            "type": "string"
+        },
         "aws-native:mediatailor:PlaybackConfigurationStreamingMediaFileConditioning": {
             "type": "string"
         },
@@ -288425,6 +289958,18 @@
                 "key",
                 "value"
             ]
+        },
+        "aws-native:mediatailor:PlaybackConfigurationVastResponse": {
+            "type": "object",
+            "properties": {
+                "adSequencingMode": {
+                    "$ref": "#/types/aws-native:mediatailor:PlaybackConfigurationVastResponseAdSequencingMode",
+                    "description": "Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server."
+                }
+            }
+        },
+        "aws-native:mediatailor:PlaybackConfigurationVastResponseAdSequencingMode": {
+            "type": "string"
         },
         "aws-native:mediatailor:PrefetchScheduleAvailMatchingCriteria": {
             "type": "object",
@@ -292873,6 +294418,9 @@
                 "logsEncryptionConfiguration": {
                     "$ref": "#/types/aws-native:observabilityadmin:OrganizationCentralizationRuleLogsEncryptionConfiguration",
                     "description": "The encryption configuration for centralization destination log groups."
+                },
+                "tagPropagationConfiguration": {
+                    "$ref": "#/types/aws-native:observabilityadmin:OrganizationCentralizationRuleTagPropagationConfiguration"
                 }
             }
         },
@@ -293000,6 +294548,25 @@
                 "key",
                 "value"
             ]
+        },
+        "aws-native:observabilityadmin:OrganizationCentralizationRuleTagPropagationConfiguration": {
+            "type": "object",
+            "properties": {
+                "destinationRoleArn": {
+                    "type": "string",
+                    "description": "The ARN of the destination account IAM role used for tag propagation."
+                },
+                "tagConflictResolutionStrategy": {
+                    "$ref": "#/types/aws-native:observabilityadmin:OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy",
+                    "description": "The strategy to resolve tag conflicts during propagation."
+                }
+            },
+            "required": [
+                "destinationRoleArn"
+            ]
+        },
+        "aws-native:observabilityadmin:OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy": {
+            "type": "string"
         },
         "aws-native:observabilityadmin:OrganizationTelemetryRuleAction": {
             "type": "string"
@@ -353888,6 +355455,24 @@
                 "alarms"
             ]
         },
+        "aws-native:sagemaker:InferenceComponentAvailabilityZoneBalance": {
+            "type": "object",
+            "properties": {
+                "enforcementMode": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentAvailabilityZoneBalanceEnforcementMode"
+                },
+                "maxImbalance": {
+                    "type": "integer",
+                    "description": "The maximum allowed difference in the number of inference component copies between any two Availability Zones"
+                }
+            },
+            "required": [
+                "enforcementMode"
+            ]
+        },
+        "aws-native:sagemaker:InferenceComponentAvailabilityZoneBalanceEnforcementMode": {
+            "type": "string"
+        },
         "aws-native:sagemaker:InferenceComponentCapacitySize": {
             "type": "object",
             "properties": {
@@ -353929,12 +355514,29 @@
                 }
             }
         },
+        "aws-native:sagemaker:InferenceComponentContainerMetricsConfig": {
+            "type": "object",
+            "properties": {
+                "metricsEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sagemaker:InferenceComponentMetricsEndpoint"
+                    }
+                }
+            },
+            "required": [
+                "metricsEndpoints"
+            ]
+        },
         "aws-native:sagemaker:InferenceComponentContainerSpecification": {
             "type": "object",
             "properties": {
                 "artifactUrl": {
                     "type": "string",
                     "description": "The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix)."
+                },
+                "containerMetricsConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentContainerMetricsConfig"
                 },
                 "deployedImage": {
                     "$ref": "#/types/aws-native:sagemaker:InferenceComponentDeployedImage"
@@ -353951,6 +355553,38 @@
                     "description": "The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored."
                 }
             }
+        },
+        "aws-native:sagemaker:InferenceComponentContainerSpecificationForInstanceType": {
+            "type": "object",
+            "properties": {
+                "artifactUrl": {
+                    "type": "string"
+                },
+                "containerMetricsConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentContainerMetricsConfig"
+                },
+                "environment": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "image": {
+                    "type": "string"
+                }
+            }
+        },
+        "aws-native:sagemaker:InferenceComponentDataCacheConfig": {
+            "type": "object",
+            "properties": {
+                "enableCaching": {
+                    "type": "boolean",
+                    "description": "Whether the endpoint caches the model artifacts and container image on each instance it provisions for the inference component"
+                }
+            },
+            "required": [
+                "enableCaching"
+            ]
         },
         "aws-native:sagemaker:InferenceComponentDeployedImage": {
             "type": "object",
@@ -353980,6 +355614,40 @@
                     "description": "Specifies a rolling deployment strategy for updating a SageMaker AI endpoint."
                 }
             }
+        },
+        "aws-native:sagemaker:InferenceComponentMetricsEndpoint": {
+            "type": "object",
+            "properties": {
+                "metricPublishFrequencyInSeconds": {
+                    "type": "integer",
+                    "description": "The interval, in seconds, at which container metrics scraped from the endpoint are published to Amazon CloudWatch. Valid values per the SageMaker API Reference are 10, 30, 60, 120, 180, 240 and 300; the service validates the value."
+                },
+                "metricsEndpointPath": {
+                    "type": "string",
+                    "description": "The path to the Prometheus formatted metrics endpoint exposed by the container"
+                }
+            },
+            "required": [
+                "metricsEndpointPath"
+            ]
+        },
+        "aws-native:sagemaker:InferenceComponentPlacementStatus": {
+            "type": "object",
+            "properties": {
+                "currentCopyCount": {
+                    "type": "integer"
+                },
+                "instanceType": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "currentCopyCount",
+                "instanceType"
+            ]
+        },
+        "aws-native:sagemaker:InferenceComponentPlacementStrategy": {
+            "type": "string"
         },
         "aws-native:sagemaker:InferenceComponentRollingUpdatePolicy": {
             "type": "object",
@@ -354014,8 +355682,30 @@
                 },
                 "desiredCopyCount": {
                     "type": "integer"
+                },
+                "placementStatus": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:sagemaker:InferenceComponentPlacementStatus"
+                    },
+                    "description": "The placement status of the inference component across instance types"
                 }
             }
+        },
+        "aws-native:sagemaker:InferenceComponentSchedulingConfig": {
+            "type": "object",
+            "properties": {
+                "availabilityZoneBalance": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentAvailabilityZoneBalance"
+                },
+                "placementStrategy": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentPlacementStrategy"
+                }
+            },
+            "required": [
+                "availabilityZoneBalance",
+                "placementStrategy"
+            ]
         },
         "aws-native:sagemaker:InferenceComponentSpecification": {
             "type": "object",
@@ -354032,15 +355722,58 @@
                     "$ref": "#/types/aws-native:sagemaker:InferenceComponentContainerSpecification",
                     "description": "Defines a container that provides the runtime environment for a model that you deploy with an inference component."
                 },
+                "currentDataCacheConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentDataCacheConfig",
+                    "description": "The data caching configuration actually in effect, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead."
+                },
+                "dataCacheConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentDataCacheConfig"
+                },
                 "modelName": {
                     "type": "string",
                     "description": "The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component."
+                },
+                "schedulingConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentSchedulingConfig"
                 },
                 "startupParameters": {
                     "$ref": "#/types/aws-native:sagemaker:InferenceComponentStartupParameters",
                     "description": "Settings that take effect while the model container starts up."
                 }
             }
+        },
+        "aws-native:sagemaker:InferenceComponentSpecificationForInstanceType": {
+            "type": "object",
+            "properties": {
+                "computeResourceRequirements": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentComputeResourceRequirements"
+                },
+                "container": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentContainerSpecificationForInstanceType"
+                },
+                "currentDataCacheConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentDataCacheConfig",
+                    "description": "The data caching configuration actually in effect for this instance type, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead."
+                },
+                "dataCacheConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentDataCacheConfig"
+                },
+                "instanceType": {
+                    "type": "string"
+                },
+                "modelName": {
+                    "type": "string"
+                },
+                "schedulingConfig": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentSchedulingConfig"
+                },
+                "startupParameters": {
+                    "$ref": "#/types/aws-native:sagemaker:InferenceComponentStartupParameters"
+                }
+            },
+            "required": [
+                "instanceType"
+            ]
         },
         "aws-native:sagemaker:InferenceComponentStartupParameters": {
             "type": "object",
@@ -360574,6 +362307,13 @@
                         "$ref": "#/types/aws-native:securityagent:PentestSourceCodeRepository"
                     },
                     "description": "List of source code repositories to analyze"
+                },
+                "trustedCaCertificates": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:securityagent:PentestTrustedCaCertificate"
+                    },
+                    "description": "Trust anchors for validating target endpoint TLS certificates, for endpoints served by a private or internal CA, an intermediate CA, or a self-signed certificate"
                 }
             }
         },
@@ -360592,6 +362332,26 @@
         },
         "aws-native:securityagent:PentestAuthenticationProviderType": {
             "type": "string"
+        },
+        "aws-native:securityagent:PentestCaCertificateSource": {
+            "type": "object",
+            "properties": {
+                "artifactId": {
+                    "type": "string",
+                    "description": "Artifact ID of an uploaded certificate file"
+                },
+                "inlinePem": {
+                    "type": "string",
+                    "description": "PEM-encoded X.509 certificate supplied inline"
+                },
+                "s3Location": {
+                    "type": "string",
+                    "description": "Amazon S3 location URI of a customer-staged certificate"
+                }
+            },
+            "irreversibleNames": {
+                "s3Location": "S3Location"
+            }
         },
         "aws-native:securityagent:PentestCleanUpStrategy": {
             "type": "string"
@@ -360730,6 +362490,18 @@
             "irreversibleNames": {
                 "s3Location": "S3Location"
             }
+        },
+        "aws-native:securityagent:PentestTrustedCaCertificate": {
+            "type": "object",
+            "properties": {
+                "source": {
+                    "$ref": "#/types/aws-native:securityagent:PentestCaCertificateSource",
+                    "description": "Where to read the certificate from"
+                }
+            },
+            "required": [
+                "source"
+            ]
         },
         "aws-native:securityagent:PentestVpcConfig": {
             "type": "object",
@@ -363460,6 +365232,23 @@
         },
         "aws-native:servicecatalogappregistry:ResourceAssociationResourceType": {
             "type": "string"
+        },
+        "aws-native:servicediscovery:HttpNamespaceTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key identifier, or name, of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The string value that's associated with the key of the tag. You can set the value of a tag to an empty string, but you can't set the value of a tag to null."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
         },
         "aws-native:servicediscovery:PrivateDnsNamespacePrivateDnsPropertiesMutable": {
             "type": "object",
@@ -368481,6 +370270,105 @@
         "aws-native:supportapp:SlackChannelConfigurationNotifyOnCaseSeverity": {
             "type": "string"
         },
+        "aws-native:supportauthz:SupportPermitActionSet": {
+            "type": "object",
+            "properties": {
+                "actions": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An explicit list of actions to grant."
+                },
+                "allActions": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Grants all actions."
+                }
+            }
+        },
+        "aws-native:supportauthz:SupportPermitCondition": {
+            "type": "object",
+            "properties": {
+                "allowAfter": {
+                    "type": "string",
+                    "description": "The permit is active only after this time."
+                },
+                "allowBefore": {
+                    "type": "string",
+                    "description": "The permit is active only before this time."
+                }
+            }
+        },
+        "aws-native:supportauthz:SupportPermitPermit": {
+            "type": "object",
+            "properties": {
+                "actions": {
+                    "$ref": "#/types/aws-native:supportauthz:SupportPermitActionSet"
+                },
+                "conditions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:supportauthz:SupportPermitCondition"
+                    },
+                    "description": "Optional time-bound conditions (at most two)."
+                },
+                "resources": {
+                    "$ref": "#/types/aws-native:supportauthz:SupportPermitResourceSet"
+                }
+            },
+            "required": [
+                "actions",
+                "resources"
+            ]
+        },
+        "aws-native:supportauthz:SupportPermitResourceSet": {
+            "type": "object",
+            "properties": {
+                "allResourcesInRegion": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "Applies to all resources in the region."
+                },
+                "resources": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "An explicit list of resource ARNs."
+                }
+            }
+        },
+        "aws-native:supportauthz:SupportPermitSigningKeyInfo": {
+            "type": "object",
+            "properties": {
+                "kmsKey": {
+                    "type": "string",
+                    "description": "The ARN of the KMS key used to sign permit grants."
+                }
+            },
+            "required": [
+                "kmsKey"
+            ]
+        },
+        "aws-native:supportauthz:SupportPermitStatus": {
+            "type": "string"
+        },
+        "aws-native:supportauthz:SupportPermitTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
         "aws-native:synthetics:CanaryArtifactConfig": {
             "type": "object",
             "properties": {
@@ -371236,16 +373124,14 @@
             "properties": {
                 "privateDnsPreference": {
                     "$ref": "#/types/aws-native:vpclattice:ServiceNetworkVpcAssociationDnsOptionsPrivateDnsPreference",
-                    "description": "The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource.",
-                    "replaceOnChanges": true
+                    "description": "The preference for which private domains have a private hosted zone created for and associated with the specified VPC. Only supported when private DNS is enabled and when the VPC endpoint type is ServiceNetwork or Resource."
                 },
                 "privateDnsSpecifiedDomains": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` .",
-                    "replaceOnChanges": true
+                    "description": "Indicates which of the private domains to create private hosted zones for and associate with the specified VPC. Only supported when private DNS is enabled and the private DNS preference is `VERIFIED_DOMAINS_AND_SPECIFIED_DOMAINS` or `SPECIFIED_DOMAINS_ONLY` ."
                 }
             }
         },
@@ -380226,6 +382112,12 @@
                 "arn"
             ]
         },
+        "aws-native:codebuild:getReportGroup": {
+            "cf": "AWS::CodeBuild::ReportGroup",
+            "ids": [
+                "arn"
+            ]
+        },
         "aws-native:codebuild:getSourceCredential": {
             "cf": "AWS::CodeBuild::SourceCredential",
             "ids": [
@@ -380472,7 +382364,7 @@
         "aws-native:configuration:getDeliveryChannel": {
             "cf": "AWS::Config::DeliveryChannel",
             "ids": [
-                "name"
+                "id"
             ]
         },
         "aws-native:configuration:getOrganizationConformancePack": {
@@ -381517,6 +383409,12 @@
                 "id"
             ]
         },
+        "aws-native:ec2:getFpgaImage": {
+            "cf": "AWS::EC2::FpgaImage",
+            "ids": [
+                "arn"
+            ]
+        },
         "aws-native:ec2:getGatewayRouteTableAssociation": {
             "cf": "AWS::EC2::GatewayRouteTableAssociation",
             "ids": [
@@ -381565,6 +383463,12 @@
                 "ipamPoolId",
                 "ipamPoolAllocationId",
                 "cidr"
+            ]
+        },
+        "aws-native:ec2:getIpamExternalResourceVerificationToken": {
+            "cf": "AWS::EC2::IpamExternalResourceVerificationToken",
+            "ids": [
+                "ipamExternalResourceVerificationTokenArn"
             ]
         },
         "aws-native:ec2:getIpamPool": {
@@ -382782,6 +384686,13 @@
                 "name"
             ]
         },
+        "aws-native:glue:getConnection": {
+            "cf": "AWS::Glue::Connection",
+            "ids": [
+                "catalogId",
+                "name"
+            ]
+        },
         "aws-native:glue:getCrawler": {
             "cf": "AWS::Glue::Crawler",
             "ids": [
@@ -383249,6 +385160,12 @@
             "cf": "AWS::Invoicing::InvoiceUnit",
             "ids": [
                 "invoiceUnitArn"
+            ]
+        },
+        "aws-native:invoicing:getProcurementPortalPreference": {
+            "cf": "AWS::Invoicing::ProcurementPortalPreference",
+            "ids": [
+                "procurementPortalPreferenceArn"
             ]
         },
         "aws-native:iot:getAccountAuditConfiguration": {
@@ -383988,6 +385905,12 @@
             "cf": "AWS::Lightsail::Certificate",
             "ids": [
                 "certificateName"
+            ]
+        },
+        "aws-native:lightsail:getContactMethod": {
+            "cf": "AWS::Lightsail::ContactMethod",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:lightsail:getContainer": {
@@ -386728,6 +388651,12 @@
                 "resourceType"
             ]
         },
+        "aws-native:servicediscovery:getHttpNamespace": {
+            "cf": "AWS::ServiceDiscovery::HttpNamespace",
+            "ids": [
+                "id"
+            ]
+        },
         "aws-native:servicediscovery:getPrivateDnsNamespace": {
             "cf": "AWS::ServiceDiscovery::PrivateDnsNamespace",
             "ids": [
@@ -387184,6 +389113,12 @@
             "ids": [
                 "teamId",
                 "channelId"
+            ]
+        },
+        "aws-native:supportauthz:getSupportPermit": {
+            "cf": "AWS::SupportAuthZ::SupportPermit",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:synthetics:getCanary": {

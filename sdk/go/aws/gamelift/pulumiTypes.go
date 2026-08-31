@@ -1725,8 +1725,8 @@ type ContainerFleetScalingPolicy struct {
 	ComparisonOperator *ContainerFleetScalingPolicyComparisonOperator `pulumi:"comparisonOperator"`
 	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
-	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-	MetricName ContainerFleetScalingPolicyMetricName `pulumi:"metricName"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+	MetricName *ContainerFleetScalingPolicyMetricName `pulumi:"metricName"`
 	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
 	Name string `pulumi:"name"`
 	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
@@ -1758,8 +1758,8 @@ type ContainerFleetScalingPolicyArgs struct {
 	ComparisonOperator ContainerFleetScalingPolicyComparisonOperatorPtrInput `pulumi:"comparisonOperator"`
 	// Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
 	EvaluationPeriods pulumi.IntPtrInput `pulumi:"evaluationPeriods"`
-	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-	MetricName ContainerFleetScalingPolicyMetricNameInput `pulumi:"metricName"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+	MetricName ContainerFleetScalingPolicyMetricNamePtrInput `pulumi:"metricName"`
 	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
@@ -1838,9 +1838,9 @@ func (o ContainerFleetScalingPolicyOutput) EvaluationPeriods() pulumi.IntPtrOutp
 	return o.ApplyT(func(v ContainerFleetScalingPolicy) *int { return v.EvaluationPeriods }).(pulumi.IntPtrOutput)
 }
 
-// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-func (o ContainerFleetScalingPolicyOutput) MetricName() ContainerFleetScalingPolicyMetricNameOutput {
-	return o.ApplyT(func(v ContainerFleetScalingPolicy) ContainerFleetScalingPolicyMetricName { return v.MetricName }).(ContainerFleetScalingPolicyMetricNameOutput)
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+func (o ContainerFleetScalingPolicyOutput) MetricName() ContainerFleetScalingPolicyMetricNamePtrOutput {
+	return o.ApplyT(func(v ContainerFleetScalingPolicy) *ContainerFleetScalingPolicyMetricName { return v.MetricName }).(ContainerFleetScalingPolicyMetricNamePtrOutput)
 }
 
 // A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
@@ -4944,8 +4944,8 @@ type FleetScalingPolicy struct {
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
 	// The fleet location.
 	Location *string `pulumi:"location"`
-	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-	MetricName FleetScalingPolicyMetricName `pulumi:"metricName"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+	MetricName *FleetScalingPolicyMetricName `pulumi:"metricName"`
 	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
 	Name string `pulumi:"name"`
 	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
@@ -4983,8 +4983,8 @@ type FleetScalingPolicyArgs struct {
 	EvaluationPeriods pulumi.IntPtrInput `pulumi:"evaluationPeriods"`
 	// The fleet location.
 	Location pulumi.StringPtrInput `pulumi:"location"`
-	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-	MetricName FleetScalingPolicyMetricNameInput `pulumi:"metricName"`
+	// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+	MetricName FleetScalingPolicyMetricNamePtrInput `pulumi:"metricName"`
 	// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
@@ -5070,9 +5070,9 @@ func (o FleetScalingPolicyOutput) Location() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FleetScalingPolicy) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
-// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-func (o FleetScalingPolicyOutput) MetricName() FleetScalingPolicyMetricNameOutput {
-	return o.ApplyT(func(v FleetScalingPolicy) FleetScalingPolicyMetricName { return v.MetricName }).(FleetScalingPolicyMetricNameOutput)
+// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+func (o FleetScalingPolicyOutput) MetricName() FleetScalingPolicyMetricNamePtrOutput {
+	return o.ApplyT(func(v FleetScalingPolicy) *FleetScalingPolicyMetricName { return v.MetricName }).(FleetScalingPolicyMetricNamePtrOutput)
 }
 
 // A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.

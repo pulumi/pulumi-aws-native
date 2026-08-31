@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:codebuild:Fleet":
 		r = &Fleet{}
+	case "aws-native:codebuild:ReportGroup":
+		r = &ReportGroup{}
 	case "aws-native:codebuild:SourceCredential":
 		r = &SourceCredential{}
 	default:

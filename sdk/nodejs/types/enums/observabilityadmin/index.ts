@@ -39,6 +39,17 @@ export const OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGr
  */
 export type OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy = (typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy)[keyof typeof OrganizationCentralizationRuleSourceLogsConfigurationEncryptedLogGroupStrategy];
 
+export const OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy = {
+    InSync: "IN_SYNC",
+    AddOnly: "ADD_ONLY",
+    UpdateSync: "UPDATE_SYNC",
+} as const;
+
+/**
+ * The strategy to resolve tag conflicts during propagation.
+ */
+export type OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy = (typeof OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy)[keyof typeof OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy];
+
 export const OrganizationTelemetryRuleAction = {
     Allow: "ALLOW",
     Block: "BLOCK",

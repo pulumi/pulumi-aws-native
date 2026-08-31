@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:servicediscovery:HttpNamespace":
+		r = &HttpNamespace{}
 	case "aws-native:servicediscovery:PrivateDnsNamespace":
 		r = &PrivateDnsNamespace{}
 	case "aws-native:servicediscovery:PublicDnsNamespace":

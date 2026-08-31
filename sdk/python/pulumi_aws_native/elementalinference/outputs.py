@@ -26,6 +26,7 @@ __all__ = [
     'FeedOutputConfig1Properties',
     'FeedOutputConfig2Properties',
     'FeedSubtitlingConfig',
+    'FeedTemplateGroup',
 ]
 
 @pulumi.output_type
@@ -89,8 +90,32 @@ class FeedClippingConfig(dict):
 
 @pulumi.output_type
 class FeedCroppingConfig(dict):
-    def __init__(__self__):
-        pass
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateGroups":
+            suggest = "template_groups"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeedCroppingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeedCroppingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeedCroppingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 template_groups: Optional[Sequence['outputs.FeedTemplateGroup']] = None):
+        if template_groups is not None:
+            pulumi.set(__self__, "template_groups", template_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="templateGroups")
+    def template_groups(self) -> Optional[Sequence['outputs.FeedTemplateGroup']]:
+        return pulumi.get(self, "template_groups")
 
 
 @pulumi.output_type
@@ -262,5 +287,41 @@ class FeedSubtitlingConfig(dict):
     @pulumi.getter(name="profanityFilter")
     def profanity_filter(self) -> Optional['FeedProfanityFilterMode']:
         return pulumi.get(self, "profanity_filter")
+
+
+@pulumi.output_type
+class FeedTemplateGroup(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "templateUris":
+            suggest = "template_uris"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FeedTemplateGroup. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FeedTemplateGroup.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FeedTemplateGroup.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 template_uris: Sequence[_builtins.str]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "template_uris", template_uris)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="templateUris")
+    def template_uris(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "template_uris")
 
 

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.Lambda.Inputs
         [Input("localMountPath", required: true)]
         public Input<string> LocalMountPath { get; set; } = null!;
 
+        [Input("s3FilesConfig")]
+        public Input<Inputs.FunctionS3FilesConfigArgs>? S3FilesConfig { get; set; }
+
         public FunctionFileSystemConfigArgs()
         {
         }

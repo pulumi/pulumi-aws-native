@@ -23,8 +23,10 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
         public readonly int? LessThanOrEqual;
         public readonly int? Lt;
         public readonly int? Lte;
+        public readonly ImmutableArray<string> Matches;
         public readonly ImmutableArray<string> Neq;
         public readonly ImmutableArray<string> NotEquals;
+        public readonly ImmutableArray<string> NotMatches;
 
         [OutputConstructor]
         private FilterCondition(
@@ -48,9 +50,13 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
 
             int? lte,
 
+            ImmutableArray<string> matches,
+
             ImmutableArray<string> neq,
 
-            ImmutableArray<string> notEquals)
+            ImmutableArray<string> notEquals,
+
+            ImmutableArray<string> notMatches)
         {
             Eq = eq;
             Equals = equals;
@@ -62,8 +68,10 @@ namespace Pulumi.AwsNative.GuardDuty.Outputs
             LessThanOrEqual = lessThanOrEqual;
             Lt = lt;
             Lte = lte;
+            Matches = matches;
             Neq = neq;
             NotEquals = notEquals;
+            NotMatches = notMatches;
         }
     }
 }

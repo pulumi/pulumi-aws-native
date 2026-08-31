@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for AWS::Config::DeliveryChannel
+// Resource Type definition for AWS::Config::DeliveryChannel
 func LookupDeliveryChannel(ctx *pulumi.Context, args *LookupDeliveryChannelArgs, opts ...pulumi.InvokeOption) (*LookupDeliveryChannelResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDeliveryChannelResult
@@ -23,20 +23,24 @@ func LookupDeliveryChannel(ctx *pulumi.Context, args *LookupDeliveryChannelArgs,
 }
 
 type LookupDeliveryChannelArgs struct {
-	// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
-	Name string `pulumi:"name"`
+	Id string `pulumi:"id"`
 }
 
 type LookupDeliveryChannelResult struct {
 	// The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
 	ConfigSnapshotDeliveryProperties *DeliveryChannelConfigSnapshotDeliveryProperties `pulumi:"configSnapshotDeliveryProperties"`
+	Id                               *string                                          `pulumi:"id"`
 	// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+	//
+	// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 	S3BucketName *string `pulumi:"s3BucketName"`
 	// The prefix for the specified Amazon S3 bucket.
 	S3KeyPrefix *string `pulumi:"s3KeyPrefix"`
-	// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+	// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
 	S3KmsKeyArn *string `pulumi:"s3KmsKeyArn"`
 	// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+	//
+	// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
@@ -46,8 +50,7 @@ func LookupDeliveryChannelOutput(ctx *pulumi.Context, args LookupDeliveryChannel
 }
 
 type LookupDeliveryChannelOutputArgs struct {
-	// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
-	Name pulumi.StringInput `pulumi:"name"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupDeliveryChannelOutputArgs) ElementType() reflect.Type {
@@ -75,7 +78,13 @@ func (o LookupDeliveryChannelResultOutput) ConfigSnapshotDeliveryProperties() De
 	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput)
 }
 
+func (o LookupDeliveryChannelResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 // The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+//
+// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
 func (o LookupDeliveryChannelResultOutput) S3BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.S3BucketName }).(pulumi.StringPtrOutput)
 }
@@ -85,12 +94,14 @@ func (o LookupDeliveryChannelResultOutput) S3KeyPrefix() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.S3KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
 func (o LookupDeliveryChannelResultOutput) S3KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.S3KmsKeyArn }).(pulumi.StringPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+//
+// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
 func (o LookupDeliveryChannelResultOutput) SnsTopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryChannelResult) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
 }

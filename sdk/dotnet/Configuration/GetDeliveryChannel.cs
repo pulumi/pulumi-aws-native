@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.Configuration
     public static class GetDeliveryChannel
     {
         /// <summary>
-        /// Resource type definition for AWS::Config::DeliveryChannel
+        /// Resource Type definition for AWS::Config::DeliveryChannel
         /// </summary>
         public static Task<GetDeliveryChannelResult> InvokeAsync(GetDeliveryChannelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::Config::DeliveryChannel
+        /// Resource Type definition for AWS::Config::DeliveryChannel
         /// </summary>
         public static Output<GetDeliveryChannelResult> Invoke(GetDeliveryChannelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for AWS::Config::DeliveryChannel
+        /// Resource Type definition for AWS::Config::DeliveryChannel
         /// </summary>
         public static Output<GetDeliveryChannelResult> Invoke(GetDeliveryChannelInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDeliveryChannelResult>("aws-native:configuration:getDeliveryChannel", args ?? new GetDeliveryChannelInvokeArgs(), options.WithDefaults());
@@ -33,11 +33,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetDeliveryChannelArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("id", required: true)]
+        public string Id { get; set; } = null!;
 
         public GetDeliveryChannelArgs()
         {
@@ -47,11 +44,8 @@ namespace Pulumi.AwsNative.Configuration
 
     public sealed class GetDeliveryChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
 
         public GetDeliveryChannelInvokeArgs()
         {
@@ -67,8 +61,11 @@ namespace Pulumi.AwsNative.Configuration
         /// The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
         /// </summary>
         public readonly Outputs.DeliveryChannelConfigSnapshotDeliveryProperties? ConfigSnapshotDeliveryProperties;
+        public readonly string? Id;
         /// <summary>
         /// The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
+        /// 
+        /// If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
         /// </summary>
         public readonly string? S3BucketName;
         /// <summary>
@@ -76,17 +73,21 @@ namespace Pulumi.AwsNative.Configuration
         /// </summary>
         public readonly string? S3KeyPrefix;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
+        /// The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
         /// </summary>
         public readonly string? S3KmsKeyArn;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
+        /// 
+        /// If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
         /// </summary>
         public readonly string? SnsTopicArn;
 
         [OutputConstructor]
         private GetDeliveryChannelResult(
             Outputs.DeliveryChannelConfigSnapshotDeliveryProperties? configSnapshotDeliveryProperties,
+
+            string? id,
 
             string? s3BucketName,
 
@@ -97,6 +98,7 @@ namespace Pulumi.AwsNative.Configuration
             string? snsTopicArn)
         {
             ConfigSnapshotDeliveryProperties = configSnapshotDeliveryProperties;
+            Id = id;
             S3BucketName = s3BucketName;
             S3KeyPrefix = s3KeyPrefix;
             S3KmsKeyArn = s3KmsKeyArn;

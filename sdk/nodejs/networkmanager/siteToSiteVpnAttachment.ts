@@ -80,11 +80,11 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one network function group to another.
      */
-    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public /*out*/ readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange>;
     /**
      * The attachment to move from one segment to another.
      */
-    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChange | undefined>;
+    declare public /*out*/ readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChange>;
     /**
      * The ARN of the Resource.
      */
@@ -133,8 +133,6 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             }
             resourceInputs["coreNetworkId"] = args?.coreNetworkId;
             resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
-            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
             resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["vpnConnectionArn"] = args?.vpnConnectionArn;
@@ -146,6 +144,8 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
+            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -190,14 +190,6 @@ export interface SiteToSiteVpnAttachmentArgs {
      * The name of the network function group attachment.
      */
     networkFunctionGroupName?: pulumi.Input<string | undefined>;
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
-    /**
-     * The attachment to move from one segment to another.
-     */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.SiteToSiteVpnAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */

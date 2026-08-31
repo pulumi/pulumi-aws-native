@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.ElementalInference
     [AwsNativeResourceType("aws-native:elementalinference:Feed")]
     public partial class Feed : global::Pulumi.CustomResource
     {
+        [Output("accessRoleArn")]
+        public Output<string?> AccessRoleArn { get; private set; } = null!;
+
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.ElementalInference
 
     public sealed class FeedArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessRoleArn")]
+        public Input<string>? AccessRoleArn { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 

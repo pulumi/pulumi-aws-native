@@ -64,6 +64,9 @@ type LookupDbClusterResult struct {
 	//  Valid for Cluster Type: Aurora DB clusters and Multi-AZ DB cluster.
 	//  For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
+	// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
+	//  Valid for: Aurora DB clusters only
+	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
 	//  Valid for Cluster Type: Aurora MySQL DB clusters only
 	//  Default: ``0``
@@ -361,6 +364,13 @@ func (o LookupDbClusterResultOutput) AssociatedRoles() DbClusterDbClusterRoleArr
 //	For more information about automatic minor version upgrades, see [Automatically upgrading the minor engine version](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Upgrading.html#USER_UpgradeDBInstance.Upgrading.AutoMinorVersionUpgrades).
 func (o LookupDbClusterResultOutput) AutoMinorVersionUpgrade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupDbClusterResult) *bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolPtrOutput)
+}
+
+// A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
+//
+//	Valid for: Aurora DB clusters only
+func (o LookupDbClusterResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupDbClusterResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
 // The target backtrack window, in seconds. To disable backtracking, set this value to “0“.

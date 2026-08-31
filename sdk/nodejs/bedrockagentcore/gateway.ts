@@ -97,6 +97,8 @@ export class Gateway extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
+    declare public readonly wafConfiguration: pulumi.Output<outputs.bedrockagentcore.GatewayWafConfiguration | undefined>;
+    declare public /*out*/ readonly webAclArn: pulumi.Output<string>;
     declare public /*out*/ readonly workloadIdentityDetails: pulumi.Output<outputs.bedrockagentcore.GatewayWorkloadIdentityDetails>;
 
     /**
@@ -128,6 +130,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["protocolType"] = args?.protocolType;
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["wafConfiguration"] = args?.wafConfiguration;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["gatewayIdentifier"] = undefined /*out*/;
@@ -135,6 +138,7 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReasons"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["webAclArn"] = undefined /*out*/;
             resourceInputs["workloadIdentityDetails"] = undefined /*out*/;
         } else {
             resourceInputs["authorizerConfiguration"] = undefined /*out*/;
@@ -156,6 +160,8 @@ export class Gateway extends pulumi.CustomResource {
             resourceInputs["statusReasons"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["wafConfiguration"] = undefined /*out*/;
+            resourceInputs["webAclArn"] = undefined /*out*/;
             resourceInputs["workloadIdentityDetails"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -205,4 +211,5 @@ export interface GatewayArgs {
      * The tags for the gateway.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    wafConfiguration?: pulumi.Input<inputs.bedrockagentcore.GatewayWafConfigurationArgs | undefined>;
 }

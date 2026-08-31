@@ -46,6 +46,8 @@ __all__ = [
     'InstanceMetadataOptionsHttpTokens',
     'InstanceMetadataOptionsInstanceMetadataTags',
     'InstancePrivateDnsNameOptionsHostnameType',
+    'IpamExternalResourceVerificationTokenState',
+    'IpamExternalResourceVerificationTokenStatus',
     'IpamMeteredAccount',
     'IpamPoolAwsService',
     'IpamPoolIpamScopeType',
@@ -596,6 +598,28 @@ class InstancePrivateDnsNameOptionsHostnameType(_builtins.str, Enum):
     """
     IP_NAME = "ip-name"
     RESOURCE_NAME = "resource-name"
+
+
+@pulumi.type_token("aws-native:ec2:IpamExternalResourceVerificationTokenState")
+class IpamExternalResourceVerificationTokenState(_builtins.str, Enum):
+    """
+    The token state.
+    """
+    CREATE_IN_PROGRESS = "create-in-progress"
+    CREATE_COMPLETE = "create-complete"
+    CREATE_FAILED = "create-failed"
+    DELETE_IN_PROGRESS = "delete-in-progress"
+    DELETE_COMPLETE = "delete-complete"
+    DELETE_FAILED = "delete-failed"
+
+
+@pulumi.type_token("aws-native:ec2:IpamExternalResourceVerificationTokenStatus")
+class IpamExternalResourceVerificationTokenStatus(_builtins.str, Enum):
+    """
+    The token status.
+    """
+    VALID = "valid"
+    EXPIRED = "expired"
 
 
 @pulumi.type_token("aws-native:ec2:IpamMeteredAccount")
@@ -1446,7 +1470,7 @@ class VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValue(_builtins.str,
 @pulumi.type_token("aws-native:ec2:VpnConnectionPreSharedKeyStorage")
 class VpnConnectionPreSharedKeyStorage(_builtins.str, Enum):
     """
-    Describes the storage location for an instance store-backed AMI.
+    Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
     """
     STANDARD = "Standard"
     SECRETS_MANAGER = "SecretsManager"

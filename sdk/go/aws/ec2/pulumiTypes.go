@@ -8462,6 +8462,173 @@ func (o FlowLogTagFieldSpecificationArrayOutput) Index(i pulumi.IntInput) FlowLo
 	}).(FlowLogTagFieldSpecificationOutput)
 }
 
+// Describes a storage location in Amazon S3.
+type FpgaImageStorageLocation struct {
+	// The name of the S3 bucket.
+	Bucket *string `pulumi:"bucket"`
+	// The key.
+	Key *string `pulumi:"key"`
+}
+
+// FpgaImageStorageLocationInput is an input type that accepts FpgaImageStorageLocationArgs and FpgaImageStorageLocationOutput values.
+// You can construct a concrete instance of `FpgaImageStorageLocationInput` via:
+//
+//	FpgaImageStorageLocationArgs{...}
+type FpgaImageStorageLocationInput interface {
+	pulumi.Input
+
+	ToFpgaImageStorageLocationOutput() FpgaImageStorageLocationOutput
+	ToFpgaImageStorageLocationOutputWithContext(context.Context) FpgaImageStorageLocationOutput
+}
+
+// Describes a storage location in Amazon S3.
+type FpgaImageStorageLocationArgs struct {
+	// The name of the S3 bucket.
+	Bucket pulumi.StringPtrInput `pulumi:"bucket"`
+	// The key.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+}
+
+func (FpgaImageStorageLocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FpgaImageStorageLocation)(nil)).Elem()
+}
+
+func (i FpgaImageStorageLocationArgs) ToFpgaImageStorageLocationOutput() FpgaImageStorageLocationOutput {
+	return i.ToFpgaImageStorageLocationOutputWithContext(context.Background())
+}
+
+func (i FpgaImageStorageLocationArgs) ToFpgaImageStorageLocationOutputWithContext(ctx context.Context) FpgaImageStorageLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FpgaImageStorageLocationOutput)
+}
+
+func (i FpgaImageStorageLocationArgs) ToFpgaImageStorageLocationPtrOutput() FpgaImageStorageLocationPtrOutput {
+	return i.ToFpgaImageStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i FpgaImageStorageLocationArgs) ToFpgaImageStorageLocationPtrOutputWithContext(ctx context.Context) FpgaImageStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FpgaImageStorageLocationOutput).ToFpgaImageStorageLocationPtrOutputWithContext(ctx)
+}
+
+// FpgaImageStorageLocationPtrInput is an input type that accepts FpgaImageStorageLocationArgs, FpgaImageStorageLocationPtr and FpgaImageStorageLocationPtrOutput values.
+// You can construct a concrete instance of `FpgaImageStorageLocationPtrInput` via:
+//
+//	        FpgaImageStorageLocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FpgaImageStorageLocationPtrInput interface {
+	pulumi.Input
+
+	ToFpgaImageStorageLocationPtrOutput() FpgaImageStorageLocationPtrOutput
+	ToFpgaImageStorageLocationPtrOutputWithContext(context.Context) FpgaImageStorageLocationPtrOutput
+}
+
+type fpgaImageStorageLocationPtrType FpgaImageStorageLocationArgs
+
+func FpgaImageStorageLocationPtr(v *FpgaImageStorageLocationArgs) FpgaImageStorageLocationPtrInput {
+	return (*fpgaImageStorageLocationPtrType)(v)
+}
+
+func (*fpgaImageStorageLocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FpgaImageStorageLocation)(nil)).Elem()
+}
+
+func (i *fpgaImageStorageLocationPtrType) ToFpgaImageStorageLocationPtrOutput() FpgaImageStorageLocationPtrOutput {
+	return i.ToFpgaImageStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (i *fpgaImageStorageLocationPtrType) ToFpgaImageStorageLocationPtrOutputWithContext(ctx context.Context) FpgaImageStorageLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FpgaImageStorageLocationPtrOutput)
+}
+
+// Describes a storage location in Amazon S3.
+type FpgaImageStorageLocationOutput struct{ *pulumi.OutputState }
+
+func (FpgaImageStorageLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FpgaImageStorageLocation)(nil)).Elem()
+}
+
+func (o FpgaImageStorageLocationOutput) ToFpgaImageStorageLocationOutput() FpgaImageStorageLocationOutput {
+	return o
+}
+
+func (o FpgaImageStorageLocationOutput) ToFpgaImageStorageLocationOutputWithContext(ctx context.Context) FpgaImageStorageLocationOutput {
+	return o
+}
+
+func (o FpgaImageStorageLocationOutput) ToFpgaImageStorageLocationPtrOutput() FpgaImageStorageLocationPtrOutput {
+	return o.ToFpgaImageStorageLocationPtrOutputWithContext(context.Background())
+}
+
+func (o FpgaImageStorageLocationOutput) ToFpgaImageStorageLocationPtrOutputWithContext(ctx context.Context) FpgaImageStorageLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FpgaImageStorageLocation) *FpgaImageStorageLocation {
+		return &v
+	}).(FpgaImageStorageLocationPtrOutput)
+}
+
+// The name of the S3 bucket.
+func (o FpgaImageStorageLocationOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FpgaImageStorageLocation) *string { return v.Bucket }).(pulumi.StringPtrOutput)
+}
+
+// The key.
+func (o FpgaImageStorageLocationOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FpgaImageStorageLocation) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+type FpgaImageStorageLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (FpgaImageStorageLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FpgaImageStorageLocation)(nil)).Elem()
+}
+
+func (o FpgaImageStorageLocationPtrOutput) ToFpgaImageStorageLocationPtrOutput() FpgaImageStorageLocationPtrOutput {
+	return o
+}
+
+func (o FpgaImageStorageLocationPtrOutput) ToFpgaImageStorageLocationPtrOutputWithContext(ctx context.Context) FpgaImageStorageLocationPtrOutput {
+	return o
+}
+
+func (o FpgaImageStorageLocationPtrOutput) Elem() FpgaImageStorageLocationOutput {
+	return o.ApplyT(func(v *FpgaImageStorageLocation) FpgaImageStorageLocation {
+		if v != nil {
+			return *v
+		}
+		var ret FpgaImageStorageLocation
+		return ret
+	}).(FpgaImageStorageLocationOutput)
+}
+
+// The name of the S3 bucket.
+func (o FpgaImageStorageLocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FpgaImageStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key.
+func (o FpgaImageStorageLocationPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FpgaImageStorageLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// A tag consisting of a key-value pair.
+type FpgaImageTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // Indicates whether an instance is enabled for hibernation.
 type HibernationOptionsProperties struct {
 	// If you set this parameter to true, your instance is enabled for hibernation.
@@ -11161,6 +11328,13 @@ func (o InstanceVolumeArrayOutput) Index(i pulumi.IntInput) InstanceVolumeOutput
 
 // Specifies a tag. For more information, see [Resource tags](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
 type InternetGatewayTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+type IpamExternalResourceVerificationTokenTag struct {
 	// The tag key.
 	Key string `pulumi:"key"`
 	// The tag value.
@@ -40453,6 +40627,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EnclaveOptionsPropertiesPtrInput)(nil)).Elem(), EnclaveOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagFieldSpecificationInput)(nil)).Elem(), FlowLogTagFieldSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FlowLogTagFieldSpecificationArrayInput)(nil)).Elem(), FlowLogTagFieldSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FpgaImageStorageLocationInput)(nil)).Elem(), FpgaImageStorageLocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FpgaImageStorageLocationPtrInput)(nil)).Elem(), FpgaImageStorageLocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HibernationOptionsPropertiesInput)(nil)).Elem(), HibernationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HibernationOptionsPropertiesPtrInput)(nil)).Elem(), HibernationOptionsPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAssociationParameterInput)(nil)).Elem(), InstanceAssociationParameterArgs{})
@@ -40867,6 +41043,8 @@ func init() {
 	pulumi.RegisterOutputType(EnclaveOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(FlowLogTagFieldSpecificationOutput{})
 	pulumi.RegisterOutputType(FlowLogTagFieldSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(FpgaImageStorageLocationOutput{})
+	pulumi.RegisterOutputType(FpgaImageStorageLocationPtrOutput{})
 	pulumi.RegisterOutputType(HibernationOptionsPropertiesOutput{})
 	pulumi.RegisterOutputType(HibernationOptionsPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAssociationParameterOutput{})

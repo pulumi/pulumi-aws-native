@@ -1210,6 +1210,9 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "VirtualSourceAddress" : {
+          "type" : "string"
+        },
         "StreamName" : {
           "type" : "string"
         },
@@ -2185,6 +2188,21 @@
         },
         "BlackoutSlateImage" : {
           "$ref" : "#/definitions/InputLocation"
+        }
+      }
+    },
+    "NielsenNwOnly" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "Timezone" : {
+          "type" : "string"
+        },
+        "CheckDigitString" : {
+          "type" : "string"
+        },
+        "Sid" : {
+          "type" : "number"
         }
       }
     },
@@ -3908,6 +3926,9 @@
         },
         "NielsenCbetSettings" : {
           "$ref" : "#/definitions/NielsenCBET"
+        },
+        "NielsenNwOnlySettings" : {
+          "$ref" : "#/definitions/NielsenNwOnly"
         }
       }
     },

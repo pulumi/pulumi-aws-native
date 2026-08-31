@@ -55,7 +55,6 @@ import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
 import * as computeoptimizer from "./computeoptimizer";
-import * as configuration from "./configuration";
 import * as connect from "./connect";
 import * as connectcampaignsv2 from "./connectcampaignsv2";
 import * as controltower from "./controltower";
@@ -105,6 +104,7 @@ import * as imagebuilder from "./imagebuilder";
 import * as inspectorv2 from "./inspectorv2";
 import * as interconnect from "./interconnect";
 import * as internetmonitor from "./internetmonitor";
+import * as invoicing from "./invoicing";
 import * as iot from "./iot";
 import * as iotanalytics from "./iotanalytics";
 import * as iotevents from "./iotevents";
@@ -211,6 +211,7 @@ import * as sso from "./sso";
 import * as stepfunctions from "./stepfunctions";
 import * as storagegateway from "./storagegateway";
 import * as supportapp from "./supportapp";
+import * as supportauthz from "./supportauthz";
 import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as textract from "./textract";
@@ -282,7 +283,6 @@ export {
     cognito,
     comprehend,
     computeoptimizer,
-    configuration,
     connect,
     connectcampaignsv2,
     controltower,
@@ -332,6 +332,7 @@ export {
     inspectorv2,
     interconnect,
     internetmonitor,
+    invoicing,
     iot,
     iotanalytics,
     iotevents,
@@ -438,6 +439,7 @@ export {
     stepfunctions,
     storagegateway,
     supportapp,
+    supportauthz,
     synthetics,
     systemsmanagersap,
     textract,

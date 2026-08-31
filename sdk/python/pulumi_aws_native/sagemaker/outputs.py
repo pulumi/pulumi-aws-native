@@ -140,14 +140,22 @@ __all__ = [
     'HumanTaskUiUiTemplate',
     'InferenceComponentAlarm',
     'InferenceComponentAutoRollbackConfiguration',
+    'InferenceComponentAvailabilityZoneBalance',
     'InferenceComponentCapacitySize',
     'InferenceComponentComputeResourceRequirements',
+    'InferenceComponentContainerMetricsConfig',
     'InferenceComponentContainerSpecification',
+    'InferenceComponentContainerSpecificationForInstanceType',
+    'InferenceComponentDataCacheConfig',
     'InferenceComponentDeployedImage',
     'InferenceComponentDeploymentConfig',
+    'InferenceComponentMetricsEndpoint',
+    'InferenceComponentPlacementStatus',
     'InferenceComponentRollingUpdatePolicy',
     'InferenceComponentRuntimeConfig',
+    'InferenceComponentSchedulingConfig',
     'InferenceComponentSpecification',
+    'InferenceComponentSpecificationForInstanceType',
     'InferenceComponentStartupParameters',
     'InferenceExperimentCaptureContentTypeHeader',
     'InferenceExperimentDataStorageConfig',
@@ -7662,6 +7670,56 @@ class InferenceComponentAutoRollbackConfiguration(dict):
 
 
 @pulumi.output_type
+class InferenceComponentAvailabilityZoneBalance(dict):
+    """
+    Configuration for balancing inference component copies across Availability Zones
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enforcementMode":
+            suggest = "enforcement_mode"
+        elif key == "maxImbalance":
+            suggest = "max_imbalance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentAvailabilityZoneBalance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentAvailabilityZoneBalance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentAvailabilityZoneBalance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enforcement_mode: 'InferenceComponentAvailabilityZoneBalanceEnforcementMode',
+                 max_imbalance: Optional[_builtins.int] = None):
+        """
+        Configuration for balancing inference component copies across Availability Zones
+
+        :param _builtins.int max_imbalance: The maximum allowed difference in the number of inference component copies between any two Availability Zones
+        """
+        pulumi.set(__self__, "enforcement_mode", enforcement_mode)
+        if max_imbalance is not None:
+            pulumi.set(__self__, "max_imbalance", max_imbalance)
+
+    @_builtins.property
+    @pulumi.getter(name="enforcementMode")
+    def enforcement_mode(self) -> 'InferenceComponentAvailabilityZoneBalanceEnforcementMode':
+        return pulumi.get(self, "enforcement_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="maxImbalance")
+    def max_imbalance(self) -> Optional[_builtins.int]:
+        """
+        The maximum allowed difference in the number of inference component copies between any two Availability Zones
+        """
+        return pulumi.get(self, "max_imbalance")
+
+
+@pulumi.output_type
 class InferenceComponentCapacitySize(dict):
     """
     Capacity size configuration for the inference component
@@ -7780,12 +7838,49 @@ class InferenceComponentComputeResourceRequirements(dict):
 
 
 @pulumi.output_type
+class InferenceComponentContainerMetricsConfig(dict):
+    """
+    The configuration for container metrics scraping
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsEndpoints":
+            suggest = "metrics_endpoints"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentContainerMetricsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentContainerMetricsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentContainerMetricsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_endpoints: Sequence['outputs.InferenceComponentMetricsEndpoint']):
+        """
+        The configuration for container metrics scraping
+        """
+        pulumi.set(__self__, "metrics_endpoints", metrics_endpoints)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsEndpoints")
+    def metrics_endpoints(self) -> Sequence['outputs.InferenceComponentMetricsEndpoint']:
+        return pulumi.get(self, "metrics_endpoints")
+
+
+@pulumi.output_type
 class InferenceComponentContainerSpecification(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "artifactUrl":
             suggest = "artifact_url"
+        elif key == "containerMetricsConfig":
+            suggest = "container_metrics_config"
         elif key == "deployedImage":
             suggest = "deployed_image"
 
@@ -7802,6 +7897,7 @@ class InferenceComponentContainerSpecification(dict):
 
     def __init__(__self__, *,
                  artifact_url: Optional[_builtins.str] = None,
+                 container_metrics_config: Optional['outputs.InferenceComponentContainerMetricsConfig'] = None,
                  deployed_image: Optional['outputs.InferenceComponentDeployedImage'] = None,
                  environment: Optional[Mapping[str, _builtins.str]] = None,
                  image: Optional[_builtins.str] = None):
@@ -7812,6 +7908,8 @@ class InferenceComponentContainerSpecification(dict):
         """
         if artifact_url is not None:
             pulumi.set(__self__, "artifact_url", artifact_url)
+        if container_metrics_config is not None:
+            pulumi.set(__self__, "container_metrics_config", container_metrics_config)
         if deployed_image is not None:
             pulumi.set(__self__, "deployed_image", deployed_image)
         if environment is not None:
@@ -7826,6 +7924,11 @@ class InferenceComponentContainerSpecification(dict):
         The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
         """
         return pulumi.get(self, "artifact_url")
+
+    @_builtins.property
+    @pulumi.getter(name="containerMetricsConfig")
+    def container_metrics_config(self) -> Optional['outputs.InferenceComponentContainerMetricsConfig']:
+        return pulumi.get(self, "container_metrics_config")
 
     @_builtins.property
     @pulumi.getter(name="deployedImage")
@@ -7847,6 +7950,108 @@ class InferenceComponentContainerSpecification(dict):
         The Amazon Elastic Container Registry (Amazon ECR) path where the Docker image for the model is stored.
         """
         return pulumi.get(self, "image")
+
+
+@pulumi.output_type
+class InferenceComponentContainerSpecificationForInstanceType(dict):
+    """
+    Container specification for one Specifications entry. Distinct from InferenceComponentContainerSpecification: DescribeInferenceComponent returns no per-entry DeployedImage (VERIFIED in us-west-2), so DeployedImage is intentionally omitted here and this definition can never be aggregated into a plural READ response. The singular InferenceComponentContainerSpecification keeps DeployedImage - the service DOES return it there.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactUrl":
+            suggest = "artifact_url"
+        elif key == "containerMetricsConfig":
+            suggest = "container_metrics_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentContainerSpecificationForInstanceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentContainerSpecificationForInstanceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentContainerSpecificationForInstanceType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_url: Optional[_builtins.str] = None,
+                 container_metrics_config: Optional['outputs.InferenceComponentContainerMetricsConfig'] = None,
+                 environment: Optional[Mapping[str, _builtins.str]] = None,
+                 image: Optional[_builtins.str] = None):
+        """
+        Container specification for one Specifications entry. Distinct from InferenceComponentContainerSpecification: DescribeInferenceComponent returns no per-entry DeployedImage (VERIFIED in us-west-2), so DeployedImage is intentionally omitted here and this definition can never be aggregated into a plural READ response. The singular InferenceComponentContainerSpecification keeps DeployedImage - the service DOES return it there.
+        """
+        if artifact_url is not None:
+            pulumi.set(__self__, "artifact_url", artifact_url)
+        if container_metrics_config is not None:
+            pulumi.set(__self__, "container_metrics_config", container_metrics_config)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if image is not None:
+            pulumi.set(__self__, "image", image)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactUrl")
+    def artifact_url(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "artifact_url")
+
+    @_builtins.property
+    @pulumi.getter(name="containerMetricsConfig")
+    def container_metrics_config(self) -> Optional['outputs.InferenceComponentContainerMetricsConfig']:
+        return pulumi.get(self, "container_metrics_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "image")
+
+
+@pulumi.output_type
+class InferenceComponentDataCacheConfig(dict):
+    """
+    Settings that affect how the inference component caches data
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableCaching":
+            suggest = "enable_caching"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentDataCacheConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentDataCacheConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentDataCacheConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_caching: _builtins.bool):
+        """
+        Settings that affect how the inference component caches data
+
+        :param _builtins.bool enable_caching: Whether the endpoint caches the model artifacts and container image on each instance it provisions for the inference component
+        """
+        pulumi.set(__self__, "enable_caching", enable_caching)
+
+    @_builtins.property
+    @pulumi.getter(name="enableCaching")
+    def enable_caching(self) -> _builtins.bool:
+        """
+        Whether the endpoint caches the model artifacts and container image on each instance it provisions for the inference component
+        """
+        return pulumi.get(self, "enable_caching")
 
 
 @pulumi.output_type
@@ -7965,6 +8170,104 @@ class InferenceComponentDeploymentConfig(dict):
 
 
 @pulumi.output_type
+class InferenceComponentMetricsEndpoint(dict):
+    """
+    A metrics endpoint exposed by the container
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricsEndpointPath":
+            suggest = "metrics_endpoint_path"
+        elif key == "metricPublishFrequencyInSeconds":
+            suggest = "metric_publish_frequency_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentMetricsEndpoint. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentMetricsEndpoint.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentMetricsEndpoint.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metrics_endpoint_path: _builtins.str,
+                 metric_publish_frequency_in_seconds: Optional[_builtins.int] = None):
+        """
+        A metrics endpoint exposed by the container
+
+        :param _builtins.str metrics_endpoint_path: The path to the Prometheus formatted metrics endpoint exposed by the container
+        :param _builtins.int metric_publish_frequency_in_seconds: The interval, in seconds, at which container metrics scraped from the endpoint are published to Amazon CloudWatch. Valid values per the SageMaker API Reference are 10, 30, 60, 120, 180, 240 and 300; the service validates the value.
+        """
+        pulumi.set(__self__, "metrics_endpoint_path", metrics_endpoint_path)
+        if metric_publish_frequency_in_seconds is not None:
+            pulumi.set(__self__, "metric_publish_frequency_in_seconds", metric_publish_frequency_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="metricsEndpointPath")
+    def metrics_endpoint_path(self) -> _builtins.str:
+        """
+        The path to the Prometheus formatted metrics endpoint exposed by the container
+        """
+        return pulumi.get(self, "metrics_endpoint_path")
+
+    @_builtins.property
+    @pulumi.getter(name="metricPublishFrequencyInSeconds")
+    def metric_publish_frequency_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The interval, in seconds, at which container metrics scraped from the endpoint are published to Amazon CloudWatch. Valid values per the SageMaker API Reference are 10, 30, 60, 120, 180, 240 and 300; the service validates the value.
+        """
+        return pulumi.get(self, "metric_publish_frequency_in_seconds")
+
+
+@pulumi.output_type
+class InferenceComponentPlacementStatus(dict):
+    """
+    The number of inference component copies currently placed on instances of a given type
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "currentCopyCount":
+            suggest = "current_copy_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentPlacementStatus. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentPlacementStatus.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentPlacementStatus.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 current_copy_count: _builtins.int,
+                 instance_type: _builtins.str):
+        """
+        The number of inference component copies currently placed on instances of a given type
+        """
+        pulumi.set(__self__, "current_copy_count", current_copy_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+
+    @_builtins.property
+    @pulumi.getter(name="currentCopyCount")
+    def current_copy_count(self) -> _builtins.int:
+        return pulumi.get(self, "current_copy_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        return pulumi.get(self, "instance_type")
+
+
+@pulumi.output_type
 class InferenceComponentRollingUpdatePolicy(dict):
     """
     The rolling update policy for the inference component
@@ -8061,6 +8364,8 @@ class InferenceComponentRuntimeConfig(dict):
             suggest = "current_copy_count"
         elif key == "desiredCopyCount":
             suggest = "desired_copy_count"
+        elif key == "placementStatus":
+            suggest = "placement_status"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in InferenceComponentRuntimeConfig. Access the value via the '{suggest}' property getter instead.")
@@ -8076,11 +8381,13 @@ class InferenceComponentRuntimeConfig(dict):
     def __init__(__self__, *,
                  copy_count: Optional[_builtins.int] = None,
                  current_copy_count: Optional[_builtins.int] = None,
-                 desired_copy_count: Optional[_builtins.int] = None):
+                 desired_copy_count: Optional[_builtins.int] = None,
+                 placement_status: Optional[Sequence['outputs.InferenceComponentPlacementStatus']] = None):
         """
         The runtime config for the inference component
 
         :param _builtins.int copy_count: The number of runtime copies of the model container to deploy with the inference component. Each copy can serve inference requests.
+        :param Sequence['InferenceComponentPlacementStatus'] placement_status: The placement status of the inference component across instance types
         """
         if copy_count is not None:
             pulumi.set(__self__, "copy_count", copy_count)
@@ -8088,6 +8395,8 @@ class InferenceComponentRuntimeConfig(dict):
             pulumi.set(__self__, "current_copy_count", current_copy_count)
         if desired_copy_count is not None:
             pulumi.set(__self__, "desired_copy_count", desired_copy_count)
+        if placement_status is not None:
+            pulumi.set(__self__, "placement_status", placement_status)
 
     @_builtins.property
     @pulumi.getter(name="copyCount")
@@ -8107,11 +8416,63 @@ class InferenceComponentRuntimeConfig(dict):
     def desired_copy_count(self) -> Optional[_builtins.int]:
         return pulumi.get(self, "desired_copy_count")
 
+    @_builtins.property
+    @pulumi.getter(name="placementStatus")
+    def placement_status(self) -> Optional[Sequence['outputs.InferenceComponentPlacementStatus']]:
+        """
+        The placement status of the inference component across instance types
+        """
+        return pulumi.get(self, "placement_status")
+
+
+@pulumi.output_type
+class InferenceComponentSchedulingConfig(dict):
+    """
+    The scheduling configuration that determines how inference component copies are placed across available instances
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZoneBalance":
+            suggest = "availability_zone_balance"
+        elif key == "placementStrategy":
+            suggest = "placement_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentSchedulingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentSchedulingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentSchedulingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone_balance: 'outputs.InferenceComponentAvailabilityZoneBalance',
+                 placement_strategy: 'InferenceComponentPlacementStrategy'):
+        """
+        The scheduling configuration that determines how inference component copies are placed across available instances
+        """
+        pulumi.set(__self__, "availability_zone_balance", availability_zone_balance)
+        pulumi.set(__self__, "placement_strategy", placement_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneBalance")
+    def availability_zone_balance(self) -> 'outputs.InferenceComponentAvailabilityZoneBalance':
+        return pulumi.get(self, "availability_zone_balance")
+
+    @_builtins.property
+    @pulumi.getter(name="placementStrategy")
+    def placement_strategy(self) -> 'InferenceComponentPlacementStrategy':
+        return pulumi.get(self, "placement_strategy")
+
 
 @pulumi.output_type
 class InferenceComponentSpecification(dict):
     """
-    The specification for the inference component
+    The specification for the inference component, for an endpoint with a single instance type. Specify exactly one of Specification or Specifications. InstanceType is not accepted here; use Specifications for per instance type configuration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -8120,8 +8481,14 @@ class InferenceComponentSpecification(dict):
             suggest = "base_inference_component_name"
         elif key == "computeResourceRequirements":
             suggest = "compute_resource_requirements"
+        elif key == "currentDataCacheConfig":
+            suggest = "current_data_cache_config"
+        elif key == "dataCacheConfig":
+            suggest = "data_cache_config"
         elif key == "modelName":
             suggest = "model_name"
+        elif key == "schedulingConfig":
+            suggest = "scheduling_config"
         elif key == "startupParameters":
             suggest = "startup_parameters"
 
@@ -8140,10 +8507,13 @@ class InferenceComponentSpecification(dict):
                  base_inference_component_name: Optional[_builtins.str] = None,
                  compute_resource_requirements: Optional['outputs.InferenceComponentComputeResourceRequirements'] = None,
                  container: Optional['outputs.InferenceComponentContainerSpecification'] = None,
+                 current_data_cache_config: Optional['outputs.InferenceComponentDataCacheConfig'] = None,
+                 data_cache_config: Optional['outputs.InferenceComponentDataCacheConfig'] = None,
                  model_name: Optional[_builtins.str] = None,
+                 scheduling_config: Optional['outputs.InferenceComponentSchedulingConfig'] = None,
                  startup_parameters: Optional['outputs.InferenceComponentStartupParameters'] = None):
         """
-        The specification for the inference component
+        The specification for the inference component, for an endpoint with a single instance type. Specify exactly one of Specification or Specifications. InstanceType is not accepted here; use Specifications for per instance type configuration.
 
         :param _builtins.str base_inference_component_name: The name of an existing inference component that is to contain the inference component that you're creating with your request.
                
@@ -8156,6 +8526,7 @@ class InferenceComponentSpecification(dict):
                
                Omit this parameter if your request is meant to create an adapter inference component. An adapter inference component is loaded by a base inference component, and it uses the compute resources of the base inference component.
         :param 'InferenceComponentContainerSpecification' container: Defines a container that provides the runtime environment for a model that you deploy with an inference component.
+        :param 'InferenceComponentDataCacheConfig' current_data_cache_config: The data caching configuration actually in effect, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
         :param _builtins.str model_name: The name of an existing SageMaker AI model object in your account that you want to deploy with the inference component.
         :param 'InferenceComponentStartupParameters' startup_parameters: Settings that take effect while the model container starts up.
         """
@@ -8165,8 +8536,14 @@ class InferenceComponentSpecification(dict):
             pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
         if container is not None:
             pulumi.set(__self__, "container", container)
+        if current_data_cache_config is not None:
+            pulumi.set(__self__, "current_data_cache_config", current_data_cache_config)
+        if data_cache_config is not None:
+            pulumi.set(__self__, "data_cache_config", data_cache_config)
         if model_name is not None:
             pulumi.set(__self__, "model_name", model_name)
+        if scheduling_config is not None:
+            pulumi.set(__self__, "scheduling_config", scheduling_config)
         if startup_parameters is not None:
             pulumi.set(__self__, "startup_parameters", startup_parameters)
 
@@ -8203,6 +8580,19 @@ class InferenceComponentSpecification(dict):
         return pulumi.get(self, "container")
 
     @_builtins.property
+    @pulumi.getter(name="currentDataCacheConfig")
+    def current_data_cache_config(self) -> Optional['outputs.InferenceComponentDataCacheConfig']:
+        """
+        The data caching configuration actually in effect, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+        """
+        return pulumi.get(self, "current_data_cache_config")
+
+    @_builtins.property
+    @pulumi.getter(name="dataCacheConfig")
+    def data_cache_config(self) -> Optional['outputs.InferenceComponentDataCacheConfig']:
+        return pulumi.get(self, "data_cache_config")
+
+    @_builtins.property
     @pulumi.getter(name="modelName")
     def model_name(self) -> Optional[_builtins.str]:
         """
@@ -8211,11 +8601,124 @@ class InferenceComponentSpecification(dict):
         return pulumi.get(self, "model_name")
 
     @_builtins.property
+    @pulumi.getter(name="schedulingConfig")
+    def scheduling_config(self) -> Optional['outputs.InferenceComponentSchedulingConfig']:
+        return pulumi.get(self, "scheduling_config")
+
+    @_builtins.property
     @pulumi.getter(name="startupParameters")
     def startup_parameters(self) -> Optional['outputs.InferenceComponentStartupParameters']:
         """
         Settings that take effect while the model container starts up.
         """
+        return pulumi.get(self, "startup_parameters")
+
+
+@pulumi.output_type
+class InferenceComponentSpecificationForInstanceType(dict):
+    """
+    A specification for one instance type, for use in Specifications. InstanceType is required here, and is not accepted on the singular Specification. BaseInferenceComponentName is not accepted here either: adapter inference components are supported only on the singular Specification.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "computeResourceRequirements":
+            suggest = "compute_resource_requirements"
+        elif key == "currentDataCacheConfig":
+            suggest = "current_data_cache_config"
+        elif key == "dataCacheConfig":
+            suggest = "data_cache_config"
+        elif key == "modelName":
+            suggest = "model_name"
+        elif key == "schedulingConfig":
+            suggest = "scheduling_config"
+        elif key == "startupParameters":
+            suggest = "startup_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InferenceComponentSpecificationForInstanceType. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InferenceComponentSpecificationForInstanceType.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InferenceComponentSpecificationForInstanceType.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: _builtins.str,
+                 compute_resource_requirements: Optional['outputs.InferenceComponentComputeResourceRequirements'] = None,
+                 container: Optional['outputs.InferenceComponentContainerSpecificationForInstanceType'] = None,
+                 current_data_cache_config: Optional['outputs.InferenceComponentDataCacheConfig'] = None,
+                 data_cache_config: Optional['outputs.InferenceComponentDataCacheConfig'] = None,
+                 model_name: Optional[_builtins.str] = None,
+                 scheduling_config: Optional['outputs.InferenceComponentSchedulingConfig'] = None,
+                 startup_parameters: Optional['outputs.InferenceComponentStartupParameters'] = None):
+        """
+        A specification for one instance type, for use in Specifications. InstanceType is required here, and is not accepted on the singular Specification. BaseInferenceComponentName is not accepted here either: adapter inference components are supported only on the singular Specification.
+
+        :param 'InferenceComponentDataCacheConfig' current_data_cache_config: The data caching configuration actually in effect for this instance type, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        if compute_resource_requirements is not None:
+            pulumi.set(__self__, "compute_resource_requirements", compute_resource_requirements)
+        if container is not None:
+            pulumi.set(__self__, "container", container)
+        if current_data_cache_config is not None:
+            pulumi.set(__self__, "current_data_cache_config", current_data_cache_config)
+        if data_cache_config is not None:
+            pulumi.set(__self__, "data_cache_config", data_cache_config)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if scheduling_config is not None:
+            pulumi.set(__self__, "scheduling_config", scheduling_config)
+        if startup_parameters is not None:
+            pulumi.set(__self__, "startup_parameters", startup_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="computeResourceRequirements")
+    def compute_resource_requirements(self) -> Optional['outputs.InferenceComponentComputeResourceRequirements']:
+        return pulumi.get(self, "compute_resource_requirements")
+
+    @_builtins.property
+    @pulumi.getter
+    def container(self) -> Optional['outputs.InferenceComponentContainerSpecificationForInstanceType']:
+        return pulumi.get(self, "container")
+
+    @_builtins.property
+    @pulumi.getter(name="currentDataCacheConfig")
+    def current_data_cache_config(self) -> Optional['outputs.InferenceComponentDataCacheConfig']:
+        """
+        The data caching configuration actually in effect for this instance type, including a value the service chose rather than the template: SageMaker enables caching automatically on instance types with more than 232 GiB of local NVMe storage, whether or not DataCacheConfig was set. Returned by Describe and not settable; set DataCacheConfig instead.
+        """
+        return pulumi.get(self, "current_data_cache_config")
+
+    @_builtins.property
+    @pulumi.getter(name="dataCacheConfig")
+    def data_cache_config(self) -> Optional['outputs.InferenceComponentDataCacheConfig']:
+        return pulumi.get(self, "data_cache_config")
+
+    @_builtins.property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "model_name")
+
+    @_builtins.property
+    @pulumi.getter(name="schedulingConfig")
+    def scheduling_config(self) -> Optional['outputs.InferenceComponentSchedulingConfig']:
+        return pulumi.get(self, "scheduling_config")
+
+    @_builtins.property
+    @pulumi.getter(name="startupParameters")
+    def startup_parameters(self) -> Optional['outputs.InferenceComponentStartupParameters']:
         return pulumi.get(self, "startup_parameters")
 
 

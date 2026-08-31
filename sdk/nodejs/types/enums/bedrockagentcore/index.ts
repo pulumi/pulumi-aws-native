@@ -112,8 +112,6 @@ export type CapacityProviderLaunchParametersMonitoring = (typeof CapacityProvide
 export const CapacityProviderLaunchParametersOperatingSystem = {
     LinuxX8664: "LINUX_X86_64",
     LinuxArm64: "LINUX_ARM64",
-    MacArm64: "MAC_ARM64",
-    WindowsX8664: "WINDOWS_X86_64",
 } as const;
 
 /**
@@ -416,6 +414,13 @@ export const GatewayTargetTargetStatus = {
 } as const;
 
 export type GatewayTargetTargetStatus = (typeof GatewayTargetTargetStatus)[keyof typeof GatewayTargetTargetStatus];
+
+export const GatewayWafFailureMode = {
+    FailClose: "FAIL_CLOSE",
+    FailOpen: "FAIL_OPEN",
+} as const;
+
+export type GatewayWafFailureMode = (typeof GatewayWafFailureMode)[keyof typeof GatewayWafFailureMode];
 
 export const HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator = {
     Equals: "EQUALS",

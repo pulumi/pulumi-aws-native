@@ -143,6 +143,12 @@ namespace Pulumi.AwsNative.Events
         public Output<string?> RoleArn { get; private set; } = null!;
 
         /// <summary>
+        /// The name of the rule, exposed as a read-only attribute for use with Fn::GetAtt.
+        /// </summary>
+        [Output("ruleName")]
+        public Output<string> RuleName { get; private set; } = null!;
+
+        /// <summary>
         /// The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)". For more information, see Creating an Amazon EventBridge rule that runs on a schedule.
         /// </summary>
         [Output("scheduleExpression")]

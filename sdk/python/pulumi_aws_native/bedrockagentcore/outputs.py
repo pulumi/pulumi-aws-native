@@ -164,6 +164,7 @@ __all__ = [
     'GatewayTargetToolDefinition',
     'GatewayTargetToolSchema0Properties',
     'GatewayTargetToolSchema1Properties',
+    'GatewayWafConfiguration',
     'GatewayWorkloadIdentityDetails',
     'HarnessAgentCoreBrowserConfig',
     'HarnessAgentCoreCodeInterpreterConfig',
@@ -6035,6 +6036,36 @@ class GatewayTargetToolSchema1Properties(dict):
     @pulumi.getter(name="inlinePayload")
     def inline_payload(self) -> Sequence['outputs.GatewayTargetToolDefinition']:
         return pulumi.get(self, "inline_payload")
+
+
+@pulumi.output_type
+class GatewayWafConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failureMode":
+            suggest = "failure_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayWafConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayWafConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayWafConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failure_mode: Optional['GatewayWafFailureMode'] = None):
+        if failure_mode is not None:
+            pulumi.set(__self__, "failure_mode", failure_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="failureMode")
+    def failure_mode(self) -> Optional['GatewayWafFailureMode']:
+        return pulumi.get(self, "failure_mode")
 
 
 @pulumi.output_type

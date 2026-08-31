@@ -27,6 +27,18 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("desiredCopyCount")]
         public Input<int>? DesiredCopyCount { get; set; }
 
+        [Input("placementStatus")]
+        private InputList<Inputs.InferenceComponentPlacementStatusArgs>? _placementStatus;
+
+        /// <summary>
+        /// The placement status of the inference component across instance types
+        /// </summary>
+        public InputList<Inputs.InferenceComponentPlacementStatusArgs> PlacementStatus
+        {
+            get => _placementStatus ?? (_placementStatus = new InputList<Inputs.InferenceComponentPlacementStatusArgs>());
+            set => _placementStatus = value;
+        }
+
         public InferenceComponentRuntimeConfigArgs()
         {
         }

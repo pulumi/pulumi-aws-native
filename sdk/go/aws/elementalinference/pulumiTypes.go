@@ -217,6 +217,7 @@ func (o FeedClippingConfigOutput) DataSourceConfiguration() FeedDataSourceConfig
 }
 
 type FeedCroppingConfig struct {
+	TemplateGroups []FeedTemplateGroup `pulumi:"templateGroups"`
 }
 
 // FeedCroppingConfigInput is an input type that accepts FeedCroppingConfigArgs and FeedCroppingConfigOutput values.
@@ -231,6 +232,7 @@ type FeedCroppingConfigInput interface {
 }
 
 type FeedCroppingConfigArgs struct {
+	TemplateGroups FeedTemplateGroupArrayInput `pulumi:"templateGroups"`
 }
 
 func (FeedCroppingConfigArgs) ElementType() reflect.Type {
@@ -257,6 +259,10 @@ func (o FeedCroppingConfigOutput) ToFeedCroppingConfigOutput() FeedCroppingConfi
 
 func (o FeedCroppingConfigOutput) ToFeedCroppingConfigOutputWithContext(ctx context.Context) FeedCroppingConfigOutput {
 	return o
+}
+
+func (o FeedCroppingConfigOutput) TemplateGroups() FeedTemplateGroupArrayOutput {
+	return o.ApplyT(func(v FeedCroppingConfig) []FeedTemplateGroup { return v.TemplateGroups }).(FeedTemplateGroupArrayOutput)
 }
 
 type FeedDataSourceConfiguration struct {
@@ -718,6 +724,106 @@ func (o FeedSubtitlingConfigOutput) ProfanityFilter() FeedProfanityFilterModePtr
 	return o.ApplyT(func(v FeedSubtitlingConfig) *FeedProfanityFilterMode { return v.ProfanityFilter }).(FeedProfanityFilterModePtrOutput)
 }
 
+type FeedTemplateGroup struct {
+	Name         string   `pulumi:"name"`
+	TemplateUris []string `pulumi:"templateUris"`
+}
+
+// FeedTemplateGroupInput is an input type that accepts FeedTemplateGroupArgs and FeedTemplateGroupOutput values.
+// You can construct a concrete instance of `FeedTemplateGroupInput` via:
+//
+//	FeedTemplateGroupArgs{...}
+type FeedTemplateGroupInput interface {
+	pulumi.Input
+
+	ToFeedTemplateGroupOutput() FeedTemplateGroupOutput
+	ToFeedTemplateGroupOutputWithContext(context.Context) FeedTemplateGroupOutput
+}
+
+type FeedTemplateGroupArgs struct {
+	Name         pulumi.StringInput      `pulumi:"name"`
+	TemplateUris pulumi.StringArrayInput `pulumi:"templateUris"`
+}
+
+func (FeedTemplateGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedTemplateGroup)(nil)).Elem()
+}
+
+func (i FeedTemplateGroupArgs) ToFeedTemplateGroupOutput() FeedTemplateGroupOutput {
+	return i.ToFeedTemplateGroupOutputWithContext(context.Background())
+}
+
+func (i FeedTemplateGroupArgs) ToFeedTemplateGroupOutputWithContext(ctx context.Context) FeedTemplateGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedTemplateGroupOutput)
+}
+
+// FeedTemplateGroupArrayInput is an input type that accepts FeedTemplateGroupArray and FeedTemplateGroupArrayOutput values.
+// You can construct a concrete instance of `FeedTemplateGroupArrayInput` via:
+//
+//	FeedTemplateGroupArray{ FeedTemplateGroupArgs{...} }
+type FeedTemplateGroupArrayInput interface {
+	pulumi.Input
+
+	ToFeedTemplateGroupArrayOutput() FeedTemplateGroupArrayOutput
+	ToFeedTemplateGroupArrayOutputWithContext(context.Context) FeedTemplateGroupArrayOutput
+}
+
+type FeedTemplateGroupArray []FeedTemplateGroupInput
+
+func (FeedTemplateGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeedTemplateGroup)(nil)).Elem()
+}
+
+func (i FeedTemplateGroupArray) ToFeedTemplateGroupArrayOutput() FeedTemplateGroupArrayOutput {
+	return i.ToFeedTemplateGroupArrayOutputWithContext(context.Background())
+}
+
+func (i FeedTemplateGroupArray) ToFeedTemplateGroupArrayOutputWithContext(ctx context.Context) FeedTemplateGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeedTemplateGroupArrayOutput)
+}
+
+type FeedTemplateGroupOutput struct{ *pulumi.OutputState }
+
+func (FeedTemplateGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeedTemplateGroup)(nil)).Elem()
+}
+
+func (o FeedTemplateGroupOutput) ToFeedTemplateGroupOutput() FeedTemplateGroupOutput {
+	return o
+}
+
+func (o FeedTemplateGroupOutput) ToFeedTemplateGroupOutputWithContext(ctx context.Context) FeedTemplateGroupOutput {
+	return o
+}
+
+func (o FeedTemplateGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FeedTemplateGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o FeedTemplateGroupOutput) TemplateUris() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v FeedTemplateGroup) []string { return v.TemplateUris }).(pulumi.StringArrayOutput)
+}
+
+type FeedTemplateGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (FeedTemplateGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeedTemplateGroup)(nil)).Elem()
+}
+
+func (o FeedTemplateGroupArrayOutput) ToFeedTemplateGroupArrayOutput() FeedTemplateGroupArrayOutput {
+	return o
+}
+
+func (o FeedTemplateGroupArrayOutput) ToFeedTemplateGroupArrayOutputWithContext(ctx context.Context) FeedTemplateGroupArrayOutput {
+	return o
+}
+
+func (o FeedTemplateGroupArrayOutput) Index(i pulumi.IntInput) FeedTemplateGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeedTemplateGroup {
+		return vs[0].([]FeedTemplateGroup)[vs[1].(int)]
+	}).(FeedTemplateGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedAspectRatioInput)(nil)).Elem(), FeedAspectRatioArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedAspectRatioPtrInput)(nil)).Elem(), FeedAspectRatioArgs{})
@@ -731,6 +837,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputConfig1PropertiesInput)(nil)).Elem(), FeedOutputConfig1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedOutputConfig2PropertiesInput)(nil)).Elem(), FeedOutputConfig2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeedSubtitlingConfigInput)(nil)).Elem(), FeedSubtitlingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedTemplateGroupInput)(nil)).Elem(), FeedTemplateGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeedTemplateGroupArrayInput)(nil)).Elem(), FeedTemplateGroupArray{})
 	pulumi.RegisterOutputType(FeedAspectRatioOutput{})
 	pulumi.RegisterOutputType(FeedAspectRatioPtrOutput{})
 	pulumi.RegisterOutputType(FeedClippingConfigOutput{})
@@ -743,4 +851,6 @@ func init() {
 	pulumi.RegisterOutputType(FeedOutputConfig1PropertiesOutput{})
 	pulumi.RegisterOutputType(FeedOutputConfig2PropertiesOutput{})
 	pulumi.RegisterOutputType(FeedSubtitlingConfigOutput{})
+	pulumi.RegisterOutputType(FeedTemplateGroupOutput{})
+	pulumi.RegisterOutputType(FeedTemplateGroupArrayOutput{})
 }

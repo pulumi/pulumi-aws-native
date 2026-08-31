@@ -79,13 +79,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The attachment to move from one network function group to another.
         /// </summary>
         [Output("proposedNetworkFunctionGroupChange")]
-        public Output<Outputs.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
+        public Output<Outputs.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChange> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
         /// </summary>
         [Output("proposedSegmentChange")]
-        public Output<Outputs.SiteToSiteVpnAttachmentProposedSegmentChange?> ProposedSegmentChange { get; private set; } = null!;
+        public Output<Outputs.SiteToSiteVpnAttachmentProposedSegmentChange> ProposedSegmentChange { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Resource.
@@ -191,18 +191,6 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("networkFunctionGroupName")]
         public Input<string>? NetworkFunctionGroupName { get; set; }
-
-        /// <summary>
-        /// The attachment to move from one network function group to another.
-        /// </summary>
-        [Input("proposedNetworkFunctionGroupChange")]
-        public Input<Inputs.SiteToSiteVpnAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
-
-        /// <summary>
-        /// The attachment to move from one segment to another.
-        /// </summary>
-        [Input("proposedSegmentChange")]
-        public Input<Inputs.SiteToSiteVpnAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         /// <summary>
         /// Routing policy label

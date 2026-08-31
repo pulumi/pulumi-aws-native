@@ -522,6 +522,7 @@ const (
 	PlanExecutionBlockTypeParallel                    = PlanExecutionBlockType("Parallel")
 	PlanExecutionBlockTypeRdsCreateCrossRegionReplica = PlanExecutionBlockType("RdsCreateCrossRegionReplica")
 	PlanExecutionBlockTypeRdsPromoteReadReplica       = PlanExecutionBlockType("RdsPromoteReadReplica")
+	PlanExecutionBlockTypeRdsSwitchoverReadReplica    = PlanExecutionBlockType("RdsSwitchoverReadReplica")
 	PlanExecutionBlockTypeRoute53HealthCheck          = PlanExecutionBlockType("Route53HealthCheck")
 )
 
@@ -663,6 +664,7 @@ func (o PlanExecutionBlockTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 //	PlanExecutionBlockTypeParallel
 //	PlanExecutionBlockTypeRdsCreateCrossRegionReplica
 //	PlanExecutionBlockTypeRdsPromoteReadReplica
+//	PlanExecutionBlockTypeRdsSwitchoverReadReplica
 //	PlanExecutionBlockTypeRoute53HealthCheck
 type PlanExecutionBlockTypeInput interface {
 	pulumi.Input
@@ -1352,6 +1354,169 @@ func (in *planNeptuneUngracefulBehaviorPtr) ToPlanNeptuneUngracefulBehaviorPtrOu
 	return pulumi.ToOutputWithContext(ctx, in).(PlanNeptuneUngracefulBehaviorPtrOutput)
 }
 
+type PlanRdsUngracefulBehavior string
+
+const (
+	PlanRdsUngracefulBehaviorPromoteReadReplica = PlanRdsUngracefulBehavior("promoteReadReplica")
+)
+
+func (PlanRdsUngracefulBehavior) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsUngracefulBehavior)(nil)).Elem()
+}
+
+func (e PlanRdsUngracefulBehavior) ToPlanRdsUngracefulBehaviorOutput() PlanRdsUngracefulBehaviorOutput {
+	return pulumi.ToOutput(e).(PlanRdsUngracefulBehaviorOutput)
+}
+
+func (e PlanRdsUngracefulBehavior) ToPlanRdsUngracefulBehaviorOutputWithContext(ctx context.Context) PlanRdsUngracefulBehaviorOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlanRdsUngracefulBehaviorOutput)
+}
+
+func (e PlanRdsUngracefulBehavior) ToPlanRdsUngracefulBehaviorPtrOutput() PlanRdsUngracefulBehaviorPtrOutput {
+	return e.ToPlanRdsUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (e PlanRdsUngracefulBehavior) ToPlanRdsUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulBehaviorPtrOutput {
+	return PlanRdsUngracefulBehavior(e).ToPlanRdsUngracefulBehaviorOutputWithContext(ctx).ToPlanRdsUngracefulBehaviorPtrOutputWithContext(ctx)
+}
+
+func (e PlanRdsUngracefulBehavior) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanRdsUngracefulBehavior) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlanRdsUngracefulBehavior) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlanRdsUngracefulBehavior) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlanRdsUngracefulBehaviorOutput struct{ *pulumi.OutputState }
+
+func (PlanRdsUngracefulBehaviorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToPlanRdsUngracefulBehaviorOutput() PlanRdsUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToPlanRdsUngracefulBehaviorOutputWithContext(ctx context.Context) PlanRdsUngracefulBehaviorOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToPlanRdsUngracefulBehaviorPtrOutput() PlanRdsUngracefulBehaviorPtrOutput {
+	return o.ToPlanRdsUngracefulBehaviorPtrOutputWithContext(context.Background())
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToPlanRdsUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulBehaviorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanRdsUngracefulBehavior) *PlanRdsUngracefulBehavior {
+		return &v
+	}).(PlanRdsUngracefulBehaviorPtrOutput)
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanRdsUngracefulBehavior) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanRdsUngracefulBehaviorOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlanRdsUngracefulBehavior) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlanRdsUngracefulBehaviorPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanRdsUngracefulBehaviorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanRdsUngracefulBehavior)(nil)).Elem()
+}
+
+func (o PlanRdsUngracefulBehaviorPtrOutput) ToPlanRdsUngracefulBehaviorPtrOutput() PlanRdsUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulBehaviorPtrOutput) ToPlanRdsUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulBehaviorPtrOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulBehaviorPtrOutput) Elem() PlanRdsUngracefulBehaviorOutput {
+	return o.ApplyT(func(v *PlanRdsUngracefulBehavior) PlanRdsUngracefulBehavior {
+		if v != nil {
+			return *v
+		}
+		var ret PlanRdsUngracefulBehavior
+		return ret
+	}).(PlanRdsUngracefulBehaviorOutput)
+}
+
+func (o PlanRdsUngracefulBehaviorPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlanRdsUngracefulBehaviorPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlanRdsUngracefulBehavior) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlanRdsUngracefulBehaviorInput is an input type that accepts values of the PlanRdsUngracefulBehavior enum
+// A concrete instance of `PlanRdsUngracefulBehaviorInput` can be one of the following:
+//
+//	PlanRdsUngracefulBehaviorPromoteReadReplica
+type PlanRdsUngracefulBehaviorInput interface {
+	pulumi.Input
+
+	ToPlanRdsUngracefulBehaviorOutput() PlanRdsUngracefulBehaviorOutput
+	ToPlanRdsUngracefulBehaviorOutputWithContext(context.Context) PlanRdsUngracefulBehaviorOutput
+}
+
+var planRdsUngracefulBehaviorPtrType = reflect.TypeOf((**PlanRdsUngracefulBehavior)(nil)).Elem()
+
+type PlanRdsUngracefulBehaviorPtrInput interface {
+	pulumi.Input
+
+	ToPlanRdsUngracefulBehaviorPtrOutput() PlanRdsUngracefulBehaviorPtrOutput
+	ToPlanRdsUngracefulBehaviorPtrOutputWithContext(context.Context) PlanRdsUngracefulBehaviorPtrOutput
+}
+
+type planRdsUngracefulBehaviorPtr string
+
+func PlanRdsUngracefulBehaviorPtr(v string) PlanRdsUngracefulBehaviorPtrInput {
+	return (*planRdsUngracefulBehaviorPtr)(&v)
+}
+
+func (*planRdsUngracefulBehaviorPtr) ElementType() reflect.Type {
+	return planRdsUngracefulBehaviorPtrType
+}
+
+func (in *planRdsUngracefulBehaviorPtr) ToPlanRdsUngracefulBehaviorPtrOutput() PlanRdsUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutput(in).(PlanRdsUngracefulBehaviorPtrOutput)
+}
+
+func (in *planRdsUngracefulBehaviorPtr) ToPlanRdsUngracefulBehaviorPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulBehaviorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlanRdsUngracefulBehaviorPtrOutput)
+}
+
 type PlanRecoveryApproach string
 
 const (
@@ -1877,6 +2042,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanLambdaEventSourceMappingUngracefulBehaviorPtrInput)(nil)).Elem(), PlanLambdaEventSourceMappingUngracefulBehavior("skip"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanNeptuneUngracefulBehaviorInput)(nil)).Elem(), PlanNeptuneUngracefulBehavior("failover"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanNeptuneUngracefulBehaviorPtrInput)(nil)).Elem(), PlanNeptuneUngracefulBehavior("failover"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsUngracefulBehaviorInput)(nil)).Elem(), PlanRdsUngracefulBehavior("promoteReadReplica"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsUngracefulBehaviorPtrInput)(nil)).Elem(), PlanRdsUngracefulBehavior("promoteReadReplica"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRecoveryApproachInput)(nil)).Elem(), PlanRecoveryApproach("activeActive"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRecoveryApproachPtrInput)(nil)).Elem(), PlanRecoveryApproach("activeActive"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionToRunInInput)(nil)).Elem(), PlanRegionToRunIn("activatingRegion"))
@@ -1899,6 +2066,8 @@ func init() {
 	pulumi.RegisterOutputType(PlanLambdaEventSourceMappingUngracefulBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(PlanNeptuneUngracefulBehaviorOutput{})
 	pulumi.RegisterOutputType(PlanNeptuneUngracefulBehaviorPtrOutput{})
+	pulumi.RegisterOutputType(PlanRdsUngracefulBehaviorOutput{})
+	pulumi.RegisterOutputType(PlanRdsUngracefulBehaviorPtrOutput{})
 	pulumi.RegisterOutputType(PlanRecoveryApproachOutput{})
 	pulumi.RegisterOutputType(PlanRecoveryApproachPtrOutput{})
 	pulumi.RegisterOutputType(PlanRegionToRunInOutput{})

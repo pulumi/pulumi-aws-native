@@ -10,6 +10,7 @@ from ._enums import *
 from .blueprint import *
 from .catalog import *
 from .classifier import *
+from .connection import *
 from .crawler import *
 from .custom_entity_type import *
 from .data_catalog_encryption_settings import *
@@ -18,6 +19,7 @@ from .database import *
 from .get_blueprint import *
 from .get_catalog import *
 from .get_classifier import *
+from .get_connection import *
 from .get_crawler import *
 from .get_custom_entity_type import *
 from .get_data_catalog_encryption_settings import *

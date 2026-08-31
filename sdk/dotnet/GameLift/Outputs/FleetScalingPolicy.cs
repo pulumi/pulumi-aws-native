@@ -29,9 +29,9 @@ namespace Pulumi.AwsNative.GameLift.Outputs
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+        /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
         /// </summary>
-        public readonly Pulumi.AwsNative.GameLift.FleetScalingPolicyMetricName MetricName;
+        public readonly Pulumi.AwsNative.GameLift.FleetScalingPolicyMetricName? MetricName;
         /// <summary>
         /// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
         /// </summary>
@@ -73,7 +73,7 @@ namespace Pulumi.AwsNative.GameLift.Outputs
 
             string? location,
 
-            Pulumi.AwsNative.GameLift.FleetScalingPolicyMetricName metricName,
+            Pulumi.AwsNative.GameLift.FleetScalingPolicyMetricName? metricName,
 
             string name,
 

@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
         [Input("artifactUrl")]
         public Input<string>? ArtifactUrl { get; set; }
 
+        [Input("containerMetricsConfig")]
+        public Input<Inputs.InferenceComponentContainerMetricsConfigArgs>? ContainerMetricsConfig { get; set; }
+
         [Input("deployedImage")]
         public Input<Inputs.InferenceComponentDeployedImageArgs>? DeployedImage { get; set; }
 

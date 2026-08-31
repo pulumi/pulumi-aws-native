@@ -66,6 +66,11 @@ export interface GetDbClusterResult {
      */
     readonly autoMinorVersionUpgrade?: boolean;
     /**
+     * A list of Availability Zones (AZs) where instances in the DB cluster can be created. For information on AWS Regions and Availability Zones, see [Choosing the Regions and Availability Zones](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.RegionsAndAvailabilityZones.html) in the *Amazon Aurora User Guide*.
+     *  Valid for: Aurora DB clusters only
+     */
+    readonly availabilityZones?: string[];
+    /**
      * The target backtrack window, in seconds. To disable backtracking, set this value to ``0``.
      *  Valid for Cluster Type: Aurora MySQL DB clusters only
      *  Default: ``0``

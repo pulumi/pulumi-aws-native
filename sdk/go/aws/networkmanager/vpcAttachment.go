@@ -40,9 +40,9 @@ type VpcAttachment struct {
 	// Owner account of the attachment.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
+	ProposedNetworkFunctionGroupChange VpcAttachmentProposedNetworkFunctionGroupChangeOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
-	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
+	ProposedSegmentChange VpcAttachmentProposedSegmentChangeOutput `pulumi:"proposedSegmentChange"`
 	// The ARN of the Resource.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Routing policy label
@@ -120,10 +120,6 @@ type vpcAttachmentArgs struct {
 	CoreNetworkId string `pulumi:"coreNetworkId"`
 	// Vpc options of the attachment.
 	Options *VpcAttachmentVpcOptions `pulumi:"options"`
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange *VpcAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange *VpcAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Routing policy label
 	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Subnet Arn list
@@ -140,10 +136,6 @@ type VpcAttachmentArgs struct {
 	CoreNetworkId pulumi.StringInput
 	// Vpc options of the attachment.
 	Options VpcAttachmentVpcOptionsPtrInput
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange VpcAttachmentProposedNetworkFunctionGroupChangePtrInput
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange VpcAttachmentProposedSegmentChangePtrInput
 	// Routing policy label
 	RoutingPolicyLabel pulumi.StringPtrInput
 	// Subnet Arn list
@@ -247,15 +239,15 @@ func (o VpcAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 }
 
 // The attachment to move from one network function group to another.
-func (o VpcAttachmentOutput) ProposedNetworkFunctionGroupChange() VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+func (o VpcAttachmentOutput) ProposedNetworkFunctionGroupChange() VpcAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentProposedNetworkFunctionGroupChangeOutput {
 		return v.ProposedNetworkFunctionGroupChange
-	}).(VpcAttachmentProposedNetworkFunctionGroupChangePtrOutput)
+	}).(VpcAttachmentProposedNetworkFunctionGroupChangeOutput)
 }
 
 // The attachment to move from one segment to another.
-func (o VpcAttachmentOutput) ProposedSegmentChange() VpcAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentProposedSegmentChangePtrOutput { return v.ProposedSegmentChange }).(VpcAttachmentProposedSegmentChangePtrOutput)
+func (o VpcAttachmentOutput) ProposedSegmentChange() VpcAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *VpcAttachment) VpcAttachmentProposedSegmentChangeOutput { return v.ProposedSegmentChange }).(VpcAttachmentProposedSegmentChangeOutput)
 }
 
 // The ARN of the Resource.

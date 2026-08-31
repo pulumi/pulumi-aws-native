@@ -33,8 +33,12 @@ type LookupServiceNetworkVpcAssociationResult struct {
 	Arn *string `pulumi:"arn"`
 	// The date and time that the association was created, specified in ISO-8601 format.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The DNS options for the service network VPC association.
+	DnsOptions *ServiceNetworkVpcAssociationDnsOptions `pulumi:"dnsOptions"`
 	// The ID of the specified association between the service network and the VPC.
 	Id *string `pulumi:"id"`
+	// Indicates if private DNS is enabled for the service network VPC association.
+	PrivateDnsEnabled *bool `pulumi:"privateDnsEnabled"`
 	// The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
 	// The Amazon Resource Name (ARN) of the service network.
@@ -89,9 +93,21 @@ func (o LookupServiceNetworkVpcAssociationResultOutput) CreatedAt() pulumi.Strin
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
 
+// The DNS options for the service network VPC association.
+func (o LookupServiceNetworkVpcAssociationResultOutput) DnsOptions() ServiceNetworkVpcAssociationDnsOptionsPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *ServiceNetworkVpcAssociationDnsOptions {
+		return v.DnsOptions
+	}).(ServiceNetworkVpcAssociationDnsOptionsPtrOutput)
+}
+
 // The ID of the specified association between the service network and the VPC.
 func (o LookupServiceNetworkVpcAssociationResultOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// Indicates if private DNS is enabled for the service network VPC association.
+func (o LookupServiceNetworkVpcAssociationResultOutput) PrivateDnsEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupServiceNetworkVpcAssociationResult) *bool { return v.PrivateDnsEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .

@@ -26,6 +26,7 @@ __all__ = [
     'AutoScalingGroupCapacityReservationSpecification',
     'AutoScalingGroupCapacityReservationTarget',
     'AutoScalingGroupCpuPerformanceFactorRequest',
+    'AutoScalingGroupDistributionSegment',
     'AutoScalingGroupInstanceLifecyclePolicy',
     'AutoScalingGroupInstanceMaintenancePolicy',
     'AutoScalingGroupInstanceRequirements',
@@ -446,6 +447,35 @@ class AutoScalingGroupCpuPerformanceFactorRequest(dict):
           Currently only one instance family can be specified in the list.
         """
         return pulumi.get(self, "references")
+
+
+@pulumi.output_type
+class AutoScalingGroupDistributionSegment(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "targetCapacityTypes":
+            suggest = "target_capacity_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoScalingGroupDistributionSegment. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoScalingGroupDistributionSegment.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoScalingGroupDistributionSegment.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 target_capacity_types: Sequence['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']):
+        pulumi.set(__self__, "target_capacity_types", target_capacity_types)
+
+    @_builtins.property
+    @pulumi.getter(name="targetCapacityTypes")
+    def target_capacity_types(self) -> Sequence['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']:
+        return pulumi.get(self, "target_capacity_types")
 
 
 @pulumi.output_type
@@ -1081,7 +1111,9 @@ class AutoScalingGroupInstancesDistribution(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "onDemandAllocationStrategy":
+        if key == "distributionSegments":
+            suggest = "distribution_segments"
+        elif key == "onDemandAllocationStrategy":
             suggest = "on_demand_allocation_strategy"
         elif key == "onDemandBaseCapacity":
             suggest = "on_demand_base_capacity"
@@ -1106,6 +1138,7 @@ class AutoScalingGroupInstancesDistribution(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 distribution_segments: Optional[Sequence['outputs.AutoScalingGroupDistributionSegment']] = None,
                  on_demand_allocation_strategy: Optional[_builtins.str] = None,
                  on_demand_base_capacity: Optional[_builtins.int] = None,
                  on_demand_percentage_above_base_capacity: Optional[_builtins.int] = None,
@@ -1136,6 +1169,8 @@ class AutoScalingGroupInstancesDistribution(dict):
                  If you specify a maximum price, your instances will be interrupted more frequently than if you do not specify one.
                  Valid Range: Minimum value of 0.001
         """
+        if distribution_segments is not None:
+            pulumi.set(__self__, "distribution_segments", distribution_segments)
         if on_demand_allocation_strategy is not None:
             pulumi.set(__self__, "on_demand_allocation_strategy", on_demand_allocation_strategy)
         if on_demand_base_capacity is not None:
@@ -1148,6 +1183,11 @@ class AutoScalingGroupInstancesDistribution(dict):
             pulumi.set(__self__, "spot_instance_pools", spot_instance_pools)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
+
+    @_builtins.property
+    @pulumi.getter(name="distributionSegments")
+    def distribution_segments(self) -> Optional[Sequence['outputs.AutoScalingGroupDistributionSegment']]:
+        return pulumi.get(self, "distribution_segments")
 
     @_builtins.property
     @pulumi.getter(name="onDemandAllocationStrategy")

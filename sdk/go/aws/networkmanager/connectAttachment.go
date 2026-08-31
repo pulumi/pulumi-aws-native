@@ -40,9 +40,9 @@ type ConnectAttachment struct {
 	// The ID of the attachment account owner.
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput `pulumi:"proposedNetworkFunctionGroupChange"`
+	ProposedNetworkFunctionGroupChange ConnectAttachmentProposedNetworkFunctionGroupChangeOutput `pulumi:"proposedNetworkFunctionGroupChange"`
 	// The attachment to move from one segment to another.
-	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrOutput `pulumi:"proposedSegmentChange"`
+	ProposedSegmentChange ConnectAttachmentProposedSegmentChangeOutput `pulumi:"proposedSegmentChange"`
 	// The attachment resource ARN.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Routing policy label
@@ -127,10 +127,6 @@ type connectAttachmentArgs struct {
 	NetworkFunctionGroupName *string `pulumi:"networkFunctionGroupName"`
 	// Protocol options for connect attachment
 	Options ConnectAttachmentOptions `pulumi:"options"`
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange *ConnectAttachmentProposedNetworkFunctionGroupChange `pulumi:"proposedNetworkFunctionGroupChange"`
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange *ConnectAttachmentProposedSegmentChange `pulumi:"proposedSegmentChange"`
 	// Routing policy label
 	RoutingPolicyLabel *string `pulumi:"routingPolicyLabel"`
 	// Tags for the attachment.
@@ -149,10 +145,6 @@ type ConnectAttachmentArgs struct {
 	NetworkFunctionGroupName pulumi.StringPtrInput
 	// Protocol options for connect attachment
 	Options ConnectAttachmentOptionsInput
-	// The attachment to move from one network function group to another.
-	ProposedNetworkFunctionGroupChange ConnectAttachmentProposedNetworkFunctionGroupChangePtrInput
-	// The attachment to move from one segment to another.
-	ProposedSegmentChange ConnectAttachmentProposedSegmentChangePtrInput
 	// Routing policy label
 	RoutingPolicyLabel pulumi.StringPtrInput
 	// Tags for the attachment.
@@ -254,17 +246,17 @@ func (o ConnectAttachmentOutput) OwnerAccountId() pulumi.StringOutput {
 }
 
 // The attachment to move from one network function group to another.
-func (o ConnectAttachmentOutput) ProposedNetworkFunctionGroupChange() ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
-	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput {
+func (o ConnectAttachmentOutput) ProposedNetworkFunctionGroupChange() ConnectAttachmentProposedNetworkFunctionGroupChangeOutput {
+	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentProposedNetworkFunctionGroupChangeOutput {
 		return v.ProposedNetworkFunctionGroupChange
-	}).(ConnectAttachmentProposedNetworkFunctionGroupChangePtrOutput)
+	}).(ConnectAttachmentProposedNetworkFunctionGroupChangeOutput)
 }
 
 // The attachment to move from one segment to another.
-func (o ConnectAttachmentOutput) ProposedSegmentChange() ConnectAttachmentProposedSegmentChangePtrOutput {
-	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentProposedSegmentChangePtrOutput {
+func (o ConnectAttachmentOutput) ProposedSegmentChange() ConnectAttachmentProposedSegmentChangeOutput {
+	return o.ApplyT(func(v *ConnectAttachment) ConnectAttachmentProposedSegmentChangeOutput {
 		return v.ProposedSegmentChange
-	}).(ConnectAttachmentProposedSegmentChangePtrOutput)
+	}).(ConnectAttachmentProposedSegmentChangeOutput)
 }
 
 // The attachment resource ARN.

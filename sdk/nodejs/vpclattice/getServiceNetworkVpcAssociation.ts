@@ -34,9 +34,17 @@ export interface GetServiceNetworkVpcAssociationResult {
      */
     readonly createdAt?: string;
     /**
+     * The DNS options for the service network VPC association.
+     */
+    readonly dnsOptions?: outputs.vpclattice.ServiceNetworkVpcAssociationDnsOptions;
+    /**
      * The ID of the specified association between the service network and the VPC.
      */
     readonly id?: string;
+    /**
+     * Indicates if private DNS is enabled for the service network VPC association.
+     */
+    readonly privateDnsEnabled?: boolean;
     /**
      * The IDs of the security groups. Security groups aren't added by default. You can add a security group to apply network level controls to control which resources in a VPC are allowed to access the service network and its services. For more information, see [Control traffic to resources using security groups](https://docs.aws.amazon.com//vpc/latest/userguide/VPC_SecurityGroups.html) in the *Amazon VPC User Guide* .
      */

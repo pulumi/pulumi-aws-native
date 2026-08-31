@@ -909,12 +909,25 @@ export const ImageVersionVendorGuidance = {
  */
 export type ImageVersionVendorGuidance = (typeof ImageVersionVendorGuidance)[keyof typeof ImageVersionVendorGuidance];
 
+export const InferenceComponentAvailabilityZoneBalanceEnforcementMode = {
+    Permissive: "PERMISSIVE",
+} as const;
+
+export type InferenceComponentAvailabilityZoneBalanceEnforcementMode = (typeof InferenceComponentAvailabilityZoneBalanceEnforcementMode)[keyof typeof InferenceComponentAvailabilityZoneBalanceEnforcementMode];
+
 export const InferenceComponentCapacitySizeType = {
     CopyCount: "COPY_COUNT",
     CapacityPercent: "CAPACITY_PERCENT",
 } as const;
 
 export type InferenceComponentCapacitySizeType = (typeof InferenceComponentCapacitySizeType)[keyof typeof InferenceComponentCapacitySizeType];
+
+export const InferenceComponentPlacementStrategy = {
+    Spread: "SPREAD",
+    Binpack: "BINPACK",
+} as const;
+
+export type InferenceComponentPlacementStrategy = (typeof InferenceComponentPlacementStrategy)[keyof typeof InferenceComponentPlacementStrategy];
 
 export const InferenceComponentStatus = {
     InService: "InService",

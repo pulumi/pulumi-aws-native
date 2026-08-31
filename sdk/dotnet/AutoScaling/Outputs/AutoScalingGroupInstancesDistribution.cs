@@ -18,6 +18,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupInstancesDistribution
     {
+        public readonly ImmutableArray<Outputs.AutoScalingGroupDistributionSegment> DistributionSegments;
         /// <summary>
         /// The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
         ///  The following lists the valid values:
@@ -57,6 +58,8 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
         [OutputConstructor]
         private AutoScalingGroupInstancesDistribution(
+            ImmutableArray<Outputs.AutoScalingGroupDistributionSegment> distributionSegments,
+
             string? onDemandAllocationStrategy,
 
             int? onDemandBaseCapacity,
@@ -69,6 +72,7 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
 
             string? spotMaxPrice)
         {
+            DistributionSegments = distributionSegments;
             OnDemandAllocationStrategy = onDemandAllocationStrategy;
             OnDemandBaseCapacity = onDemandBaseCapacity;
             OnDemandPercentageAboveBaseCapacity = onDemandPercentageAboveBaseCapacity;

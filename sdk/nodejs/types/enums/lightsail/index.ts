@@ -2,6 +2,27 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ContactMethodProtocol = {
+    Email: "Email",
+    Sms: "SMS",
+} as const;
+
+/**
+ * The protocol of the contact method, such as Email or SMS (text messaging).
+ */
+export type ContactMethodProtocol = (typeof ContactMethodProtocol)[keyof typeof ContactMethodProtocol];
+
+export const ContactMethodStatus = {
+    PendingVerification: "PendingVerification",
+    Valid: "Valid",
+    Invalid: "Invalid",
+} as const;
+
+/**
+ * The current status of the contact method.
+ */
+export type ContactMethodStatus = (typeof ContactMethodStatus)[keyof typeof ContactMethodStatus];
+
 export const DatabaseSnapshotResourceType = {
     RelationalDatabaseSnapshot: "RelationalDatabaseSnapshot",
 } as const;

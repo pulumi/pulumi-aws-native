@@ -12,6 +12,14 @@ namespace Pulumi.AwsNative.ElementalInference.Inputs
 
     public sealed class FeedCroppingConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("templateGroups")]
+        private InputList<Inputs.FeedTemplateGroupArgs>? _templateGroups;
+        public InputList<Inputs.FeedTemplateGroupArgs> TemplateGroups
+        {
+            get => _templateGroups ?? (_templateGroups = new InputList<Inputs.FeedTemplateGroupArgs>());
+            set => _templateGroups = value;
+        }
+
         public FeedCroppingConfigArgs()
         {
         }

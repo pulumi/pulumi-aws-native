@@ -422,7 +422,6 @@ func NewDbCluster(ctx *pulumi.Context,
 	}
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
-		"availabilityZones[*]",
 		"clusterScalabilityType",
 		"databaseName",
 		"dbClusterIdentifier",

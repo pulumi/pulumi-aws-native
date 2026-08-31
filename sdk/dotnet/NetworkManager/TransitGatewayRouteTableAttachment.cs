@@ -85,13 +85,13 @@ namespace Pulumi.AwsNative.NetworkManager
         /// The attachment to move from one network function group to another.
         /// </summary>
         [Output("proposedNetworkFunctionGroupChange")]
-        public Output<Outputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange?> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
+        public Output<Outputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange> ProposedNetworkFunctionGroupChange { get; private set; } = null!;
 
         /// <summary>
         /// The attachment to move from one segment to another.
         /// </summary>
         [Output("proposedSegmentChange")]
-        public Output<Outputs.TransitGatewayRouteTableAttachmentProposedSegmentChange?> ProposedSegmentChange { get; private set; } = null!;
+        public Output<Outputs.TransitGatewayRouteTableAttachmentProposedSegmentChange> ProposedSegmentChange { get; private set; } = null!;
 
         /// <summary>
         /// The ARN of the Resource.
@@ -196,18 +196,6 @@ namespace Pulumi.AwsNative.NetworkManager
         /// </summary>
         [Input("peeringId", required: true)]
         public Input<string> PeeringId { get; set; } = null!;
-
-        /// <summary>
-        /// The attachment to move from one network function group to another.
-        /// </summary>
-        [Input("proposedNetworkFunctionGroupChange")]
-        public Input<Inputs.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs>? ProposedNetworkFunctionGroupChange { get; set; }
-
-        /// <summary>
-        /// The attachment to move from one segment to another.
-        /// </summary>
-        [Input("proposedSegmentChange")]
-        public Input<Inputs.TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs>? ProposedSegmentChange { get; set; }
 
         /// <summary>
         /// Routing policy label

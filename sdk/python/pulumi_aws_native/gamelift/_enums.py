@@ -176,7 +176,7 @@ class ContainerFleetScalingPolicyComparisonOperator(_builtins.str, Enum):
 @pulumi.type_token("aws-native:gamelift:ContainerFleetScalingPolicyMetricName")
 class ContainerFleetScalingPolicyMetricName(_builtins.str, Enum):
     """
-    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
     """
     ACTIVATING_GAME_SESSIONS = "ActivatingGameSessions"
     ACTIVE_GAME_SESSIONS = "ActiveGameSessions"
@@ -199,6 +199,7 @@ class ContainerFleetScalingPolicyPolicyType(_builtins.str, Enum):
     """
     RULE_BASED = "RuleBased"
     TARGET_BASED = "TargetBased"
+    MANAGED_SCALING = "ManagedScaling"
 
 
 @pulumi.type_token("aws-native:gamelift:ContainerFleetScalingPolicyScalingAdjustmentType")
@@ -438,7 +439,7 @@ class FleetScalingPolicyComparisonOperator(_builtins.str, Enum):
 @pulumi.type_token("aws-native:gamelift:FleetScalingPolicyMetricName")
 class FleetScalingPolicyMetricName(_builtins.str, Enum):
     """
-    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
     """
     ACTIVATING_GAME_SESSIONS = "ActivatingGameSessions"
     ACTIVE_GAME_SESSIONS = "ActiveGameSessions"
@@ -461,6 +462,7 @@ class FleetScalingPolicyPolicyType(_builtins.str, Enum):
     """
     RULE_BASED = "RuleBased"
     TARGET_BASED = "TargetBased"
+    MANAGED_SCALING = "ManagedScaling"
 
 
 @pulumi.type_token("aws-native:gamelift:FleetScalingPolicyScalingAdjustmentType")

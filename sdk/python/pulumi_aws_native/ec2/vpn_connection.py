@@ -56,7 +56,7 @@ class VpnConnectionArgs:
         :param pulumi.Input[_builtins.str] outside_ip_address_type: The type of IP address assigned to the outside interface of the customer gateway device.
                 Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
                 Default: ``PublicIpv4``
-        :param pulumi.Input['VpnConnectionPreSharedKeyStorage'] pre_shared_key_storage: Describes the storage location for an instance store-backed AMI.
+        :param pulumi.Input['VpnConnectionPreSharedKeyStorage'] pre_shared_key_storage: Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
         :param pulumi.Input[_builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
                 Default: ``0.0.0.0/0``
         :param pulumi.Input[_builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
@@ -192,7 +192,7 @@ class VpnConnectionArgs:
     @pulumi.getter(name="preSharedKeyStorage")
     def pre_shared_key_storage(self) -> pulumi.Input[Optional['VpnConnectionPreSharedKeyStorage']]:
         """
-        Describes the storage location for an instance store-backed AMI.
+        Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
         """
         return pulumi.get(self, "pre_shared_key_storage")
 
@@ -383,7 +383,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] outside_ip_address_type: The type of IP address assigned to the outside interface of the customer gateway device.
                 Valid values: ``PrivateIpv4`` | ``PublicIpv4`` | ``Ipv6``
                 Default: ``PublicIpv4``
-        :param pulumi.Input['VpnConnectionPreSharedKeyStorage'] pre_shared_key_storage: Describes the storage location for an instance store-backed AMI.
+        :param pulumi.Input['VpnConnectionPreSharedKeyStorage'] pre_shared_key_storage: Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
         :param pulumi.Input[_builtins.str] remote_ipv4_network_cidr: The IPv4 CIDR on the AWS side of the VPN connection.
                 Default: ``0.0.0.0/0``
         :param pulumi.Input[_builtins.str] remote_ipv6_network_cidr: The IPv6 CIDR on the AWS side of the VPN connection.
@@ -575,7 +575,7 @@ class VpnConnection(pulumi.CustomResource):
     @pulumi.getter(name="preSharedKeyStorage")
     def pre_shared_key_storage(self) -> pulumi.Output[Optional['VpnConnectionPreSharedKeyStorage']]:
         """
-        Describes the storage location for an instance store-backed AMI.
+        Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
         """
         return pulumi.get(self, "pre_shared_key_storage")
 

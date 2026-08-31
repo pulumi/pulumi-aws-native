@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetAssociationResult:
-    def __init__(__self__, apply_only_at_cron_interval=None, association_dispatch_assume_role=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, instance_id=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, schedule_offset=None, sync_compliance=None, tags=None, targets=None):
+    def __init__(__self__, apply_only_at_cron_interval=None, association_dispatch_assume_role=None, association_id=None, association_name=None, automation_target_parameter_name=None, calendar_names=None, compliance_severity=None, document_version=None, max_concurrency=None, max_errors=None, name=None, output_location=None, parameters=None, schedule_expression=None, schedule_offset=None, sync_compliance=None, tags=None, targets=None):
         if apply_only_at_cron_interval and not isinstance(apply_only_at_cron_interval, bool):
             raise TypeError("Expected argument 'apply_only_at_cron_interval' to be a bool")
         pulumi.set(__self__, "apply_only_at_cron_interval", apply_only_at_cron_interval)
@@ -51,9 +51,6 @@ class GetAssociationResult:
         if document_version and not isinstance(document_version, str):
             raise TypeError("Expected argument 'document_version' to be a str")
         pulumi.set(__self__, "document_version", document_version)
-        if instance_id and not isinstance(instance_id, str):
-            raise TypeError("Expected argument 'instance_id' to be a str")
-        pulumi.set(__self__, "instance_id", instance_id)
         if max_concurrency and not isinstance(max_concurrency, str):
             raise TypeError("Expected argument 'max_concurrency' to be a str")
         pulumi.set(__self__, "max_concurrency", max_concurrency)
@@ -148,14 +145,6 @@ class GetAssociationResult:
         The version of the SSM document to associate with the target.
         """
         return pulumi.get(self, "document_version")
-
-    @_builtins.property
-    @pulumi.getter(name="instanceId")
-    def instance_id(self) -> Optional[_builtins.str]:
-        """
-        The ID of the instance that the SSM document is associated with.
-        """
-        return pulumi.get(self, "instance_id")
 
     @_builtins.property
     @pulumi.getter(name="maxConcurrency")
@@ -260,7 +249,6 @@ class AwaitableGetAssociationResult(GetAssociationResult):
             calendar_names=self.calendar_names,
             compliance_severity=self.compliance_severity,
             document_version=self.document_version,
-            instance_id=self.instance_id,
             max_concurrency=self.max_concurrency,
             max_errors=self.max_errors,
             name=self.name,
@@ -294,7 +282,6 @@ def get_association(association_id: Optional[_builtins.str] = None,
         calendar_names=pulumi.get(__ret__, 'calendar_names'),
         compliance_severity=pulumi.get(__ret__, 'compliance_severity'),
         document_version=pulumi.get(__ret__, 'document_version'),
-        instance_id=pulumi.get(__ret__, 'instance_id'),
         max_concurrency=pulumi.get(__ret__, 'max_concurrency'),
         max_errors=pulumi.get(__ret__, 'max_errors'),
         name=pulumi.get(__ret__, 'name'),
@@ -325,7 +312,6 @@ def get_association_output(association_id: pulumi.Input[Optional[_builtins.str]]
         calendar_names=pulumi.get(__response__, 'calendar_names'),
         compliance_severity=pulumi.get(__response__, 'compliance_severity'),
         document_version=pulumi.get(__response__, 'document_version'),
-        instance_id=pulumi.get(__response__, 'instance_id'),
         max_concurrency=pulumi.get(__response__, 'max_concurrency'),
         max_errors=pulumi.get(__response__, 'max_errors'),
         name=pulumi.get(__response__, 'name'),

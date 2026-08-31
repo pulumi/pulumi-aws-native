@@ -129,6 +129,38 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
     }
 
     /// <summary>
+    /// The strategy to resolve tag conflicts during propagation.
+    /// </summary>
+    [EnumType]
+    public readonly struct OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy : IEquatable<OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy>
+    {
+        private readonly string _value;
+
+        private OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy InSync { get; } = new OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy("IN_SYNC");
+        public static OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy AddOnly { get; } = new OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy("ADD_ONLY");
+        public static OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy UpdateSync { get; } = new OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy("UPDATE_SYNC");
+
+        public static bool operator ==(OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy left, OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy right) => left.Equals(right);
+        public static bool operator !=(OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy left, OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy other && Equals(other);
+        public bool Equals(OrganizationCentralizationRuleTagPropagationConfigurationTagConflictResolutionStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The enumerated action to take.
     /// </summary>
     [EnumType]

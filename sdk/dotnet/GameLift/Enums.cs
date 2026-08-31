@@ -388,7 +388,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
-    /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
     /// </summary>
     [EnumType]
     public readonly struct ContainerFleetScalingPolicyMetricName : IEquatable<ContainerFleetScalingPolicyMetricName>
@@ -443,6 +443,7 @@ namespace Pulumi.AwsNative.GameLift
 
         public static ContainerFleetScalingPolicyPolicyType RuleBased { get; } = new ContainerFleetScalingPolicyPolicyType("RuleBased");
         public static ContainerFleetScalingPolicyPolicyType TargetBased { get; } = new ContainerFleetScalingPolicyPolicyType("TargetBased");
+        public static ContainerFleetScalingPolicyPolicyType ManagedScaling { get; } = new ContainerFleetScalingPolicyPolicyType("ManagedScaling");
 
         public static bool operator ==(ContainerFleetScalingPolicyPolicyType left, ContainerFleetScalingPolicyPolicyType right) => left.Equals(right);
         public static bool operator !=(ContainerFleetScalingPolicyPolicyType left, ContainerFleetScalingPolicyPolicyType right) => !left.Equals(right);
@@ -1156,7 +1157,7 @@ namespace Pulumi.AwsNative.GameLift
     }
 
     /// <summary>
-    /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+    /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
     /// </summary>
     [EnumType]
     public readonly struct FleetScalingPolicyMetricName : IEquatable<FleetScalingPolicyMetricName>
@@ -1211,6 +1212,7 @@ namespace Pulumi.AwsNative.GameLift
 
         public static FleetScalingPolicyPolicyType RuleBased { get; } = new FleetScalingPolicyPolicyType("RuleBased");
         public static FleetScalingPolicyPolicyType TargetBased { get; } = new FleetScalingPolicyPolicyType("TargetBased");
+        public static FleetScalingPolicyPolicyType ManagedScaling { get; } = new FleetScalingPolicyPolicyType("ManagedScaling");
 
         public static bool operator ==(FleetScalingPolicyPolicyType left, FleetScalingPolicyPolicyType right) => left.Equals(right);
         public static bool operator !=(FleetScalingPolicyPolicyType left, FleetScalingPolicyPolicyType right) => !left.Equals(right);

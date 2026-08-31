@@ -4,13 +4,11 @@
   "additionalProperties" : false,
   "properties" : {
     "Type" : {
-      "type" : "string"
+      "type" : "string",
+      "enum" : [ "TEST", "CODE_COVERAGE" ]
     },
     "ExportConfig" : {
       "$ref" : "#/definitions/ReportExportConfig"
-    },
-    "Id" : {
-      "type" : "string"
     },
     "Arn" : {
       "type" : "string"
@@ -41,7 +39,8 @@
           "type" : "string"
         },
         "Packaging" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "NONE", "ZIP" ]
         },
         "EncryptionKey" : {
           "type" : "string"
@@ -76,7 +75,8 @@
           "$ref" : "#/definitions/S3ReportExportConfig"
         },
         "ExportConfigType" : {
-          "type" : "string"
+          "type" : "string",
+          "enum" : [ "S3", "NO_EXPORT" ]
         }
       },
       "required" : [ "ExportConfigType" ]
@@ -84,6 +84,32 @@
   },
   "required" : [ "Type", "ExportConfig" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/Type" ],
-  "primaryIdentifier" : [ "/properties/Id" ],
-  "readOnlyProperties" : [ "/properties/Id", "/properties/Arn" ]
+  "primaryIdentifier" : [ "/properties/Arn" ],
+  "readOnlyProperties" : [ "/properties/Arn" ],
+  "writeOnlyProperties" : [ "/properties/DeleteReports" ],
+  "tagging" : {
+    "taggable" : true,
+    "tagOnCreate" : true,
+    "tagUpdatable" : true,
+    "cloudFormationSystemTags" : true,
+    "tagProperty" : "/properties/Tags",
+    "permissions" : [ ]
+  },
+  "handlers" : {
+    "create" : {
+      "permissions" : [ "codebuild:CreateReportGroup" ]
+    },
+    "read" : {
+      "permissions" : [ "codebuild:BatchGetReportGroups" ]
+    },
+    "update" : {
+      "permissions" : [ "codebuild:UpdateReportGroup" ]
+    },
+    "delete" : {
+      "permissions" : [ "codebuild:BatchGetReportGroups", "codebuild:DeleteReportGroup" ]
+    },
+    "list" : {
+      "permissions" : [ "codebuild:ListReportGroups" ]
+    }
+  }
 }

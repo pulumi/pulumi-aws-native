@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetInferenceComponentResult:
-    def __init__(__self__, creation_time=None, endpoint_arn=None, endpoint_name=None, failure_reason=None, inference_component_arn=None, inference_component_name=None, inference_component_status=None, last_modified_time=None, runtime_config=None, specification=None, tags=None, variant_name=None):
+    def __init__(__self__, creation_time=None, endpoint_arn=None, endpoint_name=None, failure_reason=None, inference_component_arn=None, inference_component_name=None, inference_component_status=None, last_modified_time=None, runtime_config=None, specification=None, specifications=None, tags=None, variant_name=None):
         if creation_time and not isinstance(creation_time, str):
             raise TypeError("Expected argument 'creation_time' to be a str")
         pulumi.set(__self__, "creation_time", creation_time)
@@ -57,6 +57,9 @@ class GetInferenceComponentResult:
         if specification and not isinstance(specification, dict):
             raise TypeError("Expected argument 'specification' to be a dict")
         pulumi.set(__self__, "specification", specification)
+        if specifications and not isinstance(specifications, list):
+            raise TypeError("Expected argument 'specifications' to be a list")
+        pulumi.set(__self__, "specifications", specifications)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -137,6 +140,11 @@ class GetInferenceComponentResult:
 
     @_builtins.property
     @pulumi.getter
+    def specifications(self) -> Optional[Sequence['outputs.InferenceComponentSpecificationForInstanceType']]:
+        return pulumi.get(self, "specifications")
+
+    @_builtins.property
+    @pulumi.getter
     def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
         return pulumi.get(self, "tags")
 
@@ -165,6 +173,7 @@ class AwaitableGetInferenceComponentResult(GetInferenceComponentResult):
             last_modified_time=self.last_modified_time,
             runtime_config=self.runtime_config,
             specification=self.specification,
+            specifications=self.specifications,
             tags=self.tags,
             variant_name=self.variant_name)
 
@@ -192,6 +201,7 @@ def get_inference_component(inference_component_arn: Optional[_builtins.str] = N
         last_modified_time=pulumi.get(__ret__, 'last_modified_time'),
         runtime_config=pulumi.get(__ret__, 'runtime_config'),
         specification=pulumi.get(__ret__, 'specification'),
+        specifications=pulumi.get(__ret__, 'specifications'),
         tags=pulumi.get(__ret__, 'tags'),
         variant_name=pulumi.get(__ret__, 'variant_name'))
 def get_inference_component_output(inference_component_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -216,5 +226,6 @@ def get_inference_component_output(inference_component_arn: pulumi.Input[Optiona
         last_modified_time=pulumi.get(__response__, 'last_modified_time'),
         runtime_config=pulumi.get(__response__, 'runtime_config'),
         specification=pulumi.get(__response__, 'specification'),
+        specifications=pulumi.get(__response__, 'specifications'),
         tags=pulumi.get(__response__, 'tags'),
         variant_name=pulumi.get(__response__, 'variant_name')))

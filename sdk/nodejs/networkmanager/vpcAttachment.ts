@@ -84,11 +84,11 @@ export class VpcAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one network function group to another.
      */
-    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public /*out*/ readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChange>;
     /**
      * The attachment to move from one segment to another.
      */
-    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedSegmentChange | undefined>;
+    declare public /*out*/ readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.VpcAttachmentProposedSegmentChange>;
     /**
      * The ARN of the Resource.
      */
@@ -144,8 +144,6 @@ export class VpcAttachment extends pulumi.CustomResource {
             }
             resourceInputs["coreNetworkId"] = args?.coreNetworkId;
             resourceInputs["options"] = args?.options;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
-            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
             resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["subnetArns"] = args?.subnetArns;
             resourceInputs["tags"] = args?.tags;
@@ -159,6 +157,8 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["networkFunctionGroupName"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
+            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -205,14 +205,6 @@ export interface VpcAttachmentArgs {
      * Vpc options of the attachment.
      */
     options?: pulumi.Input<inputs.networkmanager.VpcAttachmentVpcOptionsArgs | undefined>;
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
-    /**
-     * The attachment to move from one segment to another.
-     */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.VpcAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */

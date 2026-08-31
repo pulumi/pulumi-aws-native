@@ -61,7 +61,9 @@ __all__ = [
     'ImageVersionJobType',
     'ImageVersionProcessor',
     'ImageVersionVendorGuidance',
+    'InferenceComponentAvailabilityZoneBalanceEnforcementMode',
     'InferenceComponentCapacitySizeType',
+    'InferenceComponentPlacementStrategy',
     'InferenceComponentStatus',
     'InferenceExperimentDesiredState',
     'InferenceExperimentEndpointMetadataEndpointStatus',
@@ -1014,10 +1016,21 @@ class ImageVersionVendorGuidance(_builtins.str, Enum):
     ARCHIVED = "ARCHIVED"
 
 
+@pulumi.type_token("aws-native:sagemaker:InferenceComponentAvailabilityZoneBalanceEnforcementMode")
+class InferenceComponentAvailabilityZoneBalanceEnforcementMode(_builtins.str, Enum):
+    PERMISSIVE = "PERMISSIVE"
+
+
 @pulumi.type_token("aws-native:sagemaker:InferenceComponentCapacitySizeType")
 class InferenceComponentCapacitySizeType(_builtins.str, Enum):
     COPY_COUNT = "COPY_COUNT"
     CAPACITY_PERCENT = "CAPACITY_PERCENT"
+
+
+@pulumi.type_token("aws-native:sagemaker:InferenceComponentPlacementStrategy")
+class InferenceComponentPlacementStrategy(_builtins.str, Enum):
+    SPREAD = "SPREAD"
+    BINPACK = "BINPACK"
 
 
 @pulumi.type_token("aws-native:sagemaker:InferenceComponentStatus")

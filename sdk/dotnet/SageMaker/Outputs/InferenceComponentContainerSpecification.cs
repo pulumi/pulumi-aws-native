@@ -17,6 +17,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         /// The Amazon S3 path where the model artifacts, which result from model training, are stored. This path must point to a single gzip compressed tar archive (.tar.gz suffix).
         /// </summary>
         public readonly string? ArtifactUrl;
+        public readonly Outputs.InferenceComponentContainerMetricsConfig? ContainerMetricsConfig;
         public readonly Outputs.InferenceComponentDeployedImage? DeployedImage;
         /// <summary>
         /// The environment variables to set in the Docker container. Each key and value in the Environment string-to-string map can have length of up to 1024. We support up to 16 entries in the map.
@@ -31,6 +32,8 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
         private InferenceComponentContainerSpecification(
             string? artifactUrl,
 
+            Outputs.InferenceComponentContainerMetricsConfig? containerMetricsConfig,
+
             Outputs.InferenceComponentDeployedImage? deployedImage,
 
             ImmutableDictionary<string, string>? environment,
@@ -38,6 +41,7 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
             string? image)
         {
             ArtifactUrl = artifactUrl;
+            ContainerMetricsConfig = containerMetricsConfig;
             DeployedImage = deployedImage;
             Environment = environment;
             Image = image;

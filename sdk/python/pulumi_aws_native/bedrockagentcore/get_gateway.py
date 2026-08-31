@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayResult:
-    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, interceptor_configurations=None, kms_key_arn=None, name=None, policy_engine_configuration=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, workload_identity_details=None):
+    def __init__(__self__, authorizer_configuration=None, authorizer_type=None, created_at=None, description=None, exception_level=None, gateway_arn=None, gateway_identifier=None, gateway_url=None, interceptor_configurations=None, kms_key_arn=None, name=None, policy_engine_configuration=None, protocol_configuration=None, protocol_type=None, role_arn=None, status=None, status_reasons=None, tags=None, updated_at=None, waf_configuration=None, web_acl_arn=None, workload_identity_details=None):
         if authorizer_configuration and not isinstance(authorizer_configuration, dict):
             raise TypeError("Expected argument 'authorizer_configuration' to be a dict")
         pulumi.set(__self__, "authorizer_configuration", authorizer_configuration)
@@ -83,6 +83,12 @@ class GetGatewayResult:
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
+        if waf_configuration and not isinstance(waf_configuration, dict):
+            raise TypeError("Expected argument 'waf_configuration' to be a dict")
+        pulumi.set(__self__, "waf_configuration", waf_configuration)
+        if web_acl_arn and not isinstance(web_acl_arn, str):
+            raise TypeError("Expected argument 'web_acl_arn' to be a str")
+        pulumi.set(__self__, "web_acl_arn", web_acl_arn)
         if workload_identity_details and not isinstance(workload_identity_details, dict):
             raise TypeError("Expected argument 'workload_identity_details' to be a dict")
         pulumi.set(__self__, "workload_identity_details", workload_identity_details)
@@ -224,6 +230,16 @@ class GetGatewayResult:
         return pulumi.get(self, "updated_at")
 
     @_builtins.property
+    @pulumi.getter(name="wafConfiguration")
+    def waf_configuration(self) -> Optional['outputs.GatewayWafConfiguration']:
+        return pulumi.get(self, "waf_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="webAclArn")
+    def web_acl_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "web_acl_arn")
+
+    @_builtins.property
     @pulumi.getter(name="workloadIdentityDetails")
     def workload_identity_details(self) -> Optional['outputs.GatewayWorkloadIdentityDetails']:
         return pulumi.get(self, "workload_identity_details")
@@ -254,6 +270,8 @@ class AwaitableGetGatewayResult(GetGatewayResult):
             status_reasons=self.status_reasons,
             tags=self.tags,
             updated_at=self.updated_at,
+            waf_configuration=self.waf_configuration,
+            web_acl_arn=self.web_acl_arn,
             workload_identity_details=self.workload_identity_details)
 
 
@@ -287,6 +305,8 @@ def get_gateway(gateway_identifier: Optional[_builtins.str] = None,
         status_reasons=pulumi.get(__ret__, 'status_reasons'),
         tags=pulumi.get(__ret__, 'tags'),
         updated_at=pulumi.get(__ret__, 'updated_at'),
+        waf_configuration=pulumi.get(__ret__, 'waf_configuration'),
+        web_acl_arn=pulumi.get(__ret__, 'web_acl_arn'),
         workload_identity_details=pulumi.get(__ret__, 'workload_identity_details'))
 def get_gateway_output(gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGatewayResult]:
@@ -317,4 +337,6 @@ def get_gateway_output(gateway_identifier: pulumi.Input[Optional[_builtins.str]]
         status_reasons=pulumi.get(__response__, 'status_reasons'),
         tags=pulumi.get(__response__, 'tags'),
         updated_at=pulumi.get(__response__, 'updated_at'),
+        waf_configuration=pulumi.get(__response__, 'waf_configuration'),
+        web_acl_arn=pulumi.get(__response__, 'web_acl_arn'),
         workload_identity_details=pulumi.get(__response__, 'workload_identity_details')))

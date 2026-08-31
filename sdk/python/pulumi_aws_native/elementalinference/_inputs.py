@@ -34,6 +34,8 @@ __all__ = [
     'FeedOutputConfig2PropertiesArgsDict',
     'FeedSubtitlingConfigArgs',
     'FeedSubtitlingConfigArgsDict',
+    'FeedTemplateGroupArgs',
+    'FeedTemplateGroupArgsDict',
 ]
 
 class FeedAspectRatioArgsDict(TypedDict):
@@ -101,12 +103,23 @@ class FeedClippingConfigArgs:
 
 
 class FeedCroppingConfigArgsDict(TypedDict):
-    pass
+    template_groups: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['FeedTemplateGroupArgsDict']]]]]
 
 @pulumi.input_type
 class FeedCroppingConfigArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 template_groups: pulumi.Input[Optional[Sequence[pulumi.Input['FeedTemplateGroupArgs']]]] = None):
+        if template_groups is not None:
+            pulumi.set(__self__, "template_groups", template_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="templateGroups")
+    def template_groups(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['FeedTemplateGroupArgs']]]]:
+        return pulumi.get(self, "template_groups")
+
+    @template_groups.setter
+    def template_groups(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['FeedTemplateGroupArgs']]]]):
+        pulumi.set(self, "template_groups", value)
 
 
 class FeedDataSourceConfigurationArgsDict(TypedDict):
@@ -297,5 +310,36 @@ class FeedSubtitlingConfigArgs:
     @profanity_filter.setter
     def profanity_filter(self, value: pulumi.Input[Optional['FeedProfanityFilterMode']]):
         pulumi.set(self, "profanity_filter", value)
+
+
+class FeedTemplateGroupArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    template_uris: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class FeedTemplateGroupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 template_uris: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "template_uris", template_uris)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="templateUris")
+    def template_uris(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "template_uris")
+
+    @template_uris.setter
+    def template_uris(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "template_uris", value)
 
 

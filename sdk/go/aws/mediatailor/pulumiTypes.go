@@ -1931,7 +1931,8 @@ func (o PlaybackConfigurationAdConditioningConfigurationPtrOutput) StreamingMedi
 
 // The configuration for the request to the specified Ad Decision Server URL.
 type PlaybackConfigurationAdDecisionServerConfiguration struct {
-	HttpRequest PlaybackConfigurationHttpRequest `pulumi:"httpRequest"`
+	HttpRequest  PlaybackConfigurationHttpRequest   `pulumi:"httpRequest"`
+	VastResponse *PlaybackConfigurationVastResponse `pulumi:"vastResponse"`
 }
 
 // PlaybackConfigurationAdDecisionServerConfigurationInput is an input type that accepts PlaybackConfigurationAdDecisionServerConfigurationArgs and PlaybackConfigurationAdDecisionServerConfigurationOutput values.
@@ -1947,7 +1948,8 @@ type PlaybackConfigurationAdDecisionServerConfigurationInput interface {
 
 // The configuration for the request to the specified Ad Decision Server URL.
 type PlaybackConfigurationAdDecisionServerConfigurationArgs struct {
-	HttpRequest PlaybackConfigurationHttpRequestInput `pulumi:"httpRequest"`
+	HttpRequest  PlaybackConfigurationHttpRequestInput     `pulumi:"httpRequest"`
+	VastResponse PlaybackConfigurationVastResponsePtrInput `pulumi:"vastResponse"`
 }
 
 func (PlaybackConfigurationAdDecisionServerConfigurationArgs) ElementType() reflect.Type {
@@ -2034,6 +2036,12 @@ func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) HttpRequest() 
 	}).(PlaybackConfigurationHttpRequestOutput)
 }
 
+func (o PlaybackConfigurationAdDecisionServerConfigurationOutput) VastResponse() PlaybackConfigurationVastResponsePtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationAdDecisionServerConfiguration) *PlaybackConfigurationVastResponse {
+		return v.VastResponse
+	}).(PlaybackConfigurationVastResponsePtrOutput)
+}
+
 type PlaybackConfigurationAdDecisionServerConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) ElementType() reflect.Type {
@@ -2065,6 +2073,15 @@ func (o PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) HttpRequest
 		}
 		return &v.HttpRequest
 	}).(PlaybackConfigurationHttpRequestPtrOutput)
+}
+
+func (o PlaybackConfigurationAdDecisionServerConfigurationPtrOutput) VastResponse() PlaybackConfigurationVastResponsePtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationAdDecisionServerConfiguration) *PlaybackConfigurationVastResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VastResponse
+	}).(PlaybackConfigurationVastResponsePtrOutput)
 }
 
 // For HLS, when set to true, MediaTailor passes through EXT-X-CUE-IN, EXT-X-CUE-OUT, and EXT-X-SPLICEPOINT-SCTE35 ad markers from the origin manifest to the MediaTailor personalized manifest. No logic is applied to these ad markers. For example, if EXT-X-CUE-OUT has a value of 60, but no ads are filled for that ad break, MediaTailor will not set the value to 0.
@@ -3764,6 +3781,7 @@ func (o PlaybackConfigurationHttpRequestPtrOutput) HttpMethod() PlaybackConfigur
 
 // The configuration for pre-roll ad insertion.
 type PlaybackConfigurationLivePreRollConfiguration struct {
+	AdDecisionServerConfiguration *PlaybackConfigurationPreRollAdDecisionServerConfiguration `pulumi:"adDecisionServerConfiguration"`
 	// The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl *string `pulumi:"adDecisionServerUrl"`
 	// The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
@@ -3783,6 +3801,7 @@ type PlaybackConfigurationLivePreRollConfigurationInput interface {
 
 // The configuration for pre-roll ad insertion.
 type PlaybackConfigurationLivePreRollConfigurationArgs struct {
+	AdDecisionServerConfiguration PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrInput `pulumi:"adDecisionServerConfiguration"`
 	// The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
 	AdDecisionServerUrl pulumi.StringPtrInput `pulumi:"adDecisionServerUrl"`
 	// The maximum allowed duration for the pre-roll ad avail. AWS Elemental MediaTailor won't play pre-roll ads to exceed this duration, regardless of the total duration of ads that the ADS returns.
@@ -3867,6 +3886,12 @@ func (o PlaybackConfigurationLivePreRollConfigurationOutput) ToPlaybackConfigura
 	}).(PlaybackConfigurationLivePreRollConfigurationPtrOutput)
 }
 
+func (o PlaybackConfigurationLivePreRollConfigurationOutput) AdDecisionServerConfiguration() PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationLivePreRollConfiguration) *PlaybackConfigurationPreRollAdDecisionServerConfiguration {
+		return v.AdDecisionServerConfiguration
+	}).(PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput)
+}
+
 // The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
 func (o PlaybackConfigurationLivePreRollConfigurationOutput) AdDecisionServerUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlaybackConfigurationLivePreRollConfiguration) *string { return v.AdDecisionServerUrl }).(pulumi.StringPtrOutput)
@@ -3899,6 +3924,15 @@ func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) Elem() PlaybackC
 		var ret PlaybackConfigurationLivePreRollConfiguration
 		return ret
 	}).(PlaybackConfigurationLivePreRollConfigurationOutput)
+}
+
+func (o PlaybackConfigurationLivePreRollConfigurationPtrOutput) AdDecisionServerConfiguration() PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationLivePreRollConfiguration) *PlaybackConfigurationPreRollAdDecisionServerConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AdDecisionServerConfiguration
+	}).(PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput)
 }
 
 // The URL for the ad decision server (ADS) for pre-roll ads. This includes the specification of static parameters and placeholders for dynamic parameters. AWS Elemental MediaTailor substitutes player-specific and session-specific parameters as needed when calling the ADS. Alternately, for testing, you can provide a static VAST URL. The maximum length is 25,000 characters.
@@ -4398,9 +4432,431 @@ func (o PlaybackConfigurationManifestServiceInteractionLogPtrOutput) ExcludeEven
 	}).(pulumi.StringArrayOutput)
 }
 
+// The configuration for the request to the pre-roll Ad Decision Server.
+type PlaybackConfigurationPreRollAdDecisionServerConfiguration struct {
+	VastResponse *PlaybackConfigurationPreRollVastResponse `pulumi:"vastResponse"`
+}
+
+// PlaybackConfigurationPreRollAdDecisionServerConfigurationInput is an input type that accepts PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs and PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationPreRollAdDecisionServerConfigurationInput` via:
+//
+//	PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs{...}
+type PlaybackConfigurationPreRollAdDecisionServerConfigurationInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationPreRollAdDecisionServerConfigurationOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput
+	ToPlaybackConfigurationPreRollAdDecisionServerConfigurationOutputWithContext(context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput
+}
+
+// The configuration for the request to the pre-roll Ad Decision Server.
+type PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs struct {
+	VastResponse PlaybackConfigurationPreRollVastResponsePtrInput `pulumi:"vastResponse"`
+}
+
+func (PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationPreRollAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput {
+	return i.ToPlaybackConfigurationPreRollAdDecisionServerConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput)
+}
+
+func (i PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput).ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrInput is an input type that accepts PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs, PlaybackConfigurationPreRollAdDecisionServerConfigurationPtr and PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrInput` via:
+//
+//	        PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput
+	ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput
+}
+
+type playbackConfigurationPreRollAdDecisionServerConfigurationPtrType PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs
+
+func PlaybackConfigurationPreRollAdDecisionServerConfigurationPtr(v *PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs) PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrInput {
+	return (*playbackConfigurationPreRollAdDecisionServerConfigurationPtrType)(v)
+}
+
+func (*playbackConfigurationPreRollAdDecisionServerConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationPreRollAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (i *playbackConfigurationPreRollAdDecisionServerConfigurationPtrType) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return i.ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationPreRollAdDecisionServerConfigurationPtrType) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput)
+}
+
+// The configuration for the request to the pre-roll Ad Decision Server.
+type PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationPreRollAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return o.ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationPreRollAdDecisionServerConfiguration) *PlaybackConfigurationPreRollAdDecisionServerConfiguration {
+		return &v
+	}).(PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput)
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput) VastResponse() PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationPreRollAdDecisionServerConfiguration) *PlaybackConfigurationPreRollVastResponse {
+		return v.VastResponse
+	}).(PlaybackConfigurationPreRollVastResponsePtrOutput)
+}
+
+type PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationPreRollAdDecisionServerConfiguration)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput() PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput) ToPlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput) Elem() PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationPreRollAdDecisionServerConfiguration) PlaybackConfigurationPreRollAdDecisionServerConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationPreRollAdDecisionServerConfiguration
+		return ret
+	}).(PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput)
+}
+
+func (o PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput) VastResponse() PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationPreRollAdDecisionServerConfiguration) *PlaybackConfigurationPreRollVastResponse {
+		if v == nil {
+			return nil
+		}
+		return v.VastResponse
+	}).(PlaybackConfigurationPreRollVastResponsePtrOutput)
+}
+
+// The configuration for how MediaTailor processes the VAST response returned by the pre-roll Ad Decision Server.
+type PlaybackConfigurationPreRollVastResponse struct {
+	// Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+	AdSequencingMode *PlaybackConfigurationPreRollVastResponseAdSequencingMode `pulumi:"adSequencingMode"`
+}
+
+// PlaybackConfigurationPreRollVastResponseInput is an input type that accepts PlaybackConfigurationPreRollVastResponseArgs and PlaybackConfigurationPreRollVastResponseOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationPreRollVastResponseInput` via:
+//
+//	PlaybackConfigurationPreRollVastResponseArgs{...}
+type PlaybackConfigurationPreRollVastResponseInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationPreRollVastResponseOutput() PlaybackConfigurationPreRollVastResponseOutput
+	ToPlaybackConfigurationPreRollVastResponseOutputWithContext(context.Context) PlaybackConfigurationPreRollVastResponseOutput
+}
+
+// The configuration for how MediaTailor processes the VAST response returned by the pre-roll Ad Decision Server.
+type PlaybackConfigurationPreRollVastResponseArgs struct {
+	// Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+	AdSequencingMode PlaybackConfigurationPreRollVastResponseAdSequencingModePtrInput `pulumi:"adSequencingMode"`
+}
+
+func (PlaybackConfigurationPreRollVastResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationPreRollVastResponse)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationPreRollVastResponseArgs) ToPlaybackConfigurationPreRollVastResponseOutput() PlaybackConfigurationPreRollVastResponseOutput {
+	return i.ToPlaybackConfigurationPreRollVastResponseOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationPreRollVastResponseArgs) ToPlaybackConfigurationPreRollVastResponseOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationPreRollVastResponseOutput)
+}
+
+func (i PlaybackConfigurationPreRollVastResponseArgs) ToPlaybackConfigurationPreRollVastResponsePtrOutput() PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return i.ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationPreRollVastResponseArgs) ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationPreRollVastResponseOutput).ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationPreRollVastResponsePtrInput is an input type that accepts PlaybackConfigurationPreRollVastResponseArgs, PlaybackConfigurationPreRollVastResponsePtr and PlaybackConfigurationPreRollVastResponsePtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationPreRollVastResponsePtrInput` via:
+//
+//	        PlaybackConfigurationPreRollVastResponseArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationPreRollVastResponsePtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationPreRollVastResponsePtrOutput() PlaybackConfigurationPreRollVastResponsePtrOutput
+	ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(context.Context) PlaybackConfigurationPreRollVastResponsePtrOutput
+}
+
+type playbackConfigurationPreRollVastResponsePtrType PlaybackConfigurationPreRollVastResponseArgs
+
+func PlaybackConfigurationPreRollVastResponsePtr(v *PlaybackConfigurationPreRollVastResponseArgs) PlaybackConfigurationPreRollVastResponsePtrInput {
+	return (*playbackConfigurationPreRollVastResponsePtrType)(v)
+}
+
+func (*playbackConfigurationPreRollVastResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationPreRollVastResponse)(nil)).Elem()
+}
+
+func (i *playbackConfigurationPreRollVastResponsePtrType) ToPlaybackConfigurationPreRollVastResponsePtrOutput() PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return i.ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationPreRollVastResponsePtrType) ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationPreRollVastResponsePtrOutput)
+}
+
+// The configuration for how MediaTailor processes the VAST response returned by the pre-roll Ad Decision Server.
+type PlaybackConfigurationPreRollVastResponseOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationPreRollVastResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationPreRollVastResponse)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationPreRollVastResponseOutput) ToPlaybackConfigurationPreRollVastResponseOutput() PlaybackConfigurationPreRollVastResponseOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponseOutput) ToPlaybackConfigurationPreRollVastResponseOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponseOutput) ToPlaybackConfigurationPreRollVastResponsePtrOutput() PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return o.ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationPreRollVastResponseOutput) ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationPreRollVastResponse) *PlaybackConfigurationPreRollVastResponse {
+		return &v
+	}).(PlaybackConfigurationPreRollVastResponsePtrOutput)
+}
+
+// Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+func (o PlaybackConfigurationPreRollVastResponseOutput) AdSequencingMode() PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationPreRollVastResponse) *PlaybackConfigurationPreRollVastResponseAdSequencingMode {
+		return v.AdSequencingMode
+	}).(PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput)
+}
+
+type PlaybackConfigurationPreRollVastResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationPreRollVastResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationPreRollVastResponse)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationPreRollVastResponsePtrOutput) ToPlaybackConfigurationPreRollVastResponsePtrOutput() PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponsePtrOutput) ToPlaybackConfigurationPreRollVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponsePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponsePtrOutput) Elem() PlaybackConfigurationPreRollVastResponseOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationPreRollVastResponse) PlaybackConfigurationPreRollVastResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationPreRollVastResponse
+		return ret
+	}).(PlaybackConfigurationPreRollVastResponseOutput)
+}
+
+// Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+func (o PlaybackConfigurationPreRollVastResponsePtrOutput) AdSequencingMode() PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationPreRollVastResponse) *PlaybackConfigurationPreRollVastResponseAdSequencingMode {
+		if v == nil {
+			return nil
+		}
+		return v.AdSequencingMode
+	}).(PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput)
+}
+
 type PlaybackConfigurationTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
+}
+
+// The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+type PlaybackConfigurationVastResponse struct {
+	// Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+	AdSequencingMode *PlaybackConfigurationVastResponseAdSequencingMode `pulumi:"adSequencingMode"`
+}
+
+// PlaybackConfigurationVastResponseInput is an input type that accepts PlaybackConfigurationVastResponseArgs and PlaybackConfigurationVastResponseOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationVastResponseInput` via:
+//
+//	PlaybackConfigurationVastResponseArgs{...}
+type PlaybackConfigurationVastResponseInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationVastResponseOutput() PlaybackConfigurationVastResponseOutput
+	ToPlaybackConfigurationVastResponseOutputWithContext(context.Context) PlaybackConfigurationVastResponseOutput
+}
+
+// The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+type PlaybackConfigurationVastResponseArgs struct {
+	// Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+	AdSequencingMode PlaybackConfigurationVastResponseAdSequencingModePtrInput `pulumi:"adSequencingMode"`
+}
+
+func (PlaybackConfigurationVastResponseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationVastResponse)(nil)).Elem()
+}
+
+func (i PlaybackConfigurationVastResponseArgs) ToPlaybackConfigurationVastResponseOutput() PlaybackConfigurationVastResponseOutput {
+	return i.ToPlaybackConfigurationVastResponseOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationVastResponseArgs) ToPlaybackConfigurationVastResponseOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationVastResponseOutput)
+}
+
+func (i PlaybackConfigurationVastResponseArgs) ToPlaybackConfigurationVastResponsePtrOutput() PlaybackConfigurationVastResponsePtrOutput {
+	return i.ToPlaybackConfigurationVastResponsePtrOutputWithContext(context.Background())
+}
+
+func (i PlaybackConfigurationVastResponseArgs) ToPlaybackConfigurationVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationVastResponseOutput).ToPlaybackConfigurationVastResponsePtrOutputWithContext(ctx)
+}
+
+// PlaybackConfigurationVastResponsePtrInput is an input type that accepts PlaybackConfigurationVastResponseArgs, PlaybackConfigurationVastResponsePtr and PlaybackConfigurationVastResponsePtrOutput values.
+// You can construct a concrete instance of `PlaybackConfigurationVastResponsePtrInput` via:
+//
+//	        PlaybackConfigurationVastResponseArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlaybackConfigurationVastResponsePtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationVastResponsePtrOutput() PlaybackConfigurationVastResponsePtrOutput
+	ToPlaybackConfigurationVastResponsePtrOutputWithContext(context.Context) PlaybackConfigurationVastResponsePtrOutput
+}
+
+type playbackConfigurationVastResponsePtrType PlaybackConfigurationVastResponseArgs
+
+func PlaybackConfigurationVastResponsePtr(v *PlaybackConfigurationVastResponseArgs) PlaybackConfigurationVastResponsePtrInput {
+	return (*playbackConfigurationVastResponsePtrType)(v)
+}
+
+func (*playbackConfigurationVastResponsePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationVastResponse)(nil)).Elem()
+}
+
+func (i *playbackConfigurationVastResponsePtrType) ToPlaybackConfigurationVastResponsePtrOutput() PlaybackConfigurationVastResponsePtrOutput {
+	return i.ToPlaybackConfigurationVastResponsePtrOutputWithContext(context.Background())
+}
+
+func (i *playbackConfigurationVastResponsePtrType) ToPlaybackConfigurationVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponsePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlaybackConfigurationVastResponsePtrOutput)
+}
+
+// The configuration for how MediaTailor processes the VAST response returned by the Ad Decision Server.
+type PlaybackConfigurationVastResponseOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationVastResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationVastResponse)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationVastResponseOutput) ToPlaybackConfigurationVastResponseOutput() PlaybackConfigurationVastResponseOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponseOutput) ToPlaybackConfigurationVastResponseOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponseOutput) ToPlaybackConfigurationVastResponsePtrOutput() PlaybackConfigurationVastResponsePtrOutput {
+	return o.ToPlaybackConfigurationVastResponsePtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationVastResponseOutput) ToPlaybackConfigurationVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponsePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationVastResponse) *PlaybackConfigurationVastResponse {
+		return &v
+	}).(PlaybackConfigurationVastResponsePtrOutput)
+}
+
+// Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+func (o PlaybackConfigurationVastResponseOutput) AdSequencingMode() PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return o.ApplyT(func(v PlaybackConfigurationVastResponse) *PlaybackConfigurationVastResponseAdSequencingMode {
+		return v.AdSequencingMode
+	}).(PlaybackConfigurationVastResponseAdSequencingModePtrOutput)
+}
+
+type PlaybackConfigurationVastResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationVastResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationVastResponse)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationVastResponsePtrOutput) ToPlaybackConfigurationVastResponsePtrOutput() PlaybackConfigurationVastResponsePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponsePtrOutput) ToPlaybackConfigurationVastResponsePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponsePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponsePtrOutput) Elem() PlaybackConfigurationVastResponseOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationVastResponse) PlaybackConfigurationVastResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationVastResponse
+		return ret
+	}).(PlaybackConfigurationVastResponseOutput)
+}
+
+// Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+func (o PlaybackConfigurationVastResponsePtrOutput) AdSequencingMode() PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationVastResponse) *PlaybackConfigurationVastResponseAdSequencingMode {
+		if v == nil {
+			return nil
+		}
+		return v.AdSequencingMode
+	}).(PlaybackConfigurationVastResponseAdSequencingModePtrOutput)
 }
 
 type PrefetchScheduleAvailMatchingCriteria struct {
@@ -6675,6 +7131,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestProcessingRulesPtrInput)(nil)).Elem(), PlaybackConfigurationManifestProcessingRulesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestServiceInteractionLogInput)(nil)).Elem(), PlaybackConfigurationManifestServiceInteractionLogArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationManifestServiceInteractionLogPtrInput)(nil)).Elem(), PlaybackConfigurationManifestServiceInteractionLogArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationPreRollAdDecisionServerConfigurationInput)(nil)).Elem(), PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrInput)(nil)).Elem(), PlaybackConfigurationPreRollAdDecisionServerConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationPreRollVastResponseInput)(nil)).Elem(), PlaybackConfigurationPreRollVastResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationPreRollVastResponsePtrInput)(nil)).Elem(), PlaybackConfigurationPreRollVastResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationVastResponseInput)(nil)).Elem(), PlaybackConfigurationVastResponseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationVastResponsePtrInput)(nil)).Elem(), PlaybackConfigurationVastResponseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaInput)(nil)).Elem(), PrefetchScheduleAvailMatchingCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaArrayInput)(nil)).Elem(), PrefetchScheduleAvailMatchingCriteriaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchSchedulePrefetchConsumptionInput)(nil)).Elem(), PrefetchSchedulePrefetchConsumptionArgs{})
@@ -6756,6 +7218,12 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestProcessingRulesPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestServiceInteractionLogOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationManifestServiceInteractionLogPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationPreRollAdDecisionServerConfigurationOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationPreRollAdDecisionServerConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationPreRollVastResponseOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationPreRollVastResponsePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationVastResponseOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationVastResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleAvailMatchingCriteriaOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleAvailMatchingCriteriaArrayOutput{})
 	pulumi.RegisterOutputType(PrefetchSchedulePrefetchConsumptionOutput{})

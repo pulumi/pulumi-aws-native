@@ -785,12 +785,12 @@ class ContainerFleetScalingPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricName":
-            suggest = "metric_name"
-        elif key == "comparisonOperator":
+        if key == "comparisonOperator":
             suggest = "comparison_operator"
         elif key == "evaluationPeriods":
             suggest = "evaluation_periods"
+        elif key == "metricName":
+            suggest = "metric_name"
         elif key == "policyType":
             suggest = "policy_type"
         elif key == "scalingAdjustment":
@@ -812,10 +812,10 @@ class ContainerFleetScalingPolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 metric_name: 'ContainerFleetScalingPolicyMetricName',
                  name: _builtins.str,
                  comparison_operator: Optional['ContainerFleetScalingPolicyComparisonOperator'] = None,
                  evaluation_periods: Optional[_builtins.int] = None,
+                 metric_name: Optional['ContainerFleetScalingPolicyMetricName'] = None,
                  policy_type: Optional['ContainerFleetScalingPolicyPolicyType'] = None,
                  scaling_adjustment: Optional[_builtins.int] = None,
                  scaling_adjustment_type: Optional['ContainerFleetScalingPolicyScalingAdjustmentType'] = None,
@@ -824,22 +824,23 @@ class ContainerFleetScalingPolicy(dict):
         """
         Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
 
-        :param 'ContainerFleetScalingPolicyMetricName' metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
         :param _builtins.str name: A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
         :param 'ContainerFleetScalingPolicyComparisonOperator' comparison_operator: Comparison operator to use when measuring a metric against the threshold value.
         :param _builtins.int evaluation_periods: Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
+        :param 'ContainerFleetScalingPolicyMetricName' metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
         :param 'ContainerFleetScalingPolicyPolicyType' policy_type: The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
         :param _builtins.int scaling_adjustment: Amount of adjustment to make, based on the scaling adjustment type.
         :param 'ContainerFleetScalingPolicyScalingAdjustmentType' scaling_adjustment_type: The type of adjustment to make to a fleet's instance count.
         :param 'ContainerFleetTargetConfiguration' target_configuration: An object that contains settings for a target-based scaling policy.
         :param _builtins.float threshold: Metric value used to trigger a scaling event.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "name", name)
         if comparison_operator is not None:
             pulumi.set(__self__, "comparison_operator", comparison_operator)
         if evaluation_periods is not None:
             pulumi.set(__self__, "evaluation_periods", evaluation_periods)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
         if scaling_adjustment is not None:
@@ -850,14 +851,6 @@ class ContainerFleetScalingPolicy(dict):
             pulumi.set(__self__, "target_configuration", target_configuration)
         if threshold is not None:
             pulumi.set(__self__, "threshold", threshold)
-
-    @_builtins.property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> 'ContainerFleetScalingPolicyMetricName':
-        """
-        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-        """
-        return pulumi.get(self, "metric_name")
 
     @_builtins.property
     @pulumi.getter
@@ -882,6 +875,14 @@ class ContainerFleetScalingPolicy(dict):
         Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
         """
         return pulumi.get(self, "evaluation_periods")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional['ContainerFleetScalingPolicyMetricName']:
+        """
+        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+        """
+        return pulumi.get(self, "metric_name")
 
     @_builtins.property
     @pulumi.getter(name="policyType")
@@ -2213,12 +2214,12 @@ class FleetScalingPolicy(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "metricName":
-            suggest = "metric_name"
-        elif key == "comparisonOperator":
+        if key == "comparisonOperator":
             suggest = "comparison_operator"
         elif key == "evaluationPeriods":
             suggest = "evaluation_periods"
+        elif key == "metricName":
+            suggest = "metric_name"
         elif key == "policyType":
             suggest = "policy_type"
         elif key == "scalingAdjustment":
@@ -2242,11 +2243,11 @@ class FleetScalingPolicy(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 metric_name: 'FleetScalingPolicyMetricName',
                  name: _builtins.str,
                  comparison_operator: Optional['FleetScalingPolicyComparisonOperator'] = None,
                  evaluation_periods: Optional[_builtins.int] = None,
                  location: Optional[_builtins.str] = None,
+                 metric_name: Optional['FleetScalingPolicyMetricName'] = None,
                  policy_type: Optional['FleetScalingPolicyPolicyType'] = None,
                  scaling_adjustment: Optional[_builtins.int] = None,
                  scaling_adjustment_type: Optional['FleetScalingPolicyScalingAdjustmentType'] = None,
@@ -2257,11 +2258,11 @@ class FleetScalingPolicy(dict):
         """
         Rule that controls how a fleet is scaled. Scaling policies are uniquely identified by the combination of name and fleet ID.
 
-        :param 'FleetScalingPolicyMetricName' metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
         :param _builtins.str name: A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.
         :param 'FleetScalingPolicyComparisonOperator' comparison_operator: Comparison operator to use when measuring a metric against the threshold value.
         :param _builtins.int evaluation_periods: Length of time (in minutes) the metric must be at or beyond the threshold before a scaling event is triggered.
         :param _builtins.str location: The fleet location.
+        :param 'FleetScalingPolicyMetricName' metric_name: Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
         :param 'FleetScalingPolicyPolicyType' policy_type: The type of scaling policy to create. For a target-based policy, set the parameter MetricName to 'PercentAvailableGameSessions' and specify a TargetConfiguration. For a rule-based policy set the following parameters: MetricName, ComparisonOperator, Threshold, EvaluationPeriods, ScalingAdjustmentType, and ScalingAdjustment.
         :param _builtins.int scaling_adjustment: Amount of adjustment to make, based on the scaling adjustment type.
         :param 'FleetScalingPolicyScalingAdjustmentType' scaling_adjustment_type: The type of adjustment to make to a fleet's instance count.
@@ -2270,7 +2271,6 @@ class FleetScalingPolicy(dict):
         :param _builtins.float threshold: Metric value used to trigger a scaling event.
         :param 'FleetScalingPolicyUpdateStatus' update_status: The current status of the fleet's scaling policies in a requested fleet location. The status PENDING_UPDATE indicates that an update was requested for the fleet but has not yet been completed for the location.
         """
-        pulumi.set(__self__, "metric_name", metric_name)
         pulumi.set(__self__, "name", name)
         if comparison_operator is not None:
             pulumi.set(__self__, "comparison_operator", comparison_operator)
@@ -2278,6 +2278,8 @@ class FleetScalingPolicy(dict):
             pulumi.set(__self__, "evaluation_periods", evaluation_periods)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if metric_name is not None:
+            pulumi.set(__self__, "metric_name", metric_name)
         if policy_type is not None:
             pulumi.set(__self__, "policy_type", policy_type)
         if scaling_adjustment is not None:
@@ -2292,14 +2294,6 @@ class FleetScalingPolicy(dict):
             pulumi.set(__self__, "threshold", threshold)
         if update_status is not None:
             pulumi.set(__self__, "update_status", update_status)
-
-    @_builtins.property
-    @pulumi.getter(name="metricName")
-    def metric_name(self) -> 'FleetScalingPolicyMetricName':
-        """
-        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
-        """
-        return pulumi.get(self, "metric_name")
 
     @_builtins.property
     @pulumi.getter
@@ -2332,6 +2326,14 @@ class FleetScalingPolicy(dict):
         The fleet location.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> Optional['FleetScalingPolicyMetricName']:
+        """
+        Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
+        """
+        return pulumi.get(self, "metric_name")
 
     @_builtins.property
     @pulumi.getter(name="policyType")

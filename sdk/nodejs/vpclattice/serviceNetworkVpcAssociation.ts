@@ -136,7 +136,7 @@ export class ServiceNetworkVpcAssociation extends pulumi.CustomResource {
             resourceInputs["vpcIdentifier"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["dnsOptions", "privateDnsEnabled", "serviceNetworkIdentifier", "vpcIdentifier"] };
+        const replaceOnChanges = { replaceOnChanges: ["serviceNetworkIdentifier", "vpcIdentifier"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ServiceNetworkVpcAssociation.__pulumiType, name, resourceInputs, opts);
     }

@@ -27,6 +27,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin.Inputs
         [Input("logsEncryptionConfiguration")]
         public Input<Inputs.OrganizationCentralizationRuleLogsEncryptionConfigurationArgs>? LogsEncryptionConfiguration { get; set; }
 
+        [Input("tagPropagationConfiguration")]
+        public Input<Inputs.OrganizationCentralizationRuleTagPropagationConfigurationArgs>? TagPropagationConfiguration { get; set; }
+
         public OrganizationCentralizationRuleDestinationLogsConfigurationArgs()
         {
         }

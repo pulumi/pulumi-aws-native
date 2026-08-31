@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Catalog{}
 	case "aws-native:glue:Classifier":
 		r = &Classifier{}
+	case "aws-native:glue:Connection":
+		r = &Connection{}
 	case "aws-native:glue:Crawler":
 		r = &Crawler{}
 	case "aws-native:glue:CustomEntityType":

@@ -2415,6 +2415,172 @@ func (in *playbackConfigurationInsertionModePtr) ToPlaybackConfigurationInsertio
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationInsertionModePtrOutput)
 }
 
+// Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+type PlaybackConfigurationPreRollVastResponseAdSequencingMode string
+
+const (
+	PlaybackConfigurationPreRollVastResponseAdSequencingModeFollowAdSequence = PlaybackConfigurationPreRollVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE")
+	PlaybackConfigurationPreRollVastResponseAdSequencingModeIgnoreAdSequence = PlaybackConfigurationPreRollVastResponseAdSequencingMode("IGNORE_AD_SEQUENCE")
+)
+
+func (PlaybackConfigurationPreRollVastResponseAdSequencingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationPreRollVastResponseAdSequencingMode)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToPlaybackConfigurationPreRollVastResponseAdSequencingModeOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput)
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToPlaybackConfigurationPreRollVastResponseAdSequencingModeOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput)
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return e.ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return PlaybackConfigurationPreRollVastResponseAdSequencingMode(e).ToPlaybackConfigurationPreRollVastResponseAdSequencingModeOutputWithContext(ctx).ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationPreRollVastResponseAdSequencingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationPreRollVastResponseAdSequencingMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToPlaybackConfigurationPreRollVastResponseAdSequencingModeOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToPlaybackConfigurationPreRollVastResponseAdSequencingModeOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return o.ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationPreRollVastResponseAdSequencingMode) *PlaybackConfigurationPreRollVastResponseAdSequencingMode {
+		return &v
+	}).(PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput)
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationPreRollVastResponseAdSequencingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationPreRollVastResponseAdSequencingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationPreRollVastResponseAdSequencingMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput) Elem() PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationPreRollVastResponseAdSequencingMode) PlaybackConfigurationPreRollVastResponseAdSequencingMode {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationPreRollVastResponseAdSequencingMode
+		return ret
+	}).(PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput)
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationPreRollVastResponseAdSequencingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationPreRollVastResponseAdSequencingModeInput is an input type that accepts values of the PlaybackConfigurationPreRollVastResponseAdSequencingMode enum
+// A concrete instance of `PlaybackConfigurationPreRollVastResponseAdSequencingModeInput` can be one of the following:
+//
+//	PlaybackConfigurationPreRollVastResponseAdSequencingModeFollowAdSequence
+//	PlaybackConfigurationPreRollVastResponseAdSequencingModeIgnoreAdSequence
+type PlaybackConfigurationPreRollVastResponseAdSequencingModeInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationPreRollVastResponseAdSequencingModeOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput
+	ToPlaybackConfigurationPreRollVastResponseAdSequencingModeOutputWithContext(context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput
+}
+
+var playbackConfigurationPreRollVastResponseAdSequencingModePtrType = reflect.TypeOf((**PlaybackConfigurationPreRollVastResponseAdSequencingMode)(nil)).Elem()
+
+type PlaybackConfigurationPreRollVastResponseAdSequencingModePtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput
+	ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput
+}
+
+type playbackConfigurationPreRollVastResponseAdSequencingModePtr string
+
+func PlaybackConfigurationPreRollVastResponseAdSequencingModePtr(v string) PlaybackConfigurationPreRollVastResponseAdSequencingModePtrInput {
+	return (*playbackConfigurationPreRollVastResponseAdSequencingModePtr)(&v)
+}
+
+func (*playbackConfigurationPreRollVastResponseAdSequencingModePtr) ElementType() reflect.Type {
+	return playbackConfigurationPreRollVastResponseAdSequencingModePtrType
+}
+
+func (in *playbackConfigurationPreRollVastResponseAdSequencingModePtr) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput() PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput)
+}
+
+func (in *playbackConfigurationPreRollVastResponseAdSequencingModePtr) ToPlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput)
+}
+
 type PlaybackConfigurationStreamingMediaFileConditioning string
 
 const (
@@ -2578,6 +2744,176 @@ func (in *playbackConfigurationStreamingMediaFileConditioningPtr) ToPlaybackConf
 
 func (in *playbackConfigurationStreamingMediaFileConditioningPtr) ToPlaybackConfigurationStreamingMediaFileConditioningPtrOutputWithContext(ctx context.Context) PlaybackConfigurationStreamingMediaFileConditioningPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput)
+}
+
+// Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+type PlaybackConfigurationVastResponseAdSequencingMode string
+
+const (
+	PlaybackConfigurationVastResponseAdSequencingModeFollowAdSequence         = PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE")
+	PlaybackConfigurationVastResponseAdSequencingModeIgnoreAdSequence         = PlaybackConfigurationVastResponseAdSequencingMode("IGNORE_AD_SEQUENCE")
+	PlaybackConfigurationVastResponseAdSequencingModeFollowAdSequenceOnlyLive = PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE_ONLY_LIVE")
+	PlaybackConfigurationVastResponseAdSequencingModeFollowAdSequenceOnlyVod  = PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE_ONLY_VOD")
+)
+
+func (PlaybackConfigurationVastResponseAdSequencingMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationVastResponseAdSequencingMode)(nil)).Elem()
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToPlaybackConfigurationVastResponseAdSequencingModeOutput() PlaybackConfigurationVastResponseAdSequencingModeOutput {
+	return pulumi.ToOutput(e).(PlaybackConfigurationVastResponseAdSequencingModeOutput)
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToPlaybackConfigurationVastResponseAdSequencingModeOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseAdSequencingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PlaybackConfigurationVastResponseAdSequencingModeOutput)
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutput() PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return e.ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return PlaybackConfigurationVastResponseAdSequencingMode(e).ToPlaybackConfigurationVastResponseAdSequencingModeOutputWithContext(ctx).ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(ctx)
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PlaybackConfigurationVastResponseAdSequencingMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PlaybackConfigurationVastResponseAdSequencingModeOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationVastResponseAdSequencingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlaybackConfigurationVastResponseAdSequencingMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToPlaybackConfigurationVastResponseAdSequencingModeOutput() PlaybackConfigurationVastResponseAdSequencingModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToPlaybackConfigurationVastResponseAdSequencingModeOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseAdSequencingModeOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutput() PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return o.ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlaybackConfigurationVastResponseAdSequencingMode) *PlaybackConfigurationVastResponseAdSequencingMode {
+		return &v
+	}).(PlaybackConfigurationVastResponseAdSequencingModePtrOutput)
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationVastResponseAdSequencingMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PlaybackConfigurationVastResponseAdSequencingMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PlaybackConfigurationVastResponseAdSequencingModePtrOutput struct{ *pulumi.OutputState }
+
+func (PlaybackConfigurationVastResponseAdSequencingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlaybackConfigurationVastResponseAdSequencingMode)(nil)).Elem()
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModePtrOutput) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutput() PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModePtrOutput) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return o
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModePtrOutput) Elem() PlaybackConfigurationVastResponseAdSequencingModeOutput {
+	return o.ApplyT(func(v *PlaybackConfigurationVastResponseAdSequencingMode) PlaybackConfigurationVastResponseAdSequencingMode {
+		if v != nil {
+			return *v
+		}
+		var ret PlaybackConfigurationVastResponseAdSequencingMode
+		return ret
+	}).(PlaybackConfigurationVastResponseAdSequencingModeOutput)
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PlaybackConfigurationVastResponseAdSequencingModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PlaybackConfigurationVastResponseAdSequencingMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PlaybackConfigurationVastResponseAdSequencingModeInput is an input type that accepts values of the PlaybackConfigurationVastResponseAdSequencingMode enum
+// A concrete instance of `PlaybackConfigurationVastResponseAdSequencingModeInput` can be one of the following:
+//
+//	PlaybackConfigurationVastResponseAdSequencingModeFollowAdSequence
+//	PlaybackConfigurationVastResponseAdSequencingModeIgnoreAdSequence
+//	PlaybackConfigurationVastResponseAdSequencingModeFollowAdSequenceOnlyLive
+//	PlaybackConfigurationVastResponseAdSequencingModeFollowAdSequenceOnlyVod
+type PlaybackConfigurationVastResponseAdSequencingModeInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationVastResponseAdSequencingModeOutput() PlaybackConfigurationVastResponseAdSequencingModeOutput
+	ToPlaybackConfigurationVastResponseAdSequencingModeOutputWithContext(context.Context) PlaybackConfigurationVastResponseAdSequencingModeOutput
+}
+
+var playbackConfigurationVastResponseAdSequencingModePtrType = reflect.TypeOf((**PlaybackConfigurationVastResponseAdSequencingMode)(nil)).Elem()
+
+type PlaybackConfigurationVastResponseAdSequencingModePtrInput interface {
+	pulumi.Input
+
+	ToPlaybackConfigurationVastResponseAdSequencingModePtrOutput() PlaybackConfigurationVastResponseAdSequencingModePtrOutput
+	ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(context.Context) PlaybackConfigurationVastResponseAdSequencingModePtrOutput
+}
+
+type playbackConfigurationVastResponseAdSequencingModePtr string
+
+func PlaybackConfigurationVastResponseAdSequencingModePtr(v string) PlaybackConfigurationVastResponseAdSequencingModePtrInput {
+	return (*playbackConfigurationVastResponseAdSequencingModePtr)(&v)
+}
+
+func (*playbackConfigurationVastResponseAdSequencingModePtr) ElementType() reflect.Type {
+	return playbackConfigurationVastResponseAdSequencingModePtrType
+}
+
+func (in *playbackConfigurationVastResponseAdSequencingModePtr) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutput() PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return pulumi.ToOutput(in).(PlaybackConfigurationVastResponseAdSequencingModePtrOutput)
+}
+
+func (in *playbackConfigurationVastResponseAdSequencingModePtr) ToPlaybackConfigurationVastResponseAdSequencingModePtrOutputWithContext(ctx context.Context) PlaybackConfigurationVastResponseAdSequencingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PlaybackConfigurationVastResponseAdSequencingModePtrOutput)
 }
 
 // For the DynamicVariable specified in AvailMatchingCriteria, the Operator that is used for the comparison.
@@ -3605,8 +3941,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationHttpRequestHttpMethodPtrInput)(nil)).Elem(), PlaybackConfigurationHttpRequestHttpMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInsertionModeInput)(nil)).Elem(), PlaybackConfigurationInsertionMode("STITCHED_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationInsertionModePtrInput)(nil)).Elem(), PlaybackConfigurationInsertionMode("STITCHED_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationPreRollVastResponseAdSequencingModeInput)(nil)).Elem(), PlaybackConfigurationPreRollVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationPreRollVastResponseAdSequencingModePtrInput)(nil)).Elem(), PlaybackConfigurationPreRollVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationStreamingMediaFileConditioningPtrInput)(nil)).Elem(), PlaybackConfigurationStreamingMediaFileConditioning("TRANSCODE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationVastResponseAdSequencingModeInput)(nil)).Elem(), PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PlaybackConfigurationVastResponseAdSequencingModePtrInput)(nil)).Elem(), PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaOperatorInput)(nil)).Elem(), PrefetchScheduleAvailMatchingCriteriaOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchScheduleAvailMatchingCriteriaOperatorPtrInput)(nil)).Elem(), PrefetchScheduleAvailMatchingCriteriaOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PrefetchSchedulePrefetchRetrievalTrafficShapingTypeInput)(nil)).Elem(), PrefetchSchedulePrefetchRetrievalTrafficShapingType("RETRIEVAL_WINDOW"))
@@ -3649,8 +3989,12 @@ func init() {
 	pulumi.RegisterOutputType(PlaybackConfigurationHttpRequestHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationInsertionModeOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationInsertionModePtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationPreRollVastResponseAdSequencingModeOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationPreRollVastResponseAdSequencingModePtrOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningOutput{})
 	pulumi.RegisterOutputType(PlaybackConfigurationStreamingMediaFileConditioningPtrOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationVastResponseAdSequencingModeOutput{})
+	pulumi.RegisterOutputType(PlaybackConfigurationVastResponseAdSequencingModePtrOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleAvailMatchingCriteriaOperatorOutput{})
 	pulumi.RegisterOutputType(PrefetchScheduleAvailMatchingCriteriaOperatorPtrOutput{})
 	pulumi.RegisterOutputType(PrefetchSchedulePrefetchRetrievalTrafficShapingTypeOutput{})

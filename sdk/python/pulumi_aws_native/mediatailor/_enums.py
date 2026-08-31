@@ -21,7 +21,9 @@ __all__ = [
     'PlaybackConfigurationHttpRequestCompressRequest',
     'PlaybackConfigurationHttpRequestHttpMethod',
     'PlaybackConfigurationInsertionMode',
+    'PlaybackConfigurationPreRollVastResponseAdSequencingMode',
     'PlaybackConfigurationStreamingMediaFileConditioning',
+    'PlaybackConfigurationVastResponseAdSequencingMode',
     'PrefetchScheduleAvailMatchingCriteriaOperator',
     'PrefetchSchedulePrefetchRetrievalTrafficShapingType',
     'PrefetchScheduleRecurringRetrievalTrafficShapingType',
@@ -130,10 +132,30 @@ class PlaybackConfigurationInsertionMode(_builtins.str, Enum):
     PLAYER_SELECT = "PLAYER_SELECT"
 
 
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationPreRollVastResponseAdSequencingMode")
+class PlaybackConfigurationPreRollVastResponseAdSequencingMode(_builtins.str, Enum):
+    """
+    Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+    """
+    FOLLOW_AD_SEQUENCE = "FOLLOW_AD_SEQUENCE"
+    IGNORE_AD_SEQUENCE = "IGNORE_AD_SEQUENCE"
+
+
 @pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationStreamingMediaFileConditioning")
 class PlaybackConfigurationStreamingMediaFileConditioning(_builtins.str, Enum):
     TRANSCODE = "TRANSCODE"
     NONE = "NONE"
+
+
+@pulumi.type_token("aws-native:mediatailor:PlaybackConfigurationVastResponseAdSequencingMode")
+class PlaybackConfigurationVastResponseAdSequencingMode(_builtins.str, Enum):
+    """
+    Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+    """
+    FOLLOW_AD_SEQUENCE = "FOLLOW_AD_SEQUENCE"
+    IGNORE_AD_SEQUENCE = "IGNORE_AD_SEQUENCE"
+    FOLLOW_AD_SEQUENCE_ONLY_LIVE = "FOLLOW_AD_SEQUENCE_ONLY_LIVE"
+    FOLLOW_AD_SEQUENCE_ONLY_VOD = "FOLLOW_AD_SEQUENCE_ONLY_VOD"
 
 
 @pulumi.type_token("aws-native:mediatailor:PrefetchScheduleAvailMatchingCriteriaOperator")

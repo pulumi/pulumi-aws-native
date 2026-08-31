@@ -2073,6 +2073,57 @@ func (o PlanExecutionBlockConfiguration16PropertiesOutput) NeptuneGlobalDatabase
 	}).(PlanNeptuneGlobalDatabaseConfigurationOutput)
 }
 
+type PlanExecutionBlockConfiguration17Properties struct {
+	RdsSwitchoverReadReplicaConfig PlanRdsSwitchoverReadReplicaConfiguration `pulumi:"rdsSwitchoverReadReplicaConfig"`
+}
+
+// PlanExecutionBlockConfiguration17PropertiesInput is an input type that accepts PlanExecutionBlockConfiguration17PropertiesArgs and PlanExecutionBlockConfiguration17PropertiesOutput values.
+// You can construct a concrete instance of `PlanExecutionBlockConfiguration17PropertiesInput` via:
+//
+//	PlanExecutionBlockConfiguration17PropertiesArgs{...}
+type PlanExecutionBlockConfiguration17PropertiesInput interface {
+	pulumi.Input
+
+	ToPlanExecutionBlockConfiguration17PropertiesOutput() PlanExecutionBlockConfiguration17PropertiesOutput
+	ToPlanExecutionBlockConfiguration17PropertiesOutputWithContext(context.Context) PlanExecutionBlockConfiguration17PropertiesOutput
+}
+
+type PlanExecutionBlockConfiguration17PropertiesArgs struct {
+	RdsSwitchoverReadReplicaConfig PlanRdsSwitchoverReadReplicaConfigurationInput `pulumi:"rdsSwitchoverReadReplicaConfig"`
+}
+
+func (PlanExecutionBlockConfiguration17PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration17Properties)(nil)).Elem()
+}
+
+func (i PlanExecutionBlockConfiguration17PropertiesArgs) ToPlanExecutionBlockConfiguration17PropertiesOutput() PlanExecutionBlockConfiguration17PropertiesOutput {
+	return i.ToPlanExecutionBlockConfiguration17PropertiesOutputWithContext(context.Background())
+}
+
+func (i PlanExecutionBlockConfiguration17PropertiesArgs) ToPlanExecutionBlockConfiguration17PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration17PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanExecutionBlockConfiguration17PropertiesOutput)
+}
+
+type PlanExecutionBlockConfiguration17PropertiesOutput struct{ *pulumi.OutputState }
+
+func (PlanExecutionBlockConfiguration17PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanExecutionBlockConfiguration17Properties)(nil)).Elem()
+}
+
+func (o PlanExecutionBlockConfiguration17PropertiesOutput) ToPlanExecutionBlockConfiguration17PropertiesOutput() PlanExecutionBlockConfiguration17PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration17PropertiesOutput) ToPlanExecutionBlockConfiguration17PropertiesOutputWithContext(ctx context.Context) PlanExecutionBlockConfiguration17PropertiesOutput {
+	return o
+}
+
+func (o PlanExecutionBlockConfiguration17PropertiesOutput) RdsSwitchoverReadReplicaConfig() PlanRdsSwitchoverReadReplicaConfigurationOutput {
+	return o.ApplyT(func(v PlanExecutionBlockConfiguration17Properties) PlanRdsSwitchoverReadReplicaConfiguration {
+		return v.RdsSwitchoverReadReplicaConfig
+	}).(PlanRdsSwitchoverReadReplicaConfigurationOutput)
+}
+
 type PlanExecutionBlockConfiguration1Properties struct {
 	Ec2AsgCapacityIncreaseConfig PlanEc2AsgCapacityIncreaseConfiguration `pulumi:"ec2AsgCapacityIncreaseConfig"`
 }
@@ -3706,6 +3757,212 @@ func (o PlanRdsPromoteReadReplicaConfigurationOutput) TimeoutMinutes() pulumi.Fl
 	return o.ApplyT(func(v PlanRdsPromoteReadReplicaConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
 }
 
+type PlanRdsSwitchoverReadReplicaConfiguration struct {
+	CrossAccountRole *string            `pulumi:"crossAccountRole"`
+	DbInstanceArnMap map[string]string  `pulumi:"dbInstanceArnMap"`
+	ExternalId       *string            `pulumi:"externalId"`
+	TimeoutMinutes   *float64           `pulumi:"timeoutMinutes"`
+	Ungraceful       *PlanRdsUngraceful `pulumi:"ungraceful"`
+}
+
+// PlanRdsSwitchoverReadReplicaConfigurationInput is an input type that accepts PlanRdsSwitchoverReadReplicaConfigurationArgs and PlanRdsSwitchoverReadReplicaConfigurationOutput values.
+// You can construct a concrete instance of `PlanRdsSwitchoverReadReplicaConfigurationInput` via:
+//
+//	PlanRdsSwitchoverReadReplicaConfigurationArgs{...}
+type PlanRdsSwitchoverReadReplicaConfigurationInput interface {
+	pulumi.Input
+
+	ToPlanRdsSwitchoverReadReplicaConfigurationOutput() PlanRdsSwitchoverReadReplicaConfigurationOutput
+	ToPlanRdsSwitchoverReadReplicaConfigurationOutputWithContext(context.Context) PlanRdsSwitchoverReadReplicaConfigurationOutput
+}
+
+type PlanRdsSwitchoverReadReplicaConfigurationArgs struct {
+	CrossAccountRole pulumi.StringPtrInput     `pulumi:"crossAccountRole"`
+	DbInstanceArnMap pulumi.StringMapInput     `pulumi:"dbInstanceArnMap"`
+	ExternalId       pulumi.StringPtrInput     `pulumi:"externalId"`
+	TimeoutMinutes   pulumi.Float64PtrInput    `pulumi:"timeoutMinutes"`
+	Ungraceful       PlanRdsUngracefulPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanRdsSwitchoverReadReplicaConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsSwitchoverReadReplicaConfiguration)(nil)).Elem()
+}
+
+func (i PlanRdsSwitchoverReadReplicaConfigurationArgs) ToPlanRdsSwitchoverReadReplicaConfigurationOutput() PlanRdsSwitchoverReadReplicaConfigurationOutput {
+	return i.ToPlanRdsSwitchoverReadReplicaConfigurationOutputWithContext(context.Background())
+}
+
+func (i PlanRdsSwitchoverReadReplicaConfigurationArgs) ToPlanRdsSwitchoverReadReplicaConfigurationOutputWithContext(ctx context.Context) PlanRdsSwitchoverReadReplicaConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRdsSwitchoverReadReplicaConfigurationOutput)
+}
+
+type PlanRdsSwitchoverReadReplicaConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PlanRdsSwitchoverReadReplicaConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsSwitchoverReadReplicaConfiguration)(nil)).Elem()
+}
+
+func (o PlanRdsSwitchoverReadReplicaConfigurationOutput) ToPlanRdsSwitchoverReadReplicaConfigurationOutput() PlanRdsSwitchoverReadReplicaConfigurationOutput {
+	return o
+}
+
+func (o PlanRdsSwitchoverReadReplicaConfigurationOutput) ToPlanRdsSwitchoverReadReplicaConfigurationOutputWithContext(ctx context.Context) PlanRdsSwitchoverReadReplicaConfigurationOutput {
+	return o
+}
+
+func (o PlanRdsSwitchoverReadReplicaConfigurationOutput) CrossAccountRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRdsSwitchoverReadReplicaConfiguration) *string { return v.CrossAccountRole }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanRdsSwitchoverReadReplicaConfigurationOutput) DbInstanceArnMap() pulumi.StringMapOutput {
+	return o.ApplyT(func(v PlanRdsSwitchoverReadReplicaConfiguration) map[string]string { return v.DbInstanceArnMap }).(pulumi.StringMapOutput)
+}
+
+func (o PlanRdsSwitchoverReadReplicaConfigurationOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PlanRdsSwitchoverReadReplicaConfiguration) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+func (o PlanRdsSwitchoverReadReplicaConfigurationOutput) TimeoutMinutes() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v PlanRdsSwitchoverReadReplicaConfiguration) *float64 { return v.TimeoutMinutes }).(pulumi.Float64PtrOutput)
+}
+
+func (o PlanRdsSwitchoverReadReplicaConfigurationOutput) Ungraceful() PlanRdsUngracefulPtrOutput {
+	return o.ApplyT(func(v PlanRdsSwitchoverReadReplicaConfiguration) *PlanRdsUngraceful { return v.Ungraceful }).(PlanRdsUngracefulPtrOutput)
+}
+
+type PlanRdsUngraceful struct {
+	Ungraceful *PlanRdsUngracefulBehavior `pulumi:"ungraceful"`
+}
+
+// PlanRdsUngracefulInput is an input type that accepts PlanRdsUngracefulArgs and PlanRdsUngracefulOutput values.
+// You can construct a concrete instance of `PlanRdsUngracefulInput` via:
+//
+//	PlanRdsUngracefulArgs{...}
+type PlanRdsUngracefulInput interface {
+	pulumi.Input
+
+	ToPlanRdsUngracefulOutput() PlanRdsUngracefulOutput
+	ToPlanRdsUngracefulOutputWithContext(context.Context) PlanRdsUngracefulOutput
+}
+
+type PlanRdsUngracefulArgs struct {
+	Ungraceful PlanRdsUngracefulBehaviorPtrInput `pulumi:"ungraceful"`
+}
+
+func (PlanRdsUngracefulArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsUngraceful)(nil)).Elem()
+}
+
+func (i PlanRdsUngracefulArgs) ToPlanRdsUngracefulOutput() PlanRdsUngracefulOutput {
+	return i.ToPlanRdsUngracefulOutputWithContext(context.Background())
+}
+
+func (i PlanRdsUngracefulArgs) ToPlanRdsUngracefulOutputWithContext(ctx context.Context) PlanRdsUngracefulOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRdsUngracefulOutput)
+}
+
+func (i PlanRdsUngracefulArgs) ToPlanRdsUngracefulPtrOutput() PlanRdsUngracefulPtrOutput {
+	return i.ToPlanRdsUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i PlanRdsUngracefulArgs) ToPlanRdsUngracefulPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRdsUngracefulOutput).ToPlanRdsUngracefulPtrOutputWithContext(ctx)
+}
+
+// PlanRdsUngracefulPtrInput is an input type that accepts PlanRdsUngracefulArgs, PlanRdsUngracefulPtr and PlanRdsUngracefulPtrOutput values.
+// You can construct a concrete instance of `PlanRdsUngracefulPtrInput` via:
+//
+//	        PlanRdsUngracefulArgs{...}
+//
+//	or:
+//
+//	        nil
+type PlanRdsUngracefulPtrInput interface {
+	pulumi.Input
+
+	ToPlanRdsUngracefulPtrOutput() PlanRdsUngracefulPtrOutput
+	ToPlanRdsUngracefulPtrOutputWithContext(context.Context) PlanRdsUngracefulPtrOutput
+}
+
+type planRdsUngracefulPtrType PlanRdsUngracefulArgs
+
+func PlanRdsUngracefulPtr(v *PlanRdsUngracefulArgs) PlanRdsUngracefulPtrInput {
+	return (*planRdsUngracefulPtrType)(v)
+}
+
+func (*planRdsUngracefulPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanRdsUngraceful)(nil)).Elem()
+}
+
+func (i *planRdsUngracefulPtrType) ToPlanRdsUngracefulPtrOutput() PlanRdsUngracefulPtrOutput {
+	return i.ToPlanRdsUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (i *planRdsUngracefulPtrType) ToPlanRdsUngracefulPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PlanRdsUngracefulPtrOutput)
+}
+
+type PlanRdsUngracefulOutput struct{ *pulumi.OutputState }
+
+func (PlanRdsUngracefulOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PlanRdsUngraceful)(nil)).Elem()
+}
+
+func (o PlanRdsUngracefulOutput) ToPlanRdsUngracefulOutput() PlanRdsUngracefulOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulOutput) ToPlanRdsUngracefulOutputWithContext(ctx context.Context) PlanRdsUngracefulOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulOutput) ToPlanRdsUngracefulPtrOutput() PlanRdsUngracefulPtrOutput {
+	return o.ToPlanRdsUngracefulPtrOutputWithContext(context.Background())
+}
+
+func (o PlanRdsUngracefulOutput) ToPlanRdsUngracefulPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PlanRdsUngraceful) *PlanRdsUngraceful {
+		return &v
+	}).(PlanRdsUngracefulPtrOutput)
+}
+
+func (o PlanRdsUngracefulOutput) Ungraceful() PlanRdsUngracefulBehaviorPtrOutput {
+	return o.ApplyT(func(v PlanRdsUngraceful) *PlanRdsUngracefulBehavior { return v.Ungraceful }).(PlanRdsUngracefulBehaviorPtrOutput)
+}
+
+type PlanRdsUngracefulPtrOutput struct{ *pulumi.OutputState }
+
+func (PlanRdsUngracefulPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PlanRdsUngraceful)(nil)).Elem()
+}
+
+func (o PlanRdsUngracefulPtrOutput) ToPlanRdsUngracefulPtrOutput() PlanRdsUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulPtrOutput) ToPlanRdsUngracefulPtrOutputWithContext(ctx context.Context) PlanRdsUngracefulPtrOutput {
+	return o
+}
+
+func (o PlanRdsUngracefulPtrOutput) Elem() PlanRdsUngracefulOutput {
+	return o.ApplyT(func(v *PlanRdsUngraceful) PlanRdsUngraceful {
+		if v != nil {
+			return *v
+		}
+		var ret PlanRdsUngraceful
+		return ret
+	}).(PlanRdsUngracefulOutput)
+}
+
+func (o PlanRdsUngracefulPtrOutput) Ungraceful() PlanRdsUngracefulBehaviorPtrOutput {
+	return o.ApplyT(func(v *PlanRdsUngraceful) *PlanRdsUngracefulBehavior {
+		if v == nil {
+			return nil
+		}
+		return v.Ungraceful
+	}).(PlanRdsUngracefulBehaviorPtrOutput)
+}
+
 type PlanRegionSwitchPlanConfiguration struct {
 	Arn              string  `pulumi:"arn"`
 	CrossAccountRole *string `pulumi:"crossAccountRole"`
@@ -4988,6 +5245,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration14PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration14PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration15PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration15PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration16PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration16PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration17PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration17PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration1PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration2PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanExecutionBlockConfiguration3PropertiesInput)(nil)).Elem(), PlanExecutionBlockConfiguration3PropertiesArgs{})
@@ -5014,6 +5272,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanParallelExecutionBlockConfigurationInput)(nil)).Elem(), PlanParallelExecutionBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsCreateCrossRegionReplicaConfigurationInput)(nil)).Elem(), PlanRdsCreateCrossRegionReplicaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsPromoteReadReplicaConfigurationInput)(nil)).Elem(), PlanRdsPromoteReadReplicaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsSwitchoverReadReplicaConfigurationInput)(nil)).Elem(), PlanRdsSwitchoverReadReplicaConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsUngracefulInput)(nil)).Elem(), PlanRdsUngracefulArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PlanRdsUngracefulPtrInput)(nil)).Elem(), PlanRdsUngracefulArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanRegionSwitchPlanConfigurationInput)(nil)).Elem(), PlanRegionSwitchPlanConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationInput)(nil)).Elem(), PlanReportConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PlanReportConfigurationPtrInput)(nil)).Elem(), PlanReportConfigurationArgs{})
@@ -5066,6 +5327,7 @@ func init() {
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration14PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration15PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration16PropertiesOutput{})
+	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration17PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration1PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration2PropertiesOutput{})
 	pulumi.RegisterOutputType(PlanExecutionBlockConfiguration3PropertiesOutput{})
@@ -5094,6 +5356,9 @@ func init() {
 	pulumi.RegisterOutputType(PlanParallelExecutionBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanRdsCreateCrossRegionReplicaConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanRdsPromoteReadReplicaConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanRdsSwitchoverReadReplicaConfigurationOutput{})
+	pulumi.RegisterOutputType(PlanRdsUngracefulOutput{})
+	pulumi.RegisterOutputType(PlanRdsUngracefulPtrOutput{})
 	pulumi.RegisterOutputType(PlanRegionSwitchPlanConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanReportConfigurationOutput{})
 	pulumi.RegisterOutputType(PlanReportConfigurationPtrOutput{})

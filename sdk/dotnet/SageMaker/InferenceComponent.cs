@@ -70,7 +70,10 @@ namespace Pulumi.AwsNative.SageMaker
         public Output<Outputs.InferenceComponentRuntimeConfig?> RuntimeConfig { get; private set; } = null!;
 
         [Output("specification")]
-        public Output<Outputs.InferenceComponentSpecification> Specification { get; private set; } = null!;
+        public Output<Outputs.InferenceComponentSpecification?> Specification { get; private set; } = null!;
+
+        [Output("specifications")]
+        public Output<ImmutableArray<Outputs.InferenceComponentSpecificationForInstanceType>> Specifications { get; private set; } = null!;
 
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
@@ -153,8 +156,16 @@ namespace Pulumi.AwsNative.SageMaker
         [Input("runtimeConfig")]
         public Input<Inputs.InferenceComponentRuntimeConfigArgs>? RuntimeConfig { get; set; }
 
-        [Input("specification", required: true)]
-        public Input<Inputs.InferenceComponentSpecificationArgs> Specification { get; set; } = null!;
+        [Input("specification")]
+        public Input<Inputs.InferenceComponentSpecificationArgs>? Specification { get; set; }
+
+        [Input("specifications")]
+        private InputList<Inputs.InferenceComponentSpecificationForInstanceTypeArgs>? _specifications;
+        public InputList<Inputs.InferenceComponentSpecificationForInstanceTypeArgs> Specifications
+        {
+            get => _specifications ?? (_specifications = new InputList<Inputs.InferenceComponentSpecificationForInstanceTypeArgs>());
+            set => _specifications = value;
+        }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

@@ -340,4 +340,106 @@ namespace Pulumi.AwsNative.CodeBuild
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The export configuration type. Valid values are:
+    /// 
+    /// - `S3` : The report results are exported to an S3 bucket.
+    /// - `NO_EXPORT` : The report results are not exported.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReportGroupReportExportConfigExportConfigType : IEquatable<ReportGroupReportExportConfigExportConfigType>
+    {
+        private readonly string _value;
+
+        private ReportGroupReportExportConfigExportConfigType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReportGroupReportExportConfigExportConfigType S3 { get; } = new ReportGroupReportExportConfigExportConfigType("S3");
+        public static ReportGroupReportExportConfigExportConfigType NoExport { get; } = new ReportGroupReportExportConfigExportConfigType("NO_EXPORT");
+
+        public static bool operator ==(ReportGroupReportExportConfigExportConfigType left, ReportGroupReportExportConfigExportConfigType right) => left.Equals(right);
+        public static bool operator !=(ReportGroupReportExportConfigExportConfigType left, ReportGroupReportExportConfigExportConfigType right) => !left.Equals(right);
+
+        public static explicit operator string(ReportGroupReportExportConfigExportConfigType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReportGroupReportExportConfigExportConfigType other && Equals(other);
+        public bool Equals(ReportGroupReportExportConfigExportConfigType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of build output artifact to create. Valid values include:
+    /// 
+    /// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
+    /// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReportGroupS3ReportExportConfigPackaging : IEquatable<ReportGroupS3ReportExportConfigPackaging>
+    {
+        private readonly string _value;
+
+        private ReportGroupS3ReportExportConfigPackaging(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReportGroupS3ReportExportConfigPackaging None { get; } = new ReportGroupS3ReportExportConfigPackaging("NONE");
+        public static ReportGroupS3ReportExportConfigPackaging Zip { get; } = new ReportGroupS3ReportExportConfigPackaging("ZIP");
+
+        public static bool operator ==(ReportGroupS3ReportExportConfigPackaging left, ReportGroupS3ReportExportConfigPackaging right) => left.Equals(right);
+        public static bool operator !=(ReportGroupS3ReportExportConfigPackaging left, ReportGroupS3ReportExportConfigPackaging right) => !left.Equals(right);
+
+        public static explicit operator string(ReportGroupS3ReportExportConfigPackaging value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReportGroupS3ReportExportConfigPackaging other && Equals(other);
+        public bool Equals(ReportGroupS3ReportExportConfigPackaging other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the `ReportGroup` . This can be one of the following values:
+    /// 
+    /// - **CODE_COVERAGE** - The report group contains code coverage reports.
+    /// - **TEST** - The report group contains test reports.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReportGroupType : IEquatable<ReportGroupType>
+    {
+        private readonly string _value;
+
+        private ReportGroupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReportGroupType Test { get; } = new ReportGroupType("TEST");
+        public static ReportGroupType CodeCoverage { get; } = new ReportGroupType("CODE_COVERAGE");
+
+        public static bool operator ==(ReportGroupType left, ReportGroupType right) => left.Equals(right);
+        public static bool operator !=(ReportGroupType left, ReportGroupType right) => !left.Equals(right);
+
+        public static explicit operator string(ReportGroupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReportGroupType other && Equals(other);
+        public bool Equals(ReportGroupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

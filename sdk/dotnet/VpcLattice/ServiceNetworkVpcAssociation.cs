@@ -124,8 +124,6 @@ namespace Pulumi.AwsNative.VpcLattice
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
-                    "dnsOptions",
-                    "privateDnsEnabled",
                     "serviceNetworkIdentifier",
                     "vpcIdentifier",
                 },

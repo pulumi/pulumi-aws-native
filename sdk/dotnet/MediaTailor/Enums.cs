@@ -414,6 +414,37 @@ namespace Pulumi.AwsNative.MediaTailor
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// Determines how MediaTailor sequences ads returned in the pre-roll VAST response.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlaybackConfigurationPreRollVastResponseAdSequencingMode : IEquatable<PlaybackConfigurationPreRollVastResponseAdSequencingMode>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationPreRollVastResponseAdSequencingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationPreRollVastResponseAdSequencingMode FollowAdSequence { get; } = new PlaybackConfigurationPreRollVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE");
+        public static PlaybackConfigurationPreRollVastResponseAdSequencingMode IgnoreAdSequence { get; } = new PlaybackConfigurationPreRollVastResponseAdSequencingMode("IGNORE_AD_SEQUENCE");
+
+        public static bool operator ==(PlaybackConfigurationPreRollVastResponseAdSequencingMode left, PlaybackConfigurationPreRollVastResponseAdSequencingMode right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationPreRollVastResponseAdSequencingMode left, PlaybackConfigurationPreRollVastResponseAdSequencingMode right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationPreRollVastResponseAdSequencingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationPreRollVastResponseAdSequencingMode other && Equals(other);
+        public bool Equals(PlaybackConfigurationPreRollVastResponseAdSequencingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct PlaybackConfigurationStreamingMediaFileConditioning : IEquatable<PlaybackConfigurationStreamingMediaFileConditioning>
     {
@@ -435,6 +466,39 @@ namespace Pulumi.AwsNative.MediaTailor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PlaybackConfigurationStreamingMediaFileConditioning other && Equals(other);
         public bool Equals(PlaybackConfigurationStreamingMediaFileConditioning other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Determines how MediaTailor sequences ads returned in the VAST response from the Ad Decision Server.
+    /// </summary>
+    [EnumType]
+    public readonly struct PlaybackConfigurationVastResponseAdSequencingMode : IEquatable<PlaybackConfigurationVastResponseAdSequencingMode>
+    {
+        private readonly string _value;
+
+        private PlaybackConfigurationVastResponseAdSequencingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PlaybackConfigurationVastResponseAdSequencingMode FollowAdSequence { get; } = new PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE");
+        public static PlaybackConfigurationVastResponseAdSequencingMode IgnoreAdSequence { get; } = new PlaybackConfigurationVastResponseAdSequencingMode("IGNORE_AD_SEQUENCE");
+        public static PlaybackConfigurationVastResponseAdSequencingMode FollowAdSequenceOnlyLive { get; } = new PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE_ONLY_LIVE");
+        public static PlaybackConfigurationVastResponseAdSequencingMode FollowAdSequenceOnlyVod { get; } = new PlaybackConfigurationVastResponseAdSequencingMode("FOLLOW_AD_SEQUENCE_ONLY_VOD");
+
+        public static bool operator ==(PlaybackConfigurationVastResponseAdSequencingMode left, PlaybackConfigurationVastResponseAdSequencingMode right) => left.Equals(right);
+        public static bool operator !=(PlaybackConfigurationVastResponseAdSequencingMode left, PlaybackConfigurationVastResponseAdSequencingMode right) => !left.Equals(right);
+
+        public static explicit operator string(PlaybackConfigurationVastResponseAdSequencingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PlaybackConfigurationVastResponseAdSequencingMode other && Equals(other);
+        public bool Equals(PlaybackConfigurationVastResponseAdSequencingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

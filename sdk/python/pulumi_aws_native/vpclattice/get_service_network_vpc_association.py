@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from .. import outputs as _root_outputs
 from ._enums import *
 
@@ -25,16 +26,22 @@ __all__ = [
 
 @pulumi.output_type
 class GetServiceNetworkVpcAssociationResult:
-    def __init__(__self__, arn=None, created_at=None, id=None, security_group_ids=None, service_network_arn=None, service_network_id=None, service_network_name=None, status=None, tags=None, vpc_id=None):
+    def __init__(__self__, arn=None, created_at=None, dns_options=None, id=None, private_dns_enabled=None, security_group_ids=None, service_network_arn=None, service_network_id=None, service_network_name=None, status=None, tags=None, vpc_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if dns_options and not isinstance(dns_options, dict):
+            raise TypeError("Expected argument 'dns_options' to be a dict")
+        pulumi.set(__self__, "dns_options", dns_options)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if private_dns_enabled and not isinstance(private_dns_enabled, bool):
+            raise TypeError("Expected argument 'private_dns_enabled' to be a bool")
+        pulumi.set(__self__, "private_dns_enabled", private_dns_enabled)
         if security_group_ids and not isinstance(security_group_ids, list):
             raise TypeError("Expected argument 'security_group_ids' to be a list")
         pulumi.set(__self__, "security_group_ids", security_group_ids)
@@ -74,12 +81,28 @@ class GetServiceNetworkVpcAssociationResult:
         return pulumi.get(self, "created_at")
 
     @_builtins.property
+    @pulumi.getter(name="dnsOptions")
+    def dns_options(self) -> Optional['outputs.ServiceNetworkVpcAssociationDnsOptions']:
+        """
+        The DNS options for the service network VPC association.
+        """
+        return pulumi.get(self, "dns_options")
+
+    @_builtins.property
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
         The ID of the specified association between the service network and the VPC.
         """
         return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="privateDnsEnabled")
+    def private_dns_enabled(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if private DNS is enabled for the service network VPC association.
+        """
+        return pulumi.get(self, "private_dns_enabled")
 
     @_builtins.property
     @pulumi.getter(name="securityGroupIds")
@@ -146,7 +169,9 @@ class AwaitableGetServiceNetworkVpcAssociationResult(GetServiceNetworkVpcAssocia
         return GetServiceNetworkVpcAssociationResult(
             arn=self.arn,
             created_at=self.created_at,
+            dns_options=self.dns_options,
             id=self.id,
+            private_dns_enabled=self.private_dns_enabled,
             security_group_ids=self.security_group_ids,
             service_network_arn=self.service_network_arn,
             service_network_id=self.service_network_id,
@@ -171,7 +196,9 @@ def get_service_network_vpc_association(arn: Optional[_builtins.str] = None,
     return AwaitableGetServiceNetworkVpcAssociationResult(
         arn=pulumi.get(__ret__, 'arn'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        dns_options=pulumi.get(__ret__, 'dns_options'),
         id=pulumi.get(__ret__, 'id'),
+        private_dns_enabled=pulumi.get(__ret__, 'private_dns_enabled'),
         security_group_ids=pulumi.get(__ret__, 'security_group_ids'),
         service_network_arn=pulumi.get(__ret__, 'service_network_arn'),
         service_network_id=pulumi.get(__ret__, 'service_network_id'),
@@ -193,7 +220,9 @@ def get_service_network_vpc_association_output(arn: pulumi.Input[Optional[_built
     return __ret__.apply(lambda __response__: GetServiceNetworkVpcAssociationResult(
         arn=pulumi.get(__response__, 'arn'),
         created_at=pulumi.get(__response__, 'created_at'),
+        dns_options=pulumi.get(__response__, 'dns_options'),
         id=pulumi.get(__response__, 'id'),
+        private_dns_enabled=pulumi.get(__response__, 'private_dns_enabled'),
         security_group_ids=pulumi.get(__response__, 'security_group_ids'),
         service_network_arn=pulumi.get(__response__, 'service_network_arn'),
         service_network_id=pulumi.get(__response__, 'service_network_id'),

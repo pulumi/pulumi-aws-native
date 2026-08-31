@@ -28,10 +28,10 @@ namespace Pulumi.AwsNative.GameLift.Inputs
         public Input<int>? EvaluationPeriods { get; set; }
 
         /// <summary>
-        /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment.
+        /// Name of the Amazon GameLift-defined metric that is used to trigger a scaling adjustment. This is required for RuleBased and TargetBased policies.
         /// </summary>
-        [Input("metricName", required: true)]
-        public Input<Pulumi.AwsNative.GameLift.ContainerFleetScalingPolicyMetricName> MetricName { get; set; } = null!;
+        [Input("metricName")]
+        public Input<Pulumi.AwsNative.GameLift.ContainerFleetScalingPolicyMetricName>? MetricName { get; set; }
 
         /// <summary>
         /// A descriptive label that is associated with a fleet's scaling policy. Policy names do not need to be unique.

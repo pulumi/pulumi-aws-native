@@ -42,6 +42,7 @@ __all__ = [
     'PlanExecutionBlockConfiguration14Properties',
     'PlanExecutionBlockConfiguration15Properties',
     'PlanExecutionBlockConfiguration16Properties',
+    'PlanExecutionBlockConfiguration17Properties',
     'PlanExecutionBlockConfiguration1Properties',
     'PlanExecutionBlockConfiguration2Properties',
     'PlanExecutionBlockConfiguration3Properties',
@@ -64,6 +65,8 @@ __all__ = [
     'PlanParallelExecutionBlockConfiguration',
     'PlanRdsCreateCrossRegionReplicaConfiguration',
     'PlanRdsPromoteReadReplicaConfiguration',
+    'PlanRdsSwitchoverReadReplicaConfiguration',
+    'PlanRdsUngraceful',
     'PlanRegionSwitchPlanConfiguration',
     'PlanReportConfiguration',
     'PlanReportOutputConfigurationProperties',
@@ -1247,6 +1250,35 @@ class PlanExecutionBlockConfiguration16Properties(dict):
 
 
 @pulumi.output_type
+class PlanExecutionBlockConfiguration17Properties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rdsSwitchoverReadReplicaConfig":
+            suggest = "rds_switchover_read_replica_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanExecutionBlockConfiguration17Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanExecutionBlockConfiguration17Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanExecutionBlockConfiguration17Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rds_switchover_read_replica_config: 'outputs.PlanRdsSwitchoverReadReplicaConfiguration'):
+        pulumi.set(__self__, "rds_switchover_read_replica_config", rds_switchover_read_replica_config)
+
+    @_builtins.property
+    @pulumi.getter(name="rdsSwitchoverReadReplicaConfig")
+    def rds_switchover_read_replica_config(self) -> 'outputs.PlanRdsSwitchoverReadReplicaConfiguration':
+        return pulumi.get(self, "rds_switchover_read_replica_config")
+
+
+@pulumi.output_type
 class PlanExecutionBlockConfiguration1Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2032,6 +2064,86 @@ class PlanRdsPromoteReadReplicaConfiguration(dict):
 
 
 @pulumi.output_type
+class PlanRdsSwitchoverReadReplicaConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dbInstanceArnMap":
+            suggest = "db_instance_arn_map"
+        elif key == "crossAccountRole":
+            suggest = "cross_account_role"
+        elif key == "externalId":
+            suggest = "external_id"
+        elif key == "timeoutMinutes":
+            suggest = "timeout_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlanRdsSwitchoverReadReplicaConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlanRdsSwitchoverReadReplicaConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlanRdsSwitchoverReadReplicaConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 db_instance_arn_map: Mapping[str, _builtins.str],
+                 cross_account_role: Optional[_builtins.str] = None,
+                 external_id: Optional[_builtins.str] = None,
+                 timeout_minutes: Optional[_builtins.float] = None,
+                 ungraceful: Optional['outputs.PlanRdsUngraceful'] = None):
+        pulumi.set(__self__, "db_instance_arn_map", db_instance_arn_map)
+        if cross_account_role is not None:
+            pulumi.set(__self__, "cross_account_role", cross_account_role)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if timeout_minutes is not None:
+            pulumi.set(__self__, "timeout_minutes", timeout_minutes)
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter(name="dbInstanceArnMap")
+    def db_instance_arn_map(self) -> Mapping[str, _builtins.str]:
+        return pulumi.get(self, "db_instance_arn_map")
+
+    @_builtins.property
+    @pulumi.getter(name="crossAccountRole")
+    def cross_account_role(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "cross_account_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "external_id")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMinutes")
+    def timeout_minutes(self) -> Optional[_builtins.float]:
+        return pulumi.get(self, "timeout_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['outputs.PlanRdsUngraceful']:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
+class PlanRdsUngraceful(dict):
+    def __init__(__self__, *,
+                 ungraceful: Optional['PlanRdsUngracefulBehavior'] = None):
+        if ungraceful is not None:
+            pulumi.set(__self__, "ungraceful", ungraceful)
+
+    @_builtins.property
+    @pulumi.getter
+    def ungraceful(self) -> Optional['PlanRdsUngracefulBehavior']:
+        return pulumi.get(self, "ungraceful")
+
+
+@pulumi.output_type
 class PlanRegionSwitchPlanConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2386,7 +2498,7 @@ class PlanStep(dict):
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None):
         """
-        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties', 'PlanExecutionBlockConfiguration13Properties', 'PlanExecutionBlockConfiguration14Properties', 'PlanExecutionBlockConfiguration15Properties', 'PlanExecutionBlockConfiguration16Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
+        :param Union['PlanExecutionBlockConfiguration0Properties', 'PlanExecutionBlockConfiguration1Properties', 'PlanExecutionBlockConfiguration2Properties', 'PlanExecutionBlockConfiguration3Properties', 'PlanExecutionBlockConfiguration4Properties', 'PlanExecutionBlockConfiguration5Properties', 'PlanExecutionBlockConfiguration6Properties', 'PlanExecutionBlockConfiguration7Properties', 'PlanExecutionBlockConfiguration8Properties', 'PlanExecutionBlockConfiguration9Properties', 'PlanExecutionBlockConfiguration10Properties', 'PlanExecutionBlockConfiguration11Properties', 'PlanExecutionBlockConfiguration12Properties', 'PlanExecutionBlockConfiguration13Properties', 'PlanExecutionBlockConfiguration14Properties', 'PlanExecutionBlockConfiguration15Properties', 'PlanExecutionBlockConfiguration16Properties', 'PlanExecutionBlockConfiguration17Properties'] execution_block_configuration: The configuration for an execution block in a workflow.
         :param 'PlanExecutionBlockType' execution_block_type: The type of an execution block in a workflow.
         :param _builtins.str name: The name of a step in a workflow.
         :param _builtins.str description: The description of a step in a workflow.

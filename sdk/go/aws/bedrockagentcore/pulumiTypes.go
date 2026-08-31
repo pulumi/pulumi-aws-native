@@ -16616,6 +16616,139 @@ func (o GatewayTargetToolSchema1PropertiesPtrOutput) InlinePayload() GatewayTarg
 	}).(GatewayTargetToolDefinitionArrayOutput)
 }
 
+type GatewayWafConfiguration struct {
+	FailureMode *GatewayWafFailureMode `pulumi:"failureMode"`
+}
+
+// GatewayWafConfigurationInput is an input type that accepts GatewayWafConfigurationArgs and GatewayWafConfigurationOutput values.
+// You can construct a concrete instance of `GatewayWafConfigurationInput` via:
+//
+//	GatewayWafConfigurationArgs{...}
+type GatewayWafConfigurationInput interface {
+	pulumi.Input
+
+	ToGatewayWafConfigurationOutput() GatewayWafConfigurationOutput
+	ToGatewayWafConfigurationOutputWithContext(context.Context) GatewayWafConfigurationOutput
+}
+
+type GatewayWafConfigurationArgs struct {
+	FailureMode GatewayWafFailureModePtrInput `pulumi:"failureMode"`
+}
+
+func (GatewayWafConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayWafConfiguration)(nil)).Elem()
+}
+
+func (i GatewayWafConfigurationArgs) ToGatewayWafConfigurationOutput() GatewayWafConfigurationOutput {
+	return i.ToGatewayWafConfigurationOutputWithContext(context.Background())
+}
+
+func (i GatewayWafConfigurationArgs) ToGatewayWafConfigurationOutputWithContext(ctx context.Context) GatewayWafConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayWafConfigurationOutput)
+}
+
+func (i GatewayWafConfigurationArgs) ToGatewayWafConfigurationPtrOutput() GatewayWafConfigurationPtrOutput {
+	return i.ToGatewayWafConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i GatewayWafConfigurationArgs) ToGatewayWafConfigurationPtrOutputWithContext(ctx context.Context) GatewayWafConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayWafConfigurationOutput).ToGatewayWafConfigurationPtrOutputWithContext(ctx)
+}
+
+// GatewayWafConfigurationPtrInput is an input type that accepts GatewayWafConfigurationArgs, GatewayWafConfigurationPtr and GatewayWafConfigurationPtrOutput values.
+// You can construct a concrete instance of `GatewayWafConfigurationPtrInput` via:
+//
+//	        GatewayWafConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type GatewayWafConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToGatewayWafConfigurationPtrOutput() GatewayWafConfigurationPtrOutput
+	ToGatewayWafConfigurationPtrOutputWithContext(context.Context) GatewayWafConfigurationPtrOutput
+}
+
+type gatewayWafConfigurationPtrType GatewayWafConfigurationArgs
+
+func GatewayWafConfigurationPtr(v *GatewayWafConfigurationArgs) GatewayWafConfigurationPtrInput {
+	return (*gatewayWafConfigurationPtrType)(v)
+}
+
+func (*gatewayWafConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayWafConfiguration)(nil)).Elem()
+}
+
+func (i *gatewayWafConfigurationPtrType) ToGatewayWafConfigurationPtrOutput() GatewayWafConfigurationPtrOutput {
+	return i.ToGatewayWafConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *gatewayWafConfigurationPtrType) ToGatewayWafConfigurationPtrOutputWithContext(ctx context.Context) GatewayWafConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GatewayWafConfigurationPtrOutput)
+}
+
+type GatewayWafConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GatewayWafConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayWafConfiguration)(nil)).Elem()
+}
+
+func (o GatewayWafConfigurationOutput) ToGatewayWafConfigurationOutput() GatewayWafConfigurationOutput {
+	return o
+}
+
+func (o GatewayWafConfigurationOutput) ToGatewayWafConfigurationOutputWithContext(ctx context.Context) GatewayWafConfigurationOutput {
+	return o
+}
+
+func (o GatewayWafConfigurationOutput) ToGatewayWafConfigurationPtrOutput() GatewayWafConfigurationPtrOutput {
+	return o.ToGatewayWafConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayWafConfigurationOutput) ToGatewayWafConfigurationPtrOutputWithContext(ctx context.Context) GatewayWafConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayWafConfiguration) *GatewayWafConfiguration {
+		return &v
+	}).(GatewayWafConfigurationPtrOutput)
+}
+
+func (o GatewayWafConfigurationOutput) FailureMode() GatewayWafFailureModePtrOutput {
+	return o.ApplyT(func(v GatewayWafConfiguration) *GatewayWafFailureMode { return v.FailureMode }).(GatewayWafFailureModePtrOutput)
+}
+
+type GatewayWafConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayWafConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayWafConfiguration)(nil)).Elem()
+}
+
+func (o GatewayWafConfigurationPtrOutput) ToGatewayWafConfigurationPtrOutput() GatewayWafConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayWafConfigurationPtrOutput) ToGatewayWafConfigurationPtrOutputWithContext(ctx context.Context) GatewayWafConfigurationPtrOutput {
+	return o
+}
+
+func (o GatewayWafConfigurationPtrOutput) Elem() GatewayWafConfigurationOutput {
+	return o.ApplyT(func(v *GatewayWafConfiguration) GatewayWafConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayWafConfiguration
+		return ret
+	}).(GatewayWafConfigurationOutput)
+}
+
+func (o GatewayWafConfigurationPtrOutput) FailureMode() GatewayWafFailureModePtrOutput {
+	return o.ApplyT(func(v *GatewayWafConfiguration) *GatewayWafFailureMode {
+		if v == nil {
+			return nil
+		}
+		return v.FailureMode
+	}).(GatewayWafFailureModePtrOutput)
+}
+
 type GatewayWorkloadIdentityDetails struct {
 	WorkloadIdentityArn string `pulumi:"workloadIdentityArn"`
 }
@@ -42445,6 +42578,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolDefinitionArrayInput)(nil)).Elem(), GatewayTargetToolDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema0PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetToolSchema1PropertiesInput)(nil)).Elem(), GatewayTargetToolSchema1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayWafConfigurationInput)(nil)).Elem(), GatewayWafConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayWafConfigurationPtrInput)(nil)).Elem(), GatewayWafConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAgentCoreBrowserConfigInput)(nil)).Elem(), HarnessAgentCoreBrowserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAgentCoreBrowserConfigPtrInput)(nil)).Elem(), HarnessAgentCoreBrowserConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAgentCoreCodeInterpreterConfigInput)(nil)).Elem(), HarnessAgentCoreCodeInterpreterConfigArgs{})
@@ -43015,6 +43150,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetToolSchema0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolSchema1PropertiesOutput{})
 	pulumi.RegisterOutputType(GatewayTargetToolSchema1PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(GatewayWafConfigurationOutput{})
+	pulumi.RegisterOutputType(GatewayWafConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsOutput{})
 	pulumi.RegisterOutputType(GatewayWorkloadIdentityDetailsPtrOutput{})
 	pulumi.RegisterOutputType(HarnessAgentCoreBrowserConfigOutput{})

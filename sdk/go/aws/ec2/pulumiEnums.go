@@ -6935,6 +6935,192 @@ func (in *instancePrivateDnsNameOptionsHostnameTypePtr) ToInstancePrivateDnsName
 	return pulumi.ToOutputWithContext(ctx, in).(InstancePrivateDnsNameOptionsHostnameTypePtrOutput)
 }
 
+// The token state.
+type IpamExternalResourceVerificationTokenStateEnum string
+
+const (
+	IpamExternalResourceVerificationTokenStateEnumCreateInProgress = IpamExternalResourceVerificationTokenStateEnum("create-in-progress")
+	IpamExternalResourceVerificationTokenStateEnumCreateComplete   = IpamExternalResourceVerificationTokenStateEnum("create-complete")
+	IpamExternalResourceVerificationTokenStateEnumCreateFailed     = IpamExternalResourceVerificationTokenStateEnum("create-failed")
+	IpamExternalResourceVerificationTokenStateEnumDeleteInProgress = IpamExternalResourceVerificationTokenStateEnum("delete-in-progress")
+	IpamExternalResourceVerificationTokenStateEnumDeleteComplete   = IpamExternalResourceVerificationTokenStateEnum("delete-complete")
+	IpamExternalResourceVerificationTokenStateEnumDeleteFailed     = IpamExternalResourceVerificationTokenStateEnum("delete-failed")
+)
+
+type IpamExternalResourceVerificationTokenStateEnumOutput struct{ *pulumi.OutputState }
+
+func (IpamExternalResourceVerificationTokenStateEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamExternalResourceVerificationTokenStateEnum)(nil)).Elem()
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToIpamExternalResourceVerificationTokenStateEnumOutput() IpamExternalResourceVerificationTokenStateEnumOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToIpamExternalResourceVerificationTokenStateEnumOutputWithContext(ctx context.Context) IpamExternalResourceVerificationTokenStateEnumOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToIpamExternalResourceVerificationTokenStateEnumPtrOutput() IpamExternalResourceVerificationTokenStateEnumPtrOutput {
+	return o.ToIpamExternalResourceVerificationTokenStateEnumPtrOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToIpamExternalResourceVerificationTokenStateEnumPtrOutputWithContext(ctx context.Context) IpamExternalResourceVerificationTokenStateEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamExternalResourceVerificationTokenStateEnum) *IpamExternalResourceVerificationTokenStateEnum {
+		return &v
+	}).(IpamExternalResourceVerificationTokenStateEnumPtrOutput)
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamExternalResourceVerificationTokenStateEnum) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamExternalResourceVerificationTokenStateEnum) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamExternalResourceVerificationTokenStateEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamExternalResourceVerificationTokenStateEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamExternalResourceVerificationTokenStateEnum)(nil)).Elem()
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumPtrOutput) ToIpamExternalResourceVerificationTokenStateEnumPtrOutput() IpamExternalResourceVerificationTokenStateEnumPtrOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumPtrOutput) ToIpamExternalResourceVerificationTokenStateEnumPtrOutputWithContext(ctx context.Context) IpamExternalResourceVerificationTokenStateEnumPtrOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumPtrOutput) Elem() IpamExternalResourceVerificationTokenStateEnumOutput {
+	return o.ApplyT(func(v *IpamExternalResourceVerificationTokenStateEnum) IpamExternalResourceVerificationTokenStateEnum {
+		if v != nil {
+			return *v
+		}
+		var ret IpamExternalResourceVerificationTokenStateEnum
+		return ret
+	}).(IpamExternalResourceVerificationTokenStateEnumOutput)
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamExternalResourceVerificationTokenStateEnum) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The token status.
+type IpamExternalResourceVerificationTokenStatus string
+
+const (
+	IpamExternalResourceVerificationTokenStatusValid   = IpamExternalResourceVerificationTokenStatus("valid")
+	IpamExternalResourceVerificationTokenStatusExpired = IpamExternalResourceVerificationTokenStatus("expired")
+)
+
+type IpamExternalResourceVerificationTokenStatusOutput struct{ *pulumi.OutputState }
+
+func (IpamExternalResourceVerificationTokenStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IpamExternalResourceVerificationTokenStatus)(nil)).Elem()
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToIpamExternalResourceVerificationTokenStatusOutput() IpamExternalResourceVerificationTokenStatusOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToIpamExternalResourceVerificationTokenStatusOutputWithContext(ctx context.Context) IpamExternalResourceVerificationTokenStatusOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToIpamExternalResourceVerificationTokenStatusPtrOutput() IpamExternalResourceVerificationTokenStatusPtrOutput {
+	return o.ToIpamExternalResourceVerificationTokenStatusPtrOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToIpamExternalResourceVerificationTokenStatusPtrOutputWithContext(ctx context.Context) IpamExternalResourceVerificationTokenStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IpamExternalResourceVerificationTokenStatus) *IpamExternalResourceVerificationTokenStatus {
+		return &v
+	}).(IpamExternalResourceVerificationTokenStatusPtrOutput)
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamExternalResourceVerificationTokenStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IpamExternalResourceVerificationTokenStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IpamExternalResourceVerificationTokenStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (IpamExternalResourceVerificationTokenStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IpamExternalResourceVerificationTokenStatus)(nil)).Elem()
+}
+
+func (o IpamExternalResourceVerificationTokenStatusPtrOutput) ToIpamExternalResourceVerificationTokenStatusPtrOutput() IpamExternalResourceVerificationTokenStatusPtrOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStatusPtrOutput) ToIpamExternalResourceVerificationTokenStatusPtrOutputWithContext(ctx context.Context) IpamExternalResourceVerificationTokenStatusPtrOutput {
+	return o
+}
+
+func (o IpamExternalResourceVerificationTokenStatusPtrOutput) Elem() IpamExternalResourceVerificationTokenStatusOutput {
+	return o.ApplyT(func(v *IpamExternalResourceVerificationTokenStatus) IpamExternalResourceVerificationTokenStatus {
+		if v != nil {
+			return *v
+		}
+		var ret IpamExternalResourceVerificationTokenStatus
+		return ret
+	}).(IpamExternalResourceVerificationTokenStatusOutput)
+}
+
+func (o IpamExternalResourceVerificationTokenStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IpamExternalResourceVerificationTokenStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IpamExternalResourceVerificationTokenStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // A metered account is an account that is charged for active IP addresses managed in IPAM
 type IpamMeteredAccount string
 
@@ -20460,7 +20646,7 @@ func (in *vpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtr) ToVpnC
 	return pulumi.ToOutputWithContext(ctx, in).(VpnConnectionPhase2IntegrityAlgorithmsRequestListValueValuePtrOutput)
 }
 
-// Describes the storage location for an instance store-backed AMI.
+// Specifies the storage mode for the pre-shared key (PSK). Valid values are “Standard“ (stored in the S2Slong service) or “SecretsManager“ (stored in AWS Secrets Manager).
 type VpnConnectionPreSharedKeyStorage string
 
 const (
@@ -21462,6 +21648,10 @@ func init() {
 	pulumi.RegisterOutputType(InstanceMetadataOptionsInstanceMetadataTagsPtrOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypeOutput{})
 	pulumi.RegisterOutputType(InstancePrivateDnsNameOptionsHostnameTypePtrOutput{})
+	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStateEnumOutput{})
+	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStatusOutput{})
+	pulumi.RegisterOutputType(IpamExternalResourceVerificationTokenStatusPtrOutput{})
 	pulumi.RegisterOutputType(IpamMeteredAccountOutput{})
 	pulumi.RegisterOutputType(IpamMeteredAccountPtrOutput{})
 	pulumi.RegisterOutputType(IpamPoolAwsServiceOutput{})

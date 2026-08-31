@@ -1329,6 +1329,72 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
+    /// The token state.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamExternalResourceVerificationTokenState : IEquatable<IpamExternalResourceVerificationTokenState>
+    {
+        private readonly string _value;
+
+        private IpamExternalResourceVerificationTokenState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamExternalResourceVerificationTokenState CreateInProgress { get; } = new IpamExternalResourceVerificationTokenState("create-in-progress");
+        public static IpamExternalResourceVerificationTokenState CreateComplete { get; } = new IpamExternalResourceVerificationTokenState("create-complete");
+        public static IpamExternalResourceVerificationTokenState CreateFailed { get; } = new IpamExternalResourceVerificationTokenState("create-failed");
+        public static IpamExternalResourceVerificationTokenState DeleteInProgress { get; } = new IpamExternalResourceVerificationTokenState("delete-in-progress");
+        public static IpamExternalResourceVerificationTokenState DeleteComplete { get; } = new IpamExternalResourceVerificationTokenState("delete-complete");
+        public static IpamExternalResourceVerificationTokenState DeleteFailed { get; } = new IpamExternalResourceVerificationTokenState("delete-failed");
+
+        public static bool operator ==(IpamExternalResourceVerificationTokenState left, IpamExternalResourceVerificationTokenState right) => left.Equals(right);
+        public static bool operator !=(IpamExternalResourceVerificationTokenState left, IpamExternalResourceVerificationTokenState right) => !left.Equals(right);
+
+        public static explicit operator string(IpamExternalResourceVerificationTokenState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamExternalResourceVerificationTokenState other && Equals(other);
+        public bool Equals(IpamExternalResourceVerificationTokenState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The token status.
+    /// </summary>
+    [EnumType]
+    public readonly struct IpamExternalResourceVerificationTokenStatus : IEquatable<IpamExternalResourceVerificationTokenStatus>
+    {
+        private readonly string _value;
+
+        private IpamExternalResourceVerificationTokenStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IpamExternalResourceVerificationTokenStatus Valid { get; } = new IpamExternalResourceVerificationTokenStatus("valid");
+        public static IpamExternalResourceVerificationTokenStatus Expired { get; } = new IpamExternalResourceVerificationTokenStatus("expired");
+
+        public static bool operator ==(IpamExternalResourceVerificationTokenStatus left, IpamExternalResourceVerificationTokenStatus right) => left.Equals(right);
+        public static bool operator !=(IpamExternalResourceVerificationTokenStatus left, IpamExternalResourceVerificationTokenStatus right) => !left.Equals(right);
+
+        public static explicit operator string(IpamExternalResourceVerificationTokenStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IpamExternalResourceVerificationTokenStatus other && Equals(other);
+        public bool Equals(IpamExternalResourceVerificationTokenStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A metered account is an account that is charged for active IP addresses managed in IPAM
     /// </summary>
     [EnumType]
@@ -3978,7 +4044,7 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     /// <summary>
-    /// Describes the storage location for an instance store-backed AMI.
+    /// Specifies the storage mode for the pre-shared key (PSK). Valid values are ``Standard`` (stored in the S2Slong service) or ``SecretsManager`` (stored in AWS Secrets Manager).
     /// </summary>
     [EnumType]
     public readonly struct VpnConnectionPreSharedKeyStorage : IEquatable<VpnConnectionPreSharedKeyStorage>

@@ -1386,10 +1386,8 @@ func (in *capacityProviderLaunchParametersMonitoringPtr) ToCapacityProviderLaunc
 type CapacityProviderLaunchParametersOperatingSystem string
 
 const (
-	CapacityProviderLaunchParametersOperatingSystemLinuxX8664   = CapacityProviderLaunchParametersOperatingSystem("LINUX_X86_64")
-	CapacityProviderLaunchParametersOperatingSystemLinuxArm64   = CapacityProviderLaunchParametersOperatingSystem("LINUX_ARM64")
-	CapacityProviderLaunchParametersOperatingSystemMacArm64     = CapacityProviderLaunchParametersOperatingSystem("MAC_ARM64")
-	CapacityProviderLaunchParametersOperatingSystemWindowsX8664 = CapacityProviderLaunchParametersOperatingSystem("WINDOWS_X86_64")
+	CapacityProviderLaunchParametersOperatingSystemLinuxX8664 = CapacityProviderLaunchParametersOperatingSystem("LINUX_X86_64")
+	CapacityProviderLaunchParametersOperatingSystemLinuxArm64 = CapacityProviderLaunchParametersOperatingSystem("LINUX_ARM64")
 )
 
 func (CapacityProviderLaunchParametersOperatingSystem) ElementType() reflect.Type {
@@ -1516,8 +1514,6 @@ func (o CapacityProviderLaunchParametersOperatingSystemPtrOutput) ToStringPtrOut
 //
 //	CapacityProviderLaunchParametersOperatingSystemLinuxX8664
 //	CapacityProviderLaunchParametersOperatingSystemLinuxArm64
-//	CapacityProviderLaunchParametersOperatingSystemMacArm64
-//	CapacityProviderLaunchParametersOperatingSystemWindowsX8664
 type CapacityProviderLaunchParametersOperatingSystemInput interface {
 	pulumi.Input
 
@@ -6164,6 +6160,171 @@ func (o GatewayTargetTargetStatusPtrOutput) ToStringPtrOutputWithContext(ctx con
 		v := string(*e)
 		return &v
 	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayWafFailureMode string
+
+const (
+	GatewayWafFailureModeFailClose = GatewayWafFailureMode("FAIL_CLOSE")
+	GatewayWafFailureModeFailOpen  = GatewayWafFailureMode("FAIL_OPEN")
+)
+
+func (GatewayWafFailureMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayWafFailureMode)(nil)).Elem()
+}
+
+func (e GatewayWafFailureMode) ToGatewayWafFailureModeOutput() GatewayWafFailureModeOutput {
+	return pulumi.ToOutput(e).(GatewayWafFailureModeOutput)
+}
+
+func (e GatewayWafFailureMode) ToGatewayWafFailureModeOutputWithContext(ctx context.Context) GatewayWafFailureModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GatewayWafFailureModeOutput)
+}
+
+func (e GatewayWafFailureMode) ToGatewayWafFailureModePtrOutput() GatewayWafFailureModePtrOutput {
+	return e.ToGatewayWafFailureModePtrOutputWithContext(context.Background())
+}
+
+func (e GatewayWafFailureMode) ToGatewayWafFailureModePtrOutputWithContext(ctx context.Context) GatewayWafFailureModePtrOutput {
+	return GatewayWafFailureMode(e).ToGatewayWafFailureModeOutputWithContext(ctx).ToGatewayWafFailureModePtrOutputWithContext(ctx)
+}
+
+func (e GatewayWafFailureMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayWafFailureMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GatewayWafFailureMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GatewayWafFailureMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GatewayWafFailureModeOutput struct{ *pulumi.OutputState }
+
+func (GatewayWafFailureModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GatewayWafFailureMode)(nil)).Elem()
+}
+
+func (o GatewayWafFailureModeOutput) ToGatewayWafFailureModeOutput() GatewayWafFailureModeOutput {
+	return o
+}
+
+func (o GatewayWafFailureModeOutput) ToGatewayWafFailureModeOutputWithContext(ctx context.Context) GatewayWafFailureModeOutput {
+	return o
+}
+
+func (o GatewayWafFailureModeOutput) ToGatewayWafFailureModePtrOutput() GatewayWafFailureModePtrOutput {
+	return o.ToGatewayWafFailureModePtrOutputWithContext(context.Background())
+}
+
+func (o GatewayWafFailureModeOutput) ToGatewayWafFailureModePtrOutputWithContext(ctx context.Context) GatewayWafFailureModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GatewayWafFailureMode) *GatewayWafFailureMode {
+		return &v
+	}).(GatewayWafFailureModePtrOutput)
+}
+
+func (o GatewayWafFailureModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GatewayWafFailureModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayWafFailureMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GatewayWafFailureModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayWafFailureModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GatewayWafFailureMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GatewayWafFailureModePtrOutput struct{ *pulumi.OutputState }
+
+func (GatewayWafFailureModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GatewayWafFailureMode)(nil)).Elem()
+}
+
+func (o GatewayWafFailureModePtrOutput) ToGatewayWafFailureModePtrOutput() GatewayWafFailureModePtrOutput {
+	return o
+}
+
+func (o GatewayWafFailureModePtrOutput) ToGatewayWafFailureModePtrOutputWithContext(ctx context.Context) GatewayWafFailureModePtrOutput {
+	return o
+}
+
+func (o GatewayWafFailureModePtrOutput) Elem() GatewayWafFailureModeOutput {
+	return o.ApplyT(func(v *GatewayWafFailureMode) GatewayWafFailureMode {
+		if v != nil {
+			return *v
+		}
+		var ret GatewayWafFailureMode
+		return ret
+	}).(GatewayWafFailureModeOutput)
+}
+
+func (o GatewayWafFailureModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GatewayWafFailureModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GatewayWafFailureMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GatewayWafFailureModeInput is an input type that accepts values of the GatewayWafFailureMode enum
+// A concrete instance of `GatewayWafFailureModeInput` can be one of the following:
+//
+//	GatewayWafFailureModeFailClose
+//	GatewayWafFailureModeFailOpen
+type GatewayWafFailureModeInput interface {
+	pulumi.Input
+
+	ToGatewayWafFailureModeOutput() GatewayWafFailureModeOutput
+	ToGatewayWafFailureModeOutputWithContext(context.Context) GatewayWafFailureModeOutput
+}
+
+var gatewayWafFailureModePtrType = reflect.TypeOf((**GatewayWafFailureMode)(nil)).Elem()
+
+type GatewayWafFailureModePtrInput interface {
+	pulumi.Input
+
+	ToGatewayWafFailureModePtrOutput() GatewayWafFailureModePtrOutput
+	ToGatewayWafFailureModePtrOutputWithContext(context.Context) GatewayWafFailureModePtrOutput
+}
+
+type gatewayWafFailureModePtr string
+
+func GatewayWafFailureModePtr(v string) GatewayWafFailureModePtrInput {
+	return (*gatewayWafFailureModePtr)(&v)
+}
+
+func (*gatewayWafFailureModePtr) ElementType() reflect.Type {
+	return gatewayWafFailureModePtrType
+}
+
+func (in *gatewayWafFailureModePtr) ToGatewayWafFailureModePtrOutput() GatewayWafFailureModePtrOutput {
+	return pulumi.ToOutput(in).(GatewayWafFailureModePtrOutput)
+}
+
+func (in *gatewayWafFailureModePtr) ToGatewayWafFailureModePtrOutputWithContext(ctx context.Context) GatewayWafFailureModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GatewayWafFailureModePtrOutput)
 }
 
 type HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator string
@@ -17136,6 +17297,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetRestApiMethodArrayInput)(nil)).Elem(), GatewayTargetRestApiMethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypeInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GatewayTargetSchemaTypePtrInput)(nil)).Elem(), GatewayTargetSchemaType("string"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayWafFailureModeInput)(nil)).Elem(), GatewayWafFailureMode("FAIL_CLOSE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GatewayWafFailureModePtrInput)(nil)).Elem(), GatewayWafFailureMode("FAIL_CLOSE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorInput)(nil)).Elem(), HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrInput)(nil)).Elem(), HarnessAuthorizingClaimMatchValueTypeClaimMatchOperator("EQUALS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HarnessBedrockModelConfigApiFormatInput)(nil)).Elem(), HarnessBedrockModelConfigApiFormat("converse_stream"))
@@ -17336,6 +17499,8 @@ func init() {
 	pulumi.RegisterOutputType(GatewayTargetTargetProtocolTypePtrOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusOutput{})
 	pulumi.RegisterOutputType(GatewayTargetTargetStatusPtrOutput{})
+	pulumi.RegisterOutputType(GatewayWafFailureModeOutput{})
+	pulumi.RegisterOutputType(GatewayWafFailureModePtrOutput{})
 	pulumi.RegisterOutputType(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorOutput{})
 	pulumi.RegisterOutputType(HarnessAuthorizingClaimMatchValueTypeClaimMatchOperatorPtrOutput{})
 	pulumi.RegisterOutputType(HarnessBedrockModelConfigApiFormatOutput{})

@@ -84,11 +84,11 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
     /**
      * The attachment to move from one network function group to another.
      */
-    declare public readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange | undefined>;
+    declare public /*out*/ readonly proposedNetworkFunctionGroupChange: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChange>;
     /**
      * The attachment to move from one segment to another.
      */
-    declare public readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChange | undefined>;
+    declare public /*out*/ readonly proposedSegmentChange: pulumi.Output<outputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChange>;
     /**
      * The ARN of the Resource.
      */
@@ -137,8 +137,6 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             }
             resourceInputs["networkFunctionGroupName"] = args?.networkFunctionGroupName;
             resourceInputs["peeringId"] = args?.peeringId;
-            resourceInputs["proposedNetworkFunctionGroupChange"] = args?.proposedNetworkFunctionGroupChange;
-            resourceInputs["proposedSegmentChange"] = args?.proposedSegmentChange;
             resourceInputs["routingPolicyLabel"] = args?.routingPolicyLabel;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["transitGatewayRouteTableArn"] = args?.transitGatewayRouteTableArn;
@@ -151,6 +149,8 @@ export class TransitGatewayRouteTableAttachment extends pulumi.CustomResource {
             resourceInputs["edgeLocation"] = undefined /*out*/;
             resourceInputs["lastModificationErrors"] = undefined /*out*/;
             resourceInputs["ownerAccountId"] = undefined /*out*/;
+            resourceInputs["proposedNetworkFunctionGroupChange"] = undefined /*out*/;
+            resourceInputs["proposedSegmentChange"] = undefined /*out*/;
             resourceInputs["resourceArn"] = undefined /*out*/;
             resourceInputs["segmentName"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;
@@ -196,14 +196,6 @@ export interface TransitGatewayRouteTableAttachmentArgs {
      * The Id of peering between transit gateway and core network.
      */
     peeringId: pulumi.Input<string>;
-    /**
-     * The attachment to move from one network function group to another.
-     */
-    proposedNetworkFunctionGroupChange?: pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentProposedNetworkFunctionGroupChangeArgs | undefined>;
-    /**
-     * The attachment to move from one segment to another.
-     */
-    proposedSegmentChange?: pulumi.Input<inputs.networkmanager.TransitGatewayRouteTableAttachmentProposedSegmentChangeArgs | undefined>;
     /**
      * Routing policy label
      */
