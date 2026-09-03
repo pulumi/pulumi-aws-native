@@ -157,12 +157,12 @@ class TrialComponent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict']]]]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['TrialComponentMetadataPropertiesArgs', 'TrialComponentMetadataPropertiesArgsDict']]] = None,
-                 output_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict']]]]] = None,
-                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentParameterValueArgs', 'TrialComponentParameterValueArgsDict']]]]] = None,
-                 status: pulumi.Input[Optional[Union['TrialComponentStatusArgs', 'TrialComponentStatusArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 input_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict', 'outputs.TrialComponentArtifact']]]]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['TrialComponentMetadataPropertiesArgs', 'TrialComponentMetadataPropertiesArgsDict', 'outputs.TrialComponentMetadataProperties']]] = None,
+                 output_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict', 'outputs.TrialComponentArtifact']]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentParameterValueArgs', 'TrialComponentParameterValueArgsDict', 'outputs.TrialComponentParameterValue']]]]] = None,
+                 status: pulumi.Input[Optional[Union['TrialComponentStatusArgs', 'TrialComponentStatusArgsDict', 'outputs.TrialComponentStatus']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trial_component_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -171,10 +171,10 @@ class TrialComponent(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] display_name: The name of the component as displayed. If DisplayName isn't specified, TrialComponentName is displayed.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict']]]] input_artifacts: The input artifacts for the component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict']]]] output_artifacts: The output artifacts for the component.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['TrialComponentParameterValueArgs', 'TrialComponentParameterValueArgsDict']]]] parameters: The hyperparameters for the component.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to associate with the trial component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict', 'outputs.TrialComponentArtifact']]]] input_artifacts: The input artifacts for the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict', 'outputs.TrialComponentArtifact']]]] output_artifacts: The output artifacts for the component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['TrialComponentParameterValueArgs', 'TrialComponentParameterValueArgsDict', 'outputs.TrialComponentParameterValue']]]] parameters: The hyperparameters for the component.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to associate with the trial component.
         :param pulumi.Input[_builtins.str] trial_component_name: The name of the trial component. Must be unique in your AWS account and is not case-sensitive.
         """
         ...
@@ -202,12 +202,12 @@ class TrialComponent(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict']]]]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['TrialComponentMetadataPropertiesArgs', 'TrialComponentMetadataPropertiesArgsDict']]] = None,
-                 output_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict']]]]] = None,
-                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentParameterValueArgs', 'TrialComponentParameterValueArgsDict']]]]] = None,
-                 status: pulumi.Input[Optional[Union['TrialComponentStatusArgs', 'TrialComponentStatusArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 input_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict', 'outputs.TrialComponentArtifact']]]]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['TrialComponentMetadataPropertiesArgs', 'TrialComponentMetadataPropertiesArgsDict', 'outputs.TrialComponentMetadataProperties']]] = None,
+                 output_artifacts: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentArtifactArgs', 'TrialComponentArtifactArgsDict', 'outputs.TrialComponentArtifact']]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['TrialComponentParameterValueArgs', 'TrialComponentParameterValueArgsDict', 'outputs.TrialComponentParameterValue']]]]] = None,
+                 status: pulumi.Input[Optional[Union['TrialComponentStatusArgs', 'TrialComponentStatusArgsDict', 'outputs.TrialComponentStatus']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trial_component_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

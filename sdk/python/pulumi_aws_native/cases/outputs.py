@@ -139,7 +139,7 @@ class CaseRuleBooleanOperands(dict):
 
     def __init__(__self__, *,
                  operand_one: 'outputs.CaseRuleOperandOneProperties',
-                 operand_two: Any,
+                 operand_two: Union['outputs.CaseRuleOperandTwo0Properties', 'outputs.CaseRuleOperandTwo1Properties', 'outputs.CaseRuleOperandTwo2Properties', 'outputs.CaseRuleOperandTwo3Properties'],
                  result: _builtins.bool):
         """
         Boolean operands for a condition.
@@ -157,7 +157,7 @@ class CaseRuleBooleanOperands(dict):
 
     @_builtins.property
     @pulumi.getter(name="operandTwo")
-    def operand_two(self) -> Any:
+    def operand_two(self) -> Union['outputs.CaseRuleOperandTwo0Properties', 'outputs.CaseRuleOperandTwo1Properties', 'outputs.CaseRuleOperandTwo2Properties', 'outputs.CaseRuleOperandTwo3Properties']:
         return pulumi.get(self, "operand_two")
 
     @_builtins.property
@@ -240,7 +240,7 @@ class CaseRuleHiddenCaseRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 conditions: Sequence[Any],
+                 conditions: Sequence[Union['outputs.CaseRuleBooleanCondition0Properties', 'outputs.CaseRuleBooleanCondition1Properties']],
                  default_value: _builtins.bool):
         """
         Hidden rule type, used to indicate whether a field is hidden
@@ -253,7 +253,7 @@ class CaseRuleHiddenCaseRule(dict):
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Sequence[Any]:
+    def conditions(self) -> Sequence[Union['outputs.CaseRuleBooleanCondition0Properties', 'outputs.CaseRuleBooleanCondition1Properties']]:
         """
         List of conditions for the hidden rule; the first condition to evaluate to true dictates the value of the rule
         """
@@ -486,7 +486,7 @@ class CaseRuleRequiredCaseRule(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 conditions: Sequence[Any],
+                 conditions: Sequence[Union['outputs.CaseRuleBooleanCondition0Properties', 'outputs.CaseRuleBooleanCondition1Properties']],
                  default_value: _builtins.bool):
         """
         A required rule type, used to indicate whether a field is required.
@@ -499,7 +499,7 @@ class CaseRuleRequiredCaseRule(dict):
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Sequence[Any]:
+    def conditions(self) -> Sequence[Union['outputs.CaseRuleBooleanCondition0Properties', 'outputs.CaseRuleBooleanCondition1Properties']]:
         """
         An ordered list of boolean conditions that determine when the field should be required. Conditions are evaluated in order, and the first condition that evaluates to true determines whether the field is required, overriding the default value.
         """

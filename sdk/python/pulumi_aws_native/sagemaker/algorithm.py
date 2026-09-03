@@ -126,9 +126,9 @@ class Algorithm(pulumi.CustomResource):
                  algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
                  algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
-                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Algorithm
@@ -138,7 +138,7 @@ class Algorithm(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] algorithm_description: A description of the algorithm.
         :param pulumi.Input[_builtins.str] algorithm_name: The name of the algorithm.
         :param pulumi.Input[_builtins.bool] certify_for_marketplace: Whether to certify the algorithm so that it can be listed in AWS Marketplace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -167,9 +167,9 @@ class Algorithm(pulumi.CustomResource):
                  algorithm_description: pulumi.Input[Optional[_builtins.str]] = None,
                  algorithm_name: pulumi.Input[Optional[_builtins.str]] = None,
                  certify_for_marketplace: pulumi.Input[Optional[_builtins.bool]] = None,
-                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict']]] = None,
+                 inference_specification: pulumi.Input[Optional[Union['AlgorithmInferenceSpecificationArgs', 'AlgorithmInferenceSpecificationArgsDict', 'outputs.AlgorithmInferenceSpecification']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 training_specification: pulumi.Input[Optional[Union['AlgorithmTrainingSpecificationArgs', 'AlgorithmTrainingSpecificationArgsDict', 'outputs.AlgorithmTrainingSpecification']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

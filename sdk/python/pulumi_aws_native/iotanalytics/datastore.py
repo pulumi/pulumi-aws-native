@@ -144,11 +144,11 @@ class Datastore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 datastore_partitions: pulumi.Input[Optional[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
-                 datastore_storage: pulumi.Input[Optional[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
-                 file_format_configuration: pulumi.Input[Optional[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
-                 retention_period: pulumi.Input[Optional[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 datastore_partitions: pulumi.Input[Optional[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict', 'outputs.DatastorePartitions']]] = None,
+                 datastore_storage: pulumi.Input[Optional[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict', 'outputs.DatastoreStorage']]] = None,
+                 file_format_configuration: pulumi.Input[Optional[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict', 'outputs.DatastoreFileFormatConfiguration']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict', 'outputs.DatastoreRetentionPeriod']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IoTAnalytics::Datastore
@@ -225,15 +225,15 @@ class Datastore(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] datastore_name: The name of the data store.
-        :param pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']] datastore_partitions: Information about the partition dimensions in a data store.
-        :param pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']] datastore_storage: Where data store data is stored.
-        :param pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']] file_format_configuration: Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
+        :param pulumi.Input[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict', 'outputs.DatastorePartitions']] datastore_partitions: Information about the partition dimensions in a data store.
+        :param pulumi.Input[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict', 'outputs.DatastoreStorage']] datastore_storage: Where data store data is stored.
+        :param pulumi.Input[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict', 'outputs.DatastoreFileFormatConfiguration']] file_format_configuration: Contains the configuration information of file formats. ITA data stores support JSON and [Parquet](https://docs.aws.amazon.com/https://parquet.apache.org/) .
                
                The default file format is JSON. You can specify only one format.
                
                You can't change the file format after you create the data store.
-        :param pulumi.Input[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the data store.
+        :param pulumi.Input[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict', 'outputs.DatastoreRetentionPeriod']] retention_period: How long, in days, message data is kept for the data store. When `customerManagedS3` storage is selected, this parameter is ignored.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata which can be used to manage the data store.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -331,11 +331,11 @@ class Datastore(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  datastore_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 datastore_partitions: pulumi.Input[Optional[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict']]] = None,
-                 datastore_storage: pulumi.Input[Optional[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict']]] = None,
-                 file_format_configuration: pulumi.Input[Optional[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict']]] = None,
-                 retention_period: pulumi.Input[Optional[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 datastore_partitions: pulumi.Input[Optional[Union['DatastorePartitionsArgs', 'DatastorePartitionsArgsDict', 'outputs.DatastorePartitions']]] = None,
+                 datastore_storage: pulumi.Input[Optional[Union['DatastoreStorageArgs', 'DatastoreStorageArgsDict', 'outputs.DatastoreStorage']]] = None,
+                 file_format_configuration: pulumi.Input[Optional[Union['DatastoreFileFormatConfigurationArgs', 'DatastoreFileFormatConfigurationArgsDict', 'outputs.DatastoreFileFormatConfiguration']]] = None,
+                 retention_period: pulumi.Input[Optional[Union['DatastoreRetentionPeriodArgs', 'DatastoreRetentionPeriodArgsDict', 'outputs.DatastoreRetentionPeriod']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

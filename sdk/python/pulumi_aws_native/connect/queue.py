@@ -210,34 +210,34 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict']]]]] = None,
+                 additional_email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict', 'outputs.QueueEmailAddress']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  hours_of_operation_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  max_contacts: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
-                 outbound_email_config: pulumi.Input[Optional[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']]] = None,
+                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']]] = None,
+                 outbound_email_config: pulumi.Input[Optional[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict', 'outputs.QueueOutboundEmailConfig']]] = None,
                  quick_connect_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional['QueueStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::Queue
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict']]]] additional_email_addresses: The email addresses that agents can use when replying to or initiating email contacts
+        :param pulumi.Input[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict', 'outputs.QueueEmailAddress']]]] additional_email_addresses: The email addresses that agents can use when replying to or initiating email contacts
         :param pulumi.Input[_builtins.str] description: The description of the queue.
         :param pulumi.Input[_builtins.str] hours_of_operation_arn: The identifier for the hours of operation.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.int] max_contacts: The maximum number of contacts that can be in the queue before it is considered full.
         :param pulumi.Input[_builtins.str] name: The name of the queue.
-        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
-        :param pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']] outbound_email_config: The outbound email address ID.
+        :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
+        :param pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict', 'outputs.QueueOutboundEmailConfig']] outbound_email_config: The outbound email address ID.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -263,17 +263,17 @@ class Queue(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict']]]]] = None,
+                 additional_email_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['QueueEmailAddressArgs', 'QueueEmailAddressArgsDict', 'outputs.QueueEmailAddress']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  hours_of_operation_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  max_contacts: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']]] = None,
-                 outbound_email_config: pulumi.Input[Optional[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']]] = None,
+                 outbound_caller_config: pulumi.Input[Optional[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict', 'outputs.QueueOutboundCallerConfig']]] = None,
+                 outbound_email_config: pulumi.Input[Optional[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict', 'outputs.QueueOutboundEmailConfig']]] = None,
                  quick_connect_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  status: pulumi.Input[Optional['QueueStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

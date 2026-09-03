@@ -129,7 +129,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  delete_on_termination: pulumi.Input[Optional[_builtins.bool]] = None,
                  device_index: pulumi.Input[Optional[_builtins.str]] = None,
                  ena_queue_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
+                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict', 'outputs.NetworkInterfaceAttachmentEnaSrdSpecification']]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -141,7 +141,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] delete_on_termination: Whether to delete the network interface when the instance terminates. By default, this value is set to ``true``.
         :param pulumi.Input[_builtins.str] device_index: The network interface's position in the attachment order. For example, the first attached network interface has a ``DeviceIndex`` of 0.
         :param pulumi.Input[_builtins.int] ena_queue_count: The number of ENA queues created with the instance.
-        :param pulumi.Input[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
+        :param pulumi.Input[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict', 'outputs.NetworkInterfaceAttachmentEnaSrdSpecification']] ena_srd_specification: Configures ENA Express for the network interface that this action attaches to the instance.
         :param pulumi.Input[_builtins.str] instance_id: The ID of the instance to which you will attach the ENI.
         :param pulumi.Input[_builtins.str] network_interface_id: The ID of the ENI that you want to attach.
         """
@@ -172,7 +172,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
                  delete_on_termination: pulumi.Input[Optional[_builtins.bool]] = None,
                  device_index: pulumi.Input[Optional[_builtins.str]] = None,
                  ena_queue_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict']]] = None,
+                 ena_srd_specification: pulumi.Input[Optional[Union['NetworkInterfaceAttachmentEnaSrdSpecificationArgs', 'NetworkInterfaceAttachmentEnaSrdSpecificationArgsDict', 'outputs.NetworkInterfaceAttachmentEnaSrdSpecification']]] = None,
                  instance_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_interface_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

@@ -151,28 +151,28 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_passthrough: pulumi.Input[Optional[Union['CertificateApiPassthroughArgs', 'CertificateApiPassthroughArgsDict']]] = None,
+                 api_passthrough: pulumi.Input[Optional[Union['CertificateApiPassthroughArgs', 'CertificateApiPassthroughArgsDict', 'outputs.CertificateApiPassthrough']]] = None,
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
                  signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  template_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
-                 validity_not_before: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
+                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None,
+                 validity_not_before: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None,
                  __props__=None):
         """
         The ``AWS::ACMPCA::Certificate`` resource is used to issue a certificate using your private certificate authority. For more information, see the [IssueCertificate](https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html) action.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CertificateApiPassthroughArgs', 'CertificateApiPassthroughArgsDict']] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
+        :param pulumi.Input[Union['CertificateApiPassthroughArgs', 'CertificateApiPassthroughArgsDict', 'outputs.CertificateApiPassthrough']] api_passthrough: Specifies X.509 certificate information to be included in the issued certificate. An ``APIPassthrough`` or ``APICSRPassthrough`` template variant must be selected, or else this parameter is ignored.
         :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) for the private CA issues the certificate.
         :param pulumi.Input[_builtins.str] certificate_signing_request: The certificate signing request (CSR) for the certificate.
         :param pulumi.Input[_builtins.str] signing_algorithm: The name of the algorithm that will be used to sign the certificate to be issued.
                 This parameter should not be confused with the ``SigningAlgorithm`` parameter used to sign a CSR in the ``CreateCertificateAuthority`` action.
                  The specified signing algorithm family (RSA or ECDSA) must match the algorithm family of the CA's secret key.
         :param pulumi.Input[_builtins.str] template_arn: Specifies a custom configuration template to use when issuing a certificate. If this parameter is not provided, PCAshort defaults to the ``EndEntityCertificate/V1`` template. For more information about PCAshort templates, see [Using Templates](https://docs.aws.amazon.com/privateca/latest/userguide/UsingTemplates.html).
-        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity: The period of time during which the certificate will be valid.
-        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
+        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']] validity: The period of time during which the certificate will be valid.
+        :param pulumi.Input[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']] validity_not_before: Information describing the start of the validity period of the certificate. This parameter sets the "Not Before" date for the certificate.
                 By default, when issuing a certificate, PCAshort sets the "Not Before" date to the issuance time minus 60 minutes. This compensates for clock inconsistencies across computer systems. The ``ValidityNotBefore`` parameter can be used to customize the "Not Before" value.
                 Unlike the ``Validity`` parameter, the ``ValidityNotBefore`` parameter is optional.
                 The ``ValidityNotBefore`` value is expressed as an explicit date and time, using the ``Validity`` type value ``ABSOLUTE``.
@@ -201,13 +201,13 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 api_passthrough: pulumi.Input[Optional[Union['CertificateApiPassthroughArgs', 'CertificateApiPassthroughArgsDict']]] = None,
+                 api_passthrough: pulumi.Input[Optional[Union['CertificateApiPassthroughArgs', 'CertificateApiPassthroughArgsDict', 'outputs.CertificateApiPassthrough']]] = None,
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_signing_request: pulumi.Input[Optional[_builtins.str]] = None,
                  signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  template_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
-                 validity_not_before: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict']]] = None,
+                 validity: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None,
+                 validity_not_before: pulumi.Input[Optional[Union['CertificateValidityArgs', 'CertificateValidityArgsDict', 'outputs.CertificateValidity']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

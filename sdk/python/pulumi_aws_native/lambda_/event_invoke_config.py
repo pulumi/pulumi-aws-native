@@ -127,7 +127,7 @@ class EventInvokeConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_config: pulumi.Input[Optional[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']]] = None,
+                 destination_config: pulumi.Input[Optional[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict', 'outputs.EventInvokeConfigDestinationConfig']]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_event_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,
@@ -138,7 +138,7 @@ class EventInvokeConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']] destination_config: A destination for events after they have been sent to a function for processing.
+        :param pulumi.Input[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict', 'outputs.EventInvokeConfigDestinationConfig']] destination_config: A destination for events after they have been sent to a function for processing.
                
                **Destinations** - *Function* - The Amazon Resource Name (ARN) of a Lambda function.
                - *Queue* - The ARN of a standard SQS queue.
@@ -176,7 +176,7 @@ class EventInvokeConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 destination_config: pulumi.Input[Optional[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict']]] = None,
+                 destination_config: pulumi.Input[Optional[Union['EventInvokeConfigDestinationConfigArgs', 'EventInvokeConfigDestinationConfigArgsDict', 'outputs.EventInvokeConfigDestinationConfig']]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  maximum_event_age_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  maximum_retry_attempts: pulumi.Input[Optional[_builtins.int]] = None,

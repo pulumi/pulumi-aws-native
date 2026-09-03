@@ -2493,7 +2493,7 @@ class PlanStep(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 execution_block_configuration: Any,
+                 execution_block_configuration: Union['outputs.PlanExecutionBlockConfiguration0Properties', 'outputs.PlanExecutionBlockConfiguration1Properties', 'outputs.PlanExecutionBlockConfiguration2Properties', 'outputs.PlanExecutionBlockConfiguration3Properties', 'outputs.PlanExecutionBlockConfiguration4Properties', 'outputs.PlanExecutionBlockConfiguration5Properties', 'outputs.PlanExecutionBlockConfiguration6Properties', 'outputs.PlanExecutionBlockConfiguration7Properties', 'outputs.PlanExecutionBlockConfiguration8Properties', 'outputs.PlanExecutionBlockConfiguration9Properties', 'outputs.PlanExecutionBlockConfiguration10Properties', 'outputs.PlanExecutionBlockConfiguration11Properties', 'outputs.PlanExecutionBlockConfiguration12Properties', 'outputs.PlanExecutionBlockConfiguration13Properties', 'outputs.PlanExecutionBlockConfiguration14Properties', 'outputs.PlanExecutionBlockConfiguration15Properties', 'outputs.PlanExecutionBlockConfiguration16Properties', 'outputs.PlanExecutionBlockConfiguration17Properties'],
                  execution_block_type: 'PlanExecutionBlockType',
                  name: _builtins.str,
                  description: Optional[_builtins.str] = None):
@@ -2511,7 +2511,7 @@ class PlanStep(dict):
 
     @_builtins.property
     @pulumi.getter(name="executionBlockConfiguration")
-    def execution_block_configuration(self) -> Any:
+    def execution_block_configuration(self) -> Union['outputs.PlanExecutionBlockConfiguration0Properties', 'outputs.PlanExecutionBlockConfiguration1Properties', 'outputs.PlanExecutionBlockConfiguration2Properties', 'outputs.PlanExecutionBlockConfiguration3Properties', 'outputs.PlanExecutionBlockConfiguration4Properties', 'outputs.PlanExecutionBlockConfiguration5Properties', 'outputs.PlanExecutionBlockConfiguration6Properties', 'outputs.PlanExecutionBlockConfiguration7Properties', 'outputs.PlanExecutionBlockConfiguration8Properties', 'outputs.PlanExecutionBlockConfiguration9Properties', 'outputs.PlanExecutionBlockConfiguration10Properties', 'outputs.PlanExecutionBlockConfiguration11Properties', 'outputs.PlanExecutionBlockConfiguration12Properties', 'outputs.PlanExecutionBlockConfiguration13Properties', 'outputs.PlanExecutionBlockConfiguration14Properties', 'outputs.PlanExecutionBlockConfiguration15Properties', 'outputs.PlanExecutionBlockConfiguration16Properties', 'outputs.PlanExecutionBlockConfiguration17Properties']:
         """
         The configuration for an execution block in a workflow.
         """

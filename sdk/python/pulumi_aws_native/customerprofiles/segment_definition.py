@@ -166,10 +166,10 @@ class SegmentDefinition(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 segment_groups: pulumi.Input[Optional[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']]] = None,
-                 segment_sort: pulumi.Input[Optional[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict']]] = None,
+                 segment_groups: pulumi.Input[Optional[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict', 'outputs.SegmentDefinitionSegmentGroup']]] = None,
+                 segment_sort: pulumi.Input[Optional[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict', 'outputs.SegmentDefinitionSegmentSort']]] = None,
                  segment_sql_query: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A segment definition resource of Amazon Connect Customer Profiles
@@ -180,10 +180,10 @@ class SegmentDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The display name of the segment definition.
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[_builtins.str] segment_definition_name: The unique name of the segment definition.
-        :param pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']] segment_groups: An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
-        :param pulumi.Input[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict']] segment_sort: The segment sort configuration for ordering segment results.
+        :param pulumi.Input[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict', 'outputs.SegmentDefinitionSegmentGroup']] segment_groups: An array that defines the set of segment criteria to evaluate when handling segment groups for the segment.
+        :param pulumi.Input[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict', 'outputs.SegmentDefinitionSegmentSort']] segment_sort: The segment sort configuration for ordering segment results.
         :param pulumi.Input[_builtins.str] segment_sql_query: The SQL query that defines the segment criteria.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -213,10 +213,10 @@ class SegmentDefinition(pulumi.CustomResource):
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 segment_groups: pulumi.Input[Optional[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict']]] = None,
-                 segment_sort: pulumi.Input[Optional[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict']]] = None,
+                 segment_groups: pulumi.Input[Optional[Union['SegmentDefinitionSegmentGroupArgs', 'SegmentDefinitionSegmentGroupArgsDict', 'outputs.SegmentDefinitionSegmentGroup']]] = None,
+                 segment_sort: pulumi.Input[Optional[Union['SegmentDefinitionSegmentSortArgs', 'SegmentDefinitionSegmentSortArgsDict', 'outputs.SegmentDefinitionSegmentSort']]] = None,
                  segment_sql_query: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

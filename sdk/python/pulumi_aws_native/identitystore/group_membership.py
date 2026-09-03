@@ -80,7 +80,7 @@ class GroupMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_id: pulumi.Input[Optional[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
+                 member_id: pulumi.Input[Optional[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict', 'outputs.GroupMembershipMemberId']]] = None,
                  __props__=None):
         """
         Resource Type Definition for AWS:IdentityStore::GroupMembership
@@ -89,7 +89,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_id: The unique identifier for a group in the identity store.
         :param pulumi.Input[_builtins.str] identity_store_id: The globally unique identifier for the identity store.
-        :param pulumi.Input[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']] member_id: An object containing the identifier of a group member.
+        :param pulumi.Input[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict', 'outputs.GroupMembershipMemberId']] member_id: An object containing the identifier of a group member.
         """
         ...
     @overload
@@ -117,7 +117,7 @@ class GroupMembership(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  identity_store_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 member_id: pulumi.Input[Optional[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict']]] = None,
+                 member_id: pulumi.Input[Optional[Union['GroupMembershipMemberIdArgs', 'GroupMembershipMemberIdArgsDict', 'outputs.GroupMembershipMemberId']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

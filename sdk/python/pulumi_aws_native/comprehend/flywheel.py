@@ -165,11 +165,11 @@ class Flywheel(pulumi.CustomResource):
                  active_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  data_lake_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_security_config: pulumi.Input[Optional[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict']]] = None,
+                 data_security_config: pulumi.Input[Optional[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict', 'outputs.FlywheelDataSecurityConfig']]] = None,
                  flywheel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_type: pulumi.Input[Optional['FlywheelModelType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_config: pulumi.Input[Optional[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 task_config: pulumi.Input[Optional[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict', 'outputs.FlywheelTaskConfig']]] = None,
                  __props__=None):
         """
         The AWS::Comprehend::Flywheel resource creates an Amazon Comprehend Flywheel that enables customer to train their model.
@@ -179,11 +179,11 @@ class Flywheel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] active_model_arn: The Amazon Resource Number (ARN) of the active model version.
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of the IAM role that grants Amazon Comprehend permission to access the flywheel data.
         :param pulumi.Input[_builtins.str] data_lake_s3_uri: Amazon S3 URI of the data lake location.
-        :param pulumi.Input[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict']] data_security_config: Data security configuration.
+        :param pulumi.Input[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict', 'outputs.FlywheelDataSecurityConfig']] data_security_config: Data security configuration.
         :param pulumi.Input[_builtins.str] flywheel_name: Name for the flywheel.
         :param pulumi.Input['FlywheelModelType'] model_type: Model type of the flywheel's model.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
-        :param pulumi.Input[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict']] task_config: Configuration about the model associated with a flywheel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the endpoint being created. A tag is a key-value pair that adds metadata to the endpoint. For example, a tag with "Sales" as the key might be added to an endpoint to indicate its use by the sales department.
+        :param pulumi.Input[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict', 'outputs.FlywheelTaskConfig']] task_config: Configuration about the model associated with a flywheel.
         """
         ...
     @overload
@@ -212,11 +212,11 @@ class Flywheel(pulumi.CustomResource):
                  active_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  data_lake_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_security_config: pulumi.Input[Optional[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict']]] = None,
+                 data_security_config: pulumi.Input[Optional[Union['FlywheelDataSecurityConfigArgs', 'FlywheelDataSecurityConfigArgsDict', 'outputs.FlywheelDataSecurityConfig']]] = None,
                  flywheel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  model_type: pulumi.Input[Optional['FlywheelModelType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 task_config: pulumi.Input[Optional[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 task_config: pulumi.Input[Optional[Union['FlywheelTaskConfigArgs', 'FlywheelTaskConfigArgsDict', 'outputs.FlywheelTaskConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

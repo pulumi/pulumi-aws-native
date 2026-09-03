@@ -116,7 +116,7 @@ class HarnessEndpoint(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  harness_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -127,7 +127,7 @@ class HarnessEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the endpoint. Must start with a letter and contain only alphanumeric characters and underscores.
         :param pulumi.Input[_builtins.str] harness_id: The ID of the harness that the endpoint belongs to.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to apply to the harness endpoint resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to apply to the harness endpoint resource.
         :param pulumi.Input[_builtins.str] target_version: The harness version that the endpoint points to and serves invocations from.
         """
         ...
@@ -157,7 +157,7 @@ class HarnessEndpoint(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  harness_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

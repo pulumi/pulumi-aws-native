@@ -113,7 +113,7 @@ class Url(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: pulumi.Input[Optional['UrlAuthType']] = None,
-                 cors: pulumi.Input[Optional[Union['UrlCorsArgs', 'UrlCorsArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['UrlCorsArgs', 'UrlCorsArgsDict', 'outputs.UrlCors']]] = None,
                  invoke_mode: pulumi.Input[Optional['UrlInvokeMode']] = None,
                  qualifier: pulumi.Input[Optional[_builtins.str]] = None,
                  target_function_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -124,7 +124,7 @@ class Url(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['UrlAuthType'] auth_type: Can be either AWS_IAM if the requests are authorized via IAM, or NONE if no authorization is configured on the Function URL.
-        :param pulumi.Input[Union['UrlCorsArgs', 'UrlCorsArgsDict']] cors: The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
+        :param pulumi.Input[Union['UrlCorsArgs', 'UrlCorsArgsDict', 'outputs.UrlCors']] cors: The [Cross-Origin Resource Sharing (CORS)](https://docs.aws.amazon.com/https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) settings for your function URL.
         :param pulumi.Input['UrlInvokeMode'] invoke_mode: The invocation mode for the function's URL. Set to BUFFERED if you want to buffer responses before returning them to the client. Set to RESPONSE_STREAM if you want to stream responses, allowing faster time to first byte and larger response payload sizes. If not set, defaults to BUFFERED.
         :param pulumi.Input[_builtins.str] qualifier: The alias qualifier for the target function. If TargetFunctionArn is unqualified then Qualifier must be passed.
         :param pulumi.Input[_builtins.str] target_function_arn: The Amazon Resource Name (ARN) of the function associated with the Function URL.
@@ -154,7 +154,7 @@ class Url(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: pulumi.Input[Optional['UrlAuthType']] = None,
-                 cors: pulumi.Input[Optional[Union['UrlCorsArgs', 'UrlCorsArgsDict']]] = None,
+                 cors: pulumi.Input[Optional[Union['UrlCorsArgs', 'UrlCorsArgsDict', 'outputs.UrlCors']]] = None,
                  invoke_mode: pulumi.Input[Optional['UrlInvokeMode']] = None,
                  qualifier: pulumi.Input[Optional[_builtins.str]] = None,
                  target_function_arn: pulumi.Input[Optional[_builtins.str]] = None,

@@ -220,11 +220,11 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
+                 access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']]] = None,
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_deploy: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_route_settings: pulumi.Input[Optional[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']]] = None,
+                 default_route_settings: pulumi.Input[Optional[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict', 'outputs.StageRouteSettings']]] = None,
                  deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  route_settings: Optional[Any] = None,
@@ -237,11 +237,11 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']] access_log_settings: Settings for logging access in this stage.
+        :param pulumi.Input[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']] access_log_settings: Settings for logging access in this stage.
         :param pulumi.Input[_builtins.str] api_id: The API identifier.
         :param pulumi.Input[_builtins.bool] auto_deploy: Specifies whether updates to an API automatically trigger a new deployment. The default value is false.
         :param pulumi.Input[_builtins.str] client_certificate_id: The identifier of a client certificate for a Stage. Supported only for WebSocket APIs.
-        :param pulumi.Input[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']] default_route_settings: The default route settings for the stage.
+        :param pulumi.Input[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict', 'outputs.StageRouteSettings']] default_route_settings: The default route settings for the stage.
         :param pulumi.Input[_builtins.str] deployment_id: The deployment identifier for the API stage. Can't be updated if autoDeploy is enabled.
         :param pulumi.Input[_builtins.str] description: The description for the API stage.
         :param Any route_settings: Route settings for the stage.
@@ -279,11 +279,11 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict']]] = None,
+                 access_log_settings: pulumi.Input[Optional[Union['StageAccessLogSettingsArgs', 'StageAccessLogSettingsArgsDict', 'outputs.StageAccessLogSettings']]] = None,
                  api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_deploy: pulumi.Input[Optional[_builtins.bool]] = None,
                  client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_route_settings: pulumi.Input[Optional[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict']]] = None,
+                 default_route_settings: pulumi.Input[Optional[Union['StageRouteSettingsArgs', 'StageRouteSettingsArgsDict', 'outputs.StageRouteSettings']]] = None,
                  deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  route_settings: Optional[Any] = None,

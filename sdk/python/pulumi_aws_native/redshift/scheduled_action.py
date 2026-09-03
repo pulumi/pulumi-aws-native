@@ -169,7 +169,7 @@ class ScheduledAction(pulumi.CustomResource):
                  scheduled_action_description: pulumi.Input[Optional[_builtins.str]] = None,
                  scheduled_action_name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_action: pulumi.Input[Optional[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
+                 target_action: pulumi.Input[Optional[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict', 'outputs.ScheduledActionType']]] = None,
                  __props__=None):
         """
         The `AWS::Redshift::ScheduledAction` resource creates an Amazon Redshift Scheduled Action.
@@ -183,7 +183,7 @@ class ScheduledAction(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] scheduled_action_description: The description of the scheduled action.
         :param pulumi.Input[_builtins.str] scheduled_action_name: The name of the scheduled action. The name must be unique within an account.
         :param pulumi.Input[_builtins.str] start_time: The start time in UTC of the scheduled action. Before this time, the scheduled action does not trigger.
-        :param pulumi.Input[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']] target_action: A JSON format string of the Amazon Redshift API operation with input parameters.
+        :param pulumi.Input[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict', 'outputs.ScheduledActionType']] target_action: A JSON format string of the Amazon Redshift API operation with input parameters.
         """
         ...
     @overload
@@ -216,7 +216,7 @@ class ScheduledAction(pulumi.CustomResource):
                  scheduled_action_description: pulumi.Input[Optional[_builtins.str]] = None,
                  scheduled_action_name: pulumi.Input[Optional[_builtins.str]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 target_action: pulumi.Input[Optional[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict']]] = None,
+                 target_action: pulumi.Input[Optional[Union['ScheduledActionTypeArgs', 'ScheduledActionTypeArgsDict', 'outputs.ScheduledActionType']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

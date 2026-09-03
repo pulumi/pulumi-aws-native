@@ -97,7 +97,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_policy: pulumi.Input[Optional[Union['ConfigurationPolicyPolicyArgs', 'ConfigurationPolicyPolicyArgsDict']]] = None,
+                 configuration_policy: pulumi.Input[Optional[Union['ConfigurationPolicyPolicyArgs', 'ConfigurationPolicyPolicyArgsDict', 'outputs.ConfigurationPolicyPolicy']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -107,7 +107,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConfigurationPolicyPolicyArgs', 'ConfigurationPolicyPolicyArgsDict']] configuration_policy: An object that defines how AWS Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
+        :param pulumi.Input[Union['ConfigurationPolicyPolicyArgs', 'ConfigurationPolicyPolicyArgsDict', 'outputs.ConfigurationPolicyPolicy']] configuration_policy: An object that defines how AWS Security Hub CSPM is configured. It includes whether Security Hub CSPM is enabled or disabled, a list of enabled security standards, a list of enabled or disabled security controls, and a list of custom parameter values for specified controls. If you provide a list of security controls that are enabled in the configuration policy, Security Hub CSPM disables all other controls (including newly released controls). If you provide a list of security controls that are disabled in the configuration policy, Security Hub CSPM enables all other controls (including newly released controls).
         :param pulumi.Input[_builtins.str] description: The description of the configuration policy.
         :param pulumi.Input[_builtins.str] name: The name of the configuration policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: User-defined tags associated with a configuration policy. For more information, see [Tagging AWS Security Hub CSPM resources](https://docs.aws.amazon.com/securityhub/latest/userguide/tagging-resources.html) in the *Security Hub CSPM user guide* .
@@ -136,7 +136,7 @@ class ConfigurationPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_policy: pulumi.Input[Optional[Union['ConfigurationPolicyPolicyArgs', 'ConfigurationPolicyPolicyArgsDict']]] = None,
+                 configuration_policy: pulumi.Input[Optional[Union['ConfigurationPolicyPolicyArgs', 'ConfigurationPolicyPolicyArgsDict', 'outputs.ConfigurationPolicyPolicy']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,

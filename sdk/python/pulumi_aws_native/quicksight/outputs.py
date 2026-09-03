@@ -1976,14 +1976,14 @@ class ActionConnectorAuthConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 authentication_metadata: Any,
+                 authentication_metadata: Union['outputs.ActionConnectorAuthenticationMetadata0Properties', 'outputs.ActionConnectorAuthenticationMetadata1Properties', 'outputs.ActionConnectorAuthenticationMetadata2Properties', 'outputs.ActionConnectorAuthenticationMetadata3Properties', 'outputs.ActionConnectorAuthenticationMetadata4Properties', 'outputs.ActionConnectorAuthenticationMetadata5Properties'],
                  authentication_type: 'ActionConnectorConnectionAuthType'):
         pulumi.set(__self__, "authentication_metadata", authentication_metadata)
         pulumi.set(__self__, "authentication_type", authentication_type)
 
     @_builtins.property
     @pulumi.getter(name="authenticationMetadata")
-    def authentication_metadata(self) -> Any:
+    def authentication_metadata(self) -> Union['outputs.ActionConnectorAuthenticationMetadata0Properties', 'outputs.ActionConnectorAuthenticationMetadata1Properties', 'outputs.ActionConnectorAuthenticationMetadata2Properties', 'outputs.ActionConnectorAuthenticationMetadata3Properties', 'outputs.ActionConnectorAuthenticationMetadata4Properties', 'outputs.ActionConnectorAuthenticationMetadata5Properties']:
         return pulumi.get(self, "authentication_metadata")
 
     @_builtins.property

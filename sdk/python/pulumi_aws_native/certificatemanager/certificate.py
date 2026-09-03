@@ -183,10 +183,10 @@ class Certificate(pulumi.CustomResource):
                  certificate_export: pulumi.Input[Optional['CertificateExport']] = None,
                  certificate_transparency_logging_preference: pulumi.Input[Optional['CertificateTransparencyLoggingPreference']] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]]] = None,
+                 domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]]] = None,
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  validation_method: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -279,10 +279,10 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input['CertificateExport'] certificate_export: Specifies whether the certificate can be exported. ENABLED allows the certificate to be exported, DISABLED prevents export.
         :param pulumi.Input['CertificateTransparencyLoggingPreference'] certificate_transparency_logging_preference: You can opt out of certificate transparency logging by specifying the DISABLED option. Opt in by specifying ENABLED.
         :param pulumi.Input[_builtins.str] domain_name: The fully qualified domain name (FQDN), such as www.example.com, with which you want to secure an ACM certificate
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]] domain_validation_options: Domain information that domain name registrars use to verify your identity.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]] domain_validation_options: Domain information that domain name registrars use to verify your identity.
         :param pulumi.Input[_builtins.str] key_algorithm: Specifies the algorithm of the public and private key pair that your certificate uses to encrypt data.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subject_alternative_names: Additional FQDNs to be included in the Subject Alternative Name extension of the ACM certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can identify the certificate.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can identify the certificate.
         :param pulumi.Input[_builtins.str] validation_method: The method you want to use to validate that you own or control the domain associated with a public certificate. Valid values are DNS, EMAIL or HTTP
         """
         ...
@@ -394,10 +394,10 @@ class Certificate(pulumi.CustomResource):
                  certificate_export: pulumi.Input[Optional['CertificateExport']] = None,
                  certificate_transparency_logging_preference: pulumi.Input[Optional['CertificateTransparencyLoggingPreference']] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict']]]]] = None,
+                 domain_validation_options: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CertificateDomainValidationOptionArgs', 'CertificateDomainValidationOptionArgsDict', 'outputs.CertificateDomainValidationOption']]]]] = None,
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  subject_alternative_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  validation_method: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

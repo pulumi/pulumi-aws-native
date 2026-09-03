@@ -159,10 +159,10 @@ class Deployment(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict', 'outputs.DeploymentComponentDeploymentSpecification']]]]] = None,
                  deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_policies: pulumi.Input[Optional[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict']]] = None,
-                 iot_job_configuration: pulumi.Input[Optional[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict']]] = None,
+                 deployment_policies: pulumi.Input[Optional[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict', 'outputs.DeploymentPolicies']]] = None,
+                 iot_job_configuration: pulumi.Input[Optional[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict', 'outputs.DeploymentIoTJobConfiguration']]] = None,
                  parent_target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -172,10 +172,10 @@ class Deployment(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict', 'outputs.DeploymentComponentDeploymentSpecification']]]] components: The components to deploy. This is a dictionary, where each key is the name of a component, and each key's value is the version and configuration to deploy for that component.
         :param pulumi.Input[_builtins.str] deployment_name: The name of the deployment.
-        :param pulumi.Input[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict']] deployment_policies: The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
-        :param pulumi.Input[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict']] iot_job_configuration: The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
+        :param pulumi.Input[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict', 'outputs.DeploymentPolicies']] deployment_policies: The deployment policies for the deployment. These policies define how the deployment updates components and handles failure.
+        :param pulumi.Input[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict', 'outputs.DeploymentIoTJobConfiguration']] iot_job_configuration: The job configuration for the deployment configuration. The job configuration specifies the rollout, timeout, and stop configurations for the deployment configuration.
         :param pulumi.Input[_builtins.str] parent_target_arn: The parent deployment's [ARN](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html) for a subdeployment.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Application-specific metadata to attach to the deployment. You can use tags in IAM policies to control access to AWS IoT Greengrass resources. You can also use tags to categorize your resources. For more information, see [Tag your AWS IoT Greengrass Version 2 resources](https://docs.aws.amazon.com/greengrass/v2/developerguide/tag-resources.html) in the *AWS IoT Greengrass V2 Developer Guide* .
                
@@ -211,10 +211,10 @@ class Deployment(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict']]]]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['DeploymentComponentDeploymentSpecificationArgs', 'DeploymentComponentDeploymentSpecificationArgsDict', 'outputs.DeploymentComponentDeploymentSpecification']]]]] = None,
                  deployment_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_policies: pulumi.Input[Optional[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict']]] = None,
-                 iot_job_configuration: pulumi.Input[Optional[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict']]] = None,
+                 deployment_policies: pulumi.Input[Optional[Union['DeploymentPoliciesArgs', 'DeploymentPoliciesArgsDict', 'outputs.DeploymentPolicies']]] = None,
+                 iot_job_configuration: pulumi.Input[Optional[Union['DeploymentIoTJobConfigurationArgs', 'DeploymentIoTJobConfigurationArgsDict', 'outputs.DeploymentIoTJobConfiguration']]] = None,
                  parent_target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,

@@ -129,24 +129,24 @@ class EmailAddress(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict']]]]] = None,
+                 alias_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict', 'outputs.EmailAddressAliasConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::EmailAddress
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict']]]] alias_configurations: List of alias configurations for the email address
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict', 'outputs.EmailAddressAliasConfiguration']]]] alias_configurations: List of alias configurations for the email address
         :param pulumi.Input[_builtins.str] description: A description for the email address.
         :param pulumi.Input[_builtins.str] display_name: The display name for the email address.
         :param pulumi.Input[_builtins.str] email_address: Email address to be created for this instance
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -172,12 +172,12 @@ class EmailAddress(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 alias_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict']]]]] = None,
+                 alias_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EmailAddressAliasConfigurationArgs', 'EmailAddressAliasConfigurationArgsDict', 'outputs.EmailAddressAliasConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  email_address: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

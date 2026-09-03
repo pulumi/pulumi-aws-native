@@ -148,26 +148,26 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 iam_identity_center_options: pulumi.Input[Optional[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict', 'outputs.IamIdentityCenterOptionsProperties']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Amazon OpenSearchService application resource
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]] app_configs: List of application configurations.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]] data_sources: List of data sources.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]] app_configs: List of application configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]] data_sources: List of data sources.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint for the application.
-        :param pulumi.Input[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']] iam_identity_center_options: Options for configuring IAM Identity Center
+        :param pulumi.Input[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict', 'outputs.IamIdentityCenterOptionsProperties']] iam_identity_center_options: Options for configuring IAM Identity Center
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the application.
         :param pulumi.Input[_builtins.str] name: The name of the application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this application.
         """
         ...
     @overload
@@ -193,13 +193,13 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict']]]]] = None,
-                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict']]]]] = None,
+                 app_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationAppConfigArgs', 'ApplicationAppConfigArgsDict', 'outputs.ApplicationAppConfig']]]]] = None,
+                 data_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationDataSourceArgs', 'ApplicationDataSourceArgsDict', 'outputs.ApplicationDataSource']]]]] = None,
                  endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 iam_identity_center_options: pulumi.Input[Optional[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict']]] = None,
+                 iam_identity_center_options: pulumi.Input[Optional[Union['IamIdentityCenterOptionsPropertiesArgs', 'IamIdentityCenterOptionsPropertiesArgsDict', 'outputs.IamIdentityCenterOptionsProperties']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

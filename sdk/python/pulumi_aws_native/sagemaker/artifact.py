@@ -132,10 +132,10 @@ class Artifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  artifact_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['ArtifactMetadataPropertiesArgs', 'ArtifactMetadataPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ArtifactMetadataPropertiesArgs', 'ArtifactMetadataPropertiesArgsDict', 'outputs.ArtifactMetadataProperties']]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: pulumi.Input[Optional[Union['ArtifactSourceArgs', 'ArtifactSourceArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['ArtifactSourceArgs', 'ArtifactSourceArgsDict', 'outputs.ArtifactSource']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SageMaker::Artifact. An artifact is a lineage tracking entity that represents a URI addressable object or data, such as an S3 URI of a dataset or the ECR registry path of an image.
@@ -144,10 +144,10 @@ class Artifact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] artifact_name: The name of the artifact. Must be unique to your account in an AWS Region.
         :param pulumi.Input[_builtins.str] artifact_type: The artifact type.
-        :param pulumi.Input[Union['ArtifactMetadataPropertiesArgs', 'ArtifactMetadataPropertiesArgsDict']] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
+        :param pulumi.Input[Union['ArtifactMetadataPropertiesArgs', 'ArtifactMetadataPropertiesArgsDict', 'outputs.ArtifactMetadataProperties']] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: A list of properties to add to the artifact.
-        :param pulumi.Input[Union['ArtifactSourceArgs', 'ArtifactSourceArgsDict']] source: The source of the artifact.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the artifact.
+        :param pulumi.Input[Union['ArtifactSourceArgs', 'ArtifactSourceArgsDict', 'outputs.ArtifactSource']] source: The source of the artifact.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to apply to the artifact.
         """
         ...
     @overload
@@ -175,10 +175,10 @@ class Artifact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
                  artifact_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['ArtifactMetadataPropertiesArgs', 'ArtifactMetadataPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ArtifactMetadataPropertiesArgs', 'ArtifactMetadataPropertiesArgsDict', 'outputs.ArtifactMetadataProperties']]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: pulumi.Input[Optional[Union['ArtifactSourceArgs', 'ArtifactSourceArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source: pulumi.Input[Optional[Union['ArtifactSourceArgs', 'ArtifactSourceArgsDict', 'outputs.ArtifactSource']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

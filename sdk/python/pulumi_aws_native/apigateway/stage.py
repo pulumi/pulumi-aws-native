@@ -258,18 +258,18 @@ class Stage(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_setting: pulumi.Input[Optional[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']]] = None,
+                 access_log_setting: pulumi.Input[Optional[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict', 'outputs.StageAccessLogSetting']]] = None,
                  cache_cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cache_cluster_size: pulumi.Input[Optional[_builtins.str]] = None,
-                 canary_setting: pulumi.Input[Optional[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']]] = None,
+                 canary_setting: pulumi.Input[Optional[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict', 'outputs.StageCanarySetting']]] = None,
                  client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]]] = None,
+                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict', 'outputs.StageMethodSetting']]]]] = None,
                  rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  stage_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -278,18 +278,18 @@ class Stage(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']] access_log_setting: Access log settings, including the access log format and access log destination ARN.
+        :param pulumi.Input[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict', 'outputs.StageAccessLogSetting']] access_log_setting: Access log settings, including the access log format and access log destination ARN.
         :param pulumi.Input[_builtins.bool] cache_cluster_enabled: Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set `CachingEnabled` to `true` for a method.
         :param pulumi.Input[_builtins.str] cache_cluster_size: The stage's cache capacity in GB. For more information about choosing a cache size, see [Enabling API caching to enhance responsiveness](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html) .
-        :param pulumi.Input[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']] canary_setting: Settings for the canary deployment in this stage.
+        :param pulumi.Input[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict', 'outputs.StageCanarySetting']] canary_setting: Settings for the canary deployment in this stage.
         :param pulumi.Input[_builtins.str] client_certificate_id: The identifier of a client certificate for an API stage.
         :param pulumi.Input[_builtins.str] deployment_id: The identifier of the Deployment that the stage points to.
         :param pulumi.Input[_builtins.str] description: The stage's description.
         :param pulumi.Input[_builtins.str] documentation_version: The version of the associated API documentation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict', 'outputs.StageMethodSetting']]]] method_settings: A map that defines the method settings for a Stage resource. Keys (designated as `/{method_setting_key` below) are method paths defined as `{resource_path}/{http_method}` for an individual method override, or `/\\*/\\*` for overriding all methods in the stage.
         :param pulumi.Input[_builtins.str] rest_api_id: The string identifier of the associated RestApi.
         :param pulumi.Input[_builtins.str] stage_name: The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The collection of tags. Each tag element is associated with a given resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The collection of tags. Each tag element is associated with a given resource.
         :param pulumi.Input[_builtins.bool] tracing_enabled: Specifies whether active tracing with X-ray is enabled for the Stage.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] variables: A map (string-to-string map) that defines the stage variables, where the variable name is the key and the variable value is the value. Variable names are limited to alphanumeric characters. Values must match the following regular expression: ``[A-Za-z0-9-._~:/?#&=,]+``.
         """
@@ -317,18 +317,18 @@ class Stage(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_log_setting: pulumi.Input[Optional[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict']]] = None,
+                 access_log_setting: pulumi.Input[Optional[Union['StageAccessLogSettingArgs', 'StageAccessLogSettingArgsDict', 'outputs.StageAccessLogSetting']]] = None,
                  cache_cluster_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  cache_cluster_size: pulumi.Input[Optional[_builtins.str]] = None,
-                 canary_setting: pulumi.Input[Optional[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict']]] = None,
+                 canary_setting: pulumi.Input[Optional[Union['StageCanarySettingArgs', 'StageCanarySettingArgsDict', 'outputs.StageCanarySetting']]] = None,
                  client_certificate_id: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  documentation_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict']]]]] = None,
+                 method_settings: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StageMethodSettingArgs', 'StageMethodSettingArgsDict', 'outputs.StageMethodSetting']]]]] = None,
                  rest_api_id: pulumi.Input[Optional[_builtins.str]] = None,
                  stage_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tracing_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

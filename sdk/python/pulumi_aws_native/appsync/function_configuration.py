@@ -267,8 +267,8 @@ class FunctionConfiguration(pulumi.CustomResource):
                  request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
                  response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
                  response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime: pulumi.Input[Optional[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
-                 sync_config: pulumi.Input[Optional[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict', 'outputs.FunctionConfigurationAppSyncRuntime']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict', 'outputs.FunctionConfigurationSyncConfig']]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
@@ -314,8 +314,8 @@ class FunctionConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] request_mapping_template_s3_location: Describes a Sync configuration for a resolver. Contains information on which Conflict Detection, as well as Resolution strategy, should be performed when the resolver is invoked.
         :param pulumi.Input[_builtins.str] response_mapping_template: The Function response mapping template.
         :param pulumi.Input[_builtins.str] response_mapping_template_s3_location: The location of a response mapping template in an Amazon S3 bucket. Use this if you want to provision with a template file in Amazon S3 rather than embedding it in your CloudFormation template.
-        :param pulumi.Input[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
-        :param pulumi.Input[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']] sync_config: Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
+        :param pulumi.Input[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict', 'outputs.FunctionConfigurationAppSyncRuntime']] runtime: Describes a runtime used by an AWS AppSync pipeline resolver or AWS AppSync function. Specifies the name and version of the runtime to use. Note that if a runtime is specified, code must also be specified.
+        :param pulumi.Input[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict', 'outputs.FunctionConfigurationSyncConfig']] sync_config: Describes a Sync configuration for a resolver. Specifies which Conflict Detection strategy and Resolution strategy to use when the resolver is invoked.
         """
         ...
     @overload
@@ -380,8 +380,8 @@ class FunctionConfiguration(pulumi.CustomResource):
                  request_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
                  response_mapping_template: pulumi.Input[Optional[_builtins.str]] = None,
                  response_mapping_template_s3_location: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime: pulumi.Input[Optional[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict']]] = None,
-                 sync_config: pulumi.Input[Optional[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict']]] = None,
+                 runtime: pulumi.Input[Optional[Union['FunctionConfigurationAppSyncRuntimeArgs', 'FunctionConfigurationAppSyncRuntimeArgsDict', 'outputs.FunctionConfigurationAppSyncRuntime']]] = None,
+                 sync_config: pulumi.Input[Optional[Union['FunctionConfigurationSyncConfigArgs', 'FunctionConfigurationSyncConfigArgsDict', 'outputs.FunctionConfigurationSyncConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

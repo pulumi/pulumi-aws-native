@@ -81,7 +81,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict', 'outputs.ApplicationVersionSourceBundle']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ElasticBeanstalk::ApplicationVersion
@@ -90,7 +90,7 @@ class ApplicationVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version.
         :param pulumi.Input[_builtins.str] description: A description of this application version.
-        :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+        :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict', 'outputs.ApplicationVersionSourceBundle']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """
         ...
     @overload
@@ -118,7 +118,7 @@ class ApplicationVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
+                 source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict', 'outputs.ApplicationVersionSourceBundle']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

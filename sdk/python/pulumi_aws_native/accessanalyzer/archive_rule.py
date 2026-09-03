@@ -80,7 +80,7 @@ class ArchiveRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FilterValuePropertiesArgs', 'FilterValuePropertiesArgsDict']]]]] = None,
+                 filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FilterValuePropertiesArgs', 'FilterValuePropertiesArgsDict', 'outputs.FilterValueProperties']]]]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -89,7 +89,7 @@ class ArchiveRule(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analyzer_name: The name of the analyzer for the archive rule.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['FilterValuePropertiesArgs', 'FilterValuePropertiesArgsDict']]]] filter: The criteria for the archive rule. A map of filter criteria property names to their criterion values.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['FilterValuePropertiesArgs', 'FilterValuePropertiesArgsDict', 'outputs.FilterValueProperties']]]] filter: The criteria for the archive rule. A map of filter criteria property names to their criterion values.
         :param pulumi.Input[_builtins.str] rule_name: The name of the archive rule.
         """
         ...
@@ -117,7 +117,7 @@ class ArchiveRule(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analyzer_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FilterValuePropertiesArgs', 'FilterValuePropertiesArgsDict']]]]] = None,
+                 filter: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['FilterValuePropertiesArgs', 'FilterValuePropertiesArgsDict', 'outputs.FilterValueProperties']]]]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

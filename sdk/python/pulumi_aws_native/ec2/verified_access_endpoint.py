@@ -290,19 +290,19 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_domain: pulumi.Input[Optional[_builtins.str]] = None,
                  attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 cidr_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict']]] = None,
+                 cidr_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict', 'outputs.VerifiedAccessEndpointCidrOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict']]] = None,
-                 network_interface_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict']]] = None,
+                 load_balancer_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict', 'outputs.VerifiedAccessEndpointLoadBalancerOptions']]] = None,
+                 network_interface_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict', 'outputs.VerifiedAccessEndpointNetworkInterfaceOptions']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 rds_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict']]] = None,
+                 rds_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict', 'outputs.VerifiedAccessEndpointRdsOptions']]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict', 'outputs.VerifiedAccessEndpointSseSpecification']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -312,19 +312,19 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_domain: The DNS name for users to reach your application.
         :param pulumi.Input[_builtins.str] attachment_type: The type of attachment used to provide connectivity between the AWS Verified Access endpoint and the application.
-        :param pulumi.Input[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict']] cidr_options: The options for cidr type endpoint.
+        :param pulumi.Input[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict', 'outputs.VerifiedAccessEndpointCidrOptions']] cidr_options: The options for cidr type endpoint.
         :param pulumi.Input[_builtins.str] description: A description for the AWS Verified Access endpoint.
         :param pulumi.Input[_builtins.str] domain_certificate_arn: The ARN of a public TLS/SSL certificate imported into or created with ACM.
         :param pulumi.Input[_builtins.str] endpoint_domain_prefix: A custom identifier that gets prepended to a DNS name that is generated for the endpoint.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.The type of AWS Verified Access endpoint. Incoming application requests will be sent to an IP address, load balancer or a network interface depending on the endpoint type specified.
-        :param pulumi.Input[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict']] load_balancer_options: The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.
-        :param pulumi.Input[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict']] network_interface_options: The options for network-interface type endpoint.
+        :param pulumi.Input[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict', 'outputs.VerifiedAccessEndpointLoadBalancerOptions']] load_balancer_options: The load balancer details if creating the AWS Verified Access endpoint as load-balancer type.
+        :param pulumi.Input[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict', 'outputs.VerifiedAccessEndpointNetworkInterfaceOptions']] network_interface_options: The options for network-interface type endpoint.
         :param pulumi.Input[_builtins.str] policy_document: The AWS Verified Access policy document.
         :param pulumi.Input[_builtins.bool] policy_enabled: The status of the Verified Access policy.
-        :param pulumi.Input[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict']] rds_options: The options for rds type endpoint.
+        :param pulumi.Input[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict', 'outputs.VerifiedAccessEndpointRdsOptions']] rds_options: The options for rds type endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The IDs of the security groups for the endpoint.
-        :param pulumi.Input[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict']] sse_specification: The configuration options for customer provided KMS encryption.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict', 'outputs.VerifiedAccessEndpointSseSpecification']] sse_specification: The configuration options for customer provided KMS encryption.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] verified_access_group_id: The ID of the AWS Verified Access group.
         """
         ...
@@ -353,19 +353,19 @@ class VerifiedAccessEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_domain: pulumi.Input[Optional[_builtins.str]] = None,
                  attachment_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 cidr_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict']]] = None,
+                 cidr_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointCidrOptionsArgs', 'VerifiedAccessEndpointCidrOptionsArgsDict', 'outputs.VerifiedAccessEndpointCidrOptions']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 load_balancer_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict']]] = None,
-                 network_interface_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict']]] = None,
+                 load_balancer_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointLoadBalancerOptionsArgs', 'VerifiedAccessEndpointLoadBalancerOptionsArgsDict', 'outputs.VerifiedAccessEndpointLoadBalancerOptions']]] = None,
+                 network_interface_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointNetworkInterfaceOptionsArgs', 'VerifiedAccessEndpointNetworkInterfaceOptionsArgsDict', 'outputs.VerifiedAccessEndpointNetworkInterfaceOptions']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 rds_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict']]] = None,
+                 rds_options: pulumi.Input[Optional[Union['VerifiedAccessEndpointRdsOptionsArgs', 'VerifiedAccessEndpointRdsOptionsArgsDict', 'outputs.VerifiedAccessEndpointRdsOptions']]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sse_specification: pulumi.Input[Optional[Union['VerifiedAccessEndpointSseSpecificationArgs', 'VerifiedAccessEndpointSseSpecificationArgsDict', 'outputs.VerifiedAccessEndpointSseSpecification']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

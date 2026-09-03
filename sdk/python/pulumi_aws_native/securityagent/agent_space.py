@@ -151,13 +151,13 @@ class AgentSpace(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_resources: pulumi.Input[Optional[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict']]] = None,
-                 code_review_settings: pulumi.Input[Optional[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict']]] = None,
+                 aws_resources: pulumi.Input[Optional[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict', 'outputs.AgentSpaceAwsResources']]] = None,
+                 code_review_settings: pulumi.Input[Optional[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict', 'outputs.AgentSpaceCodeReviewSettings']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integrated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict']]]]] = None,
+                 integrated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict', 'outputs.AgentSpaceIntegratedResource']]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -168,7 +168,7 @@ class AgentSpace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the agent space
         :param pulumi.Input[_builtins.str] kms_key_id: Identifier of the KMS key used to encrypt data. Can be a key ID, key ARN, alias name, or alias ARN. If not specified, an AWS managed key is used.
         :param pulumi.Input[_builtins.str] name: Name of the agent space
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the agent space
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the agent space
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_domain_ids: List of target domain identifiers registered with the agent space
         """
         ...
@@ -195,13 +195,13 @@ class AgentSpace(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 aws_resources: pulumi.Input[Optional[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict']]] = None,
-                 code_review_settings: pulumi.Input[Optional[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict']]] = None,
+                 aws_resources: pulumi.Input[Optional[Union['AgentSpaceAwsResourcesArgs', 'AgentSpaceAwsResourcesArgsDict', 'outputs.AgentSpaceAwsResources']]] = None,
+                 code_review_settings: pulumi.Input[Optional[Union['AgentSpaceCodeReviewSettingsArgs', 'AgentSpaceCodeReviewSettingsArgsDict', 'outputs.AgentSpaceCodeReviewSettings']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 integrated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict']]]]] = None,
+                 integrated_resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AgentSpaceIntegratedResourceArgs', 'AgentSpaceIntegratedResourceArgsDict', 'outputs.AgentSpaceIntegratedResource']]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_domain_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

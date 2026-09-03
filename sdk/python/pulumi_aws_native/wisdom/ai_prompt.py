@@ -215,7 +215,7 @@ class AiPrompt(pulumi.CustomResource):
                  model_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_configuration: pulumi.Input[Optional[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']]] = None,
+                 template_configuration: pulumi.Input[Optional[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict', 'outputs.AiPromptAiPromptTemplateConfiguration']]] = None,
                  template_type: pulumi.Input[Optional['AiPromptAiPromptTemplateType']] = None,
                  type: pulumi.Input[Optional['AiPromptAiPromptType']] = None,
                  __props__=None):
@@ -248,7 +248,7 @@ class AiPrompt(pulumi.CustomResource):
                - `us.anthropic.claude-3-haiku-20240307-v1:0`
         :param pulumi.Input[_builtins.str] name: The name of the AI Prompt
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags used to organize, track, or control access for this resource.
-        :param pulumi.Input[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']] template_configuration: The configuration of the prompt template for this AI Prompt.
+        :param pulumi.Input[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict', 'outputs.AiPromptAiPromptTemplateConfiguration']] template_configuration: The configuration of the prompt template for this AI Prompt.
         :param pulumi.Input['AiPromptAiPromptTemplateType'] template_type: The type of the prompt template for this AI Prompt.
         :param pulumi.Input['AiPromptAiPromptType'] type: The type of this AI Prompt.
         """
@@ -282,7 +282,7 @@ class AiPrompt(pulumi.CustomResource):
                  model_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 template_configuration: pulumi.Input[Optional[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict']]] = None,
+                 template_configuration: pulumi.Input[Optional[Union['AiPromptAiPromptTemplateConfigurationArgs', 'AiPromptAiPromptTemplateConfigurationArgsDict', 'outputs.AiPromptAiPromptTemplateConfiguration']]] = None,
                  template_type: pulumi.Input[Optional['AiPromptAiPromptTemplateType']] = None,
                  type: pulumi.Input[Optional['AiPromptAiPromptType']] = None,
                  __props__=None):

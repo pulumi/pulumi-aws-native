@@ -122,7 +122,7 @@ class GetApplicationResult:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence[Any]]:
+    def tags(self) -> Optional[Sequence[Union['outputs.ApplicationTag0Properties', 'outputs.ApplicationTag1Properties']]]:
         """
         The tags of the application.
         """

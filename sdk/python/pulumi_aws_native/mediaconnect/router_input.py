@@ -201,16 +201,16 @@ class RouterInput(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
-                 content_quality_analysis_configuration: pulumi.Input[Optional[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict']]] = None,
-                 maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict', 'outputs.RouterInputConfiguration0Properties'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict', 'outputs.RouterInputConfiguration1Properties'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict', 'outputs.RouterInputConfiguration2Properties'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict', 'outputs.RouterInputConfiguration3Properties'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict', 'outputs.RouterInputConfiguration4Properties']]]] = None,
+                 content_quality_analysis_configuration: pulumi.Input[Optional[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict', 'outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties']]] = None,
+                 maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict', 'outputs.RouterInputMaintenanceConfiguration0Properties'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict', 'outputs.RouterInputMaintenanceConfiguration1Properties']]]] = None,
                  maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_scope: pulumi.Input[Optional['RouterInputRoutingScope']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional['RouterInputTier']] = None,
-                 transit_encryption: pulumi.Input[Optional[Union['RouterInputTransitEncryptionArgs', 'RouterInputTransitEncryptionArgsDict']]] = None,
+                 transit_encryption: pulumi.Input[Optional[Union['RouterInputTransitEncryptionArgs', 'RouterInputTransitEncryptionArgsDict', 'outputs.RouterInputTransitEncryption']]] = None,
                  __props__=None):
         """
         Represents a router input in AWS Elemental MediaConnect that is used to ingest content to be transmitted to router outputs
@@ -218,14 +218,14 @@ class RouterInput(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where you want to create the router input. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
-        :param pulumi.Input[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]] maintenance_configuration: The maintenance configuration settings applied to this router input.
+        :param pulumi.Input[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict', 'outputs.RouterInputMaintenanceConfiguration0Properties'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict', 'outputs.RouterInputMaintenanceConfiguration1Properties']]] maintenance_configuration: The maintenance configuration settings applied to this router input.
         :param pulumi.Input[_builtins.int] maximum_bitrate: The maximum bitrate for the router input.
         :param pulumi.Input[_builtins.str] name: The name of the router input.
         :param pulumi.Input[_builtins.str] region_name: The Amazon Web Services Region for the router input. Defaults to the current region if not specified.
         :param pulumi.Input['RouterInputRoutingScope'] routing_scope: Indicates whether the router input is configured for Regional or global routing.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this router input.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to tag and organize this router input.
         :param pulumi.Input['RouterInputTier'] tier: The tier level of the router input.
-        :param pulumi.Input[Union['RouterInputTransitEncryptionArgs', 'RouterInputTransitEncryptionArgsDict']] transit_encryption: Encryption information.
+        :param pulumi.Input[Union['RouterInputTransitEncryptionArgs', 'RouterInputTransitEncryptionArgsDict', 'outputs.RouterInputTransitEncryption']] transit_encryption: Encryption information.
         """
         ...
     @overload
@@ -252,16 +252,16 @@ class RouterInput(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict']]]] = None,
-                 content_quality_analysis_configuration: pulumi.Input[Optional[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict']]] = None,
-                 maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterInputConfiguration0PropertiesArgs', 'RouterInputConfiguration0PropertiesArgsDict', 'outputs.RouterInputConfiguration0Properties'], Union['RouterInputConfiguration1PropertiesArgs', 'RouterInputConfiguration1PropertiesArgsDict', 'outputs.RouterInputConfiguration1Properties'], Union['RouterInputConfiguration2PropertiesArgs', 'RouterInputConfiguration2PropertiesArgsDict', 'outputs.RouterInputConfiguration2Properties'], Union['RouterInputConfiguration3PropertiesArgs', 'RouterInputConfiguration3PropertiesArgsDict', 'outputs.RouterInputConfiguration3Properties'], Union['RouterInputConfiguration4PropertiesArgs', 'RouterInputConfiguration4PropertiesArgsDict', 'outputs.RouterInputConfiguration4Properties']]]] = None,
+                 content_quality_analysis_configuration: pulumi.Input[Optional[Union['RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgs', 'RouterInputRouterContentQualityAnalysisConfigurationPropertiesArgsDict', 'outputs.RouterInputRouterContentQualityAnalysisConfigurationProperties']]] = None,
+                 maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterInputMaintenanceConfiguration0PropertiesArgs', 'RouterInputMaintenanceConfiguration0PropertiesArgsDict', 'outputs.RouterInputMaintenanceConfiguration0Properties'], Union['RouterInputMaintenanceConfiguration1PropertiesArgs', 'RouterInputMaintenanceConfiguration1PropertiesArgsDict', 'outputs.RouterInputMaintenanceConfiguration1Properties']]]] = None,
                  maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_scope: pulumi.Input[Optional['RouterInputRoutingScope']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional['RouterInputTier']] = None,
-                 transit_encryption: pulumi.Input[Optional[Union['RouterInputTransitEncryptionArgs', 'RouterInputTransitEncryptionArgsDict']]] = None,
+                 transit_encryption: pulumi.Input[Optional[Union['RouterInputTransitEncryptionArgs', 'RouterInputTransitEncryptionArgsDict', 'outputs.RouterInputTransitEncryption']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -373,7 +373,7 @@ class RouterInput(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Any]:
+    def configuration(self) -> pulumi.Output[Union['outputs.RouterInputConfiguration0Properties', 'outputs.RouterInputConfiguration1Properties', 'outputs.RouterInputConfiguration2Properties', 'outputs.RouterInputConfiguration3Properties', 'outputs.RouterInputConfiguration4Properties']]:
         return pulumi.get(self, "configuration")
 
     @_builtins.property
@@ -412,7 +412,7 @@ class RouterInput(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
-    def maintenance_configuration(self) -> pulumi.Output[Optional[Any]]:
+    def maintenance_configuration(self) -> pulumi.Output[Optional[Union['outputs.RouterInputMaintenanceConfiguration0Properties', 'outputs.RouterInputMaintenanceConfiguration1Properties']]]:
         """
         The maintenance configuration settings applied to this router input.
         """

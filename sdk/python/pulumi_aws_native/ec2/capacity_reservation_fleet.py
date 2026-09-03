@@ -199,10 +199,10 @@ class CapacityReservationFleet(pulumi.CustomResource):
                  allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  end_date: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_match_criteria: pulumi.Input[Optional['CapacityReservationFleetInstanceMatchCriteria']] = None,
-                 instance_type_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict']]]]] = None,
+                 instance_type_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict', 'outputs.CapacityReservationFleetInstanceTypeSpecification']]]]] = None,
                  no_remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
                  remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict', 'outputs.CapacityReservationFleetTagSpecification']]]]] = None,
                  tenancy: pulumi.Input[Optional['CapacityReservationFleetTenancy']] = None,
                  total_target_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
@@ -252,10 +252,10 @@ class CapacityReservationFleet(pulumi.CustomResource):
         :param pulumi.Input['CapacityReservationFleetInstanceMatchCriteria'] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation Fleet accepts. All Capacity Reservations in the Fleet inherit this instance matching criteria.
                
                Currently, Capacity Reservation Fleets support `open` instance matching criteria only. This means that instances that have matching attributes (instance type, platform, and Availability Zone) run in the Capacity Reservations automatically. Instances do not need to explicitly target a Capacity Reservation Fleet to use its reserved capacity.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict']]]] instance_type_specifications: Information about the instance types for which to reserve the capacity.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict', 'outputs.CapacityReservationFleetInstanceTypeSpecification']]]] instance_type_specifications: Information about the instance types for which to reserve the capacity.
         :param pulumi.Input[_builtins.bool] no_remove_end_date: Used to add an end date to a Capacity Reservation Fleet that has no end date and time. To add an end date to a Capacity Reservation Fleet, specify `true` for this paramater and specify the end date and time (in UTC time format) for the *EndDate* parameter.
         :param pulumi.Input[_builtins.bool] remove_end_date: Used to remove an end date from a Capacity Reservation Fleet that is configured to end automatically at a specific date and time. To remove the end date from a Capacity Reservation Fleet, specify `true` for this paramater and omit the *EndDate* parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict']]]] tag_specifications: The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict', 'outputs.CapacityReservationFleetTagSpecification']]]] tag_specifications: The tags to assign to the Capacity Reservation Fleet. The tags are automatically assigned to the Capacity Reservations in the Fleet.
         :param pulumi.Input['CapacityReservationFleetTenancy'] tenancy: Indicates the tenancy of the Capacity Reservation Fleet. All Capacity Reservations in the Fleet inherit this tenancy. The Capacity Reservation Fleet can have one of the following tenancy settings:
                
                - `default` - The Capacity Reservation Fleet is created on hardware that is shared with other AWS accounts .
@@ -321,10 +321,10 @@ class CapacityReservationFleet(pulumi.CustomResource):
                  allocation_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  end_date: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_match_criteria: pulumi.Input[Optional['CapacityReservationFleetInstanceMatchCriteria']] = None,
-                 instance_type_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict']]]]] = None,
+                 instance_type_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetInstanceTypeSpecificationArgs', 'CapacityReservationFleetInstanceTypeSpecificationArgsDict', 'outputs.CapacityReservationFleetInstanceTypeSpecification']]]]] = None,
                  no_remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
                  remove_end_date: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict']]]]] = None,
+                 tag_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapacityReservationFleetTagSpecificationArgs', 'CapacityReservationFleetTagSpecificationArgsDict', 'outputs.CapacityReservationFleetTagSpecification']]]]] = None,
                  tenancy: pulumi.Input[Optional['CapacityReservationFleetTenancy']] = None,
                  total_target_capacity: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):

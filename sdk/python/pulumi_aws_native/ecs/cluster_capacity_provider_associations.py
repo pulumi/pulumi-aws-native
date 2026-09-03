@@ -82,7 +82,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict']]]]] = None,
+                 default_capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy']]]]] = None,
                  __props__=None):
         """
         Associate a set of ECS Capacity Providers with a specified ECS Cluster
@@ -150,7 +150,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]] capacity_providers: The capacity providers to associate with the cluster.
         :param pulumi.Input[_builtins.str] cluster: The cluster the capacity provider association is the target of.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict']]]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy']]]] default_capacity_provider_strategy: The default capacity provider strategy to associate with the cluster.
         """
         ...
     @overload
@@ -237,7 +237,7 @@ class ClusterCapacityProviderAssociations(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_providers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProvider', _builtins.str]]]]] = None,
                  cluster: pulumi.Input[Optional[_builtins.str]] = None,
-                 default_capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict']]]]] = None,
+                 default_capacity_provider_strategy: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ClusterCapacityProviderAssociationsCapacityProviderStrategyArgs', 'ClusterCapacityProviderAssociationsCapacityProviderStrategyArgsDict', 'outputs.ClusterCapacityProviderAssociationsCapacityProviderStrategy']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

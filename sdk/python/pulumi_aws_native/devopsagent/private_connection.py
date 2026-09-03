@@ -100,9 +100,9 @@ class PrivateConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_configuration: pulumi.Input[Optional[Union['PrivateConnectionConnectionConfigurationArgs', 'PrivateConnectionConnectionConfigurationArgsDict']]] = None,
+                 connection_configuration: pulumi.Input[Optional[Union['PrivateConnectionConnectionConfigurationArgs', 'PrivateConnectionConnectionConfigurationArgsDict', 'outputs.PrivateConnectionConnectionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DevOpsAgent::PrivateConnection
@@ -110,9 +110,9 @@ class PrivateConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate: Certificate for the Private Connection.
-        :param pulumi.Input[Union['PrivateConnectionConnectionConfigurationArgs', 'PrivateConnectionConnectionConfigurationArgsDict']] connection_configuration: The connection configuration for the Private Connection.
+        :param pulumi.Input[Union['PrivateConnectionConnectionConfigurationArgs', 'PrivateConnectionConnectionConfigurationArgsDict', 'outputs.PrivateConnectionConnectionConfiguration']] connection_configuration: The connection configuration for the Private Connection.
         :param pulumi.Input[_builtins.str] name: Unique name for this Private Connection within the account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -139,9 +139,9 @@ class PrivateConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate: pulumi.Input[Optional[_builtins.str]] = None,
-                 connection_configuration: pulumi.Input[Optional[Union['PrivateConnectionConnectionConfigurationArgs', 'PrivateConnectionConnectionConfigurationArgsDict']]] = None,
+                 connection_configuration: pulumi.Input[Optional[Union['PrivateConnectionConnectionConfigurationArgs', 'PrivateConnectionConnectionConfigurationArgsDict', 'outputs.PrivateConnectionConnectionConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

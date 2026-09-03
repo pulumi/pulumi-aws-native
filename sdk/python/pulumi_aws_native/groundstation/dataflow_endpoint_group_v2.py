@@ -102,8 +102,8 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict', 'outputs.DataflowEndpointGroupV2CreateEndpointDetails']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS Ground Station DataflowEndpointGroupV2
@@ -112,8 +112,8 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] contact_post_pass_duration_seconds: Amount of time, in seconds, after a contact ends that the Ground Station Dataflow Endpoint Group will be in a POSTPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the POSTPASS state.
         :param pulumi.Input[_builtins.int] contact_pre_pass_duration_seconds: Amount of time, in seconds, before a contact starts that the Ground Station Dataflow Endpoint Group will be in a PREPASS state. A Ground Station Dataflow Endpoint Group State Change event will be emitted when the Dataflow Endpoint Group enters and exits the PREPASS state.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict']]]] endpoints: List of endpoints for the dataflow endpoint group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to a resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict', 'outputs.DataflowEndpointGroupV2CreateEndpointDetails']]]] endpoints: List of endpoints for the dataflow endpoint group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags assigned to a resource.
         """
         ...
     @overload
@@ -141,8 +141,8 @@ class DataflowEndpointGroupV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_post_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  contact_pre_pass_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DataflowEndpointGroupV2CreateEndpointDetailsArgs', 'DataflowEndpointGroupV2CreateEndpointDetailsArgsDict', 'outputs.DataflowEndpointGroupV2CreateEndpointDetails']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

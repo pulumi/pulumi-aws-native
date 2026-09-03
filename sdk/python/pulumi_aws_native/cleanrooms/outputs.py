@@ -1408,7 +1408,7 @@ class ConfiguredTableAnalysisRuleList(dict):
 @pulumi.output_type
 class ConfiguredTableAnalysisRulePolicy(dict):
     def __init__(__self__, *,
-                 v1: Any):
+                 v1: Union['outputs.ConfiguredTableAnalysisRulePolicyV10Properties', 'outputs.ConfiguredTableAnalysisRulePolicyV11Properties', 'outputs.ConfiguredTableAnalysisRulePolicyV12Properties']):
         """
         :param Union['ConfiguredTableAnalysisRulePolicyV10Properties', 'ConfiguredTableAnalysisRulePolicyV11Properties', 'ConfiguredTableAnalysisRulePolicyV12Properties'] v1: Controls on the query specifications that can be run on a configured table.
         """
@@ -1416,7 +1416,7 @@ class ConfiguredTableAnalysisRulePolicy(dict):
 
     @_builtins.property
     @pulumi.getter
-    def v1(self) -> Any:
+    def v1(self) -> Union['outputs.ConfiguredTableAnalysisRulePolicyV10Properties', 'outputs.ConfiguredTableAnalysisRulePolicyV11Properties', 'outputs.ConfiguredTableAnalysisRulePolicyV12Properties']:
         """
         Controls on the query specifications that can be run on a configured table.
         """
@@ -1611,7 +1611,7 @@ class ConfiguredTableAssociationAnalysisRuleList(dict):
 @pulumi.output_type
 class ConfiguredTableAssociationAnalysisRulePolicy(dict):
     def __init__(__self__, *,
-                 v1: Any):
+                 v1: Union['outputs.ConfiguredTableAssociationAnalysisRulePolicyV10Properties', 'outputs.ConfiguredTableAssociationAnalysisRulePolicyV11Properties', 'outputs.ConfiguredTableAssociationAnalysisRulePolicyV12Properties']):
         """
         :param Union['ConfiguredTableAssociationAnalysisRulePolicyV10Properties', 'ConfiguredTableAssociationAnalysisRulePolicyV11Properties', 'ConfiguredTableAssociationAnalysisRulePolicyV12Properties'] v1: The policy for the configured table association analysis rule.
         """
@@ -1619,7 +1619,7 @@ class ConfiguredTableAssociationAnalysisRulePolicy(dict):
 
     @_builtins.property
     @pulumi.getter
-    def v1(self) -> Any:
+    def v1(self) -> Union['outputs.ConfiguredTableAssociationAnalysisRulePolicyV10Properties', 'outputs.ConfiguredTableAssociationAnalysisRulePolicyV11Properties', 'outputs.ConfiguredTableAssociationAnalysisRulePolicyV12Properties']:
         """
         The policy for the configured table association analysis rule.
         """

@@ -199,7 +199,7 @@ class NotificationRule(pulumi.CustomResource):
                  status: pulumi.Input[Optional['NotificationRuleStatus']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeStarNotifications::NotificationRule
@@ -215,7 +215,7 @@ class NotificationRule(pulumi.CustomResource):
         :param pulumi.Input['NotificationRuleStatus'] status: The status of the notification rule. The default value is `ENABLED` . If the status is set to `DISABLED` , notifications aren't sent for the notification rule.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to apply to this notification rule. Key names cannot start with " `aws` ".
         :param pulumi.Input[_builtins.str] target_address: The Amazon Resource Name (ARN) of the Amazon  topic or  client.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]] targets: A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]] targets: A list of Amazon Resource Names (ARNs) of Amazon  topics and  clients to associate with the notification rule.
         """
         ...
     @overload
@@ -250,7 +250,7 @@ class NotificationRule(pulumi.CustomResource):
                  status: pulumi.Input[Optional['NotificationRuleStatus']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_address: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['NotificationRuleTargetArgs', 'NotificationRuleTargetArgsDict', 'outputs.NotificationRuleTarget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

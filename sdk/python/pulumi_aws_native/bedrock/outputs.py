@@ -433,9 +433,9 @@ class AgentActionGroup(dict):
 
     def __init__(__self__, *,
                  action_group_name: _builtins.str,
-                 action_group_executor: Optional[Any] = None,
+                 action_group_executor: Optional[Union['outputs.AgentActionGroupExecutor0Properties', 'outputs.AgentActionGroupExecutor1Properties']] = None,
                  action_group_state: Optional['AgentActionGroupState'] = None,
-                 api_schema: Optional[Any] = None,
+                 api_schema: Optional[Union['outputs.AgentApiSchema0Properties', 'outputs.AgentApiSchema1Properties']] = None,
                  description: Optional[_builtins.str] = None,
                  function_schema: Optional['outputs.AgentFunctionSchema'] = None,
                  parent_action_group_signature: Optional['AgentActionGroupSignature'] = None,
@@ -480,7 +480,7 @@ class AgentActionGroup(dict):
 
     @_builtins.property
     @pulumi.getter(name="actionGroupExecutor")
-    def action_group_executor(self) -> Optional[Any]:
+    def action_group_executor(self) -> Optional[Union['outputs.AgentActionGroupExecutor0Properties', 'outputs.AgentActionGroupExecutor1Properties']]:
         """
         The Amazon Resource Name (ARN) of the Lambda function containing the business logic that is carried out upon invoking the action or the custom control method for handling the information elicited from the user.
         """
@@ -496,7 +496,7 @@ class AgentActionGroup(dict):
 
     @_builtins.property
     @pulumi.getter(name="apiSchema")
-    def api_schema(self) -> Optional[Any]:
+    def api_schema(self) -> Optional[Union['outputs.AgentApiSchema0Properties', 'outputs.AgentApiSchema1Properties']]:
         """
         Contains either details about the S3 object containing the OpenAPI schema for the action group or the JSON or YAML-formatted payload defining the schema. For more information, see [Action group OpenAPI schemas](https://docs.aws.amazon.com//bedrock/latest/userguide/agents-api-schema.html) .
         """
@@ -6509,7 +6509,7 @@ class FlowConnection(dict):
                  source: _builtins.str,
                  target: _builtins.str,
                  type: 'FlowConnectionType',
-                 configuration: Optional[Any] = None):
+                 configuration: Optional[Union['outputs.FlowConnectionConfiguration0Properties', 'outputs.FlowConnectionConfiguration1Properties']] = None):
         """
         Flow connection
 
@@ -6560,7 +6560,7 @@ class FlowConnection(dict):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.FlowConnectionConfiguration0Properties', 'outputs.FlowConnectionConfiguration1Properties']]:
         """
         The configuration of the connection.
         """
@@ -7250,7 +7250,7 @@ class FlowMetadataConfigurationForReranking(dict):
 
     def __init__(__self__, *,
                  selection_mode: 'FlowRerankingMetadataSelectionMode',
-                 selective_mode_configuration: Optional[Any] = None):
+                 selective_mode_configuration: Optional[Union['outputs.FlowRerankingMetadataSelectiveModeConfiguration0Properties', 'outputs.FlowRerankingMetadataSelectiveModeConfiguration1Properties']] = None):
         pulumi.set(__self__, "selection_mode", selection_mode)
         if selective_mode_configuration is not None:
             pulumi.set(__self__, "selective_mode_configuration", selective_mode_configuration)
@@ -7262,7 +7262,7 @@ class FlowMetadataConfigurationForReranking(dict):
 
     @_builtins.property
     @pulumi.getter(name="selectiveModeConfiguration")
-    def selective_mode_configuration(self) -> Optional[Any]:
+    def selective_mode_configuration(self) -> Optional[Union['outputs.FlowRerankingMetadataSelectiveModeConfiguration0Properties', 'outputs.FlowRerankingMetadataSelectiveModeConfiguration1Properties']]:
         return pulumi.get(self, "selective_mode_configuration")
 
 
@@ -7274,7 +7274,7 @@ class FlowNode(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: 'FlowNodeType',
-                 configuration: Optional[Any] = None,
+                 configuration: Optional[Union['outputs.FlowNodeConfiguration0Properties', 'outputs.FlowNodeConfiguration1Properties', 'outputs.FlowNodeConfiguration2Properties', 'outputs.FlowNodeConfiguration3Properties', 'outputs.FlowNodeConfiguration4Properties', 'outputs.FlowNodeConfiguration5Properties', 'outputs.FlowNodeConfiguration6Properties', 'outputs.FlowNodeConfiguration7Properties', 'outputs.FlowNodeConfiguration8Properties', 'outputs.FlowNodeConfiguration9Properties', 'outputs.FlowNodeConfiguration10Properties', 'outputs.FlowNodeConfiguration11Properties', 'outputs.FlowNodeConfiguration12Properties', 'outputs.FlowNodeConfiguration13Properties', 'outputs.FlowNodeConfiguration14Properties', 'outputs.FlowNodeConfiguration15Properties']] = None,
                  inputs: Optional[Sequence['outputs.FlowNodeInput']] = None,
                  outputs: Optional[Sequence['outputs.FlowNodeOutput']] = None):
         """
@@ -7313,7 +7313,7 @@ class FlowNode(dict):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.FlowNodeConfiguration0Properties', 'outputs.FlowNodeConfiguration1Properties', 'outputs.FlowNodeConfiguration2Properties', 'outputs.FlowNodeConfiguration3Properties', 'outputs.FlowNodeConfiguration4Properties', 'outputs.FlowNodeConfiguration5Properties', 'outputs.FlowNodeConfiguration6Properties', 'outputs.FlowNodeConfiguration7Properties', 'outputs.FlowNodeConfiguration8Properties', 'outputs.FlowNodeConfiguration9Properties', 'outputs.FlowNodeConfiguration10Properties', 'outputs.FlowNodeConfiguration11Properties', 'outputs.FlowNodeConfiguration12Properties', 'outputs.FlowNodeConfiguration13Properties', 'outputs.FlowNodeConfiguration14Properties', 'outputs.FlowNodeConfiguration15Properties']]:
         """
         Contains configurations for the node.
         """
@@ -7858,7 +7858,7 @@ class FlowPromptFlowNodeConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_configuration: Any,
+                 source_configuration: Union['outputs.FlowPromptFlowNodeSourceConfiguration0Properties', 'outputs.FlowPromptFlowNodeSourceConfiguration1Properties'],
                  guardrail_configuration: Optional['outputs.FlowGuardrailConfiguration'] = None):
         """
         Prompt flow node configuration
@@ -7869,7 +7869,7 @@ class FlowPromptFlowNodeConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
-    def source_configuration(self) -> Any:
+    def source_configuration(self) -> Union['outputs.FlowPromptFlowNodeSourceConfiguration0Properties', 'outputs.FlowPromptFlowNodeSourceConfiguration1Properties']:
         return pulumi.get(self, "source_configuration")
 
     @_builtins.property
@@ -8862,7 +8862,7 @@ class FlowVersionFlowConnection(dict):
                  source: _builtins.str,
                  target: _builtins.str,
                  type: 'FlowVersionFlowConnectionType',
-                 configuration: Optional[Any] = None):
+                 configuration: Optional[Union['outputs.FlowVersionFlowConnectionConfiguration0Properties', 'outputs.FlowVersionFlowConnectionConfiguration1Properties']] = None):
         """
         Flow connection
 
@@ -8913,7 +8913,7 @@ class FlowVersionFlowConnection(dict):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.FlowVersionFlowConnectionConfiguration0Properties', 'outputs.FlowVersionFlowConnectionConfiguration1Properties']]:
         """
         The configuration of the connection.
         """
@@ -9053,7 +9053,7 @@ class FlowVersionFlowNode(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: 'FlowVersionFlowNodeType',
-                 configuration: Optional[Any] = None,
+                 configuration: Optional[Union['outputs.FlowVersionFlowNodeConfiguration0Properties', 'outputs.FlowVersionFlowNodeConfiguration1Properties', 'outputs.FlowVersionFlowNodeConfiguration2Properties', 'outputs.FlowVersionFlowNodeConfiguration3Properties', 'outputs.FlowVersionFlowNodeConfiguration4Properties', 'outputs.FlowVersionFlowNodeConfiguration5Properties', 'outputs.FlowVersionFlowNodeConfiguration6Properties', 'outputs.FlowVersionFlowNodeConfiguration7Properties', 'outputs.FlowVersionFlowNodeConfiguration8Properties', 'outputs.FlowVersionFlowNodeConfiguration9Properties', 'outputs.FlowVersionFlowNodeConfiguration10Properties', 'outputs.FlowVersionFlowNodeConfiguration11Properties', 'outputs.FlowVersionFlowNodeConfiguration12Properties', 'outputs.FlowVersionFlowNodeConfiguration13Properties', 'outputs.FlowVersionFlowNodeConfiguration14Properties', 'outputs.FlowVersionFlowNodeConfiguration15Properties']] = None,
                  inputs: Optional[Sequence['outputs.FlowVersionFlowNodeInput']] = None,
                  outputs: Optional[Sequence['outputs.FlowVersionFlowNodeOutput']] = None):
         """
@@ -9092,7 +9092,7 @@ class FlowVersionFlowNode(dict):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.FlowVersionFlowNodeConfiguration0Properties', 'outputs.FlowVersionFlowNodeConfiguration1Properties', 'outputs.FlowVersionFlowNodeConfiguration2Properties', 'outputs.FlowVersionFlowNodeConfiguration3Properties', 'outputs.FlowVersionFlowNodeConfiguration4Properties', 'outputs.FlowVersionFlowNodeConfiguration5Properties', 'outputs.FlowVersionFlowNodeConfiguration6Properties', 'outputs.FlowVersionFlowNodeConfiguration7Properties', 'outputs.FlowVersionFlowNodeConfiguration8Properties', 'outputs.FlowVersionFlowNodeConfiguration9Properties', 'outputs.FlowVersionFlowNodeConfiguration10Properties', 'outputs.FlowVersionFlowNodeConfiguration11Properties', 'outputs.FlowVersionFlowNodeConfiguration12Properties', 'outputs.FlowVersionFlowNodeConfiguration13Properties', 'outputs.FlowVersionFlowNodeConfiguration14Properties', 'outputs.FlowVersionFlowNodeConfiguration15Properties']]:
         """
         Contains configurations for the node.
         """
@@ -10085,7 +10085,7 @@ class FlowVersionMetadataConfigurationForReranking(dict):
 
     def __init__(__self__, *,
                  selection_mode: 'FlowVersionRerankingMetadataSelectionMode',
-                 selective_mode_configuration: Optional[Any] = None):
+                 selective_mode_configuration: Optional[Union['outputs.FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties', 'outputs.FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties']] = None):
         pulumi.set(__self__, "selection_mode", selection_mode)
         if selective_mode_configuration is not None:
             pulumi.set(__self__, "selective_mode_configuration", selective_mode_configuration)
@@ -10097,7 +10097,7 @@ class FlowVersionMetadataConfigurationForReranking(dict):
 
     @_builtins.property
     @pulumi.getter(name="selectiveModeConfiguration")
-    def selective_mode_configuration(self) -> Optional[Any]:
+    def selective_mode_configuration(self) -> Optional[Union['outputs.FlowVersionRerankingMetadataSelectiveModeConfiguration0Properties', 'outputs.FlowVersionRerankingMetadataSelectiveModeConfiguration1Properties']]:
         return pulumi.get(self, "selective_mode_configuration")
 
 
@@ -10151,7 +10151,7 @@ class FlowVersionPromptFlowNodeConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 source_configuration: Any,
+                 source_configuration: Union['outputs.FlowVersionPromptFlowNodeSourceConfiguration0Properties', 'outputs.FlowVersionPromptFlowNodeSourceConfiguration1Properties'],
                  guardrail_configuration: Optional['outputs.FlowVersionGuardrailConfiguration'] = None):
         """
         Prompt flow node configuration
@@ -10162,7 +10162,7 @@ class FlowVersionPromptFlowNodeConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
-    def source_configuration(self) -> Any:
+    def source_configuration(self) -> Union['outputs.FlowVersionPromptFlowNodeSourceConfiguration0Properties', 'outputs.FlowVersionPromptFlowNodeSourceConfiguration1Properties']:
         return pulumi.get(self, "source_configuration")
 
     @_builtins.property
@@ -15120,7 +15120,7 @@ class PromptChatPromptTemplateConfiguration(dict):
     def __init__(__self__, *,
                  messages: Sequence['outputs.PromptMessage'],
                  input_variables: Optional[Sequence['outputs.PromptInputVariable']] = None,
-                 system: Optional[Sequence[Any]] = None,
+                 system: Optional[Sequence[Union['outputs.PromptSystemContentBlock0Properties', 'outputs.PromptSystemContentBlock1Properties']]] = None,
                  tool_configuration: Optional['outputs.PromptToolConfiguration'] = None):
         """
         Configuration for chat prompt template
@@ -15155,7 +15155,7 @@ class PromptChatPromptTemplateConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[Sequence[Any]]:
+    def system(self) -> Optional[Sequence[Union['outputs.PromptSystemContentBlock0Properties', 'outputs.PromptSystemContentBlock1Properties']]]:
         """
         Configuration for chat prompt template
         """
@@ -15291,7 +15291,7 @@ class PromptMessage(dict):
     Chat prompt Message
     """
     def __init__(__self__, *,
-                 content: Sequence[Any],
+                 content: Sequence[Union['outputs.PromptContentBlock0Properties', 'outputs.PromptContentBlock1Properties']],
                  role: 'PromptConversationRole'):
         """
         Chat prompt Message
@@ -15303,7 +15303,7 @@ class PromptMessage(dict):
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Sequence[Any]:
+    def content(self) -> Sequence[Union['outputs.PromptContentBlock0Properties', 'outputs.PromptContentBlock1Properties']]:
         """
         List of Content Blocks
         """
@@ -15804,8 +15804,8 @@ class PromptToolConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 tools: Sequence[Any],
-                 tool_choice: Optional[Any] = None):
+                 tools: Sequence[Union['outputs.PromptTool0Properties', 'outputs.PromptTool1Properties']],
+                 tool_choice: Optional[Union['outputs.PromptToolChoice0Properties', 'outputs.PromptToolChoice1Properties', 'outputs.PromptToolChoice2Properties']] = None):
         """
         Tool configuration
 
@@ -15817,7 +15817,7 @@ class PromptToolConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter
-    def tools(self) -> Sequence[Any]:
+    def tools(self) -> Sequence[Union['outputs.PromptTool0Properties', 'outputs.PromptTool1Properties']]:
         """
         List of Tools
         """
@@ -15825,7 +15825,7 @@ class PromptToolConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="toolChoice")
-    def tool_choice(self) -> Optional[Any]:
+    def tool_choice(self) -> Optional[Union['outputs.PromptToolChoice0Properties', 'outputs.PromptToolChoice1Properties', 'outputs.PromptToolChoice2Properties']]:
         return pulumi.get(self, "tool_choice")
 
 
@@ -15936,7 +15936,7 @@ class PromptVariant(dict):
 
     def __init__(__self__, *,
                  name: _builtins.str,
-                 template_configuration: Any,
+                 template_configuration: Union['outputs.PromptTemplateConfiguration0Properties', 'outputs.PromptTemplateConfiguration1Properties'],
                  template_type: 'PromptTemplateType',
                  additional_model_request_fields: Optional['outputs.PromptAdditionalModelRequestFields'] = None,
                  gen_ai_resource: Optional['outputs.PromptGenAiResourceProperties'] = None,
@@ -15979,7 +15979,7 @@ class PromptVariant(dict):
 
     @_builtins.property
     @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> Any:
+    def template_configuration(self) -> Union['outputs.PromptTemplateConfiguration0Properties', 'outputs.PromptTemplateConfiguration1Properties']:
         """
         Contains configurations for the prompt template.
         """
@@ -16115,7 +16115,7 @@ class PromptVersionChatPromptTemplateConfiguration(dict):
     def __init__(__self__, *,
                  messages: Sequence['outputs.PromptVersionMessage'],
                  input_variables: Optional[Sequence['outputs.PromptVersionPromptInputVariable']] = None,
-                 system: Optional[Sequence[Any]] = None,
+                 system: Optional[Sequence[Union['outputs.PromptVersionSystemContentBlock0Properties', 'outputs.PromptVersionSystemContentBlock1Properties']]] = None,
                  tool_configuration: Optional['outputs.PromptVersionToolConfiguration'] = None):
         """
         Configuration for chat prompt template
@@ -16150,7 +16150,7 @@ class PromptVersionChatPromptTemplateConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter
-    def system(self) -> Optional[Sequence[Any]]:
+    def system(self) -> Optional[Sequence[Union['outputs.PromptVersionSystemContentBlock0Properties', 'outputs.PromptVersionSystemContentBlock1Properties']]]:
         """
         Configuration for chat prompt template
         """
@@ -16226,7 +16226,7 @@ class PromptVersionMessage(dict):
     Chat prompt Message
     """
     def __init__(__self__, *,
-                 content: Sequence[Any],
+                 content: Sequence[Union['outputs.PromptVersionContentBlock0Properties', 'outputs.PromptVersionContentBlock1Properties']],
                  role: 'PromptVersionConversationRole'):
         """
         Chat prompt Message
@@ -16238,7 +16238,7 @@ class PromptVersionMessage(dict):
 
     @_builtins.property
     @pulumi.getter
-    def content(self) -> Sequence[Any]:
+    def content(self) -> Sequence[Union['outputs.PromptVersionContentBlock0Properties', 'outputs.PromptVersionContentBlock1Properties']]:
         """
         List of Content Blocks
         """
@@ -16526,7 +16526,7 @@ class PromptVersionPromptVariant(dict):
 
     def __init__(__self__, *,
                  name: _builtins.str,
-                 template_configuration: Any,
+                 template_configuration: Union['outputs.PromptVersionPromptTemplateConfiguration0Properties', 'outputs.PromptVersionPromptTemplateConfiguration1Properties'],
                  template_type: 'PromptVersionPromptTemplateType',
                  additional_model_request_fields: Optional['outputs.PromptVersionAdditionalModelRequestFields'] = None,
                  gen_ai_resource: Optional['outputs.PromptVersionPromptGenAiResourceProperties'] = None,
@@ -16569,7 +16569,7 @@ class PromptVersionPromptVariant(dict):
 
     @_builtins.property
     @pulumi.getter(name="templateConfiguration")
-    def template_configuration(self) -> Any:
+    def template_configuration(self) -> Union['outputs.PromptVersionPromptTemplateConfiguration0Properties', 'outputs.PromptVersionPromptTemplateConfiguration1Properties']:
         """
         Contains configurations for the prompt template.
         """
@@ -16914,8 +16914,8 @@ class PromptVersionToolConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 tools: Sequence[Any],
-                 tool_choice: Optional[Any] = None):
+                 tools: Sequence[Union['outputs.PromptVersionTool0Properties', 'outputs.PromptVersionTool1Properties']],
+                 tool_choice: Optional[Union['outputs.PromptVersionToolChoice0Properties', 'outputs.PromptVersionToolChoice1Properties', 'outputs.PromptVersionToolChoice2Properties']] = None):
         """
         Tool configuration
 
@@ -16927,7 +16927,7 @@ class PromptVersionToolConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter
-    def tools(self) -> Sequence[Any]:
+    def tools(self) -> Sequence[Union['outputs.PromptVersionTool0Properties', 'outputs.PromptVersionTool1Properties']]:
         """
         List of Tools
         """
@@ -16935,7 +16935,7 @@ class PromptVersionToolConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="toolChoice")
-    def tool_choice(self) -> Optional[Any]:
+    def tool_choice(self) -> Optional[Union['outputs.PromptVersionToolChoice0Properties', 'outputs.PromptVersionToolChoice1Properties', 'outputs.PromptVersionToolChoice2Properties']]:
         return pulumi.get(self, "tool_choice")
 
 

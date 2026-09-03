@@ -188,13 +188,13 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 filler_slate: pulumi.Input[Optional[Union['ChannelSlateSourceArgs', 'ChannelSlateSourceArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['ChannelLogConfigurationForChannelArgs', 'ChannelLogConfigurationForChannelArgsDict']]] = None,
-                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelRequestOutputItemArgs', 'ChannelRequestOutputItemArgsDict']]]]] = None,
+                 filler_slate: pulumi.Input[Optional[Union['ChannelSlateSourceArgs', 'ChannelSlateSourceArgsDict', 'outputs.ChannelSlateSource']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ChannelLogConfigurationForChannelArgs', 'ChannelLogConfigurationForChannelArgsDict', 'outputs.ChannelLogConfigurationForChannel']]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelRequestOutputItemArgs', 'ChannelRequestOutputItemArgsDict', 'outputs.ChannelRequestOutputItem']]]]] = None,
                  playback_mode: pulumi.Input[Optional['ChannelPlaybackMode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional['ChannelTier']] = None,
-                 time_shift_configuration: pulumi.Input[Optional[Union['ChannelTimeShiftConfigurationArgs', 'ChannelTimeShiftConfigurationArgsDict']]] = None,
+                 time_shift_configuration: pulumi.Input[Optional[Union['ChannelTimeShiftConfigurationArgs', 'ChannelTimeShiftConfigurationArgsDict', 'outputs.ChannelTimeShiftConfiguration']]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaTailor::Channel Resource Type
@@ -203,17 +203,17 @@ class Channel(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] audiences: <p>The list of audiences defined in channel.</p>
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel.
-        :param pulumi.Input[Union['ChannelSlateSourceArgs', 'ChannelSlateSourceArgsDict']] filler_slate: The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
-        :param pulumi.Input[Union['ChannelLogConfigurationForChannelArgs', 'ChannelLogConfigurationForChannelArgsDict']] log_configuration: The log configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelRequestOutputItemArgs', 'ChannelRequestOutputItemArgsDict']]]] outputs: <p>The channel's output properties.</p>
+        :param pulumi.Input[Union['ChannelSlateSourceArgs', 'ChannelSlateSourceArgsDict', 'outputs.ChannelSlateSource']] filler_slate: The slate used to fill gaps between programs in the schedule. You must configure filler slate if your channel uses the `LINEAR` `PlaybackMode` . MediaTailor doesn't support filler slate for channels using the `LOOP` `PlaybackMode` .
+        :param pulumi.Input[Union['ChannelLogConfigurationForChannelArgs', 'ChannelLogConfigurationForChannelArgsDict', 'outputs.ChannelLogConfigurationForChannel']] log_configuration: The log configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelRequestOutputItemArgs', 'ChannelRequestOutputItemArgsDict', 'outputs.ChannelRequestOutputItem']]]] outputs: <p>The channel's output properties.</p>
         :param pulumi.Input['ChannelPlaybackMode'] playback_mode: The type of playback mode for this channel.
                
                `LINEAR` - Programs play back-to-back only once.
                
                `LOOP` - Programs play back-to-back in an endless loop. When the last program in the schedule plays, playback loops back to the first program in the schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to assign to the channel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to assign to the channel.
         :param pulumi.Input['ChannelTier'] tier: The tier for this channel. STANDARD tier channels can contain live programs.
-        :param pulumi.Input[Union['ChannelTimeShiftConfigurationArgs', 'ChannelTimeShiftConfigurationArgsDict']] time_shift_configuration: The configuration for time-shifted viewing.
+        :param pulumi.Input[Union['ChannelTimeShiftConfigurationArgs', 'ChannelTimeShiftConfigurationArgsDict', 'outputs.ChannelTimeShiftConfiguration']] time_shift_configuration: The configuration for time-shifted viewing.
         """
         ...
     @overload
@@ -241,13 +241,13 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  audiences: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 filler_slate: pulumi.Input[Optional[Union['ChannelSlateSourceArgs', 'ChannelSlateSourceArgsDict']]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['ChannelLogConfigurationForChannelArgs', 'ChannelLogConfigurationForChannelArgsDict']]] = None,
-                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelRequestOutputItemArgs', 'ChannelRequestOutputItemArgsDict']]]]] = None,
+                 filler_slate: pulumi.Input[Optional[Union['ChannelSlateSourceArgs', 'ChannelSlateSourceArgsDict', 'outputs.ChannelSlateSource']]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ChannelLogConfigurationForChannelArgs', 'ChannelLogConfigurationForChannelArgsDict', 'outputs.ChannelLogConfigurationForChannel']]] = None,
+                 outputs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelRequestOutputItemArgs', 'ChannelRequestOutputItemArgsDict', 'outputs.ChannelRequestOutputItem']]]]] = None,
                  playback_mode: pulumi.Input[Optional['ChannelPlaybackMode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional['ChannelTier']] = None,
-                 time_shift_configuration: pulumi.Input[Optional[Union['ChannelTimeShiftConfigurationArgs', 'ChannelTimeShiftConfigurationArgsDict']]] = None,
+                 time_shift_configuration: pulumi.Input[Optional[Union['ChannelTimeShiftConfigurationArgs', 'ChannelTimeShiftConfigurationArgsDict', 'outputs.ChannelTimeShiftConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

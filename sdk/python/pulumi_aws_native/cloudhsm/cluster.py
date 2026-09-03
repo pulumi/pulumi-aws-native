@@ -131,24 +131,24 @@ class Cluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_retention_policy: pulumi.Input[Optional[Union['BackupRetentionPolicyPropertiesArgs', 'BackupRetentionPolicyPropertiesArgsDict']]] = None,
+                 backup_retention_policy: pulumi.Input[Optional[Union['BackupRetentionPolicyPropertiesArgs', 'BackupRetentionPolicyPropertiesArgsDict', 'outputs.BackupRetentionPolicyProperties']]] = None,
                  hsm_type: pulumi.Input[Optional[_builtins.str]] = None,
                  mode: pulumi.Input[Optional['ClusterMode']] = None,
                  network_type: pulumi.Input[Optional['ClusterNetworkType']] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates and manages an AWS CloudHSM cluster.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BackupRetentionPolicyPropertiesArgs', 'BackupRetentionPolicyPropertiesArgsDict']] backup_retention_policy: A policy that defines how the service retains backups.
+        :param pulumi.Input[Union['BackupRetentionPolicyPropertiesArgs', 'BackupRetentionPolicyPropertiesArgsDict', 'outputs.BackupRetentionPolicyProperties']] backup_retention_policy: A policy that defines how the service retains backups.
         :param pulumi.Input[_builtins.str] hsm_type: The type of HSM to use in the cluster.
         :param pulumi.Input['ClusterMode'] mode: The mode to use in the cluster.
         :param pulumi.Input['ClusterNetworkType'] network_type: The NetworkType to create a cluster with.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The identifiers (IDs) of the subnets where the cluster is created. You must specify at least one subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to apply to the CloudHSM cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to apply to the CloudHSM cluster.
         """
         ...
     @overload
@@ -174,12 +174,12 @@ class Cluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 backup_retention_policy: pulumi.Input[Optional[Union['BackupRetentionPolicyPropertiesArgs', 'BackupRetentionPolicyPropertiesArgsDict']]] = None,
+                 backup_retention_policy: pulumi.Input[Optional[Union['BackupRetentionPolicyPropertiesArgs', 'BackupRetentionPolicyPropertiesArgsDict', 'outputs.BackupRetentionPolicyProperties']]] = None,
                  hsm_type: pulumi.Input[Optional[_builtins.str]] = None,
                  mode: pulumi.Input[Optional['ClusterMode']] = None,
                  network_type: pulumi.Input[Optional['ClusterNetworkType']] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

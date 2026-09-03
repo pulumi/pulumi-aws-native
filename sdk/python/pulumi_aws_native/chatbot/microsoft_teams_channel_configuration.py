@@ -227,7 +227,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  logging_level: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  teams_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
                  teams_channel_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -245,7 +245,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] iam_role_arn: The ARN of the IAM role that defines the permissions for AWS Chatbot
         :param pulumi.Input[_builtins.str] logging_level: Specifies the logging level for this configuration:ERROR,INFO or NONE. This property affects the log entries pushed to Amazon CloudWatch logs
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sns_topic_arns: ARNs of SNS topics which delivers notifications to AWS Chatbot, for example CloudWatch alarm notifications.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to add to the configuration
         :param pulumi.Input[_builtins.str] team_id: The id of the Microsoft Teams team
         :param pulumi.Input[_builtins.str] teams_channel_id: The id of the Microsoft Teams channel
         :param pulumi.Input[_builtins.str] teams_channel_name: The name of the Microsoft Teams channel
@@ -282,7 +282,7 @@ class MicrosoftTeamsChannelConfiguration(pulumi.CustomResource):
                  iam_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  logging_level: pulumi.Input[Optional[_builtins.str]] = None,
                  sns_topic_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  team_id: pulumi.Input[Optional[_builtins.str]] = None,
                  teams_channel_id: pulumi.Input[Optional[_builtins.str]] = None,
                  teams_channel_name: pulumi.Input[Optional[_builtins.str]] = None,

@@ -131,8 +131,8 @@ class AgentSpace(pulumi.CustomResource):
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 operator_app: pulumi.Input[Optional[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 operator_app: pulumi.Input[Optional[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict', 'outputs.AgentSpaceOperatorApp']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DevOpsAgent::AgentSpace
@@ -143,7 +143,7 @@ class AgentSpace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to use for encryption.
         :param pulumi.Input[_builtins.str] locale: The locale for the AgentSpace, which determines the language used in agent responses.
         :param pulumi.Input[_builtins.str] name: The name of the AgentSpace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -173,8 +173,8 @@ class AgentSpace(pulumi.CustomResource):
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  locale: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 operator_app: pulumi.Input[Optional[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 operator_app: pulumi.Input[Optional[Union['AgentSpaceOperatorAppArgs', 'AgentSpaceOperatorAppArgsDict', 'outputs.AgentSpaceOperatorApp']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

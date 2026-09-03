@@ -164,7 +164,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tracking_server_size: pulumi.Input[Optional['MlflowTrackingServerTrackingServerSize']] = None,
                  weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,
@@ -178,7 +178,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] automatic_model_registration: A flag to enable Automatic SageMaker Model Registration.
         :param pulumi.Input[_builtins.str] mlflow_version: The MLFlow Version used on the MLFlow Tracking Server.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker to perform tasks on behalf of the customer.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] tracking_server_name: The name of the MLFlow Tracking Server.
         :param pulumi.Input['MlflowTrackingServerTrackingServerSize'] tracking_server_size: The size of the MLFlow Tracking Server.
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: The start of the time window for maintenance of the MLFlow Tracking Server in UTC time.
@@ -211,7 +211,7 @@ class MlflowTrackingServer(pulumi.CustomResource):
                  automatic_model_registration: pulumi.Input[Optional[_builtins.bool]] = None,
                  mlflow_version: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tracking_server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tracking_server_size: pulumi.Input[Optional['MlflowTrackingServerTrackingServerSize']] = None,
                  weekly_maintenance_window_start: pulumi.Input[Optional[_builtins.str]] = None,

@@ -114,10 +114,10 @@ class Capability(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']]] = None,
-                 instructions_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict', 'outputs.CapabilityConfigurationProperties']]] = None,
+                 instructions_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict', 'outputs.CapabilityS3Location']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         """
@@ -125,10 +125,10 @@ class Capability(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']] configuration: Specifies a structure that contains the details for a capability.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict']]]] instructions_documents: Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
+        :param pulumi.Input[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict', 'outputs.CapabilityConfigurationProperties']] configuration: Specifies a structure that contains the details for a capability.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict', 'outputs.CapabilityS3Location']]]] instructions_documents: Specifies one or more locations in Amazon S3, each specifying an EDI document that can be used with this capability. Each item contains the name of the bucket and the key, to identify the document's location.
         :param pulumi.Input[_builtins.str] name: The display name of the capability.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Specifies the key-value pairs assigned to ARNs that you can use to group and search for resources by type. You can attach this metadata to resources (capabilities, partnerships, and so on) for any purpose.
         :param pulumi.Input['CapabilityType'] type: Returns the type of the capability. Currently, only `edi` is supported.
         """
         ...
@@ -155,10 +155,10 @@ class Capability(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict']]] = None,
-                 instructions_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict']]]]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationPropertiesArgs', 'CapabilityConfigurationPropertiesArgsDict', 'outputs.CapabilityConfigurationProperties']]] = None,
+                 instructions_documents: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CapabilityS3LocationArgs', 'CapabilityS3LocationArgsDict', 'outputs.CapabilityS3Location']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

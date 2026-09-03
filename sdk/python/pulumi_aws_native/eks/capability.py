@@ -146,10 +146,10 @@ class Capability(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capability_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']]] = None,
                  delete_propagation_policy: pulumi.Input[Optional['CapabilityDeletePropagationPolicy']] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         """
@@ -159,10 +159,10 @@ class Capability(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] capability_name: A unique name for the capability. The name must be unique within your cluster and can contain alphanumeric characters, hyphens, and underscores.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the EKS cluster where you want to create the capability.
-        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']] configuration: The configuration settings for the capability. The structure of this object varies depending on the capability type. For Argo CD capabilities, you can configure IAM Identity Center integration, RBAC role mappings, and network access settings.
+        :param pulumi.Input[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']] configuration: The configuration settings for the capability. The structure of this object varies depending on the capability type. For Argo CD capabilities, you can configure IAM Identity Center integration, RBAC role mappings, and network access settings.
         :param pulumi.Input['CapabilityDeletePropagationPolicy'] delete_propagation_policy: Specifies how Kubernetes resources managed by the capability should be handled when the capability is deleted. Currently, the only supported value is RETAIN which retains all Kubernetes resources managed by the capability when the capability is deleted.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that the capability uses to interact with AWS services. This role must have a trust policy that allows the EKS service principal to assume it, and it must have the necessary permissions for the capability type you're creating.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input['CapabilityType'] type: The type of capability to create. Valid values are: ACK (AWS Controllers for Kubernetes, which lets you manage AWS resources directly from Kubernetes), ARGOCD (Argo CD for GitOps-based continuous delivery), or KRO (Kube Resource Orchestrator for composing and managing custom Kubernetes resources).
         """
         ...
@@ -191,10 +191,10 @@ class Capability(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capability_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['CapabilityConfigurationArgs', 'CapabilityConfigurationArgsDict', 'outputs.CapabilityConfiguration']]] = None,
                  delete_propagation_policy: pulumi.Input[Optional['CapabilityDeletePropagationPolicy']] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['CapabilityType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -130,24 +130,24 @@ class Notification(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[Union['NotificationContentArgs', 'NotificationContentArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['NotificationContentArgs', 'NotificationContentArgsDict', 'outputs.NotificationContent']]] = None,
                  expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional['NotificationPriority']] = None,
                  recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::Notification
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['NotificationContentArgs', 'NotificationContentArgsDict']] content: The content of the notification.
+        :param pulumi.Input[Union['NotificationContentArgs', 'NotificationContentArgsDict', 'outputs.NotificationContent']] content: The content of the notification.
         :param pulumi.Input[_builtins.str] expires_at: The time a notification will expire
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input['NotificationPriority'] priority: The priority of the notification.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] recipients: The recipients of the notification.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -173,12 +173,12 @@ class Notification(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[Union['NotificationContentArgs', 'NotificationContentArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['NotificationContentArgs', 'NotificationContentArgsDict', 'outputs.NotificationContent']]] = None,
                  expires_at: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional['NotificationPriority']] = None,
                  recipients: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -219,34 +219,34 @@ class Service(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssertionDefinitionArgs', 'ServiceAssertionDefinitionArgsDict']]]]] = None,
-                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict']]]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssertionDefinitionArgs', 'ServiceAssertionDefinitionArgsDict', 'outputs.ServiceAssertionDefinition']]]]] = None,
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict', 'outputs.ServiceAssociatedSystem']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional['ServiceDependencyDiscovery']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict']]]]] = None,
+                 input_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict', 'outputs.ServiceInputSourceDefinition']]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permission_model: pulumi.Input[Optional[Union['ServicePermissionModelArgs', 'ServicePermissionModelArgsDict']]] = None,
+                 permission_model: pulumi.Input[Optional[Union['ServicePermissionModelArgs', 'ServicePermissionModelArgsDict', 'outputs.ServicePermissionModel']]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 report_configuration: pulumi.Input[Optional[Union['ServiceReportConfigurationArgs', 'ServiceReportConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 report_configuration: pulumi.Input[Optional[Union['ServiceReportConfigurationArgs', 'ServiceReportConfigurationArgsDict', 'outputs.ServiceReportConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a resilience-managed service with associated systems, input sources, assertions, and service functions.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAssertionDefinitionArgs', 'ServiceAssertionDefinitionArgsDict']]]] assertions: Assertions associated with this service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict']]]] associated_systems: Systems associated with this service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAssertionDefinitionArgs', 'ServiceAssertionDefinitionArgsDict', 'outputs.ServiceAssertionDefinition']]]] assertions: Assertions associated with this service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict', 'outputs.ServiceAssociatedSystem']]]] associated_systems: Systems associated with this service.
         :param pulumi.Input['ServiceDependencyDiscovery'] dependency_discovery: Dependency discovery state.
         :param pulumi.Input[_builtins.str] description: The description of the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict']]]] input_sources: Input sources for this service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict', 'outputs.ServiceInputSourceDefinition']]]] input_sources: Input sources for this service.
         :param pulumi.Input[_builtins.str] kms_key_id: The KMS key ID for encrypting service data.
         :param pulumi.Input[_builtins.str] name: The name of the service.
         :param pulumi.Input[_builtins.str] policy_arn: The ARN of the resilience policy to associate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: AWS regions for the service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags assigned to the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags assigned to the service.
         """
         ...
     @overload
@@ -272,18 +272,18 @@ class Service(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssertionDefinitionArgs', 'ServiceAssertionDefinitionArgsDict']]]]] = None,
-                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict']]]]] = None,
+                 assertions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssertionDefinitionArgs', 'ServiceAssertionDefinitionArgsDict', 'outputs.ServiceAssertionDefinition']]]]] = None,
+                 associated_systems: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceAssociatedSystemArgs', 'ServiceAssociatedSystemArgsDict', 'outputs.ServiceAssociatedSystem']]]]] = None,
                  dependency_discovery: pulumi.Input[Optional['ServiceDependencyDiscovery']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict']]]]] = None,
+                 input_sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ServiceInputSourceDefinitionArgs', 'ServiceInputSourceDefinitionArgsDict', 'outputs.ServiceInputSourceDefinition']]]]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permission_model: pulumi.Input[Optional[Union['ServicePermissionModelArgs', 'ServicePermissionModelArgsDict']]] = None,
+                 permission_model: pulumi.Input[Optional[Union['ServicePermissionModelArgs', 'ServicePermissionModelArgsDict', 'outputs.ServicePermissionModel']]] = None,
                  policy_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 report_configuration: pulumi.Input[Optional[Union['ServiceReportConfigurationArgs', 'ServiceReportConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 report_configuration: pulumi.Input[Optional[Union['ServiceReportConfigurationArgs', 'ServiceReportConfigurationArgsDict', 'outputs.ServiceReportConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

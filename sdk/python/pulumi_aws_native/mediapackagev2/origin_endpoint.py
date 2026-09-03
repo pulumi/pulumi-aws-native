@@ -256,16 +256,16 @@ class OriginEndpoint(pulumi.CustomResource):
                  channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  container_type: pulumi.Input[Optional['OriginEndpointContainerType']] = None,
-                 dash_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointDashManifestConfigurationArgs', 'OriginEndpointDashManifestConfigurationArgsDict']]]]] = None,
+                 dash_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointDashManifestConfigurationArgs', 'OriginEndpointDashManifestConfigurationArgsDict', 'outputs.OriginEndpointDashManifestConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 force_endpoint_error_configuration: pulumi.Input[Optional[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict']]] = None,
-                 hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict']]]]] = None,
-                 low_latency_hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict']]]]] = None,
-                 mss_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict']]]]] = None,
+                 force_endpoint_error_configuration: pulumi.Input[Optional[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict', 'outputs.OriginEndpointForceEndpointErrorConfiguration']]] = None,
+                 hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict', 'outputs.OriginEndpointHlsManifestConfiguration']]]]] = None,
+                 low_latency_hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict', 'outputs.OriginEndpointLowLatencyHlsManifestConfiguration']]]]] = None,
+                 mss_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict', 'outputs.OriginEndpointMssManifestConfiguration']]]]] = None,
                  origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 segment: pulumi.Input[Optional[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']]] = None,
+                 segment: pulumi.Input[Optional[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict', 'outputs.OriginEndpointSegment']]] = None,
                  startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  uri_separator: pulumi.Input[Optional['OriginEndpointUriSeparator']] = None,
                  __props__=None):
         """
@@ -276,16 +276,16 @@ class OriginEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the origin endpoint configuration.
         :param pulumi.Input[_builtins.str] channel_name: The channel name associated with the origin endpoint.
         :param pulumi.Input['OriginEndpointContainerType'] container_type: The container type associated with the origin endpoint configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointDashManifestConfigurationArgs', 'OriginEndpointDashManifestConfigurationArgsDict']]]] dash_manifests: <p>A DASH manifest configuration.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointDashManifestConfigurationArgs', 'OriginEndpointDashManifestConfigurationArgsDict', 'outputs.OriginEndpointDashManifestConfiguration']]]] dash_manifests: <p>A DASH manifest configuration.</p>
         :param pulumi.Input[_builtins.str] description: <p>Enter any descriptive text that helps you to identify the origin endpoint.</p>
-        :param pulumi.Input[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict']] force_endpoint_error_configuration: The failover settings for the endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict']]]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict']]]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
-        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict']]]] mss_manifests: <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
+        :param pulumi.Input[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict', 'outputs.OriginEndpointForceEndpointErrorConfiguration']] force_endpoint_error_configuration: The failover settings for the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict', 'outputs.OriginEndpointHlsManifestConfiguration']]]] hls_manifests: <p>An HTTP live streaming (HLS) manifest configuration.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict', 'outputs.OriginEndpointLowLatencyHlsManifestConfiguration']]]] low_latency_hls_manifests: <p>A low-latency HLS manifest configuration.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict', 'outputs.OriginEndpointMssManifestConfiguration']]]] mss_manifests: <p>The Microsoft Smooth Streaming (MSS) manifest configurations associated with this origin endpoint.</p>
         :param pulumi.Input[_builtins.str] origin_endpoint_name: The name of the origin endpoint associated with the origin endpoint configuration.
-        :param pulumi.Input[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']] segment: The segment associated with the origin endpoint.
+        :param pulumi.Input[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict', 'outputs.OriginEndpointSegment']] segment: The segment associated with the origin endpoint.
         :param pulumi.Input[_builtins.int] startover_window_seconds: <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the origin endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the origin endpoint.
         """
         ...
     @overload
@@ -314,16 +314,16 @@ class OriginEndpoint(pulumi.CustomResource):
                  channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  container_type: pulumi.Input[Optional['OriginEndpointContainerType']] = None,
-                 dash_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointDashManifestConfigurationArgs', 'OriginEndpointDashManifestConfigurationArgsDict']]]]] = None,
+                 dash_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointDashManifestConfigurationArgs', 'OriginEndpointDashManifestConfigurationArgsDict', 'outputs.OriginEndpointDashManifestConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 force_endpoint_error_configuration: pulumi.Input[Optional[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict']]] = None,
-                 hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict']]]]] = None,
-                 low_latency_hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict']]]]] = None,
-                 mss_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict']]]]] = None,
+                 force_endpoint_error_configuration: pulumi.Input[Optional[Union['OriginEndpointForceEndpointErrorConfigurationArgs', 'OriginEndpointForceEndpointErrorConfigurationArgsDict', 'outputs.OriginEndpointForceEndpointErrorConfiguration']]] = None,
+                 hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointHlsManifestConfigurationArgs', 'OriginEndpointHlsManifestConfigurationArgsDict', 'outputs.OriginEndpointHlsManifestConfiguration']]]]] = None,
+                 low_latency_hls_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointLowLatencyHlsManifestConfigurationArgs', 'OriginEndpointLowLatencyHlsManifestConfigurationArgsDict', 'outputs.OriginEndpointLowLatencyHlsManifestConfiguration']]]]] = None,
+                 mss_manifests: pulumi.Input[Optional[Sequence[pulumi.Input[Union['OriginEndpointMssManifestConfigurationArgs', 'OriginEndpointMssManifestConfigurationArgsDict', 'outputs.OriginEndpointMssManifestConfiguration']]]]] = None,
                  origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 segment: pulumi.Input[Optional[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']]] = None,
+                 segment: pulumi.Input[Optional[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict', 'outputs.OriginEndpointSegment']]] = None,
                  startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  uri_separator: pulumi.Input[Optional['OriginEndpointUriSeparator']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -169,11 +169,11 @@ class Key(pulumi.CustomResource):
                  derive_key_usage: pulumi.Input[Optional['KeyDeriveKeyUsage']] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  exportable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 key_attributes: pulumi.Input[Optional[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
+                 key_attributes: pulumi.Input[Optional[Union['KeyAttributesArgs', 'KeyAttributesArgsDict', 'outputs.KeyAttributes']]] = None,
                  key_check_value_algorithm: pulumi.Input[Optional['KeyCheckValueAlgorithm']] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::PaymentCryptography::Key Resource Type
@@ -183,7 +183,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.Input['KeyDeriveKeyUsage'] derive_key_usage: The cryptographic usage of an ECDH derived key as deﬁned in section A.5.2 of the TR-31 spec.
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the key is enabled.
         :param pulumi.Input[_builtins.bool] exportable: Specifies whether the key is exportable. This data is immutable after the key is created.
-        :param pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+        :param pulumi.Input[Union['KeyAttributesArgs', 'KeyAttributesArgsDict', 'outputs.KeyAttributes']] key_attributes: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
         :param pulumi.Input['KeyCheckValueAlgorithm'] key_check_value_algorithm: The algorithm that AWS Payment Cryptography uses to calculate the key check value (KCV). It is used to validate the key integrity.
                
                For TDES keys, the KCV is computed by encrypting 8 bytes, each with value of zero, with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For AES keys, the KCV is computed using a CMAC algorithm where the input data is 16 bytes of zero and retaining the 3 highest order bytes of the encrypted result.
@@ -219,11 +219,11 @@ class Key(pulumi.CustomResource):
                  derive_key_usage: pulumi.Input[Optional['KeyDeriveKeyUsage']] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  exportable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 key_attributes: pulumi.Input[Optional[Union['KeyAttributesArgs', 'KeyAttributesArgsDict']]] = None,
+                 key_attributes: pulumi.Input[Optional[Union['KeyAttributesArgs', 'KeyAttributesArgsDict', 'outputs.KeyAttributes']]] = None,
                  key_check_value_algorithm: pulumi.Input[Optional['KeyCheckValueAlgorithm']] = None,
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  replication_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

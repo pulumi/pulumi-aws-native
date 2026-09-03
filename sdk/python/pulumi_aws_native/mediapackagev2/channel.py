@@ -168,11 +168,11 @@ class Channel(pulumi.CustomResource):
                  channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
+                 input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict', 'outputs.ChannelInputSwitchConfiguration']]] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
-                 output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
+                 output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict', 'outputs.ChannelOutputHeaderConfiguration']]] = None,
                  output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         <p>Represents an entry point into AWS Elemental MediaPackage for an ABR video content stream sent from an upstream encoder such as AWS Elemental MediaLive. The channel continuously analyzes the content that it receives and prepares it to be distributed to consumers via one or more origin endpoints.</p>
@@ -182,14 +182,14 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] channel_group_name: The name of the channel group associated with the channel configuration.
         :param pulumi.Input[_builtins.str] channel_name: The name of the channel.
         :param pulumi.Input[_builtins.str] description: <p>Enter any descriptive text that helps you to identify the channel.</p>
-        :param pulumi.Input[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']] input_switch_configuration: The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
+        :param pulumi.Input[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict', 'outputs.ChannelInputSwitchConfiguration']] input_switch_configuration: The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
         :param pulumi.Input['ChannelInputType'] input_type: The input type will be an immutable field which will be used to define whether the channel will allow CMAF ingest or HLS ingest. If unprovided, it will default to HLS to preserve current behavior.
                
                The allowed values are:
                
                - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
                - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
-        :param pulumi.Input[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']] output_header_configuration: The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
+        :param pulumi.Input[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict', 'outputs.ChannelOutputHeaderConfiguration']] output_header_configuration: The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
         """
         ...
     @overload
@@ -218,11 +218,11 @@ class Channel(pulumi.CustomResource):
                  channel_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
+                 input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict', 'outputs.ChannelInputSwitchConfiguration']]] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
-                 output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
+                 output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict', 'outputs.ChannelOutputHeaderConfiguration']]] = None,
                  output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

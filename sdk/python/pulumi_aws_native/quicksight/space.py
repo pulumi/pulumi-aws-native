@@ -149,10 +149,10 @@ class Space(pulumi.CustomResource):
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourcePermissionArgs', 'SpaceResourcePermissionArgsDict']]]]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourceArgs', 'SpaceResourceArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourcePermissionArgs', 'SpaceResourcePermissionArgsDict', 'outputs.SpaceResourcePermission']]]]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourceArgs', 'SpaceResourceArgsDict', 'outputs.SpaceResource']]]]] = None,
                  space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::QuickSight::Space
@@ -162,10 +162,10 @@ class Space(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] aws_account_id: The ID of the Amazon Web Services account where the space is being created.
         :param pulumi.Input[_builtins.str] description: A description of the space.
         :param pulumi.Input[_builtins.str] name: The display name of the space.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpaceResourcePermissionArgs', 'SpaceResourcePermissionArgsDict']]]] permissions: A list of permissions granted on the space.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SpaceResourceArgs', 'SpaceResourceArgsDict']]]] resources: A list of QuickSight resources attached to the space.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpaceResourcePermissionArgs', 'SpaceResourcePermissionArgsDict', 'outputs.SpaceResourcePermission']]]] permissions: A list of permissions granted on the space.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpaceResourceArgs', 'SpaceResourceArgsDict', 'outputs.SpaceResource']]]] resources: A list of QuickSight resources attached to the space.
         :param pulumi.Input[_builtins.str] space_id: The unique identifier for the space.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the space resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs to associate with the space resource.
         """
         ...
     @overload
@@ -194,10 +194,10 @@ class Space(pulumi.CustomResource):
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourcePermissionArgs', 'SpaceResourcePermissionArgsDict']]]]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourceArgs', 'SpaceResourceArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourcePermissionArgs', 'SpaceResourcePermissionArgsDict', 'outputs.SpaceResourcePermission']]]]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SpaceResourceArgs', 'SpaceResourceArgsDict', 'outputs.SpaceResource']]]]] = None,
                  space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

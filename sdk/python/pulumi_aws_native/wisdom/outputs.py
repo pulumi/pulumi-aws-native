@@ -759,7 +759,7 @@ class AiAgentKnowledgeBaseAssociationConfigurationData(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 content_tag_filter: Optional[Any] = None,
+                 content_tag_filter: Optional[Union['outputs.AiAgentTagFilter0Properties', 'outputs.AiAgentTagFilter1Properties', 'outputs.AiAgentTagFilter2Properties']] = None,
                  max_results: Optional[_builtins.float] = None,
                  override_knowledge_base_search_type: Optional['AiAgentKnowledgeBaseSearchType'] = None):
         if content_tag_filter is not None:
@@ -771,7 +771,7 @@ class AiAgentKnowledgeBaseAssociationConfigurationData(dict):
 
     @_builtins.property
     @pulumi.getter(name="contentTagFilter")
-    def content_tag_filter(self) -> Optional[Any]:
+    def content_tag_filter(self) -> Optional[Union['outputs.AiAgentTagFilter0Properties', 'outputs.AiAgentTagFilter1Properties', 'outputs.AiAgentTagFilter2Properties']]:
         return pulumi.get(self, "content_tag_filter")
 
     @_builtins.property
@@ -1174,12 +1174,12 @@ class AiAgentTagFilter2Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 or_conditions: Sequence[Any]):
+                 or_conditions: Sequence[Union['outputs.AiAgentOrCondition0Properties', 'outputs.AiAgentOrCondition1Properties']]):
         pulumi.set(__self__, "or_conditions", or_conditions)
 
     @_builtins.property
     @pulumi.getter(name="orConditions")
-    def or_conditions(self) -> Sequence[Any]:
+    def or_conditions(self) -> Sequence[Union['outputs.AiAgentOrCondition0Properties', 'outputs.AiAgentOrCondition1Properties']]:
         return pulumi.get(self, "or_conditions")
 
 

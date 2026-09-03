@@ -180,8 +180,8 @@ class SimpleAd(pulumi.CustomResource):
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  short_name: pulumi.Input[Optional[_builtins.str]] = None,
                  size: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict', 'outputs.SimpleAdVpcSettings']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectoryService::SimpleAD
@@ -195,7 +195,7 @@ class SimpleAd(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] password: The password for the default administrative user named Admin.
         :param pulumi.Input[_builtins.str] short_name: The NetBIOS name for your domain.
         :param pulumi.Input[_builtins.str] size: The size of the directory.
-        :param pulumi.Input[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']] vpc_settings: VPC settings of the Simple AD directory server in AWS.
+        :param pulumi.Input[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict', 'outputs.SimpleAdVpcSettings']] vpc_settings: VPC settings of the Simple AD directory server in AWS.
         """
         ...
     @overload
@@ -228,8 +228,8 @@ class SimpleAd(pulumi.CustomResource):
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  short_name: pulumi.Input[Optional[_builtins.str]] = None,
                  size: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_settings: pulumi.Input[Optional[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_settings: pulumi.Input[Optional[Union['SimpleAdVpcSettingsArgs', 'SimpleAdVpcSettingsArgsDict', 'outputs.SimpleAdVpcSettings']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

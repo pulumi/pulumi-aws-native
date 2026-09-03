@@ -328,23 +328,23 @@ class ContainerFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_type: pulumi.Input[Optional['ContainerFleetBillingType']] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict', 'outputs.ContainerFleetDeploymentConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  fleet_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  game_server_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  game_server_container_groups_per_instance: pulumi.Input[Optional[_builtins.int]] = None,
-                 game_session_creation_limit_policy: pulumi.Input[Optional[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']]] = None,
-                 instance_connection_port_range: pulumi.Input[Optional[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']]] = None,
-                 instance_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]]] = None,
+                 game_session_creation_limit_policy: pulumi.Input[Optional[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict', 'outputs.ContainerFleetGameSessionCreationLimitPolicy']]] = None,
+                 instance_connection_port_range: pulumi.Input[Optional[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict', 'outputs.ContainerFleetConnectionPortRange']]] = None,
+                 instance_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict', 'outputs.ContainerFleetIpPermission']]]]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict']]]]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict', 'outputs.ContainerFleetLocationConfiguration']]]]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict', 'outputs.ContainerFleetLogConfiguration']]] = None,
                  metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  new_game_session_protection_policy: pulumi.Input[Optional['ContainerFleetNewGameSessionProtectionPolicy']] = None,
                  per_instance_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  player_gateway_mode: pulumi.Input[Optional['ContainerFleetPlayerGatewayMode']] = None,
-                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict', 'outputs.ContainerFleetScalingPolicy']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::GameLift::ContainerFleet resource creates an Amazon GameLift (GameLift) container fleet to host game servers.
@@ -352,16 +352,16 @@ class ContainerFleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ContainerFleetBillingType'] billing_type: Indicates whether to use On-Demand instances or Spot instances for this fleet. If empty, the default is ON_DEMAND. Both categories of instances use identical hardware and configurations based on the instance type selected for this fleet.
-        :param pulumi.Input[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']] deployment_configuration: Set of rules for processing a deployment for a container fleet update.
+        :param pulumi.Input[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict', 'outputs.ContainerFleetDeploymentConfiguration']] deployment_configuration: Set of rules for processing a deployment for a container fleet update.
         :param pulumi.Input[_builtins.str] description: A human-readable description of a fleet.
         :param pulumi.Input[_builtins.str] fleet_role_arn: A unique identifier for an AWS IAM role that manages access to your AWS services. Create a role or look up a role's ARN from the IAM dashboard in the AWS Management Console.
         :param pulumi.Input[_builtins.str] game_server_container_group_definition_name: The name of the container group definition that will be created per game server. You must specify GAME_SERVER container group. You have the option to also specify one PER_INSTANCE container group.
         :param pulumi.Input[_builtins.int] game_server_container_groups_per_instance: The number of desired game server container groups per instance, a number between 1-5000.
-        :param pulumi.Input[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']] game_session_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
-        :param pulumi.Input[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']] instance_connection_port_range: The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]] instance_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
+        :param pulumi.Input[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict', 'outputs.ContainerFleetGameSessionCreationLimitPolicy']] game_session_creation_limit_policy: A policy that limits the number of game sessions an individual player can create over a span of time for this fleet.
+        :param pulumi.Input[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict', 'outputs.ContainerFleetConnectionPortRange']] instance_connection_port_range: The set of port numbers to open on each instance in a container fleet. Connection ports are used by inbound traffic to connect with processes that are running in containers on the fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict', 'outputs.ContainerFleetIpPermission']]]] instance_inbound_permissions: A range of IP addresses and port settings that allow inbound traffic to connect to server processes on an Amazon GameLift server.
         :param pulumi.Input[_builtins.str] instance_type: The name of an EC2 instance type that is supported in Amazon GameLift. A fleet instance type determines the computing resources of each instance in the fleet, including CPU, memory, storage, and networking capacity. Amazon GameLift supports the following EC2 instance types. See Amazon EC2 Instance Types for detailed descriptions.
-        :param pulumi.Input[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
+        :param pulumi.Input[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict', 'outputs.ContainerFleetLogConfiguration']] log_configuration: The method that is used to collect container logs for the fleet. Amazon GameLift Servers saves all standard output for each container in logs, including game session logs.
                
                - `CLOUDWATCH` -- Send logs to an Amazon CloudWatch log group that you define. Each container emits a log stream, which is organized in the log group.
                - `S3` -- Store logs in an Amazon S3 bucket that you define.
@@ -370,8 +370,8 @@ class ContainerFleet(pulumi.CustomResource):
         :param pulumi.Input['ContainerFleetNewGameSessionProtectionPolicy'] new_game_session_protection_policy: A game session protection policy to apply to all game sessions hosted on instances in this fleet. When protected, active game sessions cannot be terminated during a scale-down event. If this parameter is not set, instances in this fleet default to no protection. You can change a fleet's protection policy to affect future game sessions on the fleet. You can also set protection for individual game sessions.
         :param pulumi.Input[_builtins.str] per_instance_container_group_definition_name: The name of the container group definition that will be created per instance. This field is optional if you specify GameServerContainerGroupDefinitionName.
         :param pulumi.Input['ContainerFleetPlayerGatewayMode'] player_gateway_mode: The player gateway mode for the container fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]] scaling_policies: A list of rules that control how a fleet is scaled.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict', 'outputs.ContainerFleetScalingPolicy']]]] scaling_policies: A list of rules that control how a fleet is scaled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -398,23 +398,23 @@ class ContainerFleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  billing_type: pulumi.Input[Optional['ContainerFleetBillingType']] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['ContainerFleetDeploymentConfigurationArgs', 'ContainerFleetDeploymentConfigurationArgsDict', 'outputs.ContainerFleetDeploymentConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  fleet_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  game_server_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  game_server_container_groups_per_instance: pulumi.Input[Optional[_builtins.int]] = None,
-                 game_session_creation_limit_policy: pulumi.Input[Optional[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict']]] = None,
-                 instance_connection_port_range: pulumi.Input[Optional[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict']]] = None,
-                 instance_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict']]]]] = None,
+                 game_session_creation_limit_policy: pulumi.Input[Optional[Union['ContainerFleetGameSessionCreationLimitPolicyArgs', 'ContainerFleetGameSessionCreationLimitPolicyArgsDict', 'outputs.ContainerFleetGameSessionCreationLimitPolicy']]] = None,
+                 instance_connection_port_range: pulumi.Input[Optional[Union['ContainerFleetConnectionPortRangeArgs', 'ContainerFleetConnectionPortRangeArgsDict', 'outputs.ContainerFleetConnectionPortRange']]] = None,
+                 instance_inbound_permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetIpPermissionArgs', 'ContainerFleetIpPermissionArgsDict', 'outputs.ContainerFleetIpPermission']]]]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict']]]]] = None,
-                 log_configuration: pulumi.Input[Optional[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict']]] = None,
+                 locations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetLocationConfigurationArgs', 'ContainerFleetLocationConfigurationArgsDict', 'outputs.ContainerFleetLocationConfiguration']]]]] = None,
+                 log_configuration: pulumi.Input[Optional[Union['ContainerFleetLogConfigurationArgs', 'ContainerFleetLogConfigurationArgsDict', 'outputs.ContainerFleetLogConfiguration']]] = None,
                  metric_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  new_game_session_protection_policy: pulumi.Input[Optional['ContainerFleetNewGameSessionProtectionPolicy']] = None,
                  per_instance_container_group_definition_name: pulumi.Input[Optional[_builtins.str]] = None,
                  player_gateway_mode: pulumi.Input[Optional['ContainerFleetPlayerGatewayMode']] = None,
-                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scaling_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerFleetScalingPolicyArgs', 'ContainerFleetScalingPolicyArgsDict', 'outputs.ContainerFleetScalingPolicy']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

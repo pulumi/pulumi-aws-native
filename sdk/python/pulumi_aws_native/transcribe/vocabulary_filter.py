@@ -130,7 +130,7 @@ class VocabularyFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_filter_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  vocabulary_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -142,7 +142,7 @@ class VocabularyFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] data_access_role_arn: The Amazon Resource Name (ARN) of an IAM role that has permissions to access the Amazon S3 bucket that contains your input files.
         :param pulumi.Input[_builtins.str] language_code: The language code that represents the language of the entries in your vocabulary filter.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the vocabulary filter.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the vocabulary filter.
         :param pulumi.Input[_builtins.str] vocabulary_filter_file_uri: The Amazon S3 location of the text file that contains your custom vocabulary filter terms.
         :param pulumi.Input[_builtins.str] vocabulary_filter_name: A unique name, chosen by you, for your custom vocabulary filter.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] words: Use this parameter if you want to create your custom vocabulary filter by including all desired terms, as comma-separated values, within your request.
@@ -173,7 +173,7 @@ class VocabularyFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  language_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vocabulary_filter_file_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  vocabulary_filter_name: pulumi.Input[Optional[_builtins.str]] = None,
                  words: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,

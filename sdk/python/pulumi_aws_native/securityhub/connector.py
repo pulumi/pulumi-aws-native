@@ -91,7 +91,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider: pulumi.Input[Optional[Union['ConnectorProviderArgs', 'ConnectorProviderArgsDict']]] = None,
+                 provider: pulumi.Input[Optional[Union['ConnectorProviderArgs', 'ConnectorProviderArgsDict', 'outputs.ConnectorProvider']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -128,7 +128,7 @@ class Connector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider: pulumi.Input[Optional[Union['ConnectorProviderArgs', 'ConnectorProviderArgsDict']]] = None,
+                 provider: pulumi.Input[Optional[Union['ConnectorProviderArgs', 'ConnectorProviderArgsDict', 'outputs.ConnectorProvider']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

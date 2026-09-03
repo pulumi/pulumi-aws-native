@@ -100,7 +100,7 @@ class ReferenceStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sse_config: pulumi.Input[Optional[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict', 'outputs.ReferenceStoreSseConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -110,7 +110,7 @@ class ReferenceStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the store.
         :param pulumi.Input[_builtins.str] name: A name for the store.
-        :param pulumi.Input[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict']] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict', 'outputs.ReferenceStoreSseConfig']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags for the store.
         """
         ...
@@ -139,7 +139,7 @@ class ReferenceStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sse_config: pulumi.Input[Optional[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['ReferenceStoreSseConfigArgs', 'ReferenceStoreSseConfigArgsDict', 'outputs.ReferenceStoreSseConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

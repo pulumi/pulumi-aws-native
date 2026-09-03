@@ -164,13 +164,13 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 attach_point: pulumi.Input[Optional[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict']]] = None,
+                 attach_point: pulumi.Input[Optional[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict', 'outputs.ConnectionAttachPoint']]] = None,
                  bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_account: pulumi.Input[Optional[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
+                 remote_account: pulumi.Input[Optional[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict', 'outputs.RemoteAccountProperties']]] = None,
                  remote_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Interconnect::Connection. Creates a managed network connection between AWS and a partner cloud service provider.
@@ -178,13 +178,13 @@ class Connection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] activation_key: The activation key for accepting a connection proposal from a partner CSP. Mutually exclusive with EnvironmentId.
-        :param pulumi.Input[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict']] attach_point: The logical attachment point in your AWS network where the managed connection will be connected.
+        :param pulumi.Input[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict', 'outputs.ConnectionAttachPoint']] attach_point: The logical attachment point in your AWS network where the managed connection will be connected.
         :param pulumi.Input[_builtins.str] bandwidth: The bandwidth of the connection (e.g., 50Mbps, 1Gbps). Required when creating a connection through AWS.
         :param pulumi.Input[_builtins.str] description: A description of the connection.
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment for the connection. Required when creating a connection through AWS. Mutually exclusive with ActivationKey.
-        :param pulumi.Input[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']] remote_account: The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
+        :param pulumi.Input[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict', 'outputs.RemoteAccountProperties']] remote_account: The remote account identifier for the connection. Required when creating a connection through AWS. Replaces RemoteOwnerAccount.
         :param pulumi.Input[_builtins.str] remote_owner_account: Deprecated. Use RemoteAccount instead. The account ID of the remote owner. Required when creating a connection through AWS.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -211,13 +211,13 @@ class Connection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  activation_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 attach_point: pulumi.Input[Optional[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict']]] = None,
+                 attach_point: pulumi.Input[Optional[Union['ConnectionAttachPointArgs', 'ConnectionAttachPointArgsDict', 'outputs.ConnectionAttachPoint']]] = None,
                  bandwidth: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 remote_account: pulumi.Input[Optional[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict']]] = None,
+                 remote_account: pulumi.Input[Optional[Union['RemoteAccountPropertiesArgs', 'RemoteAccountPropertiesArgsDict', 'outputs.RemoteAccountProperties']]] = None,
                  remote_owner_account: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

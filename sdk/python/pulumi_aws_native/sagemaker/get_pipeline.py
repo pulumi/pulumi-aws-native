@@ -55,7 +55,7 @@ class GetPipelineResult:
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinition")
-    def pipeline_definition(self) -> Optional[Any]:
+    def pipeline_definition(self) -> Optional[Union['outputs.PipelineDefinition0Properties', 'outputs.PipelineDefinition1Properties']]:
         """
         The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
         """

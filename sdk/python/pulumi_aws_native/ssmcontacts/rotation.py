@@ -130,9 +130,9 @@ class Rotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence: pulumi.Input[Optional[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict', 'outputs.RotationRecurrenceSettings']]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -142,9 +142,9 @@ class Rotation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: Members of the rotation
         :param pulumi.Input[_builtins.str] name: Name of the Rotation
-        :param pulumi.Input[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict']] recurrence: Information about the rule that specifies when shift team members rotate.
+        :param pulumi.Input[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict', 'outputs.RotationRecurrenceSettings']] recurrence: Information about the rule that specifies when shift team members rotate.
         :param pulumi.Input[_builtins.str] start_time: Start time of the first shift of Oncall Schedule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Optional metadata to assign to the rotation. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment. For more information, see [Tagging Incident Manager resources](https://docs.aws.amazon.com/incident-manager/latest/userguide/tagging.html) in the *Incident Manager User Guide* .
         :param pulumi.Input[_builtins.str] time_zone_id: TimeZone Identifier for the Oncall Schedule
         """
         ...
@@ -173,9 +173,9 @@ class Rotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurrence: pulumi.Input[Optional[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict']]] = None,
+                 recurrence: pulumi.Input[Optional[Union['RotationRecurrenceSettingsArgs', 'RotationRecurrenceSettingsArgsDict', 'outputs.RotationRecurrenceSettings']]] = None,
                  start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  time_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

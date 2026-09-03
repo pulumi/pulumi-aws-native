@@ -207,13 +207,13 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
+                 destination_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict', 'outputs.TrafficMirrorFilterRuleTrafficMirrorPortRange']]] = None,
                  protocol: pulumi.Input[Optional[_builtins.int]] = None,
                  rule_action: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_number: pulumi.Input[Optional[_builtins.int]] = None,
                  source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict', 'outputs.TrafficMirrorFilterRuleTrafficMirrorPortRange']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_direction: pulumi.Input[Optional[_builtins.str]] = None,
                  traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -224,13 +224,13 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Traffic Mirror Filter rule.
         :param pulumi.Input[_builtins.str] destination_cidr_block: The destination CIDR block to assign to the Traffic Mirror rule.
-        :param pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']] destination_port_range: The destination port range.
+        :param pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict', 'outputs.TrafficMirrorFilterRuleTrafficMirrorPortRange']] destination_port_range: The destination port range.
         :param pulumi.Input[_builtins.int] protocol: The number of protocol, for example 17 (UDP), to assign to the Traffic Mirror rule.
         :param pulumi.Input[_builtins.str] rule_action: The action to take on the filtered traffic (accept/reject).
         :param pulumi.Input[_builtins.int] rule_number: The number of the Traffic Mirror rule.
         :param pulumi.Input[_builtins.str] source_cidr_block: The source CIDR block to assign to the Traffic Mirror Filter rule.
-        :param pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']] source_port_range: The source port range.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the Traffic Mirror Filter rule.
+        :param pulumi.Input[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict', 'outputs.TrafficMirrorFilterRuleTrafficMirrorPortRange']] source_port_range: The source port range.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Any tags assigned to the Traffic Mirror Filter rule.
         :param pulumi.Input[_builtins.str] traffic_direction: The direction of traffic (ingress/egress).
         :param pulumi.Input[_builtins.str] traffic_mirror_filter_id: The ID of the filter that this rule is associated with.
         """
@@ -260,13 +260,13 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
+                 destination_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict', 'outputs.TrafficMirrorFilterRuleTrafficMirrorPortRange']]] = None,
                  protocol: pulumi.Input[Optional[_builtins.int]] = None,
                  rule_action: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_number: pulumi.Input[Optional[_builtins.int]] = None,
                  source_cidr_block: pulumi.Input[Optional[_builtins.str]] = None,
-                 source_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 source_port_range: pulumi.Input[Optional[Union['TrafficMirrorFilterRuleTrafficMirrorPortRangeArgs', 'TrafficMirrorFilterRuleTrafficMirrorPortRangeArgsDict', 'outputs.TrafficMirrorFilterRuleTrafficMirrorPortRange']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  traffic_direction: pulumi.Input[Optional[_builtins.str]] = None,
                  traffic_mirror_filter_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

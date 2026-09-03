@@ -83,18 +83,18 @@ class OrganizationTelemetryRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rule: pulumi.Input[Optional[Union['OrganizationTelemetryRuleTelemetryRuleArgs', 'OrganizationTelemetryRuleTelemetryRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['OrganizationTelemetryRuleTelemetryRuleArgs', 'OrganizationTelemetryRuleTelemetryRuleArgsDict', 'outputs.OrganizationTelemetryRuleTelemetryRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::ObservabilityAdmin::OrganizationTelemetryRule resource defines a CloudWatch Observability Admin Organization Telemetry Rule.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['OrganizationTelemetryRuleTelemetryRuleArgs', 'OrganizationTelemetryRuleTelemetryRuleArgsDict']] rule: The name of the organization telemetry rule.
+        :param pulumi.Input[Union['OrganizationTelemetryRuleTelemetryRuleArgs', 'OrganizationTelemetryRuleTelemetryRuleArgsDict', 'outputs.OrganizationTelemetryRuleTelemetryRule']] rule: The name of the organization telemetry rule.
         :param pulumi.Input[_builtins.str] rule_name: The name of the organization telemetry rule
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource
         """
         ...
     @overload
@@ -120,9 +120,9 @@ class OrganizationTelemetryRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rule: pulumi.Input[Optional[Union['OrganizationTelemetryRuleTelemetryRuleArgs', 'OrganizationTelemetryRuleTelemetryRuleArgsDict']]] = None,
+                 rule: pulumi.Input[Optional[Union['OrganizationTelemetryRuleTelemetryRuleArgs', 'OrganizationTelemetryRuleTelemetryRuleArgsDict', 'outputs.OrganizationTelemetryRuleTelemetryRule']]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

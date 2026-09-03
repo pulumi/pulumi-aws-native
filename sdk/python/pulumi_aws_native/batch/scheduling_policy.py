@@ -94,9 +94,9 @@ class SchedulingPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fairshare_policy: pulumi.Input[Optional[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']]] = None,
+                 fairshare_policy: pulumi.Input[Optional[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict', 'outputs.SchedulingPolicyFairsharePolicy']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quota_share_policy: pulumi.Input[Optional[Union['SchedulingPolicyQuotaSharePolicyArgs', 'SchedulingPolicyQuotaSharePolicyArgsDict']]] = None,
+                 quota_share_policy: pulumi.Input[Optional[Union['SchedulingPolicyQuotaSharePolicyArgs', 'SchedulingPolicyQuotaSharePolicyArgsDict', 'outputs.SchedulingPolicyQuotaSharePolicy']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -104,7 +104,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']] fairshare_policy: The fair-share scheduling policy details.
+        :param pulumi.Input[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict', 'outputs.SchedulingPolicyFairsharePolicy']] fairshare_policy: The fair-share scheduling policy details.
         :param pulumi.Input[_builtins.str] name: Name of Scheduling Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A key-value pair to associate with a resource.
         """
@@ -132,9 +132,9 @@ class SchedulingPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 fairshare_policy: pulumi.Input[Optional[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict']]] = None,
+                 fairshare_policy: pulumi.Input[Optional[Union['SchedulingPolicyFairsharePolicyArgs', 'SchedulingPolicyFairsharePolicyArgsDict', 'outputs.SchedulingPolicyFairsharePolicy']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 quota_share_policy: pulumi.Input[Optional[Union['SchedulingPolicyQuotaSharePolicyArgs', 'SchedulingPolicyQuotaSharePolicyArgsDict']]] = None,
+                 quota_share_policy: pulumi.Input[Optional[Union['SchedulingPolicyQuotaSharePolicyArgs', 'SchedulingPolicyQuotaSharePolicyArgsDict', 'outputs.SchedulingPolicyQuotaSharePolicy']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
