@@ -163,11 +163,11 @@ class Workspace(pulumi.CustomResource):
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  root_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  user_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  volume_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_properties: pulumi.Input[Optional[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict']]] = None,
+                 workspace_properties: pulumi.Input[Optional[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict', 'outputs.WorkspaceProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::WorkSpaces::Workspace
@@ -177,11 +177,11 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] bundle_id: The identifier of the bundle for the WorkSpace.
         :param pulumi.Input[_builtins.str] directory_id: The identifier of the Directory Service directory for the WorkSpace.
         :param pulumi.Input[_builtins.bool] root_volume_encryption_enabled: Indicates whether the data stored on the root volume is encrypted.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the WorkSpace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the WorkSpace.
         :param pulumi.Input[_builtins.str] user_name: The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace.
         :param pulumi.Input[_builtins.bool] user_volume_encryption_enabled: Indicates whether the data stored on the user volume is encrypted.
         :param pulumi.Input[_builtins.str] volume_encryption_key: The symmetric AWS KMS key used to encrypt data stored on your WorkSpace. Amazon WorkSpaces does not support asymmetric KMS keys.
-        :param pulumi.Input[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict']] workspace_properties: The WorkSpace properties.
+        :param pulumi.Input[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict', 'outputs.WorkspaceProperties']] workspace_properties: The WorkSpace properties.
         """
         ...
     @overload
@@ -210,11 +210,11 @@ class Workspace(pulumi.CustomResource):
                  bundle_id: pulumi.Input[Optional[_builtins.str]] = None,
                  directory_id: pulumi.Input[Optional[_builtins.str]] = None,
                  root_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  user_name: pulumi.Input[Optional[_builtins.str]] = None,
                  user_volume_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  volume_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 workspace_properties: pulumi.Input[Optional[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict']]] = None,
+                 workspace_properties: pulumi.Input[Optional[Union['WorkspacePropertiesArgs', 'WorkspacePropertiesArgsDict', 'outputs.WorkspaceProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

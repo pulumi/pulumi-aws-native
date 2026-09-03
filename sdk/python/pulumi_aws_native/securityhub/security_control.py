@@ -98,7 +98,7 @@ class SecurityControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  last_update_reason: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict', 'outputs.SecurityControlParameterConfiguration']]]]] = None,
                  security_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  security_control_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -108,7 +108,7 @@ class SecurityControl(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] last_update_reason: The most recent reason for updating the customizable properties of a security control. This differs from the UpdateReason field of the BatchUpdateStandardsControlAssociations API, which tracks the reason for updating the enablement status of a control. This field accepts alphanumeric characters in addition to white spaces, dashes, and underscores.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict']]]] parameters: An object that identifies the name of a control parameter, its current value, and whether it has been customized.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict', 'outputs.SecurityControlParameterConfiguration']]]] parameters: An object that identifies the name of a control parameter, its current value, and whether it has been customized.
         :param pulumi.Input[_builtins.str] security_control_arn: The Amazon Resource Name (ARN) for a security control across standards, such as `arn:aws:securityhub:eu-central-1:123456789012:security-control/S3.1`. This parameter doesn't mention a specific standard.
         :param pulumi.Input[_builtins.str] security_control_id: The unique identifier of a security control across standards. Values for this field typically consist of an AWS service name and a number, such as APIGateway.3.
         """
@@ -137,7 +137,7 @@ class SecurityControl(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  last_update_reason: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityControlParameterConfigurationArgs', 'SecurityControlParameterConfigurationArgsDict', 'outputs.SecurityControlParameterConfiguration']]]]] = None,
                  security_control_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  security_control_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

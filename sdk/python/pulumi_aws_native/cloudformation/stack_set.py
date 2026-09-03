@@ -276,18 +276,18 @@ class StackSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']]] = None,
                  call_as: pulumi.Input[Optional['StackSetCallAs']] = None,
                  capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_execution: pulumi.Input[Optional[Union['ManagedExecutionPropertiesArgs', 'ManagedExecutionPropertiesArgsDict']]] = None,
-                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetParameterArgs', 'StackSetParameterArgsDict']]]]] = None,
+                 managed_execution: pulumi.Input[Optional[Union['ManagedExecutionPropertiesArgs', 'ManagedExecutionPropertiesArgsDict', 'outputs.ManagedExecutionProperties']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetParameterArgs', 'StackSetParameterArgsDict', 'outputs.StackSetParameter']]]]] = None,
                  permission_model: pulumi.Input[Optional['StackSetPermissionModel']] = None,
-                 stack_instances_group: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetStackInstancesArgs', 'StackSetStackInstancesArgsDict']]]]] = None,
+                 stack_instances_group: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetStackInstancesArgs', 'StackSetStackInstancesArgsDict', 'outputs.StackSetStackInstances']]]]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -297,18 +297,18 @@ class StackSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administration_role_arn: The Amazon Resource Number (ARN) of the IAM role to use to create this stack set. Specify an IAM role only if you are using customized administrator roles to control which users or groups can manage specific stack sets within the same administrator account.
-        :param pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
+        :param pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']] auto_deployment: Describes whether StackSets automatically deploys to AWS Organizations accounts that are added to the target organization or organizational unit (OU). Specify only if PermissionModel is SERVICE_MANAGED.
         :param pulumi.Input['StackSetCallAs'] call_as: Specifies the AWS account that you are acting from. By default, SELF is specified. For self-managed permissions, specify SELF; for service-managed permissions, if you are signed in to the organization's management account, specify SELF. If you are signed in to a delegated administrator account, specify DELEGATED_ADMIN.
         :param pulumi.Input[Sequence[pulumi.Input['StackSetCapability']]] capabilities: In some cases, you must explicitly acknowledge that your stack set template contains certain capabilities in order for AWS CloudFormation to create the stack set and related stack instances.
         :param pulumi.Input[_builtins.str] description: A description of the stack set. You can use the description to identify the stack set's purpose or other important information.
         :param pulumi.Input[_builtins.str] execution_role_name: The name of the IAM execution role to use to create the stack set. If you do not specify an execution role, AWS CloudFormation uses the AWSCloudFormationStackSetExecutionRole role for the stack set operation.
-        :param pulumi.Input[Union['ManagedExecutionPropertiesArgs', 'ManagedExecutionPropertiesArgsDict']] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
-        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']] operation_preferences: The user-specified preferences for how CloudFormation performs a StackSet operation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackSetParameterArgs', 'StackSetParameterArgsDict']]]] parameters: The input parameters for the stack set template.
+        :param pulumi.Input[Union['ManagedExecutionPropertiesArgs', 'ManagedExecutionPropertiesArgsDict', 'outputs.ManagedExecutionProperties']] managed_execution: Describes whether StackSets performs non-conflicting operations concurrently and queues conflicting operations.
+        :param pulumi.Input[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']] operation_preferences: The user-specified preferences for how CloudFormation performs a StackSet operation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackSetParameterArgs', 'StackSetParameterArgsDict', 'outputs.StackSetParameter']]]] parameters: The input parameters for the stack set template.
         :param pulumi.Input['StackSetPermissionModel'] permission_model: Describes how the IAM roles required for stack set operations are created. By default, SELF-MANAGED is specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StackSetStackInstancesArgs', 'StackSetStackInstancesArgsDict']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StackSetStackInstancesArgs', 'StackSetStackInstancesArgsDict', 'outputs.StackSetStackInstances']]]] stack_instances_group: A group of stack instances with parameters in some specific accounts and regions.
         :param pulumi.Input[_builtins.str] stack_set_name: The name to associate with the stack set. The name must be unique in the Region where you create your stack set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The key-value pairs to associate with this stack set and the stacks created from it. AWS CloudFormation also propagates these tags to supported resources that are created in the stacks. A maximum number of 50 tags can be specified.
         :param pulumi.Input[_builtins.str] template_body: The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200 bytes.
         :param pulumi.Input[_builtins.str] template_url: Location of file containing the template body. The URL must point to a template (max size: 460,800 bytes) that is located in an Amazon S3 bucket.
         """
@@ -337,18 +337,18 @@ class StackSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  administration_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']]] = None,
+                 auto_deployment: pulumi.Input[Optional[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict', 'outputs.StackSetAutoDeployment']]] = None,
                  call_as: pulumi.Input[Optional['StackSetCallAs']] = None,
                  capabilities: pulumi.Input[Optional[Sequence[pulumi.Input['StackSetCapability']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_execution: pulumi.Input[Optional[Union['ManagedExecutionPropertiesArgs', 'ManagedExecutionPropertiesArgsDict']]] = None,
-                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict']]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetParameterArgs', 'StackSetParameterArgsDict']]]]] = None,
+                 managed_execution: pulumi.Input[Optional[Union['ManagedExecutionPropertiesArgs', 'ManagedExecutionPropertiesArgsDict', 'outputs.ManagedExecutionProperties']]] = None,
+                 operation_preferences: pulumi.Input[Optional[Union['StackSetOperationPreferencesArgs', 'StackSetOperationPreferencesArgsDict', 'outputs.StackSetOperationPreferences']]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetParameterArgs', 'StackSetParameterArgsDict', 'outputs.StackSetParameter']]]]] = None,
                  permission_model: pulumi.Input[Optional['StackSetPermissionModel']] = None,
-                 stack_instances_group: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetStackInstancesArgs', 'StackSetStackInstancesArgsDict']]]]] = None,
+                 stack_instances_group: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StackSetStackInstancesArgs', 'StackSetStackInstancesArgsDict', 'outputs.StackSetStackInstances']]]]] = None,
                  stack_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_url: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

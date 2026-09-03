@@ -166,11 +166,11 @@ class KnowledgeBase(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_type: pulumi.Input[Optional['KnowledgeBaseType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rendering_configuration: pulumi.Input[Optional[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
-                 source_configuration: pulumi.Input[Optional[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 vector_ingestion_configuration: pulumi.Input[Optional[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']]] = None,
+                 rendering_configuration: pulumi.Input[Optional[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict', 'outputs.KnowledgeBaseRenderingConfiguration']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict', 'outputs.KnowledgeBaseServerSideEncryptionConfiguration']]] = None,
+                 source_configuration: pulumi.Input[Optional[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict', 'outputs.KnowledgeBaseSourceConfiguration0Properties'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict', 'outputs.KnowledgeBaseSourceConfiguration1Properties']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict', 'outputs.KnowledgeBaseVectorIngestionConfiguration']]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::KnowledgeBase Resource Type
@@ -180,11 +180,11 @@ class KnowledgeBase(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description.
         :param pulumi.Input['KnowledgeBaseType'] knowledge_base_type: The type of knowledge base. Only CUSTOM knowledge bases allow you to upload your own content. EXTERNAL knowledge bases support integrations with third-party systems whose content is synchronized automatically.
         :param pulumi.Input[_builtins.str] name: The name of the knowledge base.
-        :param pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']] rendering_configuration: Information about how to render the content.
-        :param pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
-        :param pulumi.Input[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
-        :param pulumi.Input[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']] vector_ingestion_configuration: Contains details about how to ingest the documents in a data source.
+        :param pulumi.Input[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict', 'outputs.KnowledgeBaseRenderingConfiguration']] rendering_configuration: Information about how to render the content.
+        :param pulumi.Input[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict', 'outputs.KnowledgeBaseServerSideEncryptionConfiguration']] server_side_encryption_configuration: This customer managed key must have a policy that allows `kms:CreateGrant` and `kms:DescribeKey` permissions to the IAM identity using the key to invoke Wisdom. For more information about setting up a customer managed key for Wisdom, see [Enable Connect Customer Wisdom for your instance](https://docs.aws.amazon.com/connect/latest/adminguide/enable-wisdom.html) . For information about valid ID values, see [Key identifiers (KeyId)](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id) in the *AWS Key Management Service Developer Guide* .
+        :param pulumi.Input[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict', 'outputs.KnowledgeBaseSourceConfiguration0Properties'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict', 'outputs.KnowledgeBaseSourceConfiguration1Properties']]] source_configuration: The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict', 'outputs.KnowledgeBaseVectorIngestionConfiguration']] vector_ingestion_configuration: Contains details about how to ingest the documents in a data source.
         """
         ...
     @overload
@@ -213,11 +213,11 @@ class KnowledgeBase(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  knowledge_base_type: pulumi.Input[Optional['KnowledgeBaseType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rendering_configuration: pulumi.Input[Optional[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict']]] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict']]] = None,
-                 source_configuration: pulumi.Input[Optional[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict']]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
-                 vector_ingestion_configuration: pulumi.Input[Optional[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict']]] = None,
+                 rendering_configuration: pulumi.Input[Optional[Union['KnowledgeBaseRenderingConfigurationArgs', 'KnowledgeBaseRenderingConfigurationArgsDict', 'outputs.KnowledgeBaseRenderingConfiguration']]] = None,
+                 server_side_encryption_configuration: pulumi.Input[Optional[Union['KnowledgeBaseServerSideEncryptionConfigurationArgs', 'KnowledgeBaseServerSideEncryptionConfigurationArgsDict', 'outputs.KnowledgeBaseServerSideEncryptionConfiguration']]] = None,
+                 source_configuration: pulumi.Input[Optional[Union[Union['KnowledgeBaseSourceConfiguration0PropertiesArgs', 'KnowledgeBaseSourceConfiguration0PropertiesArgsDict', 'outputs.KnowledgeBaseSourceConfiguration0Properties'], Union['KnowledgeBaseSourceConfiguration1PropertiesArgs', 'KnowledgeBaseSourceConfiguration1PropertiesArgsDict', 'outputs.KnowledgeBaseSourceConfiguration1Properties']]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
+                 vector_ingestion_configuration: pulumi.Input[Optional[Union['KnowledgeBaseVectorIngestionConfigurationArgs', 'KnowledgeBaseVectorIngestionConfigurationArgsDict', 'outputs.KnowledgeBaseVectorIngestionConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,7 +333,7 @@ class KnowledgeBase(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="sourceConfiguration")
-    def source_configuration(self) -> pulumi.Output[Optional[Any]]:
+    def source_configuration(self) -> pulumi.Output[Optional[Union['outputs.KnowledgeBaseSourceConfiguration0Properties', 'outputs.KnowledgeBaseSourceConfiguration1Properties']]]:
         """
         The source of the knowledge base content. Only set this argument for EXTERNAL or Managed knowledge bases.
         """

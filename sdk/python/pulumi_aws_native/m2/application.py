@@ -153,7 +153,7 @@ class Application(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict', 'outputs.ApplicationDefinition0Properties'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict', 'outputs.ApplicationDefinition1Properties']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_type: pulumi.Input[Optional['ApplicationEngineType']] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -166,7 +166,7 @@ class Application(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
+        :param pulumi.Input[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict', 'outputs.ApplicationDefinition0Properties'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict', 'outputs.ApplicationDefinition1Properties']]] definition: The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
                
                For information about application definitions, see the [AWS Mainframe Modernization User Guide](https://docs.aws.amazon.com/m2/latest/userguide/applications-m2-definition.html) .
         :param pulumi.Input[_builtins.str] description: The description of the application.
@@ -202,7 +202,7 @@ class Application(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 definition: pulumi.Input[Optional[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict']]]] = None,
+                 definition: pulumi.Input[Optional[Union[Union['ApplicationDefinition0PropertiesArgs', 'ApplicationDefinition0PropertiesArgsDict', 'outputs.ApplicationDefinition0Properties'], Union['ApplicationDefinition1PropertiesArgs', 'ApplicationDefinition1PropertiesArgsDict', 'outputs.ApplicationDefinition1Properties']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_type: pulumi.Input[Optional['ApplicationEngineType']] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -282,7 +282,7 @@ class Application(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Optional[Any]]:
+    def definition(self) -> pulumi.Output[Optional[Union['outputs.ApplicationDefinition0Properties', 'outputs.ApplicationDefinition1Properties']]]:
         """
         The application definition for a particular application. You can specify either inline JSON or an Amazon S3 bucket location.
 

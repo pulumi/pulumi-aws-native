@@ -56,12 +56,12 @@ class GetGatewayRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> Optional[Sequence[Any]]:
+    def actions(self) -> Optional[Sequence[Union['outputs.GatewayRuleAction0Properties', 'outputs.GatewayRuleAction1Properties']]]:
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> Optional[Sequence[Any]]:
+    def conditions(self) -> Optional[Sequence[Union['outputs.GatewayRuleCondition0Properties', 'outputs.GatewayRuleCondition1Properties']]]:
         return pulumi.get(self, "conditions")
 
     @_builtins.property

@@ -259,15 +259,15 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_info: pulumi.Input[Optional[Union['MaintenanceWindowTaskLoggingInfoArgs', 'MaintenanceWindowTaskLoggingInfoArgsDict']]] = None,
+                 logging_info: pulumi.Input[Optional[Union['MaintenanceWindowTaskLoggingInfoArgs', 'MaintenanceWindowTaskLoggingInfoArgsDict', 'outputs.MaintenanceWindowTaskLoggingInfo']]] = None,
                  max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
                  max_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]]] = None,
                  task_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']]] = None,
                  task_parameters: Optional[Any] = None,
                  task_type: pulumi.Input[Optional[_builtins.str]] = None,
                  window_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -410,15 +410,15 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cutoff_behavior: The specification for whether tasks should continue to run after the cutoff time specified in the maintenance windows is reached.
         :param pulumi.Input[_builtins.str] description: A description of the task.
-        :param pulumi.Input[Union['MaintenanceWindowTaskLoggingInfoArgs', 'MaintenanceWindowTaskLoggingInfoArgsDict']] logging_info: Information about an Amazon S3 bucket to write Run Command task-level logs to.
+        :param pulumi.Input[Union['MaintenanceWindowTaskLoggingInfoArgs', 'MaintenanceWindowTaskLoggingInfoArgsDict', 'outputs.MaintenanceWindowTaskLoggingInfo']] logging_info: Information about an Amazon S3 bucket to write Run Command task-level logs to.
         :param pulumi.Input[_builtins.str] max_concurrency: The maximum number of targets this task can be run for, in parallel.
         :param pulumi.Input[_builtins.str] max_errors: The maximum number of errors allowed before this task stops being scheduled.
         :param pulumi.Input[_builtins.str] name: The task name.
         :param pulumi.Input[_builtins.int] priority: The priority of the task in the maintenance window. The lower the number, the higher the priority. Tasks that have the same priority are scheduled in parallel.
         :param pulumi.Input[_builtins.str] service_role_arn: The Amazon Resource Name (ARN) of the IAM service role for AWS Systems Manager to assume when running a maintenance window task.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]] targets: The targets (either instances or window target ids).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]] targets: The targets (either instances or window target ids).
         :param pulumi.Input[_builtins.str] task_arn: The resource that the task uses during execution.
-        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']] task_invocation_parameters: The parameters to pass to the task when it runs. Populate only the fields that match the task type. All other fields should be empty.
+        :param pulumi.Input[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']] task_invocation_parameters: The parameters to pass to the task when it runs. Populate only the fields that match the task type. All other fields should be empty.
         :param Any task_parameters: The parameters to pass to the task when it runs.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::MaintenanceWindowTask` for more information about the expected schema for this property.
@@ -582,15 +582,15 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  cutoff_behavior: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_info: pulumi.Input[Optional[Union['MaintenanceWindowTaskLoggingInfoArgs', 'MaintenanceWindowTaskLoggingInfoArgsDict']]] = None,
+                 logging_info: pulumi.Input[Optional[Union['MaintenanceWindowTaskLoggingInfoArgs', 'MaintenanceWindowTaskLoggingInfoArgsDict', 'outputs.MaintenanceWindowTaskLoggingInfo']]] = None,
                  max_concurrency: pulumi.Input[Optional[_builtins.str]] = None,
                  max_errors: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
                  service_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict']]]]] = None,
+                 targets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MaintenanceWindowTaskTargetArgs', 'MaintenanceWindowTaskTargetArgsDict', 'outputs.MaintenanceWindowTaskTarget']]]]] = None,
                  task_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict']]] = None,
+                 task_invocation_parameters: pulumi.Input[Optional[Union['MaintenanceWindowTaskTaskInvocationParametersArgs', 'MaintenanceWindowTaskTaskInvocationParametersArgsDict', 'outputs.MaintenanceWindowTaskTaskInvocationParameters']]] = None,
                  task_parameters: Optional[Any] = None,
                  task_type: pulumi.Input[Optional[_builtins.str]] = None,
                  window_id: pulumi.Input[Optional[_builtins.str]] = None,

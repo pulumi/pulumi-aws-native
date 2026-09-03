@@ -117,7 +117,7 @@ class Account(pulumi.CustomResource):
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         You can use AWS::Organizations::Account to manage accounts in organization.
@@ -128,7 +128,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] email: The email address of the owner to assign to the new member account.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] parent_ids: List of parent nodes for the member account. Currently only one parent at a time is supported. Default is root.
         :param pulumi.Input[_builtins.str] role_name: The name of an IAM role that AWS Organizations automatically preconfigures in the new member account. Default name is OrganizationAccountAccessRole if not specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags that you want to attach to the newly created account. For each tag in the list, you must specify both a tag key and a value.
         """
         ...
     @overload
@@ -158,7 +158,7 @@ class Account(pulumi.CustomResource):
                  email: pulumi.Input[Optional[_builtins.str]] = None,
                  parent_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  role_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

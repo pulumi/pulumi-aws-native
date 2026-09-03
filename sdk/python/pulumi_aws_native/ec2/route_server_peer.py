@@ -97,20 +97,20 @@ class RouteServerPeer(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: pulumi.Input[Optional[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict', 'outputs.RouteServerPeerBgpOptions']]] = None,
                  peer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  route_server_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         VPC Route Server Peer
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']] bgp_options: The BGP configuration options for this peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.
+        :param pulumi.Input[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict', 'outputs.RouteServerPeerBgpOptions']] bgp_options: The BGP configuration options for this peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings.
         :param pulumi.Input[_builtins.str] peer_address: IP address of the Route Server Peer
         :param pulumi.Input[_builtins.str] route_server_endpoint_id: Route Server Endpoint ID
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -136,10 +136,10 @@ class RouteServerPeer(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 bgp_options: pulumi.Input[Optional[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict']]] = None,
+                 bgp_options: pulumi.Input[Optional[Union['RouteServerPeerBgpOptionsArgs', 'RouteServerPeerBgpOptionsArgsDict', 'outputs.RouteServerPeerBgpOptions']]] = None,
                  peer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  route_server_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

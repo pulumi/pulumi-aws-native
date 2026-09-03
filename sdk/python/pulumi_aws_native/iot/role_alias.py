@@ -103,7 +103,7 @@ class RoleAlias(pulumi.CustomResource):
                  credential_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  role_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Use the AWS::IoT::RoleAlias resource to declare an AWS IoT RoleAlias.
@@ -113,7 +113,7 @@ class RoleAlias(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] credential_duration_seconds: The number of seconds for which the credential is valid.
         :param pulumi.Input[_builtins.str] role_alias: The role alias.
         :param pulumi.Input[_builtins.str] role_arn: The role ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -144,7 +144,7 @@ class RoleAlias(pulumi.CustomResource):
                  credential_duration_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  role_alias: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

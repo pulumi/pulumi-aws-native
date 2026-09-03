@@ -157,10 +157,10 @@ class Service(pulumi.CustomResource):
                  auth_type: pulumi.Input[Optional['ServiceAuthType']] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_entry: pulumi.Input[Optional[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
+                 dns_entry: pulumi.Input[Optional[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict', 'outputs.ServiceDnsEntry']]] = None,
                  idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A service is any software application that can run on instances containers, or serverless functions within an account or virtual private cloud (VPC).
@@ -173,11 +173,11 @@ class Service(pulumi.CustomResource):
                - `AWS_IAM` : The resource uses an IAM policy. When this type is used, auth is enabled and an auth policy is required.
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: The custom domain name of the service.
-        :param pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']] dns_entry: Describes the DNS information of the service. This field is read-only.
+        :param pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict', 'outputs.ServiceDnsEntry']] dns_entry: Describes the DNS information of the service. This field is read-only.
         :param pulumi.Input[_builtins.str] name: The name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the service.
         """
         ...
     @overload
@@ -206,10 +206,10 @@ class Service(pulumi.CustomResource):
                  auth_type: pulumi.Input[Optional['ServiceAuthType']] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 dns_entry: pulumi.Input[Optional[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]] = None,
+                 dns_entry: pulumi.Input[Optional[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict', 'outputs.ServiceDnsEntry']]] = None,
                  idle_timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

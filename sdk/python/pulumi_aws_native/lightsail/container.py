@@ -160,28 +160,28 @@ class Container(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_service_deployment: pulumi.Input[Optional[Union['ContainerServiceDeploymentArgs', 'ContainerServiceDeploymentArgsDict']]] = None,
+                 container_service_deployment: pulumi.Input[Optional[Union['ContainerServiceDeploymentArgs', 'ContainerServiceDeploymentArgsDict', 'outputs.ContainerServiceDeployment']]] = None,
                  is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  power: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_registry_access: pulumi.Input[Optional[Union['ContainerPrivateRegistryAccessArgs', 'ContainerPrivateRegistryAccessArgsDict']]] = None,
-                 public_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerPublicDomainNameArgs', 'ContainerPublicDomainNameArgsDict']]]]] = None,
+                 private_registry_access: pulumi.Input[Optional[Union['ContainerPrivateRegistryAccessArgs', 'ContainerPrivateRegistryAccessArgsDict', 'outputs.ContainerPrivateRegistryAccess']]] = None,
+                 public_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerPublicDomainNameArgs', 'ContainerPublicDomainNameArgsDict', 'outputs.ContainerPublicDomainName']]]]] = None,
                  scale: pulumi.Input[Optional[_builtins.int]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::Container
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ContainerServiceDeploymentArgs', 'ContainerServiceDeploymentArgsDict']] container_service_deployment: Describes a container deployment configuration of an Amazon Lightsail container service.
+        :param pulumi.Input[Union['ContainerServiceDeploymentArgs', 'ContainerServiceDeploymentArgsDict', 'outputs.ContainerServiceDeployment']] container_service_deployment: Describes a container deployment configuration of an Amazon Lightsail container service.
         :param pulumi.Input[_builtins.bool] is_disabled: A Boolean value to indicate whether the container service is disabled.
         :param pulumi.Input[_builtins.str] power: The power specification for the container service.
-        :param pulumi.Input[Union['ContainerPrivateRegistryAccessArgs', 'ContainerPrivateRegistryAccessArgsDict']] private_registry_access: A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerPublicDomainNameArgs', 'ContainerPublicDomainNameArgsDict']]]] public_domain_names: The public domain names to use with the container service, such as example.com and www.example.com.
+        :param pulumi.Input[Union['ContainerPrivateRegistryAccessArgs', 'ContainerPrivateRegistryAccessArgsDict', 'outputs.ContainerPrivateRegistryAccess']] private_registry_access: A Boolean value to indicate whether the container service has access to private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerPublicDomainNameArgs', 'ContainerPublicDomainNameArgsDict', 'outputs.ContainerPublicDomainName']]]] public_domain_names: The public domain names to use with the container service, such as example.com and www.example.com.
         :param pulumi.Input[_builtins.int] scale: The scale specification for the container service.
         :param pulumi.Input[_builtins.str] service_name: The name for the container service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -207,14 +207,14 @@ class Container(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 container_service_deployment: pulumi.Input[Optional[Union['ContainerServiceDeploymentArgs', 'ContainerServiceDeploymentArgsDict']]] = None,
+                 container_service_deployment: pulumi.Input[Optional[Union['ContainerServiceDeploymentArgs', 'ContainerServiceDeploymentArgsDict', 'outputs.ContainerServiceDeployment']]] = None,
                  is_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  power: pulumi.Input[Optional[_builtins.str]] = None,
-                 private_registry_access: pulumi.Input[Optional[Union['ContainerPrivateRegistryAccessArgs', 'ContainerPrivateRegistryAccessArgsDict']]] = None,
-                 public_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerPublicDomainNameArgs', 'ContainerPublicDomainNameArgsDict']]]]] = None,
+                 private_registry_access: pulumi.Input[Optional[Union['ContainerPrivateRegistryAccessArgs', 'ContainerPrivateRegistryAccessArgsDict', 'outputs.ContainerPrivateRegistryAccess']]] = None,
+                 public_domain_names: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContainerPublicDomainNameArgs', 'ContainerPublicDomainNameArgsDict', 'outputs.ContainerPublicDomainName']]]]] = None,
                  scale: pulumi.Input[Optional[_builtins.int]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

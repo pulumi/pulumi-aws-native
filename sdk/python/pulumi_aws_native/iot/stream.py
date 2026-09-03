@@ -113,10 +113,10 @@ class Stream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamFileArgs', 'StreamFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamFileArgs', 'StreamFileArgsDict', 'outputs.StreamFile']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS IoT Stream. A stream is a publicly addressable resource that is an abstraction for a list of files that can be transferred to an IoT device.
@@ -124,10 +124,10 @@ class Stream(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the stream.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamFileArgs', 'StreamFileArgsDict']]]] files: The files to stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['StreamFileArgs', 'StreamFileArgsDict', 'outputs.StreamFile']]]] files: The files to stream.
         :param pulumi.Input[_builtins.str] role_arn: An IAM role that allows the IoT service principal to access your S3 files.
         :param pulumi.Input[_builtins.str] stream_id: The stream ID.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage streams.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata which can be used to manage streams.
         """
         ...
     @overload
@@ -154,10 +154,10 @@ class Stream(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamFileArgs', 'StreamFileArgsDict']]]]] = None,
+                 files: pulumi.Input[Optional[Sequence[pulumi.Input[Union['StreamFileArgs', 'StreamFileArgsDict', 'outputs.StreamFile']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

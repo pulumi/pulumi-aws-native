@@ -149,7 +149,7 @@ class Connection(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request_mac_sec: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DirectConnect::Connection
@@ -162,7 +162,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The location of the connection.
         :param pulumi.Input[_builtins.str] provider_name: The name of the service provider associated with the requested connection.
         :param pulumi.Input[_builtins.bool] request_mac_sec: Indicates whether you want the connection to support MAC Security (MACsec).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the connection.
         """
         ...
     @overload
@@ -194,7 +194,7 @@ class Connection(pulumi.CustomResource):
                  location: pulumi.Input[Optional[_builtins.str]] = None,
                  provider_name: pulumi.Input[Optional[_builtins.str]] = None,
                  request_mac_sec: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -48,7 +48,7 @@ class ReceiptFilter(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: pulumi.Input[Optional[Union['ReceiptFilterFilterArgs', 'ReceiptFilterFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['ReceiptFilterFilterArgs', 'ReceiptFilterFilterArgsDict', 'outputs.ReceiptFilterFilter']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::ReceiptFilter
@@ -96,7 +96,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ReceiptFilterFilterArgs', 'ReceiptFilterFilterArgsDict']] filter: A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
+        :param pulumi.Input[Union['ReceiptFilterFilterArgs', 'ReceiptFilterFilterArgsDict', 'outputs.ReceiptFilterFilter']] filter: A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.
         """
         ...
     @overload
@@ -163,7 +163,7 @@ class ReceiptFilter(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filter: pulumi.Input[Optional[Union['ReceiptFilterFilterArgs', 'ReceiptFilterFilterArgsDict']]] = None,
+                 filter: pulumi.Input[Optional[Union['ReceiptFilterFilterArgs', 'ReceiptFilterFilterArgsDict', 'outputs.ReceiptFilterFilter']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

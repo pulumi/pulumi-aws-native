@@ -112,8 +112,8 @@ class ServiceNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: pulumi.Input[Optional['ServiceNetworkAuthType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sharing_config: pulumi.Input[Optional[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sharing_config: pulumi.Input[Optional[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict', 'outputs.ServiceNetworkSharingConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A service network is a logical boundary for a collection of services. You can associate services and VPCs with a service network.
@@ -127,8 +127,8 @@ class ServiceNetwork(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the service network. The name must be unique to the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
                
                If you don't specify a name, CloudFormation generates one. However, if you specify a name, and later want to replace the resource, you must specify a new name.
-        :param pulumi.Input[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']] sharing_config: Specify if the service network should be enabled for sharing.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the service network.
+        :param pulumi.Input[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict', 'outputs.ServiceNetworkSharingConfig']] sharing_config: Specify if the service network should be enabled for sharing.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the service network.
         """
         ...
     @overload
@@ -156,8 +156,8 @@ class ServiceNetwork(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_type: pulumi.Input[Optional['ServiceNetworkAuthType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sharing_config: pulumi.Input[Optional[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sharing_config: pulumi.Input[Optional[Union['ServiceNetworkSharingConfigArgs', 'ServiceNetworkSharingConfigArgsDict', 'outputs.ServiceNetworkSharingConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

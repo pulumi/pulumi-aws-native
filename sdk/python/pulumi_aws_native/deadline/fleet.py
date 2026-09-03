@@ -187,22 +187,22 @@ class Fleet(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict', 'outputs.FleetConfiguration0Properties'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict', 'outputs.FleetConfiguration1Properties']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_configuration: pulumi.Input[Optional[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
+                 host_configuration: pulumi.Input[Optional[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict', 'outputs.FleetHostConfiguration']]] = None,
                  max_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
                  min_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Deadline::Fleet
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]] configuration: The configuration details for the fleet.
+        :param pulumi.Input[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict', 'outputs.FleetConfiguration0Properties'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict', 'outputs.FleetConfiguration1Properties']]] configuration: The configuration details for the fleet.
         :param pulumi.Input[_builtins.str] description: A description that helps identify what the fleet is used for.
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
@@ -210,13 +210,13 @@ class Fleet(pulumi.CustomResource):
                
                > This field can store any content. Escape or encode this content before displaying it on a webpage or any other system that might interpret the content of this field.
         :param pulumi.Input[_builtins.str] farm_id: The farm ID.
-        :param pulumi.Input[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']] host_configuration: Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
+        :param pulumi.Input[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict', 'outputs.FleetHostConfiguration']] host_configuration: Provides a script that runs as a worker is starting up that you can use to provide additional configuration for workers in your fleet.
                
                To remove a script from a fleet, use the [UpdateFleet](https://docs.aws.amazon.com/deadline-cloud/latest/APIReference/API_UpdateFleet.html) operation with the `hostConfiguration` `scriptBody` parameter set to an empty string ("").
         :param pulumi.Input[_builtins.int] max_worker_count: The maximum number of workers specified in the fleet.
         :param pulumi.Input[_builtins.int] min_worker_count: The minimum number of workers in the fleet.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role that workers in the fleet use when processing jobs.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -242,15 +242,15 @@ class Fleet(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['FleetConfiguration0PropertiesArgs', 'FleetConfiguration0PropertiesArgsDict', 'outputs.FleetConfiguration0Properties'], Union['FleetConfiguration1PropertiesArgs', 'FleetConfiguration1PropertiesArgsDict', 'outputs.FleetConfiguration1Properties']]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  farm_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 host_configuration: pulumi.Input[Optional[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict']]] = None,
+                 host_configuration: pulumi.Input[Optional[Union['FleetHostConfigurationArgs', 'FleetHostConfigurationArgsDict', 'outputs.FleetHostConfiguration']]] = None,
                  max_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
                  min_worker_count: pulumi.Input[Optional[_builtins.int]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -341,7 +341,7 @@ class Fleet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Any]:
+    def configuration(self) -> pulumi.Output[Union['outputs.FleetConfiguration0Properties', 'outputs.FleetConfiguration1Properties']]:
         """
         The configuration details for the fleet.
         """

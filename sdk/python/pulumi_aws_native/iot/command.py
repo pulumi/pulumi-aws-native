@@ -265,14 +265,14 @@ class Command(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 mandatory_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
+                 mandatory_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict', 'outputs.CommandParameter']]]]] = None,
                  namespace: pulumi.Input[Optional['CommandNamespace']] = None,
-                 payload: pulumi.Input[Optional[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
+                 payload: pulumi.Input[Optional[Union['CommandPayloadArgs', 'CommandPayloadArgsDict', 'outputs.CommandPayload']]] = None,
                  payload_template: pulumi.Input[Optional[_builtins.str]] = None,
                  pending_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
-                 preprocessor: pulumi.Input[Optional[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
+                 preprocessor: pulumi.Input[Optional[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict', 'outputs.CommandPreprocessor']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents the resource definition of AWS IoT Command.
@@ -285,14 +285,14 @@ class Command(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the command.
         :param pulumi.Input[_builtins.str] display_name: The display name for the command.
         :param pulumi.Input[_builtins.str] last_updated_at: The date and time when the command was last updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]] mandatory_parameters: The list of mandatory parameters for the command.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict', 'outputs.CommandParameter']]]] mandatory_parameters: The list of mandatory parameters for the command.
         :param pulumi.Input['CommandNamespace'] namespace: The namespace to which the command belongs.
-        :param pulumi.Input[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']] payload: The payload associated with the command.
+        :param pulumi.Input[Union['CommandPayloadArgs', 'CommandPayloadArgsDict', 'outputs.CommandPayload']] payload: The payload associated with the command.
         :param pulumi.Input[_builtins.str] payload_template: The payload template associated with the command.
         :param pulumi.Input[_builtins.bool] pending_deletion: A flag indicating whether the command is pending deletion.
-        :param pulumi.Input[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']] preprocessor: The command preprocessor configuration.
+        :param pulumi.Input[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict', 'outputs.CommandPreprocessor']] preprocessor: The command preprocessor configuration.
         :param pulumi.Input[_builtins.str] role_arn: The customer role associated with the command.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be associated with the command.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to be associated with the command.
         """
         ...
     @overload
@@ -324,14 +324,14 @@ class Command(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  last_updated_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 mandatory_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict']]]]] = None,
+                 mandatory_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CommandParameterArgs', 'CommandParameterArgsDict', 'outputs.CommandParameter']]]]] = None,
                  namespace: pulumi.Input[Optional['CommandNamespace']] = None,
-                 payload: pulumi.Input[Optional[Union['CommandPayloadArgs', 'CommandPayloadArgsDict']]] = None,
+                 payload: pulumi.Input[Optional[Union['CommandPayloadArgs', 'CommandPayloadArgsDict', 'outputs.CommandPayload']]] = None,
                  payload_template: pulumi.Input[Optional[_builtins.str]] = None,
                  pending_deletion: pulumi.Input[Optional[_builtins.bool]] = None,
-                 preprocessor: pulumi.Input[Optional[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict']]] = None,
+                 preprocessor: pulumi.Input[Optional[Union['CommandPreprocessorArgs', 'CommandPreprocessorArgsDict', 'outputs.CommandPreprocessor']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

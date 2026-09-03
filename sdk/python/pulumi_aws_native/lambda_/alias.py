@@ -131,8 +131,8 @@ class Alias(pulumi.CustomResource):
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioned_concurrency_config: pulumi.Input[Optional[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict']]] = None,
-                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict', 'outputs.AliasProvisionedConcurrencyConfiguration']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict', 'outputs.AliasRoutingConfiguration']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::Alias
@@ -143,8 +143,8 @@ class Alias(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function.
         :param pulumi.Input[_builtins.str] function_version: The function version that the alias invokes.
         :param pulumi.Input[_builtins.str] name: The name of the alias.
-        :param pulumi.Input[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict']] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's alias.
-        :param pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']] routing_config: The routing configuration of the alias.
+        :param pulumi.Input[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict', 'outputs.AliasProvisionedConcurrencyConfiguration']] provisioned_concurrency_config: Specifies a provisioned concurrency configuration for a function's alias.
+        :param pulumi.Input[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict', 'outputs.AliasRoutingConfiguration']] routing_config: The routing configuration of the alias.
         """
         ...
     @overload
@@ -174,8 +174,8 @@ class Alias(pulumi.CustomResource):
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
                  function_version: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioned_concurrency_config: pulumi.Input[Optional[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict']]] = None,
-                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict']]] = None,
+                 provisioned_concurrency_config: pulumi.Input[Optional[Union['AliasProvisionedConcurrencyConfigurationArgs', 'AliasProvisionedConcurrencyConfigurationArgsDict', 'outputs.AliasProvisionedConcurrencyConfiguration']]] = None,
+                 routing_config: pulumi.Input[Optional[Union['AliasRoutingConfigurationArgs', 'AliasRoutingConfigurationArgsDict', 'outputs.AliasRoutingConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

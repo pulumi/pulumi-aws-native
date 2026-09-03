@@ -252,40 +252,40 @@ class Connector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: pulumi.Input[Optional[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']]] = None,
+                 capacity: pulumi.Input[Optional[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict', 'outputs.ConnectorCapacity']]] = None,
                  connector_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  connector_description: pulumi.Input[Optional[_builtins.str]] = None,
                  connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-                 kafka_cluster_client_authentication: pulumi.Input[Optional[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict']]] = None,
-                 kafka_cluster_encryption_in_transit: pulumi.Input[Optional[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']]] = None,
+                 kafka_cluster_client_authentication: pulumi.Input[Optional[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict', 'outputs.ConnectorKafkaClusterClientAuthentication']]] = None,
+                 kafka_cluster_encryption_in_transit: pulumi.Input[Optional[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict', 'outputs.ConnectorKafkaClusterEncryptionInTransit']]] = None,
                  kafka_connect_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery: pulumi.Input[Optional[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']]] = None,
+                 log_delivery: pulumi.Input[Optional[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict', 'outputs.ConnectorLogDelivery']]] = None,
                  network_type: pulumi.Input[Optional['ConnectorNetworkType']] = None,
-                 plugins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]]] = None,
+                 plugins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict', 'outputs.ConnectorPlugin']]]]] = None,
                  service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 worker_configuration: pulumi.Input[Optional[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 worker_configuration: pulumi.Input[Optional[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict', 'outputs.ConnectorWorkerConfiguration']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::KafkaConnect::Connector
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: The connector's compute capacity settings.
+        :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict', 'outputs.ConnectorCapacity']] capacity: The connector's compute capacity settings.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connector_configuration: The configuration for the connector.
         :param pulumi.Input[_builtins.str] connector_description: A summary description of the connector.
         :param pulumi.Input[_builtins.str] connector_name: The name of the connector.
-        :param pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']] kafka_cluster: The details of the Apache Kafka cluster to which the connector is connected.
-        :param pulumi.Input[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict']] kafka_cluster_client_authentication: The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
-        :param pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster.
+        :param pulumi.Input[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']] kafka_cluster: The details of the Apache Kafka cluster to which the connector is connected.
+        :param pulumi.Input[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict', 'outputs.ConnectorKafkaClusterClientAuthentication']] kafka_cluster_client_authentication: The type of client authentication used to connect to the Apache Kafka cluster. The value is NONE when no client authentication is used.
+        :param pulumi.Input[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict', 'outputs.ConnectorKafkaClusterEncryptionInTransit']] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster.
         :param pulumi.Input[_builtins.str] kafka_connect_version: The version of Kafka Connect. It has to be compatible with both the Kafka cluster's version and the plugins.
-        :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']] log_delivery: The settings for delivering connector logs to Amazon CloudWatch Logs.
+        :param pulumi.Input[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict', 'outputs.ConnectorLogDelivery']] log_delivery: The settings for delivering connector logs to Amazon CloudWatch Logs.
         :param pulumi.Input['ConnectorNetworkType'] network_type: The network type of the Connector.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: List of plugins to use with the connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict', 'outputs.ConnectorPlugin']]]] plugins: List of plugins to use with the connector.
         :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon S3 objects and other external resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource
-        :param pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']] worker_configuration: The worker configurations that are in use with the connector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict', 'outputs.ConnectorWorkerConfiguration']] worker_configuration: The worker configurations that are in use with the connector.
         """
         ...
     @overload
@@ -311,20 +311,20 @@ class Connector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity: pulumi.Input[Optional[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']]] = None,
+                 capacity: pulumi.Input[Optional[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict', 'outputs.ConnectorCapacity']]] = None,
                  connector_configuration: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  connector_description: pulumi.Input[Optional[_builtins.str]] = None,
                  connector_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict']]] = None,
-                 kafka_cluster_client_authentication: pulumi.Input[Optional[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict']]] = None,
-                 kafka_cluster_encryption_in_transit: pulumi.Input[Optional[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict']]] = None,
+                 kafka_cluster: pulumi.Input[Optional[Union['ConnectorKafkaClusterArgs', 'ConnectorKafkaClusterArgsDict', 'outputs.ConnectorKafkaCluster']]] = None,
+                 kafka_cluster_client_authentication: pulumi.Input[Optional[Union['ConnectorKafkaClusterClientAuthenticationArgs', 'ConnectorKafkaClusterClientAuthenticationArgsDict', 'outputs.ConnectorKafkaClusterClientAuthentication']]] = None,
+                 kafka_cluster_encryption_in_transit: pulumi.Input[Optional[Union['ConnectorKafkaClusterEncryptionInTransitArgs', 'ConnectorKafkaClusterEncryptionInTransitArgsDict', 'outputs.ConnectorKafkaClusterEncryptionInTransit']]] = None,
                  kafka_connect_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery: pulumi.Input[Optional[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict']]] = None,
+                 log_delivery: pulumi.Input[Optional[Union['ConnectorLogDeliveryArgs', 'ConnectorLogDeliveryArgsDict', 'outputs.ConnectorLogDelivery']]] = None,
                  network_type: pulumi.Input[Optional['ConnectorNetworkType']] = None,
-                 plugins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]]] = None,
+                 plugins: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict', 'outputs.ConnectorPlugin']]]]] = None,
                  service_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 worker_configuration: pulumi.Input[Optional[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 worker_configuration: pulumi.Input[Optional[Union['ConnectorWorkerConfigurationArgs', 'ConnectorWorkerConfigurationArgsDict', 'outputs.ConnectorWorkerConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

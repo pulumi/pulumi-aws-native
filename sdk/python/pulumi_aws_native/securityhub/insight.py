@@ -80,7 +80,7 @@ class Insight(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: pulumi.Input[Optional[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict']]] = None,
+                 filters: pulumi.Input[Optional[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict', 'outputs.InsightAwsSecurityFindingFilters']]] = None,
                  group_by_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -89,7 +89,7 @@ class Insight(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict']] filters: One or more attributes used to filter the findings included in the insight
+        :param pulumi.Input[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict', 'outputs.InsightAwsSecurityFindingFilters']] filters: One or more attributes used to filter the findings included in the insight
         :param pulumi.Input[_builtins.str] group_by_attribute: The grouping attribute for the insight's findings
         :param pulumi.Input[_builtins.str] name: The name of a Security Hub insight
         """
@@ -117,7 +117,7 @@ class Insight(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 filters: pulumi.Input[Optional[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict']]] = None,
+                 filters: pulumi.Input[Optional[Union['InsightAwsSecurityFindingFiltersArgs', 'InsightAwsSecurityFindingFiltersArgsDict', 'outputs.InsightAwsSecurityFindingFilters']]] = None,
                  group_by_attribute: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

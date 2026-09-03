@@ -166,7 +166,7 @@ class Certificate(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  inactive_date: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  usage: pulumi.Input[Optional['CertificateUsage']] = None,
                  __props__=None):
         """
@@ -180,7 +180,7 @@ class Certificate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A textual description for the certificate.
         :param pulumi.Input[_builtins.str] inactive_date: Specifies the inactive date for the certificate.
         :param pulumi.Input[_builtins.str] private_key: Specifies the private key for the certificate.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to group and search for certificates. Tags are metadata attached to certificates for any purpose.
         :param pulumi.Input['CertificateUsage'] usage: Specifies the usage type for the certificate.
         """
         ...
@@ -213,7 +213,7 @@ class Certificate(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  inactive_date: pulumi.Input[Optional[_builtins.str]] = None,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  usage: pulumi.Input[Optional['CertificateUsage']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

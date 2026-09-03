@@ -84,7 +84,7 @@ class DiskSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lightsail::DiskSnapshot
@@ -93,7 +93,7 @@ class DiskSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_name: The name of the source disk from which the snapshot was created.
         :param pulumi.Input[_builtins.str] disk_snapshot_name: The name of the disk snapshot (e.g., my-disk-snapshot).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -121,7 +121,7 @@ class DiskSnapshot(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  disk_name: pulumi.Input[Optional[_builtins.str]] = None,
                  disk_snapshot_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

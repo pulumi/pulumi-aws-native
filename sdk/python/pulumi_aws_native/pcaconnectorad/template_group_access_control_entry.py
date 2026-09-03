@@ -94,7 +94,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
+                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict', 'outputs.TemplateGroupAccessControlEntryAccessRights']]] = None,
                  group_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  group_security_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  template_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -104,7 +104,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']] access_rights: Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
+        :param pulumi.Input[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict', 'outputs.TemplateGroupAccessControlEntryAccessRights']] access_rights: Permissions to allow or deny an Active Directory group to enroll or autoenroll certificates issued against a template.
         :param pulumi.Input[_builtins.str] group_display_name: Name of the Active Directory group. This name does not need to match the group name in Active Directory.
         :param pulumi.Input[_builtins.str] group_security_identifier: Security identifier (SID) of the group object from Active Directory. The SID starts with "S-".
         :param pulumi.Input[_builtins.str] template_arn: The Amazon Resource Name (ARN) that was returned when you called [CreateTemplate](https://docs.aws.amazon.com/pca-connector-ad/latest/APIReference/API_CreateTemplate.html) .
@@ -133,7 +133,7 @@ class TemplateGroupAccessControlEntry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict']]] = None,
+                 access_rights: pulumi.Input[Optional[Union['TemplateGroupAccessControlEntryAccessRightsArgs', 'TemplateGroupAccessControlEntryAccessRightsArgsDict', 'outputs.TemplateGroupAccessControlEntryAccessRights']]] = None,
                  group_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  group_security_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  template_arn: pulumi.Input[Optional[_builtins.str]] = None,

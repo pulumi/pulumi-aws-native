@@ -172,11 +172,11 @@ class PlaceIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_plan: pulumi.Input[Optional['PlaceIndexPricingPlan']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Location::PlaceIndex Resource Type
@@ -196,7 +196,7 @@ class PlaceIndex(pulumi.CustomResource):
                > If you specify HERE Technologies ( `Here` ) as the data provider, you may not [store results](https://docs.aws.amazon.com//location-places/latest/APIReference/API_DataSourceConfiguration.html) for locations in Japan. For more information, see the [AWS service terms](https://docs.aws.amazon.com/service-terms/) for Amazon Location Service.
                
                For additional information , see [Data providers](https://docs.aws.amazon.com/location/previous/developerguide/what-is-data-provider.html) on the *Amazon Location Service developer guide* .
-        :param pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']] data_source_configuration: Specifies the data storage option requesting Places.
+        :param pulumi.Input[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']] data_source_configuration: Specifies the data storage option requesting Places.
         :param pulumi.Input[_builtins.str] description: The optional description for the place index resource.
         :param pulumi.Input[_builtins.str] index_name: The name of the place index resource.
                
@@ -208,7 +208,7 @@ class PlaceIndex(pulumi.CustomResource):
         :param pulumi.Input['PlaceIndexPricingPlan'] pricing_plan: No longer used. If included, the only allowed value is `RequestBasedUsage` .
                
                *Allowed Values* : `RequestBasedUsage`
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -235,11 +235,11 @@ class PlaceIndex(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict']]] = None,
+                 data_source_configuration: pulumi.Input[Optional[Union['PlaceIndexDataSourceConfigurationArgs', 'PlaceIndexDataSourceConfigurationArgsDict', 'outputs.PlaceIndexDataSourceConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  index_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pricing_plan: pulumi.Input[Optional['PlaceIndexPricingPlan']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

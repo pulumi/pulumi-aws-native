@@ -111,8 +111,8 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 plan: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict', 'outputs.ContactStage']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ContactType']] = None,
                  __props__=None):
         """
@@ -122,7 +122,7 @@ class Contact(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Alias of the contact. String value with 20 to 256 characters. Only alphabetical, numeric characters, dash, or underscore allowed.
         :param pulumi.Input[_builtins.str] display_name: Name of the contact. String value with 3 to 256 characters. Only alphabetical, space, numeric characters, dash, or underscore allowed.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict', 'outputs.ContactStage']]]] plan: The stages that an escalation plan or engagement plan engages contacts and contact methods in.
         :param pulumi.Input['ContactType'] type: Contact type, which specify type of contact. Currently supported values: "PERSONAL", "SHARED", "OTHER".
         """
         ...
@@ -151,8 +151,8 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 plan: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 plan: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactStageArgs', 'ContactStageArgsDict', 'outputs.ContactStage']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ContactType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

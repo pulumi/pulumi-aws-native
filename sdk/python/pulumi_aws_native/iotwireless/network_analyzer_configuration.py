@@ -134,8 +134,8 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trace_content: pulumi.Input[Optional[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 trace_content: pulumi.Input[Optional[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict', 'outputs.TraceContentProperties']]] = None,
                  wireless_devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  wireless_gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -146,8 +146,8 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the new resource
         :param pulumi.Input[_builtins.str] name: Name of the network analyzer configuration
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict']] trace_content: Trace content for your wireless gateway and wireless device resources
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict', 'outputs.TraceContentProperties']] trace_content: Trace content for your wireless gateway and wireless device resources
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] wireless_devices: List of wireless gateway resources that have been added to the network analyzer configuration
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] wireless_gateways: List of wireless gateway resources that have been added to the network analyzer configuration
         """
@@ -177,8 +177,8 @@ class NetworkAnalyzerConfiguration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 trace_content: pulumi.Input[Optional[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 trace_content: pulumi.Input[Optional[Union['TraceContentPropertiesArgs', 'TraceContentPropertiesArgsDict', 'outputs.TraceContentProperties']]] = None,
                  wireless_devices: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  wireless_gateways: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

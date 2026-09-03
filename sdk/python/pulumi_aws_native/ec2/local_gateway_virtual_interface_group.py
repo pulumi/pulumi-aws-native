@@ -99,7 +99,7 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
                  local_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
                  local_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
                  local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for LocalGatewayVirtualInterfaceGroup which describes a group of LocalGateway VirtualInterfaces
@@ -109,7 +109,7 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] local_bgp_asn: The Autonomous System Number(ASN) for the local Border Gateway Protocol (BGP)
         :param pulumi.Input[_builtins.int] local_bgp_asn_extended: The extended 32-bit ASN for the local BGP configuration
         :param pulumi.Input[_builtins.str] local_gateway_id: The ID of the local gateway
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the virtual interface group
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the virtual interface group
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class LocalGatewayVirtualInterfaceGroup(pulumi.CustomResource):
                  local_bgp_asn: pulumi.Input[Optional[_builtins.int]] = None,
                  local_bgp_asn_extended: pulumi.Input[Optional[_builtins.int]] = None,
                  local_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

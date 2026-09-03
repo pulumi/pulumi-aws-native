@@ -183,7 +183,7 @@ class LoadBalancer(pulumi.CustomResource):
                  load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  session_stickiness_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tls_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -198,7 +198,7 @@ class LoadBalancer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] load_balancer_name: The name of your load balancer.
         :param pulumi.Input[_builtins.bool] session_stickiness_enabled: Configuration option to enable session stickiness.
         :param pulumi.Input[_builtins.str] session_stickiness_lb_cookie_duration_seconds: Configuration option to adjust session stickiness cookie duration parameter.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] tls_policy_name: The name of the TLS policy to apply to the load balancer.
         """
         ...
@@ -232,7 +232,7 @@ class LoadBalancer(pulumi.CustomResource):
                  load_balancer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  session_stickiness_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  session_stickiness_lb_cookie_duration_seconds: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tls_policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

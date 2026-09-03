@@ -163,14 +163,14 @@ class ConformancePack(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]]] = None,
+                 conformance_pack_input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict', 'outputs.ConformancePackInputParameter']]]]] = None,
                  conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 template_ssm_document_details: pulumi.Input[Optional[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict']]] = None,
+                 template_ssm_document_details: pulumi.Input[Optional[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict', 'outputs.TemplateSsmDocumentDetailsProperties']]] = None,
                  __props__=None):
         """
         A conformance pack is a collection of AWS Config rules and remediation actions that can be easily deployed as a single entity in an account and a region or across an entire AWS Organization.
@@ -204,14 +204,14 @@ class ConformancePack(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict', 'outputs.ConformancePackInputParameter']]]] conformance_pack_input_parameters: A list of ConformancePackInputParameter objects.
         :param pulumi.Input[_builtins.str] conformance_pack_name: Name of the conformance pack which will be assigned as the unique identifier.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: AWS Config stores intermediate files while processing conformance pack template.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for delivery S3 bucket.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the conformance pack.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the conformance pack.
         :param pulumi.Input[_builtins.str] template_body: A string containing full conformance pack template body. You can only specify one of the template body or template S3Uri fields.
         :param pulumi.Input[_builtins.str] template_s3_uri: Location of file containing the template body which points to the conformance pack template that is located in an Amazon S3 bucket. You can only specify one of the template body or template S3Uri fields.
-        :param pulumi.Input[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict']] template_ssm_document_details: The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
+        :param pulumi.Input[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict', 'outputs.TemplateSsmDocumentDetailsProperties']] template_ssm_document_details: The TemplateSSMDocumentDetails object contains the name of the SSM document and the version of the SSM document.
         """
         ...
     @overload
@@ -264,14 +264,14 @@ class ConformancePack(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 conformance_pack_input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]]] = None,
+                 conformance_pack_input_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict', 'outputs.ConformancePackInputParameter']]]]] = None,
                  conformance_pack_name: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_bucket: pulumi.Input[Optional[_builtins.str]] = None,
                  delivery_s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_body: pulumi.Input[Optional[_builtins.str]] = None,
                  template_s3_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 template_ssm_document_details: pulumi.Input[Optional[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict']]] = None,
+                 template_ssm_document_details: pulumi.Input[Optional[Union['TemplateSsmDocumentDetailsPropertiesArgs', 'TemplateSsmDocumentDetailsPropertiesArgsDict', 'outputs.TemplateSsmDocumentDetailsProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

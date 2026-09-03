@@ -152,12 +152,12 @@ class WebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_details: pulumi.Input[Optional[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
-                 identity_provider_details: pulumi.Input[Optional[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 web_app_customization: pulumi.Input[Optional[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict', 'outputs.WebAppEndpointDetails']]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict', 'outputs.WebAppIdentityProviderDetails']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 web_app_customization: pulumi.Input[Optional[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict', 'outputs.WebAppCustomization']]] = None,
                  web_app_endpoint_policy: pulumi.Input[Optional['WebAppEndpointPolicy']] = None,
-                 web_app_units: pulumi.Input[Optional[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
+                 web_app_units: pulumi.Input[Optional[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict', 'outputs.WebAppUnitsProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::WebApp
@@ -165,15 +165,15 @@ class WebApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_endpoint: The AccessEndpoint is the URL that you provide to your users for them to interact with the Transfer Family web app. You can specify a custom URL or use the default value.
-        :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']] identity_provider_details: You can provide a structure that contains the details for the identity provider to use with your web app.
+        :param pulumi.Input[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict', 'outputs.WebAppIdentityProviderDetails']] identity_provider_details: You can provide a structure that contains the details for the identity provider to use with your web app.
                
                For more details about this parameter, see [Configure your identity provider for Transfer Family web apps](https://docs.aws.amazon.com//transfer/latest/userguide/webapp-identity-center.html) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for web apps.
-        :param pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']] web_app_customization: A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to group and search for web apps.
+        :param pulumi.Input[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict', 'outputs.WebAppCustomization']] web_app_customization: A structure that contains the customization fields for the web app. You can provide a title, logo, and icon to customize the appearance of your web app.
         :param pulumi.Input['WebAppEndpointPolicy'] web_app_endpoint_policy: Setting for the type of endpoint policy for the web app. The default value is `STANDARD` .
                
                If your web app was created in an AWS GovCloud (US) Region , the value of this parameter can be `FIPS` , which indicates the web app endpoint is FIPS-compliant.
-        :param pulumi.Input[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']] web_app_units: A union that contains the value for number of concurrent connections or the user sessions on your web app.
+        :param pulumi.Input[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict', 'outputs.WebAppUnitsProperties']] web_app_units: A union that contains the value for number of concurrent connections or the user sessions on your web app.
         """
         ...
     @overload
@@ -200,12 +200,12 @@ class WebApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
-                 endpoint_details: pulumi.Input[Optional[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict']]] = None,
-                 identity_provider_details: pulumi.Input[Optional[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 web_app_customization: pulumi.Input[Optional[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict']]] = None,
+                 endpoint_details: pulumi.Input[Optional[Union['WebAppEndpointDetailsArgs', 'WebAppEndpointDetailsArgsDict', 'outputs.WebAppEndpointDetails']]] = None,
+                 identity_provider_details: pulumi.Input[Optional[Union['WebAppIdentityProviderDetailsArgs', 'WebAppIdentityProviderDetailsArgsDict', 'outputs.WebAppIdentityProviderDetails']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 web_app_customization: pulumi.Input[Optional[Union['WebAppCustomizationArgs', 'WebAppCustomizationArgsDict', 'outputs.WebAppCustomization']]] = None,
                  web_app_endpoint_policy: pulumi.Input[Optional['WebAppEndpointPolicy']] = None,
-                 web_app_units: pulumi.Input[Optional[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict']]] = None,
+                 web_app_units: pulumi.Input[Optional[Union['WebAppUnitsPropertiesArgs', 'WebAppUnitsPropertiesArgsDict', 'outputs.WebAppUnitsProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

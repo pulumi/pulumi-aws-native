@@ -99,20 +99,20 @@ class CodeSigningConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_publishers: pulumi.Input[Optional[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
-                 code_signing_policies: pulumi.Input[Optional[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
+                 allowed_publishers: pulumi.Input[Optional[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict', 'outputs.CodeSigningConfigAllowedPublishers']]] = None,
+                 code_signing_policies: pulumi.Input[Optional[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict', 'outputs.CodeSigningConfigCodeSigningPolicies']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::CodeSigningConfig.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
-        :param pulumi.Input[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']] code_signing_policies: Policies to control how to act if a signature is invalid
+        :param pulumi.Input[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict', 'outputs.CodeSigningConfigAllowedPublishers']] allowed_publishers: When the CodeSigningConfig is later on attached to a function, the function code will be expected to be signed by profiles from this list
+        :param pulumi.Input[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict', 'outputs.CodeSigningConfigCodeSigningPolicies']] code_signing_policies: Policies to control how to act if a signature is invalid
         :param pulumi.Input[_builtins.str] description: A description of the CodeSigningConfig
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to CodeSigningConfig resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to apply to CodeSigningConfig resource
         """
         ...
     @overload
@@ -138,10 +138,10 @@ class CodeSigningConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 allowed_publishers: pulumi.Input[Optional[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict']]] = None,
-                 code_signing_policies: pulumi.Input[Optional[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict']]] = None,
+                 allowed_publishers: pulumi.Input[Optional[Union['CodeSigningConfigAllowedPublishersArgs', 'CodeSigningConfigAllowedPublishersArgsDict', 'outputs.CodeSigningConfigAllowedPublishers']]] = None,
+                 code_signing_policies: pulumi.Input[Optional[Union['CodeSigningConfigCodeSigningPoliciesArgs', 'CodeSigningConfigCodeSigningPoliciesArgsDict', 'outputs.CodeSigningConfigCodeSigningPolicies']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

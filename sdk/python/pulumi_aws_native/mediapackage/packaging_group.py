@@ -98,20 +98,20 @@ class PackagingGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: pulumi.Input[Optional[Union['PackagingGroupAuthorizationArgs', 'PackagingGroupAuthorizationArgsDict']]] = None,
+                 authorization: pulumi.Input[Optional[Union['PackagingGroupAuthorizationArgs', 'PackagingGroupAuthorizationArgsDict', 'outputs.PackagingGroupAuthorization']]] = None,
                  aws_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 egress_access_logs: pulumi.Input[Optional[Union['PackagingGroupLogConfigurationArgs', 'PackagingGroupLogConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 egress_access_logs: pulumi.Input[Optional[Union['PackagingGroupLogConfigurationArgs', 'PackagingGroupLogConfigurationArgsDict', 'outputs.PackagingGroupLogConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaPackage::PackagingGroup
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PackagingGroupAuthorizationArgs', 'PackagingGroupAuthorizationArgsDict']] authorization: CDN Authorization
+        :param pulumi.Input[Union['PackagingGroupAuthorizationArgs', 'PackagingGroupAuthorizationArgsDict', 'outputs.PackagingGroupAuthorization']] authorization: CDN Authorization
         :param pulumi.Input[_builtins.str] aws_id: The ID of the PackagingGroup.
-        :param pulumi.Input[Union['PackagingGroupLogConfigurationArgs', 'PackagingGroupLogConfigurationArgsDict']] egress_access_logs: The configuration parameters for egress access logging.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Union['PackagingGroupLogConfigurationArgs', 'PackagingGroupLogConfigurationArgsDict', 'outputs.PackagingGroupLogConfiguration']] egress_access_logs: The configuration parameters for egress access logging.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -137,10 +137,10 @@ class PackagingGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorization: pulumi.Input[Optional[Union['PackagingGroupAuthorizationArgs', 'PackagingGroupAuthorizationArgsDict']]] = None,
+                 authorization: pulumi.Input[Optional[Union['PackagingGroupAuthorizationArgs', 'PackagingGroupAuthorizationArgsDict', 'outputs.PackagingGroupAuthorization']]] = None,
                  aws_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 egress_access_logs: pulumi.Input[Optional[Union['PackagingGroupLogConfigurationArgs', 'PackagingGroupLogConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 egress_access_logs: pulumi.Input[Optional[Union['PackagingGroupLogConfigurationArgs', 'PackagingGroupLogConfigurationArgsDict', 'outputs.PackagingGroupLogConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

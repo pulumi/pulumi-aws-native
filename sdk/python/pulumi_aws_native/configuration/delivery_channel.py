@@ -140,7 +140,7 @@ class DeliveryChannel(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict']]] = None,
+                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict', 'outputs.DeliveryChannelConfigSnapshotDeliveryProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,
@@ -152,7 +152,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict']] config_snapshot_delivery_properties: The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
+        :param pulumi.Input[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict', 'outputs.DeliveryChannelConfigSnapshotDeliveryProperties']] config_snapshot_delivery_properties: The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] name: A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
                
                Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
@@ -189,7 +189,7 @@ class DeliveryChannel(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict']]] = None,
+                 config_snapshot_delivery_properties: pulumi.Input[Optional[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict', 'outputs.DeliveryChannelConfigSnapshotDeliveryProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  s3_key_prefix: pulumi.Input[Optional[_builtins.str]] = None,

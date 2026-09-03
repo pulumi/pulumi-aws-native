@@ -117,9 +117,9 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict', 'outputs.MultiRegionPropertiesProperties']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DSQL::Cluster
@@ -128,9 +128,9 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: Whether deletion protection is enabled in this cluster.
         :param pulumi.Input[_builtins.str] kms_encryption_key: The KMS key that encrypts data on the cluster.
-        :param pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']] multi_region_properties: The Multi-region properties associated to this cluster.
+        :param pulumi.Input[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict', 'outputs.MultiRegionPropertiesProperties']] multi_region_properties: The Multi-region properties associated to this cluster.
         :param pulumi.Input[_builtins.str] policy_document: The IAM policy applied to the cluster resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of key and value pairs this cluster is tagged with.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A map of key and value pairs this cluster is tagged with.
         """
         ...
     @overload
@@ -158,9 +158,9 @@ class Cluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict']]] = None,
+                 multi_region_properties: pulumi.Input[Optional[Union['MultiRegionPropertiesPropertiesArgs', 'MultiRegionPropertiesPropertiesArgsDict', 'outputs.MultiRegionPropertiesProperties']]] = None,
                  policy_document: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

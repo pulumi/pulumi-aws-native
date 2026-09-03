@@ -148,7 +148,7 @@ class ContactFlow(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['ContactFlowState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ContactFlowType']] = None,
                  __props__=None):
         """
@@ -182,7 +182,7 @@ class ContactFlow(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[_builtins.str] name: The name of the contact flow.
         :param pulumi.Input['ContactFlowState'] state: The state of the contact flow.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         :param pulumi.Input['ContactFlowType'] type: The type of the contact flow.
         """
         ...
@@ -235,7 +235,7 @@ class ContactFlow(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional['ContactFlowState']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ContactFlowType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

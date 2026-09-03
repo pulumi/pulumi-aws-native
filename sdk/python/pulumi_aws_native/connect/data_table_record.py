@@ -75,7 +75,7 @@ class DataTableRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
+                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict', 'outputs.DataTableRecordProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -111,7 +111,7 @@ class DataTableRecord(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_table_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict']]] = None,
+                 data_table_record: pulumi.Input[Optional[Union['DataTableRecordPropertiesArgs', 'DataTableRecordPropertiesArgsDict', 'outputs.DataTableRecordProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

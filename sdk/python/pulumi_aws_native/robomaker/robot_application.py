@@ -132,8 +132,8 @@ class RobotApplication(pulumi.CustomResource):
                  current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 robot_software_suite: pulumi.Input[Optional[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict']]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict']]]]] = None,
+                 robot_software_suite: pulumi.Input[Optional[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict', 'outputs.RobotApplicationRobotSoftwareSuite']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict', 'outputs.RobotApplicationSourceConfig']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -221,8 +221,8 @@ class RobotApplication(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] current_revision_id: The revision ID of robot application.
         :param pulumi.Input[_builtins.str] environment: The URI of the Docker image for the robot application.
         :param pulumi.Input[_builtins.str] name: The name of the robot application.
-        :param pulumi.Input[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict']] robot_software_suite: The robot software suite used by the robot application.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict']]]] sources: The sources of the robot application.
+        :param pulumi.Input[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict', 'outputs.RobotApplicationRobotSoftwareSuite']] robot_software_suite: The robot software suite used by the robot application.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict', 'outputs.RobotApplicationSourceConfig']]]] sources: The sources of the robot application.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map that contains tag keys and tag values that are attached to the robot application.
         """
         ...
@@ -329,8 +329,8 @@ class RobotApplication(pulumi.CustomResource):
                  current_revision_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 robot_software_suite: pulumi.Input[Optional[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict']]] = None,
-                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict']]]]] = None,
+                 robot_software_suite: pulumi.Input[Optional[Union['RobotApplicationRobotSoftwareSuiteArgs', 'RobotApplicationRobotSoftwareSuiteArgsDict', 'outputs.RobotApplicationRobotSoftwareSuite']]] = None,
+                 sources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RobotApplicationSourceConfigArgs', 'RobotApplicationSourceConfigArgsDict', 'outputs.RobotApplicationSourceConfig']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

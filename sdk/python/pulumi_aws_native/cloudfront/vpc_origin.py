@@ -67,16 +67,16 @@ class VpcOrigin(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginEndpointConfig']]] = None,
                  __props__=None):
         """
         An Amazon CloudFront VPC origin.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
-        :param pulumi.Input[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A complex type that contains zero or more ``Tag`` elements.
+        :param pulumi.Input[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginEndpointConfig']] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
         """
         ...
     @overload
@@ -102,8 +102,8 @@ class VpcOrigin(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vpc_origin_endpoint_config: pulumi.Input[Optional[Union['VpcOriginEndpointConfigArgs', 'VpcOriginEndpointConfigArgsDict', 'outputs.VpcOriginEndpointConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

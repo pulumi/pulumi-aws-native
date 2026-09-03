@@ -133,7 +133,7 @@ class CostCategory(pulumi.CustomResource):
                  rule_version: pulumi.Input[Optional['CostCategoryRuleVersion']] = None,
                  rules: pulumi.Input[Optional[_builtins.str]] = None,
                  split_charge_rules: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CE::CostCategory. Cost Category enables you to map your cost and usage into meaningful categories. You can use Cost Category to organize your costs using a rule-based engine.
@@ -145,7 +145,7 @@ class CostCategory(pulumi.CustomResource):
         :param pulumi.Input['CostCategoryRuleVersion'] rule_version: The rule schema version in this particular Cost Category.
         :param pulumi.Input[_builtins.str] rules: JSON array format of Expression in Billing and Cost Management API
         :param pulumi.Input[_builtins.str] split_charge_rules: Json array format of CostCategorySplitChargeRule in Billing and Cost Management API
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the cost category.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the cost category.
         """
         ...
     @overload
@@ -176,7 +176,7 @@ class CostCategory(pulumi.CustomResource):
                  rule_version: pulumi.Input[Optional['CostCategoryRuleVersion']] = None,
                  rules: pulumi.Input[Optional[_builtins.str]] = None,
                  split_charge_rules: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

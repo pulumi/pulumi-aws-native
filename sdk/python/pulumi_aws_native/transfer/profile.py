@@ -99,7 +99,7 @@ class Profile(pulumi.CustomResource):
                  as2_id: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  profile_type: pulumi.Input[Optional['ProfileType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Profile
@@ -109,7 +109,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] as2_id: AS2 identifier agreed with a trading partner.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] certificate_ids: List of the certificate IDs associated with this profile to be used for encryption and signing of AS2 messages.
         :param pulumi.Input['ProfileType'] profile_type: Enum specifying whether the profile is local or associated with a trading partner.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class Profile(pulumi.CustomResource):
                  as2_id: pulumi.Input[Optional[_builtins.str]] = None,
                  certificate_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  profile_type: pulumi.Input[Optional['ProfileType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -184,9 +184,9 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                  environment_role_permission_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  global_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  manage_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioning_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict']]]]] = None,
+                 provisioning_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict', 'outputs.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties']]]]] = None,
                  provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 regional_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict']]]]] = None,
+                 regional_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict', 'outputs.EnvironmentBlueprintConfigurationRegionalParameter']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::EnvironmentBlueprintConfiguration Resource Type
@@ -201,9 +201,9 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_role_permission_boundary: The environment role permission boundary.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_parameters: Region-agnostic environment blueprint parameters.
         :param pulumi.Input[_builtins.str] manage_access_role_arn: The ARN of the manage access role.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict']]]] provisioning_configurations: The provisioning configuration of a blueprint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict', 'outputs.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties']]]] provisioning_configurations: The provisioning configuration of a blueprint.
         :param pulumi.Input[_builtins.str] provisioning_role_arn: The ARN of the provisioning role.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict']]]] regional_parameters: The regional parameters of the environment blueprint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict', 'outputs.EnvironmentBlueprintConfigurationRegionalParameter']]]] regional_parameters: The regional parameters of the environment blueprint.
         """
         ...
     @overload
@@ -235,9 +235,9 @@ class EnvironmentBlueprintConfiguration(pulumi.CustomResource):
                  environment_role_permission_boundary: pulumi.Input[Optional[_builtins.str]] = None,
                  global_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  manage_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 provisioning_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict']]]]] = None,
+                 provisioning_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgs', 'EnvironmentBlueprintConfigurationProvisioningConfigurationPropertiesArgsDict', 'outputs.EnvironmentBlueprintConfigurationProvisioningConfigurationProperties']]]]] = None,
                  provisioning_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 regional_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict']]]]] = None,
+                 regional_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentBlueprintConfigurationRegionalParameterArgs', 'EnvironmentBlueprintConfigurationRegionalParameterArgsDict', 'outputs.EnvironmentBlueprintConfigurationRegionalParameter']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

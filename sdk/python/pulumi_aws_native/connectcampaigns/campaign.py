@@ -113,10 +113,10 @@ class Campaign(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connect_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 dialer_config: pulumi.Input[Optional[Union['CampaignDialerConfigArgs', 'CampaignDialerConfigArgsDict']]] = None,
+                 dialer_config: pulumi.Input[Optional[Union['CampaignDialerConfigArgs', 'CampaignDialerConfigArgsDict', 'outputs.CampaignDialerConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outbound_call_config: pulumi.Input[Optional[Union['CampaignOutboundCallConfigArgs', 'CampaignOutboundCallConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 outbound_call_config: pulumi.Input[Optional[Union['CampaignOutboundCallConfigArgs', 'CampaignOutboundCallConfigArgsDict', 'outputs.CampaignOutboundCallConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::ConnectCampaigns::Campaign Resource Type
@@ -124,10 +124,10 @@ class Campaign(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connect_instance_arn: Amazon Connect Instance Arn
-        :param pulumi.Input[Union['CampaignDialerConfigArgs', 'CampaignDialerConfigArgsDict']] dialer_config: Contains information about the dialer configuration.
+        :param pulumi.Input[Union['CampaignDialerConfigArgs', 'CampaignDialerConfigArgsDict', 'outputs.CampaignDialerConfig']] dialer_config: Contains information about the dialer configuration.
         :param pulumi.Input[_builtins.str] name: Amazon Connect Campaign Name
-        :param pulumi.Input[Union['CampaignOutboundCallConfigArgs', 'CampaignOutboundCallConfigArgsDict']] outbound_call_config: Contains information about the outbound call configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Union['CampaignOutboundCallConfigArgs', 'CampaignOutboundCallConfigArgsDict', 'outputs.CampaignOutboundCallConfig']] outbound_call_config: Contains information about the outbound call configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -154,10 +154,10 @@ class Campaign(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connect_instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 dialer_config: pulumi.Input[Optional[Union['CampaignDialerConfigArgs', 'CampaignDialerConfigArgsDict']]] = None,
+                 dialer_config: pulumi.Input[Optional[Union['CampaignDialerConfigArgs', 'CampaignDialerConfigArgsDict', 'outputs.CampaignDialerConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 outbound_call_config: pulumi.Input[Optional[Union['CampaignOutboundCallConfigArgs', 'CampaignOutboundCallConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 outbound_call_config: pulumi.Input[Optional[Union['CampaignOutboundCallConfigArgs', 'CampaignOutboundCallConfigArgsDict', 'outputs.CampaignOutboundCallConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

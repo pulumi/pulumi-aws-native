@@ -163,12 +163,12 @@ class ContactFlowModule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_invocation_configuration: pulumi.Input[Optional[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict']]] = None,
+                 external_invocation_configuration: pulumi.Input[Optional[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict', 'outputs.ExternalInvocationConfigurationProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::ContactFlowModule.
@@ -197,12 +197,12 @@ class ContactFlowModule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] content: The content of the contact flow module in JSON format.
         :param pulumi.Input[_builtins.str] description: The description of the contact flow module.
-        :param pulumi.Input[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict']] external_invocation_configuration: Defines the external invocation configuration of the flow module resource
+        :param pulumi.Input[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict', 'outputs.ExternalInvocationConfigurationProperties']] external_invocation_configuration: Defines the external invocation configuration of the flow module resource
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance (ARN).
         :param pulumi.Input[_builtins.str] name: The name of the contact flow module.
         :param pulumi.Input[_builtins.str] settings: The schema of the settings for contact flow module in JSON Schema V4 format.
         :param pulumi.Input[_builtins.str] state: The state of the contact flow module.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -250,12 +250,12 @@ class ContactFlowModule(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  content: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 external_invocation_configuration: pulumi.Input[Optional[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict']]] = None,
+                 external_invocation_configuration: pulumi.Input[Optional[Union['ExternalInvocationConfigurationPropertiesArgs', 'ExternalInvocationConfigurationPropertiesArgsDict', 'outputs.ExternalInvocationConfigurationProperties']]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  settings: pulumi.Input[Optional[_builtins.str]] = None,
                  state: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

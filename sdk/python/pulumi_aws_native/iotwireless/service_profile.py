@@ -83,18 +83,18 @@ class ServiceProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: pulumi.Input[Optional[Union['ServiceProfileLoRaWanServiceProfileArgs', 'ServiceProfileLoRaWanServiceProfileArgsDict']]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['ServiceProfileLoRaWanServiceProfileArgs', 'ServiceProfileLoRaWanServiceProfileArgsDict', 'outputs.ServiceProfileLoRaWanServiceProfile']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         An example resource schema demonstrating some basic constructs and validation rules.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ServiceProfileLoRaWanServiceProfileArgs', 'ServiceProfileLoRaWanServiceProfileArgsDict']] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
+        :param pulumi.Input[Union['ServiceProfileLoRaWanServiceProfileArgs', 'ServiceProfileLoRaWanServiceProfileArgsDict', 'outputs.ServiceProfileLoRaWanServiceProfile']] lo_ra_wan: LoRaWAN supports all LoRa specific attributes for service profile for CreateServiceProfile operation
         :param pulumi.Input[_builtins.str] name: Name of service profile
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the service profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that contain metadata for the service profile.
         """
         ...
     @overload
@@ -120,9 +120,9 @@ class ServiceProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 lo_ra_wan: pulumi.Input[Optional[Union['ServiceProfileLoRaWanServiceProfileArgs', 'ServiceProfileLoRaWanServiceProfileArgsDict']]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['ServiceProfileLoRaWanServiceProfileArgs', 'ServiceProfileLoRaWanServiceProfileArgsDict', 'outputs.ServiceProfileLoRaWanServiceProfile']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -132,9 +132,9 @@ class Theme(pulumi.CustomResource):
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict']]]]] = None,
+                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict', 'outputs.ThemeValues']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict']]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict', 'outputs.ThemeValues']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::AmplifyUIBuilder::Theme Resource Type
@@ -144,9 +144,9 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] app_id: The unique ID for the Amplify app associated with the theme.
         :param pulumi.Input[_builtins.str] environment_name: The name of the backend environment that is a part of the Amplify app.
         :param pulumi.Input[_builtins.str] name: The name of the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict']]]] overrides: Describes the properties that can be overriden to customize a theme.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict', 'outputs.ThemeValues']]]] overrides: Describes the properties that can be overriden to customize a theme.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: One or more key-value pairs to use when tagging the theme.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict']]]] values: A list of key-value pairs that defines the properties of the theme.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict', 'outputs.ThemeValues']]]] values: A list of key-value pairs that defines the properties of the theme.
         """
         ...
     @overload
@@ -175,9 +175,9 @@ class Theme(pulumi.CustomResource):
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict']]]]] = None,
+                 overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict', 'outputs.ThemeValues']]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict']]]]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ThemeValuesArgs', 'ThemeValuesArgsDict', 'outputs.ThemeValues']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

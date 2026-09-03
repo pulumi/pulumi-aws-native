@@ -158,8 +158,8 @@ class AutomationRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict', 'outputs.AutomationRulesAction']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict', 'outputs.AutomationRulesFindingFilters']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -731,8 +731,8 @@ class AutomationRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
-        :param pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict', 'outputs.AutomationRulesAction']]]] actions: One or more actions to update finding fields if a finding matches the conditions specified in ``Criteria``.
+        :param pulumi.Input[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict', 'outputs.AutomationRulesFindingFilters']] criteria: A set of [Security Finding Format (ASFF)](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings-format.html) finding field attributes and corresponding expected values that ASH uses to filter findings. If a rule is enabled and a finding matches the criteria specified in this parameter, ASH applies the rule action to the finding.
         :param pulumi.Input[_builtins.str] description: A description of the rule.
         :param pulumi.Input[_builtins.bool] is_terminal: Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. This is useful when a finding matches the criteria for multiple rules, and each rule has different actions. If a rule is terminal, Security Hub CSPM applies the rule action to a finding that matches the rule criteria and doesn't evaluate other rules for the finding. By default, a rule isn't terminal.
         :param pulumi.Input[_builtins.str] rule_name: The name of the rule.
@@ -1323,8 +1323,8 @@ class AutomationRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict']]]]] = None,
-                 criteria: pulumi.Input[Optional[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict']]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AutomationRulesActionArgs', 'AutomationRulesActionArgsDict', 'outputs.AutomationRulesAction']]]]] = None,
+                 criteria: pulumi.Input[Optional[Union['AutomationRulesFindingFiltersArgs', 'AutomationRulesFindingFiltersArgsDict', 'outputs.AutomationRulesFindingFilters']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_terminal: pulumi.Input[Optional[_builtins.bool]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,

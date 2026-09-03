@@ -134,7 +134,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
                  odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_network_route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ODB::OdbPeeringConnection.
@@ -146,7 +146,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] odb_network_id: The unique identifier of the ODB network.
         :param pulumi.Input[_builtins.str] peer_network_id: The unique identifier of the peer network.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] peer_network_route_table_ids: The unique identifier of the VPC route table for which a route to the ODB network is automatically created during peering connection establishment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the Odb peering connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the Odb peering connection.
         """
         ...
     @overload
@@ -177,7 +177,7 @@ class OdbPeeringConnection(pulumi.CustomResource):
                  odb_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  peer_network_route_table_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

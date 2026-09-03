@@ -126,7 +126,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kafka_versions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 latest_revision: pulumi.Input[Optional[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
+                 latest_revision: pulumi.Input[Optional[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict', 'outputs.ConfigurationLatestRevision']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -143,7 +143,7 @@ class Configuration(pulumi.CustomResource):
                If your configuration is attached with any clusters created using the AWS Management Console or AWS CLI , you'll need to manually delete the old configuration from the console after the update completes.
                
                For more information, see [Can’t update KafkaVersionsList in MSK configuration](https://docs.aws.amazon.com/msk/latest/developerguide/troubleshooting.html#troubleshoot-kafkaversionslist-cfn-update-failure) in the *Amazon MSK Developer Guide* .
-        :param pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']] latest_revision: Latest revision of the MSK configuration.
+        :param pulumi.Input[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict', 'outputs.ConfigurationLatestRevision']] latest_revision: Latest revision of the MSK configuration.
         :param pulumi.Input[_builtins.str] name: The name of the configuration. Configuration names are strings that match the regex "^[0-9A-Za-z][0-9A-Za-z-]{0,}$".
         :param pulumi.Input[_builtins.str] server_properties: Contents of the `server.properties` file. When using the console, the SDK, or the AWS CLI , the contents of `server.properties` can be in plaintext.
         """
@@ -173,7 +173,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kafka_versions_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 latest_revision: pulumi.Input[Optional[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict']]] = None,
+                 latest_revision: pulumi.Input[Optional[Union['ConfigurationLatestRevisionArgs', 'ConfigurationLatestRevisionArgsDict', 'outputs.ConfigurationLatestRevision']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_properties: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

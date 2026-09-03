@@ -226,36 +226,36 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store: pulumi.Input[Optional[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]] = None,
-                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreMapArgs', 'PipelineArtifactStoreMapArgsDict']]]]] = None,
-                 disable_inbound_stage_transitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageTransitionArgs', 'PipelineStageTransitionArgsDict']]]]] = None,
+                 artifact_store: pulumi.Input[Optional[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']]] = None,
+                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreMapArgs', 'PipelineArtifactStoreMapArgsDict', 'outputs.PipelineArtifactStoreMap']]]]] = None,
+                 disable_inbound_stage_transitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageTransitionArgs', 'PipelineStageTransitionArgsDict', 'outputs.PipelineStageTransition']]]]] = None,
                  execution_mode: pulumi.Input[Optional['PipelineExecutionMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_type: pulumi.Input[Optional['PipelineType']] = None,
                  restart_execution_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageDeclarationArgs', 'PipelineStageDeclarationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerDeclarationArgs', 'PipelineTriggerDeclarationArgsDict']]]]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableDeclarationArgs', 'PipelineVariableDeclarationArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageDeclarationArgs', 'PipelineStageDeclarationArgsDict', 'outputs.PipelineStageDeclaration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerDeclarationArgs', 'PipelineTriggerDeclarationArgsDict', 'outputs.PipelineTriggerDeclaration']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableDeclarationArgs', 'PipelineVariableDeclarationArgsDict', 'outputs.PipelineVariableDeclaration']]]]] = None,
                  __props__=None):
         """
         The AWS::CodePipeline::Pipeline resource creates a CodePipeline pipeline that describes how software changes go through a release process.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']] artifact_store: The S3 bucket where artifacts for the pipeline are stored.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreMapArgs', 'PipelineArtifactStoreMapArgsDict']]]] artifact_stores: A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageTransitionArgs', 'PipelineStageTransitionArgsDict']]]] disable_inbound_stage_transitions: Represents the input of a DisableStageTransition action.
+        :param pulumi.Input[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']] artifact_store: The S3 bucket where artifacts for the pipeline are stored.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineArtifactStoreMapArgs', 'PipelineArtifactStoreMapArgsDict', 'outputs.PipelineArtifactStoreMap']]]] artifact_stores: A mapping of artifactStore objects and their corresponding AWS Regions. There must be an artifact store for the pipeline Region and for each cross-region action in the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageTransitionArgs', 'PipelineStageTransitionArgsDict', 'outputs.PipelineStageTransition']]]] disable_inbound_stage_transitions: Represents the input of a DisableStageTransition action.
         :param pulumi.Input['PipelineExecutionMode'] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input['PipelineType'] pipeline_type: CodePipeline provides the following pipeline types, which differ in characteristics and price, so that you can tailor your pipeline features and cost to the needs of your applications.
         :param pulumi.Input[_builtins.bool] restart_execution_on_update: Indicates whether to rerun the CodePipeline pipeline after you update it.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) for CodePipeline to use to either perform actions with no actionRoleArn, or to use to assume roles for actions with an actionRoleArn
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageDeclarationArgs', 'PipelineStageDeclarationArgsDict']]]] stages: Represents information about a stage and its definition.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies the tags applied to the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerDeclarationArgs', 'PipelineTriggerDeclarationArgsDict']]]] triggers: The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableDeclarationArgs', 'PipelineVariableDeclarationArgsDict']]]] variables: A list that defines the pipeline variables for a pipeline resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9@\\-_]+.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageDeclarationArgs', 'PipelineStageDeclarationArgsDict', 'outputs.PipelineStageDeclaration']]]] stages: Represents information about a stage and its definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Specifies the tags applied to the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerDeclarationArgs', 'PipelineTriggerDeclarationArgsDict', 'outputs.PipelineTriggerDeclaration']]]] triggers: The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineVariableDeclarationArgs', 'PipelineVariableDeclarationArgsDict', 'outputs.PipelineVariableDeclaration']]]] variables: A list that defines the pipeline variables for a pipeline resource. Variable names can have alphanumeric and underscore characters, and the values must match [A-Za-z0-9@\\-_]+.
         """
         ...
     @overload
@@ -281,18 +281,18 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 artifact_store: pulumi.Input[Optional[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict']]] = None,
-                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreMapArgs', 'PipelineArtifactStoreMapArgsDict']]]]] = None,
-                 disable_inbound_stage_transitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageTransitionArgs', 'PipelineStageTransitionArgsDict']]]]] = None,
+                 artifact_store: pulumi.Input[Optional[Union['PipelineArtifactStoreArgs', 'PipelineArtifactStoreArgsDict', 'outputs.PipelineArtifactStore']]] = None,
+                 artifact_stores: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineArtifactStoreMapArgs', 'PipelineArtifactStoreMapArgsDict', 'outputs.PipelineArtifactStoreMap']]]]] = None,
+                 disable_inbound_stage_transitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageTransitionArgs', 'PipelineStageTransitionArgsDict', 'outputs.PipelineStageTransition']]]]] = None,
                  execution_mode: pulumi.Input[Optional['PipelineExecutionMode']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_type: pulumi.Input[Optional['PipelineType']] = None,
                  restart_execution_on_update: pulumi.Input[Optional[_builtins.bool]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageDeclarationArgs', 'PipelineStageDeclarationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerDeclarationArgs', 'PipelineTriggerDeclarationArgsDict']]]]] = None,
-                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableDeclarationArgs', 'PipelineVariableDeclarationArgsDict']]]]] = None,
+                 stages: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineStageDeclarationArgs', 'PipelineStageDeclarationArgsDict', 'outputs.PipelineStageDeclaration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 triggers: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineTriggerDeclarationArgs', 'PipelineTriggerDeclarationArgsDict', 'outputs.PipelineTriggerDeclaration']]]]] = None,
+                 variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PipelineVariableDeclarationArgs', 'PipelineVariableDeclarationArgsDict', 'outputs.PipelineVariableDeclaration']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

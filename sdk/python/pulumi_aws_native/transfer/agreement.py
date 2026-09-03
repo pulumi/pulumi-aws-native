@@ -210,7 +210,7 @@ class Agreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: pulumi.Input[Optional[_builtins.str]] = None,
                  base_directory: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_directories: pulumi.Input[Optional[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict']]] = None,
+                 custom_directories: pulumi.Input[Optional[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict', 'outputs.CustomDirectoriesProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enforce_message_signing: pulumi.Input[Optional['AgreementEnforceMessageSigning']] = None,
                  local_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -218,7 +218,7 @@ class Agreement(pulumi.CustomResource):
                  preserve_filename: pulumi.Input[Optional['AgreementPreserveFilename']] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['AgreementStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Transfer::Agreement
@@ -227,7 +227,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_role: Specifies the access role for the agreement.
         :param pulumi.Input[_builtins.str] base_directory: Specifies the base directory for the agreement.
-        :param pulumi.Input[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict']] custom_directories: Specifies a separate directory for each type of file to store for an AS2 message.
+        :param pulumi.Input[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict', 'outputs.CustomDirectoriesProperties']] custom_directories: Specifies a separate directory for each type of file to store for an AS2 message.
         :param pulumi.Input[_builtins.str] description: A textual description for the agreement.
         :param pulumi.Input['AgreementEnforceMessageSigning'] enforce_message_signing: Specifies whether to enforce an AS2 message is signed for this agreement.
         :param pulumi.Input[_builtins.str] local_profile_id: A unique identifier for the local profile.
@@ -235,7 +235,7 @@ class Agreement(pulumi.CustomResource):
         :param pulumi.Input['AgreementPreserveFilename'] preserve_filename: Specifies whether to preserve the filename received for this agreement.
         :param pulumi.Input[_builtins.str] server_id: A unique identifier for the server.
         :param pulumi.Input['AgreementStatus'] status: Specifies the status of the agreement.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to group and search for agreements. Tags are metadata attached to agreements for any purpose.
         """
         ...
     @overload
@@ -263,7 +263,7 @@ class Agreement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  access_role: pulumi.Input[Optional[_builtins.str]] = None,
                  base_directory: pulumi.Input[Optional[_builtins.str]] = None,
-                 custom_directories: pulumi.Input[Optional[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict']]] = None,
+                 custom_directories: pulumi.Input[Optional[Union['CustomDirectoriesPropertiesArgs', 'CustomDirectoriesPropertiesArgsDict', 'outputs.CustomDirectoriesProperties']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  enforce_message_signing: pulumi.Input[Optional['AgreementEnforceMessageSigning']] = None,
                  local_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -271,7 +271,7 @@ class Agreement(pulumi.CustomResource):
                  preserve_filename: pulumi.Input[Optional['AgreementPreserveFilename']] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['AgreementStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

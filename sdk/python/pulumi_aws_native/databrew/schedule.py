@@ -99,7 +99,7 @@ class Schedule(pulumi.CustomResource):
                  cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  job_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::DataBrew::Schedule.
@@ -128,7 +128,7 @@ class Schedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cron_expression: Schedule cron
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] job_names: A list of jobs to be run, according to the schedule.
         :param pulumi.Input[_builtins.str] name: Schedule Name
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata tags that have been applied to the schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata tags that have been applied to the schedule.
         """
         ...
     @overload
@@ -176,7 +176,7 @@ class Schedule(pulumi.CustomResource):
                  cron_expression: pulumi.Input[Optional[_builtins.str]] = None,
                  job_names: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -84,8 +84,8 @@ class EncoderConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 video: pulumi.Input[Optional[Union['VideoPropertiesArgs', 'VideoPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 video: pulumi.Input[Optional[Union['VideoPropertiesArgs', 'VideoPropertiesArgsDict', 'outputs.VideoProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::IVS::EncoderConfiguration.
@@ -93,8 +93,8 @@ class EncoderConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Encoder configuration name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Union['VideoPropertiesArgs', 'VideoPropertiesArgsDict']] video: Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['VideoPropertiesArgs', 'VideoPropertiesArgsDict', 'outputs.VideoProperties']] video: Video configuration. Default: video resolution 1280x720, bitrate 2500 kbps, 30 fps
         """
         ...
     @overload
@@ -121,8 +121,8 @@ class EncoderConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 video: pulumi.Input[Optional[Union['VideoPropertiesArgs', 'VideoPropertiesArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 video: pulumi.Input[Optional[Union['VideoPropertiesArgs', 'VideoPropertiesArgsDict', 'outputs.VideoProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -50,7 +50,7 @@ class GetMailManagerRelayResult:
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> Optional[Any]:
+    def authentication(self) -> Optional[Union['outputs.MailManagerRelayRelayAuthentication0Properties', 'outputs.MailManagerRelayRelayAuthentication1Properties']]:
         """
         Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
         """

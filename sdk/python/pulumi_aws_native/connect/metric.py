@@ -165,11 +165,11 @@ class Metric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_calculation: pulumi.Input[Optional[Union['MetricCalculationPropertiesArgs', 'MetricCalculationPropertiesArgsDict']]] = None,
+                 metric_calculation: pulumi.Input[Optional[Union['MetricCalculationPropertiesArgs', 'MetricCalculationPropertiesArgsDict', 'outputs.MetricCalculationProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  positive_trend_indicator: pulumi.Input[Optional['MetricPositiveTrendIndicator']] = None,
                  status: pulumi.Input[Optional['MetricStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  unit: pulumi.Input[Optional['MetricUnit']] = None,
                  __props__=None):
         """
@@ -179,11 +179,11 @@ class Metric(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the custom metric
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[Union['MetricCalculationPropertiesArgs', 'MetricCalculationPropertiesArgsDict']] metric_calculation: The calculation configuration for the metric
+        :param pulumi.Input[Union['MetricCalculationPropertiesArgs', 'MetricCalculationPropertiesArgsDict', 'outputs.MetricCalculationProperties']] metric_calculation: The calculation configuration for the metric
         :param pulumi.Input[_builtins.str] name: The name of the custom metric
         :param pulumi.Input['MetricPositiveTrendIndicator'] positive_trend_indicator: Indicates how to classify a positive trend in metric data on the UI
         :param pulumi.Input['MetricStatus'] status: The status of the custom metric
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         :param pulumi.Input['MetricUnit'] unit: Display unit for the metric data
         """
         ...
@@ -212,11 +212,11 @@ class Metric(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_calculation: pulumi.Input[Optional[Union['MetricCalculationPropertiesArgs', 'MetricCalculationPropertiesArgsDict']]] = None,
+                 metric_calculation: pulumi.Input[Optional[Union['MetricCalculationPropertiesArgs', 'MetricCalculationPropertiesArgsDict', 'outputs.MetricCalculationProperties']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  positive_trend_indicator: pulumi.Input[Optional['MetricPositiveTrendIndicator']] = None,
                  status: pulumi.Input[Optional['MetricStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  unit: pulumi.Input[Optional['MetricUnit']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

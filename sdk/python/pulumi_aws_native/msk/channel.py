@@ -139,12 +139,12 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict']]] = None,
-                 iceberg_destination_configuration: pulumi.Input[Optional[Union['ChannelIcebergDestinationConfigurationArgs', 'ChannelIcebergDestinationConfigurationArgsDict']]] = None,
-                 logging_info: pulumi.Input[Optional[Union['ChannelLoggingInfoArgs', 'ChannelLoggingInfoArgsDict']]] = None,
-                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict', 'outputs.ChannelEncryptionConfiguration']]] = None,
+                 iceberg_destination_configuration: pulumi.Input[Optional[Union['ChannelIcebergDestinationConfigurationArgs', 'ChannelIcebergDestinationConfigurationArgsDict', 'outputs.ChannelIcebergDestinationConfiguration']]] = None,
+                 logging_info: pulumi.Input[Optional[Union['ChannelLoggingInfoArgs', 'ChannelLoggingInfoArgsDict', 'outputs.ChannelLoggingInfo']]] = None,
+                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict', 'outputs.ChannelS3DestinationConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelTopicConfigurationArgs', 'ChannelTopicConfigurationArgsDict']]]]] = None,
+                 topic_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelTopicConfigurationArgs', 'ChannelTopicConfigurationArgsDict', 'outputs.ChannelTopicConfiguration']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MSK::Channel
@@ -152,7 +152,7 @@ class Channel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the cluster
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelTopicConfigurationArgs', 'ChannelTopicConfigurationArgsDict']]]] topic_configuration_list: Topic configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ChannelTopicConfigurationArgs', 'ChannelTopicConfigurationArgsDict', 'outputs.ChannelTopicConfiguration']]]] topic_configuration_list: Topic configuration
         """
         ...
     @overload
@@ -180,12 +180,12 @@ class Channel(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  channel_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict']]] = None,
-                 iceberg_destination_configuration: pulumi.Input[Optional[Union['ChannelIcebergDestinationConfigurationArgs', 'ChannelIcebergDestinationConfigurationArgsDict']]] = None,
-                 logging_info: pulumi.Input[Optional[Union['ChannelLoggingInfoArgs', 'ChannelLoggingInfoArgsDict']]] = None,
-                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict']]] = None,
+                 encryption_configuration: pulumi.Input[Optional[Union['ChannelEncryptionConfigurationArgs', 'ChannelEncryptionConfigurationArgsDict', 'outputs.ChannelEncryptionConfiguration']]] = None,
+                 iceberg_destination_configuration: pulumi.Input[Optional[Union['ChannelIcebergDestinationConfigurationArgs', 'ChannelIcebergDestinationConfigurationArgsDict', 'outputs.ChannelIcebergDestinationConfiguration']]] = None,
+                 logging_info: pulumi.Input[Optional[Union['ChannelLoggingInfoArgs', 'ChannelLoggingInfoArgsDict', 'outputs.ChannelLoggingInfo']]] = None,
+                 s3_destination_configuration: pulumi.Input[Optional[Union['ChannelS3DestinationConfigurationArgs', 'ChannelS3DestinationConfigurationArgsDict', 'outputs.ChannelS3DestinationConfiguration']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelTopicConfigurationArgs', 'ChannelTopicConfigurationArgsDict']]]]] = None,
+                 topic_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ChannelTopicConfigurationArgs', 'ChannelTopicConfigurationArgsDict', 'outputs.ChannelTopicConfiguration']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

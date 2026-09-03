@@ -2290,11 +2290,11 @@ class DbInstance(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_storage_volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]]] = None,
+                 additional_storage_volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict', 'outputs.DbInstanceAdditionalStorageVolume']]]]] = None,
                  allocated_storage: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
-                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict']]]]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict', 'outputs.DbInstanceDbInstanceRole']]]]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_backup_replication_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  automatic_backup_replication_region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2339,7 +2339,7 @@ class DbInstance(pulumi.CustomResource):
                  manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
                  master_user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
                  master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 master_user_secret: pulumi.Input[Optional[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict']]] = None,
+                 master_user_secret: pulumi.Input[Optional[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict', 'outputs.DbInstanceMasterUserSecret']]] = None,
                  master_username: pulumi.Input[Optional[_builtins.str]] = None,
                  max_allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
@@ -2353,7 +2353,7 @@ class DbInstance(pulumi.CustomResource):
                  port: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 processor_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceProcessorFeatureArgs', 'DbInstanceProcessorFeatureArgsDict']]]]] = None,
+                 processor_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceProcessorFeatureArgs', 'DbInstanceProcessorFeatureArgsDict', 'outputs.DbInstanceProcessorFeature']]]]] = None,
                  promotion_tier: pulumi.Input[Optional[_builtins.int]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2366,7 +2366,7 @@ class DbInstance(pulumi.CustomResource):
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tde_credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tde_credential_password: pulumi.Input[Optional[_builtins.str]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,
@@ -2399,7 +2399,7 @@ class DbInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict', 'outputs.DbInstanceAdditionalStorageVolume']]]] additional_storage_volumes: The additional storage volumes associated with the DB instance. RDS supports additional storage volumes for RDS for Oracle and RDS for SQL Server.
         :param pulumi.Input[_builtins.str] allocated_storage: The amount of storage in gibibytes (GiB) to be initially allocated for the database instance.
                  If any value is set in the ``Iops`` parameter, ``AllocatedStorage`` must be at least 100 GiB, which corresponds to the minimum Iops value of 1,000. If you increase the ``Iops`` value (in 1,000 IOPS increments), then you must also increase the ``AllocatedStorage`` value (in 100-GiB increments).
                   *Amazon Aurora*
@@ -2451,7 +2451,7 @@ class DbInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether changes to the DB instance and any pending modifications are applied immediately, regardless of the ``PreferredMaintenanceWindow`` setting. If set to ``false``, changes are applied during the next maintenance window. Until RDS applies the changes, the DB instance remains in a drift state. As a result, the configuration doesn't fully reflect the requested modifications and temporarily diverges from the intended state.
                 In addition to the settings described in [Modifying a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html), this property also determines whether the DB instance reboots when a static parameter is modified in the associated DB parameter group.
                 Default: ``true``
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict']]]] associated_roles: The IAMlong (IAM) roles associated with the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict', 'outputs.DbInstanceDbInstanceRole']]]] associated_roles: The IAMlong (IAM) roles associated with the DB instance.
                  *Amazon Aurora*
                 Not applicable. The associated roles are managed by the DB cluster.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: A value that indicates whether minor engine upgrades are applied automatically to the DB instance during the maintenance window. By default, minor engine upgrades are applied automatically.
@@ -2762,7 +2762,7 @@ class DbInstance(pulumi.CustomResource):
                 Constraints: Must contain from 8 to 30 characters.
                  *RDS for PostgreSQL*
                 Constraints: Must contain from 8 to 128 characters.
-        :param pulumi.Input[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict']] master_user_secret: The secret managed by RDS in AWS Secrets Manager for the master user password.
+        :param pulumi.Input[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict', 'outputs.DbInstanceMasterUserSecret']] master_user_secret: The secret managed by RDS in AWS Secrets Manager for the master user password.
                 For more information, see [Password management with Secrets Manager](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-secrets-manager.html) in the *Amazon RDS User Guide.*
         :param pulumi.Input[_builtins.str] master_username: The master user name for the DB instance.
                  If you specify the ``SourceDBInstanceIdentifier`` or ``DBSnapshotIdentifier`` property, don't specify this property. The value is inherited from the source DB instance or snapshot.
@@ -2876,7 +2876,7 @@ class DbInstance(pulumi.CustomResource):
                 The default is a 30-minute window selected at random from an 8-hour block of time for each AWS Region, occurring on a random day of the week. To see the time blocks available, see [Maintaining a DB instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow) in the *Amazon RDS User Guide.*
                  This property applies when AWS CloudFormation initially creates the DB instance. If you use AWS CloudFormation to update the DB instance, those updates are applied immediately.
                  Constraints: Minimum 30-minute window.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceProcessorFeatureArgs', 'DbInstanceProcessorFeatureArgsDict']]]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbInstanceProcessorFeatureArgs', 'DbInstanceProcessorFeatureArgsDict', 'outputs.DbInstanceProcessorFeature']]]] processor_features: The number of CPU cores and the number of threads per core for the DB instance class of the DB instance.
                 This setting doesn't apply to Amazon Aurora or RDS Custom DB instances.
         :param pulumi.Input[_builtins.int] promotion_tier: The order of priority in which an Aurora Replica is promoted to the primary instance after a failure of the existing primary instance. For more information, see [Fault Tolerance for an Aurora DB Cluster](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Concepts.AuroraHighAvailability.html#Aurora.Managing.FaultTolerance) in the *Amazon Aurora User Guide*.
                 This setting doesn't apply to RDS Custom DB instances.
@@ -2929,7 +2929,7 @@ class DbInstance(pulumi.CustomResource):
                 This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.
                 Valid Values: ``gp2 | gp3 | io1 | io2 | standard``
                 Default: ``io1``, if the ``Iops`` parameter is specified. Otherwise, ``gp3``.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the DB instance.
         :param pulumi.Input[_builtins.str] timezone: The time zone of the DB instance. The time zone parameter is currently supported only by [RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-time-zone) and [RDS for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.TimeZone).
         :param pulumi.Input[_builtins.bool] use_default_processor_features: Specifies whether the DB instance class of the DB instance uses its default processor features.
                 This setting doesn't apply to RDS Custom DB instances.
@@ -2992,11 +2992,11 @@ class DbInstance(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_storage_volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict']]]]] = None,
+                 additional_storage_volumes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceAdditionalStorageVolumeArgs', 'DbInstanceAdditionalStorageVolumeArgsDict', 'outputs.DbInstanceAdditionalStorageVolume']]]]] = None,
                  allocated_storage: pulumi.Input[Optional[_builtins.str]] = None,
                  allow_major_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  apply_immediately: pulumi.Input[Optional[_builtins.bool]] = None,
-                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict']]]]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceDbInstanceRoleArgs', 'DbInstanceDbInstanceRoleArgsDict', 'outputs.DbInstanceDbInstanceRole']]]]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  automatic_backup_replication_kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  automatic_backup_replication_region: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3041,7 +3041,7 @@ class DbInstance(pulumi.CustomResource):
                  manage_master_user_password: pulumi.Input[Optional[_builtins.bool]] = None,
                  master_user_authentication_type: pulumi.Input[Optional[_builtins.str]] = None,
                  master_user_password: pulumi.Input[Optional[_builtins.str]] = None,
-                 master_user_secret: pulumi.Input[Optional[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict']]] = None,
+                 master_user_secret: pulumi.Input[Optional[Union['DbInstanceMasterUserSecretArgs', 'DbInstanceMasterUserSecretArgsDict', 'outputs.DbInstanceMasterUserSecret']]] = None,
                  master_username: pulumi.Input[Optional[_builtins.str]] = None,
                  max_allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
                  monitoring_interval: pulumi.Input[Optional[_builtins.int]] = None,
@@ -3055,7 +3055,7 @@ class DbInstance(pulumi.CustomResource):
                  port: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_backup_window: pulumi.Input[Optional[_builtins.str]] = None,
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
-                 processor_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceProcessorFeatureArgs', 'DbInstanceProcessorFeatureArgsDict']]]]] = None,
+                 processor_features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbInstanceProcessorFeatureArgs', 'DbInstanceProcessorFeatureArgsDict', 'outputs.DbInstanceProcessorFeature']]]]] = None,
                  promotion_tier: pulumi.Input[Optional[_builtins.int]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_mode: pulumi.Input[Optional[_builtins.str]] = None,
@@ -3068,7 +3068,7 @@ class DbInstance(pulumi.CustomResource):
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tde_credential_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tde_credential_password: pulumi.Input[Optional[_builtins.str]] = None,
                  timezone: pulumi.Input[Optional[_builtins.str]] = None,

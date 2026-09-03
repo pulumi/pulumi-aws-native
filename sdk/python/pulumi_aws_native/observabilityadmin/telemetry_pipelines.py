@@ -83,18 +83,18 @@ class TelemetryPipelines(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelinesTelemetryPipelineConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ObservabilityAdmin::TelemetryPipelines
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict']] configuration: The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
+        :param pulumi.Input[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelinesTelemetryPipelineConfiguration']] configuration: The configuration that defines how the telemetry pipeline processes data, including sources, processors, and destinations. For more information, see the [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Creating-pipelines.html) .
         :param pulumi.Input[_builtins.str] name: The name of the telemetry pipeline to create. The name must be unique within your account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource
         """
         ...
     @overload
@@ -120,9 +120,9 @@ class TelemetryPipelines(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['TelemetryPipelinesTelemetryPipelineConfigurationArgs', 'TelemetryPipelinesTelemetryPipelineConfigurationArgsDict', 'outputs.TelemetryPipelinesTelemetryPipelineConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -64,7 +64,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryScanningConfigurationScanningRuleArgs', 'RegistryScanningConfigurationScanningRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryScanningConfigurationScanningRuleArgs', 'RegistryScanningConfigurationScanningRuleArgsDict', 'outputs.RegistryScanningConfigurationScanningRule']]]]] = None,
                  scan_type: pulumi.Input[Optional['RegistryScanningConfigurationScanType']] = None,
                  __props__=None):
         """
@@ -72,7 +72,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationScanningRuleArgs', 'RegistryScanningConfigurationScanningRuleArgsDict']]]] rules: The scanning rules associated with the registry.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RegistryScanningConfigurationScanningRuleArgs', 'RegistryScanningConfigurationScanningRuleArgsDict', 'outputs.RegistryScanningConfigurationScanningRule']]]] rules: The scanning rules associated with the registry.
         :param pulumi.Input['RegistryScanningConfigurationScanType'] scan_type: The type of scanning configured for the registry.
         """
         ...
@@ -99,7 +99,7 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryScanningConfigurationScanningRuleArgs', 'RegistryScanningConfigurationScanningRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RegistryScanningConfigurationScanningRuleArgs', 'RegistryScanningConfigurationScanningRuleArgsDict', 'outputs.RegistryScanningConfigurationScanningRule']]]]] = None,
                  scan_type: pulumi.Input[Optional['RegistryScanningConfigurationScanType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

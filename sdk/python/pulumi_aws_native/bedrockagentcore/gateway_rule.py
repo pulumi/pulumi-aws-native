@@ -91,8 +91,8 @@ class GatewayRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleAction0PropertiesArgs', 'GatewayRuleAction0PropertiesArgsDict'], Union['GatewayRuleAction1PropertiesArgs', 'GatewayRuleAction1PropertiesArgsDict']]]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict']]]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleAction0PropertiesArgs', 'GatewayRuleAction0PropertiesArgsDict', 'outputs.GatewayRuleAction0Properties'], Union['GatewayRuleAction1PropertiesArgs', 'GatewayRuleAction1PropertiesArgsDict', 'outputs.GatewayRuleAction1Properties']]]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict', 'outputs.GatewayRuleCondition0Properties'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict', 'outputs.GatewayRuleCondition1Properties']]]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.float]] = None,
@@ -127,8 +127,8 @@ class GatewayRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleAction0PropertiesArgs', 'GatewayRuleAction0PropertiesArgsDict'], Union['GatewayRuleAction1PropertiesArgs', 'GatewayRuleAction1PropertiesArgsDict']]]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict']]]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleAction0PropertiesArgs', 'GatewayRuleAction0PropertiesArgsDict', 'outputs.GatewayRuleAction0Properties'], Union['GatewayRuleAction1PropertiesArgs', 'GatewayRuleAction1PropertiesArgsDict', 'outputs.GatewayRuleAction1Properties']]]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union[Union['GatewayRuleCondition0PropertiesArgs', 'GatewayRuleCondition0PropertiesArgsDict', 'outputs.GatewayRuleCondition0Properties'], Union['GatewayRuleCondition1PropertiesArgs', 'GatewayRuleCondition1PropertiesArgsDict', 'outputs.GatewayRuleCondition1Properties']]]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.float]] = None,
@@ -193,12 +193,12 @@ class GatewayRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Sequence[Any]]:
+    def actions(self) -> pulumi.Output[Sequence[Union['outputs.GatewayRuleAction0Properties', 'outputs.GatewayRuleAction1Properties']]]:
         return pulumi.get(self, "actions")
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> pulumi.Output[Optional[Sequence[Any]]]:
+    def conditions(self) -> pulumi.Output[Optional[Sequence[Union['outputs.GatewayRuleCondition0Properties', 'outputs.GatewayRuleCondition1Properties']]]]:
         return pulumi.get(self, "conditions")
 
     @_builtins.property

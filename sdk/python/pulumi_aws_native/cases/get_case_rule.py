@@ -101,7 +101,7 @@ class GetCaseRuleResult:
 
     @_builtins.property
     @pulumi.getter
-    def rule(self) -> Optional[Any]:
+    def rule(self) -> Optional[Union['outputs.CaseRuleDetails0Properties', 'outputs.CaseRuleDetails1Properties']]:
         """
         Represents what rule type should take place, under what conditions.
         """

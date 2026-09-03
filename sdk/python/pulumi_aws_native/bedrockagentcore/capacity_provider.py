@@ -106,11 +106,11 @@ class CapacityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_configuration: pulumi.Input[Optional[Union['CapacityProviderComputeConfigurationArgs', 'CapacityProviderComputeConfigurationArgsDict']]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['CapacityProviderComputeConfigurationArgs', 'CapacityProviderComputeConfigurationArgsDict', 'outputs.CapacityProviderComputeConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions_configuration: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigurationArgs', 'CapacityProviderPermissionsConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 permissions_configuration: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigurationArgs', 'CapacityProviderPermissionsConfigurationArgsDict', 'outputs.CapacityProviderPermissionsConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::CapacityProvider. A capacity provider defines the compute resources (EC2) used to run Amazon Bedrock AgentCore agent runtimes.
@@ -119,7 +119,7 @@ class CapacityProvider(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: An optional description of the capacity provider.
         :param pulumi.Input[_builtins.str] name: The name of the capacity provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to the capacity provider.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to the capacity provider.
         """
         ...
     @overload
@@ -145,11 +145,11 @@ class CapacityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 compute_configuration: pulumi.Input[Optional[Union['CapacityProviderComputeConfigurationArgs', 'CapacityProviderComputeConfigurationArgsDict']]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['CapacityProviderComputeConfigurationArgs', 'CapacityProviderComputeConfigurationArgsDict', 'outputs.CapacityProviderComputeConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions_configuration: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigurationArgs', 'CapacityProviderPermissionsConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 permissions_configuration: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigurationArgs', 'CapacityProviderPermissionsConfigurationArgsDict', 'outputs.CapacityProviderPermissionsConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -64,7 +64,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict']]] = None,
+                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict', 'outputs.Entitlement']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AccountAccess::Entitlement specifying an entitlement for account access
@@ -72,7 +72,7 @@ class Entitlement(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_arn: The ARN of the application
-        :param pulumi.Input[Union['EntitlementArgs', 'EntitlementArgsDict']] entitlement: The entitlement details
+        :param pulumi.Input[Union['EntitlementArgs', 'EntitlementArgsDict', 'outputs.Entitlement']] entitlement: The entitlement details
         """
         ...
     @overload
@@ -99,7 +99,7 @@ class Entitlement(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict']]] = None,
+                 entitlement: pulumi.Input[Optional[Union['EntitlementArgs', 'EntitlementArgsDict', 'outputs.Entitlement']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

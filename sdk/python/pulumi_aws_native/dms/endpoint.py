@@ -531,34 +531,34 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 doc_db_settings: pulumi.Input[Optional[Union['EndpointDocDbSettingsArgs', 'EndpointDocDbSettingsArgsDict']]] = None,
-                 dynamo_db_settings: pulumi.Input[Optional[Union['EndpointDynamoDbSettingsArgs', 'EndpointDynamoDbSettingsArgsDict']]] = None,
-                 elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
+                 doc_db_settings: pulumi.Input[Optional[Union['EndpointDocDbSettingsArgs', 'EndpointDocDbSettingsArgsDict', 'outputs.EndpointDocDbSettings']]] = None,
+                 dynamo_db_settings: pulumi.Input[Optional[Union['EndpointDynamoDbSettingsArgs', 'EndpointDynamoDbSettingsArgsDict', 'outputs.EndpointDynamoDbSettings']]] = None,
+                 elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict', 'outputs.EndpointElasticsearchSettings']]] = None,
                  endpoint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
-                 gcp_my_sql_settings: pulumi.Input[Optional[Union['EndpointGcpMySqlSettingsArgs', 'EndpointGcpMySqlSettingsArgsDict']]] = None,
-                 ibm_db2_settings: pulumi.Input[Optional[Union['EndpointIbmDb2SettingsArgs', 'EndpointIbmDb2SettingsArgsDict']]] = None,
-                 kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
-                 kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
+                 gcp_my_sql_settings: pulumi.Input[Optional[Union['EndpointGcpMySqlSettingsArgs', 'EndpointGcpMySqlSettingsArgsDict', 'outputs.EndpointGcpMySqlSettings']]] = None,
+                 ibm_db2_settings: pulumi.Input[Optional[Union['EndpointIbmDb2SettingsArgs', 'EndpointIbmDb2SettingsArgsDict', 'outputs.EndpointIbmDb2Settings']]] = None,
+                 kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict', 'outputs.EndpointKafkaSettings']]] = None,
+                 kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict', 'outputs.EndpointKinesisSettings']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 microsoft_sql_server_settings: pulumi.Input[Optional[Union['EndpointMicrosoftSqlServerSettingsArgs', 'EndpointMicrosoftSqlServerSettingsArgsDict']]] = None,
-                 mongo_db_settings: pulumi.Input[Optional[Union['EndpointMongoDbSettingsArgs', 'EndpointMongoDbSettingsArgsDict']]] = None,
-                 my_sql_settings: pulumi.Input[Optional[Union['EndpointMySqlSettingsArgs', 'EndpointMySqlSettingsArgsDict']]] = None,
-                 neptune_settings: pulumi.Input[Optional[Union['EndpointNeptuneSettingsArgs', 'EndpointNeptuneSettingsArgsDict']]] = None,
-                 oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
+                 microsoft_sql_server_settings: pulumi.Input[Optional[Union['EndpointMicrosoftSqlServerSettingsArgs', 'EndpointMicrosoftSqlServerSettingsArgsDict', 'outputs.EndpointMicrosoftSqlServerSettings']]] = None,
+                 mongo_db_settings: pulumi.Input[Optional[Union['EndpointMongoDbSettingsArgs', 'EndpointMongoDbSettingsArgsDict', 'outputs.EndpointMongoDbSettings']]] = None,
+                 my_sql_settings: pulumi.Input[Optional[Union['EndpointMySqlSettingsArgs', 'EndpointMySqlSettingsArgsDict', 'outputs.EndpointMySqlSettings']]] = None,
+                 neptune_settings: pulumi.Input[Optional[Union['EndpointNeptuneSettingsArgs', 'EndpointNeptuneSettingsArgsDict', 'outputs.EndpointNeptuneSettings']]] = None,
+                 oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict', 'outputs.EndpointOracleSettings']]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
-                 postgre_sql_settings: pulumi.Input[Optional[Union['EndpointPostgreSqlSettingsArgs', 'EndpointPostgreSqlSettingsArgsDict']]] = None,
-                 redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
-                 redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 postgre_sql_settings: pulumi.Input[Optional[Union['EndpointPostgreSqlSettingsArgs', 'EndpointPostgreSqlSettingsArgsDict', 'outputs.EndpointPostgreSqlSettings']]] = None,
+                 redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict', 'outputs.EndpointRedisSettings']]] = None,
+                 redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict', 'outputs.EndpointRedshiftSettings']]] = None,
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_settings: pulumi.Input[Optional[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']]] = None,
+                 s3_settings: pulumi.Input[Optional[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict', 'outputs.EndpointS3Settings']]] = None,
                  server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 sybase_settings: pulumi.Input[Optional[Union['EndpointSybaseSettingsArgs', 'EndpointSybaseSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sybase_settings: pulumi.Input[Optional[Union['EndpointSybaseSettingsArgs', 'EndpointSybaseSettingsArgsDict', 'outputs.EndpointSybaseSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -591,34 +591,34 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the certificate.
         :param pulumi.Input[_builtins.str] database_name: The name of the endpoint database. For a MySQL source or target endpoint, don't specify DatabaseName. To migrate to a specific database, use this setting and targetDbType.
-        :param pulumi.Input[Union['EndpointDocDbSettingsArgs', 'EndpointDocDbSettingsArgsDict']] doc_db_settings: Settings in JSON format for the source and target DocumentDB endpoint
-        :param pulumi.Input[Union['EndpointDynamoDbSettingsArgs', 'EndpointDynamoDbSettingsArgsDict']] dynamo_db_settings: Settings in JSON format for the target Amazon DynamoDB endpoint
-        :param pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']] elasticsearch_settings: Settings in JSON format for the target OpenSearch endpoint
+        :param pulumi.Input[Union['EndpointDocDbSettingsArgs', 'EndpointDocDbSettingsArgsDict', 'outputs.EndpointDocDbSettings']] doc_db_settings: Settings in JSON format for the source and target DocumentDB endpoint
+        :param pulumi.Input[Union['EndpointDynamoDbSettingsArgs', 'EndpointDynamoDbSettingsArgsDict', 'outputs.EndpointDynamoDbSettings']] dynamo_db_settings: Settings in JSON format for the target Amazon DynamoDB endpoint
+        :param pulumi.Input[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict', 'outputs.EndpointElasticsearchSettings']] elasticsearch_settings: Settings in JSON format for the target OpenSearch endpoint
         :param pulumi.Input[_builtins.str] endpoint_identifier: The database endpoint identifier. Identifiers must begin with a letter and must contain only ASCII letters, digits, and hyphens. They can't end with a hyphen, or contain two consecutive hyphens.
         :param pulumi.Input[_builtins.str] endpoint_type: The type of endpoint. Valid values are source and target.
         :param pulumi.Input[_builtins.str] engine_name: The type of engine for the endpoint, depending on the EndpointType value.
         :param pulumi.Input[_builtins.str] extra_connection_attributes: Additional attributes associated with the connection
-        :param pulumi.Input[Union['EndpointGcpMySqlSettingsArgs', 'EndpointGcpMySqlSettingsArgsDict']] gcp_my_sql_settings: Settings in JSON format for the source GCP MySQL endpoint
-        :param pulumi.Input[Union['EndpointIbmDb2SettingsArgs', 'EndpointIbmDb2SettingsArgsDict']] ibm_db2_settings: Settings in JSON format for the source IBM Db2 LUW endpoint
-        :param pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']] kafka_settings: Settings in JSON format for the target Apache Kafka endpoint
-        :param pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']] kinesis_settings: Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams
+        :param pulumi.Input[Union['EndpointGcpMySqlSettingsArgs', 'EndpointGcpMySqlSettingsArgsDict', 'outputs.EndpointGcpMySqlSettings']] gcp_my_sql_settings: Settings in JSON format for the source GCP MySQL endpoint
+        :param pulumi.Input[Union['EndpointIbmDb2SettingsArgs', 'EndpointIbmDb2SettingsArgsDict', 'outputs.EndpointIbmDb2Settings']] ibm_db2_settings: Settings in JSON format for the source IBM Db2 LUW endpoint
+        :param pulumi.Input[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict', 'outputs.EndpointKafkaSettings']] kafka_settings: Settings in JSON format for the target Apache Kafka endpoint
+        :param pulumi.Input[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict', 'outputs.EndpointKinesisSettings']] kinesis_settings: Settings in JSON format for the target endpoint for Amazon Kinesis Data Streams
         :param pulumi.Input[_builtins.str] kms_key_id: An AWS KMS key identifier that is used to encrypt the connection parameters for the endpoint.If you don't specify a value for the KmsKeyId parameter, AWS DMS uses your default encryption key.
-        :param pulumi.Input[Union['EndpointMicrosoftSqlServerSettingsArgs', 'EndpointMicrosoftSqlServerSettingsArgsDict']] microsoft_sql_server_settings: Settings in JSON format for the source and target Microsoft SQL Server endpoint
-        :param pulumi.Input[Union['EndpointMongoDbSettingsArgs', 'EndpointMongoDbSettingsArgsDict']] mongo_db_settings: Settings in JSON format for the source MongoDB endpoint
-        :param pulumi.Input[Union['EndpointMySqlSettingsArgs', 'EndpointMySqlSettingsArgsDict']] my_sql_settings: Settings in JSON format for the source and target MySQL endpoin
-        :param pulumi.Input[Union['EndpointNeptuneSettingsArgs', 'EndpointNeptuneSettingsArgsDict']] neptune_settings: Settings in JSON format for the target Amazon Neptune endpoint
-        :param pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']] oracle_settings: Settings in JSON format for the source and target Oracle endpoint
+        :param pulumi.Input[Union['EndpointMicrosoftSqlServerSettingsArgs', 'EndpointMicrosoftSqlServerSettingsArgsDict', 'outputs.EndpointMicrosoftSqlServerSettings']] microsoft_sql_server_settings: Settings in JSON format for the source and target Microsoft SQL Server endpoint
+        :param pulumi.Input[Union['EndpointMongoDbSettingsArgs', 'EndpointMongoDbSettingsArgsDict', 'outputs.EndpointMongoDbSettings']] mongo_db_settings: Settings in JSON format for the source MongoDB endpoint
+        :param pulumi.Input[Union['EndpointMySqlSettingsArgs', 'EndpointMySqlSettingsArgsDict', 'outputs.EndpointMySqlSettings']] my_sql_settings: Settings in JSON format for the source and target MySQL endpoin
+        :param pulumi.Input[Union['EndpointNeptuneSettingsArgs', 'EndpointNeptuneSettingsArgsDict', 'outputs.EndpointNeptuneSettings']] neptune_settings: Settings in JSON format for the target Amazon Neptune endpoint
+        :param pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict', 'outputs.EndpointOracleSettings']] oracle_settings: Settings in JSON format for the source and target Oracle endpoint
         :param pulumi.Input[_builtins.str] password: The password to be used to log in to the endpoint database.
         :param pulumi.Input[_builtins.int] port: The port used by the endpoint database.
-        :param pulumi.Input[Union['EndpointPostgreSqlSettingsArgs', 'EndpointPostgreSqlSettingsArgsDict']] postgre_sql_settings: Settings in JSON format for the source and target PostgreSQL endpoint.
-        :param pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']] redis_settings: Settings in JSON format for the target Redis endpoint
-        :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']] redshift_settings: Settings in JSON format for the Amazon Redshift endpoint.
+        :param pulumi.Input[Union['EndpointPostgreSqlSettingsArgs', 'EndpointPostgreSqlSettingsArgsDict', 'outputs.EndpointPostgreSqlSettings']] postgre_sql_settings: Settings in JSON format for the source and target PostgreSQL endpoint.
+        :param pulumi.Input[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict', 'outputs.EndpointRedisSettings']] redis_settings: Settings in JSON format for the target Redis endpoint
+        :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict', 'outputs.EndpointRedshiftSettings']] redshift_settings: Settings in JSON format for the Amazon Redshift endpoint.
         :param pulumi.Input[_builtins.str] resource_identifier: A display name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object.
-        :param pulumi.Input[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']] s3_settings: Settings in JSON format for the source and target Amazon S3 endpoint
+        :param pulumi.Input[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict', 'outputs.EndpointS3Settings']] s3_settings: Settings in JSON format for the source and target Amazon S3 endpoint
         :param pulumi.Input[_builtins.str] server_name: The name of the server where the endpoint database resides.
         :param pulumi.Input[_builtins.str] ssl_mode: The Secure Sockets Layer (SSL) mode to use for the SSL connection. The default is none.
-        :param pulumi.Input[Union['EndpointSybaseSettingsArgs', 'EndpointSybaseSettingsArgsDict']] sybase_settings: Settings in JSON format for the source and target SAP ASE endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags to be assigned to the endpoint.
+        :param pulumi.Input[Union['EndpointSybaseSettingsArgs', 'EndpointSybaseSettingsArgsDict', 'outputs.EndpointSybaseSettings']] sybase_settings: Settings in JSON format for the source and target SAP ASE endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags to be assigned to the endpoint.
         :param pulumi.Input[_builtins.str] username: The user name to be used to log in to the endpoint database.
         """
         ...
@@ -670,34 +670,34 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 doc_db_settings: pulumi.Input[Optional[Union['EndpointDocDbSettingsArgs', 'EndpointDocDbSettingsArgsDict']]] = None,
-                 dynamo_db_settings: pulumi.Input[Optional[Union['EndpointDynamoDbSettingsArgs', 'EndpointDynamoDbSettingsArgsDict']]] = None,
-                 elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict']]] = None,
+                 doc_db_settings: pulumi.Input[Optional[Union['EndpointDocDbSettingsArgs', 'EndpointDocDbSettingsArgsDict', 'outputs.EndpointDocDbSettings']]] = None,
+                 dynamo_db_settings: pulumi.Input[Optional[Union['EndpointDynamoDbSettingsArgs', 'EndpointDynamoDbSettingsArgsDict', 'outputs.EndpointDynamoDbSettings']]] = None,
+                 elasticsearch_settings: pulumi.Input[Optional[Union['EndpointElasticsearchSettingsArgs', 'EndpointElasticsearchSettingsArgsDict', 'outputs.EndpointElasticsearchSettings']]] = None,
                  endpoint_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_type: pulumi.Input[Optional[_builtins.str]] = None,
                  engine_name: pulumi.Input[Optional[_builtins.str]] = None,
                  extra_connection_attributes: pulumi.Input[Optional[_builtins.str]] = None,
-                 gcp_my_sql_settings: pulumi.Input[Optional[Union['EndpointGcpMySqlSettingsArgs', 'EndpointGcpMySqlSettingsArgsDict']]] = None,
-                 ibm_db2_settings: pulumi.Input[Optional[Union['EndpointIbmDb2SettingsArgs', 'EndpointIbmDb2SettingsArgsDict']]] = None,
-                 kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict']]] = None,
-                 kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict']]] = None,
+                 gcp_my_sql_settings: pulumi.Input[Optional[Union['EndpointGcpMySqlSettingsArgs', 'EndpointGcpMySqlSettingsArgsDict', 'outputs.EndpointGcpMySqlSettings']]] = None,
+                 ibm_db2_settings: pulumi.Input[Optional[Union['EndpointIbmDb2SettingsArgs', 'EndpointIbmDb2SettingsArgsDict', 'outputs.EndpointIbmDb2Settings']]] = None,
+                 kafka_settings: pulumi.Input[Optional[Union['EndpointKafkaSettingsArgs', 'EndpointKafkaSettingsArgsDict', 'outputs.EndpointKafkaSettings']]] = None,
+                 kinesis_settings: pulumi.Input[Optional[Union['EndpointKinesisSettingsArgs', 'EndpointKinesisSettingsArgsDict', 'outputs.EndpointKinesisSettings']]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 microsoft_sql_server_settings: pulumi.Input[Optional[Union['EndpointMicrosoftSqlServerSettingsArgs', 'EndpointMicrosoftSqlServerSettingsArgsDict']]] = None,
-                 mongo_db_settings: pulumi.Input[Optional[Union['EndpointMongoDbSettingsArgs', 'EndpointMongoDbSettingsArgsDict']]] = None,
-                 my_sql_settings: pulumi.Input[Optional[Union['EndpointMySqlSettingsArgs', 'EndpointMySqlSettingsArgsDict']]] = None,
-                 neptune_settings: pulumi.Input[Optional[Union['EndpointNeptuneSettingsArgs', 'EndpointNeptuneSettingsArgsDict']]] = None,
-                 oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']]] = None,
+                 microsoft_sql_server_settings: pulumi.Input[Optional[Union['EndpointMicrosoftSqlServerSettingsArgs', 'EndpointMicrosoftSqlServerSettingsArgsDict', 'outputs.EndpointMicrosoftSqlServerSettings']]] = None,
+                 mongo_db_settings: pulumi.Input[Optional[Union['EndpointMongoDbSettingsArgs', 'EndpointMongoDbSettingsArgsDict', 'outputs.EndpointMongoDbSettings']]] = None,
+                 my_sql_settings: pulumi.Input[Optional[Union['EndpointMySqlSettingsArgs', 'EndpointMySqlSettingsArgsDict', 'outputs.EndpointMySqlSettings']]] = None,
+                 neptune_settings: pulumi.Input[Optional[Union['EndpointNeptuneSettingsArgs', 'EndpointNeptuneSettingsArgsDict', 'outputs.EndpointNeptuneSettings']]] = None,
+                 oracle_settings: pulumi.Input[Optional[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict', 'outputs.EndpointOracleSettings']]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
-                 postgre_sql_settings: pulumi.Input[Optional[Union['EndpointPostgreSqlSettingsArgs', 'EndpointPostgreSqlSettingsArgsDict']]] = None,
-                 redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict']]] = None,
-                 redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']]] = None,
+                 postgre_sql_settings: pulumi.Input[Optional[Union['EndpointPostgreSqlSettingsArgs', 'EndpointPostgreSqlSettingsArgsDict', 'outputs.EndpointPostgreSqlSettings']]] = None,
+                 redis_settings: pulumi.Input[Optional[Union['EndpointRedisSettingsArgs', 'EndpointRedisSettingsArgsDict', 'outputs.EndpointRedisSettings']]] = None,
+                 redshift_settings: pulumi.Input[Optional[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict', 'outputs.EndpointRedshiftSettings']]] = None,
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 s3_settings: pulumi.Input[Optional[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict']]] = None,
+                 s3_settings: pulumi.Input[Optional[Union['EndpointS3SettingsArgs', 'EndpointS3SettingsArgsDict', 'outputs.EndpointS3Settings']]] = None,
                  server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  ssl_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 sybase_settings: pulumi.Input[Optional[Union['EndpointSybaseSettingsArgs', 'EndpointSybaseSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 sybase_settings: pulumi.Input[Optional[Union['EndpointSybaseSettingsArgs', 'EndpointSybaseSettingsArgsDict', 'outputs.EndpointSybaseSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -100,8 +100,8 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::NetworkManager::Site type describes a site.
@@ -110,8 +110,8 @@ class Site(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the site.
         :param pulumi.Input[_builtins.str] global_network_id: The ID of the global network.
-        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict']] location: The location of the site.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the site.
+        :param pulumi.Input[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']] location: The location of the site.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the site.
         """
         ...
     @overload
@@ -139,8 +139,8 @@ class Site(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  global_network_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 location: pulumi.Input[Optional[Union['SiteLocationArgs', 'SiteLocationArgsDict', 'outputs.SiteLocation']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

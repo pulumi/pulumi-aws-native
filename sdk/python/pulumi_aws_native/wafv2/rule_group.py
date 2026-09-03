@@ -229,45 +229,45 @@ class RuleGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 available_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
+                 available_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict', 'outputs.RuleGroupLabelSummary']]]]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 consumed_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
-                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
+                 consumed_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict', 'outputs.RuleGroupLabelSummary']]]]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]]] = None,
                  scope: pulumi.Input[Optional['RuleGroupScope']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']]] = None,
                  __props__=None):
         """
         Contains the Rules that identify the requests that you want to allow, block, or count. In a RuleGroup, you also specify a default action (ALLOW or BLOCK), and the action for each Rule that you add to a RuleGroup, for example, block requests from specified IP addresses or block requests from specified referrers. You also associate the RuleGroup with a CloudFront distribution to identify the requests that you want AWS WAF to filter. If you add more than one Rule to a RuleGroup, a request needs to match only one of the specifications to be allowed, blocked, or counted.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]] available_labels: Collection of Available Labels.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict', 'outputs.RuleGroupLabelSummary']]]] available_labels: Collection of Available Labels.
         :param pulumi.Input[_builtins.int] capacity: The web ACL capacity units (WCUs) required for this rule group.
                
                When you create your own rule group, you define this, and you cannot change it after creation. When you add or modify the rules in a rule group, AWS WAF enforces this limit.
                
                AWS WAF uses WCUs to calculate and control the operating resources that are used to run your rules, rule groups, and web ACLs. AWS WAF calculates capacity differently for each rule type, to reflect the relative cost of each rule. Simple rules that cost little to run use fewer WCUs than more complex rules that use more processing power. Rule group capacity is fixed at creation, which helps users plan their web ACL WCU usage when they use a rule group. The WCU limit for web ACLs is 1,500.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]] consumed_labels: Collection of Consumed Labels.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]] custom_response_bodies: A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict', 'outputs.RuleGroupLabelSummary']]]] consumed_labels: Collection of Consumed Labels.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]] custom_response_bodies: A map of custom response keys and content bodies. When you create a rule with a block action, you can send a custom response to the web request. You define these for the rule group, and then use them in the rules that you define in the rule group.
                
                For information about customizing web requests and responses, see [Customizing web requests and responses in AWS WAF](https://docs.aws.amazon.com/waf/latest/developerguide/waf-custom-request-response.html) in the *AWS WAF Developer Guide* .
                
                For information about the limits on count and size for custom request and response settings, see [AWS WAF quotas](https://docs.aws.amazon.com/waf/latest/developerguide/limits.html) in the *AWS WAF Developer Guide* .
         :param pulumi.Input[_builtins.str] description: A description of the rule group that helps with identification.
         :param pulumi.Input[_builtins.str] name: The name of the rule group. You cannot change the name of a rule group after you create it.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]] rules: Collection of Rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]] rules: Collection of Rules.
         :param pulumi.Input['RuleGroupScope'] scope: Specifies whether this is for an Amazon CloudFront distribution or for a regional application. For an AWS Amplify application, use `CLOUDFRONT` . A regional application can be an Application Load Balancer (ALB), an  REST API, an AWS AppSync GraphQL API, an Amazon Cognito user pool, an AWS App Runner service, or an AWS Verified Access instance. Valid Values are `CLOUDFRONT` and `REGIONAL` .
                
                > For `CLOUDFRONT` , you must create your WAFv2 resources in the US East (N. Virginia) Region, `us-east-1` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key:value pairs associated with an AWS resource. The key:value pair can be anything you define. Typically, the tag key represents a category (such as "environment") and the tag value represents a specific value within that category (such as "test," "development," or "production"). You can add up to 50 tags to each AWS resource.
                
                > To modify tags on existing resources, use the AWS WAF APIs or command line interface. With AWS CloudFormation , you can only add tags to AWS WAF resources during resource creation.
-        :param pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection.
+        :param pulumi.Input[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']] visibility_config: Defines and enables Amazon CloudWatch metrics and web request sample collection.
         """
         ...
     @overload
@@ -293,17 +293,17 @@ class RuleGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 available_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
+                 available_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict', 'outputs.RuleGroupLabelSummary']]]]] = None,
                  capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 consumed_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict']]]]] = None,
-                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict']]]]] = None,
+                 consumed_labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupLabelSummaryArgs', 'RuleGroupLabelSummaryArgsDict', 'outputs.RuleGroupLabelSummary']]]]] = None,
+                 custom_response_bodies: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['RuleGroupCustomResponseBodyArgs', 'RuleGroupCustomResponseBodyArgsDict', 'outputs.RuleGroupCustomResponseBody']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict']]] = None,
+                 monetization_config: pulumi.Input[Optional[Union['RuleGroupMonetizationConfigArgs', 'RuleGroupMonetizationConfigArgsDict', 'outputs.RuleGroupMonetizationConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuleGroupRuleArgs', 'RuleGroupRuleArgsDict', 'outputs.RuleGroupRule']]]]] = None,
                  scope: pulumi.Input[Optional['RuleGroupScope']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 visibility_config: pulumi.Input[Optional[Union['RuleGroupVisibilityConfigArgs', 'RuleGroupVisibilityConfigArgsDict', 'outputs.RuleGroupVisibilityConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

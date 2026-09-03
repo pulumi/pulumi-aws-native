@@ -168,7 +168,7 @@ class FeedGetOutput(dict):
 
     def __init__(__self__, *,
                  name: _builtins.str,
-                 output_config: Any,
+                 output_config: Union['outputs.FeedOutputConfig0Properties', 'outputs.FeedOutputConfig1Properties', 'outputs.FeedOutputConfig2Properties'],
                  status: 'FeedOutputStatus',
                  description: Optional[_builtins.str] = None):
         pulumi.set(__self__, "name", name)
@@ -184,7 +184,7 @@ class FeedGetOutput(dict):
 
     @_builtins.property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> Any:
+    def output_config(self) -> Union['outputs.FeedOutputConfig0Properties', 'outputs.FeedOutputConfig1Properties', 'outputs.FeedOutputConfig2Properties']:
         return pulumi.get(self, "output_config")
 
     @_builtins.property

@@ -239,17 +239,17 @@ class Runtime(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_runtime_artifact: pulumi.Input[Optional[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict']]] = None,
+                 agent_runtime_artifact: pulumi.Input[Optional[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict', 'outputs.RuntimeAgentRuntimeArtifact']]] = None,
                  agent_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
-                 capacity_provider_configuration: pulumi.Input[Optional[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict', 'outputs.RuntimeAuthorizerConfiguration']]] = None,
+                 capacity_provider_configuration: pulumi.Input[Optional[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict', 'outputs.RuntimeCapacityProviderConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
-                 lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
+                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict', 'outputs.RuntimeFilesystemConfiguration']]]]] = None,
+                 lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict', 'outputs.RuntimeLifecycleConfiguration']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict', 'outputs.RuntimeNetworkConfiguration']]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
-                 request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']]] = None,
+                 request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict', 'outputs.RuntimeRequestHeaderConfiguration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -258,17 +258,17 @@ class Runtime(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict']] agent_runtime_artifact: The artifact of the agent
+        :param pulumi.Input[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict', 'outputs.RuntimeAgentRuntimeArtifact']] agent_runtime_artifact: The artifact of the agent
         :param pulumi.Input[_builtins.str] agent_runtime_name: Name for a resource
-        :param pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the agent runtime
-        :param pulumi.Input[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict']] capacity_provider_configuration: Capacity provider configuration for the agent runtime
+        :param pulumi.Input[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict', 'outputs.RuntimeAuthorizerConfiguration']] authorizer_configuration: Authorizer configuration for the agent runtime
+        :param pulumi.Input[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict', 'outputs.RuntimeCapacityProviderConfiguration']] capacity_provider_configuration: Capacity provider configuration for the agent runtime
         :param pulumi.Input[_builtins.str] description: Description of the resource
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables for the agent runtime
-        :param pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]] filesystem_configurations: Filesystem configurations for the agent runtime
-        :param pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
-        :param pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']] network_configuration: Network access configuration for the Agent
+        :param pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict', 'outputs.RuntimeFilesystemConfiguration']]]] filesystem_configurations: Filesystem configurations for the agent runtime
+        :param pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict', 'outputs.RuntimeLifecycleConfiguration']] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
+        :param pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict', 'outputs.RuntimeNetworkConfiguration']] network_configuration: Network access configuration for the Agent
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
-        :param pulumi.Input[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']] request_header_configuration: Configuration for HTTP request headers
+        :param pulumi.Input[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict', 'outputs.RuntimeRequestHeaderConfiguration']] request_header_configuration: Configuration for HTTP request headers
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of an IAM role
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the agent.
         """
@@ -296,17 +296,17 @@ class Runtime(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_runtime_artifact: pulumi.Input[Optional[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict']]] = None,
+                 agent_runtime_artifact: pulumi.Input[Optional[Union['RuntimeAgentRuntimeArtifactArgs', 'RuntimeAgentRuntimeArtifactArgsDict', 'outputs.RuntimeAgentRuntimeArtifact']]] = None,
                  agent_runtime_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict']]] = None,
-                 capacity_provider_configuration: pulumi.Input[Optional[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['RuntimeAuthorizerConfigurationArgs', 'RuntimeAuthorizerConfigurationArgsDict', 'outputs.RuntimeAuthorizerConfiguration']]] = None,
+                 capacity_provider_configuration: pulumi.Input[Optional[Union['RuntimeCapacityProviderConfigurationArgs', 'RuntimeCapacityProviderConfigurationArgsDict', 'outputs.RuntimeCapacityProviderConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
-                 lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
+                 filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict', 'outputs.RuntimeFilesystemConfiguration']]]]] = None,
+                 lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict', 'outputs.RuntimeLifecycleConfiguration']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict', 'outputs.RuntimeNetworkConfiguration']]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
-                 request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']]] = None,
+                 request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict', 'outputs.RuntimeRequestHeaderConfiguration']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

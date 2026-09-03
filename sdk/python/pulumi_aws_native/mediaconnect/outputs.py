@@ -2659,7 +2659,7 @@ class FlowOutputFlowTransitEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_key_configuration: Any,
+                 encryption_key_configuration: Union['outputs.FlowOutputFlowTransitEncryptionKeyConfiguration0Properties', 'outputs.FlowOutputFlowTransitEncryptionKeyConfiguration1Properties'],
                  encryption_key_type: Optional['FlowOutputFlowTransitEncryptionKeyType'] = None):
         """
         The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -2670,7 +2670,7 @@ class FlowOutputFlowTransitEncryption(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> Any:
+    def encryption_key_configuration(self) -> Union['outputs.FlowOutputFlowTransitEncryptionKeyConfiguration0Properties', 'outputs.FlowOutputFlowTransitEncryptionKeyConfiguration1Properties']:
         return pulumi.get(self, "encryption_key_configuration")
 
     @_builtins.property
@@ -3785,7 +3785,7 @@ class FlowTransitEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_key_configuration: Any,
+                 encryption_key_configuration: Union['outputs.FlowTransitEncryptionKeyConfiguration0Properties', 'outputs.FlowTransitEncryptionKeyConfiguration1Properties'],
                  encryption_key_type: Optional['FlowTransitEncryptionKeyType'] = None):
         """
         The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -3796,7 +3796,7 @@ class FlowTransitEncryption(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> Any:
+    def encryption_key_configuration(self) -> Union['outputs.FlowTransitEncryptionKeyConfiguration0Properties', 'outputs.FlowTransitEncryptionKeyConfiguration1Properties']:
         return pulumi.get(self, "encryption_key_configuration")
 
     @_builtins.property
@@ -4403,7 +4403,7 @@ class RouterInputFailoverRouterInputConfiguration(dict):
 
     def __init__(__self__, *,
                  network_interface_arn: _builtins.str,
-                 protocol_configurations: Sequence[Any],
+                 protocol_configurations: Sequence[Union['outputs.RouterInputFailoverRouterInputProtocolConfiguration0Properties', 'outputs.RouterInputFailoverRouterInputProtocolConfiguration1Properties', 'outputs.RouterInputFailoverRouterInputProtocolConfiguration2Properties', 'outputs.RouterInputFailoverRouterInputProtocolConfiguration3Properties']],
                  source_priority_mode: 'RouterInputFailoverInputSourcePriorityMode',
                  primary_source_index: Optional[_builtins.int] = None):
         """
@@ -4429,7 +4429,7 @@ class RouterInputFailoverRouterInputConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="protocolConfigurations")
-    def protocol_configurations(self) -> Sequence[Any]:
+    def protocol_configurations(self) -> Sequence[Union['outputs.RouterInputFailoverRouterInputProtocolConfiguration0Properties', 'outputs.RouterInputFailoverRouterInputProtocolConfiguration1Properties', 'outputs.RouterInputFailoverRouterInputProtocolConfiguration2Properties', 'outputs.RouterInputFailoverRouterInputProtocolConfiguration3Properties']]:
         """
         A list of exactly two protocol configurations for the failover input sources. Both must use the same protocol type.
         """
@@ -4580,7 +4580,7 @@ class RouterInputFlowTransitEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_key_configuration: Any,
+                 encryption_key_configuration: Union['outputs.RouterInputFlowTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterInputFlowTransitEncryptionKeyConfiguration1Properties'],
                  encryption_key_type: Optional['RouterInputFlowTransitEncryptionKeyType'] = None):
         """
         The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -4591,7 +4591,7 @@ class RouterInputFlowTransitEncryption(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> Any:
+    def encryption_key_configuration(self) -> Union['outputs.RouterInputFlowTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterInputFlowTransitEncryptionKeyConfiguration1Properties']:
         return pulumi.get(self, "encryption_key_configuration")
 
     @_builtins.property
@@ -4916,7 +4916,7 @@ class RouterInputMediaLiveTransitEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_key_configuration: Any,
+                 encryption_key_configuration: Union['outputs.RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties'],
                  encryption_key_type: Optional['RouterInputMediaLiveTransitEncryptionKeyType'] = None):
         """
         The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
@@ -4927,7 +4927,7 @@ class RouterInputMediaLiveTransitEncryption(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> Any:
+    def encryption_key_configuration(self) -> Union['outputs.RouterInputMediaLiveTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterInputMediaLiveTransitEncryptionKeyConfiguration1Properties']:
         return pulumi.get(self, "encryption_key_configuration")
 
     @_builtins.property
@@ -5018,7 +5018,7 @@ class RouterInputMergeRouterInputConfiguration(dict):
     def __init__(__self__, *,
                  merge_recovery_window_milliseconds: _builtins.int,
                  network_interface_arn: _builtins.str,
-                 protocol_configurations: Sequence[Any]):
+                 protocol_configurations: Sequence[Union['outputs.RouterInputMergeRouterInputProtocolConfiguration0Properties', 'outputs.RouterInputMergeRouterInputProtocolConfiguration1Properties']]):
         """
         Configuration settings for a merge router input that combines two input sources.
 
@@ -5048,7 +5048,7 @@ class RouterInputMergeRouterInputConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="protocolConfigurations")
-    def protocol_configurations(self) -> Sequence[Any]:
+    def protocol_configurations(self) -> Sequence[Union['outputs.RouterInputMergeRouterInputProtocolConfiguration0Properties', 'outputs.RouterInputMergeRouterInputProtocolConfiguration1Properties']]:
         """
         A list of exactly two protocol configurations for the merge input sources. Both must use the same protocol type.
         """
@@ -5673,7 +5673,7 @@ class RouterInputStandardRouterInputConfiguration(dict):
 
     def __init__(__self__, *,
                  network_interface_arn: _builtins.str,
-                 protocol_configuration: Any,
+                 protocol_configuration: Union['outputs.RouterInputProtocolConfiguration0Properties', 'outputs.RouterInputProtocolConfiguration1Properties', 'outputs.RouterInputProtocolConfiguration2Properties', 'outputs.RouterInputProtocolConfiguration3Properties'],
                  protocol: Optional['RouterInputProtocol'] = None):
         """
         The configuration settings for a standard router input, including the protocol, protocol-specific configuration, network interface, and availability zone.
@@ -5695,7 +5695,7 @@ class RouterInputStandardRouterInputConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
-    def protocol_configuration(self) -> Any:
+    def protocol_configuration(self) -> Union['outputs.RouterInputProtocolConfiguration0Properties', 'outputs.RouterInputProtocolConfiguration1Properties', 'outputs.RouterInputProtocolConfiguration2Properties', 'outputs.RouterInputProtocolConfiguration3Properties']:
         return pulumi.get(self, "protocol_configuration")
 
     @_builtins.property
@@ -5729,7 +5729,7 @@ class RouterInputTransitEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_key_configuration: Any,
+                 encryption_key_configuration: Union['outputs.RouterInputTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterInputTransitEncryptionKeyConfiguration1Properties'],
                  encryption_key_type: Optional['RouterInputTransitEncryptionKeyType'] = None):
         """
         The transit encryption settings for a router input.
@@ -5740,7 +5740,7 @@ class RouterInputTransitEncryption(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> Any:
+    def encryption_key_configuration(self) -> Union['outputs.RouterInputTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterInputTransitEncryptionKeyConfiguration1Properties']:
         return pulumi.get(self, "encryption_key_configuration")
 
     @_builtins.property
@@ -6003,7 +6003,7 @@ class RouterOutputResourceFlowTransitEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_key_configuration: Any,
+                 encryption_key_configuration: Union['outputs.RouterOutputResourceFlowTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterOutputResourceFlowTransitEncryptionKeyConfiguration1Properties'],
                  encryption_key_type: Optional['RouterOutputResourceFlowTransitEncryptionKeyType'] = None):
         """
         The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
@@ -6014,7 +6014,7 @@ class RouterOutputResourceFlowTransitEncryption(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> Any:
+    def encryption_key_configuration(self) -> Union['outputs.RouterOutputResourceFlowTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterOutputResourceFlowTransitEncryptionKeyConfiguration1Properties']:
         return pulumi.get(self, "encryption_key_configuration")
 
     @_builtins.property
@@ -6278,7 +6278,7 @@ class RouterOutputResourceMediaLiveTransitEncryption(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 encryption_key_configuration: Any,
+                 encryption_key_configuration: Union['outputs.RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1Properties'],
                  encryption_key_type: Optional['RouterOutputResourceMediaLiveTransitEncryptionKeyType'] = None):
         """
         The encryption configuration that defines how content is encrypted during transit between MediaConnect Router and MediaLive. This configuration determines whether encryption keys are automatically managed by the service or manually managed through Secrets Manager.
@@ -6289,7 +6289,7 @@ class RouterOutputResourceMediaLiveTransitEncryption(dict):
 
     @_builtins.property
     @pulumi.getter(name="encryptionKeyConfiguration")
-    def encryption_key_configuration(self) -> Any:
+    def encryption_key_configuration(self) -> Union['outputs.RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration0Properties', 'outputs.RouterOutputResourceMediaLiveTransitEncryptionKeyConfiguration1Properties']:
         return pulumi.get(self, "encryption_key_configuration")
 
     @_builtins.property
@@ -6956,7 +6956,7 @@ class RouterOutputResourceStandardRouterOutputConfiguration(dict):
 
     def __init__(__self__, *,
                  network_interface_arn: _builtins.str,
-                 protocol_configuration: Any,
+                 protocol_configuration: Union['outputs.RouterOutputResourceRouterOutputProtocolConfiguration0Properties', 'outputs.RouterOutputResourceRouterOutputProtocolConfiguration1Properties', 'outputs.RouterOutputResourceRouterOutputProtocolConfiguration2Properties', 'outputs.RouterOutputResourceRouterOutputProtocolConfiguration3Properties'],
                  protocol: Optional['RouterOutputResourceRouterOutputProtocol'] = None):
         """
         The configuration settings for a standard router output, including the protocol, protocol-specific configuration, network interface, and availability zone.
@@ -6978,7 +6978,7 @@ class RouterOutputResourceStandardRouterOutputConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
-    def protocol_configuration(self) -> Any:
+    def protocol_configuration(self) -> Union['outputs.RouterOutputResourceRouterOutputProtocolConfiguration0Properties', 'outputs.RouterOutputResourceRouterOutputProtocolConfiguration1Properties', 'outputs.RouterOutputResourceRouterOutputProtocolConfiguration2Properties', 'outputs.RouterOutputResourceRouterOutputProtocolConfiguration3Properties']:
         return pulumi.get(self, "protocol_configuration")
 
     @_builtins.property

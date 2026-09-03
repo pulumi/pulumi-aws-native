@@ -100,10 +100,10 @@ class Input(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: pulumi.Input[Optional[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
+                 input_definition: pulumi.Input[Optional[Union['InputDefinitionArgs', 'InputDefinitionArgsDict', 'outputs.InputDefinition']]] = None,
                  input_description: pulumi.Input[Optional[_builtins.str]] = None,
                  input_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::IoTEvents::Input resource creates an input. To monitor your devices and processes, they must have a way to get telemetry data into ITE. This is done by sending messages as *inputs* to ITE. For more information, see [How to Use](https://docs.aws.amazon.com/iotevents/latest/developerguide/how-to-use-iotevents.html) in the *Developer Guide*.
@@ -155,10 +155,10 @@ class Input(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']] input_definition: The definition of the input.
+        :param pulumi.Input[Union['InputDefinitionArgs', 'InputDefinitionArgsDict', 'outputs.InputDefinition']] input_definition: The definition of the input.
         :param pulumi.Input[_builtins.str] input_description: A brief description of the input.
         :param pulumi.Input[_builtins.str] input_name: The name of the input.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                 For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html).
         """
         ...
@@ -230,10 +230,10 @@ class Input(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 input_definition: pulumi.Input[Optional[Union['InputDefinitionArgs', 'InputDefinitionArgsDict']]] = None,
+                 input_definition: pulumi.Input[Optional[Union['InputDefinitionArgs', 'InputDefinitionArgsDict', 'outputs.InputDefinition']]] = None,
                  input_description: pulumi.Input[Optional[_builtins.str]] = None,
                  input_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

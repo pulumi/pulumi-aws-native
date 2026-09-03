@@ -101,8 +101,8 @@ class WorkspaceIpGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_desc: pulumi.Input[Optional[_builtins.str]] = None,
                  group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceIpGroupIpRuleItemArgs', 'WorkspaceIpGroupIpRuleItemArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 user_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceIpGroupIpRuleItemArgs', 'WorkspaceIpGroupIpRuleItemArgsDict', 'outputs.WorkspaceIpGroupIpRuleItem']]]]] = None,
                  __props__=None):
         """
         Resource type definition for an IP access control group for Amazon WorkSpaces.
@@ -111,8 +111,8 @@ class WorkspaceIpGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] group_desc: The description of the group.
         :param pulumi.Input[_builtins.str] group_name: The name of the group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags for the IP access control group.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceIpGroupIpRuleItemArgs', 'WorkspaceIpGroupIpRuleItemArgsDict']]]] user_rules: The rules for the IP access control group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags for the IP access control group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['WorkspaceIpGroupIpRuleItemArgs', 'WorkspaceIpGroupIpRuleItemArgsDict', 'outputs.WorkspaceIpGroupIpRuleItem']]]] user_rules: The rules for the IP access control group.
         """
         ...
     @overload
@@ -140,8 +140,8 @@ class WorkspaceIpGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group_desc: pulumi.Input[Optional[_builtins.str]] = None,
                  group_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 user_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceIpGroupIpRuleItemArgs', 'WorkspaceIpGroupIpRuleItemArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 user_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceIpGroupIpRuleItemArgs', 'WorkspaceIpGroupIpRuleItemArgsDict', 'outputs.WorkspaceIpGroupIpRuleItem']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

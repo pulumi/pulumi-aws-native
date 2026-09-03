@@ -216,16 +216,16 @@ class EvaluationForm(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_evaluation_configuration: pulumi.Input[Optional[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']]] = None,
+                 auto_evaluation_configuration: pulumi.Input[Optional[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict', 'outputs.EvaluationFormAutoEvaluationConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 items: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]]] = None,
-                 language_configuration: pulumi.Input[Optional[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict']]] = None,
-                 review_configuration: pulumi.Input[Optional[Union['EvaluationFormEvaluationReviewConfigurationArgs', 'EvaluationFormEvaluationReviewConfigurationArgsDict']]] = None,
-                 scoring_strategy: pulumi.Input[Optional[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']]] = None,
+                 items: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict', 'outputs.EvaluationFormBaseItem']]]]] = None,
+                 language_configuration: pulumi.Input[Optional[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict', 'outputs.EvaluationFormLanguageConfiguration']]] = None,
+                 review_configuration: pulumi.Input[Optional[Union['EvaluationFormEvaluationReviewConfigurationArgs', 'EvaluationFormEvaluationReviewConfigurationArgsDict', 'outputs.EvaluationFormEvaluationReviewConfiguration']]] = None,
+                 scoring_strategy: pulumi.Input[Optional[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict', 'outputs.EvaluationFormScoringStrategy']]] = None,
                  status: pulumi.Input[Optional['EvaluationFormStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_configuration: pulumi.Input[Optional[Union['EvaluationFormTargetConfigurationArgs', 'EvaluationFormTargetConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['EvaluationFormTargetConfigurationArgs', 'EvaluationFormTargetConfigurationArgsDict', 'outputs.EvaluationFormTargetConfiguration']]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -233,20 +233,20 @@ class EvaluationForm(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']] auto_evaluation_configuration: The automatic evaluation configuration of an evaluation form.
+        :param pulumi.Input[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict', 'outputs.EvaluationFormAutoEvaluationConfiguration']] auto_evaluation_configuration: The automatic evaluation configuration of an evaluation form.
         :param pulumi.Input[_builtins.str] description: The description of the evaluation form.
                 *Length Constraints*: Minimum length of 0. Maximum length of 1024.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict', 'outputs.EvaluationFormBaseItem']]]] items: Items that are part of the evaluation form. The total number of sections and questions must not exceed 100 each. Questions must be contained in a section.
                 *Minimum size*: 1
                 *Maximum size*: 100
-        :param pulumi.Input[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict']] language_configuration: Configuration for language settings of this evaluation form.
-        :param pulumi.Input[Union['EvaluationFormEvaluationReviewConfigurationArgs', 'EvaluationFormEvaluationReviewConfigurationArgsDict']] review_configuration: Configuration for evaluation review settings of this evaluation form.
-        :param pulumi.Input[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']] scoring_strategy: A scoring strategy of the evaluation form.
+        :param pulumi.Input[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict', 'outputs.EvaluationFormLanguageConfiguration']] language_configuration: Configuration for language settings of this evaluation form.
+        :param pulumi.Input[Union['EvaluationFormEvaluationReviewConfigurationArgs', 'EvaluationFormEvaluationReviewConfigurationArgsDict', 'outputs.EvaluationFormEvaluationReviewConfiguration']] review_configuration: Configuration for evaluation review settings of this evaluation form.
+        :param pulumi.Input[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict', 'outputs.EvaluationFormScoringStrategy']] scoring_strategy: A scoring strategy of the evaluation form.
         :param pulumi.Input['EvaluationFormStatus'] status: The status of the evaluation form.
                 *Allowed values*: ``DRAFT`` | ``ACTIVE``
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
-        :param pulumi.Input[Union['EvaluationFormTargetConfigurationArgs', 'EvaluationFormTargetConfigurationArgsDict']] target_configuration: Configuration that specifies the target for this evaluation form.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Union['EvaluationFormTargetConfigurationArgs', 'EvaluationFormTargetConfigurationArgsDict', 'outputs.EvaluationFormTargetConfiguration']] target_configuration: Configuration that specifies the target for this evaluation form.
         :param pulumi.Input[_builtins.str] title: A title of the evaluation form.
         """
         ...
@@ -273,16 +273,16 @@ class EvaluationForm(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_evaluation_configuration: pulumi.Input[Optional[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict']]] = None,
+                 auto_evaluation_configuration: pulumi.Input[Optional[Union['EvaluationFormAutoEvaluationConfigurationArgs', 'EvaluationFormAutoEvaluationConfigurationArgsDict', 'outputs.EvaluationFormAutoEvaluationConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 items: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict']]]]] = None,
-                 language_configuration: pulumi.Input[Optional[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict']]] = None,
-                 review_configuration: pulumi.Input[Optional[Union['EvaluationFormEvaluationReviewConfigurationArgs', 'EvaluationFormEvaluationReviewConfigurationArgsDict']]] = None,
-                 scoring_strategy: pulumi.Input[Optional[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict']]] = None,
+                 items: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EvaluationFormBaseItemArgs', 'EvaluationFormBaseItemArgsDict', 'outputs.EvaluationFormBaseItem']]]]] = None,
+                 language_configuration: pulumi.Input[Optional[Union['EvaluationFormLanguageConfigurationArgs', 'EvaluationFormLanguageConfigurationArgsDict', 'outputs.EvaluationFormLanguageConfiguration']]] = None,
+                 review_configuration: pulumi.Input[Optional[Union['EvaluationFormEvaluationReviewConfigurationArgs', 'EvaluationFormEvaluationReviewConfigurationArgsDict', 'outputs.EvaluationFormEvaluationReviewConfiguration']]] = None,
+                 scoring_strategy: pulumi.Input[Optional[Union['EvaluationFormScoringStrategyArgs', 'EvaluationFormScoringStrategyArgsDict', 'outputs.EvaluationFormScoringStrategy']]] = None,
                  status: pulumi.Input[Optional['EvaluationFormStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 target_configuration: pulumi.Input[Optional[Union['EvaluationFormTargetConfigurationArgs', 'EvaluationFormTargetConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 target_configuration: pulumi.Input[Optional[Union['EvaluationFormTargetConfigurationArgs', 'EvaluationFormTargetConfigurationArgsDict', 'outputs.EvaluationFormTargetConfiguration']]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

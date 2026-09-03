@@ -150,9 +150,9 @@ class Service(pulumi.CustomResource):
                  exchange_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
+                 service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict', 'outputs.ServiceDetails']]] = None,
                  service_type: pulumi.Input[Optional['ServiceType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -163,9 +163,9 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] exchange_url_private_connection_name: The name of the private connection to use for OAuth token exchange requests only. Cannot be specified when PrivateConnectionName is provided.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key to use for encryption.
         :param pulumi.Input[_builtins.str] private_connection_name: The name of the private connection to use for VPC connectivity.
-        :param pulumi.Input[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']] service_details: Service-specific configuration details for create operation
+        :param pulumi.Input[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict', 'outputs.ServiceDetails']] service_details: Service-specific configuration details for create operation
         :param pulumi.Input['ServiceType'] service_type: The type of service being registered
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] target_url_private_connection_name: The name of the private connection to use for API calls (target URL) only. Cannot be specified when PrivateConnectionName is provided.
         """
         ...
@@ -195,9 +195,9 @@ class Service(pulumi.CustomResource):
                  exchange_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict']]] = None,
+                 service_details: pulumi.Input[Optional[Union['ServiceDetailsArgs', 'ServiceDetailsArgsDict', 'outputs.ServiceDetails']]] = None,
                  service_type: pulumi.Input[Optional['ServiceType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_url_private_connection_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
