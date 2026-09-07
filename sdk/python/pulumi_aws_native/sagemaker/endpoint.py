@@ -277,7 +277,7 @@ class Endpoint(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="endpointName")
-    def endpoint_name(self) -> pulumi.Output[_builtins.str]:
+    def endpoint_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The name of the SageMaker endpoint. This name must be unique within an AWS Region.
         """

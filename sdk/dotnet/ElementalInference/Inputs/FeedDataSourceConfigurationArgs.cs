@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElementalInference.Inputs
 {
 
+    /// <summary>
+    /// Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
+    /// </summary>
     public sealed class FeedDataSourceConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
+        /// </summary>
         [Input("fixtureId", required: true)]
         public Input<string> FixtureId { get; set; } = null!;
 

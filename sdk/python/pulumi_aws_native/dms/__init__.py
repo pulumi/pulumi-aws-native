@@ -21,9 +21,11 @@ from .get_instance_profile import *
 from .get_migration_project import *
 from .get_replication_config import *
 from .get_replication_subnet_group import *
+from .get_replication_task import *
 from .instance_profile import *
 from .migration_project import *
 from .replication_config import *
 from .replication_subnet_group import *
+from .replication_task import *
 from ._inputs import *
 from . import outputs

@@ -13,6 +13,305 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+type WorkflowCode struct {
+	S3Location *WorkflowCodeS3Location `pulumi:"s3Location"`
+}
+
+// WorkflowCodeInput is an input type that accepts WorkflowCodeArgs and WorkflowCodeOutput values.
+// You can construct a concrete instance of `WorkflowCodeInput` via:
+//
+//	WorkflowCodeArgs{...}
+type WorkflowCodeInput interface {
+	pulumi.Input
+
+	ToWorkflowCodeOutput() WorkflowCodeOutput
+	ToWorkflowCodeOutputWithContext(context.Context) WorkflowCodeOutput
+}
+
+// The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+type WorkflowCodeArgs struct {
+	S3Location WorkflowCodeS3LocationPtrInput `pulumi:"s3Location"`
+}
+
+func (WorkflowCodeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowCode)(nil)).Elem()
+}
+
+func (i WorkflowCodeArgs) ToWorkflowCodeOutput() WorkflowCodeOutput {
+	return i.ToWorkflowCodeOutputWithContext(context.Background())
+}
+
+func (i WorkflowCodeArgs) ToWorkflowCodeOutputWithContext(ctx context.Context) WorkflowCodeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowCodeOutput)
+}
+
+func (i WorkflowCodeArgs) ToWorkflowCodePtrOutput() WorkflowCodePtrOutput {
+	return i.ToWorkflowCodePtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowCodeArgs) ToWorkflowCodePtrOutputWithContext(ctx context.Context) WorkflowCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowCodeOutput).ToWorkflowCodePtrOutputWithContext(ctx)
+}
+
+// WorkflowCodePtrInput is an input type that accepts WorkflowCodeArgs, WorkflowCodePtr and WorkflowCodePtrOutput values.
+// You can construct a concrete instance of `WorkflowCodePtrInput` via:
+//
+//	        WorkflowCodeArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowCodePtrInput interface {
+	pulumi.Input
+
+	ToWorkflowCodePtrOutput() WorkflowCodePtrOutput
+	ToWorkflowCodePtrOutputWithContext(context.Context) WorkflowCodePtrOutput
+}
+
+type workflowCodePtrType WorkflowCodeArgs
+
+func WorkflowCodePtr(v *WorkflowCodeArgs) WorkflowCodePtrInput {
+	return (*workflowCodePtrType)(v)
+}
+
+func (*workflowCodePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowCode)(nil)).Elem()
+}
+
+func (i *workflowCodePtrType) ToWorkflowCodePtrOutput() WorkflowCodePtrOutput {
+	return i.ToWorkflowCodePtrOutputWithContext(context.Background())
+}
+
+func (i *workflowCodePtrType) ToWorkflowCodePtrOutputWithContext(ctx context.Context) WorkflowCodePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowCodePtrOutput)
+}
+
+// The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+type WorkflowCodeOutput struct{ *pulumi.OutputState }
+
+func (WorkflowCodeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowCode)(nil)).Elem()
+}
+
+func (o WorkflowCodeOutput) ToWorkflowCodeOutput() WorkflowCodeOutput {
+	return o
+}
+
+func (o WorkflowCodeOutput) ToWorkflowCodeOutputWithContext(ctx context.Context) WorkflowCodeOutput {
+	return o
+}
+
+func (o WorkflowCodeOutput) ToWorkflowCodePtrOutput() WorkflowCodePtrOutput {
+	return o.ToWorkflowCodePtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowCodeOutput) ToWorkflowCodePtrOutputWithContext(ctx context.Context) WorkflowCodePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowCode) *WorkflowCode {
+		return &v
+	}).(WorkflowCodePtrOutput)
+}
+
+func (o WorkflowCodeOutput) S3Location() WorkflowCodeS3LocationPtrOutput {
+	return o.ApplyT(func(v WorkflowCode) *WorkflowCodeS3Location { return v.S3Location }).(WorkflowCodeS3LocationPtrOutput)
+}
+
+type WorkflowCodePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowCodePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowCode)(nil)).Elem()
+}
+
+func (o WorkflowCodePtrOutput) ToWorkflowCodePtrOutput() WorkflowCodePtrOutput {
+	return o
+}
+
+func (o WorkflowCodePtrOutput) ToWorkflowCodePtrOutputWithContext(ctx context.Context) WorkflowCodePtrOutput {
+	return o
+}
+
+func (o WorkflowCodePtrOutput) Elem() WorkflowCodeOutput {
+	return o.ApplyT(func(v *WorkflowCode) WorkflowCode {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowCode
+		return ret
+	}).(WorkflowCodeOutput)
+}
+
+func (o WorkflowCodePtrOutput) S3Location() WorkflowCodeS3LocationPtrOutput {
+	return o.ApplyT(func(v *WorkflowCode) *WorkflowCodeS3Location {
+		if v == nil {
+			return nil
+		}
+		return v.S3Location
+	}).(WorkflowCodeS3LocationPtrOutput)
+}
+
+type WorkflowCodeS3Location struct {
+	Bucket    string  `pulumi:"bucket"`
+	ObjectKey string  `pulumi:"objectKey"`
+	VersionId *string `pulumi:"versionId"`
+}
+
+// WorkflowCodeS3LocationInput is an input type that accepts WorkflowCodeS3LocationArgs and WorkflowCodeS3LocationOutput values.
+// You can construct a concrete instance of `WorkflowCodeS3LocationInput` via:
+//
+//	WorkflowCodeS3LocationArgs{...}
+type WorkflowCodeS3LocationInput interface {
+	pulumi.Input
+
+	ToWorkflowCodeS3LocationOutput() WorkflowCodeS3LocationOutput
+	ToWorkflowCodeS3LocationOutputWithContext(context.Context) WorkflowCodeS3LocationOutput
+}
+
+type WorkflowCodeS3LocationArgs struct {
+	Bucket    pulumi.StringInput    `pulumi:"bucket"`
+	ObjectKey pulumi.StringInput    `pulumi:"objectKey"`
+	VersionId pulumi.StringPtrInput `pulumi:"versionId"`
+}
+
+func (WorkflowCodeS3LocationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowCodeS3Location)(nil)).Elem()
+}
+
+func (i WorkflowCodeS3LocationArgs) ToWorkflowCodeS3LocationOutput() WorkflowCodeS3LocationOutput {
+	return i.ToWorkflowCodeS3LocationOutputWithContext(context.Background())
+}
+
+func (i WorkflowCodeS3LocationArgs) ToWorkflowCodeS3LocationOutputWithContext(ctx context.Context) WorkflowCodeS3LocationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowCodeS3LocationOutput)
+}
+
+func (i WorkflowCodeS3LocationArgs) ToWorkflowCodeS3LocationPtrOutput() WorkflowCodeS3LocationPtrOutput {
+	return i.ToWorkflowCodeS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i WorkflowCodeS3LocationArgs) ToWorkflowCodeS3LocationPtrOutputWithContext(ctx context.Context) WorkflowCodeS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowCodeS3LocationOutput).ToWorkflowCodeS3LocationPtrOutputWithContext(ctx)
+}
+
+// WorkflowCodeS3LocationPtrInput is an input type that accepts WorkflowCodeS3LocationArgs, WorkflowCodeS3LocationPtr and WorkflowCodeS3LocationPtrOutput values.
+// You can construct a concrete instance of `WorkflowCodeS3LocationPtrInput` via:
+//
+//	        WorkflowCodeS3LocationArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkflowCodeS3LocationPtrInput interface {
+	pulumi.Input
+
+	ToWorkflowCodeS3LocationPtrOutput() WorkflowCodeS3LocationPtrOutput
+	ToWorkflowCodeS3LocationPtrOutputWithContext(context.Context) WorkflowCodeS3LocationPtrOutput
+}
+
+type workflowCodeS3LocationPtrType WorkflowCodeS3LocationArgs
+
+func WorkflowCodeS3LocationPtr(v *WorkflowCodeS3LocationArgs) WorkflowCodeS3LocationPtrInput {
+	return (*workflowCodeS3LocationPtrType)(v)
+}
+
+func (*workflowCodeS3LocationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowCodeS3Location)(nil)).Elem()
+}
+
+func (i *workflowCodeS3LocationPtrType) ToWorkflowCodeS3LocationPtrOutput() WorkflowCodeS3LocationPtrOutput {
+	return i.ToWorkflowCodeS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (i *workflowCodeS3LocationPtrType) ToWorkflowCodeS3LocationPtrOutputWithContext(ctx context.Context) WorkflowCodeS3LocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkflowCodeS3LocationPtrOutput)
+}
+
+type WorkflowCodeS3LocationOutput struct{ *pulumi.OutputState }
+
+func (WorkflowCodeS3LocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowCodeS3Location)(nil)).Elem()
+}
+
+func (o WorkflowCodeS3LocationOutput) ToWorkflowCodeS3LocationOutput() WorkflowCodeS3LocationOutput {
+	return o
+}
+
+func (o WorkflowCodeS3LocationOutput) ToWorkflowCodeS3LocationOutputWithContext(ctx context.Context) WorkflowCodeS3LocationOutput {
+	return o
+}
+
+func (o WorkflowCodeS3LocationOutput) ToWorkflowCodeS3LocationPtrOutput() WorkflowCodeS3LocationPtrOutput {
+	return o.ToWorkflowCodeS3LocationPtrOutputWithContext(context.Background())
+}
+
+func (o WorkflowCodeS3LocationOutput) ToWorkflowCodeS3LocationPtrOutputWithContext(ctx context.Context) WorkflowCodeS3LocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkflowCodeS3Location) *WorkflowCodeS3Location {
+		return &v
+	}).(WorkflowCodeS3LocationPtrOutput)
+}
+
+func (o WorkflowCodeS3LocationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowCodeS3Location) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o WorkflowCodeS3LocationOutput) ObjectKey() pulumi.StringOutput {
+	return o.ApplyT(func(v WorkflowCodeS3Location) string { return v.ObjectKey }).(pulumi.StringOutput)
+}
+
+func (o WorkflowCodeS3LocationOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowCodeS3Location) *string { return v.VersionId }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowCodeS3LocationPtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowCodeS3LocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowCodeS3Location)(nil)).Elem()
+}
+
+func (o WorkflowCodeS3LocationPtrOutput) ToWorkflowCodeS3LocationPtrOutput() WorkflowCodeS3LocationPtrOutput {
+	return o
+}
+
+func (o WorkflowCodeS3LocationPtrOutput) ToWorkflowCodeS3LocationPtrOutputWithContext(ctx context.Context) WorkflowCodeS3LocationPtrOutput {
+	return o
+}
+
+func (o WorkflowCodeS3LocationPtrOutput) Elem() WorkflowCodeS3LocationOutput {
+	return o.ApplyT(func(v *WorkflowCodeS3Location) WorkflowCodeS3Location {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowCodeS3Location
+		return ret
+	}).(WorkflowCodeS3LocationOutput)
+}
+
+func (o WorkflowCodeS3LocationPtrOutput) Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowCodeS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowCodeS3LocationPtrOutput) ObjectKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowCodeS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ObjectKey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o WorkflowCodeS3LocationPtrOutput) VersionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowCodeS3Location) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VersionId
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkflowEncryptionConfiguration struct {
 	KmsKeyId *string                             `pulumi:"kmsKeyId"`
 	Type     WorkflowEncryptionConfigurationType `pulumi:"type"`
@@ -610,6 +909,10 @@ func (o WorkflowScheduleConfigurationPtrOutput) CronExpression() pulumi.StringPt
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowCodeInput)(nil)).Elem(), WorkflowCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowCodePtrInput)(nil)).Elem(), WorkflowCodeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowCodeS3LocationInput)(nil)).Elem(), WorkflowCodeS3LocationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowCodeS3LocationPtrInput)(nil)).Elem(), WorkflowCodeS3LocationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEncryptionConfigurationInput)(nil)).Elem(), WorkflowEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowEncryptionConfigurationPtrInput)(nil)).Elem(), WorkflowEncryptionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowLoggingConfigurationInput)(nil)).Elem(), WorkflowLoggingConfigurationArgs{})
@@ -617,6 +920,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowNetworkConfigurationInput)(nil)).Elem(), WorkflowNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowNetworkConfigurationPtrInput)(nil)).Elem(), WorkflowNetworkConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkflowS3LocationInput)(nil)).Elem(), WorkflowS3LocationArgs{})
+	pulumi.RegisterOutputType(WorkflowCodeOutput{})
+	pulumi.RegisterOutputType(WorkflowCodePtrOutput{})
+	pulumi.RegisterOutputType(WorkflowCodeS3LocationOutput{})
+	pulumi.RegisterOutputType(WorkflowCodeS3LocationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowEncryptionConfigurationOutput{})
 	pulumi.RegisterOutputType(WorkflowEncryptionConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(WorkflowLoggingConfigurationOutput{})

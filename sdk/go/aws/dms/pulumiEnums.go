@@ -1700,6 +1700,174 @@ func (in *replicationConfigReplicationTypePtr) ToReplicationConfigReplicationTyp
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicationConfigReplicationTypePtrOutput)
 }
 
+// The migration type.
+type ReplicationTaskMigrationType string
+
+const (
+	ReplicationTaskMigrationTypeFullLoad       = ReplicationTaskMigrationType("full-load")
+	ReplicationTaskMigrationTypeCdc            = ReplicationTaskMigrationType("cdc")
+	ReplicationTaskMigrationTypeFullLoadAndCdc = ReplicationTaskMigrationType("full-load-and-cdc")
+)
+
+func (ReplicationTaskMigrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationTaskMigrationType)(nil)).Elem()
+}
+
+func (e ReplicationTaskMigrationType) ToReplicationTaskMigrationTypeOutput() ReplicationTaskMigrationTypeOutput {
+	return pulumi.ToOutput(e).(ReplicationTaskMigrationTypeOutput)
+}
+
+func (e ReplicationTaskMigrationType) ToReplicationTaskMigrationTypeOutputWithContext(ctx context.Context) ReplicationTaskMigrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ReplicationTaskMigrationTypeOutput)
+}
+
+func (e ReplicationTaskMigrationType) ToReplicationTaskMigrationTypePtrOutput() ReplicationTaskMigrationTypePtrOutput {
+	return e.ToReplicationTaskMigrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationTaskMigrationType) ToReplicationTaskMigrationTypePtrOutputWithContext(ctx context.Context) ReplicationTaskMigrationTypePtrOutput {
+	return ReplicationTaskMigrationType(e).ToReplicationTaskMigrationTypeOutputWithContext(ctx).ToReplicationTaskMigrationTypePtrOutputWithContext(ctx)
+}
+
+func (e ReplicationTaskMigrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationTaskMigrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ReplicationTaskMigrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ReplicationTaskMigrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ReplicationTaskMigrationTypeOutput struct{ *pulumi.OutputState }
+
+func (ReplicationTaskMigrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationTaskMigrationType)(nil)).Elem()
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToReplicationTaskMigrationTypeOutput() ReplicationTaskMigrationTypeOutput {
+	return o
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToReplicationTaskMigrationTypeOutputWithContext(ctx context.Context) ReplicationTaskMigrationTypeOutput {
+	return o
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToReplicationTaskMigrationTypePtrOutput() ReplicationTaskMigrationTypePtrOutput {
+	return o.ToReplicationTaskMigrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToReplicationTaskMigrationTypePtrOutputWithContext(ctx context.Context) ReplicationTaskMigrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ReplicationTaskMigrationType) *ReplicationTaskMigrationType {
+		return &v
+	}).(ReplicationTaskMigrationTypePtrOutput)
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationTaskMigrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationTaskMigrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ReplicationTaskMigrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ReplicationTaskMigrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ReplicationTaskMigrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ReplicationTaskMigrationType)(nil)).Elem()
+}
+
+func (o ReplicationTaskMigrationTypePtrOutput) ToReplicationTaskMigrationTypePtrOutput() ReplicationTaskMigrationTypePtrOutput {
+	return o
+}
+
+func (o ReplicationTaskMigrationTypePtrOutput) ToReplicationTaskMigrationTypePtrOutputWithContext(ctx context.Context) ReplicationTaskMigrationTypePtrOutput {
+	return o
+}
+
+func (o ReplicationTaskMigrationTypePtrOutput) Elem() ReplicationTaskMigrationTypeOutput {
+	return o.ApplyT(func(v *ReplicationTaskMigrationType) ReplicationTaskMigrationType {
+		if v != nil {
+			return *v
+		}
+		var ret ReplicationTaskMigrationType
+		return ret
+	}).(ReplicationTaskMigrationTypeOutput)
+}
+
+func (o ReplicationTaskMigrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ReplicationTaskMigrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ReplicationTaskMigrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ReplicationTaskMigrationTypeInput is an input type that accepts values of the ReplicationTaskMigrationType enum
+// A concrete instance of `ReplicationTaskMigrationTypeInput` can be one of the following:
+//
+//	ReplicationTaskMigrationTypeFullLoad
+//	ReplicationTaskMigrationTypeCdc
+//	ReplicationTaskMigrationTypeFullLoadAndCdc
+type ReplicationTaskMigrationTypeInput interface {
+	pulumi.Input
+
+	ToReplicationTaskMigrationTypeOutput() ReplicationTaskMigrationTypeOutput
+	ToReplicationTaskMigrationTypeOutputWithContext(context.Context) ReplicationTaskMigrationTypeOutput
+}
+
+var replicationTaskMigrationTypePtrType = reflect.TypeOf((**ReplicationTaskMigrationType)(nil)).Elem()
+
+type ReplicationTaskMigrationTypePtrInput interface {
+	pulumi.Input
+
+	ToReplicationTaskMigrationTypePtrOutput() ReplicationTaskMigrationTypePtrOutput
+	ToReplicationTaskMigrationTypePtrOutputWithContext(context.Context) ReplicationTaskMigrationTypePtrOutput
+}
+
+type replicationTaskMigrationTypePtr string
+
+func ReplicationTaskMigrationTypePtr(v string) ReplicationTaskMigrationTypePtrInput {
+	return (*replicationTaskMigrationTypePtr)(&v)
+}
+
+func (*replicationTaskMigrationTypePtr) ElementType() reflect.Type {
+	return replicationTaskMigrationTypePtrType
+}
+
+func (in *replicationTaskMigrationTypePtr) ToReplicationTaskMigrationTypePtrOutput() ReplicationTaskMigrationTypePtrOutput {
+	return pulumi.ToOutput(in).(ReplicationTaskMigrationTypePtrOutput)
+}
+
+func (in *replicationTaskMigrationTypePtr) ToReplicationTaskMigrationTypePtrOutputWithContext(ctx context.Context) ReplicationTaskMigrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ReplicationTaskMigrationTypePtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationTypeInput)(nil)).Elem(), DataMigrationType("full-load"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataMigrationTypePtrInput)(nil)).Elem(), DataMigrationType("full-load"))
@@ -1721,6 +1889,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceProfileNetworkTypePtrInput)(nil)).Elem(), InstanceProfileNetworkType("IPV4"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypeInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationConfigReplicationTypePtrInput)(nil)).Elem(), ReplicationConfigReplicationType("full-load"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskMigrationTypeInput)(nil)).Elem(), ReplicationTaskMigrationType("full-load"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ReplicationTaskMigrationTypePtrInput)(nil)).Elem(), ReplicationTaskMigrationType("full-load"))
 	pulumi.RegisterOutputType(DataMigrationTypeOutput{})
 	pulumi.RegisterOutputType(DataMigrationTypePtrOutput{})
 	pulumi.RegisterOutputType(DataProviderDb2SslModeValueOutput{})
@@ -1741,4 +1911,6 @@ func init() {
 	pulumi.RegisterOutputType(InstanceProfileNetworkTypePtrOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationTypeOutput{})
 	pulumi.RegisterOutputType(ReplicationConfigReplicationTypePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationTaskMigrationTypeOutput{})
+	pulumi.RegisterOutputType(ReplicationTaskMigrationTypePtrOutput{})
 }

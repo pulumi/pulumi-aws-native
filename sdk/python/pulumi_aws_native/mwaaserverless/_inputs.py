@@ -16,6 +16,10 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'WorkflowCodeArgs',
+    'WorkflowCodeArgsDict',
+    'WorkflowCodeS3LocationArgs',
+    'WorkflowCodeS3LocationArgsDict',
     'WorkflowEncryptionConfigurationArgs',
     'WorkflowEncryptionConfigurationArgsDict',
     'WorkflowLoggingConfigurationArgs',
@@ -25,6 +29,76 @@ __all__ = [
     'WorkflowS3LocationArgs',
     'WorkflowS3LocationArgsDict',
 ]
+
+class WorkflowCodeArgsDict(TypedDict):
+    """
+    The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+    """
+    s3_location: NotRequired[pulumi.Input[Optional['WorkflowCodeS3LocationArgsDict']]]
+
+@pulumi.input_type
+class WorkflowCodeArgs:
+    def __init__(__self__, *,
+                 s3_location: pulumi.Input[Optional['WorkflowCodeS3LocationArgs']] = None):
+        """
+        The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+        """
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> pulumi.Input[Optional['WorkflowCodeS3LocationArgs']]:
+        return pulumi.get(self, "s3_location")
+
+    @s3_location.setter
+    def s3_location(self, value: pulumi.Input[Optional['WorkflowCodeS3LocationArgs']]):
+        pulumi.set(self, "s3_location", value)
+
+
+class WorkflowCodeS3LocationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    object_key: pulumi.Input[_builtins.str]
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class WorkflowCodeS3LocationArgs:
+    def __init__(__self__, *,
+                 bucket: pulumi.Input[_builtins.str],
+                 object_key: pulumi.Input[_builtins.str],
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "object_key", object_key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "bucket")
+
+    @bucket.setter
+    def bucket(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "bucket", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectKey")
+    def object_key(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "object_key")
+
+    @object_key.setter
+    def object_key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "object_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
 
 class WorkflowEncryptionConfigurationArgsDict(TypedDict):
     type: pulumi.Input['WorkflowEncryptionConfigurationType']

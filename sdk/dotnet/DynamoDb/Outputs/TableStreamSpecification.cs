@@ -30,15 +30,19 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         ///   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
         /// </summary>
         public readonly string StreamViewType;
+        public readonly ImmutableArray<Outputs.TableTag> Tags;
 
         [OutputConstructor]
         private TableStreamSpecification(
             Outputs.TableResourcePolicy? resourcePolicy,
 
-            string streamViewType)
+            string streamViewType,
+
+            ImmutableArray<Outputs.TableTag> tags)
         {
             ResourcePolicy = resourcePolicy;
             StreamViewType = streamViewType;
+            Tags = tags;
         }
     }
 }

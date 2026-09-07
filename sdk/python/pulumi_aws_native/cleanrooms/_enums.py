@@ -20,7 +20,9 @@ __all__ = [
     'CollaborationSupportedS3Region',
     'ConfiguredTableAdditionalAnalyses',
     'ConfiguredTableAggregateFunctionName',
+    'ConfiguredTableAggregationThresholdType',
     'ConfiguredTableAggregationType',
+    'ConfiguredTableAllowedAggregateExpressionType',
     'ConfiguredTableAnalysisMethod',
     'ConfiguredTableAnalysisRuleType',
     'ConfiguredTableAssociationAnalysisRuleType',
@@ -32,6 +34,8 @@ __all__ = [
     'IdMappingTableInputSourceType',
     'IdNamespaceAssociationInputReferencePropertiesIdNamespaceType',
     'IntermediateTableAdditionalAnalyses',
+    'IntermediateTableAggregationThresholdType',
+    'IntermediateTableAllowedAggregateExpressionType',
     'IntermediateTableAnalysisRuleType',
     'IntermediateTableStatus',
     'MembershipJobLogStatus',
@@ -195,9 +199,20 @@ class ConfiguredTableAggregateFunctionName(_builtins.str, Enum):
     AVG = "AVG"
 
 
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAggregationThresholdType")
+class ConfiguredTableAggregationThresholdType(_builtins.str, Enum):
+    COUNT_DISTINCT = "COUNT_DISTINCT"
+
+
 @pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAggregationType")
 class ConfiguredTableAggregationType(_builtins.str, Enum):
     COUNT_DISTINCT = "COUNT_DISTINCT"
+
+
+@pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAllowedAggregateExpressionType")
+class ConfiguredTableAllowedAggregateExpressionType(_builtins.str, Enum):
+    COLUMNS_ONLY = "COLUMNS_ONLY"
+    ANY_EXPRESSION = "ANY_EXPRESSION"
 
 
 @pulumi.type_token("aws-native:cleanrooms:ConfiguredTableAnalysisMethod")
@@ -325,6 +340,17 @@ class IntermediateTableAdditionalAnalyses(_builtins.str, Enum):
     ALLOWED = "ALLOWED"
     REQUIRED = "REQUIRED"
     NOT_ALLOWED = "NOT_ALLOWED"
+
+
+@pulumi.type_token("aws-native:cleanrooms:IntermediateTableAggregationThresholdType")
+class IntermediateTableAggregationThresholdType(_builtins.str, Enum):
+    COUNT_DISTINCT = "COUNT_DISTINCT"
+
+
+@pulumi.type_token("aws-native:cleanrooms:IntermediateTableAllowedAggregateExpressionType")
+class IntermediateTableAllowedAggregateExpressionType(_builtins.str, Enum):
+    COLUMNS_ONLY = "COLUMNS_ONLY"
+    ANY_EXPRESSION = "ANY_EXPRESSION"
 
 
 @pulumi.type_token("aws-native:cleanrooms:IntermediateTableAnalysisRuleType")

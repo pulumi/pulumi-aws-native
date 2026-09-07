@@ -2070,6 +2070,2213 @@ func (o S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput) VpcId() p
 	}).(pulumi.StringPtrOutput)
 }
 
+type VolumeAggregateConfiguration struct {
+	// The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+	Aggregates []string `pulumi:"aggregates"`
+	// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+	ConstituentsPerAggregate *int `pulumi:"constituentsPerAggregate"`
+}
+
+// VolumeAggregateConfigurationInput is an input type that accepts VolumeAggregateConfigurationArgs and VolumeAggregateConfigurationOutput values.
+// You can construct a concrete instance of `VolumeAggregateConfigurationInput` via:
+//
+//	VolumeAggregateConfigurationArgs{...}
+type VolumeAggregateConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeAggregateConfigurationOutput() VolumeAggregateConfigurationOutput
+	ToVolumeAggregateConfigurationOutputWithContext(context.Context) VolumeAggregateConfigurationOutput
+}
+
+type VolumeAggregateConfigurationArgs struct {
+	// The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+	Aggregates pulumi.StringArrayInput `pulumi:"aggregates"`
+	// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+	ConstituentsPerAggregate pulumi.IntPtrInput `pulumi:"constituentsPerAggregate"`
+}
+
+func (VolumeAggregateConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationOutput() VolumeAggregateConfigurationOutput {
+	return i.ToVolumeAggregateConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationOutputWithContext(ctx context.Context) VolumeAggregateConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAggregateConfigurationOutput)
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return i.ToVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeAggregateConfigurationArgs) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAggregateConfigurationOutput).ToVolumeAggregateConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeAggregateConfigurationPtrInput is an input type that accepts VolumeAggregateConfigurationArgs, VolumeAggregateConfigurationPtr and VolumeAggregateConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeAggregateConfigurationPtrInput` via:
+//
+//	        VolumeAggregateConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeAggregateConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput
+	ToVolumeAggregateConfigurationPtrOutputWithContext(context.Context) VolumeAggregateConfigurationPtrOutput
+}
+
+type volumeAggregateConfigurationPtrType VolumeAggregateConfigurationArgs
+
+func VolumeAggregateConfigurationPtr(v *VolumeAggregateConfigurationArgs) VolumeAggregateConfigurationPtrInput {
+	return (*volumeAggregateConfigurationPtrType)(v)
+}
+
+func (*volumeAggregateConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (i *volumeAggregateConfigurationPtrType) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return i.ToVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeAggregateConfigurationPtrType) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAggregateConfigurationPtrOutput)
+}
+
+type VolumeAggregateConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeAggregateConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationOutput() VolumeAggregateConfigurationOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationOutputWithContext(ctx context.Context) VolumeAggregateConfigurationOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return o.ToVolumeAggregateConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeAggregateConfigurationOutput) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeAggregateConfiguration) *VolumeAggregateConfiguration {
+		return &v
+	}).(VolumeAggregateConfigurationPtrOutput)
+}
+
+// The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+func (o VolumeAggregateConfigurationOutput) Aggregates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeAggregateConfiguration) []string { return v.Aggregates }).(pulumi.StringArrayOutput)
+}
+
+// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+func (o VolumeAggregateConfigurationOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeAggregateConfiguration) *int { return v.ConstituentsPerAggregate }).(pulumi.IntPtrOutput)
+}
+
+type VolumeAggregateConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeAggregateConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAggregateConfiguration)(nil)).Elem()
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) ToVolumeAggregateConfigurationPtrOutput() VolumeAggregateConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) ToVolumeAggregateConfigurationPtrOutputWithContext(ctx context.Context) VolumeAggregateConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeAggregateConfigurationPtrOutput) Elem() VolumeAggregateConfigurationOutput {
+	return o.ApplyT(func(v *VolumeAggregateConfiguration) VolumeAggregateConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeAggregateConfiguration
+		return ret
+	}).(VolumeAggregateConfigurationOutput)
+}
+
+// The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+func (o VolumeAggregateConfigurationPtrOutput) Aggregates() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VolumeAggregateConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Aggregates
+	}).(pulumi.StringArrayOutput)
+}
+
+// Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+func (o VolumeAggregateConfigurationPtrOutput) ConstituentsPerAggregate() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeAggregateConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConstituentsPerAggregate
+	}).(pulumi.IntPtrOutput)
+}
+
+type VolumeAutocommitPeriod struct {
+	// Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+	Type string `pulumi:"type"`
+	// Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value *int `pulumi:"value"`
+}
+
+// VolumeAutocommitPeriodInput is an input type that accepts VolumeAutocommitPeriodArgs and VolumeAutocommitPeriodOutput values.
+// You can construct a concrete instance of `VolumeAutocommitPeriodInput` via:
+//
+//	VolumeAutocommitPeriodArgs{...}
+type VolumeAutocommitPeriodInput interface {
+	pulumi.Input
+
+	ToVolumeAutocommitPeriodOutput() VolumeAutocommitPeriodOutput
+	ToVolumeAutocommitPeriodOutputWithContext(context.Context) VolumeAutocommitPeriodOutput
+}
+
+type VolumeAutocommitPeriodArgs struct {
+	// Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (VolumeAutocommitPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodOutput() VolumeAutocommitPeriodOutput {
+	return i.ToVolumeAutocommitPeriodOutputWithContext(context.Background())
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodOutputWithContext(ctx context.Context) VolumeAutocommitPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodOutput)
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return i.ToVolumeAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeAutocommitPeriodArgs) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodOutput).ToVolumeAutocommitPeriodPtrOutputWithContext(ctx)
+}
+
+// VolumeAutocommitPeriodPtrInput is an input type that accepts VolumeAutocommitPeriodArgs, VolumeAutocommitPeriodPtr and VolumeAutocommitPeriodPtrOutput values.
+// You can construct a concrete instance of `VolumeAutocommitPeriodPtrInput` via:
+//
+//	        VolumeAutocommitPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeAutocommitPeriodPtrInput interface {
+	pulumi.Input
+
+	ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput
+	ToVolumeAutocommitPeriodPtrOutputWithContext(context.Context) VolumeAutocommitPeriodPtrOutput
+}
+
+type volumeAutocommitPeriodPtrType VolumeAutocommitPeriodArgs
+
+func VolumeAutocommitPeriodPtr(v *VolumeAutocommitPeriodArgs) VolumeAutocommitPeriodPtrInput {
+	return (*volumeAutocommitPeriodPtrType)(v)
+}
+
+func (*volumeAutocommitPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (i *volumeAutocommitPeriodPtrType) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return i.ToVolumeAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeAutocommitPeriodPtrType) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeAutocommitPeriodPtrOutput)
+}
+
+type VolumeAutocommitPeriodOutput struct{ *pulumi.OutputState }
+
+func (VolumeAutocommitPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodOutput() VolumeAutocommitPeriodOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodOutputWithContext(ctx context.Context) VolumeAutocommitPeriodOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return o.ToVolumeAutocommitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeAutocommitPeriodOutput) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeAutocommitPeriod) *VolumeAutocommitPeriod {
+		return &v
+	}).(VolumeAutocommitPeriodPtrOutput)
+}
+
+// Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+func (o VolumeAutocommitPeriodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeAutocommitPeriod) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o VolumeAutocommitPeriodOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeAutocommitPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type VolumeAutocommitPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeAutocommitPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeAutocommitPeriod)(nil)).Elem()
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) ToVolumeAutocommitPeriodPtrOutput() VolumeAutocommitPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) ToVolumeAutocommitPeriodPtrOutputWithContext(ctx context.Context) VolumeAutocommitPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeAutocommitPeriodPtrOutput) Elem() VolumeAutocommitPeriodOutput {
+	return o.ApplyT(func(v *VolumeAutocommitPeriod) VolumeAutocommitPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeAutocommitPeriod
+		return ret
+	}).(VolumeAutocommitPeriodOutput)
+}
+
+// Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+func (o VolumeAutocommitPeriodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeAutocommitPeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+func (o VolumeAutocommitPeriodPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeAutocommitPeriod) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VolumeClientConfigurations struct {
+	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+	Clients string `pulumi:"clients"`
+	// The configuration object for mounting a Network File System (NFS) file system.
+	Options []string `pulumi:"options"`
+}
+
+// VolumeClientConfigurationsInput is an input type that accepts VolumeClientConfigurationsArgs and VolumeClientConfigurationsOutput values.
+// You can construct a concrete instance of `VolumeClientConfigurationsInput` via:
+//
+//	VolumeClientConfigurationsArgs{...}
+type VolumeClientConfigurationsInput interface {
+	pulumi.Input
+
+	ToVolumeClientConfigurationsOutput() VolumeClientConfigurationsOutput
+	ToVolumeClientConfigurationsOutputWithContext(context.Context) VolumeClientConfigurationsOutput
+}
+
+type VolumeClientConfigurationsArgs struct {
+	// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+	Clients pulumi.StringInput `pulumi:"clients"`
+	// The configuration object for mounting a Network File System (NFS) file system.
+	Options pulumi.StringArrayInput `pulumi:"options"`
+}
+
+func (VolumeClientConfigurationsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (i VolumeClientConfigurationsArgs) ToVolumeClientConfigurationsOutput() VolumeClientConfigurationsOutput {
+	return i.ToVolumeClientConfigurationsOutputWithContext(context.Background())
+}
+
+func (i VolumeClientConfigurationsArgs) ToVolumeClientConfigurationsOutputWithContext(ctx context.Context) VolumeClientConfigurationsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeClientConfigurationsOutput)
+}
+
+// VolumeClientConfigurationsArrayInput is an input type that accepts VolumeClientConfigurationsArray and VolumeClientConfigurationsArrayOutput values.
+// You can construct a concrete instance of `VolumeClientConfigurationsArrayInput` via:
+//
+//	VolumeClientConfigurationsArray{ VolumeClientConfigurationsArgs{...} }
+type VolumeClientConfigurationsArrayInput interface {
+	pulumi.Input
+
+	ToVolumeClientConfigurationsArrayOutput() VolumeClientConfigurationsArrayOutput
+	ToVolumeClientConfigurationsArrayOutputWithContext(context.Context) VolumeClientConfigurationsArrayOutput
+}
+
+type VolumeClientConfigurationsArray []VolumeClientConfigurationsInput
+
+func (VolumeClientConfigurationsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (i VolumeClientConfigurationsArray) ToVolumeClientConfigurationsArrayOutput() VolumeClientConfigurationsArrayOutput {
+	return i.ToVolumeClientConfigurationsArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeClientConfigurationsArray) ToVolumeClientConfigurationsArrayOutputWithContext(ctx context.Context) VolumeClientConfigurationsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeClientConfigurationsArrayOutput)
+}
+
+type VolumeClientConfigurationsOutput struct{ *pulumi.OutputState }
+
+func (VolumeClientConfigurationsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (o VolumeClientConfigurationsOutput) ToVolumeClientConfigurationsOutput() VolumeClientConfigurationsOutput {
+	return o
+}
+
+func (o VolumeClientConfigurationsOutput) ToVolumeClientConfigurationsOutputWithContext(ctx context.Context) VolumeClientConfigurationsOutput {
+	return o
+}
+
+// A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+func (o VolumeClientConfigurationsOutput) Clients() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeClientConfigurations) string { return v.Clients }).(pulumi.StringOutput)
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeClientConfigurationsOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeClientConfigurations) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+type VolumeClientConfigurationsArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeClientConfigurationsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeClientConfigurations)(nil)).Elem()
+}
+
+func (o VolumeClientConfigurationsArrayOutput) ToVolumeClientConfigurationsArrayOutput() VolumeClientConfigurationsArrayOutput {
+	return o
+}
+
+func (o VolumeClientConfigurationsArrayOutput) ToVolumeClientConfigurationsArrayOutputWithContext(ctx context.Context) VolumeClientConfigurationsArrayOutput {
+	return o
+}
+
+func (o VolumeClientConfigurationsArrayOutput) Index(i pulumi.IntInput) VolumeClientConfigurationsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeClientConfigurations {
+		return vs[0].([]VolumeClientConfigurations)[vs[1].(int)]
+	}).(VolumeClientConfigurationsOutput)
+}
+
+type VolumeNfsExports struct {
+	// The configuration object for mounting a Network File System (NFS) file system.
+	ClientConfigurations []VolumeClientConfigurations `pulumi:"clientConfigurations"`
+}
+
+// VolumeNfsExportsInput is an input type that accepts VolumeNfsExportsArgs and VolumeNfsExportsOutput values.
+// You can construct a concrete instance of `VolumeNfsExportsInput` via:
+//
+//	VolumeNfsExportsArgs{...}
+type VolumeNfsExportsInput interface {
+	pulumi.Input
+
+	ToVolumeNfsExportsOutput() VolumeNfsExportsOutput
+	ToVolumeNfsExportsOutputWithContext(context.Context) VolumeNfsExportsOutput
+}
+
+type VolumeNfsExportsArgs struct {
+	// The configuration object for mounting a Network File System (NFS) file system.
+	ClientConfigurations VolumeClientConfigurationsArrayInput `pulumi:"clientConfigurations"`
+}
+
+func (VolumeNfsExportsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeNfsExports)(nil)).Elem()
+}
+
+func (i VolumeNfsExportsArgs) ToVolumeNfsExportsOutput() VolumeNfsExportsOutput {
+	return i.ToVolumeNfsExportsOutputWithContext(context.Background())
+}
+
+func (i VolumeNfsExportsArgs) ToVolumeNfsExportsOutputWithContext(ctx context.Context) VolumeNfsExportsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeNfsExportsOutput)
+}
+
+// VolumeNfsExportsArrayInput is an input type that accepts VolumeNfsExportsArray and VolumeNfsExportsArrayOutput values.
+// You can construct a concrete instance of `VolumeNfsExportsArrayInput` via:
+//
+//	VolumeNfsExportsArray{ VolumeNfsExportsArgs{...} }
+type VolumeNfsExportsArrayInput interface {
+	pulumi.Input
+
+	ToVolumeNfsExportsArrayOutput() VolumeNfsExportsArrayOutput
+	ToVolumeNfsExportsArrayOutputWithContext(context.Context) VolumeNfsExportsArrayOutput
+}
+
+type VolumeNfsExportsArray []VolumeNfsExportsInput
+
+func (VolumeNfsExportsArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeNfsExports)(nil)).Elem()
+}
+
+func (i VolumeNfsExportsArray) ToVolumeNfsExportsArrayOutput() VolumeNfsExportsArrayOutput {
+	return i.ToVolumeNfsExportsArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeNfsExportsArray) ToVolumeNfsExportsArrayOutputWithContext(ctx context.Context) VolumeNfsExportsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeNfsExportsArrayOutput)
+}
+
+type VolumeNfsExportsOutput struct{ *pulumi.OutputState }
+
+func (VolumeNfsExportsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeNfsExports)(nil)).Elem()
+}
+
+func (o VolumeNfsExportsOutput) ToVolumeNfsExportsOutput() VolumeNfsExportsOutput {
+	return o
+}
+
+func (o VolumeNfsExportsOutput) ToVolumeNfsExportsOutputWithContext(ctx context.Context) VolumeNfsExportsOutput {
+	return o
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeNfsExportsOutput) ClientConfigurations() VolumeClientConfigurationsArrayOutput {
+	return o.ApplyT(func(v VolumeNfsExports) []VolumeClientConfigurations { return v.ClientConfigurations }).(VolumeClientConfigurationsArrayOutput)
+}
+
+type VolumeNfsExportsArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeNfsExportsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeNfsExports)(nil)).Elem()
+}
+
+func (o VolumeNfsExportsArrayOutput) ToVolumeNfsExportsArrayOutput() VolumeNfsExportsArrayOutput {
+	return o
+}
+
+func (o VolumeNfsExportsArrayOutput) ToVolumeNfsExportsArrayOutputWithContext(ctx context.Context) VolumeNfsExportsArrayOutput {
+	return o
+}
+
+func (o VolumeNfsExportsArrayOutput) Index(i pulumi.IntInput) VolumeNfsExportsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeNfsExports {
+		return vs[0].([]VolumeNfsExports)[vs[1].(int)]
+	}).(VolumeNfsExportsOutput)
+}
+
+type VolumeOntapConfiguration struct {
+	// Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+	AggregateConfiguration *VolumeAggregateConfiguration `pulumi:"aggregateConfiguration"`
+	// A boolean flag indicating whether tags for the volume should be copied to backups.
+	CopyTagsToBackups *string `pulumi:"copyTagsToBackups"`
+	// Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+	JunctionPath *string `pulumi:"junctionPath"`
+	// Specifies the type of volume you are creating. Valid values are the following: RW or DP
+	OntapVolumeType *string `pulumi:"ontapVolumeType"`
+	// Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+	SecurityStyle *string `pulumi:"securityStyle"`
+	// Specifies the configured size of the volume, in bytes.
+	SizeInBytes *string `pulumi:"sizeInBytes"`
+	// Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+	SizeInMegabytes *string `pulumi:"sizeInMegabytes"`
+	// The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+	SnaplockConfiguration *VolumeSnaplockConfiguration `pulumi:"snaplockConfiguration"`
+	// Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+	SnapshotPolicy *string `pulumi:"snapshotPolicy"`
+	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+	StorageEfficiencyEnabled *string `pulumi:"storageEfficiencyEnabled"`
+	// Specifies the ONTAP SVM in which to create the volume.
+	StorageVirtualMachineId string `pulumi:"storageVirtualMachineId"`
+	// Describes the data tiering policy for an ONTAP volume.
+	TieringPolicy *VolumeTieringPolicy `pulumi:"tieringPolicy"`
+	// Use to specify the style of an ONTAP volume.
+	VolumeStyle *string `pulumi:"volumeStyle"`
+}
+
+// VolumeOntapConfigurationInput is an input type that accepts VolumeOntapConfigurationArgs and VolumeOntapConfigurationOutput values.
+// You can construct a concrete instance of `VolumeOntapConfigurationInput` via:
+//
+//	VolumeOntapConfigurationArgs{...}
+type VolumeOntapConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeOntapConfigurationOutput() VolumeOntapConfigurationOutput
+	ToVolumeOntapConfigurationOutputWithContext(context.Context) VolumeOntapConfigurationOutput
+}
+
+type VolumeOntapConfigurationArgs struct {
+	// Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+	AggregateConfiguration VolumeAggregateConfigurationPtrInput `pulumi:"aggregateConfiguration"`
+	// A boolean flag indicating whether tags for the volume should be copied to backups.
+	CopyTagsToBackups pulumi.StringPtrInput `pulumi:"copyTagsToBackups"`
+	// Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+	JunctionPath pulumi.StringPtrInput `pulumi:"junctionPath"`
+	// Specifies the type of volume you are creating. Valid values are the following: RW or DP
+	OntapVolumeType pulumi.StringPtrInput `pulumi:"ontapVolumeType"`
+	// Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+	SecurityStyle pulumi.StringPtrInput `pulumi:"securityStyle"`
+	// Specifies the configured size of the volume, in bytes.
+	SizeInBytes pulumi.StringPtrInput `pulumi:"sizeInBytes"`
+	// Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+	SizeInMegabytes pulumi.StringPtrInput `pulumi:"sizeInMegabytes"`
+	// The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+	SnaplockConfiguration VolumeSnaplockConfigurationPtrInput `pulumi:"snaplockConfiguration"`
+	// Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+	SnapshotPolicy pulumi.StringPtrInput `pulumi:"snapshotPolicy"`
+	// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+	StorageEfficiencyEnabled pulumi.StringPtrInput `pulumi:"storageEfficiencyEnabled"`
+	// Specifies the ONTAP SVM in which to create the volume.
+	StorageVirtualMachineId pulumi.StringInput `pulumi:"storageVirtualMachineId"`
+	// Describes the data tiering policy for an ONTAP volume.
+	TieringPolicy VolumeTieringPolicyPtrInput `pulumi:"tieringPolicy"`
+	// Use to specify the style of an ONTAP volume.
+	VolumeStyle pulumi.StringPtrInput `pulumi:"volumeStyle"`
+}
+
+func (VolumeOntapConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationOutput() VolumeOntapConfigurationOutput {
+	return i.ToVolumeOntapConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationOutputWithContext(ctx context.Context) VolumeOntapConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationOutput)
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return i.ToVolumeOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeOntapConfigurationArgs) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationOutput).ToVolumeOntapConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeOntapConfigurationPtrInput is an input type that accepts VolumeOntapConfigurationArgs, VolumeOntapConfigurationPtr and VolumeOntapConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeOntapConfigurationPtrInput` via:
+//
+//	        VolumeOntapConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeOntapConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput
+	ToVolumeOntapConfigurationPtrOutputWithContext(context.Context) VolumeOntapConfigurationPtrOutput
+}
+
+type volumeOntapConfigurationPtrType VolumeOntapConfigurationArgs
+
+func VolumeOntapConfigurationPtr(v *VolumeOntapConfigurationArgs) VolumeOntapConfigurationPtrInput {
+	return (*volumeOntapConfigurationPtrType)(v)
+}
+
+func (*volumeOntapConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (i *volumeOntapConfigurationPtrType) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return i.ToVolumeOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeOntapConfigurationPtrType) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOntapConfigurationPtrOutput)
+}
+
+type VolumeOntapConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeOntapConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationOutput() VolumeOntapConfigurationOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationOutputWithContext(ctx context.Context) VolumeOntapConfigurationOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return o.ToVolumeOntapConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeOntapConfigurationOutput) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOntapConfiguration) *VolumeOntapConfiguration {
+		return &v
+	}).(VolumeOntapConfigurationPtrOutput)
+}
+
+// Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+func (o VolumeOntapConfigurationOutput) AggregateConfiguration() VolumeAggregateConfigurationPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeAggregateConfiguration { return v.AggregateConfiguration }).(VolumeAggregateConfigurationPtrOutput)
+}
+
+// A boolean flag indicating whether tags for the volume should be copied to backups.
+func (o VolumeOntapConfigurationOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.CopyTagsToBackups }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+func (o VolumeOntapConfigurationOutput) JunctionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.JunctionPath }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of volume you are creating. Valid values are the following: RW or DP
+func (o VolumeOntapConfigurationOutput) OntapVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.OntapVolumeType }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+func (o VolumeOntapConfigurationOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SecurityStyle }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configured size of the volume, in bytes.
+func (o VolumeOntapConfigurationOutput) SizeInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SizeInBytes }).(pulumi.StringPtrOutput)
+}
+
+// Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+func (o VolumeOntapConfigurationOutput) SizeInMegabytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SizeInMegabytes }).(pulumi.StringPtrOutput)
+}
+
+// The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+func (o VolumeOntapConfigurationOutput) SnaplockConfiguration() VolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeSnaplockConfiguration { return v.SnaplockConfiguration }).(VolumeSnaplockConfigurationPtrOutput)
+}
+
+// Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+func (o VolumeOntapConfigurationOutput) SnapshotPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.SnapshotPolicy }).(pulumi.StringPtrOutput)
+}
+
+// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+func (o VolumeOntapConfigurationOutput) StorageEfficiencyEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.StorageEfficiencyEnabled }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ONTAP SVM in which to create the volume.
+func (o VolumeOntapConfigurationOutput) StorageVirtualMachineId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) string { return v.StorageVirtualMachineId }).(pulumi.StringOutput)
+}
+
+// Describes the data tiering policy for an ONTAP volume.
+func (o VolumeOntapConfigurationOutput) TieringPolicy() VolumeTieringPolicyPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *VolumeTieringPolicy { return v.TieringPolicy }).(VolumeTieringPolicyPtrOutput)
+}
+
+// Use to specify the style of an ONTAP volume.
+func (o VolumeOntapConfigurationOutput) VolumeStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOntapConfiguration) *string { return v.VolumeStyle }).(pulumi.StringPtrOutput)
+}
+
+type VolumeOntapConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeOntapConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOntapConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOntapConfigurationPtrOutput) ToVolumeOntapConfigurationPtrOutput() VolumeOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationPtrOutput) ToVolumeOntapConfigurationPtrOutputWithContext(ctx context.Context) VolumeOntapConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOntapConfigurationPtrOutput) Elem() VolumeOntapConfigurationOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) VolumeOntapConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeOntapConfiguration
+		return ret
+	}).(VolumeOntapConfigurationOutput)
+}
+
+// Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+func (o VolumeOntapConfigurationPtrOutput) AggregateConfiguration() VolumeAggregateConfigurationPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *VolumeAggregateConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.AggregateConfiguration
+	}).(VolumeAggregateConfigurationPtrOutput)
+}
+
+// A boolean flag indicating whether tags for the volume should be copied to backups.
+func (o VolumeOntapConfigurationPtrOutput) CopyTagsToBackups() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToBackups
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+func (o VolumeOntapConfigurationPtrOutput) JunctionPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.JunctionPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the type of volume you are creating. Valid values are the following: RW or DP
+func (o VolumeOntapConfigurationPtrOutput) OntapVolumeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OntapVolumeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+func (o VolumeOntapConfigurationPtrOutput) SecurityStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityStyle
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configured size of the volume, in bytes.
+func (o VolumeOntapConfigurationPtrOutput) SizeInBytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInBytes
+	}).(pulumi.StringPtrOutput)
+}
+
+// Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+func (o VolumeOntapConfigurationPtrOutput) SizeInMegabytes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SizeInMegabytes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+func (o VolumeOntapConfigurationPtrOutput) SnaplockConfiguration() VolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *VolumeSnaplockConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SnaplockConfiguration
+	}).(VolumeSnaplockConfigurationPtrOutput)
+}
+
+// Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+func (o VolumeOntapConfigurationPtrOutput) SnapshotPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnapshotPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+func (o VolumeOntapConfigurationPtrOutput) StorageEfficiencyEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StorageEfficiencyEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the ONTAP SVM in which to create the volume.
+func (o VolumeOntapConfigurationPtrOutput) StorageVirtualMachineId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageVirtualMachineId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Describes the data tiering policy for an ONTAP volume.
+func (o VolumeOntapConfigurationPtrOutput) TieringPolicy() VolumeTieringPolicyPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *VolumeTieringPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.TieringPolicy
+	}).(VolumeTieringPolicyPtrOutput)
+}
+
+// Use to specify the style of an ONTAP volume.
+func (o VolumeOntapConfigurationPtrOutput) VolumeStyle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOntapConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeStyle
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeOpenZfsConfiguration struct {
+	// A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+	CopyTagsToSnapshots *bool `pulumi:"copyTagsToSnapshots"`
+	// Specifies the method used to compress the data on the volume
+	DataCompressionType *string `pulumi:"dataCompressionType"`
+	// The configuration object for mounting a Network File System (NFS) file system.
+	NfsExports []VolumeNfsExports `pulumi:"nfsExports"`
+	// The configuration object for mounting a Network File System (NFS) file system.
+	Options []string `pulumi:"options"`
+	// The configuration of an Amazon FSx for OpenZFS volume.
+	OriginSnapshot *VolumeOriginSnapshot `pulumi:"originSnapshot"`
+	// The ID of the volume to use as the parent volume of the volume that you are creating.
+	ParentVolumeId string `pulumi:"parentVolumeId"`
+	// A Boolean value indicating whether the volume is read-only.
+	ReadOnly *bool `pulumi:"readOnly"`
+	// Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+	RecordSizeKiB *int `pulumi:"recordSizeKiB"`
+	// Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+	StorageCapacityQuotaGiB *int `pulumi:"storageCapacityQuotaGiB"`
+	// Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+	StorageCapacityReservationGiB *int `pulumi:"storageCapacityReservationGiB"`
+	// Configures how much storage users and groups can use on the volume.
+	UserAndGroupQuotas []VolumeUserAndGroupQuotas `pulumi:"userAndGroupQuotas"`
+}
+
+// VolumeOpenZfsConfigurationInput is an input type that accepts VolumeOpenZfsConfigurationArgs and VolumeOpenZfsConfigurationOutput values.
+// You can construct a concrete instance of `VolumeOpenZfsConfigurationInput` via:
+//
+//	VolumeOpenZfsConfigurationArgs{...}
+type VolumeOpenZfsConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeOpenZfsConfigurationOutput() VolumeOpenZfsConfigurationOutput
+	ToVolumeOpenZfsConfigurationOutputWithContext(context.Context) VolumeOpenZfsConfigurationOutput
+}
+
+type VolumeOpenZfsConfigurationArgs struct {
+	// A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+	CopyTagsToSnapshots pulumi.BoolPtrInput `pulumi:"copyTagsToSnapshots"`
+	// Specifies the method used to compress the data on the volume
+	DataCompressionType pulumi.StringPtrInput `pulumi:"dataCompressionType"`
+	// The configuration object for mounting a Network File System (NFS) file system.
+	NfsExports VolumeNfsExportsArrayInput `pulumi:"nfsExports"`
+	// The configuration object for mounting a Network File System (NFS) file system.
+	Options pulumi.StringArrayInput `pulumi:"options"`
+	// The configuration of an Amazon FSx for OpenZFS volume.
+	OriginSnapshot VolumeOriginSnapshotPtrInput `pulumi:"originSnapshot"`
+	// The ID of the volume to use as the parent volume of the volume that you are creating.
+	ParentVolumeId pulumi.StringInput `pulumi:"parentVolumeId"`
+	// A Boolean value indicating whether the volume is read-only.
+	ReadOnly pulumi.BoolPtrInput `pulumi:"readOnly"`
+	// Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+	RecordSizeKiB pulumi.IntPtrInput `pulumi:"recordSizeKiB"`
+	// Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+	StorageCapacityQuotaGiB pulumi.IntPtrInput `pulumi:"storageCapacityQuotaGiB"`
+	// Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+	StorageCapacityReservationGiB pulumi.IntPtrInput `pulumi:"storageCapacityReservationGiB"`
+	// Configures how much storage users and groups can use on the volume.
+	UserAndGroupQuotas VolumeUserAndGroupQuotasArrayInput `pulumi:"userAndGroupQuotas"`
+}
+
+func (VolumeOpenZfsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationOutput() VolumeOpenZfsConfigurationOutput {
+	return i.ToVolumeOpenZfsConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationOutput)
+}
+
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
+	return i.ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeOpenZfsConfigurationArgs) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationOutput).ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeOpenZfsConfigurationPtrInput is an input type that accepts VolumeOpenZfsConfigurationArgs, VolumeOpenZfsConfigurationPtr and VolumeOpenZfsConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeOpenZfsConfigurationPtrInput` via:
+//
+//	        VolumeOpenZfsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeOpenZfsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput
+	ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Context) VolumeOpenZfsConfigurationPtrOutput
+}
+
+type volumeOpenZfsConfigurationPtrType VolumeOpenZfsConfigurationArgs
+
+func VolumeOpenZfsConfigurationPtr(v *VolumeOpenZfsConfigurationArgs) VolumeOpenZfsConfigurationPtrInput {
+	return (*volumeOpenZfsConfigurationPtrType)(v)
+}
+
+func (*volumeOpenZfsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (i *volumeOpenZfsConfigurationPtrType) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
+	return i.ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeOpenZfsConfigurationPtrType) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOpenZfsConfigurationPtrOutput)
+}
+
+type VolumeOpenZfsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeOpenZfsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationOutput() VolumeOpenZfsConfigurationOutput {
+	return o
+}
+
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationOutput {
+	return o
+}
+
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
+	return o.ToVolumeOpenZfsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeOpenZfsConfigurationOutput) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOpenZfsConfiguration) *VolumeOpenZfsConfiguration {
+		return &v
+	}).(VolumeOpenZfsConfigurationPtrOutput)
+}
+
+// A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+func (o VolumeOpenZfsConfigurationOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *bool { return v.CopyTagsToSnapshots }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the method used to compress the data on the volume
+func (o VolumeOpenZfsConfigurationOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *string { return v.DataCompressionType }).(pulumi.StringPtrOutput)
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeOpenZfsConfigurationOutput) NfsExports() VolumeNfsExportsArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) []VolumeNfsExports { return v.NfsExports }).(VolumeNfsExportsArrayOutput)
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeOpenZfsConfigurationOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) []string { return v.Options }).(pulumi.StringArrayOutput)
+}
+
+// The configuration of an Amazon FSx for OpenZFS volume.
+func (o VolumeOpenZfsConfigurationOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *VolumeOriginSnapshot { return v.OriginSnapshot }).(VolumeOriginSnapshotPtrOutput)
+}
+
+// The ID of the volume to use as the parent volume of the volume that you are creating.
+func (o VolumeOpenZfsConfigurationOutput) ParentVolumeId() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) string { return v.ParentVolumeId }).(pulumi.StringOutput)
+}
+
+// A Boolean value indicating whether the volume is read-only.
+func (o VolumeOpenZfsConfigurationOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *bool { return v.ReadOnly }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+func (o VolumeOpenZfsConfigurationOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *int { return v.RecordSizeKiB }).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+func (o VolumeOpenZfsConfigurationOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *int { return v.StorageCapacityQuotaGiB }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+func (o VolumeOpenZfsConfigurationOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) *int { return v.StorageCapacityReservationGiB }).(pulumi.IntPtrOutput)
+}
+
+// Configures how much storage users and groups can use on the volume.
+func (o VolumeOpenZfsConfigurationOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v VolumeOpenZfsConfiguration) []VolumeUserAndGroupQuotas { return v.UserAndGroupQuotas }).(VolumeUserAndGroupQuotasArrayOutput)
+}
+
+type VolumeOpenZfsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeOpenZfsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOpenZfsConfiguration)(nil)).Elem()
+}
+
+func (o VolumeOpenZfsConfigurationPtrOutput) ToVolumeOpenZfsConfigurationPtrOutput() VolumeOpenZfsConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOpenZfsConfigurationPtrOutput) ToVolumeOpenZfsConfigurationPtrOutputWithContext(ctx context.Context) VolumeOpenZfsConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeOpenZfsConfigurationPtrOutput) Elem() VolumeOpenZfsConfigurationOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) VolumeOpenZfsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeOpenZfsConfiguration
+		return ret
+	}).(VolumeOpenZfsConfigurationOutput)
+}
+
+// A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+func (o VolumeOpenZfsConfigurationPtrOutput) CopyTagsToSnapshots() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CopyTagsToSnapshots
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the method used to compress the data on the volume
+func (o VolumeOpenZfsConfigurationPtrOutput) DataCompressionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCompressionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeOpenZfsConfigurationPtrOutput) NfsExports() VolumeNfsExportsArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) []VolumeNfsExports {
+		if v == nil {
+			return nil
+		}
+		return v.NfsExports
+	}).(VolumeNfsExportsArrayOutput)
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeOpenZfsConfigurationPtrOutput) Options() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Options
+	}).(pulumi.StringArrayOutput)
+}
+
+// The configuration of an Amazon FSx for OpenZFS volume.
+func (o VolumeOpenZfsConfigurationPtrOutput) OriginSnapshot() VolumeOriginSnapshotPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *VolumeOriginSnapshot {
+		if v == nil {
+			return nil
+		}
+		return v.OriginSnapshot
+	}).(VolumeOriginSnapshotPtrOutput)
+}
+
+// The ID of the volume to use as the parent volume of the volume that you are creating.
+func (o VolumeOpenZfsConfigurationPtrOutput) ParentVolumeId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ParentVolumeId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A Boolean value indicating whether the volume is read-only.
+func (o VolumeOpenZfsConfigurationPtrOutput) ReadOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+func (o VolumeOpenZfsConfigurationPtrOutput) RecordSizeKiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RecordSizeKiB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+func (o VolumeOpenZfsConfigurationPtrOutput) StorageCapacityQuotaGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageCapacityQuotaGiB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+func (o VolumeOpenZfsConfigurationPtrOutput) StorageCapacityReservationGiB() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StorageCapacityReservationGiB
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures how much storage users and groups can use on the volume.
+func (o VolumeOpenZfsConfigurationPtrOutput) UserAndGroupQuotas() VolumeUserAndGroupQuotasArrayOutput {
+	return o.ApplyT(func(v *VolumeOpenZfsConfiguration) []VolumeUserAndGroupQuotas {
+		if v == nil {
+			return nil
+		}
+		return v.UserAndGroupQuotas
+	}).(VolumeUserAndGroupQuotasArrayOutput)
+}
+
+type VolumeOriginSnapshot struct {
+	// The configuration object for mounting a Network File System (NFS) file system.
+	CopyStrategy string `pulumi:"copyStrategy"`
+	// Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+	SnapshotArn string `pulumi:"snapshotArn"`
+}
+
+// VolumeOriginSnapshotInput is an input type that accepts VolumeOriginSnapshotArgs and VolumeOriginSnapshotOutput values.
+// You can construct a concrete instance of `VolumeOriginSnapshotInput` via:
+//
+//	VolumeOriginSnapshotArgs{...}
+type VolumeOriginSnapshotInput interface {
+	pulumi.Input
+
+	ToVolumeOriginSnapshotOutput() VolumeOriginSnapshotOutput
+	ToVolumeOriginSnapshotOutputWithContext(context.Context) VolumeOriginSnapshotOutput
+}
+
+type VolumeOriginSnapshotArgs struct {
+	// The configuration object for mounting a Network File System (NFS) file system.
+	CopyStrategy pulumi.StringInput `pulumi:"copyStrategy"`
+	// Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+	SnapshotArn pulumi.StringInput `pulumi:"snapshotArn"`
+}
+
+func (VolumeOriginSnapshotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotOutput() VolumeOriginSnapshotOutput {
+	return i.ToVolumeOriginSnapshotOutputWithContext(context.Background())
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotOutputWithContext(ctx context.Context) VolumeOriginSnapshotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotOutput)
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return i.ToVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeOriginSnapshotArgs) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotOutput).ToVolumeOriginSnapshotPtrOutputWithContext(ctx)
+}
+
+// VolumeOriginSnapshotPtrInput is an input type that accepts VolumeOriginSnapshotArgs, VolumeOriginSnapshotPtr and VolumeOriginSnapshotPtrOutput values.
+// You can construct a concrete instance of `VolumeOriginSnapshotPtrInput` via:
+//
+//	        VolumeOriginSnapshotArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeOriginSnapshotPtrInput interface {
+	pulumi.Input
+
+	ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput
+	ToVolumeOriginSnapshotPtrOutputWithContext(context.Context) VolumeOriginSnapshotPtrOutput
+}
+
+type volumeOriginSnapshotPtrType VolumeOriginSnapshotArgs
+
+func VolumeOriginSnapshotPtr(v *VolumeOriginSnapshotArgs) VolumeOriginSnapshotPtrInput {
+	return (*volumeOriginSnapshotPtrType)(v)
+}
+
+func (*volumeOriginSnapshotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (i *volumeOriginSnapshotPtrType) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return i.ToVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeOriginSnapshotPtrType) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeOriginSnapshotPtrOutput)
+}
+
+type VolumeOriginSnapshotOutput struct{ *pulumi.OutputState }
+
+func (VolumeOriginSnapshotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotOutput() VolumeOriginSnapshotOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotOutputWithContext(ctx context.Context) VolumeOriginSnapshotOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return o.ToVolumeOriginSnapshotPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeOriginSnapshotOutput) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeOriginSnapshot) *VolumeOriginSnapshot {
+		return &v
+	}).(VolumeOriginSnapshotPtrOutput)
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeOriginSnapshotOutput) CopyStrategy() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.CopyStrategy }).(pulumi.StringOutput)
+}
+
+// Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+func (o VolumeOriginSnapshotOutput) SnapshotArn() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeOriginSnapshot) string { return v.SnapshotArn }).(pulumi.StringOutput)
+}
+
+type VolumeOriginSnapshotPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeOriginSnapshotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeOriginSnapshot)(nil)).Elem()
+}
+
+func (o VolumeOriginSnapshotPtrOutput) ToVolumeOriginSnapshotPtrOutput() VolumeOriginSnapshotPtrOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotPtrOutput) ToVolumeOriginSnapshotPtrOutputWithContext(ctx context.Context) VolumeOriginSnapshotPtrOutput {
+	return o
+}
+
+func (o VolumeOriginSnapshotPtrOutput) Elem() VolumeOriginSnapshotOutput {
+	return o.ApplyT(func(v *VolumeOriginSnapshot) VolumeOriginSnapshot {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeOriginSnapshot
+		return ret
+	}).(VolumeOriginSnapshotOutput)
+}
+
+// The configuration object for mounting a Network File System (NFS) file system.
+func (o VolumeOriginSnapshotPtrOutput) CopyStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOriginSnapshot) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CopyStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+func (o VolumeOriginSnapshotPtrOutput) SnapshotArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeOriginSnapshot) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnapshotArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeRetentionPeriod struct {
+	// Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+	Type string `pulumi:"type"`
+	// Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+	Value *int `pulumi:"value"`
+}
+
+// VolumeRetentionPeriodInput is an input type that accepts VolumeRetentionPeriodArgs and VolumeRetentionPeriodOutput values.
+// You can construct a concrete instance of `VolumeRetentionPeriodInput` via:
+//
+//	VolumeRetentionPeriodArgs{...}
+type VolumeRetentionPeriodInput interface {
+	pulumi.Input
+
+	ToVolumeRetentionPeriodOutput() VolumeRetentionPeriodOutput
+	ToVolumeRetentionPeriodOutputWithContext(context.Context) VolumeRetentionPeriodOutput
+}
+
+type VolumeRetentionPeriodArgs struct {
+	// Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (VolumeRetentionPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodOutput() VolumeRetentionPeriodOutput {
+	return i.ToVolumeRetentionPeriodOutputWithContext(context.Background())
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodOutputWithContext(ctx context.Context) VolumeRetentionPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodOutput)
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return i.ToVolumeRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeRetentionPeriodArgs) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodOutput).ToVolumeRetentionPeriodPtrOutputWithContext(ctx)
+}
+
+// VolumeRetentionPeriodPtrInput is an input type that accepts VolumeRetentionPeriodArgs, VolumeRetentionPeriodPtr and VolumeRetentionPeriodPtrOutput values.
+// You can construct a concrete instance of `VolumeRetentionPeriodPtrInput` via:
+//
+//	        VolumeRetentionPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeRetentionPeriodPtrInput interface {
+	pulumi.Input
+
+	ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput
+	ToVolumeRetentionPeriodPtrOutputWithContext(context.Context) VolumeRetentionPeriodPtrOutput
+}
+
+type volumeRetentionPeriodPtrType VolumeRetentionPeriodArgs
+
+func VolumeRetentionPeriodPtr(v *VolumeRetentionPeriodArgs) VolumeRetentionPeriodPtrInput {
+	return (*volumeRetentionPeriodPtrType)(v)
+}
+
+func (*volumeRetentionPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (i *volumeRetentionPeriodPtrType) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return i.ToVolumeRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeRetentionPeriodPtrType) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeRetentionPeriodPtrOutput)
+}
+
+type VolumeRetentionPeriodOutput struct{ *pulumi.OutputState }
+
+func (VolumeRetentionPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodOutput() VolumeRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodOutputWithContext(ctx context.Context) VolumeRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return o.ToVolumeRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeRetentionPeriodOutput) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeRetentionPeriod) *VolumeRetentionPeriod {
+		return &v
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
+// Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+func (o VolumeRetentionPeriodOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeRetentionPeriod) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+func (o VolumeRetentionPeriodOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeRetentionPeriod) *int { return v.Value }).(pulumi.IntPtrOutput)
+}
+
+type VolumeRetentionPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeRetentionPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeRetentionPeriodPtrOutput) ToVolumeRetentionPeriodPtrOutput() VolumeRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodPtrOutput) ToVolumeRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeRetentionPeriodPtrOutput) Elem() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v *VolumeRetentionPeriod) VolumeRetentionPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeRetentionPeriod
+		return ret
+	}).(VolumeRetentionPeriodOutput)
+}
+
+// Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+func (o VolumeRetentionPeriodPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeRetentionPeriod) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+func (o VolumeRetentionPeriodPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeRetentionPeriod) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type VolumeSnaplockConfiguration struct {
+	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+	AuditLogVolume *string `pulumi:"auditLogVolume"`
+	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+	AutocommitPeriod *VolumeAutocommitPeriod `pulumi:"autocommitPeriod"`
+	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+	PrivilegedDelete *string `pulumi:"privilegedDelete"`
+	// Specifies the retention period of an FSx for ONTAP SnapLock volume.
+	RetentionPeriod *VolumeSnaplockRetentionPeriod `pulumi:"retentionPeriod"`
+	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+	SnaplockType string `pulumi:"snaplockType"`
+	// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+	VolumeAppendModeEnabled *string `pulumi:"volumeAppendModeEnabled"`
+}
+
+// VolumeSnaplockConfigurationInput is an input type that accepts VolumeSnaplockConfigurationArgs and VolumeSnaplockConfigurationOutput values.
+// You can construct a concrete instance of `VolumeSnaplockConfigurationInput` via:
+//
+//	VolumeSnaplockConfigurationArgs{...}
+type VolumeSnaplockConfigurationInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockConfigurationOutput() VolumeSnaplockConfigurationOutput
+	ToVolumeSnaplockConfigurationOutputWithContext(context.Context) VolumeSnaplockConfigurationOutput
+}
+
+type VolumeSnaplockConfigurationArgs struct {
+	// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+	AuditLogVolume pulumi.StringPtrInput `pulumi:"auditLogVolume"`
+	// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+	AutocommitPeriod VolumeAutocommitPeriodPtrInput `pulumi:"autocommitPeriod"`
+	// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+	PrivilegedDelete pulumi.StringPtrInput `pulumi:"privilegedDelete"`
+	// Specifies the retention period of an FSx for ONTAP SnapLock volume.
+	RetentionPeriod VolumeSnaplockRetentionPeriodPtrInput `pulumi:"retentionPeriod"`
+	// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+	SnaplockType pulumi.StringInput `pulumi:"snaplockType"`
+	// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+	VolumeAppendModeEnabled pulumi.StringPtrInput `pulumi:"volumeAppendModeEnabled"`
+}
+
+func (VolumeSnaplockConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationOutput() VolumeSnaplockConfigurationOutput {
+	return i.ToVolumeSnaplockConfigurationOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationOutput)
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return i.ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockConfigurationArgs) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationOutput).ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx)
+}
+
+// VolumeSnaplockConfigurationPtrInput is an input type that accepts VolumeSnaplockConfigurationArgs, VolumeSnaplockConfigurationPtr and VolumeSnaplockConfigurationPtrOutput values.
+// You can construct a concrete instance of `VolumeSnaplockConfigurationPtrInput` via:
+//
+//	        VolumeSnaplockConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeSnaplockConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput
+	ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Context) VolumeSnaplockConfigurationPtrOutput
+}
+
+type volumeSnaplockConfigurationPtrType VolumeSnaplockConfigurationArgs
+
+func VolumeSnaplockConfigurationPtr(v *VolumeSnaplockConfigurationArgs) VolumeSnaplockConfigurationPtrInput {
+	return (*volumeSnaplockConfigurationPtrType)(v)
+}
+
+func (*volumeSnaplockConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (i *volumeSnaplockConfigurationPtrType) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return i.ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeSnaplockConfigurationPtrType) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockConfigurationPtrOutput)
+}
+
+type VolumeSnaplockConfigurationOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationOutput() VolumeSnaplockConfigurationOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return o.ToVolumeSnaplockConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeSnaplockConfigurationOutput) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnaplockConfiguration) *VolumeSnaplockConfiguration {
+		return &v
+	}).(VolumeSnaplockConfigurationPtrOutput)
+}
+
+// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+func (o VolumeSnaplockConfigurationOutput) AuditLogVolume() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *string { return v.AuditLogVolume }).(pulumi.StringPtrOutput)
+}
+
+// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockConfigurationOutput) AutocommitPeriod() VolumeAutocommitPeriodPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *VolumeAutocommitPeriod { return v.AutocommitPeriod }).(VolumeAutocommitPeriodPtrOutput)
+}
+
+// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+func (o VolumeSnaplockConfigurationOutput) PrivilegedDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *string { return v.PrivilegedDelete }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the retention period of an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockConfigurationOutput) RetentionPeriod() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *VolumeSnaplockRetentionPeriod { return v.RetentionPeriod }).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+func (o VolumeSnaplockConfigurationOutput) SnaplockType() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) string { return v.SnaplockType }).(pulumi.StringOutput)
+}
+
+// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockConfigurationOutput) VolumeAppendModeEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeSnaplockConfiguration) *string { return v.VolumeAppendModeEnabled }).(pulumi.StringPtrOutput)
+}
+
+type VolumeSnaplockConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockConfiguration)(nil)).Elem()
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) ToVolumeSnaplockConfigurationPtrOutput() VolumeSnaplockConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) ToVolumeSnaplockConfigurationPtrOutputWithContext(ctx context.Context) VolumeSnaplockConfigurationPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockConfigurationPtrOutput) Elem() VolumeSnaplockConfigurationOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) VolumeSnaplockConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnaplockConfiguration
+		return ret
+	}).(VolumeSnaplockConfigurationOutput)
+}
+
+// Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+func (o VolumeSnaplockConfigurationPtrOutput) AuditLogVolume() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuditLogVolume
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockConfigurationPtrOutput) AutocommitPeriod() VolumeAutocommitPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *VolumeAutocommitPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.AutocommitPeriod
+	}).(VolumeAutocommitPeriodPtrOutput)
+}
+
+// Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+func (o VolumeSnaplockConfigurationPtrOutput) PrivilegedDelete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PrivilegedDelete
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the retention period of an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockConfigurationPtrOutput) RetentionPeriod() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *VolumeSnaplockRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return v.RetentionPeriod
+	}).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+// Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+func (o VolumeSnaplockConfigurationPtrOutput) SnaplockType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnaplockType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockConfigurationPtrOutput) VolumeAppendModeEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeAppendModeEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeSnaplockRetentionPeriod struct {
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+	DefaultRetention VolumeRetentionPeriod `pulumi:"defaultRetention"`
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+	MaximumRetention VolumeRetentionPeriod `pulumi:"maximumRetention"`
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+	MinimumRetention VolumeRetentionPeriod `pulumi:"minimumRetention"`
+}
+
+// VolumeSnaplockRetentionPeriodInput is an input type that accepts VolumeSnaplockRetentionPeriodArgs and VolumeSnaplockRetentionPeriodOutput values.
+// You can construct a concrete instance of `VolumeSnaplockRetentionPeriodInput` via:
+//
+//	VolumeSnaplockRetentionPeriodArgs{...}
+type VolumeSnaplockRetentionPeriodInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockRetentionPeriodOutput() VolumeSnaplockRetentionPeriodOutput
+	ToVolumeSnaplockRetentionPeriodOutputWithContext(context.Context) VolumeSnaplockRetentionPeriodOutput
+}
+
+type VolumeSnaplockRetentionPeriodArgs struct {
+	// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+	DefaultRetention VolumeRetentionPeriodInput `pulumi:"defaultRetention"`
+	// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+	MaximumRetention VolumeRetentionPeriodInput `pulumi:"maximumRetention"`
+	// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+	MinimumRetention VolumeRetentionPeriodInput `pulumi:"minimumRetention"`
+}
+
+func (VolumeSnaplockRetentionPeriodArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodOutput() VolumeSnaplockRetentionPeriodOutput {
+	return i.ToVolumeSnaplockRetentionPeriodOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodOutput)
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return i.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeSnaplockRetentionPeriodArgs) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodOutput).ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx)
+}
+
+// VolumeSnaplockRetentionPeriodPtrInput is an input type that accepts VolumeSnaplockRetentionPeriodArgs, VolumeSnaplockRetentionPeriodPtr and VolumeSnaplockRetentionPeriodPtrOutput values.
+// You can construct a concrete instance of `VolumeSnaplockRetentionPeriodPtrInput` via:
+//
+//	        VolumeSnaplockRetentionPeriodArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeSnaplockRetentionPeriodPtrInput interface {
+	pulumi.Input
+
+	ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput
+	ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Context) VolumeSnaplockRetentionPeriodPtrOutput
+}
+
+type volumeSnaplockRetentionPeriodPtrType VolumeSnaplockRetentionPeriodArgs
+
+func VolumeSnaplockRetentionPeriodPtr(v *VolumeSnaplockRetentionPeriodArgs) VolumeSnaplockRetentionPeriodPtrInput {
+	return (*volumeSnaplockRetentionPeriodPtrType)(v)
+}
+
+func (*volumeSnaplockRetentionPeriodPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (i *volumeSnaplockRetentionPeriodPtrType) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return i.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeSnaplockRetentionPeriodPtrType) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+type VolumeSnaplockRetentionPeriodOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockRetentionPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodOutput() VolumeSnaplockRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeSnaplockRetentionPeriodOutput) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeSnaplockRetentionPeriod) *VolumeSnaplockRetentionPeriod {
+		return &v
+	}).(VolumeSnaplockRetentionPeriodPtrOutput)
+}
+
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockRetentionPeriodOutput) DefaultRetention() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v VolumeSnaplockRetentionPeriod) VolumeRetentionPeriod { return v.DefaultRetention }).(VolumeRetentionPeriodOutput)
+}
+
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockRetentionPeriodOutput) MaximumRetention() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v VolumeSnaplockRetentionPeriod) VolumeRetentionPeriod { return v.MaximumRetention }).(VolumeRetentionPeriodOutput)
+}
+
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockRetentionPeriodOutput) MinimumRetention() VolumeRetentionPeriodOutput {
+	return o.ApplyT(func(v VolumeSnaplockRetentionPeriod) VolumeRetentionPeriod { return v.MinimumRetention }).(VolumeRetentionPeriodOutput)
+}
+
+type VolumeSnaplockRetentionPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeSnaplockRetentionPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeSnaplockRetentionPeriod)(nil)).Elem()
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) ToVolumeSnaplockRetentionPeriodPtrOutput() VolumeSnaplockRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) ToVolumeSnaplockRetentionPeriodPtrOutputWithContext(ctx context.Context) VolumeSnaplockRetentionPeriodPtrOutput {
+	return o
+}
+
+func (o VolumeSnaplockRetentionPeriodPtrOutput) Elem() VolumeSnaplockRetentionPeriodOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) VolumeSnaplockRetentionPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeSnaplockRetentionPeriod
+		return ret
+	}).(VolumeSnaplockRetentionPeriodOutput)
+}
+
+// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockRetentionPeriodPtrOutput) DefaultRetention() VolumeRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) *VolumeRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.DefaultRetention
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
+// The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockRetentionPeriodPtrOutput) MaximumRetention() VolumeRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) *VolumeRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.MaximumRetention
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
+// The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+func (o VolumeSnaplockRetentionPeriodPtrOutput) MinimumRetention() VolumeRetentionPeriodPtrOutput {
+	return o.ApplyT(func(v *VolumeSnaplockRetentionPeriod) *VolumeRetentionPeriod {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumRetention
+	}).(VolumeRetentionPeriodPtrOutput)
+}
+
+type VolumeTag struct {
+	// A value that specifies the TagKey, the name of the tag. Tag keys must be unique for the resource to which they are attached.
+	Key string `pulumi:"key"`
+	// A value that specifies the TagValue, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of finances : April and also of payroll : April.
+	Value string `pulumi:"value"`
+}
+
+// Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+type VolumeTieringPolicy struct {
+	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+	CoolingPeriod *int `pulumi:"coolingPeriod"`
+	// Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+	Name *string `pulumi:"name"`
+}
+
+// VolumeTieringPolicyInput is an input type that accepts VolumeTieringPolicyArgs and VolumeTieringPolicyOutput values.
+// You can construct a concrete instance of `VolumeTieringPolicyInput` via:
+//
+//	VolumeTieringPolicyArgs{...}
+type VolumeTieringPolicyInput interface {
+	pulumi.Input
+
+	ToVolumeTieringPolicyOutput() VolumeTieringPolicyOutput
+	ToVolumeTieringPolicyOutputWithContext(context.Context) VolumeTieringPolicyOutput
+}
+
+// Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+type VolumeTieringPolicyArgs struct {
+	// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+	CoolingPeriod pulumi.IntPtrInput `pulumi:"coolingPeriod"`
+	// Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+}
+
+func (VolumeTieringPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyOutput() VolumeTieringPolicyOutput {
+	return i.ToVolumeTieringPolicyOutputWithContext(context.Background())
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyOutputWithContext(ctx context.Context) VolumeTieringPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyOutput)
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return i.ToVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i VolumeTieringPolicyArgs) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyOutput).ToVolumeTieringPolicyPtrOutputWithContext(ctx)
+}
+
+// VolumeTieringPolicyPtrInput is an input type that accepts VolumeTieringPolicyArgs, VolumeTieringPolicyPtr and VolumeTieringPolicyPtrOutput values.
+// You can construct a concrete instance of `VolumeTieringPolicyPtrInput` via:
+//
+//	        VolumeTieringPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type VolumeTieringPolicyPtrInput interface {
+	pulumi.Input
+
+	ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput
+	ToVolumeTieringPolicyPtrOutputWithContext(context.Context) VolumeTieringPolicyPtrOutput
+}
+
+type volumeTieringPolicyPtrType VolumeTieringPolicyArgs
+
+func VolumeTieringPolicyPtr(v *VolumeTieringPolicyArgs) VolumeTieringPolicyPtrInput {
+	return (*volumeTieringPolicyPtrType)(v)
+}
+
+func (*volumeTieringPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (i *volumeTieringPolicyPtrType) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return i.ToVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *volumeTieringPolicyPtrType) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeTieringPolicyPtrOutput)
+}
+
+// Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+type VolumeTieringPolicyOutput struct{ *pulumi.OutputState }
+
+func (VolumeTieringPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyOutput() VolumeTieringPolicyOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyOutputWithContext(ctx context.Context) VolumeTieringPolicyOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return o.ToVolumeTieringPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o VolumeTieringPolicyOutput) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VolumeTieringPolicy) *VolumeTieringPolicy {
+		return &v
+	}).(VolumeTieringPolicyPtrOutput)
+}
+
+// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+func (o VolumeTieringPolicyOutput) CoolingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VolumeTieringPolicy) *int { return v.CoolingPeriod }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+func (o VolumeTieringPolicyOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v VolumeTieringPolicy) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type VolumeTieringPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (VolumeTieringPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VolumeTieringPolicy)(nil)).Elem()
+}
+
+func (o VolumeTieringPolicyPtrOutput) ToVolumeTieringPolicyPtrOutput() VolumeTieringPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyPtrOutput) ToVolumeTieringPolicyPtrOutputWithContext(ctx context.Context) VolumeTieringPolicyPtrOutput {
+	return o
+}
+
+func (o VolumeTieringPolicyPtrOutput) Elem() VolumeTieringPolicyOutput {
+	return o.ApplyT(func(v *VolumeTieringPolicy) VolumeTieringPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret VolumeTieringPolicy
+		return ret
+	}).(VolumeTieringPolicyOutput)
+}
+
+// Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+func (o VolumeTieringPolicyPtrOutput) CoolingPeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VolumeTieringPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CoolingPeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+func (o VolumeTieringPolicyPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VolumeTieringPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+type VolumeUserAndGroupQuotas struct {
+	// The ID of the user or group that the quota applies to.
+	Id int `pulumi:"id"`
+	// The user or group's storage quota, in gibibytes (GiB).
+	StorageCapacityQuotaGiB int `pulumi:"storageCapacityQuotaGiB"`
+	// Specifies whether the quota applies to a user or group.
+	Type string `pulumi:"type"`
+}
+
+// VolumeUserAndGroupQuotasInput is an input type that accepts VolumeUserAndGroupQuotasArgs and VolumeUserAndGroupQuotasOutput values.
+// You can construct a concrete instance of `VolumeUserAndGroupQuotasInput` via:
+//
+//	VolumeUserAndGroupQuotasArgs{...}
+type VolumeUserAndGroupQuotasInput interface {
+	pulumi.Input
+
+	ToVolumeUserAndGroupQuotasOutput() VolumeUserAndGroupQuotasOutput
+	ToVolumeUserAndGroupQuotasOutputWithContext(context.Context) VolumeUserAndGroupQuotasOutput
+}
+
+type VolumeUserAndGroupQuotasArgs struct {
+	// The ID of the user or group that the quota applies to.
+	Id pulumi.IntInput `pulumi:"id"`
+	// The user or group's storage quota, in gibibytes (GiB).
+	StorageCapacityQuotaGiB pulumi.IntInput `pulumi:"storageCapacityQuotaGiB"`
+	// Specifies whether the quota applies to a user or group.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (VolumeUserAndGroupQuotasArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (i VolumeUserAndGroupQuotasArgs) ToVolumeUserAndGroupQuotasOutput() VolumeUserAndGroupQuotasOutput {
+	return i.ToVolumeUserAndGroupQuotasOutputWithContext(context.Background())
+}
+
+func (i VolumeUserAndGroupQuotasArgs) ToVolumeUserAndGroupQuotasOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeUserAndGroupQuotasOutput)
+}
+
+// VolumeUserAndGroupQuotasArrayInput is an input type that accepts VolumeUserAndGroupQuotasArray and VolumeUserAndGroupQuotasArrayOutput values.
+// You can construct a concrete instance of `VolumeUserAndGroupQuotasArrayInput` via:
+//
+//	VolumeUserAndGroupQuotasArray{ VolumeUserAndGroupQuotasArgs{...} }
+type VolumeUserAndGroupQuotasArrayInput interface {
+	pulumi.Input
+
+	ToVolumeUserAndGroupQuotasArrayOutput() VolumeUserAndGroupQuotasArrayOutput
+	ToVolumeUserAndGroupQuotasArrayOutputWithContext(context.Context) VolumeUserAndGroupQuotasArrayOutput
+}
+
+type VolumeUserAndGroupQuotasArray []VolumeUserAndGroupQuotasInput
+
+func (VolumeUserAndGroupQuotasArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (i VolumeUserAndGroupQuotasArray) ToVolumeUserAndGroupQuotasArrayOutput() VolumeUserAndGroupQuotasArrayOutput {
+	return i.ToVolumeUserAndGroupQuotasArrayOutputWithContext(context.Background())
+}
+
+func (i VolumeUserAndGroupQuotasArray) ToVolumeUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VolumeUserAndGroupQuotasArrayOutput)
+}
+
+type VolumeUserAndGroupQuotasOutput struct{ *pulumi.OutputState }
+
+func (VolumeUserAndGroupQuotasOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (o VolumeUserAndGroupQuotasOutput) ToVolumeUserAndGroupQuotasOutput() VolumeUserAndGroupQuotasOutput {
+	return o
+}
+
+func (o VolumeUserAndGroupQuotasOutput) ToVolumeUserAndGroupQuotasOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasOutput {
+	return o
+}
+
+// The ID of the user or group that the quota applies to.
+func (o VolumeUserAndGroupQuotasOutput) Id() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeUserAndGroupQuotas) int { return v.Id }).(pulumi.IntOutput)
+}
+
+// The user or group's storage quota, in gibibytes (GiB).
+func (o VolumeUserAndGroupQuotasOutput) StorageCapacityQuotaGiB() pulumi.IntOutput {
+	return o.ApplyT(func(v VolumeUserAndGroupQuotas) int { return v.StorageCapacityQuotaGiB }).(pulumi.IntOutput)
+}
+
+// Specifies whether the quota applies to a user or group.
+func (o VolumeUserAndGroupQuotasOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v VolumeUserAndGroupQuotas) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type VolumeUserAndGroupQuotasArrayOutput struct{ *pulumi.OutputState }
+
+func (VolumeUserAndGroupQuotasArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VolumeUserAndGroupQuotas)(nil)).Elem()
+}
+
+func (o VolumeUserAndGroupQuotasArrayOutput) ToVolumeUserAndGroupQuotasArrayOutput() VolumeUserAndGroupQuotasArrayOutput {
+	return o
+}
+
+func (o VolumeUserAndGroupQuotasArrayOutput) ToVolumeUserAndGroupQuotasArrayOutputWithContext(ctx context.Context) VolumeUserAndGroupQuotasArrayOutput {
+	return o
+}
+
+func (o VolumeUserAndGroupQuotasArrayOutput) Index(i pulumi.IntInput) VolumeUserAndGroupQuotasOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VolumeUserAndGroupQuotas {
+		return vs[0].([]VolumeUserAndGroupQuotas)[vs[1].(int)]
+	}).(VolumeUserAndGroupQuotasOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationAutoExportPolicyInput)(nil)).Elem(), DataRepositoryAssociationAutoExportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationAutoExportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationAutoExportPolicyArgs{})
@@ -2097,6 +4304,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrInput)(nil)).Elem(), S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAggregateConfigurationPtrInput)(nil)).Elem(), VolumeAggregateConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeAutocommitPeriodPtrInput)(nil)).Elem(), VolumeAutocommitPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsInput)(nil)).Elem(), VolumeClientConfigurationsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeClientConfigurationsArrayInput)(nil)).Elem(), VolumeClientConfigurationsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsInput)(nil)).Elem(), VolumeNfsExportsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeNfsExportsArrayInput)(nil)).Elem(), VolumeNfsExportsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOntapConfigurationInput)(nil)).Elem(), VolumeOntapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOntapConfigurationPtrInput)(nil)).Elem(), VolumeOntapConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZfsConfigurationInput)(nil)).Elem(), VolumeOpenZfsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOpenZfsConfigurationPtrInput)(nil)).Elem(), VolumeOpenZfsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeOriginSnapshotPtrInput)(nil)).Elem(), VolumeOriginSnapshotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeRetentionPeriodInput)(nil)).Elem(), VolumeRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeRetentionPeriodPtrInput)(nil)).Elem(), VolumeRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockConfigurationInput)(nil)).Elem(), VolumeSnaplockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockConfigurationPtrInput)(nil)).Elem(), VolumeSnaplockConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockRetentionPeriodInput)(nil)).Elem(), VolumeSnaplockRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeSnaplockRetentionPeriodPtrInput)(nil)).Elem(), VolumeSnaplockRetentionPeriodArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeTieringPolicyPtrInput)(nil)).Elem(), VolumeTieringPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeUserAndGroupQuotasInput)(nil)).Elem(), VolumeUserAndGroupQuotasArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VolumeUserAndGroupQuotasArrayInput)(nil)).Elem(), VolumeUserAndGroupQuotasArray{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoExportPolicyOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoExportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoImportPolicyOutput{})
@@ -2123,4 +4354,28 @@ func init() {
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentS3AccessPointVpcConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeAggregateConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeAggregateConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeAutocommitPeriodOutput{})
+	pulumi.RegisterOutputType(VolumeAutocommitPeriodPtrOutput{})
+	pulumi.RegisterOutputType(VolumeClientConfigurationsOutput{})
+	pulumi.RegisterOutputType(VolumeClientConfigurationsArrayOutput{})
+	pulumi.RegisterOutputType(VolumeNfsExportsOutput{})
+	pulumi.RegisterOutputType(VolumeNfsExportsArrayOutput{})
+	pulumi.RegisterOutputType(VolumeOntapConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeOntapConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeOpenZfsConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeOpenZfsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeOriginSnapshotOutput{})
+	pulumi.RegisterOutputType(VolumeOriginSnapshotPtrOutput{})
+	pulumi.RegisterOutputType(VolumeRetentionPeriodOutput{})
+	pulumi.RegisterOutputType(VolumeRetentionPeriodPtrOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockConfigurationOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockRetentionPeriodOutput{})
+	pulumi.RegisterOutputType(VolumeSnaplockRetentionPeriodPtrOutput{})
+	pulumi.RegisterOutputType(VolumeTieringPolicyOutput{})
+	pulumi.RegisterOutputType(VolumeTieringPolicyPtrOutput{})
+	pulumi.RegisterOutputType(VolumeUserAndGroupQuotasOutput{})
+	pulumi.RegisterOutputType(VolumeUserAndGroupQuotasArrayOutput{})
 }

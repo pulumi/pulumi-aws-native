@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource type definition for an IP access control group for Amazon WorkSpaces.
+// Resource Type definition for an IP access control group for Amazon WorkSpaces.
 type WorkspaceIpGroup struct {
 	pulumi.CustomResourceState
 

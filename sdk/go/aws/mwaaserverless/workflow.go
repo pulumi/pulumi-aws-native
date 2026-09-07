@@ -16,6 +16,8 @@ import (
 type Workflow struct {
 	pulumi.CustomResourceState
 
+	Code                    WorkflowCodePtrOutput                    `pulumi:"code"`
+	CodeSnapshottedAt       pulumi.StringOutput                      `pulumi:"codeSnapshottedAt"`
 	CreatedAt               pulumi.StringOutput                      `pulumi:"createdAt"`
 	DefinitionS3Location    WorkflowS3LocationOutput                 `pulumi:"definitionS3Location"`
 	Description             pulumi.StringPtrOutput                   `pulumi:"description"`
@@ -84,6 +86,7 @@ func (WorkflowState) ElementType() reflect.Type {
 }
 
 type workflowArgs struct {
+	Code                    *WorkflowCode                    `pulumi:"code"`
 	DefinitionS3Location    WorkflowS3Location               `pulumi:"definitionS3Location"`
 	Description             *string                          `pulumi:"description"`
 	EncryptionConfiguration *WorkflowEncryptionConfiguration `pulumi:"encryptionConfiguration"`
@@ -97,6 +100,7 @@ type workflowArgs struct {
 
 // The set of arguments for constructing a Workflow resource.
 type WorkflowArgs struct {
+	Code                    WorkflowCodePtrInput
 	DefinitionS3Location    WorkflowS3LocationInput
 	Description             pulumi.StringPtrInput
 	EncryptionConfiguration WorkflowEncryptionConfigurationPtrInput
@@ -143,6 +147,14 @@ func (o WorkflowOutput) ToWorkflowOutput() WorkflowOutput {
 
 func (o WorkflowOutput) ToWorkflowOutputWithContext(ctx context.Context) WorkflowOutput {
 	return o
+}
+
+func (o WorkflowOutput) Code() WorkflowCodePtrOutput {
+	return o.ApplyT(func(v *Workflow) WorkflowCodePtrOutput { return v.Code }).(WorkflowCodePtrOutput)
+}
+
+func (o WorkflowOutput) CodeSnapshottedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workflow) pulumi.StringOutput { return v.CodeSnapshottedAt }).(pulumi.StringOutput)
 }
 
 func (o WorkflowOutput) CreatedAt() pulumi.StringOutput {

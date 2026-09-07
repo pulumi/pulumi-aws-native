@@ -23,17 +23,21 @@ __all__ = ['TopicRuleDestinationArgs', 'TopicRuleDestination']
 class TopicRuleDestinationArgs:
     def __init__(__self__, *,
                  http_url_properties: pulumi.Input[Optional['TopicRuleDestinationHttpUrlDestinationSummaryArgs']] = None,
+                 influx_db_properties: pulumi.Input[Optional['TopicRuleDestinationInfluxDbDestinationPropertiesArgs']] = None,
                  status: pulumi.Input[Optional['TopicRuleDestinationStatus']] = None,
                  vpc_properties: pulumi.Input[Optional['TopicRuleDestinationVpcDestinationPropertiesArgs']] = None):
         """
         The set of arguments for constructing a TopicRuleDestination resource.
 
         :param pulumi.Input['TopicRuleDestinationHttpUrlDestinationSummaryArgs'] http_url_properties: HTTP URL destination properties.
+        :param pulumi.Input['TopicRuleDestinationInfluxDbDestinationPropertiesArgs'] influx_db_properties: InfluxDB destination properties.
         :param pulumi.Input['TopicRuleDestinationStatus'] status: The status of the TopicRuleDestination.
         :param pulumi.Input['TopicRuleDestinationVpcDestinationPropertiesArgs'] vpc_properties: VPC destination properties.
         """
         if http_url_properties is not None:
             pulumi.set(__self__, "http_url_properties", http_url_properties)
+        if influx_db_properties is not None:
+            pulumi.set(__self__, "influx_db_properties", influx_db_properties)
         if status is not None:
             pulumi.set(__self__, "status", status)
         if vpc_properties is not None:
@@ -50,6 +54,18 @@ class TopicRuleDestinationArgs:
     @http_url_properties.setter
     def http_url_properties(self, value: pulumi.Input[Optional['TopicRuleDestinationHttpUrlDestinationSummaryArgs']]):
         pulumi.set(self, "http_url_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="influxDbProperties")
+    def influx_db_properties(self) -> pulumi.Input[Optional['TopicRuleDestinationInfluxDbDestinationPropertiesArgs']]:
+        """
+        InfluxDB destination properties.
+        """
+        return pulumi.get(self, "influx_db_properties")
+
+    @influx_db_properties.setter
+    def influx_db_properties(self, value: pulumi.Input[Optional['TopicRuleDestinationInfluxDbDestinationPropertiesArgs']]):
+        pulumi.set(self, "influx_db_properties", value)
 
     @_builtins.property
     @pulumi.getter
@@ -83,6 +99,7 @@ class TopicRuleDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  http_url_properties: pulumi.Input[Optional[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
+                 influx_db_properties: pulumi.Input[Optional[Union['TopicRuleDestinationInfluxDbDestinationPropertiesArgs', 'TopicRuleDestinationInfluxDbDestinationPropertiesArgsDict']]] = None,
                  status: pulumi.Input[Optional['TopicRuleDestinationStatus']] = None,
                  vpc_properties: pulumi.Input[Optional[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
                  __props__=None):
@@ -92,6 +109,7 @@ class TopicRuleDestination(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']] http_url_properties: HTTP URL destination properties.
+        :param pulumi.Input[Union['TopicRuleDestinationInfluxDbDestinationPropertiesArgs', 'TopicRuleDestinationInfluxDbDestinationPropertiesArgsDict']] influx_db_properties: InfluxDB destination properties.
         :param pulumi.Input['TopicRuleDestinationStatus'] status: The status of the TopicRuleDestination.
         :param pulumi.Input[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']] vpc_properties: VPC destination properties.
         """
@@ -120,6 +138,7 @@ class TopicRuleDestination(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  http_url_properties: pulumi.Input[Optional[Union['TopicRuleDestinationHttpUrlDestinationSummaryArgs', 'TopicRuleDestinationHttpUrlDestinationSummaryArgsDict']]] = None,
+                 influx_db_properties: pulumi.Input[Optional[Union['TopicRuleDestinationInfluxDbDestinationPropertiesArgs', 'TopicRuleDestinationInfluxDbDestinationPropertiesArgsDict']]] = None,
                  status: pulumi.Input[Optional['TopicRuleDestinationStatus']] = None,
                  vpc_properties: pulumi.Input[Optional[Union['TopicRuleDestinationVpcDestinationPropertiesArgs', 'TopicRuleDestinationVpcDestinationPropertiesArgsDict']]] = None,
                  __props__=None):
@@ -132,11 +151,12 @@ class TopicRuleDestination(pulumi.CustomResource):
             __props__ = TopicRuleDestinationArgs.__new__(TopicRuleDestinationArgs)
 
             __props__.__dict__["http_url_properties"] = http_url_properties
+            __props__.__dict__["influx_db_properties"] = influx_db_properties
             __props__.__dict__["status"] = status
             __props__.__dict__["vpc_properties"] = vpc_properties
             __props__.__dict__["arn"] = None
             __props__.__dict__["status_reason"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["httpUrlProperties", "vpcProperties"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["httpUrlProperties", "influxDbProperties", "vpcProperties"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(TopicRuleDestination, __self__).__init__(
             'aws-native:iot:TopicRuleDestination',
@@ -162,6 +182,7 @@ class TopicRuleDestination(pulumi.CustomResource):
 
         __props__.__dict__["arn"] = None
         __props__.__dict__["http_url_properties"] = None
+        __props__.__dict__["influx_db_properties"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_reason"] = None
         __props__.__dict__["vpc_properties"] = None
@@ -182,6 +203,14 @@ class TopicRuleDestination(pulumi.CustomResource):
         HTTP URL destination properties.
         """
         return pulumi.get(self, "http_url_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="influxDbProperties")
+    def influx_db_properties(self) -> pulumi.Output[Optional['outputs.TopicRuleDestinationInfluxDbDestinationProperties']]:
+        """
+        InfluxDB destination properties.
+        """
+        return pulumi.get(self, "influx_db_properties")
 
     @_builtins.property
     @pulumi.getter

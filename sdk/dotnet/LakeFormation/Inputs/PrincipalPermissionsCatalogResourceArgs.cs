@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.LakeFormation.Inputs
 
     public sealed class PrincipalPermissionsCatalogResourceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("id")]
+        public Input<string>? Id { get; set; }
+
         public PrincipalPermissionsCatalogResourceArgs()
         {
         }

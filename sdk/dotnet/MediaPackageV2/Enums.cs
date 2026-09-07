@@ -748,6 +748,34 @@ namespace Pulumi.AwsNative.MediaPackageV2
     }
 
     [EnumType]
+    public readonly struct OriginEndpointStreamNameOutputMode : IEquatable<OriginEndpointStreamNameOutputMode>
+    {
+        private readonly string _value;
+
+        private OriginEndpointStreamNameOutputMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginEndpointStreamNameOutputMode Index { get; } = new OriginEndpointStreamNameOutputMode("INDEX");
+        public static OriginEndpointStreamNameOutputMode PassthroughName { get; } = new OriginEndpointStreamNameOutputMode("PASSTHROUGH_NAME");
+
+        public static bool operator ==(OriginEndpointStreamNameOutputMode left, OriginEndpointStreamNameOutputMode right) => left.Equals(right);
+        public static bool operator !=(OriginEndpointStreamNameOutputMode left, OriginEndpointStreamNameOutputMode right) => !left.Equals(right);
+
+        public static explicit operator string(OriginEndpointStreamNameOutputMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginEndpointStreamNameOutputMode other && Equals(other);
+        public bool Equals(OriginEndpointStreamNameOutputMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct OriginEndpointTsEncryptionMethod : IEquatable<OriginEndpointTsEncryptionMethod>
     {
         private readonly string _value;

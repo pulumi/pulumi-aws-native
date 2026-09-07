@@ -27,6 +27,8 @@ type LookupWorkflowArgs struct {
 }
 
 type LookupWorkflowResult struct {
+	Code                  *WorkflowCode                  `pulumi:"code"`
+	CodeSnapshottedAt     *string                        `pulumi:"codeSnapshottedAt"`
 	CreatedAt             *string                        `pulumi:"createdAt"`
 	DefinitionS3Location  *WorkflowS3Location            `pulumi:"definitionS3Location"`
 	Description           *string                        `pulumi:"description"`
@@ -67,6 +69,14 @@ func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutput() LookupWorkflo
 
 func (o LookupWorkflowResultOutput) ToLookupWorkflowResultOutputWithContext(ctx context.Context) LookupWorkflowResultOutput {
 	return o
+}
+
+func (o LookupWorkflowResultOutput) Code() WorkflowCodePtrOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) *WorkflowCode { return v.Code }).(WorkflowCodePtrOutput)
+}
+
+func (o LookupWorkflowResultOutput) CodeSnapshottedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupWorkflowResult) *string { return v.CodeSnapshottedAt }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupWorkflowResultOutput) CreatedAt() pulumi.StringPtrOutput {

@@ -2554,8 +2554,6 @@ const (
 	BucketInventoryConfigurationOptionalFieldsItemObjectLockRetainUntilDate    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockRetainUntilDate")
 	BucketInventoryConfigurationOptionalFieldsItemObjectLockMode               = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockMode")
 	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockLegalHoldStatus")
-	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldStatus    = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldStatus")
-	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldDuration  = BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldDuration")
 	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier = BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringAccessTier")
 	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus              = BucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus")
 	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm            = BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm")
@@ -2696,8 +2694,6 @@ func (o BucketInventoryConfigurationOptionalFieldsItemPtrOutput) ToStringPtrOutp
 //	BucketInventoryConfigurationOptionalFieldsItemObjectLockRetainUntilDate
 //	BucketInventoryConfigurationOptionalFieldsItemObjectLockMode
 //	BucketInventoryConfigurationOptionalFieldsItemObjectLockLegalHoldStatus
-//	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldStatus
-//	BucketInventoryConfigurationOptionalFieldsItemObjectLockEventHoldDuration
 //	BucketInventoryConfigurationOptionalFieldsItemIntelligentTieringAccessTier
 //	BucketInventoryConfigurationOptionalFieldsItemBucketKeyStatus
 //	BucketInventoryConfigurationOptionalFieldsItemChecksumAlgorithm

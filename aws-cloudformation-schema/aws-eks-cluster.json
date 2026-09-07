@@ -492,11 +492,25 @@
         }
       }
     },
+    "PodGcControllerConfig" : {
+      "description" : "The pod garbage collector controller configuration.",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "TerminatedPodGcThreshold" : {
+          "description" : "The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.",
+          "type" : "integer"
+        }
+      }
+    },
     "KubeControllerManagerConfig" : {
       "description" : "The configuration for the Kubernetes controller manager on an Amazon EKS cluster.",
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "PodGcControllerConfig" : {
+          "$ref" : "#/definitions/PodGcControllerConfig"
+        },
         "HorizontalPodAutoscalerControllerConfig" : {
           "$ref" : "#/definitions/HorizontalPodAutoscalerControllerConfig"
         }

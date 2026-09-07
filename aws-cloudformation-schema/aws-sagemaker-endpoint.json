@@ -13,11 +13,15 @@
     },
     "EndpointConfigName" : {
       "type" : "string",
-      "description" : "The name of the endpoint configuration for the SageMaker endpoint. This is a required property."
+      "description" : "The name of the endpoint configuration for the SageMaker endpoint. This is a required property.",
+      "minLength" : 1,
+      "maxLength" : 64
     },
     "EndpointName" : {
       "type" : "string",
-      "description" : "The name of the SageMaker endpoint. This name must be unique within an AWS Region."
+      "description" : "The name of the SageMaker endpoint. This name must be unique within an AWS Region.",
+      "minLength" : 1,
+      "maxLength" : 64
     },
     "ExcludeRetainedVariantProperties" : {
       "type" : "array",
@@ -51,7 +55,9 @@
       "properties" : {
         "AlarmName" : {
           "type" : "string",
-          "description" : "The name of the CloudWatch alarm."
+          "description" : "The name of the CloudWatch alarm.",
+          "minLength" : 1,
+          "maxLength" : 255
         }
       },
       "required" : [ "AlarmName" ]
@@ -62,7 +68,7 @@
       "properties" : {
         "Alarms" : {
           "type" : "array",
-          "uniqueItems" : true,
+          "uniqueItems" : false,
           "items" : {
             "$ref" : "#/definitions/Alarm"
           },
@@ -77,11 +83,15 @@
       "properties" : {
         "MaximumExecutionTimeoutInSeconds" : {
           "type" : "integer",
-          "description" : "The maximum time allowed for the blue/green update, in seconds."
+          "description" : "The maximum time allowed for the blue/green update, in seconds.",
+          "minimum" : 600,
+          "maximum" : 28800
         },
         "TerminationWaitInSeconds" : {
           "type" : "integer",
-          "description" : "The wait time before terminating the old endpoint during a blue/green deployment."
+          "description" : "The wait time before terminating the old endpoint during a blue/green deployment.",
+          "minimum" : 0,
+          "maximum" : 3600
         },
         "TrafficRoutingConfiguration" : {
           "$ref" : "#/definitions/TrafficRoutingConfig",
@@ -100,7 +110,8 @@
         },
         "Value" : {
           "type" : "integer",
-          "description" : "The value representing either the number of instances or the number of capacity units."
+          "description" : "The value representing either the number of instances or the number of capacity units.",
+          "minimum" : 1
         }
       },
       "required" : [ "Type", "Value" ]
@@ -133,7 +144,9 @@
         },
         "MaximumExecutionTimeoutInSeconds" : {
           "type" : "integer",
-          "description" : "The maximum time allowed for the rolling update, in seconds."
+          "description" : "The maximum time allowed for the rolling update, in seconds.",
+          "minimum" : 600,
+          "maximum" : 28800
         },
         "RollbackMaximumBatchSize" : {
           "$ref" : "#/definitions/CapacitySize",
@@ -141,7 +154,9 @@
         },
         "WaitIntervalInSeconds" : {
           "type" : "integer",
-          "description" : "The time to wait between steps during the rolling update, in seconds."
+          "description" : "The time to wait between steps during the rolling update, in seconds.",
+          "minimum" : 0,
+          "maximum" : 3600
         }
       },
       "required" : [ "MaximumBatchSize", "WaitIntervalInSeconds" ]
@@ -179,7 +194,9 @@
         },
         "WaitIntervalInSeconds" : {
           "type" : "integer",
-          "description" : "Specifies the wait interval between traffic shifts, in seconds."
+          "description" : "Specifies the wait interval between traffic shifts, in seconds.",
+          "minimum" : 0,
+          "maximum" : 3600
         }
       },
       "required" : [ "Type" ]
@@ -198,17 +215,19 @@
   "required" : [ "EndpointConfigName" ],
   "createOnlyProperties" : [ "/properties/EndpointName" ],
   "primaryIdentifier" : [ "/properties/EndpointArn" ],
-  "readOnlyProperties" : [ "/properties/EndpointArn", "/properties/EndpointName" ],
+  "readOnlyProperties" : [ "/properties/EndpointArn" ],
   "writeOnlyProperties" : [ "/properties/ExcludeRetainedVariantProperties", "/properties/RetainAllVariantProperties", "/properties/RetainDeploymentConfig" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "sagemaker:CreateEndpoint", "sagemaker:DescribeEndpoint", "sagemaker:AddTags" ]
+      "permissions" : [ "sagemaker:CreateEndpoint", "sagemaker:DescribeEndpoint", "sagemaker:AddTags" ],
+      "timeoutInMinutes" : 160
     },
     "read" : {
       "permissions" : [ "sagemaker:DescribeEndpoint", "sagemaker:ListTags" ]
     },
     "update" : {
-      "permissions" : [ "sagemaker:UpdateEndpoint", "sagemaker:DescribeEndpoint", "sagemaker:AddTags", "sagemaker:DeleteTags" ]
+      "permissions" : [ "sagemaker:UpdateEndpoint", "sagemaker:DescribeEndpoint", "sagemaker:AddTags", "sagemaker:DeleteTags" ],
+      "timeoutInMinutes" : 970
     },
     "delete" : {
       "permissions" : [ "sagemaker:DeleteEndpoint", "sagemaker:DescribeEndpoint" ]

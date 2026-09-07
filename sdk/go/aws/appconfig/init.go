@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Environment{}
 	case "aws-native:appconfig:ExperimentDefinition":
 		r = &ExperimentDefinition{}
+	case "aws-native:appconfig:ExperimentRun":
+		r = &ExperimentRun{}
 	case "aws-native:appconfig:Extension":
 		r = &Extension{}
 	case "aws-native:appconfig:ExtensionAssociation":

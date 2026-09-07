@@ -13,12 +13,25 @@ namespace Pulumi.AwsNative.Ec2.Outputs
     [OutputType]
     public sealed class Ec2FleetReservedCapacityOptionsRequest
     {
+        public readonly Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestAllocationStrategy? AllocationStrategy;
+        public readonly Outputs.Ec2FleetCapacityReservationTargetRequest? CapacityReservationTarget;
         public readonly ImmutableArray<Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestReservationTypesItem> ReservationTypes;
+        public readonly Outputs.Ec2FleetReservedCapacityFallbackOptionsRequest? ReservedCapacityFallbackOptions;
 
         [OutputConstructor]
-        private Ec2FleetReservedCapacityOptionsRequest(ImmutableArray<Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestReservationTypesItem> reservationTypes)
+        private Ec2FleetReservedCapacityOptionsRequest(
+            Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestAllocationStrategy? allocationStrategy,
+
+            Outputs.Ec2FleetCapacityReservationTargetRequest? capacityReservationTarget,
+
+            ImmutableArray<Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestReservationTypesItem> reservationTypes,
+
+            Outputs.Ec2FleetReservedCapacityFallbackOptionsRequest? reservedCapacityFallbackOptions)
         {
+            AllocationStrategy = allocationStrategy;
+            CapacityReservationTarget = capacityReservationTarget;
             ReservationTypes = reservationTypes;
+            ReservedCapacityFallbackOptions = reservedCapacityFallbackOptions;
         }
     }
 }

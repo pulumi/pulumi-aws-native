@@ -15,6 +15,12 @@ namespace Pulumi.AwsNative.MwaaServerless
     [AwsNativeResourceType("aws-native:mwaaserverless:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource
     {
+        [Output("code")]
+        public Output<Outputs.WorkflowCode?> Code { get; private set; } = null!;
+
+        [Output("codeSnapshottedAt")]
+        public Output<string> CodeSnapshottedAt { get; private set; } = null!;
+
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
@@ -110,6 +116,9 @@ namespace Pulumi.AwsNative.MwaaServerless
 
     public sealed class WorkflowArgs : global::Pulumi.ResourceArgs
     {
+        [Input("code")]
+        public Input<Inputs.WorkflowCodeArgs>? Code { get; set; }
+
         [Input("definitionS3Location", required: true)]
         public Input<Inputs.WorkflowS3LocationArgs> DefinitionS3Location { get; set; } = null!;
 

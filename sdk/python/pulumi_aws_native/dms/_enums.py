@@ -17,6 +17,7 @@ __all__ = [
     'DataProviderSybaseSslModeValue',
     'InstanceProfileNetworkType',
     'ReplicationConfigReplicationType',
+    'ReplicationTaskMigrationType',
 ]
 
 
@@ -108,3 +109,13 @@ class ReplicationConfigReplicationType(_builtins.str, Enum):
     FULL_LOAD = "full-load"
     FULL_LOAD_AND_CDC = "full-load-and-cdc"
     CDC = "cdc"
+
+
+@pulumi.type_token("aws-native:dms:ReplicationTaskMigrationType")
+class ReplicationTaskMigrationType(_builtins.str, Enum):
+    """
+    The migration type.
+    """
+    FULL_LOAD = "full-load"
+    CDC = "cdc"
+    FULL_LOAD_AND_CDC = "full-load-and-cdc"

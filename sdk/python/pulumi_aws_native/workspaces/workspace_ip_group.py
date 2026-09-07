@@ -105,7 +105,7 @@ class WorkspaceIpGroup(pulumi.CustomResource):
                  user_rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['WorkspaceIpGroupIpRuleItemArgs', 'WorkspaceIpGroupIpRuleItemArgsDict']]]]] = None,
                  __props__=None):
         """
-        Resource type definition for an IP access control group for Amazon WorkSpaces.
+        Resource Type definition for an IP access control group for Amazon WorkSpaces.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -121,7 +121,7 @@ class WorkspaceIpGroup(pulumi.CustomResource):
                  args: Optional[WorkspaceIpGroupArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource type definition for an IP access control group for Amazon WorkSpaces.
+        Resource Type definition for an IP access control group for Amazon WorkSpaces.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceIpGroupArgs args: The arguments to use to populate this resource's properties.

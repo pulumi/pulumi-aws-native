@@ -42,6 +42,30 @@ __all__ = [
     'S3AccessPointAttachmentS3AccessPointOpenZfsConfigurationArgsDict',
     'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs',
     'S3AccessPointAttachmentS3AccessPointVpcConfigurationArgsDict',
+    'VolumeAggregateConfigurationArgs',
+    'VolumeAggregateConfigurationArgsDict',
+    'VolumeAutocommitPeriodArgs',
+    'VolumeAutocommitPeriodArgsDict',
+    'VolumeClientConfigurationsArgs',
+    'VolumeClientConfigurationsArgsDict',
+    'VolumeNfsExportsArgs',
+    'VolumeNfsExportsArgsDict',
+    'VolumeOntapConfigurationArgs',
+    'VolumeOntapConfigurationArgsDict',
+    'VolumeOpenZfsConfigurationArgs',
+    'VolumeOpenZfsConfigurationArgsDict',
+    'VolumeOriginSnapshotArgs',
+    'VolumeOriginSnapshotArgsDict',
+    'VolumeRetentionPeriodArgs',
+    'VolumeRetentionPeriodArgsDict',
+    'VolumeSnaplockConfigurationArgs',
+    'VolumeSnaplockConfigurationArgsDict',
+    'VolumeSnaplockRetentionPeriodArgs',
+    'VolumeSnaplockRetentionPeriodArgsDict',
+    'VolumeTieringPolicyArgs',
+    'VolumeTieringPolicyArgsDict',
+    'VolumeUserAndGroupQuotasArgs',
+    'VolumeUserAndGroupQuotasArgsDict',
 ]
 
 class DataRepositoryAssociationAutoExportPolicyArgsDict(TypedDict):
@@ -687,5 +711,1082 @@ class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
     @vpc_id.setter
     def vpc_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vpc_id", value)
+
+
+class VolumeAggregateConfigurationArgsDict(TypedDict):
+    aggregates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+    """
+    constituents_per_aggregate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+    """
+
+@pulumi.input_type
+class VolumeAggregateConfigurationArgs:
+    def __init__(__self__, *,
+                 aggregates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 constituents_per_aggregate: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aggregates: The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+        :param pulumi.Input[_builtins.int] constituents_per_aggregate: Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+        """
+        if aggregates is not None:
+            pulumi.set(__self__, "aggregates", aggregates)
+        if constituents_per_aggregate is not None:
+            pulumi.set(__self__, "constituents_per_aggregate", constituents_per_aggregate)
+
+    @_builtins.property
+    @pulumi.getter
+    def aggregates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+        """
+        return pulumi.get(self, "aggregates")
+
+    @aggregates.setter
+    def aggregates(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "aggregates", value)
+
+    @_builtins.property
+    @pulumi.getter(name="constituentsPerAggregate")
+    def constituents_per_aggregate(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+        """
+        return pulumi.get(self, "constituents_per_aggregate")
+
+    @constituents_per_aggregate.setter
+    def constituents_per_aggregate(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "constituents_per_aggregate", value)
+
+
+class VolumeAutocommitPeriodArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+    """
+
+@pulumi.input_type
+class VolumeAutocommitPeriodArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+        :param pulumi.Input[_builtins.int] value: Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "value", value)
+
+
+class VolumeClientConfigurationsArgsDict(TypedDict):
+    clients: pulumi.Input[_builtins.str]
+    """
+    A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+    """
+    options: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The configuration object for mounting a Network File System (NFS) file system.
+    """
+
+@pulumi.input_type
+class VolumeClientConfigurationsArgs:
+    def __init__(__self__, *,
+                 clients: pulumi.Input[_builtins.str],
+                 options: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[_builtins.str] clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] options: The configuration object for mounting a Network File System (NFS) file system.
+        """
+        pulumi.set(__self__, "clients", clients)
+        pulumi.set(__self__, "options", options)
+
+    @_builtins.property
+    @pulumi.getter
+    def clients(self) -> pulumi.Input[_builtins.str]:
+        """
+        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+        """
+        return pulumi.get(self, "clients")
+
+    @clients.setter
+    def clients(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "clients", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The configuration object for mounting a Network File System (NFS) file system.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "options", value)
+
+
+class VolumeNfsExportsArgsDict(TypedDict):
+    client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgsDict']]]
+    """
+    The configuration object for mounting a Network File System (NFS) file system.
+    """
+
+@pulumi.input_type
+class VolumeNfsExportsArgs:
+    def __init__(__self__, *,
+                 client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]] client_configurations: The configuration object for mounting a Network File System (NFS) file system.
+        """
+        pulumi.set(__self__, "client_configurations", client_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="clientConfigurations")
+    def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]:
+        """
+        The configuration object for mounting a Network File System (NFS) file system.
+        """
+        return pulumi.get(self, "client_configurations")
+
+    @client_configurations.setter
+    def client_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]):
+        pulumi.set(self, "client_configurations", value)
+
+
+class VolumeOntapConfigurationArgsDict(TypedDict):
+    storage_virtual_machine_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the ONTAP SVM in which to create the volume.
+    """
+    aggregate_configuration: NotRequired[pulumi.Input[Optional['VolumeAggregateConfigurationArgsDict']]]
+    """
+    Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+    """
+    copy_tags_to_backups: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A boolean flag indicating whether tags for the volume should be copied to backups.
+    """
+    junction_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+    """
+    ontap_volume_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the type of volume you are creating. Valid values are the following: RW or DP
+    """
+    security_style: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+    """
+    size_in_bytes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the configured size of the volume, in bytes.
+    """
+    size_in_megabytes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+    """
+    snaplock_configuration: NotRequired[pulumi.Input[Optional['VolumeSnaplockConfigurationArgsDict']]]
+    """
+    The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+    """
+    snapshot_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+    """
+    storage_efficiency_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+    """
+    tiering_policy: NotRequired[pulumi.Input[Optional['VolumeTieringPolicyArgsDict']]]
+    """
+    Describes the data tiering policy for an ONTAP volume.
+    """
+    volume_style: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Use to specify the style of an ONTAP volume.
+    """
+
+@pulumi.input_type
+class VolumeOntapConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_virtual_machine_id: pulumi.Input[_builtins.str],
+                 aggregate_configuration: pulumi.Input[Optional['VolumeAggregateConfigurationArgs']] = None,
+                 copy_tags_to_backups: pulumi.Input[Optional[_builtins.str]] = None,
+                 junction_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 ontap_volume_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_style: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_bytes: pulumi.Input[Optional[_builtins.str]] = None,
+                 size_in_megabytes: pulumi.Input[Optional[_builtins.str]] = None,
+                 snaplock_configuration: pulumi.Input[Optional['VolumeSnaplockConfigurationArgs']] = None,
+                 snapshot_policy: pulumi.Input[Optional[_builtins.str]] = None,
+                 storage_efficiency_enabled: pulumi.Input[Optional[_builtins.str]] = None,
+                 tiering_policy: pulumi.Input[Optional['VolumeTieringPolicyArgs']] = None,
+                 volume_style: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] storage_virtual_machine_id: Specifies the ONTAP SVM in which to create the volume.
+        :param pulumi.Input['VolumeAggregateConfigurationArgs'] aggregate_configuration: Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+        :param pulumi.Input[_builtins.str] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups.
+        :param pulumi.Input[_builtins.str] junction_path: Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+        :param pulumi.Input[_builtins.str] ontap_volume_type: Specifies the type of volume you are creating. Valid values are the following: RW or DP
+        :param pulumi.Input[_builtins.str] security_style: Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+        :param pulumi.Input[_builtins.str] size_in_bytes: Specifies the configured size of the volume, in bytes.
+        :param pulumi.Input[_builtins.str] size_in_megabytes: Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+        :param pulumi.Input['VolumeSnaplockConfigurationArgs'] snaplock_configuration: The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input[_builtins.str] snapshot_policy: Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+        :param pulumi.Input[_builtins.str] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+        :param pulumi.Input['VolumeTieringPolicyArgs'] tiering_policy: Describes the data tiering policy for an ONTAP volume.
+        :param pulumi.Input[_builtins.str] volume_style: Use to specify the style of an ONTAP volume.
+        """
+        pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
+        if aggregate_configuration is not None:
+            pulumi.set(__self__, "aggregate_configuration", aggregate_configuration)
+        if copy_tags_to_backups is not None:
+            pulumi.set(__self__, "copy_tags_to_backups", copy_tags_to_backups)
+        if junction_path is not None:
+            pulumi.set(__self__, "junction_path", junction_path)
+        if ontap_volume_type is not None:
+            pulumi.set(__self__, "ontap_volume_type", ontap_volume_type)
+        if security_style is not None:
+            pulumi.set(__self__, "security_style", security_style)
+        if size_in_bytes is not None:
+            pulumi.set(__self__, "size_in_bytes", size_in_bytes)
+        if size_in_megabytes is not None:
+            pulumi.set(__self__, "size_in_megabytes", size_in_megabytes)
+        if snaplock_configuration is not None:
+            pulumi.set(__self__, "snaplock_configuration", snaplock_configuration)
+        if snapshot_policy is not None:
+            pulumi.set(__self__, "snapshot_policy", snapshot_policy)
+        if storage_efficiency_enabled is not None:
+            pulumi.set(__self__, "storage_efficiency_enabled", storage_efficiency_enabled)
+        if tiering_policy is not None:
+            pulumi.set(__self__, "tiering_policy", tiering_policy)
+        if volume_style is not None:
+            pulumi.set(__self__, "volume_style", volume_style)
+
+    @_builtins.property
+    @pulumi.getter(name="storageVirtualMachineId")
+    def storage_virtual_machine_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the ONTAP SVM in which to create the volume.
+        """
+        return pulumi.get(self, "storage_virtual_machine_id")
+
+    @storage_virtual_machine_id.setter
+    def storage_virtual_machine_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "storage_virtual_machine_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="aggregateConfiguration")
+    def aggregate_configuration(self) -> pulumi.Input[Optional['VolumeAggregateConfigurationArgs']]:
+        """
+        Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+        """
+        return pulumi.get(self, "aggregate_configuration")
+
+    @aggregate_configuration.setter
+    def aggregate_configuration(self, value: pulumi.Input[Optional['VolumeAggregateConfigurationArgs']]):
+        pulumi.set(self, "aggregate_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="copyTagsToBackups")
+    def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A boolean flag indicating whether tags for the volume should be copied to backups.
+        """
+        return pulumi.get(self, "copy_tags_to_backups")
+
+    @copy_tags_to_backups.setter
+    def copy_tags_to_backups(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "copy_tags_to_backups", value)
+
+    @_builtins.property
+    @pulumi.getter(name="junctionPath")
+    def junction_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+        """
+        return pulumi.get(self, "junction_path")
+
+    @junction_path.setter
+    def junction_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "junction_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ontapVolumeType")
+    def ontap_volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the type of volume you are creating. Valid values are the following: RW or DP
+        """
+        return pulumi.get(self, "ontap_volume_type")
+
+    @ontap_volume_type.setter
+    def ontap_volume_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ontap_volume_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityStyle")
+    def security_style(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+        """
+        return pulumi.get(self, "security_style")
+
+    @security_style.setter
+    def security_style(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_style", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInBytes")
+    def size_in_bytes(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the configured size of the volume, in bytes.
+        """
+        return pulumi.get(self, "size_in_bytes")
+
+    @size_in_bytes.setter
+    def size_in_bytes(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "size_in_bytes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sizeInMegabytes")
+    def size_in_megabytes(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+        """
+        return pulumi.get(self, "size_in_megabytes")
+
+    @size_in_megabytes.setter
+    def size_in_megabytes(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "size_in_megabytes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snaplockConfiguration")
+    def snaplock_configuration(self) -> pulumi.Input[Optional['VolumeSnaplockConfigurationArgs']]:
+        """
+        The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "snaplock_configuration")
+
+    @snaplock_configuration.setter
+    def snaplock_configuration(self, value: pulumi.Input[Optional['VolumeSnaplockConfigurationArgs']]):
+        pulumi.set(self, "snaplock_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotPolicy")
+    def snapshot_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+        """
+        return pulumi.get(self, "snapshot_policy")
+
+    @snapshot_policy.setter
+    def snapshot_policy(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "snapshot_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageEfficiencyEnabled")
+    def storage_efficiency_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+        """
+        return pulumi.get(self, "storage_efficiency_enabled")
+
+    @storage_efficiency_enabled.setter
+    def storage_efficiency_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_efficiency_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tieringPolicy")
+    def tiering_policy(self) -> pulumi.Input[Optional['VolumeTieringPolicyArgs']]:
+        """
+        Describes the data tiering policy for an ONTAP volume.
+        """
+        return pulumi.get(self, "tiering_policy")
+
+    @tiering_policy.setter
+    def tiering_policy(self, value: pulumi.Input[Optional['VolumeTieringPolicyArgs']]):
+        pulumi.set(self, "tiering_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeStyle")
+    def volume_style(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Use to specify the style of an ONTAP volume.
+        """
+        return pulumi.get(self, "volume_style")
+
+    @volume_style.setter
+    def volume_style(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "volume_style", value)
+
+
+class VolumeOpenZfsConfigurationArgsDict(TypedDict):
+    parent_volume_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the volume to use as the parent volume of the volume that you are creating.
+    """
+    copy_tags_to_snapshots: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+    """
+    data_compression_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the method used to compress the data on the volume
+    """
+    nfs_exports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeNfsExportsArgsDict']]]]]
+    """
+    The configuration object for mounting a Network File System (NFS) file system.
+    """
+    options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    The configuration object for mounting a Network File System (NFS) file system.
+    """
+    origin_snapshot: NotRequired[pulumi.Input[Optional['VolumeOriginSnapshotArgsDict']]]
+    """
+    The configuration of an Amazon FSx for OpenZFS volume.
+    """
+    read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    A Boolean value indicating whether the volume is read-only.
+    """
+    record_size_ki_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+    """
+    storage_capacity_quota_gi_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+    """
+    storage_capacity_reservation_gi_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+    """
+    user_and_group_quotas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgsDict']]]]]
+    """
+    Configures how much storage users and groups can use on the volume.
+    """
+
+@pulumi.input_type
+class VolumeOpenZfsConfigurationArgs:
+    def __init__(__self__, *,
+                 parent_volume_id: pulumi.Input[_builtins.str],
+                 copy_tags_to_snapshots: pulumi.Input[Optional[_builtins.bool]] = None,
+                 data_compression_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 nfs_exports: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeNfsExportsArgs']]]] = None,
+                 options: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 origin_snapshot: pulumi.Input[Optional['VolumeOriginSnapshotArgs']] = None,
+                 read_only: pulumi.Input[Optional[_builtins.bool]] = None,
+                 record_size_ki_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_capacity_quota_gi_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_capacity_reservation_gi_b: pulumi.Input[Optional[_builtins.int]] = None,
+                 user_and_group_quotas: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] parent_volume_id: The ID of the volume to use as the parent volume of the volume that you are creating.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+        :param pulumi.Input[_builtins.str] data_compression_type: Specifies the method used to compress the data on the volume
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeNfsExportsArgs']]] nfs_exports: The configuration object for mounting a Network File System (NFS) file system.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] options: The configuration object for mounting a Network File System (NFS) file system.
+        :param pulumi.Input['VolumeOriginSnapshotArgs'] origin_snapshot: The configuration of an Amazon FSx for OpenZFS volume.
+        :param pulumi.Input[_builtins.bool] read_only: A Boolean value indicating whether the volume is read-only.
+        :param pulumi.Input[_builtins.int] record_size_ki_b: Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+        :param pulumi.Input[_builtins.int] storage_capacity_quota_gi_b: Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+        :param pulumi.Input[_builtins.int] storage_capacity_reservation_gi_b: Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]] user_and_group_quotas: Configures how much storage users and groups can use on the volume.
+        """
+        pulumi.set(__self__, "parent_volume_id", parent_volume_id)
+        if copy_tags_to_snapshots is not None:
+            pulumi.set(__self__, "copy_tags_to_snapshots", copy_tags_to_snapshots)
+        if data_compression_type is not None:
+            pulumi.set(__self__, "data_compression_type", data_compression_type)
+        if nfs_exports is not None:
+            pulumi.set(__self__, "nfs_exports", nfs_exports)
+        if options is not None:
+            pulumi.set(__self__, "options", options)
+        if origin_snapshot is not None:
+            pulumi.set(__self__, "origin_snapshot", origin_snapshot)
+        if read_only is not None:
+            pulumi.set(__self__, "read_only", read_only)
+        if record_size_ki_b is not None:
+            pulumi.set(__self__, "record_size_ki_b", record_size_ki_b)
+        if storage_capacity_quota_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        if storage_capacity_reservation_gi_b is not None:
+            pulumi.set(__self__, "storage_capacity_reservation_gi_b", storage_capacity_reservation_gi_b)
+        if user_and_group_quotas is not None:
+            pulumi.set(__self__, "user_and_group_quotas", user_and_group_quotas)
+
+    @_builtins.property
+    @pulumi.getter(name="parentVolumeId")
+    def parent_volume_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the volume to use as the parent volume of the volume that you are creating.
+        """
+        return pulumi.get(self, "parent_volume_id")
+
+    @parent_volume_id.setter
+    def parent_volume_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "parent_volume_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="copyTagsToSnapshots")
+    def copy_tags_to_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+        """
+        return pulumi.get(self, "copy_tags_to_snapshots")
+
+    @copy_tags_to_snapshots.setter
+    def copy_tags_to_snapshots(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "copy_tags_to_snapshots", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataCompressionType")
+    def data_compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the method used to compress the data on the volume
+        """
+        return pulumi.get(self, "data_compression_type")
+
+    @data_compression_type.setter
+    def data_compression_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_compression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="nfsExports")
+    def nfs_exports(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeNfsExportsArgs']]]]:
+        """
+        The configuration object for mounting a Network File System (NFS) file system.
+        """
+        return pulumi.get(self, "nfs_exports")
+
+    @nfs_exports.setter
+    def nfs_exports(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeNfsExportsArgs']]]]):
+        pulumi.set(self, "nfs_exports", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        The configuration object for mounting a Network File System (NFS) file system.
+        """
+        return pulumi.get(self, "options")
+
+    @options.setter
+    def options(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="originSnapshot")
+    def origin_snapshot(self) -> pulumi.Input[Optional['VolumeOriginSnapshotArgs']]:
+        """
+        The configuration of an Amazon FSx for OpenZFS volume.
+        """
+        return pulumi.get(self, "origin_snapshot")
+
+    @origin_snapshot.setter
+    def origin_snapshot(self, value: pulumi.Input[Optional['VolumeOriginSnapshotArgs']]):
+        pulumi.set(self, "origin_snapshot", value)
+
+    @_builtins.property
+    @pulumi.getter(name="readOnly")
+    def read_only(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        A Boolean value indicating whether the volume is read-only.
+        """
+        return pulumi.get(self, "read_only")
+
+    @read_only.setter
+    def read_only(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "read_only", value)
+
+    @_builtins.property
+    @pulumi.getter(name="recordSizeKiB")
+    def record_size_ki_b(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+        """
+        return pulumi.get(self, "record_size_ki_b")
+
+    @record_size_ki_b.setter
+    def record_size_ki_b(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "record_size_ki_b", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+        """
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @storage_capacity_quota_gi_b.setter
+    def storage_capacity_quota_gi_b(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "storage_capacity_quota_gi_b", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageCapacityReservationGiB")
+    def storage_capacity_reservation_gi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+        """
+        return pulumi.get(self, "storage_capacity_reservation_gi_b")
+
+    @storage_capacity_reservation_gi_b.setter
+    def storage_capacity_reservation_gi_b(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "storage_capacity_reservation_gi_b", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userAndGroupQuotas")
+    def user_and_group_quotas(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]]:
+        """
+        Configures how much storage users and groups can use on the volume.
+        """
+        return pulumi.get(self, "user_and_group_quotas")
+
+    @user_and_group_quotas.setter
+    def user_and_group_quotas(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]]):
+        pulumi.set(self, "user_and_group_quotas", value)
+
+
+class VolumeOriginSnapshotArgsDict(TypedDict):
+    copy_strategy: pulumi.Input[_builtins.str]
+    """
+    The configuration object for mounting a Network File System (NFS) file system.
+    """
+    snapshot_arn: pulumi.Input[_builtins.str]
+    """
+    Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+    """
+
+@pulumi.input_type
+class VolumeOriginSnapshotArgs:
+    def __init__(__self__, *,
+                 copy_strategy: pulumi.Input[_builtins.str],
+                 snapshot_arn: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] copy_strategy: The configuration object for mounting a Network File System (NFS) file system.
+        :param pulumi.Input[_builtins.str] snapshot_arn: Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+        """
+        pulumi.set(__self__, "copy_strategy", copy_strategy)
+        pulumi.set(__self__, "snapshot_arn", snapshot_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="copyStrategy")
+    def copy_strategy(self) -> pulumi.Input[_builtins.str]:
+        """
+        The configuration object for mounting a Network File System (NFS) file system.
+        """
+        return pulumi.get(self, "copy_strategy")
+
+    @copy_strategy.setter
+    def copy_strategy(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "copy_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotArn")
+    def snapshot_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+        """
+        return pulumi.get(self, "snapshot_arn")
+
+    @snapshot_arn.setter
+    def snapshot_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "snapshot_arn", value)
+
+
+class VolumeRetentionPeriodArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+    """
+    value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+    """
+
+@pulumi.input_type
+class VolumeRetentionPeriodArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+        :param pulumi.Input[_builtins.int] value: Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+        """
+        pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "value", value)
+
+
+class VolumeSnaplockConfigurationArgsDict(TypedDict):
+    snaplock_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+    """
+    audit_log_volume: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+    """
+    autocommit_period: NotRequired[pulumi.Input[Optional['VolumeAutocommitPeriodArgsDict']]]
+    """
+    The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+    """
+    privileged_delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+    """
+    retention_period: NotRequired[pulumi.Input[Optional['VolumeSnaplockRetentionPeriodArgsDict']]]
+    """
+    Specifies the retention period of an FSx for ONTAP SnapLock volume.
+    """
+    volume_append_mode_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+    """
+
+@pulumi.input_type
+class VolumeSnaplockConfigurationArgs:
+    def __init__(__self__, *,
+                 snaplock_type: pulumi.Input[_builtins.str],
+                 audit_log_volume: pulumi.Input[Optional[_builtins.str]] = None,
+                 autocommit_period: pulumi.Input[Optional['VolumeAutocommitPeriodArgs']] = None,
+                 privileged_delete: pulumi.Input[Optional[_builtins.str]] = None,
+                 retention_period: pulumi.Input[Optional['VolumeSnaplockRetentionPeriodArgs']] = None,
+                 volume_append_mode_enabled: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+        :param pulumi.Input[_builtins.str] audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+        :param pulumi.Input['VolumeAutocommitPeriodArgs'] autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input[_builtins.str] privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+        :param pulumi.Input['VolumeSnaplockRetentionPeriodArgs'] retention_period: Specifies the retention period of an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input[_builtins.str] volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+        """
+        pulumi.set(__self__, "snaplock_type", snaplock_type)
+        if audit_log_volume is not None:
+            pulumi.set(__self__, "audit_log_volume", audit_log_volume)
+        if autocommit_period is not None:
+            pulumi.set(__self__, "autocommit_period", autocommit_period)
+        if privileged_delete is not None:
+            pulumi.set(__self__, "privileged_delete", privileged_delete)
+        if retention_period is not None:
+            pulumi.set(__self__, "retention_period", retention_period)
+        if volume_append_mode_enabled is not None:
+            pulumi.set(__self__, "volume_append_mode_enabled", volume_append_mode_enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="snaplockType")
+    def snaplock_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+        """
+        return pulumi.get(self, "snaplock_type")
+
+    @snaplock_type.setter
+    def snaplock_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "snaplock_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="auditLogVolume")
+    def audit_log_volume(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+        """
+        return pulumi.get(self, "audit_log_volume")
+
+    @audit_log_volume.setter
+    def audit_log_volume(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "audit_log_volume", value)
+
+    @_builtins.property
+    @pulumi.getter(name="autocommitPeriod")
+    def autocommit_period(self) -> pulumi.Input[Optional['VolumeAutocommitPeriodArgs']]:
+        """
+        The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "autocommit_period")
+
+    @autocommit_period.setter
+    def autocommit_period(self, value: pulumi.Input[Optional['VolumeAutocommitPeriodArgs']]):
+        pulumi.set(self, "autocommit_period", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privilegedDelete")
+    def privileged_delete(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+        """
+        return pulumi.get(self, "privileged_delete")
+
+    @privileged_delete.setter
+    def privileged_delete(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "privileged_delete", value)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> pulumi.Input[Optional['VolumeSnaplockRetentionPeriodArgs']]:
+        """
+        Specifies the retention period of an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "retention_period")
+
+    @retention_period.setter
+    def retention_period(self, value: pulumi.Input[Optional['VolumeSnaplockRetentionPeriodArgs']]):
+        pulumi.set(self, "retention_period", value)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeAppendModeEnabled")
+    def volume_append_mode_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "volume_append_mode_enabled")
+
+    @volume_append_mode_enabled.setter
+    def volume_append_mode_enabled(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "volume_append_mode_enabled", value)
+
+
+class VolumeSnaplockRetentionPeriodArgsDict(TypedDict):
+    default_retention: pulumi.Input['VolumeRetentionPeriodArgsDict']
+    """
+    The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+    """
+    maximum_retention: pulumi.Input['VolumeRetentionPeriodArgsDict']
+    """
+    The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+    """
+    minimum_retention: pulumi.Input['VolumeRetentionPeriodArgsDict']
+    """
+    The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+    """
+
+@pulumi.input_type
+class VolumeSnaplockRetentionPeriodArgs:
+    def __init__(__self__, *,
+                 default_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
+                 maximum_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
+                 minimum_retention: pulumi.Input['VolumeRetentionPeriodArgs']):
+        """
+        :param pulumi.Input['VolumeRetentionPeriodArgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input['VolumeRetentionPeriodArgs'] maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input['VolumeRetentionPeriodArgs'] minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+        """
+        pulumi.set(__self__, "default_retention", default_retention)
+        pulumi.set(__self__, "maximum_retention", maximum_retention)
+        pulumi.set(__self__, "minimum_retention", minimum_retention)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultRetention")
+    def default_retention(self) -> pulumi.Input['VolumeRetentionPeriodArgs']:
+        """
+        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "default_retention")
+
+    @default_retention.setter
+    def default_retention(self, value: pulumi.Input['VolumeRetentionPeriodArgs']):
+        pulumi.set(self, "default_retention", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maximumRetention")
+    def maximum_retention(self) -> pulumi.Input['VolumeRetentionPeriodArgs']:
+        """
+        The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "maximum_retention")
+
+    @maximum_retention.setter
+    def maximum_retention(self, value: pulumi.Input['VolumeRetentionPeriodArgs']):
+        pulumi.set(self, "maximum_retention", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumRetention")
+    def minimum_retention(self) -> pulumi.Input['VolumeRetentionPeriodArgs']:
+        """
+        The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+        """
+        return pulumi.get(self, "minimum_retention")
+
+    @minimum_retention.setter
+    def minimum_retention(self, value: pulumi.Input['VolumeRetentionPeriodArgs']):
+        pulumi.set(self, "minimum_retention", value)
+
+
+class VolumeTieringPolicyArgsDict(TypedDict):
+    """
+    Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+    """
+    cooling_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+    """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+    """
+
+@pulumi.input_type
+class VolumeTieringPolicyArgs:
+    def __init__(__self__, *,
+                 cooling_period: pulumi.Input[Optional[_builtins.int]] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+
+        :param pulumi.Input[_builtins.int] cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+        :param pulumi.Input[_builtins.str] name: Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+        """
+        if cooling_period is not None:
+            pulumi.set(__self__, "cooling_period", cooling_period)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter(name="coolingPeriod")
+    def cooling_period(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+        """
+        return pulumi.get(self, "cooling_period")
+
+    @cooling_period.setter
+    def cooling_period(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "cooling_period", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
+
+
+class VolumeUserAndGroupQuotasArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.int]
+    """
+    The ID of the user or group that the quota applies to.
+    """
+    storage_capacity_quota_gi_b: pulumi.Input[_builtins.int]
+    """
+    The user or group's storage quota, in gibibytes (GiB).
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies whether the quota applies to a user or group.
+    """
+
+@pulumi.input_type
+class VolumeUserAndGroupQuotasArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[_builtins.int],
+                 storage_capacity_quota_gi_b: pulumi.Input[_builtins.int],
+                 type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.int] id: The ID of the user or group that the quota applies to.
+        :param pulumi.Input[_builtins.int] storage_capacity_quota_gi_b: The user or group's storage quota, in gibibytes (GiB).
+        :param pulumi.Input[_builtins.str] type: Specifies whether the quota applies to a user or group.
+        """
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "storage_capacity_quota_gi_b", storage_capacity_quota_gi_b)
+        pulumi.set(__self__, "type", type)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.int]:
+        """
+        The ID of the user or group that the quota applies to.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageCapacityQuotaGiB")
+    def storage_capacity_quota_gi_b(self) -> pulumi.Input[_builtins.int]:
+        """
+        The user or group's storage quota, in gibibytes (GiB).
+        """
+        return pulumi.get(self, "storage_capacity_quota_gi_b")
+
+    @storage_capacity_quota_gi_b.setter
+    def storage_capacity_quota_gi_b(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "storage_capacity_quota_gi_b", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies whether the quota applies to a user or group.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
 
 

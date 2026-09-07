@@ -9996,6 +9996,171 @@ func (in *routerOutputResourceDayPtr) ToRouterOutputResourceDayPtrOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, in).(RouterOutputResourceDayPtrOutput)
 }
 
+type RouterOutputResourceFabricLatencyMode string
+
+const (
+	RouterOutputResourceFabricLatencyModeBalanced   = RouterOutputResourceFabricLatencyMode("BALANCED")
+	RouterOutputResourceFabricLatencyModeLowLatency = RouterOutputResourceFabricLatencyMode("LOW_LATENCY")
+)
+
+func (RouterOutputResourceFabricLatencyMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceFabricLatencyMode)(nil)).Elem()
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToRouterOutputResourceFabricLatencyModeOutput() RouterOutputResourceFabricLatencyModeOutput {
+	return pulumi.ToOutput(e).(RouterOutputResourceFabricLatencyModeOutput)
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToRouterOutputResourceFabricLatencyModeOutputWithContext(ctx context.Context) RouterOutputResourceFabricLatencyModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(RouterOutputResourceFabricLatencyModeOutput)
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToRouterOutputResourceFabricLatencyModePtrOutput() RouterOutputResourceFabricLatencyModePtrOutput {
+	return e.ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricLatencyModePtrOutput {
+	return RouterOutputResourceFabricLatencyMode(e).ToRouterOutputResourceFabricLatencyModeOutputWithContext(ctx).ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(ctx)
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e RouterOutputResourceFabricLatencyMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type RouterOutputResourceFabricLatencyModeOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceFabricLatencyModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceFabricLatencyMode)(nil)).Elem()
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToRouterOutputResourceFabricLatencyModeOutput() RouterOutputResourceFabricLatencyModeOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToRouterOutputResourceFabricLatencyModeOutputWithContext(ctx context.Context) RouterOutputResourceFabricLatencyModeOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToRouterOutputResourceFabricLatencyModePtrOutput() RouterOutputResourceFabricLatencyModePtrOutput {
+	return o.ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricLatencyModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourceFabricLatencyMode) *RouterOutputResourceFabricLatencyMode {
+		return &v
+	}).(RouterOutputResourceFabricLatencyModePtrOutput)
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceFabricLatencyMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceFabricLatencyModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e RouterOutputResourceFabricLatencyMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type RouterOutputResourceFabricLatencyModePtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceFabricLatencyModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceFabricLatencyMode)(nil)).Elem()
+}
+
+func (o RouterOutputResourceFabricLatencyModePtrOutput) ToRouterOutputResourceFabricLatencyModePtrOutput() RouterOutputResourceFabricLatencyModePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricLatencyModePtrOutput) ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricLatencyModePtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricLatencyModePtrOutput) Elem() RouterOutputResourceFabricLatencyModeOutput {
+	return o.ApplyT(func(v *RouterOutputResourceFabricLatencyMode) RouterOutputResourceFabricLatencyMode {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceFabricLatencyMode
+		return ret
+	}).(RouterOutputResourceFabricLatencyModeOutput)
+}
+
+func (o RouterOutputResourceFabricLatencyModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceFabricLatencyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *RouterOutputResourceFabricLatencyMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// RouterOutputResourceFabricLatencyModeInput is an input type that accepts values of the RouterOutputResourceFabricLatencyMode enum
+// A concrete instance of `RouterOutputResourceFabricLatencyModeInput` can be one of the following:
+//
+//	RouterOutputResourceFabricLatencyModeBalanced
+//	RouterOutputResourceFabricLatencyModeLowLatency
+type RouterOutputResourceFabricLatencyModeInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceFabricLatencyModeOutput() RouterOutputResourceFabricLatencyModeOutput
+	ToRouterOutputResourceFabricLatencyModeOutputWithContext(context.Context) RouterOutputResourceFabricLatencyModeOutput
+}
+
+var routerOutputResourceFabricLatencyModePtrType = reflect.TypeOf((**RouterOutputResourceFabricLatencyMode)(nil)).Elem()
+
+type RouterOutputResourceFabricLatencyModePtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceFabricLatencyModePtrOutput() RouterOutputResourceFabricLatencyModePtrOutput
+	ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(context.Context) RouterOutputResourceFabricLatencyModePtrOutput
+}
+
+type routerOutputResourceFabricLatencyModePtr string
+
+func RouterOutputResourceFabricLatencyModePtr(v string) RouterOutputResourceFabricLatencyModePtrInput {
+	return (*routerOutputResourceFabricLatencyModePtr)(&v)
+}
+
+func (*routerOutputResourceFabricLatencyModePtr) ElementType() reflect.Type {
+	return routerOutputResourceFabricLatencyModePtrType
+}
+
+func (in *routerOutputResourceFabricLatencyModePtr) ToRouterOutputResourceFabricLatencyModePtrOutput() RouterOutputResourceFabricLatencyModePtrOutput {
+	return pulumi.ToOutput(in).(RouterOutputResourceFabricLatencyModePtrOutput)
+}
+
+func (in *routerOutputResourceFabricLatencyModePtr) ToRouterOutputResourceFabricLatencyModePtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricLatencyModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(RouterOutputResourceFabricLatencyModePtrOutput)
+}
+
 type RouterOutputResourceFlowTransitEncryptionKeyType string
 
 const (
@@ -11638,6 +11803,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterInputTransitEncryptionKeyTypePtrInput)(nil)).Elem(), RouterInputTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDayInput)(nil)).Elem(), RouterOutputResourceDay("MONDAY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDayPtrInput)(nil)).Elem(), RouterOutputResourceDay("MONDAY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricLatencyModeInput)(nil)).Elem(), RouterOutputResourceFabricLatencyMode("BALANCED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricLatencyModePtrInput)(nil)).Elem(), RouterOutputResourceFabricLatencyMode("BALANCED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFlowTransitEncryptionKeyTypeInput)(nil)).Elem(), RouterOutputResourceFlowTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFlowTransitEncryptionKeyTypePtrInput)(nil)).Elem(), RouterOutputResourceFlowTransitEncryptionKeyType("SECRETS_MANAGER"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceForwardErrorCorrectionStateInput)(nil)).Elem(), RouterOutputResourceForwardErrorCorrectionState("ENABLED"))
@@ -11778,6 +11945,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterNetworkInterfaceTypePtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDayOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDayPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceFabricLatencyModeOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceFabricLatencyModePtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFlowTransitEncryptionKeyTypeOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFlowTransitEncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceForwardErrorCorrectionStateOutput{})

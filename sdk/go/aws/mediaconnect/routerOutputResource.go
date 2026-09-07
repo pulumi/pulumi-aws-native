@@ -25,7 +25,8 @@ type RouterOutputResource struct {
 	AwsId         pulumi.StringOutput `pulumi:"awsId"`
 	Configuration pulumi.AnyOutput    `pulumi:"configuration"`
 	// The timestamp when the router output was created.
-	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	CreatedAt           pulumi.StringOutput                              `pulumi:"createdAt"`
+	FabricConfiguration RouterOutputResourceFabricConfigurationPtrOutput `pulumi:"fabricConfiguration"`
 	// The IP address of the router output.
 	IpAddress pulumi.StringOutput `pulumi:"ipAddress"`
 	// The maintenance configuration settings applied to this router output.
@@ -112,8 +113,9 @@ func (RouterOutputResourceState) ElementType() reflect.Type {
 
 type routerOutputResourceArgs struct {
 	// The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
-	AvailabilityZone *string     `pulumi:"availabilityZone"`
-	Configuration    interface{} `pulumi:"configuration"`
+	AvailabilityZone    *string                                  `pulumi:"availabilityZone"`
+	Configuration       interface{}                              `pulumi:"configuration"`
+	FabricConfiguration *RouterOutputResourceFabricConfiguration `pulumi:"fabricConfiguration"`
 	// The maintenance configuration settings applied to this router output.
 	MaintenanceConfiguration interface{} `pulumi:"maintenanceConfiguration"`
 	// The maximum bitrate for the router output.
@@ -133,8 +135,9 @@ type routerOutputResourceArgs struct {
 // The set of arguments for constructing a RouterOutputResource resource.
 type RouterOutputResourceArgs struct {
 	// The Availability Zone where you want to create the router output. This must be a valid Availability Zone for the region specified by regionName, or the current region if no regionName is provided.
-	AvailabilityZone pulumi.StringPtrInput
-	Configuration    pulumi.Input
+	AvailabilityZone    pulumi.StringPtrInput
+	Configuration       pulumi.Input
+	FabricConfiguration RouterOutputResourceFabricConfigurationPtrInput
 	// The maintenance configuration settings applied to this router output.
 	MaintenanceConfiguration pulumi.Input
 	// The maximum bitrate for the router output.
@@ -210,6 +213,12 @@ func (o RouterOutputResourceOutput) Configuration() pulumi.AnyOutput {
 // The timestamp when the router output was created.
 func (o RouterOutputResourceOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouterOutputResource) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o RouterOutputResourceOutput) FabricConfiguration() RouterOutputResourceFabricConfigurationPtrOutput {
+	return o.ApplyT(func(v *RouterOutputResource) RouterOutputResourceFabricConfigurationPtrOutput {
+		return v.FabricConfiguration
+	}).(RouterOutputResourceFabricConfigurationPtrOutput)
 }
 
 // The IP address of the router output.

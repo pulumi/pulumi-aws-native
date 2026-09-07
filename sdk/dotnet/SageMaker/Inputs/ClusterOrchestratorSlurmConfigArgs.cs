@@ -15,6 +15,9 @@ namespace Pulumi.AwsNative.SageMaker.Inputs
     /// </summary>
     public sealed class ClusterOrchestratorSlurmConfigArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accountingDatabase")]
+        public Input<Inputs.ClusterAccountingDatabaseArgs>? AccountingDatabase { get; set; }
+
         /// <summary>
         /// The strategy for managing Slurm configuration on the cluster.
         /// </summary>

@@ -1048,6 +1048,142 @@ func (o RegistryRecordA2aAgentCardDescriptorPtrOutput) Source() RegistryRecordDe
 	}).(RegistryRecordDescriptorSourcePtrOutput)
 }
 
+// The AG-UI (Agent-User Interaction) descriptor, populated for records detected from an AG-UI protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+type RegistryRecordAgUiDescriptor struct {
+	Source *RegistryRecordSourceOnlyDescriptorSource `pulumi:"source"`
+}
+
+// RegistryRecordAgUiDescriptorInput is an input type that accepts RegistryRecordAgUiDescriptorArgs and RegistryRecordAgUiDescriptorOutput values.
+// You can construct a concrete instance of `RegistryRecordAgUiDescriptorInput` via:
+//
+//	RegistryRecordAgUiDescriptorArgs{...}
+type RegistryRecordAgUiDescriptorInput interface {
+	pulumi.Input
+
+	ToRegistryRecordAgUiDescriptorOutput() RegistryRecordAgUiDescriptorOutput
+	ToRegistryRecordAgUiDescriptorOutputWithContext(context.Context) RegistryRecordAgUiDescriptorOutput
+}
+
+// The AG-UI (Agent-User Interaction) descriptor, populated for records detected from an AG-UI protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+type RegistryRecordAgUiDescriptorArgs struct {
+	Source RegistryRecordSourceOnlyDescriptorSourcePtrInput `pulumi:"source"`
+}
+
+func (RegistryRecordAgUiDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordAgUiDescriptor)(nil)).Elem()
+}
+
+func (i RegistryRecordAgUiDescriptorArgs) ToRegistryRecordAgUiDescriptorOutput() RegistryRecordAgUiDescriptorOutput {
+	return i.ToRegistryRecordAgUiDescriptorOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordAgUiDescriptorArgs) ToRegistryRecordAgUiDescriptorOutputWithContext(ctx context.Context) RegistryRecordAgUiDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgUiDescriptorOutput)
+}
+
+func (i RegistryRecordAgUiDescriptorArgs) ToRegistryRecordAgUiDescriptorPtrOutput() RegistryRecordAgUiDescriptorPtrOutput {
+	return i.ToRegistryRecordAgUiDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordAgUiDescriptorArgs) ToRegistryRecordAgUiDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgUiDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgUiDescriptorOutput).ToRegistryRecordAgUiDescriptorPtrOutputWithContext(ctx)
+}
+
+// RegistryRecordAgUiDescriptorPtrInput is an input type that accepts RegistryRecordAgUiDescriptorArgs, RegistryRecordAgUiDescriptorPtr and RegistryRecordAgUiDescriptorPtrOutput values.
+// You can construct a concrete instance of `RegistryRecordAgUiDescriptorPtrInput` via:
+//
+//	        RegistryRecordAgUiDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryRecordAgUiDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordAgUiDescriptorPtrOutput() RegistryRecordAgUiDescriptorPtrOutput
+	ToRegistryRecordAgUiDescriptorPtrOutputWithContext(context.Context) RegistryRecordAgUiDescriptorPtrOutput
+}
+
+type registryRecordAgUiDescriptorPtrType RegistryRecordAgUiDescriptorArgs
+
+func RegistryRecordAgUiDescriptorPtr(v *RegistryRecordAgUiDescriptorArgs) RegistryRecordAgUiDescriptorPtrInput {
+	return (*registryRecordAgUiDescriptorPtrType)(v)
+}
+
+func (*registryRecordAgUiDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordAgUiDescriptor)(nil)).Elem()
+}
+
+func (i *registryRecordAgUiDescriptorPtrType) ToRegistryRecordAgUiDescriptorPtrOutput() RegistryRecordAgUiDescriptorPtrOutput {
+	return i.ToRegistryRecordAgUiDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *registryRecordAgUiDescriptorPtrType) ToRegistryRecordAgUiDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgUiDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordAgUiDescriptorPtrOutput)
+}
+
+// The AG-UI (Agent-User Interaction) descriptor, populated for records detected from an AG-UI protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+type RegistryRecordAgUiDescriptorOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordAgUiDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordAgUiDescriptor)(nil)).Elem()
+}
+
+func (o RegistryRecordAgUiDescriptorOutput) ToRegistryRecordAgUiDescriptorOutput() RegistryRecordAgUiDescriptorOutput {
+	return o
+}
+
+func (o RegistryRecordAgUiDescriptorOutput) ToRegistryRecordAgUiDescriptorOutputWithContext(ctx context.Context) RegistryRecordAgUiDescriptorOutput {
+	return o
+}
+
+func (o RegistryRecordAgUiDescriptorOutput) ToRegistryRecordAgUiDescriptorPtrOutput() RegistryRecordAgUiDescriptorPtrOutput {
+	return o.ToRegistryRecordAgUiDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordAgUiDescriptorOutput) ToRegistryRecordAgUiDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgUiDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordAgUiDescriptor) *RegistryRecordAgUiDescriptor {
+		return &v
+	}).(RegistryRecordAgUiDescriptorPtrOutput)
+}
+
+func (o RegistryRecordAgUiDescriptorOutput) Source() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o.ApplyT(func(v RegistryRecordAgUiDescriptor) *RegistryRecordSourceOnlyDescriptorSource { return v.Source }).(RegistryRecordSourceOnlyDescriptorSourcePtrOutput)
+}
+
+type RegistryRecordAgUiDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordAgUiDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordAgUiDescriptor)(nil)).Elem()
+}
+
+func (o RegistryRecordAgUiDescriptorPtrOutput) ToRegistryRecordAgUiDescriptorPtrOutput() RegistryRecordAgUiDescriptorPtrOutput {
+	return o
+}
+
+func (o RegistryRecordAgUiDescriptorPtrOutput) ToRegistryRecordAgUiDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordAgUiDescriptorPtrOutput {
+	return o
+}
+
+func (o RegistryRecordAgUiDescriptorPtrOutput) Elem() RegistryRecordAgUiDescriptorOutput {
+	return o.ApplyT(func(v *RegistryRecordAgUiDescriptor) RegistryRecordAgUiDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordAgUiDescriptor
+		return ret
+	}).(RegistryRecordAgUiDescriptorOutput)
+}
+
+func (o RegistryRecordAgUiDescriptorPtrOutput) Source() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o.ApplyT(func(v *RegistryRecordAgUiDescriptor) *RegistryRecordSourceOnlyDescriptorSource {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(RegistryRecordSourceOnlyDescriptorSourcePtrOutput)
+}
+
 // Additional data associated with an agent skills definition descriptor.
 type RegistryRecordAgentSkillsAdditionalData struct {
 	SkillMd *RegistryRecordAgentSkillsMdDescriptor `pulumi:"skillMd"`
@@ -2134,7 +2270,9 @@ func (o RegistryRecordDescriptorSourceFromUrlPtrOutput) Url() pulumi.StringPtrOu
 type RegistryRecordDescriptors struct {
 	A2aAgentCard          *RegistryRecordA2aAgentCardDescriptor          `pulumi:"a2aAgentCard"`
 	AgentSkillsDefinition *RegistryRecordAgentSkillsDefinitionDescriptor `pulumi:"agentSkillsDefinition"`
+	Agui                  *RegistryRecordAgUiDescriptor                  `pulumi:"agui"`
 	Custom                *RegistryRecordCustomDescriptor                `pulumi:"custom"`
+	Http                  *RegistryRecordHttpDescriptor                  `pulumi:"http"`
 	McpServer             *RegistryRecordMcpServerDescriptor             `pulumi:"mcpServer"`
 }
 
@@ -2153,7 +2291,9 @@ type RegistryRecordDescriptorsInput interface {
 type RegistryRecordDescriptorsArgs struct {
 	A2aAgentCard          RegistryRecordA2aAgentCardDescriptorPtrInput          `pulumi:"a2aAgentCard"`
 	AgentSkillsDefinition RegistryRecordAgentSkillsDefinitionDescriptorPtrInput `pulumi:"agentSkillsDefinition"`
+	Agui                  RegistryRecordAgUiDescriptorPtrInput                  `pulumi:"agui"`
 	Custom                RegistryRecordCustomDescriptorPtrInput                `pulumi:"custom"`
+	Http                  RegistryRecordHttpDescriptorPtrInput                  `pulumi:"http"`
 	McpServer             RegistryRecordMcpServerDescriptorPtrInput             `pulumi:"mcpServer"`
 }
 
@@ -2194,8 +2334,16 @@ func (o RegistryRecordDescriptorsOutput) AgentSkillsDefinition() RegistryRecordA
 	}).(RegistryRecordAgentSkillsDefinitionDescriptorPtrOutput)
 }
 
+func (o RegistryRecordDescriptorsOutput) Agui() RegistryRecordAgUiDescriptorPtrOutput {
+	return o.ApplyT(func(v RegistryRecordDescriptors) *RegistryRecordAgUiDescriptor { return v.Agui }).(RegistryRecordAgUiDescriptorPtrOutput)
+}
+
 func (o RegistryRecordDescriptorsOutput) Custom() RegistryRecordCustomDescriptorPtrOutput {
 	return o.ApplyT(func(v RegistryRecordDescriptors) *RegistryRecordCustomDescriptor { return v.Custom }).(RegistryRecordCustomDescriptorPtrOutput)
+}
+
+func (o RegistryRecordDescriptorsOutput) Http() RegistryRecordHttpDescriptorPtrOutput {
+	return o.ApplyT(func(v RegistryRecordDescriptors) *RegistryRecordHttpDescriptor { return v.Http }).(RegistryRecordHttpDescriptorPtrOutput)
 }
 
 func (o RegistryRecordDescriptorsOutput) McpServer() RegistryRecordMcpServerDescriptorPtrOutput {
@@ -2244,6 +2392,15 @@ func (o RegistryRecordDescriptorsPtrOutput) AgentSkillsDefinition() RegistryReco
 	}).(RegistryRecordAgentSkillsDefinitionDescriptorPtrOutput)
 }
 
+func (o RegistryRecordDescriptorsPtrOutput) Agui() RegistryRecordAgUiDescriptorPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordDescriptors) *RegistryRecordAgUiDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.Agui
+	}).(RegistryRecordAgUiDescriptorPtrOutput)
+}
+
 func (o RegistryRecordDescriptorsPtrOutput) Custom() RegistryRecordCustomDescriptorPtrOutput {
 	return o.ApplyT(func(v *RegistryRecordDescriptors) *RegistryRecordCustomDescriptor {
 		if v == nil {
@@ -2253,6 +2410,15 @@ func (o RegistryRecordDescriptorsPtrOutput) Custom() RegistryRecordCustomDescrip
 	}).(RegistryRecordCustomDescriptorPtrOutput)
 }
 
+func (o RegistryRecordDescriptorsPtrOutput) Http() RegistryRecordHttpDescriptorPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordDescriptors) *RegistryRecordHttpDescriptor {
+		if v == nil {
+			return nil
+		}
+		return v.Http
+	}).(RegistryRecordHttpDescriptorPtrOutput)
+}
+
 func (o RegistryRecordDescriptorsPtrOutput) McpServer() RegistryRecordMcpServerDescriptorPtrOutput {
 	return o.ApplyT(func(v *RegistryRecordDescriptors) *RegistryRecordMcpServerDescriptor {
 		if v == nil {
@@ -2260,6 +2426,142 @@ func (o RegistryRecordDescriptorsPtrOutput) McpServer() RegistryRecordMcpServerD
 		}
 		return v.McpServer
 	}).(RegistryRecordMcpServerDescriptorPtrOutput)
+}
+
+// The HTTP descriptor, populated for records detected from an HTTP protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+type RegistryRecordHttpDescriptor struct {
+	Source *RegistryRecordSourceOnlyDescriptorSource `pulumi:"source"`
+}
+
+// RegistryRecordHttpDescriptorInput is an input type that accepts RegistryRecordHttpDescriptorArgs and RegistryRecordHttpDescriptorOutput values.
+// You can construct a concrete instance of `RegistryRecordHttpDescriptorInput` via:
+//
+//	RegistryRecordHttpDescriptorArgs{...}
+type RegistryRecordHttpDescriptorInput interface {
+	pulumi.Input
+
+	ToRegistryRecordHttpDescriptorOutput() RegistryRecordHttpDescriptorOutput
+	ToRegistryRecordHttpDescriptorOutputWithContext(context.Context) RegistryRecordHttpDescriptorOutput
+}
+
+// The HTTP descriptor, populated for records detected from an HTTP protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+type RegistryRecordHttpDescriptorArgs struct {
+	Source RegistryRecordSourceOnlyDescriptorSourcePtrInput `pulumi:"source"`
+}
+
+func (RegistryRecordHttpDescriptorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordHttpDescriptor)(nil)).Elem()
+}
+
+func (i RegistryRecordHttpDescriptorArgs) ToRegistryRecordHttpDescriptorOutput() RegistryRecordHttpDescriptorOutput {
+	return i.ToRegistryRecordHttpDescriptorOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordHttpDescriptorArgs) ToRegistryRecordHttpDescriptorOutputWithContext(ctx context.Context) RegistryRecordHttpDescriptorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordHttpDescriptorOutput)
+}
+
+func (i RegistryRecordHttpDescriptorArgs) ToRegistryRecordHttpDescriptorPtrOutput() RegistryRecordHttpDescriptorPtrOutput {
+	return i.ToRegistryRecordHttpDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordHttpDescriptorArgs) ToRegistryRecordHttpDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordHttpDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordHttpDescriptorOutput).ToRegistryRecordHttpDescriptorPtrOutputWithContext(ctx)
+}
+
+// RegistryRecordHttpDescriptorPtrInput is an input type that accepts RegistryRecordHttpDescriptorArgs, RegistryRecordHttpDescriptorPtr and RegistryRecordHttpDescriptorPtrOutput values.
+// You can construct a concrete instance of `RegistryRecordHttpDescriptorPtrInput` via:
+//
+//	        RegistryRecordHttpDescriptorArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryRecordHttpDescriptorPtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordHttpDescriptorPtrOutput() RegistryRecordHttpDescriptorPtrOutput
+	ToRegistryRecordHttpDescriptorPtrOutputWithContext(context.Context) RegistryRecordHttpDescriptorPtrOutput
+}
+
+type registryRecordHttpDescriptorPtrType RegistryRecordHttpDescriptorArgs
+
+func RegistryRecordHttpDescriptorPtr(v *RegistryRecordHttpDescriptorArgs) RegistryRecordHttpDescriptorPtrInput {
+	return (*registryRecordHttpDescriptorPtrType)(v)
+}
+
+func (*registryRecordHttpDescriptorPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordHttpDescriptor)(nil)).Elem()
+}
+
+func (i *registryRecordHttpDescriptorPtrType) ToRegistryRecordHttpDescriptorPtrOutput() RegistryRecordHttpDescriptorPtrOutput {
+	return i.ToRegistryRecordHttpDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (i *registryRecordHttpDescriptorPtrType) ToRegistryRecordHttpDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordHttpDescriptorPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordHttpDescriptorPtrOutput)
+}
+
+// The HTTP descriptor, populated for records detected from an HTTP protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+type RegistryRecordHttpDescriptorOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordHttpDescriptorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordHttpDescriptor)(nil)).Elem()
+}
+
+func (o RegistryRecordHttpDescriptorOutput) ToRegistryRecordHttpDescriptorOutput() RegistryRecordHttpDescriptorOutput {
+	return o
+}
+
+func (o RegistryRecordHttpDescriptorOutput) ToRegistryRecordHttpDescriptorOutputWithContext(ctx context.Context) RegistryRecordHttpDescriptorOutput {
+	return o
+}
+
+func (o RegistryRecordHttpDescriptorOutput) ToRegistryRecordHttpDescriptorPtrOutput() RegistryRecordHttpDescriptorPtrOutput {
+	return o.ToRegistryRecordHttpDescriptorPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordHttpDescriptorOutput) ToRegistryRecordHttpDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordHttpDescriptorPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordHttpDescriptor) *RegistryRecordHttpDescriptor {
+		return &v
+	}).(RegistryRecordHttpDescriptorPtrOutput)
+}
+
+func (o RegistryRecordHttpDescriptorOutput) Source() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o.ApplyT(func(v RegistryRecordHttpDescriptor) *RegistryRecordSourceOnlyDescriptorSource { return v.Source }).(RegistryRecordSourceOnlyDescriptorSourcePtrOutput)
+}
+
+type RegistryRecordHttpDescriptorPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordHttpDescriptorPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordHttpDescriptor)(nil)).Elem()
+}
+
+func (o RegistryRecordHttpDescriptorPtrOutput) ToRegistryRecordHttpDescriptorPtrOutput() RegistryRecordHttpDescriptorPtrOutput {
+	return o
+}
+
+func (o RegistryRecordHttpDescriptorPtrOutput) ToRegistryRecordHttpDescriptorPtrOutputWithContext(ctx context.Context) RegistryRecordHttpDescriptorPtrOutput {
+	return o
+}
+
+func (o RegistryRecordHttpDescriptorPtrOutput) Elem() RegistryRecordHttpDescriptorOutput {
+	return o.ApplyT(func(v *RegistryRecordHttpDescriptor) RegistryRecordHttpDescriptor {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordHttpDescriptor
+		return ret
+	}).(RegistryRecordHttpDescriptorOutput)
+}
+
+func (o RegistryRecordHttpDescriptorPtrOutput) Source() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o.ApplyT(func(v *RegistryRecordHttpDescriptor) *RegistryRecordSourceOnlyDescriptorSource {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(RegistryRecordSourceOnlyDescriptorSourcePtrOutput)
 }
 
 // IAM credential provider configuration.
@@ -3389,6 +3691,284 @@ func (o RegistryRecordSkillMdSourceFromUrlPtrOutput) Url() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Source configuration for a source-only descriptor. Unlike mcpServer/a2aAgentCard sources, source-only descriptors do not support credential providers.
+type RegistryRecordSourceOnlyDescriptorSource struct {
+	FromUrl *RegistryRecordSourceOnlyDescriptorSourceFromUrl `pulumi:"fromUrl"`
+}
+
+// RegistryRecordSourceOnlyDescriptorSourceInput is an input type that accepts RegistryRecordSourceOnlyDescriptorSourceArgs and RegistryRecordSourceOnlyDescriptorSourceOutput values.
+// You can construct a concrete instance of `RegistryRecordSourceOnlyDescriptorSourceInput` via:
+//
+//	RegistryRecordSourceOnlyDescriptorSourceArgs{...}
+type RegistryRecordSourceOnlyDescriptorSourceInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSourceOnlyDescriptorSourceOutput() RegistryRecordSourceOnlyDescriptorSourceOutput
+	ToRegistryRecordSourceOnlyDescriptorSourceOutputWithContext(context.Context) RegistryRecordSourceOnlyDescriptorSourceOutput
+}
+
+// Source configuration for a source-only descriptor. Unlike mcpServer/a2aAgentCard sources, source-only descriptors do not support credential providers.
+type RegistryRecordSourceOnlyDescriptorSourceArgs struct {
+	FromUrl RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput `pulumi:"fromUrl"`
+}
+
+func (RegistryRecordSourceOnlyDescriptorSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSource)(nil)).Elem()
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceArgs) ToRegistryRecordSourceOnlyDescriptorSourceOutput() RegistryRecordSourceOnlyDescriptorSourceOutput {
+	return i.ToRegistryRecordSourceOnlyDescriptorSourceOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceArgs) ToRegistryRecordSourceOnlyDescriptorSourceOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSourceOnlyDescriptorSourceOutput)
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceArgs) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutput() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return i.ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceArgs) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSourceOnlyDescriptorSourceOutput).ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(ctx)
+}
+
+// RegistryRecordSourceOnlyDescriptorSourcePtrInput is an input type that accepts RegistryRecordSourceOnlyDescriptorSourceArgs, RegistryRecordSourceOnlyDescriptorSourcePtr and RegistryRecordSourceOnlyDescriptorSourcePtrOutput values.
+// You can construct a concrete instance of `RegistryRecordSourceOnlyDescriptorSourcePtrInput` via:
+//
+//	        RegistryRecordSourceOnlyDescriptorSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryRecordSourceOnlyDescriptorSourcePtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSourceOnlyDescriptorSourcePtrOutput() RegistryRecordSourceOnlyDescriptorSourcePtrOutput
+	ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(context.Context) RegistryRecordSourceOnlyDescriptorSourcePtrOutput
+}
+
+type registryRecordSourceOnlyDescriptorSourcePtrType RegistryRecordSourceOnlyDescriptorSourceArgs
+
+func RegistryRecordSourceOnlyDescriptorSourcePtr(v *RegistryRecordSourceOnlyDescriptorSourceArgs) RegistryRecordSourceOnlyDescriptorSourcePtrInput {
+	return (*registryRecordSourceOnlyDescriptorSourcePtrType)(v)
+}
+
+func (*registryRecordSourceOnlyDescriptorSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordSourceOnlyDescriptorSource)(nil)).Elem()
+}
+
+func (i *registryRecordSourceOnlyDescriptorSourcePtrType) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutput() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return i.ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *registryRecordSourceOnlyDescriptorSourcePtrType) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSourceOnlyDescriptorSourcePtrOutput)
+}
+
+// Source configuration for a source-only descriptor. Unlike mcpServer/a2aAgentCard sources, source-only descriptors do not support credential providers.
+type RegistryRecordSourceOnlyDescriptorSourceOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSourceOnlyDescriptorSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSource)(nil)).Elem()
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceOutput) ToRegistryRecordSourceOnlyDescriptorSourceOutput() RegistryRecordSourceOnlyDescriptorSourceOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceOutput) ToRegistryRecordSourceOnlyDescriptorSourceOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceOutput) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutput() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o.ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceOutput) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordSourceOnlyDescriptorSource) *RegistryRecordSourceOnlyDescriptorSource {
+		return &v
+	}).(RegistryRecordSourceOnlyDescriptorSourcePtrOutput)
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceOutput) FromUrl() RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return o.ApplyT(func(v RegistryRecordSourceOnlyDescriptorSource) *RegistryRecordSourceOnlyDescriptorSourceFromUrl {
+		return v.FromUrl
+	}).(RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput)
+}
+
+type RegistryRecordSourceOnlyDescriptorSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSourceOnlyDescriptorSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordSourceOnlyDescriptorSource)(nil)).Elem()
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourcePtrOutput) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutput() RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourcePtrOutput) ToRegistryRecordSourceOnlyDescriptorSourcePtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourcePtrOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourcePtrOutput) Elem() RegistryRecordSourceOnlyDescriptorSourceOutput {
+	return o.ApplyT(func(v *RegistryRecordSourceOnlyDescriptorSource) RegistryRecordSourceOnlyDescriptorSource {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordSourceOnlyDescriptorSource
+		return ret
+	}).(RegistryRecordSourceOnlyDescriptorSourceOutput)
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourcePtrOutput) FromUrl() RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordSourceOnlyDescriptorSource) *RegistryRecordSourceOnlyDescriptorSourceFromUrl {
+		if v == nil {
+			return nil
+		}
+		return v.FromUrl
+	}).(RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput)
+}
+
+// URL-based source configuration for a source-only descriptor.
+type RegistryRecordSourceOnlyDescriptorSourceFromUrl struct {
+	// URL source for descriptor content.
+	Url string `pulumi:"url"`
+}
+
+// RegistryRecordSourceOnlyDescriptorSourceFromUrlInput is an input type that accepts RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs and RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput values.
+// You can construct a concrete instance of `RegistryRecordSourceOnlyDescriptorSourceFromUrlInput` via:
+//
+//	RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{...}
+type RegistryRecordSourceOnlyDescriptorSourceFromUrlInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSourceOnlyDescriptorSourceFromUrlOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput
+	ToRegistryRecordSourceOnlyDescriptorSourceFromUrlOutputWithContext(context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput
+}
+
+// URL-based source configuration for a source-only descriptor.
+type RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs struct {
+	// URL source for descriptor content.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrl)(nil)).Elem()
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput {
+	return i.ToRegistryRecordSourceOnlyDescriptorSourceFromUrlOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput)
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return i.ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(context.Background())
+}
+
+func (i RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput).ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(ctx)
+}
+
+// RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput is an input type that accepts RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs, RegistryRecordSourceOnlyDescriptorSourceFromUrlPtr and RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput values.
+// You can construct a concrete instance of `RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput` via:
+//
+//	        RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{...}
+//
+//	or:
+//
+//	        nil
+type RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput interface {
+	pulumi.Input
+
+	ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput
+	ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput
+}
+
+type registryRecordSourceOnlyDescriptorSourceFromUrlPtrType RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs
+
+func RegistryRecordSourceOnlyDescriptorSourceFromUrlPtr(v *RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs) RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput {
+	return (*registryRecordSourceOnlyDescriptorSourceFromUrlPtrType)(v)
+}
+
+func (*registryRecordSourceOnlyDescriptorSourceFromUrlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordSourceOnlyDescriptorSourceFromUrl)(nil)).Elem()
+}
+
+func (i *registryRecordSourceOnlyDescriptorSourceFromUrlPtrType) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return i.ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(context.Background())
+}
+
+func (i *registryRecordSourceOnlyDescriptorSourceFromUrlPtrType) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput)
+}
+
+// URL-based source configuration for a source-only descriptor.
+type RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrl)(nil)).Elem()
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return o.ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(context.Background())
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RegistryRecordSourceOnlyDescriptorSourceFromUrl) *RegistryRecordSourceOnlyDescriptorSourceFromUrl {
+		return &v
+	}).(RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput)
+}
+
+// URL source for descriptor content.
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v RegistryRecordSourceOnlyDescriptorSourceFromUrl) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput struct{ *pulumi.OutputState }
+
+func (RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RegistryRecordSourceOnlyDescriptorSourceFromUrl)(nil)).Elem()
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput() RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput) ToRegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutputWithContext(ctx context.Context) RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput {
+	return o
+}
+
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput) Elem() RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput {
+	return o.ApplyT(func(v *RegistryRecordSourceOnlyDescriptorSourceFromUrl) RegistryRecordSourceOnlyDescriptorSourceFromUrl {
+		if v != nil {
+			return *v
+		}
+		var ret RegistryRecordSourceOnlyDescriptorSourceFromUrl
+		return ret
+	}).(RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput)
+}
+
+// URL source for descriptor content.
+func (o RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput) Url() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryRecordSourceOnlyDescriptorSourceFromUrl) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Url
+	}).(pulumi.StringPtrOutput)
+}
+
 // A tag to assign to the registry record.
 type RegistryRecordTag struct {
 	// The key of the tag.
@@ -3420,6 +4000,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryDiscoveryConfigurationPtrInput)(nil)).Elem(), RegistryDiscoveryConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordA2aAgentCardDescriptorInput)(nil)).Elem(), RegistryRecordA2aAgentCardDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordA2aAgentCardDescriptorPtrInput)(nil)).Elem(), RegistryRecordA2aAgentCardDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgUiDescriptorInput)(nil)).Elem(), RegistryRecordAgUiDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgUiDescriptorPtrInput)(nil)).Elem(), RegistryRecordAgUiDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsAdditionalDataInput)(nil)).Elem(), RegistryRecordAgentSkillsAdditionalDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsAdditionalDataPtrInput)(nil)).Elem(), RegistryRecordAgentSkillsAdditionalDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordAgentSkillsDefinitionDescriptorInput)(nil)).Elem(), RegistryRecordAgentSkillsDefinitionDescriptorArgs{})
@@ -3436,6 +4018,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordDescriptorSourceFromUrlInput)(nil)).Elem(), RegistryRecordDescriptorSourceFromUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordDescriptorSourceFromUrlPtrInput)(nil)).Elem(), RegistryRecordDescriptorSourceFromUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordDescriptorsInput)(nil)).Elem(), RegistryRecordDescriptorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordHttpDescriptorInput)(nil)).Elem(), RegistryRecordHttpDescriptorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordHttpDescriptorPtrInput)(nil)).Elem(), RegistryRecordHttpDescriptorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordIamCredentialProviderInput)(nil)).Elem(), RegistryRecordIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordIamCredentialProviderPtrInput)(nil)).Elem(), RegistryRecordIamCredentialProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordMcpServerAdditionalDataInput)(nil)).Elem(), RegistryRecordMcpServerAdditionalDataArgs{})
@@ -3450,6 +4034,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillMdSourcePtrInput)(nil)).Elem(), RegistryRecordSkillMdSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillMdSourceFromUrlInput)(nil)).Elem(), RegistryRecordSkillMdSourceFromUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSkillMdSourceFromUrlPtrInput)(nil)).Elem(), RegistryRecordSkillMdSourceFromUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourcePtrInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrlInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrInput)(nil)).Elem(), RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationOutput{})
 	pulumi.RegisterOutputType(RegistryApprovalConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryAuthorizerConfigurationOutput{})
@@ -3464,6 +4052,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryDiscoveryConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordA2aAgentCardDescriptorOutput{})
 	pulumi.RegisterOutputType(RegistryRecordA2aAgentCardDescriptorPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordAgUiDescriptorOutput{})
+	pulumi.RegisterOutputType(RegistryRecordAgUiDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordAgentSkillsAdditionalDataOutput{})
 	pulumi.RegisterOutputType(RegistryRecordAgentSkillsAdditionalDataPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordAgentSkillsDefinitionDescriptorOutput{})
@@ -3481,6 +4071,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRecordDescriptorSourceFromUrlPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordDescriptorsOutput{})
 	pulumi.RegisterOutputType(RegistryRecordDescriptorsPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordHttpDescriptorOutput{})
+	pulumi.RegisterOutputType(RegistryRecordHttpDescriptorPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordIamCredentialProviderOutput{})
 	pulumi.RegisterOutputType(RegistryRecordIamCredentialProviderPtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordMcpServerAdditionalDataOutput{})
@@ -3495,4 +4087,8 @@ func init() {
 	pulumi.RegisterOutputType(RegistryRecordSkillMdSourcePtrOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSkillMdSourceFromUrlOutput{})
 	pulumi.RegisterOutputType(RegistryRecordSkillMdSourceFromUrlPtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourcePtrOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceFromUrlOutput{})
+	pulumi.RegisterOutputType(RegistryRecordSourceOnlyDescriptorSourceFromUrlPtrOutput{})
 }

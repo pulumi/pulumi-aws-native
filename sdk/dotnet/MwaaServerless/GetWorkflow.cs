@@ -57,6 +57,8 @@ namespace Pulumi.AwsNative.MwaaServerless
     [OutputType]
     public sealed class GetWorkflowResult
     {
+        public readonly Outputs.WorkflowCode? Code;
+        public readonly string? CodeSnapshottedAt;
         public readonly string? CreatedAt;
         public readonly Outputs.WorkflowS3Location? DefinitionS3Location;
         public readonly string? Description;
@@ -73,6 +75,10 @@ namespace Pulumi.AwsNative.MwaaServerless
 
         [OutputConstructor]
         private GetWorkflowResult(
+            Outputs.WorkflowCode? code,
+
+            string? codeSnapshottedAt,
+
             string? createdAt,
 
             Outputs.WorkflowS3Location? definitionS3Location,
@@ -99,6 +105,8 @@ namespace Pulumi.AwsNative.MwaaServerless
 
             string? workflowVersion)
         {
+            Code = code;
+            CodeSnapshottedAt = codeSnapshottedAt;
             CreatedAt = createdAt;
             DefinitionS3Location = definitionS3Location;
             Description = description;

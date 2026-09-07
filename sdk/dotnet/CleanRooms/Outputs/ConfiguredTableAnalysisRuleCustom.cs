@@ -14,8 +14,10 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     public sealed class ConfiguredTableAnalysisRuleCustom
     {
         public readonly Pulumi.AwsNative.CleanRooms.ConfiguredTableAdditionalAnalyses? AdditionalAnalyses;
+        public readonly ImmutableArray<Outputs.ConfiguredTableAggregationThreshold> AggregationThresholds;
         public readonly ImmutableArray<string> AllowedAnalyses;
         public readonly ImmutableArray<string> AllowedAnalysisProviders;
+        public readonly Outputs.ConfiguredTableComparisonControls? ComparisonControls;
         public readonly Outputs.ConfiguredTableDifferentialPrivacy? DifferentialPrivacy;
         public readonly ImmutableArray<string> DisallowedOutputColumns;
 
@@ -23,17 +25,23 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         private ConfiguredTableAnalysisRuleCustom(
             Pulumi.AwsNative.CleanRooms.ConfiguredTableAdditionalAnalyses? additionalAnalyses,
 
+            ImmutableArray<Outputs.ConfiguredTableAggregationThreshold> aggregationThresholds,
+
             ImmutableArray<string> allowedAnalyses,
 
             ImmutableArray<string> allowedAnalysisProviders,
+
+            Outputs.ConfiguredTableComparisonControls? comparisonControls,
 
             Outputs.ConfiguredTableDifferentialPrivacy? differentialPrivacy,
 
             ImmutableArray<string> disallowedOutputColumns)
         {
             AdditionalAnalyses = additionalAnalyses;
+            AggregationThresholds = aggregationThresholds;
             AllowedAnalyses = allowedAnalyses;
             AllowedAnalysisProviders = allowedAnalysisProviders;
+            ComparisonControls = comparisonControls;
             DifferentialPrivacy = differentialPrivacy;
             DisallowedOutputColumns = disallowedOutputColumns;
         }

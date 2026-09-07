@@ -25,7 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetWorkflowResult:
-    def __init__(__self__, created_at=None, definition_s3_location=None, description=None, logging_configuration=None, modified_at=None, network_configuration=None, role_arn=None, schedule_configuration=None, tags=None, trigger_mode=None, workflow_arn=None, workflow_status=None, workflow_version=None):
+    def __init__(__self__, code=None, code_snapshotted_at=None, created_at=None, definition_s3_location=None, description=None, logging_configuration=None, modified_at=None, network_configuration=None, role_arn=None, schedule_configuration=None, tags=None, trigger_mode=None, workflow_arn=None, workflow_status=None, workflow_version=None):
+        if code and not isinstance(code, dict):
+            raise TypeError("Expected argument 'code' to be a dict")
+        pulumi.set(__self__, "code", code)
+        if code_snapshotted_at and not isinstance(code_snapshotted_at, str):
+            raise TypeError("Expected argument 'code_snapshotted_at' to be a str")
+        pulumi.set(__self__, "code_snapshotted_at", code_snapshotted_at)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -65,6 +71,16 @@ class GetWorkflowResult:
         if workflow_version and not isinstance(workflow_version, str):
             raise TypeError("Expected argument 'workflow_version' to be a str")
         pulumi.set(__self__, "workflow_version", workflow_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional['outputs.WorkflowCode']:
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter(name="codeSnapshottedAt")
+    def code_snapshotted_at(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "code_snapshotted_at")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -138,6 +154,8 @@ class AwaitableGetWorkflowResult(GetWorkflowResult):
         if False:
             yield self
         return GetWorkflowResult(
+            code=self.code,
+            code_snapshotted_at=self.code_snapshotted_at,
             created_at=self.created_at,
             definition_s3_location=self.definition_s3_location,
             description=self.description,
@@ -164,6 +182,8 @@ def get_workflow(workflow_arn: Optional[_builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('aws-native:mwaaserverless:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult).value
 
     return AwaitableGetWorkflowResult(
+        code=pulumi.get(__ret__, 'code'),
+        code_snapshotted_at=pulumi.get(__ret__, 'code_snapshotted_at'),
         created_at=pulumi.get(__ret__, 'created_at'),
         definition_s3_location=pulumi.get(__ret__, 'definition_s3_location'),
         description=pulumi.get(__ret__, 'description'),
@@ -187,6 +207,8 @@ def get_workflow_output(workflow_arn: pulumi.Input[Optional[_builtins.str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:mwaaserverless:getWorkflow', __args__, opts=opts, typ=GetWorkflowResult)
     return __ret__.apply(lambda __response__: GetWorkflowResult(
+        code=pulumi.get(__response__, 'code'),
+        code_snapshotted_at=pulumi.get(__response__, 'code_snapshotted_at'),
         created_at=pulumi.get(__response__, 'created_at'),
         definition_s3_location=pulumi.get(__response__, 'definition_s3_location'),
         description=pulumi.get(__response__, 'description'),

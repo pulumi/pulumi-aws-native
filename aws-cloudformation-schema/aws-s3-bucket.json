@@ -1318,7 +1318,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "enum" : [ "Size", "LastModifiedDate", "StorageClass", "ETag", "IsMultipartUploaded", "ReplicationStatus", "EncryptionStatus", "ObjectLockRetainUntilDate", "ObjectLockMode", "ObjectLockLegalHoldStatus", "ObjectLockEventHoldStatus", "ObjectLockEventHoldDuration", "IntelligentTieringAccessTier", "BucketKeyStatus", "ChecksumAlgorithm", "ObjectAccessControlList", "ObjectOwner", "LifecycleExpirationDate" ]
+            "enum" : [ "Size", "LastModifiedDate", "StorageClass", "ETag", "IsMultipartUploaded", "ReplicationStatus", "EncryptionStatus", "ObjectLockRetainUntilDate", "ObjectLockMode", "ObjectLockLegalHoldStatus", "IntelligentTieringAccessTier", "BucketKeyStatus", "ChecksumAlgorithm", "ObjectAccessControlList", "ObjectOwner", "LifecycleExpirationDate" ]
           }
         },
         "IncludedObjectVersions" : {

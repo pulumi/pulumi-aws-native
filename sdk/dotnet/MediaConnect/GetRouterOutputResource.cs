@@ -72,6 +72,7 @@ namespace Pulumi.AwsNative.MediaConnect
         /// The timestamp when the router output was created.
         /// </summary>
         public readonly string? CreatedAt;
+        public readonly Outputs.RouterOutputResourceFabricConfiguration? FabricConfiguration;
         /// <summary>
         /// The unique identifier of the router output.
         /// </summary>
@@ -133,6 +134,8 @@ namespace Pulumi.AwsNative.MediaConnect
 
             string? createdAt,
 
+            Outputs.RouterOutputResourceFabricConfiguration? fabricConfiguration,
+
             string? id,
 
             string? ipAddress,
@@ -162,6 +165,7 @@ namespace Pulumi.AwsNative.MediaConnect
             Arn = arn;
             Configuration = configuration;
             CreatedAt = createdAt;
+            FabricConfiguration = fabricConfiguration;
             Id = id;
             IpAddress = ipAddress;
             MaintenanceConfiguration = maintenanceConfiguration;

@@ -81,3 +81,13 @@ export const ExperimentDefinitionStatus = {
  * Current status.
  */
 export type ExperimentDefinitionStatus = (typeof ExperimentDefinitionStatus)[keyof typeof ExperimentDefinitionStatus];
+
+export const ExperimentRunStatus = {
+    Running: "RUNNING",
+    Done: "DONE",
+} as const;
+
+/**
+ * Current status of the run.
+ */
+export type ExperimentRunStatus = (typeof ExperimentRunStatus)[keyof typeof ExperimentRunStatus];

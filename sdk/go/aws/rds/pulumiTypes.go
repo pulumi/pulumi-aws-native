@@ -993,7 +993,9 @@ type DbInstanceAdditionalStorageVolume struct {
 	// The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
 	Iops *int `pulumi:"iops"`
 	// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
-	MaxAllocatedStorage *int `pulumi:"maxAllocatedStorage"`
+	MaxAllocatedStorage             *int    `pulumi:"maxAllocatedStorage"`
+	StorageOperationPercentProgress *int    `pulumi:"storageOperationPercentProgress"`
+	StorageOperationStatus          *string `pulumi:"storageOperationStatus"`
 	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
 	StorageThroughput *int `pulumi:"storageThroughput"`
 	// The storage type for the additional storage volume.
@@ -1022,7 +1024,9 @@ type DbInstanceAdditionalStorageVolumeArgs struct {
 	// The number of I/O operations per second (IOPS) provisioned for the additional storage volume.
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
-	MaxAllocatedStorage pulumi.IntPtrInput `pulumi:"maxAllocatedStorage"`
+	MaxAllocatedStorage             pulumi.IntPtrInput    `pulumi:"maxAllocatedStorage"`
+	StorageOperationPercentProgress pulumi.IntPtrInput    `pulumi:"storageOperationPercentProgress"`
+	StorageOperationStatus          pulumi.StringPtrInput `pulumi:"storageOperationStatus"`
 	// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
 	StorageThroughput pulumi.IntPtrInput `pulumi:"storageThroughput"`
 	// The storage type for the additional storage volume.
@@ -1098,6 +1102,14 @@ func (o DbInstanceAdditionalStorageVolumeOutput) Iops() pulumi.IntPtrOutput {
 // The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
 func (o DbInstanceAdditionalStorageVolumeOutput) MaxAllocatedStorage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *int { return v.MaxAllocatedStorage }).(pulumi.IntPtrOutput)
+}
+
+func (o DbInstanceAdditionalStorageVolumeOutput) StorageOperationPercentProgress() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *int { return v.StorageOperationPercentProgress }).(pulumi.IntPtrOutput)
+}
+
+func (o DbInstanceAdditionalStorageVolumeOutput) StorageOperationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DbInstanceAdditionalStorageVolume) *string { return v.StorageOperationStatus }).(pulumi.StringPtrOutput)
 }
 
 // The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (“gp3“) storage type.

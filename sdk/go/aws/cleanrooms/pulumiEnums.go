@@ -2464,6 +2464,169 @@ func (in *configuredTableAggregateFunctionNamePtr) ToConfiguredTableAggregateFun
 	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAggregateFunctionNamePtrOutput)
 }
 
+type ConfiguredTableAggregationThresholdType string
+
+const (
+	ConfiguredTableAggregationThresholdTypeCountDistinct = ConfiguredTableAggregationThresholdType("COUNT_DISTINCT")
+)
+
+func (ConfiguredTableAggregationThresholdType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationThresholdType)(nil)).Elem()
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToConfiguredTableAggregationThresholdTypeOutput() ConfiguredTableAggregationThresholdTypeOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableAggregationThresholdTypeOutput)
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToConfiguredTableAggregationThresholdTypeOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableAggregationThresholdTypeOutput)
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToConfiguredTableAggregationThresholdTypePtrOutput() ConfiguredTableAggregationThresholdTypePtrOutput {
+	return e.ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdTypePtrOutput {
+	return ConfiguredTableAggregationThresholdType(e).ToConfiguredTableAggregationThresholdTypeOutputWithContext(ctx).ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAggregationThresholdType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableAggregationThresholdTypeOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationThresholdTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationThresholdType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToConfiguredTableAggregationThresholdTypeOutput() ConfiguredTableAggregationThresholdTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToConfiguredTableAggregationThresholdTypeOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToConfiguredTableAggregationThresholdTypePtrOutput() ConfiguredTableAggregationThresholdTypePtrOutput {
+	return o.ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableAggregationThresholdType) *ConfiguredTableAggregationThresholdType {
+		return &v
+	}).(ConfiguredTableAggregationThresholdTypePtrOutput)
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAggregationThresholdType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationThresholdTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAggregationThresholdType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableAggregationThresholdTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationThresholdTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableAggregationThresholdType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationThresholdTypePtrOutput) ToConfiguredTableAggregationThresholdTypePtrOutput() ConfiguredTableAggregationThresholdTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdTypePtrOutput) ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdTypePtrOutput) Elem() ConfiguredTableAggregationThresholdTypeOutput {
+	return o.ApplyT(func(v *ConfiguredTableAggregationThresholdType) ConfiguredTableAggregationThresholdType {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableAggregationThresholdType
+		return ret
+	}).(ConfiguredTableAggregationThresholdTypeOutput)
+}
+
+func (o ConfiguredTableAggregationThresholdTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAggregationThresholdTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableAggregationThresholdType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableAggregationThresholdTypeInput is an input type that accepts values of the ConfiguredTableAggregationThresholdType enum
+// A concrete instance of `ConfiguredTableAggregationThresholdTypeInput` can be one of the following:
+//
+//	ConfiguredTableAggregationThresholdTypeCountDistinct
+type ConfiguredTableAggregationThresholdTypeInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationThresholdTypeOutput() ConfiguredTableAggregationThresholdTypeOutput
+	ToConfiguredTableAggregationThresholdTypeOutputWithContext(context.Context) ConfiguredTableAggregationThresholdTypeOutput
+}
+
+var configuredTableAggregationThresholdTypePtrType = reflect.TypeOf((**ConfiguredTableAggregationThresholdType)(nil)).Elem()
+
+type ConfiguredTableAggregationThresholdTypePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationThresholdTypePtrOutput() ConfiguredTableAggregationThresholdTypePtrOutput
+	ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(context.Context) ConfiguredTableAggregationThresholdTypePtrOutput
+}
+
+type configuredTableAggregationThresholdTypePtr string
+
+func ConfiguredTableAggregationThresholdTypePtr(v string) ConfiguredTableAggregationThresholdTypePtrInput {
+	return (*configuredTableAggregationThresholdTypePtr)(&v)
+}
+
+func (*configuredTableAggregationThresholdTypePtr) ElementType() reflect.Type {
+	return configuredTableAggregationThresholdTypePtrType
+}
+
+func (in *configuredTableAggregationThresholdTypePtr) ToConfiguredTableAggregationThresholdTypePtrOutput() ConfiguredTableAggregationThresholdTypePtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableAggregationThresholdTypePtrOutput)
+}
+
+func (in *configuredTableAggregationThresholdTypePtr) ToConfiguredTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAggregationThresholdTypePtrOutput)
+}
+
 type ConfiguredTableAggregationType string
 
 const (
@@ -2625,6 +2788,171 @@ func (in *configuredTableAggregationTypePtr) ToConfiguredTableAggregationTypePtr
 
 func (in *configuredTableAggregationTypePtr) ToConfiguredTableAggregationTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAggregationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAggregationTypePtrOutput)
+}
+
+type ConfiguredTableAllowedAggregateExpressionType string
+
+const (
+	ConfiguredTableAllowedAggregateExpressionTypeColumnsOnly   = ConfiguredTableAllowedAggregateExpressionType("COLUMNS_ONLY")
+	ConfiguredTableAllowedAggregateExpressionTypeAnyExpression = ConfiguredTableAllowedAggregateExpressionType("ANY_EXPRESSION")
+)
+
+func (ConfiguredTableAllowedAggregateExpressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAllowedAggregateExpressionType)(nil)).Elem()
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToConfiguredTableAllowedAggregateExpressionTypeOutput() ConfiguredTableAllowedAggregateExpressionTypeOutput {
+	return pulumi.ToOutput(e).(ConfiguredTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToConfiguredTableAllowedAggregateExpressionTypeOutputWithContext(ctx context.Context) ConfiguredTableAllowedAggregateExpressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConfiguredTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToConfiguredTableAllowedAggregateExpressionTypePtrOutput() ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return e.ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return ConfiguredTableAllowedAggregateExpressionType(e).ToConfiguredTableAllowedAggregateExpressionTypeOutputWithContext(ctx).ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx)
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConfiguredTableAllowedAggregateExpressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConfiguredTableAllowedAggregateExpressionTypeOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAllowedAggregateExpressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAllowedAggregateExpressionType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToConfiguredTableAllowedAggregateExpressionTypeOutput() ConfiguredTableAllowedAggregateExpressionTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToConfiguredTableAllowedAggregateExpressionTypeOutputWithContext(ctx context.Context) ConfiguredTableAllowedAggregateExpressionTypeOutput {
+	return o
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToConfiguredTableAllowedAggregateExpressionTypePtrOutput() ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return o.ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableAllowedAggregateExpressionType) *ConfiguredTableAllowedAggregateExpressionType {
+		return &v
+	}).(ConfiguredTableAllowedAggregateExpressionTypePtrOutput)
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAllowedAggregateExpressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConfiguredTableAllowedAggregateExpressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableAllowedAggregateExpressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAllowedAggregateExpressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableAllowedAggregateExpressionType)(nil)).Elem()
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypePtrOutput) ToConfiguredTableAllowedAggregateExpressionTypePtrOutput() ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypePtrOutput) ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return o
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypePtrOutput) Elem() ConfiguredTableAllowedAggregateExpressionTypeOutput {
+	return o.ApplyT(func(v *ConfiguredTableAllowedAggregateExpressionType) ConfiguredTableAllowedAggregateExpressionType {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableAllowedAggregateExpressionType
+		return ret
+	}).(ConfiguredTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableAllowedAggregateExpressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConfiguredTableAllowedAggregateExpressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConfiguredTableAllowedAggregateExpressionTypeInput is an input type that accepts values of the ConfiguredTableAllowedAggregateExpressionType enum
+// A concrete instance of `ConfiguredTableAllowedAggregateExpressionTypeInput` can be one of the following:
+//
+//	ConfiguredTableAllowedAggregateExpressionTypeColumnsOnly
+//	ConfiguredTableAllowedAggregateExpressionTypeAnyExpression
+type ConfiguredTableAllowedAggregateExpressionTypeInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAllowedAggregateExpressionTypeOutput() ConfiguredTableAllowedAggregateExpressionTypeOutput
+	ToConfiguredTableAllowedAggregateExpressionTypeOutputWithContext(context.Context) ConfiguredTableAllowedAggregateExpressionTypeOutput
+}
+
+var configuredTableAllowedAggregateExpressionTypePtrType = reflect.TypeOf((**ConfiguredTableAllowedAggregateExpressionType)(nil)).Elem()
+
+type ConfiguredTableAllowedAggregateExpressionTypePtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAllowedAggregateExpressionTypePtrOutput() ConfiguredTableAllowedAggregateExpressionTypePtrOutput
+	ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(context.Context) ConfiguredTableAllowedAggregateExpressionTypePtrOutput
+}
+
+type configuredTableAllowedAggregateExpressionTypePtr string
+
+func ConfiguredTableAllowedAggregateExpressionTypePtr(v string) ConfiguredTableAllowedAggregateExpressionTypePtrInput {
+	return (*configuredTableAllowedAggregateExpressionTypePtr)(&v)
+}
+
+func (*configuredTableAllowedAggregateExpressionTypePtr) ElementType() reflect.Type {
+	return configuredTableAllowedAggregateExpressionTypePtrType
+}
+
+func (in *configuredTableAllowedAggregateExpressionTypePtr) ToConfiguredTableAllowedAggregateExpressionTypePtrOutput() ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return pulumi.ToOutput(in).(ConfiguredTableAllowedAggregateExpressionTypePtrOutput)
+}
+
+func (in *configuredTableAllowedAggregateExpressionTypePtr) ToConfiguredTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) ConfiguredTableAllowedAggregateExpressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConfiguredTableAllowedAggregateExpressionTypePtrOutput)
 }
 
 type ConfiguredTableAnalysisMethod string
@@ -4539,6 +4867,334 @@ func (in *intermediateTableAdditionalAnalysesPtr) ToIntermediateTableAdditionalA
 	return pulumi.ToOutputWithContext(ctx, in).(IntermediateTableAdditionalAnalysesPtrOutput)
 }
 
+type IntermediateTableAggregationThresholdType string
+
+const (
+	IntermediateTableAggregationThresholdTypeCountDistinct = IntermediateTableAggregationThresholdType("COUNT_DISTINCT")
+)
+
+func (IntermediateTableAggregationThresholdType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAggregationThresholdType)(nil)).Elem()
+}
+
+func (e IntermediateTableAggregationThresholdType) ToIntermediateTableAggregationThresholdTypeOutput() IntermediateTableAggregationThresholdTypeOutput {
+	return pulumi.ToOutput(e).(IntermediateTableAggregationThresholdTypeOutput)
+}
+
+func (e IntermediateTableAggregationThresholdType) ToIntermediateTableAggregationThresholdTypeOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntermediateTableAggregationThresholdTypeOutput)
+}
+
+func (e IntermediateTableAggregationThresholdType) ToIntermediateTableAggregationThresholdTypePtrOutput() IntermediateTableAggregationThresholdTypePtrOutput {
+	return e.ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAggregationThresholdType) ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdTypePtrOutput {
+	return IntermediateTableAggregationThresholdType(e).ToIntermediateTableAggregationThresholdTypeOutputWithContext(ctx).ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(ctx)
+}
+
+func (e IntermediateTableAggregationThresholdType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAggregationThresholdType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAggregationThresholdType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAggregationThresholdType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntermediateTableAggregationThresholdTypeOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAggregationThresholdTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAggregationThresholdType)(nil)).Elem()
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToIntermediateTableAggregationThresholdTypeOutput() IntermediateTableAggregationThresholdTypeOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToIntermediateTableAggregationThresholdTypeOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdTypeOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToIntermediateTableAggregationThresholdTypePtrOutput() IntermediateTableAggregationThresholdTypePtrOutput {
+	return o.ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTableAggregationThresholdType) *IntermediateTableAggregationThresholdType {
+		return &v
+	}).(IntermediateTableAggregationThresholdTypePtrOutput)
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAggregationThresholdType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAggregationThresholdTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAggregationThresholdType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntermediateTableAggregationThresholdTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAggregationThresholdTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableAggregationThresholdType)(nil)).Elem()
+}
+
+func (o IntermediateTableAggregationThresholdTypePtrOutput) ToIntermediateTableAggregationThresholdTypePtrOutput() IntermediateTableAggregationThresholdTypePtrOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdTypePtrOutput) ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdTypePtrOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdTypePtrOutput) Elem() IntermediateTableAggregationThresholdTypeOutput {
+	return o.ApplyT(func(v *IntermediateTableAggregationThresholdType) IntermediateTableAggregationThresholdType {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTableAggregationThresholdType
+		return ret
+	}).(IntermediateTableAggregationThresholdTypeOutput)
+}
+
+func (o IntermediateTableAggregationThresholdTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAggregationThresholdTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntermediateTableAggregationThresholdType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntermediateTableAggregationThresholdTypeInput is an input type that accepts values of the IntermediateTableAggregationThresholdType enum
+// A concrete instance of `IntermediateTableAggregationThresholdTypeInput` can be one of the following:
+//
+//	IntermediateTableAggregationThresholdTypeCountDistinct
+type IntermediateTableAggregationThresholdTypeInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAggregationThresholdTypeOutput() IntermediateTableAggregationThresholdTypeOutput
+	ToIntermediateTableAggregationThresholdTypeOutputWithContext(context.Context) IntermediateTableAggregationThresholdTypeOutput
+}
+
+var intermediateTableAggregationThresholdTypePtrType = reflect.TypeOf((**IntermediateTableAggregationThresholdType)(nil)).Elem()
+
+type IntermediateTableAggregationThresholdTypePtrInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAggregationThresholdTypePtrOutput() IntermediateTableAggregationThresholdTypePtrOutput
+	ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(context.Context) IntermediateTableAggregationThresholdTypePtrOutput
+}
+
+type intermediateTableAggregationThresholdTypePtr string
+
+func IntermediateTableAggregationThresholdTypePtr(v string) IntermediateTableAggregationThresholdTypePtrInput {
+	return (*intermediateTableAggregationThresholdTypePtr)(&v)
+}
+
+func (*intermediateTableAggregationThresholdTypePtr) ElementType() reflect.Type {
+	return intermediateTableAggregationThresholdTypePtrType
+}
+
+func (in *intermediateTableAggregationThresholdTypePtr) ToIntermediateTableAggregationThresholdTypePtrOutput() IntermediateTableAggregationThresholdTypePtrOutput {
+	return pulumi.ToOutput(in).(IntermediateTableAggregationThresholdTypePtrOutput)
+}
+
+func (in *intermediateTableAggregationThresholdTypePtr) ToIntermediateTableAggregationThresholdTypePtrOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntermediateTableAggregationThresholdTypePtrOutput)
+}
+
+type IntermediateTableAllowedAggregateExpressionType string
+
+const (
+	IntermediateTableAllowedAggregateExpressionTypeColumnsOnly   = IntermediateTableAllowedAggregateExpressionType("COLUMNS_ONLY")
+	IntermediateTableAllowedAggregateExpressionTypeAnyExpression = IntermediateTableAllowedAggregateExpressionType("ANY_EXPRESSION")
+)
+
+func (IntermediateTableAllowedAggregateExpressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAllowedAggregateExpressionType)(nil)).Elem()
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToIntermediateTableAllowedAggregateExpressionTypeOutput() IntermediateTableAllowedAggregateExpressionTypeOutput {
+	return pulumi.ToOutput(e).(IntermediateTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToIntermediateTableAllowedAggregateExpressionTypeOutputWithContext(ctx context.Context) IntermediateTableAllowedAggregateExpressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(IntermediateTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToIntermediateTableAllowedAggregateExpressionTypePtrOutput() IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return e.ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return IntermediateTableAllowedAggregateExpressionType(e).ToIntermediateTableAllowedAggregateExpressionTypeOutputWithContext(ctx).ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx)
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e IntermediateTableAllowedAggregateExpressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type IntermediateTableAllowedAggregateExpressionTypeOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAllowedAggregateExpressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAllowedAggregateExpressionType)(nil)).Elem()
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToIntermediateTableAllowedAggregateExpressionTypeOutput() IntermediateTableAllowedAggregateExpressionTypeOutput {
+	return o
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToIntermediateTableAllowedAggregateExpressionTypeOutputWithContext(ctx context.Context) IntermediateTableAllowedAggregateExpressionTypeOutput {
+	return o
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToIntermediateTableAllowedAggregateExpressionTypePtrOutput() IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return o.ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTableAllowedAggregateExpressionType) *IntermediateTableAllowedAggregateExpressionType {
+		return &v
+	}).(IntermediateTableAllowedAggregateExpressionTypePtrOutput)
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAllowedAggregateExpressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e IntermediateTableAllowedAggregateExpressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type IntermediateTableAllowedAggregateExpressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAllowedAggregateExpressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableAllowedAggregateExpressionType)(nil)).Elem()
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypePtrOutput) ToIntermediateTableAllowedAggregateExpressionTypePtrOutput() IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return o
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypePtrOutput) ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return o
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypePtrOutput) Elem() IntermediateTableAllowedAggregateExpressionTypeOutput {
+	return o.ApplyT(func(v *IntermediateTableAllowedAggregateExpressionType) IntermediateTableAllowedAggregateExpressionType {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTableAllowedAggregateExpressionType
+		return ret
+	}).(IntermediateTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableAllowedAggregateExpressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *IntermediateTableAllowedAggregateExpressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// IntermediateTableAllowedAggregateExpressionTypeInput is an input type that accepts values of the IntermediateTableAllowedAggregateExpressionType enum
+// A concrete instance of `IntermediateTableAllowedAggregateExpressionTypeInput` can be one of the following:
+//
+//	IntermediateTableAllowedAggregateExpressionTypeColumnsOnly
+//	IntermediateTableAllowedAggregateExpressionTypeAnyExpression
+type IntermediateTableAllowedAggregateExpressionTypeInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAllowedAggregateExpressionTypeOutput() IntermediateTableAllowedAggregateExpressionTypeOutput
+	ToIntermediateTableAllowedAggregateExpressionTypeOutputWithContext(context.Context) IntermediateTableAllowedAggregateExpressionTypeOutput
+}
+
+var intermediateTableAllowedAggregateExpressionTypePtrType = reflect.TypeOf((**IntermediateTableAllowedAggregateExpressionType)(nil)).Elem()
+
+type IntermediateTableAllowedAggregateExpressionTypePtrInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAllowedAggregateExpressionTypePtrOutput() IntermediateTableAllowedAggregateExpressionTypePtrOutput
+	ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(context.Context) IntermediateTableAllowedAggregateExpressionTypePtrOutput
+}
+
+type intermediateTableAllowedAggregateExpressionTypePtr string
+
+func IntermediateTableAllowedAggregateExpressionTypePtr(v string) IntermediateTableAllowedAggregateExpressionTypePtrInput {
+	return (*intermediateTableAllowedAggregateExpressionTypePtr)(&v)
+}
+
+func (*intermediateTableAllowedAggregateExpressionTypePtr) ElementType() reflect.Type {
+	return intermediateTableAllowedAggregateExpressionTypePtrType
+}
+
+func (in *intermediateTableAllowedAggregateExpressionTypePtr) ToIntermediateTableAllowedAggregateExpressionTypePtrOutput() IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return pulumi.ToOutput(in).(IntermediateTableAllowedAggregateExpressionTypePtrOutput)
+}
+
+func (in *intermediateTableAllowedAggregateExpressionTypePtr) ToIntermediateTableAllowedAggregateExpressionTypePtrOutputWithContext(ctx context.Context) IntermediateTableAllowedAggregateExpressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(IntermediateTableAllowedAggregateExpressionTypePtrOutput)
+}
+
 type IntermediateTableAnalysisRuleType string
 
 const (
@@ -5992,8 +6648,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAdditionalAnalysesPtrInput)(nil)).Elem(), ConfiguredTableAdditionalAnalyses("ALLOWED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateFunctionNameInput)(nil)).Elem(), ConfiguredTableAggregateFunctionName("SUM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateFunctionNamePtrInput)(nil)).Elem(), ConfiguredTableAggregateFunctionName("SUM"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationThresholdTypeInput)(nil)).Elem(), ConfiguredTableAggregationThresholdType("COUNT_DISTINCT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationThresholdTypePtrInput)(nil)).Elem(), ConfiguredTableAggregationThresholdType("COUNT_DISTINCT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationTypeInput)(nil)).Elem(), ConfiguredTableAggregationType("COUNT_DISTINCT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationTypePtrInput)(nil)).Elem(), ConfiguredTableAggregationType("COUNT_DISTINCT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAllowedAggregateExpressionTypeInput)(nil)).Elem(), ConfiguredTableAllowedAggregateExpressionType("COLUMNS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAllowedAggregateExpressionTypePtrInput)(nil)).Elem(), ConfiguredTableAllowedAggregateExpressionType("COLUMNS_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisMethodInput)(nil)).Elem(), ConfiguredTableAnalysisMethod("DIRECT_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisMethodPtrInput)(nil)).Elem(), ConfiguredTableAnalysisMethod("DIRECT_QUERY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleTypeInput)(nil)).Elem(), ConfiguredTableAnalysisRuleType("AGGREGATION"))
@@ -6015,6 +6675,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSelectedAnalysisMethodArrayInput)(nil)).Elem(), ConfiguredTableSelectedAnalysisMethodArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAdditionalAnalysesInput)(nil)).Elem(), IntermediateTableAdditionalAnalyses("ALLOWED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAdditionalAnalysesPtrInput)(nil)).Elem(), IntermediateTableAdditionalAnalyses("ALLOWED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAggregationThresholdTypeInput)(nil)).Elem(), IntermediateTableAggregationThresholdType("COUNT_DISTINCT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAggregationThresholdTypePtrInput)(nil)).Elem(), IntermediateTableAggregationThresholdType("COUNT_DISTINCT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAllowedAggregateExpressionTypeInput)(nil)).Elem(), IntermediateTableAllowedAggregateExpressionType("COLUMNS_ONLY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAllowedAggregateExpressionTypePtrInput)(nil)).Elem(), IntermediateTableAllowedAggregateExpressionType("COLUMNS_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleTypeInput)(nil)).Elem(), IntermediateTableAnalysisRuleType("CUSTOM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleTypePtrInput)(nil)).Elem(), IntermediateTableAnalysisRuleType("CUSTOM"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MembershipJobLogStatusInput)(nil)).Elem(), MembershipJobLogStatus("ENABLED"))
@@ -6061,8 +6725,12 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAdditionalAnalysesPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateFunctionNameOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregateFunctionNamePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationThresholdTypeOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationThresholdTypePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregationTypeOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregationTypePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAllowedAggregateExpressionTypeOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAllowedAggregateExpressionTypePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisMethodOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisMethodPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleTypeOutput{})
@@ -6088,6 +6756,10 @@ func init() {
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesIdNamespaceTypePtrOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAdditionalAnalysesOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAdditionalAnalysesPtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAggregationThresholdTypeOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAggregationThresholdTypePtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAllowedAggregateExpressionTypeOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAllowedAggregateExpressionTypePtrOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleTypeOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleTypePtrOutput{})
 	pulumi.RegisterOutputType(IntermediateTableStatusOutput{})

@@ -405,7 +405,7 @@
       "properties" : {
         "Size" : {
           "description" : "The size of the function's ``/tmp`` directory.",
-          "maximum" : 10240,
+          "maximum" : 32768,
           "type" : "integer",
           "minimum" : 512
         }

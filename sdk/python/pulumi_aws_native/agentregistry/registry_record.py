@@ -26,25 +26,24 @@ class RegistryRecordArgs:
     def __init__(__self__, *,
                  descriptors: pulumi.Input['RegistryRecordDescriptorsArgs'],
                  record_type: pulumi.Input['RegistryRecordRecordType'],
-                 registry_id: pulumi.Input[_builtins.str],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  record_version: pulumi.Input[Optional[_builtins.str]] = None,
+                 registry_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a RegistryRecord resource.
 
-        :param pulumi.Input[_builtins.str] registry_id: The identifier of the registry containing the record.
         :param pulumi.Input[_builtins.str] description: The description of the registry record.
         :param pulumi.Input[_builtins.str] display_name: The human-readable display name of the registry record.
         :param pulumi.Input[_builtins.str] name: The name of the registry record.
         :param pulumi.Input[_builtins.str] record_version: The version of the registry record.
+        :param pulumi.Input[_builtins.str] registry_id: The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: Tags to assign to the registry record.
         """
         pulumi.set(__self__, "descriptors", descriptors)
         pulumi.set(__self__, "record_type", record_type)
-        pulumi.set(__self__, "registry_id", registry_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
@@ -53,6 +52,8 @@ class RegistryRecordArgs:
             pulumi.set(__self__, "name", name)
         if record_version is not None:
             pulumi.set(__self__, "record_version", record_version)
+        if registry_id is not None:
+            pulumi.set(__self__, "registry_id", registry_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -73,18 +74,6 @@ class RegistryRecordArgs:
     @record_type.setter
     def record_type(self, value: pulumi.Input['RegistryRecordRecordType']):
         pulumi.set(self, "record_type", value)
-
-    @_builtins.property
-    @pulumi.getter(name="registryId")
-    def registry_id(self) -> pulumi.Input[_builtins.str]:
-        """
-        The identifier of the registry containing the record.
-        """
-        return pulumi.get(self, "registry_id")
-
-    @registry_id.setter
-    def registry_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "registry_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -135,6 +124,18 @@ class RegistryRecordArgs:
         pulumi.set(self, "record_version", value)
 
     @_builtins.property
+    @pulumi.getter(name="registryId")
+    def registry_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
+        """
+        return pulumi.get(self, "registry_id")
+
+    @registry_id.setter
+    def registry_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "registry_id", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -171,7 +172,7 @@ class RegistryRecord(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] display_name: The human-readable display name of the registry record.
         :param pulumi.Input[_builtins.str] name: The name of the registry record.
         :param pulumi.Input[_builtins.str] record_version: The version of the registry record.
-        :param pulumi.Input[_builtins.str] registry_id: The identifier of the registry containing the record.
+        :param pulumi.Input[_builtins.str] registry_id: The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the registry record.
         """
         ...
@@ -225,11 +226,10 @@ class RegistryRecord(pulumi.CustomResource):
                 raise TypeError("Missing required property 'record_type'")
             __props__.__dict__["record_type"] = record_type
             __props__.__dict__["record_version"] = record_version
-            if registry_id is None and not opts.urn:
-                raise TypeError("Missing required property 'registry_id'")
             __props__.__dict__["registry_id"] = registry_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["created_by"] = None
             __props__.__dict__["record_arn"] = None
             __props__.__dict__["record_id"] = None
             __props__.__dict__["registry_arn"] = None
@@ -260,6 +260,7 @@ class RegistryRecord(pulumi.CustomResource):
         __props__ = RegistryRecordArgs.__new__(RegistryRecordArgs)
 
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["created_by"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["descriptors"] = None
         __props__.__dict__["display_name"] = None
@@ -282,6 +283,14 @@ class RegistryRecord(pulumi.CustomResource):
         The timestamp when the registry record was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> pulumi.Output[_builtins.str]:
+        """
+        The identifier of the AWS account that created the registry record.
+        """
+        return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
@@ -351,9 +360,9 @@ class RegistryRecord(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="registryId")
-    def registry_id(self) -> pulumi.Output[_builtins.str]:
+    def registry_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The identifier of the registry containing the record.
+        The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
         """
         return pulumi.get(self, "registry_id")
 

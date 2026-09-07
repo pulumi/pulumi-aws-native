@@ -15,6 +15,14 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
         [Input("additionalAnalyses")]
         public Input<Pulumi.AwsNative.CleanRooms.IntermediateTableAdditionalAnalyses>? AdditionalAnalyses { get; set; }
 
+        [Input("aggregationThresholds")]
+        private InputList<Inputs.IntermediateTableAggregationThresholdArgs>? _aggregationThresholds;
+        public InputList<Inputs.IntermediateTableAggregationThresholdArgs> AggregationThresholds
+        {
+            get => _aggregationThresholds ?? (_aggregationThresholds = new InputList<Inputs.IntermediateTableAggregationThresholdArgs>());
+            set => _aggregationThresholds = value;
+        }
+
         [Input("allowedAnalyses", required: true)]
         private InputList<string>? _allowedAnalyses;
         public InputList<string> AllowedAnalyses
@@ -38,6 +46,9 @@ namespace Pulumi.AwsNative.CleanRooms.Inputs
             get => _allowedResultReceivers ?? (_allowedResultReceivers = new InputList<string>());
             set => _allowedResultReceivers = value;
         }
+
+        [Input("comparisonControls")]
+        public Input<Inputs.IntermediateTableComparisonControlsArgs>? ComparisonControls { get; set; }
 
         [Input("differentialPrivacy")]
         public Input<Inputs.IntermediateTableDifferentialPrivacyArgs>? DifferentialPrivacy { get; set; }

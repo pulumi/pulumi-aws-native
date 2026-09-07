@@ -75,6 +75,11 @@ export const getReplicationSubnetGroup: typeof import("./getReplicationSubnetGro
 export const getReplicationSubnetGroupOutput: typeof import("./getReplicationSubnetGroup").getReplicationSubnetGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getReplicationSubnetGroup","getReplicationSubnetGroupOutput"], () => require("./getReplicationSubnetGroup"));
 
+export { GetReplicationTaskArgs, GetReplicationTaskResult, GetReplicationTaskOutputArgs } from "./getReplicationTask";
+export const getReplicationTask: typeof import("./getReplicationTask").getReplicationTask = null as any;
+export const getReplicationTaskOutput: typeof import("./getReplicationTask").getReplicationTaskOutput = null as any;
+utilities.lazyLoad(exports, ["getReplicationTask","getReplicationTaskOutput"], () => require("./getReplicationTask"));
+
 export { InstanceProfileArgs } from "./instanceProfile";
 export type InstanceProfile = import("./instanceProfile").InstanceProfile;
 export const InstanceProfile: typeof import("./instanceProfile").InstanceProfile = null as any;
@@ -94,6 +99,11 @@ export { ReplicationSubnetGroupArgs } from "./replicationSubnetGroup";
 export type ReplicationSubnetGroup = import("./replicationSubnetGroup").ReplicationSubnetGroup;
 export const ReplicationSubnetGroup: typeof import("./replicationSubnetGroup").ReplicationSubnetGroup = null as any;
 utilities.lazyLoad(exports, ["ReplicationSubnetGroup"], () => require("./replicationSubnetGroup"));
+
+export { ReplicationTaskArgs } from "./replicationTask";
+export type ReplicationTask = import("./replicationTask").ReplicationTask;
+export const ReplicationTask: typeof import("./replicationTask").ReplicationTask = null as any;
+utilities.lazyLoad(exports, ["ReplicationTask"], () => require("./replicationTask"));
 
 
 // Export enums:
@@ -121,6 +131,8 @@ const _module = {
                 return new ReplicationConfig(name, <any>undefined, { urn })
             case "aws-native:dms:ReplicationSubnetGroup":
                 return new ReplicationSubnetGroup(name, <any>undefined, { urn })
+            case "aws-native:dms:ReplicationTask":
+                return new ReplicationTask(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

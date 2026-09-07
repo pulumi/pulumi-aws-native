@@ -16,6 +16,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationStatusCheckHealthCheckPathArgs',
+    'ApplicationStatusCheckHealthCheckPathArgsDict',
+    'ApplicationStatusCheckHealthCheckPathDestinationArgs',
+    'ApplicationStatusCheckHealthCheckPathDestinationArgsDict',
+    'ApplicationStatusCheckHealthCheckPathSourceArgs',
+    'ApplicationStatusCheckHealthCheckPathSourceArgsDict',
     'CapacityReservationFleetInstanceTypeSpecificationArgs',
     'CapacityReservationFleetInstanceTypeSpecificationArgsDict',
     'CapacityReservationFleetTagArgs',
@@ -46,6 +52,8 @@ __all__ = [
     'Ec2FleetCapacityRebalanceArgsDict',
     'Ec2FleetCapacityReservationOptionsRequestArgs',
     'Ec2FleetCapacityReservationOptionsRequestArgsDict',
+    'Ec2FleetCapacityReservationTargetRequestArgs',
+    'Ec2FleetCapacityReservationTargetRequestArgsDict',
     'Ec2FleetCpuPerformanceFactorRequestArgs',
     'Ec2FleetCpuPerformanceFactorRequestArgsDict',
     'Ec2FleetEbsBlockDeviceArgs',
@@ -84,6 +92,8 @@ __all__ = [
     'Ec2FleetPlacementArgsDict',
     'Ec2FleetPrivateIpAddressSpecificationRequestArgs',
     'Ec2FleetPrivateIpAddressSpecificationRequestArgsDict',
+    'Ec2FleetReservedCapacityFallbackOptionsRequestArgs',
+    'Ec2FleetReservedCapacityFallbackOptionsRequestArgsDict',
     'Ec2FleetReservedCapacityOptionsRequestArgs',
     'Ec2FleetReservedCapacityOptionsRequestArgsDict',
     'Ec2FleetSpotOptionsRequestArgs',
@@ -433,6 +443,105 @@ __all__ = [
     'VpnConnectionVpnTunnelOptionsSpecificationArgs',
     'VpnConnectionVpnTunnelOptionsSpecificationArgsDict',
 ]
+
+class ApplicationStatusCheckHealthCheckPathArgsDict(TypedDict):
+    destinations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationStatusCheckHealthCheckPathDestinationArgsDict']]]]]
+    source: NotRequired[pulumi.Input[Optional['ApplicationStatusCheckHealthCheckPathSourceArgsDict']]]
+
+@pulumi.input_type
+class ApplicationStatusCheckHealthCheckPathArgs:
+    def __init__(__self__, *,
+                 destinations: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationStatusCheckHealthCheckPathDestinationArgs']]]] = None,
+                 source: pulumi.Input[Optional['ApplicationStatusCheckHealthCheckPathSourceArgs']] = None):
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationStatusCheckHealthCheckPathDestinationArgs']]]]:
+        return pulumi.get(self, "destinations")
+
+    @destinations.setter
+    def destinations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationStatusCheckHealthCheckPathDestinationArgs']]]]):
+        pulumi.set(self, "destinations", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['ApplicationStatusCheckHealthCheckPathSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['ApplicationStatusCheckHealthCheckPathSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
+class ApplicationStatusCheckHealthCheckPathDestinationArgsDict(TypedDict):
+    security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ApplicationStatusCheckHealthCheckPathDestinationArgs:
+    def __init__(__self__, *,
+                 security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+
+class ApplicationStatusCheckHealthCheckPathSourceArgsDict(TypedDict):
+    security_group_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    subnet_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class ApplicationStatusCheckHealthCheckPathSourceArgs:
+    def __init__(__self__, *,
+                 security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 subnet_id: pulumi.Input[Optional[_builtins.str]] = None):
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "security_group_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
 
 class CapacityReservationFleetInstanceTypeSpecificationArgsDict(TypedDict):
     availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
@@ -1353,6 +1462,39 @@ class Ec2FleetCapacityReservationOptionsRequestArgs:
     @usage_strategy.setter
     def usage_strategy(self, value: pulumi.Input[Optional['Ec2FleetCapacityReservationOptionsRequestUsageStrategy']]):
         pulumi.set(self, "usage_strategy", value)
+
+
+class Ec2FleetCapacityReservationTargetRequestArgsDict(TypedDict):
+    capacity_reservation_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    capacity_reservation_resource_group_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class Ec2FleetCapacityReservationTargetRequestArgs:
+    def __init__(__self__, *,
+                 capacity_reservation_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 capacity_reservation_resource_group_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        if capacity_reservation_ids is not None:
+            pulumi.set(__self__, "capacity_reservation_ids", capacity_reservation_ids)
+        if capacity_reservation_resource_group_arns is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arns", capacity_reservation_resource_group_arns)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationIds")
+    def capacity_reservation_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "capacity_reservation_ids")
+
+    @capacity_reservation_ids.setter
+    def capacity_reservation_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "capacity_reservation_ids", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationResourceGroupArns")
+    def capacity_reservation_resource_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arns")
+
+    @capacity_reservation_resource_group_arns.setter
+    def capacity_reservation_resource_group_arns(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "capacity_reservation_resource_group_arns", value)
 
 
 class Ec2FleetCpuPerformanceFactorRequestArgsDict(TypedDict):
@@ -4112,15 +4254,65 @@ class Ec2FleetPrivateIpAddressSpecificationRequestArgs:
         pulumi.set(self, "private_ip_address", value)
 
 
+class Ec2FleetReservedCapacityFallbackOptionsRequestArgsDict(TypedDict):
+    market_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem']]]]]
+
+@pulumi.input_type
+class Ec2FleetReservedCapacityFallbackOptionsRequestArgs:
+    def __init__(__self__, *,
+                 market_types: pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem']]]] = None):
+        if market_types is not None:
+            pulumi.set(__self__, "market_types", market_types)
+
+    @_builtins.property
+    @pulumi.getter(name="marketTypes")
+    def market_types(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem']]]]:
+        return pulumi.get(self, "market_types")
+
+    @market_types.setter
+    def market_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem']]]]):
+        pulumi.set(self, "market_types", value)
+
+
 class Ec2FleetReservedCapacityOptionsRequestArgsDict(TypedDict):
+    allocation_strategy: NotRequired[pulumi.Input[Optional['Ec2FleetReservedCapacityOptionsRequestAllocationStrategy']]]
+    capacity_reservation_target: NotRequired[pulumi.Input[Optional['Ec2FleetCapacityReservationTargetRequestArgsDict']]]
     reservation_types: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]]]
+    reserved_capacity_fallback_options: NotRequired[pulumi.Input[Optional['Ec2FleetReservedCapacityFallbackOptionsRequestArgsDict']]]
 
 @pulumi.input_type
 class Ec2FleetReservedCapacityOptionsRequestArgs:
     def __init__(__self__, *,
-                 reservation_types: pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]] = None):
+                 allocation_strategy: pulumi.Input[Optional['Ec2FleetReservedCapacityOptionsRequestAllocationStrategy']] = None,
+                 capacity_reservation_target: pulumi.Input[Optional['Ec2FleetCapacityReservationTargetRequestArgs']] = None,
+                 reservation_types: pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]] = None,
+                 reserved_capacity_fallback_options: pulumi.Input[Optional['Ec2FleetReservedCapacityFallbackOptionsRequestArgs']] = None):
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
         if reservation_types is not None:
             pulumi.set(__self__, "reservation_types", reservation_types)
+        if reserved_capacity_fallback_options is not None:
+            pulumi.set(__self__, "reserved_capacity_fallback_options", reserved_capacity_fallback_options)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> pulumi.Input[Optional['Ec2FleetReservedCapacityOptionsRequestAllocationStrategy']]:
+        return pulumi.get(self, "allocation_strategy")
+
+    @allocation_strategy.setter
+    def allocation_strategy(self, value: pulumi.Input[Optional['Ec2FleetReservedCapacityOptionsRequestAllocationStrategy']]):
+        pulumi.set(self, "allocation_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> pulumi.Input[Optional['Ec2FleetCapacityReservationTargetRequestArgs']]:
+        return pulumi.get(self, "capacity_reservation_target")
+
+    @capacity_reservation_target.setter
+    def capacity_reservation_target(self, value: pulumi.Input[Optional['Ec2FleetCapacityReservationTargetRequestArgs']]):
+        pulumi.set(self, "capacity_reservation_target", value)
 
     @_builtins.property
     @pulumi.getter(name="reservationTypes")
@@ -4130,6 +4322,15 @@ class Ec2FleetReservedCapacityOptionsRequestArgs:
     @reservation_types.setter
     def reservation_types(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]]]):
         pulumi.set(self, "reservation_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reservedCapacityFallbackOptions")
+    def reserved_capacity_fallback_options(self) -> pulumi.Input[Optional['Ec2FleetReservedCapacityFallbackOptionsRequestArgs']]:
+        return pulumi.get(self, "reserved_capacity_fallback_options")
+
+    @reserved_capacity_fallback_options.setter
+    def reserved_capacity_fallback_options(self, value: pulumi.Input[Optional['Ec2FleetReservedCapacityFallbackOptionsRequestArgs']]):
+        pulumi.set(self, "reserved_capacity_fallback_options", value)
 
 
 class Ec2FleetSpotOptionsRequestArgsDict(TypedDict):

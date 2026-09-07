@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.AgentRegistry
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
+        /// The identifier of the AWS account that created the registry record.
+        /// </summary>
+        public readonly string? CreatedBy;
+        /// <summary>
         /// The description of the registry record.
         /// </summary>
         public readonly string? Description;
@@ -110,6 +114,8 @@ namespace Pulumi.AwsNative.AgentRegistry
         private GetRegistryRecordResult(
             string? createdAt,
 
+            string? createdBy,
+
             string? description,
 
             Outputs.RegistryRecordDescriptors? descriptors,
@@ -133,6 +139,7 @@ namespace Pulumi.AwsNative.AgentRegistry
             string? updatedAt)
         {
             CreatedAt = createdAt;
+            CreatedBy = createdBy;
             Description = description;
             Descriptors = descriptors;
             DisplayName = displayName;

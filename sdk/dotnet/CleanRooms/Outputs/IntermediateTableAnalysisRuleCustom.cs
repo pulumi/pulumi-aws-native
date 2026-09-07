@@ -14,9 +14,11 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
     public sealed class IntermediateTableAnalysisRuleCustom
     {
         public readonly Pulumi.AwsNative.CleanRooms.IntermediateTableAdditionalAnalyses? AdditionalAnalyses;
+        public readonly ImmutableArray<Outputs.IntermediateTableAggregationThreshold> AggregationThresholds;
         public readonly ImmutableArray<string> AllowedAnalyses;
         public readonly ImmutableArray<string> AllowedAnalysisProviders;
         public readonly ImmutableArray<string> AllowedResultReceivers;
+        public readonly Outputs.IntermediateTableComparisonControls? ComparisonControls;
         public readonly Outputs.IntermediateTableDifferentialPrivacy? DifferentialPrivacy;
         public readonly ImmutableArray<string> DisallowedOutputColumns;
 
@@ -24,20 +26,26 @@ namespace Pulumi.AwsNative.CleanRooms.Outputs
         private IntermediateTableAnalysisRuleCustom(
             Pulumi.AwsNative.CleanRooms.IntermediateTableAdditionalAnalyses? additionalAnalyses,
 
+            ImmutableArray<Outputs.IntermediateTableAggregationThreshold> aggregationThresholds,
+
             ImmutableArray<string> allowedAnalyses,
 
             ImmutableArray<string> allowedAnalysisProviders,
 
             ImmutableArray<string> allowedResultReceivers,
 
+            Outputs.IntermediateTableComparisonControls? comparisonControls,
+
             Outputs.IntermediateTableDifferentialPrivacy? differentialPrivacy,
 
             ImmutableArray<string> disallowedOutputColumns)
         {
             AdditionalAnalyses = additionalAnalyses;
+            AggregationThresholds = aggregationThresholds;
             AllowedAnalyses = allowedAnalyses;
             AllowedAnalysisProviders = allowedAnalysisProviders;
             AllowedResultReceivers = allowedResultReceivers;
+            ComparisonControls = comparisonControls;
             DifferentialPrivacy = differentialPrivacy;
             DisallowedOutputColumns = disallowedOutputColumns;
         }

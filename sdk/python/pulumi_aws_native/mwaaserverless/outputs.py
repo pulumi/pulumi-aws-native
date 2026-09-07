@@ -13,15 +13,100 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'WorkflowCode',
+    'WorkflowCodeS3Location',
     'WorkflowEncryptionConfiguration',
     'WorkflowLoggingConfiguration',
     'WorkflowNetworkConfiguration',
     'WorkflowS3Location',
     'WorkflowScheduleConfiguration',
 ]
+
+@pulumi.output_type
+class WorkflowCode(dict):
+    """
+    The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Location":
+            suggest = "s3_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowCode. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowCode.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowCode.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_location: Optional['outputs.WorkflowCodeS3Location'] = None):
+        """
+        The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+        """
+        if s3_location is not None:
+            pulumi.set(__self__, "s3_location", s3_location)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Location")
+    def s3_location(self) -> Optional['outputs.WorkflowCodeS3Location']:
+        return pulumi.get(self, "s3_location")
+
+
+@pulumi.output_type
+class WorkflowCodeS3Location(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "objectKey":
+            suggest = "object_key"
+        elif key == "versionId":
+            suggest = "version_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkflowCodeS3Location. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkflowCodeS3Location.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkflowCodeS3Location.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 object_key: _builtins.str,
+                 version_id: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "object_key", object_key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="objectKey")
+    def object_key(self) -> _builtins.str:
+        return pulumi.get(self, "object_key")
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "version_id")
+
 
 @pulumi.output_type
 class WorkflowEncryptionConfiguration(dict):

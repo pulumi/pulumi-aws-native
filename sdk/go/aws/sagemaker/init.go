@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Domain{}
 	case "aws-native:sagemaker:Endpoint":
 		r = &Endpoint{}
+	case "aws-native:sagemaker:EndpointConfig":
+		r = &EndpointConfig{}
 	case "aws-native:sagemaker:Experiment":
 		r = &Experiment{}
 	case "aws-native:sagemaker:ExperimentTrialComponent":
@@ -83,6 +85,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ModelQualityJobDefinition{}
 	case "aws-native:sagemaker:MonitoringSchedule":
 		r = &MonitoringSchedule{}
+	case "aws-native:sagemaker:NotebookInstance":
+		r = &NotebookInstance{}
 	case "aws-native:sagemaker:PartnerApp":
 		r = &PartnerApp{}
 	case "aws-native:sagemaker:Pipeline":

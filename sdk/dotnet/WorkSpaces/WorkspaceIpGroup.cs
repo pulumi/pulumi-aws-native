@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.WorkSpaces
 {
     /// <summary>
-    /// Resource type definition for an IP access control group for Amazon WorkSpaces.
+    /// Resource Type definition for an IP access control group for Amazon WorkSpaces.
     /// </summary>
     [AwsNativeResourceType("aws-native:workspaces:WorkspaceIpGroup")]
     public partial class WorkspaceIpGroup : global::Pulumi.CustomResource

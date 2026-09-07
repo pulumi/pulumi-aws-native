@@ -435,6 +435,8 @@ class DbInstanceAdditionalStorageVolumeArgsDict(TypedDict):
     """
     The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
     """
+    storage_operation_percent_progress: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    storage_operation_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     storage_throughput: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
     The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
@@ -456,6 +458,8 @@ class DbInstanceAdditionalStorageVolumeArgs:
                  allocated_storage: pulumi.Input[Optional[_builtins.str]] = None,
                  iops: pulumi.Input[Optional[_builtins.int]] = None,
                  max_allocated_storage: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_operation_percent_progress: pulumi.Input[Optional[_builtins.int]] = None,
+                 storage_operation_status: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_name: pulumi.Input[Optional[_builtins.str]] = None):
@@ -477,6 +481,10 @@ class DbInstanceAdditionalStorageVolumeArgs:
             pulumi.set(__self__, "iops", iops)
         if max_allocated_storage is not None:
             pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
+        if storage_operation_percent_progress is not None:
+            pulumi.set(__self__, "storage_operation_percent_progress", storage_operation_percent_progress)
+        if storage_operation_status is not None:
+            pulumi.set(__self__, "storage_operation_status", storage_operation_status)
         if storage_throughput is not None:
             pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type is not None:
@@ -519,6 +527,24 @@ class DbInstanceAdditionalStorageVolumeArgs:
     @max_allocated_storage.setter
     def max_allocated_storage(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "max_allocated_storage", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageOperationPercentProgress")
+    def storage_operation_percent_progress(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "storage_operation_percent_progress")
+
+    @storage_operation_percent_progress.setter
+    def storage_operation_percent_progress(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "storage_operation_percent_progress", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageOperationStatus")
+    def storage_operation_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "storage_operation_status")
+
+    @storage_operation_status.setter
+    def storage_operation_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "storage_operation_status", value)
 
     @_builtins.property
     @pulumi.getter(name="storageThroughput")

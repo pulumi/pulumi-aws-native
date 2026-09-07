@@ -35,6 +35,11 @@ export type ExperimentDefinition = import("./experimentDefinition").ExperimentDe
 export const ExperimentDefinition: typeof import("./experimentDefinition").ExperimentDefinition = null as any;
 utilities.lazyLoad(exports, ["ExperimentDefinition"], () => require("./experimentDefinition"));
 
+export { ExperimentRunArgs } from "./experimentRun";
+export type ExperimentRun = import("./experimentRun").ExperimentRun;
+export const ExperimentRun: typeof import("./experimentRun").ExperimentRun = null as any;
+utilities.lazyLoad(exports, ["ExperimentRun"], () => require("./experimentRun"));
+
 export { ExtensionArgs } from "./extension";
 export type Extension = import("./extension").Extension;
 export const Extension: typeof import("./extension").Extension = null as any;
@@ -74,6 +79,11 @@ export { GetExperimentDefinitionArgs, GetExperimentDefinitionResult, GetExperime
 export const getExperimentDefinition: typeof import("./getExperimentDefinition").getExperimentDefinition = null as any;
 export const getExperimentDefinitionOutput: typeof import("./getExperimentDefinition").getExperimentDefinitionOutput = null as any;
 utilities.lazyLoad(exports, ["getExperimentDefinition","getExperimentDefinitionOutput"], () => require("./getExperimentDefinition"));
+
+export { GetExperimentRunArgs, GetExperimentRunResult, GetExperimentRunOutputArgs } from "./getExperimentRun";
+export const getExperimentRun: typeof import("./getExperimentRun").getExperimentRun = null as any;
+export const getExperimentRunOutput: typeof import("./getExperimentRun").getExperimentRunOutput = null as any;
+utilities.lazyLoad(exports, ["getExperimentRun","getExperimentRunOutput"], () => require("./getExperimentRun"));
 
 export { GetExtensionArgs, GetExtensionResult, GetExtensionOutputArgs } from "./getExtension";
 export const getExtension: typeof import("./getExtension").getExtension = null as any;
@@ -115,6 +125,8 @@ const _module = {
                 return new Environment(name, <any>undefined, { urn })
             case "aws-native:appconfig:ExperimentDefinition":
                 return new ExperimentDefinition(name, <any>undefined, { urn })
+            case "aws-native:appconfig:ExperimentRun":
+                return new ExperimentRun(name, <any>undefined, { urn })
             case "aws-native:appconfig:Extension":
                 return new Extension(name, <any>undefined, { urn })
             case "aws-native:appconfig:ExtensionAssociation":

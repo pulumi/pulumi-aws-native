@@ -19,6 +19,8 @@ type TopicRuleDestination struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// HTTP URL destination properties.
 	HttpUrlProperties TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput `pulumi:"httpUrlProperties"`
+	// InfluxDB destination properties.
+	InfluxDbProperties TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput `pulumi:"influxDbProperties"`
 	// The status of the TopicRuleDestination.
 	Status TopicRuleDestinationStatusPtrOutput `pulumi:"status"`
 	// The reasoning for the current status of the TopicRuleDestination.
@@ -36,6 +38,7 @@ func NewTopicRuleDestination(ctx *pulumi.Context,
 
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"httpUrlProperties",
+		"influxDbProperties",
 		"vpcProperties",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -74,6 +77,8 @@ func (TopicRuleDestinationState) ElementType() reflect.Type {
 type topicRuleDestinationArgs struct {
 	// HTTP URL destination properties.
 	HttpUrlProperties *TopicRuleDestinationHttpUrlDestinationSummary `pulumi:"httpUrlProperties"`
+	// InfluxDB destination properties.
+	InfluxDbProperties *TopicRuleDestinationInfluxDbDestinationProperties `pulumi:"influxDbProperties"`
 	// The status of the TopicRuleDestination.
 	Status *TopicRuleDestinationStatus `pulumi:"status"`
 	// VPC destination properties.
@@ -84,6 +89,8 @@ type topicRuleDestinationArgs struct {
 type TopicRuleDestinationArgs struct {
 	// HTTP URL destination properties.
 	HttpUrlProperties TopicRuleDestinationHttpUrlDestinationSummaryPtrInput
+	// InfluxDB destination properties.
+	InfluxDbProperties TopicRuleDestinationInfluxDbDestinationPropertiesPtrInput
 	// The status of the TopicRuleDestination.
 	Status TopicRuleDestinationStatusPtrInput
 	// VPC destination properties.
@@ -137,6 +144,13 @@ func (o TopicRuleDestinationOutput) HttpUrlProperties() TopicRuleDestinationHttp
 	return o.ApplyT(func(v *TopicRuleDestination) TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput {
 		return v.HttpUrlProperties
 	}).(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput)
+}
+
+// InfluxDB destination properties.
+func (o TopicRuleDestinationOutput) InfluxDbProperties() TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestination) TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+		return v.InfluxDbProperties
+	}).(TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput)
 }
 
 // The status of the TopicRuleDestination.

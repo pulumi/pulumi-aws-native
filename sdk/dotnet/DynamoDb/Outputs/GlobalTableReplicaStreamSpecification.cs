@@ -21,11 +21,16 @@ namespace Pulumi.AwsNative.DynamoDb.Outputs
         /// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
         /// </summary>
         public readonly Outputs.GlobalTableResourcePolicy? ResourcePolicy;
+        public readonly ImmutableArray<Outputs.GlobalTableTag> Tags;
 
         [OutputConstructor]
-        private GlobalTableReplicaStreamSpecification(Outputs.GlobalTableResourcePolicy? resourcePolicy)
+        private GlobalTableReplicaStreamSpecification(
+            Outputs.GlobalTableResourcePolicy? resourcePolicy,
+
+            ImmutableArray<Outputs.GlobalTableTag> tags)
         {
             ResourcePolicy = resourcePolicy;
+            Tags = tags;
         }
     }
 }

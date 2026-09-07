@@ -54,6 +54,7 @@ export const RegistryRecordRecordType = {
     Agent: "AGENT",
     Skill: "SKILL",
     Custom: "CUSTOM",
+    Gateway: "GATEWAY",
 } as const;
 
 /**

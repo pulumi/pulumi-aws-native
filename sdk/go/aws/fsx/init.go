@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataRepositoryAssociation{}
 	case "aws-native:fsx:S3AccessPointAttachment":
 		r = &S3AccessPointAttachment{}
+	case "aws-native:fsx:Volume":
+		r = &Volume{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

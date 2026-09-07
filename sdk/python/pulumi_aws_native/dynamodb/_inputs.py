@@ -102,6 +102,8 @@ __all__ = [
     'TableSseSpecificationArgsDict',
     'TableStreamSpecificationArgs',
     'TableStreamSpecificationArgsDict',
+    'TableTagArgs',
+    'TableTagArgsDict',
     'TableTimeToLiveSpecificationArgs',
     'TableTimeToLiveSpecificationArgsDict',
     'TableWarmThroughputArgs',
@@ -1327,11 +1329,13 @@ class GlobalTableReplicaStreamSpecificationArgsDict(TypedDict):
 
     You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
     """
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgsDict']]]]]
 
 @pulumi.input_type
 class GlobalTableReplicaStreamSpecificationArgs:
     def __init__(__self__, *,
-                 resource_policy: pulumi.Input[Optional['GlobalTableResourcePolicyArgs']] = None):
+                 resource_policy: pulumi.Input[Optional['GlobalTableResourcePolicyArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgs']]]] = None):
         """
         :param pulumi.Input['GlobalTableResourcePolicyArgs'] resource_policy: A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
                
@@ -1341,6 +1345,8 @@ class GlobalTableReplicaStreamSpecificationArgs:
         """
         if resource_policy is not None:
             pulumi.set(__self__, "resource_policy", resource_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
@@ -1357,6 +1363,15 @@ class GlobalTableReplicaStreamSpecificationArgs:
     @resource_policy.setter
     def resource_policy(self, value: pulumi.Input[Optional['GlobalTableResourcePolicyArgs']]):
         pulumi.set(self, "resource_policy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['GlobalTableTagArgs']]]]):
+        pulumi.set(self, "tags", value)
 
 
 class GlobalTableResourcePolicyArgsDict(TypedDict):
@@ -2947,12 +2962,14 @@ class TableStreamSpecificationArgsDict(TypedDict):
       When you remove the ``StreamSpecification`` property from the template, DynamoDB disables the stream but retains any attached resource policy until the stream is deleted after 24 hours. When you modify the ``StreamViewType`` property, DynamoDB creates a new stream and retains the old stream's resource policy. The old stream and its resource policy are deleted after the 24-hour retention period.
       In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
     """
+    tags: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgsDict']]]]]
 
 @pulumi.input_type
 class TableStreamSpecificationArgs:
     def __init__(__self__, *,
                  stream_view_type: pulumi.Input[_builtins.str],
-                 resource_policy: pulumi.Input[Optional['TableResourcePolicyArgs']] = None):
+                 resource_policy: pulumi.Input[Optional['TableResourcePolicyArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         Represents the DynamoDB Streams configuration for a table in DynamoDB.
 
@@ -2968,6 +2985,8 @@ class TableStreamSpecificationArgs:
         pulumi.set(__self__, "stream_view_type", stream_view_type)
         if resource_policy is not None:
             pulumi.set(__self__, "resource_policy", resource_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="streamViewType")
@@ -2998,6 +3017,71 @@ class TableStreamSpecificationArgs:
     @resource_policy.setter
     def resource_policy(self, value: pulumi.Input[Optional['TableResourcePolicyArgs']]):
         pulumi.set(self, "resource_policy", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['TableTagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
+
+class TableTagArgsDict(TypedDict):
+    """
+    Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+     AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+     For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the tag. Tag values are case-sensitive and can be null.
+    """
+
+@pulumi.input_type
+class TableTagArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+         AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+         For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+
+        :param pulumi.Input[_builtins.str] key: The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        :param pulumi.Input[_builtins.str] value: The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
 
 
 class TableTimeToLiveSpecificationArgsDict(TypedDict):

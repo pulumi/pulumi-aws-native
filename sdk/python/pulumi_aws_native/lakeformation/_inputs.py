@@ -151,12 +151,23 @@ class DataCellsFilterRowFilterArgs:
 
 
 class PrincipalPermissionsCatalogResourceArgsDict(TypedDict):
-    pass
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
 
 @pulumi.input_type
 class PrincipalPermissionsCatalogResourceArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 class PrincipalPermissionsColumnWildcardArgsDict(TypedDict):

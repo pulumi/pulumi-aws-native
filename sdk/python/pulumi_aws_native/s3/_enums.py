@@ -208,8 +208,6 @@ class BucketInventoryConfigurationOptionalFieldsItem(_builtins.str, Enum):
     OBJECT_LOCK_RETAIN_UNTIL_DATE = "ObjectLockRetainUntilDate"
     OBJECT_LOCK_MODE = "ObjectLockMode"
     OBJECT_LOCK_LEGAL_HOLD_STATUS = "ObjectLockLegalHoldStatus"
-    OBJECT_LOCK_EVENT_HOLD_STATUS = "ObjectLockEventHoldStatus"
-    OBJECT_LOCK_EVENT_HOLD_DURATION = "ObjectLockEventHoldDuration"
     INTELLIGENT_TIERING_ACCESS_TIER = "IntelligentTieringAccessTier"
     BUCKET_KEY_STATUS = "BucketKeyStatus"
     CHECKSUM_ALGORITHM = "ChecksumAlgorithm"

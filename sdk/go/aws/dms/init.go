@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationConfig{}
 	case "aws-native:dms:ReplicationSubnetGroup":
 		r = &ReplicationSubnetGroup{}
+	case "aws-native:dms:ReplicationTask":
+		r = &ReplicationTask{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -101,6 +101,7 @@ __all__ = [
     'TopicRuleCloudwatchLogsAction',
     'TopicRuleCloudwatchMetricAction',
     'TopicRuleDestinationHttpUrlDestinationSummary',
+    'TopicRuleDestinationInfluxDbDestinationProperties',
     'TopicRuleDestinationVpcDestinationProperties',
     'TopicRuleDynamoDBv2Action',
     'TopicRuleDynamoDbAction',
@@ -109,6 +110,8 @@ __all__ = [
     'TopicRuleHttpAction',
     'TopicRuleHttpActionHeader',
     'TopicRuleHttpAuthorization',
+    'TopicRuleInfluxDbAction',
+    'TopicRuleInfluxDbBatchConfig',
     'TopicRuleIotAnalyticsAction',
     'TopicRuleIotEventsAction',
     'TopicRuleIotSiteWiseAction',
@@ -4174,6 +4177,8 @@ class TopicRuleAction(dict):
             suggest = "dynamo_d_bv2"
         elif key == "dynamoDb":
             suggest = "dynamo_db"
+        elif key == "influxDb":
+            suggest = "influx_db"
         elif key == "iotAnalytics":
             suggest = "iot_analytics"
         elif key == "iotEvents":
@@ -4207,6 +4212,7 @@ class TopicRuleAction(dict):
                  elasticsearch: Optional['outputs.TopicRuleElasticsearchAction'] = None,
                  firehose: Optional['outputs.TopicRuleFirehoseAction'] = None,
                  http: Optional['outputs.TopicRuleHttpAction'] = None,
+                 influx_db: Optional['outputs.TopicRuleInfluxDbAction'] = None,
                  iot_analytics: Optional['outputs.TopicRuleIotAnalyticsAction'] = None,
                  iot_events: Optional['outputs.TopicRuleIotEventsAction'] = None,
                  iot_site_wise: Optional['outputs.TopicRuleIotSiteWiseAction'] = None,
@@ -4263,6 +4269,8 @@ class TopicRuleAction(dict):
             pulumi.set(__self__, "firehose", firehose)
         if http is not None:
             pulumi.set(__self__, "http", http)
+        if influx_db is not None:
+            pulumi.set(__self__, "influx_db", influx_db)
         if iot_analytics is not None:
             pulumi.set(__self__, "iot_analytics", iot_analytics)
         if iot_events is not None:
@@ -4357,6 +4365,11 @@ class TopicRuleAction(dict):
         Send data to an HTTPS endpoint.
         """
         return pulumi.get(self, "http")
+
+    @_builtins.property
+    @pulumi.getter(name="influxDb")
+    def influx_db(self) -> Optional['outputs.TopicRuleInfluxDbAction']:
+        return pulumi.get(self, "influx_db")
 
     @_builtins.property
     @pulumi.getter(name="iotAnalytics")
@@ -4973,6 +4986,93 @@ class TopicRuleDestinationHttpUrlDestinationSummary(dict):
 
 
 @pulumi.output_type
+class TopicRuleDestinationInfluxDbDestinationProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "influxDbVersion":
+            suggest = "influx_db_version"
+        elif key == "secretId":
+            suggest = "secret_id"
+        elif key == "secretKey":
+            suggest = "secret_key"
+        elif key == "secretType":
+            suggest = "secret_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleDestinationInfluxDbDestinationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleDestinationInfluxDbDestinationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleDestinationInfluxDbDestinationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: _builtins.str,
+                 influx_db_version: _builtins.str,
+                 secret_id: _builtins.str,
+                 secret_key: Optional[_builtins.str] = None,
+                 secret_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str endpoint: The endpoint URL of the InfluxDB database.
+        :param _builtins.str influx_db_version: The version of the InfluxDB database (for example, V2 or V3).
+        :param _builtins.str secret_id: The ARN or name of the Secrets Manager secret containing the InfluxDB API token.
+        :param _builtins.str secret_key: The key name within the secret that contains the InfluxDB token.
+        :param _builtins.str secret_type: The type of the secret value (SecretString or SecretBinary).
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "influx_db_version", influx_db_version)
+        pulumi.set(__self__, "secret_id", secret_id)
+        if secret_key is not None:
+            pulumi.set(__self__, "secret_key", secret_key)
+        if secret_type is not None:
+            pulumi.set(__self__, "secret_type", secret_type)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        The endpoint URL of the InfluxDB database.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="influxDbVersion")
+    def influx_db_version(self) -> _builtins.str:
+        """
+        The version of the InfluxDB database (for example, V2 or V3).
+        """
+        return pulumi.get(self, "influx_db_version")
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        The ARN or name of the Secrets Manager secret containing the InfluxDB API token.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @_builtins.property
+    @pulumi.getter(name="secretKey")
+    def secret_key(self) -> Optional[_builtins.str]:
+        """
+        The key name within the secret that contains the InfluxDB token.
+        """
+        return pulumi.get(self, "secret_key")
+
+    @_builtins.property
+    @pulumi.getter(name="secretType")
+    def secret_type(self) -> Optional[_builtins.str]:
+        """
+        The type of the secret value (SecretString or SecretBinary).
+        """
+        return pulumi.get(self, "secret_type")
+
+
+@pulumi.output_type
 class TopicRuleDestinationVpcDestinationProperties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -5546,6 +5646,158 @@ class TopicRuleHttpAuthorization(dict):
         Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
         """
         return pulumi.get(self, "sigv4")
+
+
+@pulumi.output_type
+class TopicRuleInfluxDbAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "destinationArn":
+            suggest = "destination_arn"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "batchConfig":
+            suggest = "batch_config"
+        elif key == "timestampUnit":
+            suggest = "timestamp_unit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleInfluxDbAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleInfluxDbAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleInfluxDbAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: _builtins.str,
+                 destination_arn: _builtins.str,
+                 role_arn: _builtins.str,
+                 table_name: _builtins.str,
+                 batch_config: Optional['outputs.TopicRuleInfluxDbBatchConfig'] = None,
+                 organization: Optional[_builtins.str] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None,
+                 timestamp_unit: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "destination_arn", destination_arn)
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if batch_config is not None:
+            pulumi.set(__self__, "batch_config", batch_config)
+        if organization is not None:
+            pulumi.set(__self__, "organization", organization)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if timestamp_unit is not None:
+            pulumi.set(__self__, "timestamp_unit", timestamp_unit)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> _builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationArn")
+    def destination_arn(self) -> _builtins.str:
+        return pulumi.get(self, "destination_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter(name="batchConfig")
+    def batch_config(self) -> Optional['outputs.TopicRuleInfluxDbBatchConfig']:
+        return pulumi.get(self, "batch_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def organization(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "organization")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="timestampUnit")
+    def timestamp_unit(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "timestamp_unit")
+
+
+@pulumi.output_type
+class TopicRuleInfluxDbBatchConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchAcrossTopics":
+            suggest = "batch_across_topics"
+        elif key == "maxBatchOpenMs":
+            suggest = "max_batch_open_ms"
+        elif key == "maxBatchSize":
+            suggest = "max_batch_size"
+        elif key == "maxBatchSizeBytes":
+            suggest = "max_batch_size_bytes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TopicRuleInfluxDbBatchConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TopicRuleInfluxDbBatchConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TopicRuleInfluxDbBatchConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 batch_across_topics: Optional[_builtins.bool] = None,
+                 max_batch_open_ms: Optional[_builtins.int] = None,
+                 max_batch_size: Optional[_builtins.int] = None,
+                 max_batch_size_bytes: Optional[_builtins.int] = None):
+        if batch_across_topics is not None:
+            pulumi.set(__self__, "batch_across_topics", batch_across_topics)
+        if max_batch_open_ms is not None:
+            pulumi.set(__self__, "max_batch_open_ms", max_batch_open_ms)
+        if max_batch_size is not None:
+            pulumi.set(__self__, "max_batch_size", max_batch_size)
+        if max_batch_size_bytes is not None:
+            pulumi.set(__self__, "max_batch_size_bytes", max_batch_size_bytes)
+
+    @_builtins.property
+    @pulumi.getter(name="batchAcrossTopics")
+    def batch_across_topics(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "batch_across_topics")
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchOpenMs")
+    def max_batch_open_ms(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_batch_open_ms")
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchSize")
+    def max_batch_size(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_batch_size")
+
+    @_builtins.property
+    @pulumi.getter(name="maxBatchSizeBytes")
+    def max_batch_size_bytes(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "max_batch_size_bytes")
 
 
 @pulumi.output_type

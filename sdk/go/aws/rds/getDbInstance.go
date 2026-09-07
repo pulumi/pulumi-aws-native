@@ -451,7 +451,9 @@ type LookupDbInstanceResult struct {
 	//   +  The source DB cluster must be in the same AWS-Region as the read replica. Cross-Region replication isn't supported.
 	SourceDbClusterIdentifier *string `pulumi:"sourceDbClusterIdentifier"`
 	// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
-	StatusInfos []DbInstanceDbInstanceStatusInfo `pulumi:"statusInfos"`
+	StatusInfos                     []DbInstanceDbInstanceStatusInfo `pulumi:"statusInfos"`
+	StorageOperationPercentProgress *int                             `pulumi:"storageOperationPercentProgress"`
+	StorageOperationStatus          *string                          `pulumi:"storageOperationStatus"`
 	// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type.
 	//  This setting doesn't apply to RDS Custom or Amazon Aurora.
 	StorageThroughput *int `pulumi:"storageThroughput"`
@@ -1145,6 +1147,14 @@ func (o LookupDbInstanceResultOutput) SourceDbClusterIdentifier() pulumi.StringP
 // The status of a read replica. If the DB instance isn't a read replica, the value is blank.
 func (o LookupDbInstanceResultOutput) StatusInfos() DbInstanceDbInstanceStatusInfoArrayOutput {
 	return o.ApplyT(func(v LookupDbInstanceResult) []DbInstanceDbInstanceStatusInfo { return v.StatusInfos }).(DbInstanceDbInstanceStatusInfoArrayOutput)
+}
+
+func (o LookupDbInstanceResultOutput) StorageOperationPercentProgress() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *int { return v.StorageOperationPercentProgress }).(pulumi.IntPtrOutput)
+}
+
+func (o LookupDbInstanceResultOutput) StorageOperationStatus() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupDbInstanceResult) *string { return v.StorageOperationStatus }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the “gp3“ storage type.

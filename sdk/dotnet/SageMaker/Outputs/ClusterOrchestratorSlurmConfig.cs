@@ -16,14 +16,19 @@ namespace Pulumi.AwsNative.SageMaker.Outputs
     [OutputType]
     public sealed class ClusterOrchestratorSlurmConfig
     {
+        public readonly Outputs.ClusterAccountingDatabase? AccountingDatabase;
         /// <summary>
         /// The strategy for managing Slurm configuration on the cluster.
         /// </summary>
         public readonly Pulumi.AwsNative.SageMaker.ClusterOrchestratorSlurmConfigSlurmConfigStrategy? SlurmConfigStrategy;
 
         [OutputConstructor]
-        private ClusterOrchestratorSlurmConfig(Pulumi.AwsNative.SageMaker.ClusterOrchestratorSlurmConfigSlurmConfigStrategy? slurmConfigStrategy)
+        private ClusterOrchestratorSlurmConfig(
+            Outputs.ClusterAccountingDatabase? accountingDatabase,
+
+            Pulumi.AwsNative.SageMaker.ClusterOrchestratorSlurmConfigSlurmConfigStrategy? slurmConfigStrategy)
         {
+            AccountingDatabase = accountingDatabase;
             SlurmConfigStrategy = slurmConfigStrategy;
         }
     }

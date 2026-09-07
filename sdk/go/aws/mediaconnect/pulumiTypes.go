@@ -15732,6 +15732,144 @@ func (o RouterOutputResourceDefaultMaintenanceConfigurationPtrOutput) Elem() Rou
 	}).(RouterOutputResourceDefaultMaintenanceConfigurationOutput)
 }
 
+// The fabric configuration settings for the router output.
+type RouterOutputResourceFabricConfiguration struct {
+	RecoveryLatencyMode RouterOutputResourceFabricLatencyMode `pulumi:"recoveryLatencyMode"`
+}
+
+// RouterOutputResourceFabricConfigurationInput is an input type that accepts RouterOutputResourceFabricConfigurationArgs and RouterOutputResourceFabricConfigurationOutput values.
+// You can construct a concrete instance of `RouterOutputResourceFabricConfigurationInput` via:
+//
+//	RouterOutputResourceFabricConfigurationArgs{...}
+type RouterOutputResourceFabricConfigurationInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceFabricConfigurationOutput() RouterOutputResourceFabricConfigurationOutput
+	ToRouterOutputResourceFabricConfigurationOutputWithContext(context.Context) RouterOutputResourceFabricConfigurationOutput
+}
+
+// The fabric configuration settings for the router output.
+type RouterOutputResourceFabricConfigurationArgs struct {
+	RecoveryLatencyMode RouterOutputResourceFabricLatencyModeInput `pulumi:"recoveryLatencyMode"`
+}
+
+func (RouterOutputResourceFabricConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceFabricConfiguration)(nil)).Elem()
+}
+
+func (i RouterOutputResourceFabricConfigurationArgs) ToRouterOutputResourceFabricConfigurationOutput() RouterOutputResourceFabricConfigurationOutput {
+	return i.ToRouterOutputResourceFabricConfigurationOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceFabricConfigurationArgs) ToRouterOutputResourceFabricConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceFabricConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceFabricConfigurationOutput)
+}
+
+func (i RouterOutputResourceFabricConfigurationArgs) ToRouterOutputResourceFabricConfigurationPtrOutput() RouterOutputResourceFabricConfigurationPtrOutput {
+	return i.ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i RouterOutputResourceFabricConfigurationArgs) ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceFabricConfigurationOutput).ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(ctx)
+}
+
+// RouterOutputResourceFabricConfigurationPtrInput is an input type that accepts RouterOutputResourceFabricConfigurationArgs, RouterOutputResourceFabricConfigurationPtr and RouterOutputResourceFabricConfigurationPtrOutput values.
+// You can construct a concrete instance of `RouterOutputResourceFabricConfigurationPtrInput` via:
+//
+//	        RouterOutputResourceFabricConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type RouterOutputResourceFabricConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToRouterOutputResourceFabricConfigurationPtrOutput() RouterOutputResourceFabricConfigurationPtrOutput
+	ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(context.Context) RouterOutputResourceFabricConfigurationPtrOutput
+}
+
+type routerOutputResourceFabricConfigurationPtrType RouterOutputResourceFabricConfigurationArgs
+
+func RouterOutputResourceFabricConfigurationPtr(v *RouterOutputResourceFabricConfigurationArgs) RouterOutputResourceFabricConfigurationPtrInput {
+	return (*routerOutputResourceFabricConfigurationPtrType)(v)
+}
+
+func (*routerOutputResourceFabricConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceFabricConfiguration)(nil)).Elem()
+}
+
+func (i *routerOutputResourceFabricConfigurationPtrType) ToRouterOutputResourceFabricConfigurationPtrOutput() RouterOutputResourceFabricConfigurationPtrOutput {
+	return i.ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *routerOutputResourceFabricConfigurationPtrType) ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RouterOutputResourceFabricConfigurationPtrOutput)
+}
+
+// The fabric configuration settings for the router output.
+type RouterOutputResourceFabricConfigurationOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceFabricConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RouterOutputResourceFabricConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceFabricConfigurationOutput) ToRouterOutputResourceFabricConfigurationOutput() RouterOutputResourceFabricConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricConfigurationOutput) ToRouterOutputResourceFabricConfigurationOutputWithContext(ctx context.Context) RouterOutputResourceFabricConfigurationOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricConfigurationOutput) ToRouterOutputResourceFabricConfigurationPtrOutput() RouterOutputResourceFabricConfigurationPtrOutput {
+	return o.ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o RouterOutputResourceFabricConfigurationOutput) ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RouterOutputResourceFabricConfiguration) *RouterOutputResourceFabricConfiguration {
+		return &v
+	}).(RouterOutputResourceFabricConfigurationPtrOutput)
+}
+
+func (o RouterOutputResourceFabricConfigurationOutput) RecoveryLatencyMode() RouterOutputResourceFabricLatencyModeOutput {
+	return o.ApplyT(func(v RouterOutputResourceFabricConfiguration) RouterOutputResourceFabricLatencyMode {
+		return v.RecoveryLatencyMode
+	}).(RouterOutputResourceFabricLatencyModeOutput)
+}
+
+type RouterOutputResourceFabricConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (RouterOutputResourceFabricConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RouterOutputResourceFabricConfiguration)(nil)).Elem()
+}
+
+func (o RouterOutputResourceFabricConfigurationPtrOutput) ToRouterOutputResourceFabricConfigurationPtrOutput() RouterOutputResourceFabricConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricConfigurationPtrOutput) ToRouterOutputResourceFabricConfigurationPtrOutputWithContext(ctx context.Context) RouterOutputResourceFabricConfigurationPtrOutput {
+	return o
+}
+
+func (o RouterOutputResourceFabricConfigurationPtrOutput) Elem() RouterOutputResourceFabricConfigurationOutput {
+	return o.ApplyT(func(v *RouterOutputResourceFabricConfiguration) RouterOutputResourceFabricConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret RouterOutputResourceFabricConfiguration
+		return ret
+	}).(RouterOutputResourceFabricConfigurationOutput)
+}
+
+func (o RouterOutputResourceFabricConfigurationPtrOutput) RecoveryLatencyMode() RouterOutputResourceFabricLatencyModePtrOutput {
+	return o.ApplyT(func(v *RouterOutputResourceFabricConfiguration) *RouterOutputResourceFabricLatencyMode {
+		if v == nil {
+			return nil
+		}
+		return &v.RecoveryLatencyMode
+	}).(RouterOutputResourceFabricLatencyModePtrOutput)
+}
+
 // The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
 type RouterOutputResourceFlowTransitEncryption struct {
 	EncryptionKeyConfiguration interface{}                                       `pulumi:"encryptionKeyConfiguration"`
@@ -18718,6 +18856,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceAutomaticEncryptionKeyConfigurationInput)(nil)).Elem(), RouterOutputResourceAutomaticEncryptionKeyConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDefaultMaintenanceConfigurationInput)(nil)).Elem(), RouterOutputResourceDefaultMaintenanceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceDefaultMaintenanceConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceDefaultMaintenanceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricConfigurationInput)(nil)).Elem(), RouterOutputResourceFabricConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFabricConfigurationPtrInput)(nil)).Elem(), RouterOutputResourceFabricConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFlowTransitEncryptionInput)(nil)).Elem(), RouterOutputResourceFlowTransitEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesInput)(nil)).Elem(), RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesInput)(nil)).Elem(), RouterOutputResourceFlowTransitEncryptionKeyConfiguration1PropertiesArgs{})
@@ -18968,6 +19108,8 @@ func init() {
 	pulumi.RegisterOutputType(RouterOutputResourceAutomaticEncryptionKeyConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDefaultMaintenanceConfigurationOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceDefaultMaintenanceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceFabricConfigurationOutput{})
+	pulumi.RegisterOutputType(RouterOutputResourceFabricConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFlowTransitEncryptionOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFlowTransitEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesOutput{})

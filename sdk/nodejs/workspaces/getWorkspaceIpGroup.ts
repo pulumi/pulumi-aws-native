@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for an IP access control group for Amazon WorkSpaces.
+ * Resource Type definition for an IP access control group for Amazon WorkSpaces.
  */
 export function getWorkspaceIpGroup(args: GetWorkspaceIpGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceIpGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -43,7 +43,7 @@ export interface GetWorkspaceIpGroupResult {
     readonly userRules?: outputs.workspaces.WorkspaceIpGroupIpRuleItem[];
 }
 /**
- * Resource type definition for an IP access control group for Amazon WorkSpaces.
+ * Resource Type definition for an IP access control group for Amazon WorkSpaces.
  */
 export function getWorkspaceIpGroupOutput(args: GetWorkspaceIpGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkspaceIpGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

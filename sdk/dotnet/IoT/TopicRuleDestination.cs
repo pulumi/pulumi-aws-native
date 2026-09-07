@@ -28,6 +28,12 @@ namespace Pulumi.AwsNative.IoT
         public Output<Outputs.TopicRuleDestinationHttpUrlDestinationSummary?> HttpUrlProperties { get; private set; } = null!;
 
         /// <summary>
+        /// InfluxDB destination properties.
+        /// </summary>
+        [Output("influxDbProperties")]
+        public Output<Outputs.TopicRuleDestinationInfluxDbDestinationProperties?> InfluxDbProperties { get; private set; } = null!;
+
+        /// <summary>
         /// The status of the TopicRuleDestination.
         /// </summary>
         [Output("status")]
@@ -71,6 +77,7 @@ namespace Pulumi.AwsNative.IoT
                 ReplaceOnChanges =
                 {
                     "httpUrlProperties",
+                    "influxDbProperties",
                     "vpcProperties",
                 },
             };
@@ -100,6 +107,12 @@ namespace Pulumi.AwsNative.IoT
         /// </summary>
         [Input("httpUrlProperties")]
         public Input<Inputs.TopicRuleDestinationHttpUrlDestinationSummaryArgs>? HttpUrlProperties { get; set; }
+
+        /// <summary>
+        /// InfluxDB destination properties.
+        /// </summary>
+        [Input("influxDbProperties")]
+        public Input<Inputs.TopicRuleDestinationInfluxDbDestinationPropertiesArgs>? InfluxDbProperties { get; set; }
 
         /// <summary>
         /// The status of the TopicRuleDestination.

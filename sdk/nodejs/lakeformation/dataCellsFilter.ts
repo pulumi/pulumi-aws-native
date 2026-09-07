@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * A resource schema representing a Lake Formation Data Cells Filter.
+ * Resource Type definition for AWS::LakeFormation::DataCellsFilter
  */
 export class DataCellsFilter extends pulumi.CustomResource {
     /**

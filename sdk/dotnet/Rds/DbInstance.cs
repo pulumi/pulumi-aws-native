@@ -1015,6 +1015,12 @@ namespace Pulumi.AwsNative.Rds
         [Output("storageEncrypted")]
         public Output<bool?> StorageEncrypted { get; private set; } = null!;
 
+        [Output("storageOperationPercentProgress")]
+        public Output<int> StorageOperationPercentProgress { get; private set; } = null!;
+
+        [Output("storageOperationStatus")]
+        public Output<string> StorageOperationStatus { get; private set; } = null!;
+
         /// <summary>
         /// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type. 
         ///  This setting doesn't apply to RDS Custom or Amazon Aurora.

@@ -244,6 +244,8 @@ __all__ = [
     'RouterOutputResourceAutomaticEncryptionKeyConfigurationArgsDict',
     'RouterOutputResourceDefaultMaintenanceConfigurationArgs',
     'RouterOutputResourceDefaultMaintenanceConfigurationArgsDict',
+    'RouterOutputResourceFabricConfigurationArgs',
+    'RouterOutputResourceFabricConfigurationArgsDict',
     'RouterOutputResourceFlowTransitEncryptionArgs',
     'RouterOutputResourceFlowTransitEncryptionArgsDict',
     'RouterOutputResourceFlowTransitEncryptionKeyConfiguration0PropertiesArgs',
@@ -6668,6 +6670,31 @@ class RouterOutputResourceDefaultMaintenanceConfigurationArgs:
         Configuration settings for default maintenance scheduling.
         """
         pass
+
+
+class RouterOutputResourceFabricConfigurationArgsDict(TypedDict):
+    """
+    The fabric configuration settings for the router output.
+    """
+    recovery_latency_mode: pulumi.Input['RouterOutputResourceFabricLatencyMode']
+
+@pulumi.input_type
+class RouterOutputResourceFabricConfigurationArgs:
+    def __init__(__self__, *,
+                 recovery_latency_mode: pulumi.Input['RouterOutputResourceFabricLatencyMode']):
+        """
+        The fabric configuration settings for the router output.
+        """
+        pulumi.set(__self__, "recovery_latency_mode", recovery_latency_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="recoveryLatencyMode")
+    def recovery_latency_mode(self) -> pulumi.Input['RouterOutputResourceFabricLatencyMode']:
+        return pulumi.get(self, "recovery_latency_mode")
+
+    @recovery_latency_mode.setter
+    def recovery_latency_mode(self, value: pulumi.Input['RouterOutputResourceFabricLatencyMode']):
+        pulumi.set(self, "recovery_latency_mode", value)
 
 
 class RouterOutputResourceFlowTransitEncryptionArgsDict(TypedDict):

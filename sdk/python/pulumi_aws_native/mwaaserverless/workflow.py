@@ -24,6 +24,7 @@ class WorkflowArgs:
     def __init__(__self__, *,
                  definition_s3_location: pulumi.Input['WorkflowS3LocationArgs'],
                  role_arn: pulumi.Input[_builtins.str],
+                 code: pulumi.Input[Optional['WorkflowCodeArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_configuration: pulumi.Input[Optional['WorkflowEncryptionConfigurationArgs']] = None,
                  logging_configuration: pulumi.Input[Optional['WorkflowLoggingConfigurationArgs']] = None,
@@ -36,6 +37,8 @@ class WorkflowArgs:
         """
         pulumi.set(__self__, "definition_s3_location", definition_s3_location)
         pulumi.set(__self__, "role_arn", role_arn)
+        if code is not None:
+            pulumi.set(__self__, "code", code)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encryption_configuration is not None:
@@ -68,6 +71,15 @@ class WorkflowArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> pulumi.Input[Optional['WorkflowCodeArgs']]:
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: pulumi.Input[Optional['WorkflowCodeArgs']]):
+        pulumi.set(self, "code", value)
 
     @_builtins.property
     @pulumi.getter
@@ -139,6 +151,7 @@ class Workflow(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 code: pulumi.Input[Optional[Union['WorkflowCodeArgs', 'WorkflowCodeArgsDict']]] = None,
                  definition_s3_location: pulumi.Input[Optional[Union['WorkflowS3LocationArgs', 'WorkflowS3LocationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_configuration: pulumi.Input[Optional[Union['WorkflowEncryptionConfigurationArgs', 'WorkflowEncryptionConfigurationArgsDict']]] = None,
@@ -179,6 +192,7 @@ class Workflow(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 code: pulumi.Input[Optional[Union['WorkflowCodeArgs', 'WorkflowCodeArgsDict']]] = None,
                  definition_s3_location: pulumi.Input[Optional[Union['WorkflowS3LocationArgs', 'WorkflowS3LocationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_configuration: pulumi.Input[Optional[Union['WorkflowEncryptionConfigurationArgs', 'WorkflowEncryptionConfigurationArgsDict']]] = None,
@@ -197,6 +211,7 @@ class Workflow(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+            __props__.__dict__["code"] = code
             if definition_s3_location is None and not opts.urn:
                 raise TypeError("Missing required property 'definition_s3_location'")
             __props__.__dict__["definition_s3_location"] = definition_s3_location
@@ -210,6 +225,7 @@ class Workflow(pulumi.CustomResource):
             __props__.__dict__["role_arn"] = role_arn
             __props__.__dict__["tags"] = tags
             __props__.__dict__["trigger_mode"] = trigger_mode
+            __props__.__dict__["code_snapshotted_at"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["modified_at"] = None
             __props__.__dict__["schedule_configuration"] = None
@@ -240,6 +256,8 @@ class Workflow(pulumi.CustomResource):
 
         __props__ = WorkflowArgs.__new__(WorkflowArgs)
 
+        __props__.__dict__["code"] = None
+        __props__.__dict__["code_snapshotted_at"] = None
         __props__.__dict__["created_at"] = None
         __props__.__dict__["definition_s3_location"] = None
         __props__.__dict__["description"] = None
@@ -256,6 +274,16 @@ class Workflow(pulumi.CustomResource):
         __props__.__dict__["workflow_status"] = None
         __props__.__dict__["workflow_version"] = None
         return Workflow(resource_name, opts=opts, __props__=__props__)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> pulumi.Output[Optional['outputs.WorkflowCode']]:
+        return pulumi.get(self, "code")
+
+    @_builtins.property
+    @pulumi.getter(name="codeSnapshottedAt")
+    def code_snapshotted_at(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "code_snapshotted_at")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")

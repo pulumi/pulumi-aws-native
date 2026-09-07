@@ -113,15 +113,18 @@
   },
   "handlers" : {
     "create" : {
+      "timeoutInMinutes" : 780,
       "permissions" : [ "kendra:CreateQuerySuggestionsBlockList", "kendra:DescribeQuerySuggestionsBlockList", "kendra:TagResource", "iam:PassRole", "s3:GetObject" ]
     },
     "read" : {
       "permissions" : [ "kendra:DescribeQuerySuggestionsBlockList", "kendra:ListTagsForResource" ]
     },
     "update" : {
+      "timeoutInMinutes" : 780,
       "permissions" : [ "kendra:UpdateQuerySuggestionsBlockList", "kendra:DescribeQuerySuggestionsBlockList", "kendra:TagResource", "kendra:UntagResource", "kendra:ListTagsForResource", "iam:PassRole", "s3:GetObject" ]
     },
     "delete" : {
+      "timeoutInMinutes" : 780,
       "permissions" : [ "kendra:DeleteQuerySuggestionsBlockList", "kendra:DescribeQuerySuggestionsBlockList", "kendra:ListTagsForResource" ]
     },
     "list" : {

@@ -65,6 +65,11 @@ export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
 utilities.lazyLoad(exports, ["Endpoint"], () => require("./endpoint"));
 
+export { EndpointConfigArgs } from "./endpointConfig";
+export type EndpointConfig = import("./endpointConfig").EndpointConfig;
+export const EndpointConfig: typeof import("./endpointConfig").EndpointConfig = null as any;
+utilities.lazyLoad(exports, ["EndpointConfig"], () => require("./endpointConfig"));
+
 export { ExperimentArgs } from "./experiment";
 export type Experiment = import("./experiment").Experiment;
 export const Experiment: typeof import("./experiment").Experiment = null as any;
@@ -134,6 +139,11 @@ export { GetEndpointArgs, GetEndpointResult, GetEndpointOutputArgs } from "./get
 export const getEndpoint: typeof import("./getEndpoint").getEndpoint = null as any;
 export const getEndpointOutput: typeof import("./getEndpoint").getEndpointOutput = null as any;
 utilities.lazyLoad(exports, ["getEndpoint","getEndpointOutput"], () => require("./getEndpoint"));
+
+export { GetEndpointConfigArgs, GetEndpointConfigResult, GetEndpointConfigOutputArgs } from "./getEndpointConfig";
+export const getEndpointConfig: typeof import("./getEndpointConfig").getEndpointConfig = null as any;
+export const getEndpointConfigOutput: typeof import("./getEndpointConfig").getEndpointConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getEndpointConfig","getEndpointConfigOutput"], () => require("./getEndpointConfig"));
 
 export { GetExperimentArgs, GetExperimentResult, GetExperimentOutputArgs } from "./getExperiment";
 export const getExperiment: typeof import("./getExperiment").getExperiment = null as any;
@@ -229,6 +239,11 @@ export { GetMonitoringScheduleArgs, GetMonitoringScheduleResult, GetMonitoringSc
 export const getMonitoringSchedule: typeof import("./getMonitoringSchedule").getMonitoringSchedule = null as any;
 export const getMonitoringScheduleOutput: typeof import("./getMonitoringSchedule").getMonitoringScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getMonitoringSchedule","getMonitoringScheduleOutput"], () => require("./getMonitoringSchedule"));
+
+export { GetNotebookInstanceArgs, GetNotebookInstanceResult, GetNotebookInstanceOutputArgs } from "./getNotebookInstance";
+export const getNotebookInstance: typeof import("./getNotebookInstance").getNotebookInstance = null as any;
+export const getNotebookInstanceOutput: typeof import("./getNotebookInstance").getNotebookInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getNotebookInstance","getNotebookInstanceOutput"], () => require("./getNotebookInstance"));
 
 export { GetPartnerAppArgs, GetPartnerAppResult, GetPartnerAppOutputArgs } from "./getPartnerApp";
 export const getPartnerApp: typeof import("./getPartnerApp").getPartnerApp = null as any;
@@ -355,6 +370,11 @@ export type MonitoringSchedule = import("./monitoringSchedule").MonitoringSchedu
 export const MonitoringSchedule: typeof import("./monitoringSchedule").MonitoringSchedule = null as any;
 utilities.lazyLoad(exports, ["MonitoringSchedule"], () => require("./monitoringSchedule"));
 
+export { NotebookInstanceArgs } from "./notebookInstance";
+export type NotebookInstance = import("./notebookInstance").NotebookInstance;
+export const NotebookInstance: typeof import("./notebookInstance").NotebookInstance = null as any;
+utilities.lazyLoad(exports, ["NotebookInstance"], () => require("./notebookInstance"));
+
 export { PartnerAppArgs } from "./partnerApp";
 export type PartnerApp = import("./partnerApp").PartnerApp;
 export const PartnerApp: typeof import("./partnerApp").PartnerApp = null as any;
@@ -432,6 +452,8 @@ const _module = {
                 return new Domain(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:EndpointConfig":
+                return new EndpointConfig(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Experiment":
                 return new Experiment(name, <any>undefined, { urn })
             case "aws-native:sagemaker:ExperimentTrialComponent":
@@ -470,6 +492,8 @@ const _module = {
                 return new ModelQualityJobDefinition(name, <any>undefined, { urn })
             case "aws-native:sagemaker:MonitoringSchedule":
                 return new MonitoringSchedule(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:NotebookInstance":
+                return new NotebookInstance(name, <any>undefined, { urn })
             case "aws-native:sagemaker:PartnerApp":
                 return new PartnerApp(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Pipeline":

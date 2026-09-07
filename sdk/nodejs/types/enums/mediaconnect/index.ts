@@ -642,6 +642,13 @@ export const RouterOutputResourceDay = {
 
 export type RouterOutputResourceDay = (typeof RouterOutputResourceDay)[keyof typeof RouterOutputResourceDay];
 
+export const RouterOutputResourceFabricLatencyMode = {
+    Balanced: "BALANCED",
+    LowLatency: "LOW_LATENCY",
+} as const;
+
+export type RouterOutputResourceFabricLatencyMode = (typeof RouterOutputResourceFabricLatencyMode)[keyof typeof RouterOutputResourceFabricLatencyMode];
+
 export const RouterOutputResourceFlowTransitEncryptionKeyType = {
     SecretsManager: "SECRETS_MANAGER",
     Automatic: "AUTOMATIC",

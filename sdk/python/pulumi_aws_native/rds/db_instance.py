@@ -3183,6 +3183,8 @@ class DbInstance(pulumi.CustomResource):
             __props__.__dict__["resume_full_automation_mode_time"] = None
             __props__.__dict__["secondary_availability_zone"] = None
             __props__.__dict__["status_infos"] = None
+            __props__.__dict__["storage_operation_percent_progress"] = None
+            __props__.__dict__["storage_operation_status"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupTarget", "characterSetName", "customIamInstanceProfile", "dbClusterIdentifier", "dbInstanceIdentifier", "dbName", "dbSubnetGroupName", "dbSystemId", "kmsKeyId", "masterUsername", "ncharCharacterSetName", "sourceRegion", "storageEncrypted", "timezone"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DbInstance, __self__).__init__(
@@ -3297,6 +3299,8 @@ class DbInstance(pulumi.CustomResource):
         __props__.__dict__["source_region"] = None
         __props__.__dict__["status_infos"] = None
         __props__.__dict__["storage_encrypted"] = None
+        __props__.__dict__["storage_operation_percent_progress"] = None
+        __props__.__dict__["storage_operation_status"] = None
         __props__.__dict__["storage_throughput"] = None
         __props__.__dict__["storage_type"] = None
         __props__.__dict__["tags"] = None
@@ -4467,6 +4471,16 @@ class DbInstance(pulumi.CustomResource):
          Not applicable. The encryption for DB instances is managed by the DB cluster.
         """
         return pulumi.get(self, "storage_encrypted")
+
+    @_builtins.property
+    @pulumi.getter(name="storageOperationPercentProgress")
+    def storage_operation_percent_progress(self) -> pulumi.Output[_builtins.int]:
+        return pulumi.get(self, "storage_operation_percent_progress")
+
+    @_builtins.property
+    @pulumi.getter(name="storageOperationStatus")
+    def storage_operation_status(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "storage_operation_status")
 
     @_builtins.property
     @pulumi.getter(name="storageThroughput")

@@ -10,6 +10,668 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Whether this check is included in the rolled-up application status.
+type ApplicationStatusCheckAggregation string
+
+const (
+	ApplicationStatusCheckAggregationIncluded = ApplicationStatusCheckAggregation("included")
+	ApplicationStatusCheckAggregationExcluded = ApplicationStatusCheckAggregation("excluded")
+)
+
+func (ApplicationStatusCheckAggregation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckAggregation)(nil)).Elem()
+}
+
+func (e ApplicationStatusCheckAggregation) ToApplicationStatusCheckAggregationOutput() ApplicationStatusCheckAggregationOutput {
+	return pulumi.ToOutput(e).(ApplicationStatusCheckAggregationOutput)
+}
+
+func (e ApplicationStatusCheckAggregation) ToApplicationStatusCheckAggregationOutputWithContext(ctx context.Context) ApplicationStatusCheckAggregationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationStatusCheckAggregationOutput)
+}
+
+func (e ApplicationStatusCheckAggregation) ToApplicationStatusCheckAggregationPtrOutput() ApplicationStatusCheckAggregationPtrOutput {
+	return e.ToApplicationStatusCheckAggregationPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckAggregation) ToApplicationStatusCheckAggregationPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckAggregationPtrOutput {
+	return ApplicationStatusCheckAggregation(e).ToApplicationStatusCheckAggregationOutputWithContext(ctx).ToApplicationStatusCheckAggregationPtrOutputWithContext(ctx)
+}
+
+func (e ApplicationStatusCheckAggregation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckAggregation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckAggregation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckAggregation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationStatusCheckAggregationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckAggregationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckAggregation)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToApplicationStatusCheckAggregationOutput() ApplicationStatusCheckAggregationOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToApplicationStatusCheckAggregationOutputWithContext(ctx context.Context) ApplicationStatusCheckAggregationOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToApplicationStatusCheckAggregationPtrOutput() ApplicationStatusCheckAggregationPtrOutput {
+	return o.ToApplicationStatusCheckAggregationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToApplicationStatusCheckAggregationPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckAggregationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationStatusCheckAggregation) *ApplicationStatusCheckAggregation {
+		return &v
+	}).(ApplicationStatusCheckAggregationPtrOutput)
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckAggregation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckAggregationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckAggregation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationStatusCheckAggregationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckAggregationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationStatusCheckAggregation)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckAggregationPtrOutput) ToApplicationStatusCheckAggregationPtrOutput() ApplicationStatusCheckAggregationPtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckAggregationPtrOutput) ToApplicationStatusCheckAggregationPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckAggregationPtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckAggregationPtrOutput) Elem() ApplicationStatusCheckAggregationOutput {
+	return o.ApplyT(func(v *ApplicationStatusCheckAggregation) ApplicationStatusCheckAggregation {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationStatusCheckAggregation
+		return ret
+	}).(ApplicationStatusCheckAggregationOutput)
+}
+
+func (o ApplicationStatusCheckAggregationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckAggregationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationStatusCheckAggregation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationStatusCheckAggregationInput is an input type that accepts values of the ApplicationStatusCheckAggregation enum
+// A concrete instance of `ApplicationStatusCheckAggregationInput` can be one of the following:
+//
+//	ApplicationStatusCheckAggregationIncluded
+//	ApplicationStatusCheckAggregationExcluded
+type ApplicationStatusCheckAggregationInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckAggregationOutput() ApplicationStatusCheckAggregationOutput
+	ToApplicationStatusCheckAggregationOutputWithContext(context.Context) ApplicationStatusCheckAggregationOutput
+}
+
+var applicationStatusCheckAggregationPtrType = reflect.TypeOf((**ApplicationStatusCheckAggregation)(nil)).Elem()
+
+type ApplicationStatusCheckAggregationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckAggregationPtrOutput() ApplicationStatusCheckAggregationPtrOutput
+	ToApplicationStatusCheckAggregationPtrOutputWithContext(context.Context) ApplicationStatusCheckAggregationPtrOutput
+}
+
+type applicationStatusCheckAggregationPtr string
+
+func ApplicationStatusCheckAggregationPtr(v string) ApplicationStatusCheckAggregationPtrInput {
+	return (*applicationStatusCheckAggregationPtr)(&v)
+}
+
+func (*applicationStatusCheckAggregationPtr) ElementType() reflect.Type {
+	return applicationStatusCheckAggregationPtrType
+}
+
+func (in *applicationStatusCheckAggregationPtr) ToApplicationStatusCheckAggregationPtrOutput() ApplicationStatusCheckAggregationPtrOutput {
+	return pulumi.ToOutput(in).(ApplicationStatusCheckAggregationPtrOutput)
+}
+
+func (in *applicationStatusCheckAggregationPtr) ToApplicationStatusCheckAggregationPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckAggregationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationStatusCheckAggregationPtrOutput)
+}
+
+// The IP scope used for the health check.
+type ApplicationStatusCheckIpScope string
+
+const (
+	ApplicationStatusCheckIpScopePrivate = ApplicationStatusCheckIpScope("private")
+)
+
+func (ApplicationStatusCheckIpScope) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckIpScope)(nil)).Elem()
+}
+
+func (e ApplicationStatusCheckIpScope) ToApplicationStatusCheckIpScopeOutput() ApplicationStatusCheckIpScopeOutput {
+	return pulumi.ToOutput(e).(ApplicationStatusCheckIpScopeOutput)
+}
+
+func (e ApplicationStatusCheckIpScope) ToApplicationStatusCheckIpScopeOutputWithContext(ctx context.Context) ApplicationStatusCheckIpScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationStatusCheckIpScopeOutput)
+}
+
+func (e ApplicationStatusCheckIpScope) ToApplicationStatusCheckIpScopePtrOutput() ApplicationStatusCheckIpScopePtrOutput {
+	return e.ToApplicationStatusCheckIpScopePtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckIpScope) ToApplicationStatusCheckIpScopePtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpScopePtrOutput {
+	return ApplicationStatusCheckIpScope(e).ToApplicationStatusCheckIpScopeOutputWithContext(ctx).ToApplicationStatusCheckIpScopePtrOutputWithContext(ctx)
+}
+
+func (e ApplicationStatusCheckIpScope) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckIpScope) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckIpScope) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckIpScope) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationStatusCheckIpScopeOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckIpScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckIpScope)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToApplicationStatusCheckIpScopeOutput() ApplicationStatusCheckIpScopeOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToApplicationStatusCheckIpScopeOutputWithContext(ctx context.Context) ApplicationStatusCheckIpScopeOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToApplicationStatusCheckIpScopePtrOutput() ApplicationStatusCheckIpScopePtrOutput {
+	return o.ToApplicationStatusCheckIpScopePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToApplicationStatusCheckIpScopePtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpScopePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationStatusCheckIpScope) *ApplicationStatusCheckIpScope {
+		return &v
+	}).(ApplicationStatusCheckIpScopePtrOutput)
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckIpScope) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpScopeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckIpScope) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationStatusCheckIpScopePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckIpScopePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationStatusCheckIpScope)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckIpScopePtrOutput) ToApplicationStatusCheckIpScopePtrOutput() ApplicationStatusCheckIpScopePtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpScopePtrOutput) ToApplicationStatusCheckIpScopePtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpScopePtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpScopePtrOutput) Elem() ApplicationStatusCheckIpScopeOutput {
+	return o.ApplyT(func(v *ApplicationStatusCheckIpScope) ApplicationStatusCheckIpScope {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationStatusCheckIpScope
+		return ret
+	}).(ApplicationStatusCheckIpScopeOutput)
+}
+
+func (o ApplicationStatusCheckIpScopePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationStatusCheckIpScope) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationStatusCheckIpScopeInput is an input type that accepts values of the ApplicationStatusCheckIpScope enum
+// A concrete instance of `ApplicationStatusCheckIpScopeInput` can be one of the following:
+//
+//	ApplicationStatusCheckIpScopePrivate
+type ApplicationStatusCheckIpScopeInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckIpScopeOutput() ApplicationStatusCheckIpScopeOutput
+	ToApplicationStatusCheckIpScopeOutputWithContext(context.Context) ApplicationStatusCheckIpScopeOutput
+}
+
+var applicationStatusCheckIpScopePtrType = reflect.TypeOf((**ApplicationStatusCheckIpScope)(nil)).Elem()
+
+type ApplicationStatusCheckIpScopePtrInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckIpScopePtrOutput() ApplicationStatusCheckIpScopePtrOutput
+	ToApplicationStatusCheckIpScopePtrOutputWithContext(context.Context) ApplicationStatusCheckIpScopePtrOutput
+}
+
+type applicationStatusCheckIpScopePtr string
+
+func ApplicationStatusCheckIpScopePtr(v string) ApplicationStatusCheckIpScopePtrInput {
+	return (*applicationStatusCheckIpScopePtr)(&v)
+}
+
+func (*applicationStatusCheckIpScopePtr) ElementType() reflect.Type {
+	return applicationStatusCheckIpScopePtrType
+}
+
+func (in *applicationStatusCheckIpScopePtr) ToApplicationStatusCheckIpScopePtrOutput() ApplicationStatusCheckIpScopePtrOutput {
+	return pulumi.ToOutput(in).(ApplicationStatusCheckIpScopePtrOutput)
+}
+
+func (in *applicationStatusCheckIpScopePtr) ToApplicationStatusCheckIpScopePtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpScopePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationStatusCheckIpScopePtrOutput)
+}
+
+// The IP version used for the health check.
+type ApplicationStatusCheckIpVersion string
+
+const (
+	ApplicationStatusCheckIpVersionIpv4 = ApplicationStatusCheckIpVersion("ipv4")
+	ApplicationStatusCheckIpVersionIpv6 = ApplicationStatusCheckIpVersion("ipv6")
+)
+
+func (ApplicationStatusCheckIpVersion) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckIpVersion)(nil)).Elem()
+}
+
+func (e ApplicationStatusCheckIpVersion) ToApplicationStatusCheckIpVersionOutput() ApplicationStatusCheckIpVersionOutput {
+	return pulumi.ToOutput(e).(ApplicationStatusCheckIpVersionOutput)
+}
+
+func (e ApplicationStatusCheckIpVersion) ToApplicationStatusCheckIpVersionOutputWithContext(ctx context.Context) ApplicationStatusCheckIpVersionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationStatusCheckIpVersionOutput)
+}
+
+func (e ApplicationStatusCheckIpVersion) ToApplicationStatusCheckIpVersionPtrOutput() ApplicationStatusCheckIpVersionPtrOutput {
+	return e.ToApplicationStatusCheckIpVersionPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckIpVersion) ToApplicationStatusCheckIpVersionPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpVersionPtrOutput {
+	return ApplicationStatusCheckIpVersion(e).ToApplicationStatusCheckIpVersionOutputWithContext(ctx).ToApplicationStatusCheckIpVersionPtrOutputWithContext(ctx)
+}
+
+func (e ApplicationStatusCheckIpVersion) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckIpVersion) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckIpVersion) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckIpVersion) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationStatusCheckIpVersionOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckIpVersionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckIpVersion)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToApplicationStatusCheckIpVersionOutput() ApplicationStatusCheckIpVersionOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToApplicationStatusCheckIpVersionOutputWithContext(ctx context.Context) ApplicationStatusCheckIpVersionOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToApplicationStatusCheckIpVersionPtrOutput() ApplicationStatusCheckIpVersionPtrOutput {
+	return o.ToApplicationStatusCheckIpVersionPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToApplicationStatusCheckIpVersionPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpVersionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationStatusCheckIpVersion) *ApplicationStatusCheckIpVersion {
+		return &v
+	}).(ApplicationStatusCheckIpVersionPtrOutput)
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckIpVersion) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpVersionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckIpVersion) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationStatusCheckIpVersionPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckIpVersionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationStatusCheckIpVersion)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckIpVersionPtrOutput) ToApplicationStatusCheckIpVersionPtrOutput() ApplicationStatusCheckIpVersionPtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpVersionPtrOutput) ToApplicationStatusCheckIpVersionPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpVersionPtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckIpVersionPtrOutput) Elem() ApplicationStatusCheckIpVersionOutput {
+	return o.ApplyT(func(v *ApplicationStatusCheckIpVersion) ApplicationStatusCheckIpVersion {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationStatusCheckIpVersion
+		return ret
+	}).(ApplicationStatusCheckIpVersionOutput)
+}
+
+func (o ApplicationStatusCheckIpVersionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckIpVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationStatusCheckIpVersion) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationStatusCheckIpVersionInput is an input type that accepts values of the ApplicationStatusCheckIpVersion enum
+// A concrete instance of `ApplicationStatusCheckIpVersionInput` can be one of the following:
+//
+//	ApplicationStatusCheckIpVersionIpv4
+//	ApplicationStatusCheckIpVersionIpv6
+type ApplicationStatusCheckIpVersionInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckIpVersionOutput() ApplicationStatusCheckIpVersionOutput
+	ToApplicationStatusCheckIpVersionOutputWithContext(context.Context) ApplicationStatusCheckIpVersionOutput
+}
+
+var applicationStatusCheckIpVersionPtrType = reflect.TypeOf((**ApplicationStatusCheckIpVersion)(nil)).Elem()
+
+type ApplicationStatusCheckIpVersionPtrInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckIpVersionPtrOutput() ApplicationStatusCheckIpVersionPtrOutput
+	ToApplicationStatusCheckIpVersionPtrOutputWithContext(context.Context) ApplicationStatusCheckIpVersionPtrOutput
+}
+
+type applicationStatusCheckIpVersionPtr string
+
+func ApplicationStatusCheckIpVersionPtr(v string) ApplicationStatusCheckIpVersionPtrInput {
+	return (*applicationStatusCheckIpVersionPtr)(&v)
+}
+
+func (*applicationStatusCheckIpVersionPtr) ElementType() reflect.Type {
+	return applicationStatusCheckIpVersionPtrType
+}
+
+func (in *applicationStatusCheckIpVersionPtr) ToApplicationStatusCheckIpVersionPtrOutput() ApplicationStatusCheckIpVersionPtrOutput {
+	return pulumi.ToOutput(in).(ApplicationStatusCheckIpVersionPtrOutput)
+}
+
+func (in *applicationStatusCheckIpVersionPtr) ToApplicationStatusCheckIpVersionPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckIpVersionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationStatusCheckIpVersionPtrOutput)
+}
+
+// The network protocol used for the health check.
+type ApplicationStatusCheckProtocol string
+
+const (
+	ApplicationStatusCheckProtocolHttp  = ApplicationStatusCheckProtocol("http")
+	ApplicationStatusCheckProtocolHttps = ApplicationStatusCheckProtocol("https")
+)
+
+func (ApplicationStatusCheckProtocol) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckProtocol)(nil)).Elem()
+}
+
+func (e ApplicationStatusCheckProtocol) ToApplicationStatusCheckProtocolOutput() ApplicationStatusCheckProtocolOutput {
+	return pulumi.ToOutput(e).(ApplicationStatusCheckProtocolOutput)
+}
+
+func (e ApplicationStatusCheckProtocol) ToApplicationStatusCheckProtocolOutputWithContext(ctx context.Context) ApplicationStatusCheckProtocolOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ApplicationStatusCheckProtocolOutput)
+}
+
+func (e ApplicationStatusCheckProtocol) ToApplicationStatusCheckProtocolPtrOutput() ApplicationStatusCheckProtocolPtrOutput {
+	return e.ToApplicationStatusCheckProtocolPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckProtocol) ToApplicationStatusCheckProtocolPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckProtocolPtrOutput {
+	return ApplicationStatusCheckProtocol(e).ToApplicationStatusCheckProtocolOutputWithContext(ctx).ToApplicationStatusCheckProtocolPtrOutputWithContext(ctx)
+}
+
+func (e ApplicationStatusCheckProtocol) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckProtocol) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ApplicationStatusCheckProtocol) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ApplicationStatusCheckProtocol) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ApplicationStatusCheckProtocolOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckProtocolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationStatusCheckProtocol)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToApplicationStatusCheckProtocolOutput() ApplicationStatusCheckProtocolOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToApplicationStatusCheckProtocolOutputWithContext(ctx context.Context) ApplicationStatusCheckProtocolOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToApplicationStatusCheckProtocolPtrOutput() ApplicationStatusCheckProtocolPtrOutput {
+	return o.ToApplicationStatusCheckProtocolPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToApplicationStatusCheckProtocolPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckProtocolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationStatusCheckProtocol) *ApplicationStatusCheckProtocol {
+		return &v
+	}).(ApplicationStatusCheckProtocolPtrOutput)
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckProtocol) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckProtocolOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ApplicationStatusCheckProtocol) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationStatusCheckProtocolPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationStatusCheckProtocolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationStatusCheckProtocol)(nil)).Elem()
+}
+
+func (o ApplicationStatusCheckProtocolPtrOutput) ToApplicationStatusCheckProtocolPtrOutput() ApplicationStatusCheckProtocolPtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckProtocolPtrOutput) ToApplicationStatusCheckProtocolPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckProtocolPtrOutput {
+	return o
+}
+
+func (o ApplicationStatusCheckProtocolPtrOutput) Elem() ApplicationStatusCheckProtocolOutput {
+	return o.ApplyT(func(v *ApplicationStatusCheckProtocol) ApplicationStatusCheckProtocol {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationStatusCheckProtocol
+		return ret
+	}).(ApplicationStatusCheckProtocolOutput)
+}
+
+func (o ApplicationStatusCheckProtocolPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationStatusCheckProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ApplicationStatusCheckProtocol) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ApplicationStatusCheckProtocolInput is an input type that accepts values of the ApplicationStatusCheckProtocol enum
+// A concrete instance of `ApplicationStatusCheckProtocolInput` can be one of the following:
+//
+//	ApplicationStatusCheckProtocolHttp
+//	ApplicationStatusCheckProtocolHttps
+type ApplicationStatusCheckProtocolInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckProtocolOutput() ApplicationStatusCheckProtocolOutput
+	ToApplicationStatusCheckProtocolOutputWithContext(context.Context) ApplicationStatusCheckProtocolOutput
+}
+
+var applicationStatusCheckProtocolPtrType = reflect.TypeOf((**ApplicationStatusCheckProtocol)(nil)).Elem()
+
+type ApplicationStatusCheckProtocolPtrInput interface {
+	pulumi.Input
+
+	ToApplicationStatusCheckProtocolPtrOutput() ApplicationStatusCheckProtocolPtrOutput
+	ToApplicationStatusCheckProtocolPtrOutputWithContext(context.Context) ApplicationStatusCheckProtocolPtrOutput
+}
+
+type applicationStatusCheckProtocolPtr string
+
+func ApplicationStatusCheckProtocolPtr(v string) ApplicationStatusCheckProtocolPtrInput {
+	return (*applicationStatusCheckProtocolPtr)(&v)
+}
+
+func (*applicationStatusCheckProtocolPtr) ElementType() reflect.Type {
+	return applicationStatusCheckProtocolPtrType
+}
+
+func (in *applicationStatusCheckProtocolPtr) ToApplicationStatusCheckProtocolPtrOutput() ApplicationStatusCheckProtocolPtrOutput {
+	return pulumi.ToOutput(in).(ApplicationStatusCheckProtocolPtrOutput)
+}
+
+func (in *applicationStatusCheckProtocolPtr) ToApplicationStatusCheckProtocolPtrOutputWithContext(ctx context.Context) ApplicationStatusCheckProtocolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ApplicationStatusCheckProtocolPtrOutput)
+}
+
 // The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
 type CapacityManagerDataExportOutputFormat string
 
@@ -3339,9 +4001,382 @@ func (o Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput) Ind
 	}).(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput)
 }
 
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem string
+
+const (
+	Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOnDemand = Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem("on-demand")
+)
+
+func (Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)(nil)).Elem()
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput {
+	return pulumi.ToOutput(e).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput)
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput)
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return e.ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem(e).ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutputWithContext(ctx).ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return o.ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) *Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem {
+		return &v
+	}).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput)
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput) Elem() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput {
+	return o.ApplyT(func(v *Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem
+		return ret
+	}).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput)
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemInput is an input type that accepts values of the Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem enum
+// A concrete instance of `Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemInput` can be one of the following:
+//
+//	Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOnDemand
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput
+	ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutputWithContext(context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput
+}
+
+var ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrType = reflect.TypeOf((**Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)(nil)).Elem()
+
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput
+	ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput
+}
+
+type ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtr string
+
+func Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtr(v string) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrInput {
+	return (*ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtr)(&v)
+}
+
+func (*ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtr) ElementType() reflect.Type {
+	return ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrType
+}
+
+func (in *ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtr) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput)
+}
+
+func (in *ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtr) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput)
+}
+
+// Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayInput is an input type that accepts Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArray and Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayInput` via:
+//
+//	Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArray{ Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArgs{...} }
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput
+	ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutputWithContext(context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput
+}
+
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArray []Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem
+
+func (Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)(nil)).Elem()
+}
+
+func (i Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArray) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput {
+	return i.ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArray) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput)
+}
+
+type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput() Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput) ToEc2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput) Index(i pulumi.IntInput) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem {
+		return vs[0].([]Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)[vs[1].(int)]
+	}).(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput)
+}
+
+type Ec2FleetReservedCapacityOptionsRequestAllocationStrategy string
+
+const (
+	Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPrioritized = Ec2FleetReservedCapacityOptionsRequestAllocationStrategy("prioritized")
+)
+
+func (Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestAllocationStrategy)(nil)).Elem()
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput {
+	return pulumi.ToOutput(e).(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return e.ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return Ec2FleetReservedCapacityOptionsRequestAllocationStrategy(e).ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyOutputWithContext(ctx).ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(ctx)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestAllocationStrategy)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return o.ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) *Ec2FleetReservedCapacityOptionsRequestAllocationStrategy {
+		return &v
+	}).(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput)
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetReservedCapacityOptionsRequestAllocationStrategy)(nil)).Elem()
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return o
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput) Elem() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput {
+	return o.ApplyT(func(v *Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) Ec2FleetReservedCapacityOptionsRequestAllocationStrategy {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetReservedCapacityOptionsRequestAllocationStrategy
+		return ret
+	}).(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput)
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *Ec2FleetReservedCapacityOptionsRequestAllocationStrategy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// Ec2FleetReservedCapacityOptionsRequestAllocationStrategyInput is an input type that accepts values of the Ec2FleetReservedCapacityOptionsRequestAllocationStrategy enum
+// A concrete instance of `Ec2FleetReservedCapacityOptionsRequestAllocationStrategyInput` can be one of the following:
+//
+//	Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPrioritized
+type Ec2FleetReservedCapacityOptionsRequestAllocationStrategyInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput
+	ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyOutputWithContext(context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput
+}
+
+var ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrType = reflect.TypeOf((**Ec2FleetReservedCapacityOptionsRequestAllocationStrategy)(nil)).Elem()
+
+type Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput
+	ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput
+}
+
+type ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtr string
+
+func Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtr(v string) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrInput {
+	return (*ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtr)(&v)
+}
+
+func (*ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtr) ElementType() reflect.Type {
+	return ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrType
+}
+
+func (in *ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtr) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput() Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return pulumi.ToOutput(in).(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput)
+}
+
+func (in *ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtr) ToEc2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutputWithContext(ctx context.Context) Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput)
+}
+
 type Ec2FleetReservedCapacityOptionsRequestReservationTypesItem string
 
 const (
+	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOnDemandCapacityReservation      = Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("on-demand-capacity-reservation")
+	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemCapacityBlock                    = Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("capacity-block")
 	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInterruptibleCapacityReservation = Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation")
 )
 
@@ -3467,6 +4502,8 @@ func (o Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput) ToS
 // Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput is an input type that accepts values of the Ec2FleetReservedCapacityOptionsRequestReservationTypesItem enum
 // A concrete instance of `Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput` can be one of the following:
 //
+//	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOnDemandCapacityReservation
+//	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemCapacityBlock
 //	Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInterruptibleCapacityReservation
 type Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput interface {
 	pulumi.Input
@@ -21319,6 +22356,14 @@ func (in *vpnConnectionVpnTunnelOptionsSpecificationStartupActionPtr) ToVpnConne
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckAggregationInput)(nil)).Elem(), ApplicationStatusCheckAggregation("included"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckAggregationPtrInput)(nil)).Elem(), ApplicationStatusCheckAggregation("included"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckIpScopeInput)(nil)).Elem(), ApplicationStatusCheckIpScope("private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckIpScopePtrInput)(nil)).Elem(), ApplicationStatusCheckIpScope("private"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckIpVersionInput)(nil)).Elem(), ApplicationStatusCheckIpVersion("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckIpVersionPtrInput)(nil)).Elem(), ApplicationStatusCheckIpVersion("ipv4"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckProtocolInput)(nil)).Elem(), ApplicationStatusCheckProtocol("http"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationStatusCheckProtocolPtrInput)(nil)).Elem(), ApplicationStatusCheckProtocol("http"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityManagerDataExportOutputFormatInput)(nil)).Elem(), CapacityManagerDataExportOutputFormat("csv"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityManagerDataExportOutputFormatPtrInput)(nil)).Elem(), CapacityManagerDataExportOutputFormat("csv"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CapacityManagerDataExportScheduleInput)(nil)).Elem(), CapacityManagerDataExportSchedule("hourly"))
@@ -21361,8 +22406,13 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem("hdd"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayInput)(nil)).Elem(), Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation"))
-	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemInput)(nil)).Elem(), Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem("on-demand"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrInput)(nil)).Elem(), Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem("on-demand"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayInput)(nil)).Elem(), Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestAllocationStrategyInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestAllocationStrategy("prioritized"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestAllocationStrategy("prioritized"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("on-demand-capacity-reservation"))
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("on-demand-capacity-reservation"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestAllocationStrategyInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestAllocationStrategy("lowest-price"))
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestAllocationStrategyPtrInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestAllocationStrategy("lowest-price"))
@@ -21563,6 +22613,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction("clear"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
 	pulumi.RegisterInputType(reflect.TypeOf((*VpnConnectionVpnTunnelOptionsSpecificationStartupActionPtrInput)(nil)).Elem(), VpnConnectionVpnTunnelOptionsSpecificationStartupAction("add"))
+	pulumi.RegisterOutputType(ApplicationStatusCheckAggregationOutput{})
+	pulumi.RegisterOutputType(ApplicationStatusCheckAggregationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationStatusCheckIpScopeOutput{})
+	pulumi.RegisterOutputType(ApplicationStatusCheckIpScopePtrOutput{})
+	pulumi.RegisterOutputType(ApplicationStatusCheckIpVersionOutput{})
+	pulumi.RegisterOutputType(ApplicationStatusCheckIpVersionPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationStatusCheckProtocolOutput{})
+	pulumi.RegisterOutputType(ApplicationStatusCheckProtocolPtrOutput{})
 	pulumi.RegisterOutputType(CapacityManagerDataExportOutputFormatOutput{})
 	pulumi.RegisterOutputType(CapacityManagerDataExportOutputFormatPtrOutput{})
 	pulumi.RegisterOutputType(CapacityManagerDataExportScheduleOutput{})
@@ -21605,6 +22663,11 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetInstanceRequirementsRequestLocalStorageTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyOutput{})
+	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestAllocationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemOutput{})
 	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestReservationTypesItemArrayOutput{})

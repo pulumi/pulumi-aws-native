@@ -22,6 +22,14 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("resourcePolicy")]
         public Input<Inputs.GlobalTableResourcePolicyArgs>? ResourcePolicy { get; set; }
 
+        [Input("tags")]
+        private InputList<Inputs.GlobalTableTagArgs>? _tags;
+        public InputList<Inputs.GlobalTableTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.GlobalTableTagArgs>());
+            set => _tags = value;
+        }
+
         public GlobalTableReplicaStreamSpecificationArgs()
         {
         }

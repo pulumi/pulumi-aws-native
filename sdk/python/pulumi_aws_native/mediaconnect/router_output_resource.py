@@ -29,6 +29,7 @@ class RouterOutputResourceArgs:
                  routing_scope: pulumi.Input['RouterOutputResourceRoutingScope'],
                  tier: pulumi.Input['RouterOutputResourceRouterOutputTier'],
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 fabric_configuration: pulumi.Input[Optional['RouterOutputResourceFabricConfigurationArgs']] = None,
                  maintenance_configuration: pulumi.Input[Optional[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -51,6 +52,8 @@ class RouterOutputResourceArgs:
         pulumi.set(__self__, "tier", tier)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
+        if fabric_configuration is not None:
+            pulumi.set(__self__, "fabric_configuration", fabric_configuration)
         if maintenance_configuration is not None:
             pulumi.set(__self__, "maintenance_configuration", maintenance_configuration)
         if name is not None:
@@ -118,6 +121,15 @@ class RouterOutputResourceArgs:
         pulumi.set(self, "availability_zone", value)
 
     @_builtins.property
+    @pulumi.getter(name="fabricConfiguration")
+    def fabric_configuration(self) -> pulumi.Input[Optional['RouterOutputResourceFabricConfigurationArgs']]:
+        return pulumi.get(self, "fabric_configuration")
+
+    @fabric_configuration.setter
+    def fabric_configuration(self, value: pulumi.Input[Optional['RouterOutputResourceFabricConfigurationArgs']]):
+        pulumi.set(self, "fabric_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="maintenanceConfiguration")
     def maintenance_configuration(self) -> pulumi.Input[Optional[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgs']]]:
         """
@@ -174,6 +186,7 @@ class RouterOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceRouterOutputConfiguration0PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration1PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration2PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict']]]] = None,
+                 fabric_configuration: pulumi.Input[Optional[Union['RouterOutputResourceFabricConfigurationArgs', 'RouterOutputResourceFabricConfigurationArgsDict']]] = None,
                  maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceMaintenanceConfiguration1PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -222,6 +235,7 @@ class RouterOutputResource(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceRouterOutputConfiguration0PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration1PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration1PropertiesArgsDict'], Union['RouterOutputResourceRouterOutputConfiguration2PropertiesArgs', 'RouterOutputResourceRouterOutputConfiguration2PropertiesArgsDict']]]] = None,
+                 fabric_configuration: pulumi.Input[Optional[Union['RouterOutputResourceFabricConfigurationArgs', 'RouterOutputResourceFabricConfigurationArgsDict']]] = None,
                  maintenance_configuration: pulumi.Input[Optional[Union[Union['RouterOutputResourceMaintenanceConfiguration0PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration0PropertiesArgsDict'], Union['RouterOutputResourceMaintenanceConfiguration1PropertiesArgs', 'RouterOutputResourceMaintenanceConfiguration1PropertiesArgsDict']]]] = None,
                  maximum_bitrate: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -242,6 +256,7 @@ class RouterOutputResource(pulumi.CustomResource):
             if configuration is None and not opts.urn:
                 raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["fabric_configuration"] = fabric_configuration
             __props__.__dict__["maintenance_configuration"] = maintenance_configuration
             if maximum_bitrate is None and not opts.urn:
                 raise TypeError("Missing required property 'maximum_bitrate'")
@@ -293,6 +308,7 @@ class RouterOutputResource(pulumi.CustomResource):
         __props__.__dict__["aws_id"] = None
         __props__.__dict__["configuration"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["fabric_configuration"] = None
         __props__.__dict__["ip_address"] = None
         __props__.__dict__["maintenance_configuration"] = None
         __props__.__dict__["maintenance_type"] = None
@@ -344,6 +360,11 @@ class RouterOutputResource(pulumi.CustomResource):
         The timestamp when the router output was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="fabricConfiguration")
+    def fabric_configuration(self) -> pulumi.Output[Optional['outputs.RouterOutputResourceFabricConfiguration']]:
+        return pulumi.get(self, "fabric_configuration")
 
     @_builtins.property
     @pulumi.getter(name="ipAddress")

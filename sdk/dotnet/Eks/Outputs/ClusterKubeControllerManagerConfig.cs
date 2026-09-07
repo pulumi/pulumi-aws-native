@@ -17,11 +17,16 @@ namespace Pulumi.AwsNative.Eks.Outputs
     public sealed class ClusterKubeControllerManagerConfig
     {
         public readonly Outputs.ClusterHorizontalPodAutoscalerControllerConfig? HorizontalPodAutoscalerControllerConfig;
+        public readonly Outputs.ClusterPodGcControllerConfig? PodGcControllerConfig;
 
         [OutputConstructor]
-        private ClusterKubeControllerManagerConfig(Outputs.ClusterHorizontalPodAutoscalerControllerConfig? horizontalPodAutoscalerControllerConfig)
+        private ClusterKubeControllerManagerConfig(
+            Outputs.ClusterHorizontalPodAutoscalerControllerConfig? horizontalPodAutoscalerControllerConfig,
+
+            Outputs.ClusterPodGcControllerConfig? podGcControllerConfig)
         {
             HorizontalPodAutoscalerControllerConfig = horizontalPodAutoscalerControllerConfig;
+            PodGcControllerConfig = podGcControllerConfig;
         }
     }
 }

@@ -30,6 +30,10 @@ export interface GetRegistryRecordResult {
      */
     readonly createdAt?: string;
     /**
+     * The identifier of the AWS account that created the registry record.
+     */
+    readonly createdBy?: string;
+    /**
      * The description of the registry record.
      */
     readonly description?: string;

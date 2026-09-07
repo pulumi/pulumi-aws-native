@@ -70,6 +70,7 @@ __all__ = [
     'RouterNetworkInterfaceState',
     'RouterNetworkInterfaceType',
     'RouterOutputResourceDay',
+    'RouterOutputResourceFabricLatencyMode',
     'RouterOutputResourceFlowTransitEncryptionKeyType',
     'RouterOutputResourceForwardErrorCorrectionState',
     'RouterOutputResourceMaintenanceType',
@@ -659,6 +660,12 @@ class RouterOutputResourceDay(_builtins.str, Enum):
     FRIDAY = "FRIDAY"
     SATURDAY = "SATURDAY"
     SUNDAY = "SUNDAY"
+
+
+@pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceFabricLatencyMode")
+class RouterOutputResourceFabricLatencyMode(_builtins.str, Enum):
+    BALANCED = "BALANCED"
+    LOW_LATENCY = "LOW_LATENCY"
 
 
 @pulumi.type_token("aws-native:mediaconnect:RouterOutputResourceFlowTransitEncryptionKeyType")

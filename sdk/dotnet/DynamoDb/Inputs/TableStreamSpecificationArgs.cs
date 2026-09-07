@@ -33,6 +33,14 @@ namespace Pulumi.AwsNative.DynamoDb.Inputs
         [Input("streamViewType", required: true)]
         public Input<string> StreamViewType { get; set; } = null!;
 
+        [Input("tags")]
+        private InputList<Inputs.TableTagArgs>? _tags;
+        public InputList<Inputs.TableTagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Inputs.TableTagArgs>());
+            set => _tags = value;
+        }
+
         public TableStreamSpecificationArgs()
         {
         }

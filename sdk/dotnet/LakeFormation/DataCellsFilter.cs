@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.LakeFormation
 {
     /// <summary>
-    /// A resource schema representing a Lake Formation Data Cells Filter.
+    /// Resource Type definition for AWS::LakeFormation::DataCellsFilter
     /// </summary>
     [AwsNativeResourceType("aws-native:lakeformation:DataCellsFilter")]
     public partial class DataCellsFilter : global::Pulumi.CustomResource

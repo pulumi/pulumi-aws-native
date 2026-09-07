@@ -31,6 +31,8 @@ type LookupRegistryRecordArgs struct {
 type LookupRegistryRecordResult struct {
 	// The timestamp when the registry record was created.
 	CreatedAt *string `pulumi:"createdAt"`
+	// The identifier of the AWS account that created the registry record.
+	CreatedBy *string `pulumi:"createdBy"`
 	// The description of the registry record.
 	Description *string                    `pulumi:"description"`
 	Descriptors *RegistryRecordDescriptors `pulumi:"descriptors"`
@@ -84,6 +86,11 @@ func (o LookupRegistryRecordResultOutput) ToLookupRegistryRecordResultOutputWith
 // The timestamp when the registry record was created.
 func (o LookupRegistryRecordResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRegistryRecordResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the AWS account that created the registry record.
+func (o LookupRegistryRecordResultOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRegistryRecordResult) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
 }
 
 // The description of the registry record.

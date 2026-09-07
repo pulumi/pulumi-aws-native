@@ -47,6 +47,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
         /// Send data to an HTTPS endpoint.
         /// </summary>
         public readonly Outputs.TopicRuleHttpAction? Http;
+        public readonly Outputs.TopicRuleInfluxDbAction? InfluxDb;
         /// <summary>
         /// Sends message data to an AWS IoT Analytics channel.
         /// </summary>
@@ -122,6 +123,8 @@ namespace Pulumi.AwsNative.IoT.Outputs
 
             Outputs.TopicRuleHttpAction? http,
 
+            Outputs.TopicRuleInfluxDbAction? influxDb,
+
             Outputs.TopicRuleIotAnalyticsAction? iotAnalytics,
 
             Outputs.TopicRuleIotEventsAction? iotEvents,
@@ -158,6 +161,7 @@ namespace Pulumi.AwsNative.IoT.Outputs
             Elasticsearch = elasticsearch;
             Firehose = firehose;
             Http = http;
+            InfluxDb = influxDb;
             IotAnalytics = iotAnalytics;
             IotEvents = iotEvents;
             IotSiteWise = iotSiteWise;

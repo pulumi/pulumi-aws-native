@@ -17,6 +17,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicationStatusCheckHealthCheckPath',
+    'ApplicationStatusCheckHealthCheckPathDestination',
+    'ApplicationStatusCheckHealthCheckPathSource',
     'BlockPublicAccessStatesProperties',
     'CapacityReservationCapacityAllocation',
     'CapacityReservationFleetInstanceTypeSpecification',
@@ -35,6 +38,7 @@ __all__ = [
     'Ec2FleetBlockDeviceMapping',
     'Ec2FleetCapacityRebalance',
     'Ec2FleetCapacityReservationOptionsRequest',
+    'Ec2FleetCapacityReservationTargetRequest',
     'Ec2FleetCpuPerformanceFactorRequest',
     'Ec2FleetEbsBlockDevice',
     'Ec2FleetFleetLaunchTemplateConfigRequest',
@@ -54,6 +58,7 @@ __all__ = [
     'Ec2FleetPerformanceFactorReferenceRequest',
     'Ec2FleetPlacement',
     'Ec2FleetPrivateIpAddressSpecificationRequest',
+    'Ec2FleetReservedCapacityFallbackOptionsRequest',
     'Ec2FleetReservedCapacityOptionsRequest',
     'Ec2FleetSpotOptionsRequest',
     'Ec2FleetTag',
@@ -248,6 +253,107 @@ __all__ = [
     'VpnConnectionVpnTunnelLogOptionsSpecification',
     'VpnConnectionVpnTunnelOptionsSpecification',
 ]
+
+@pulumi.output_type
+class ApplicationStatusCheckHealthCheckPath(dict):
+    def __init__(__self__, *,
+                 destinations: Optional[Sequence['outputs.ApplicationStatusCheckHealthCheckPathDestination']] = None,
+                 source: Optional['outputs.ApplicationStatusCheckHealthCheckPathSource'] = None):
+        if destinations is not None:
+            pulumi.set(__self__, "destinations", destinations)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Optional[Sequence['outputs.ApplicationStatusCheckHealthCheckPathDestination']]:
+        return pulumi.get(self, "destinations")
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> Optional['outputs.ApplicationStatusCheckHealthCheckPathSource']:
+        return pulumi.get(self, "source")
+
+
+@pulumi.output_type
+class ApplicationStatusCheckHealthCheckPathDestination(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupId":
+            suggest = "security_group_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationStatusCheckHealthCheckPathDestination. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationStatusCheckHealthCheckPathDestination.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationStatusCheckHealthCheckPathDestination.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_id: Optional[_builtins.str] = None,
+                 subnet_id: Optional[_builtins.str] = None):
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "security_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class ApplicationStatusCheckHealthCheckPathSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupId":
+            suggest = "security_group_id"
+        elif key == "subnetId":
+            suggest = "subnet_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationStatusCheckHealthCheckPathSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationStatusCheckHealthCheckPathSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationStatusCheckHealthCheckPathSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_id: Optional[_builtins.str] = None,
+                 subnet_id: Optional[_builtins.str] = None):
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "security_group_id")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "subnet_id")
+
 
 @pulumi.output_type
 class BlockPublicAccessStatesProperties(dict):
@@ -1139,6 +1245,46 @@ class Ec2FleetCapacityReservationOptionsRequest(dict):
         If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
         """
         return pulumi.get(self, "usage_strategy")
+
+
+@pulumi.output_type
+class Ec2FleetCapacityReservationTargetRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationIds":
+            suggest = "capacity_reservation_ids"
+        elif key == "capacityReservationResourceGroupArns":
+            suggest = "capacity_reservation_resource_group_arns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetCapacityReservationTargetRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetCapacityReservationTargetRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetCapacityReservationTargetRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_ids: Optional[Sequence[_builtins.str]] = None,
+                 capacity_reservation_resource_group_arns: Optional[Sequence[_builtins.str]] = None):
+        if capacity_reservation_ids is not None:
+            pulumi.set(__self__, "capacity_reservation_ids", capacity_reservation_ids)
+        if capacity_reservation_resource_group_arns is not None:
+            pulumi.set(__self__, "capacity_reservation_resource_group_arns", capacity_reservation_resource_group_arns)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationIds")
+    def capacity_reservation_ids(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "capacity_reservation_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationResourceGroupArns")
+    def capacity_reservation_resource_group_arns(self) -> Optional[Sequence[_builtins.str]]:
+        return pulumi.get(self, "capacity_reservation_resource_group_arns")
 
 
 @pulumi.output_type
@@ -3231,12 +3377,48 @@ class Ec2FleetPrivateIpAddressSpecificationRequest(dict):
 
 
 @pulumi.output_type
+class Ec2FleetReservedCapacityFallbackOptionsRequest(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "marketTypes":
+            suggest = "market_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetReservedCapacityFallbackOptionsRequest. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetReservedCapacityFallbackOptionsRequest.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetReservedCapacityFallbackOptionsRequest.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 market_types: Optional[Sequence['Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem']] = None):
+        if market_types is not None:
+            pulumi.set(__self__, "market_types", market_types)
+
+    @_builtins.property
+    @pulumi.getter(name="marketTypes")
+    def market_types(self) -> Optional[Sequence['Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem']]:
+        return pulumi.get(self, "market_types")
+
+
+@pulumi.output_type
 class Ec2FleetReservedCapacityOptionsRequest(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "reservationTypes":
+        if key == "allocationStrategy":
+            suggest = "allocation_strategy"
+        elif key == "capacityReservationTarget":
+            suggest = "capacity_reservation_target"
+        elif key == "reservationTypes":
             suggest = "reservation_types"
+        elif key == "reservedCapacityFallbackOptions":
+            suggest = "reserved_capacity_fallback_options"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in Ec2FleetReservedCapacityOptionsRequest. Access the value via the '{suggest}' property getter instead.")
@@ -3250,14 +3432,38 @@ class Ec2FleetReservedCapacityOptionsRequest(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 reservation_types: Optional[Sequence['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']] = None):
+                 allocation_strategy: Optional['Ec2FleetReservedCapacityOptionsRequestAllocationStrategy'] = None,
+                 capacity_reservation_target: Optional['outputs.Ec2FleetCapacityReservationTargetRequest'] = None,
+                 reservation_types: Optional[Sequence['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']] = None,
+                 reserved_capacity_fallback_options: Optional['outputs.Ec2FleetReservedCapacityFallbackOptionsRequest'] = None):
+        if allocation_strategy is not None:
+            pulumi.set(__self__, "allocation_strategy", allocation_strategy)
+        if capacity_reservation_target is not None:
+            pulumi.set(__self__, "capacity_reservation_target", capacity_reservation_target)
         if reservation_types is not None:
             pulumi.set(__self__, "reservation_types", reservation_types)
+        if reserved_capacity_fallback_options is not None:
+            pulumi.set(__self__, "reserved_capacity_fallback_options", reserved_capacity_fallback_options)
+
+    @_builtins.property
+    @pulumi.getter(name="allocationStrategy")
+    def allocation_strategy(self) -> Optional['Ec2FleetReservedCapacityOptionsRequestAllocationStrategy']:
+        return pulumi.get(self, "allocation_strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationTarget")
+    def capacity_reservation_target(self) -> Optional['outputs.Ec2FleetCapacityReservationTargetRequest']:
+        return pulumi.get(self, "capacity_reservation_target")
 
     @_builtins.property
     @pulumi.getter(name="reservationTypes")
     def reservation_types(self) -> Optional[Sequence['Ec2FleetReservedCapacityOptionsRequestReservationTypesItem']]:
         return pulumi.get(self, "reservation_types")
+
+    @_builtins.property
+    @pulumi.getter(name="reservedCapacityFallbackOptions")
+    def reserved_capacity_fallback_options(self) -> Optional['outputs.Ec2FleetReservedCapacityFallbackOptionsRequest']:
+        return pulumi.get(self, "reserved_capacity_fallback_options")
 
 
 @pulumi.output_type

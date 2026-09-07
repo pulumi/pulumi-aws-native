@@ -60,6 +60,7 @@ __all__ = [
     'TableS3BucketSource',
     'TableSseSpecification',
     'TableStreamSpecification',
+    'TableTag',
     'TableTimeToLiveSpecification',
     'TableWarmThroughput',
 ]
@@ -1133,7 +1134,8 @@ class GlobalTableReplicaStreamSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 resource_policy: Optional['outputs.GlobalTableResourcePolicy'] = None):
+                 resource_policy: Optional['outputs.GlobalTableResourcePolicy'] = None,
+                 tags: Optional[Sequence['outputs.GlobalTableTag']] = None):
         """
         :param 'GlobalTableResourcePolicy' resource_policy: A resource-based policy document that contains the permissions for the specified stream of a DynamoDB global table replica. Resource-based policies let you define access permissions by specifying who has access to each resource, and the actions they are allowed to perform on each resource.
                
@@ -1143,6 +1145,8 @@ class GlobalTableReplicaStreamSpecification(dict):
         """
         if resource_policy is not None:
             pulumi.set(__self__, "resource_policy", resource_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="resourcePolicy")
@@ -1155,6 +1159,11 @@ class GlobalTableReplicaStreamSpecification(dict):
         You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
         """
         return pulumi.get(self, "resource_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.GlobalTableTag']]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -2629,7 +2638,8 @@ class TableStreamSpecification(dict):
 
     def __init__(__self__, *,
                  stream_view_type: _builtins.str,
-                 resource_policy: Optional['outputs.TableResourcePolicy'] = None):
+                 resource_policy: Optional['outputs.TableResourcePolicy'] = None,
+                 tags: Optional[Sequence['outputs.TableTag']] = None):
         """
         Represents the DynamoDB Streams configuration for a table in DynamoDB.
 
@@ -2645,6 +2655,8 @@ class TableStreamSpecification(dict):
         pulumi.set(__self__, "stream_view_type", stream_view_type)
         if resource_policy is not None:
             pulumi.set(__self__, "resource_policy", resource_policy)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="streamViewType")
@@ -2667,6 +2679,49 @@ class TableStreamSpecification(dict):
           In a CFNshort template, you can provide the policy in JSON or YAML format because CFNshort converts YAML to JSON before submitting it to DDB. For more information about resource-based policies, see [Using resource-based policies for](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/access-control-resource-based.html) and [Resource-based policy examples](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-examples.html).
         """
         return pulumi.get(self, "resource_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['outputs.TableTag']]:
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class TableTag(dict):
+    """
+    Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+     AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+     For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+         AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+         For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+
+        :param _builtins.str key: The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        :param _builtins.str value: The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value of the tag. Tag values are case-sensitive and can be null.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type
