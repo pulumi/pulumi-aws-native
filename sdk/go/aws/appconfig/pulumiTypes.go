@@ -737,6 +737,153 @@ func (o ExperimentDefinitionTreatmentArrayOutput) Index(i pulumi.IntInput) Exper
 	}).(ExperimentDefinitionTreatmentOutput)
 }
 
+type ExperimentRunTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// Treatment overrides for specific entities.
+type ExperimentRunTreatmentOverrides struct {
+	// Map of entity ID to treatment key (t1, t2, ..., or c for control).
+	Inline map[string]string `pulumi:"inline"`
+}
+
+// ExperimentRunTreatmentOverridesInput is an input type that accepts ExperimentRunTreatmentOverridesArgs and ExperimentRunTreatmentOverridesOutput values.
+// You can construct a concrete instance of `ExperimentRunTreatmentOverridesInput` via:
+//
+//	ExperimentRunTreatmentOverridesArgs{...}
+type ExperimentRunTreatmentOverridesInput interface {
+	pulumi.Input
+
+	ToExperimentRunTreatmentOverridesOutput() ExperimentRunTreatmentOverridesOutput
+	ToExperimentRunTreatmentOverridesOutputWithContext(context.Context) ExperimentRunTreatmentOverridesOutput
+}
+
+// Treatment overrides for specific entities.
+type ExperimentRunTreatmentOverridesArgs struct {
+	// Map of entity ID to treatment key (t1, t2, ..., or c for control).
+	Inline pulumi.StringMapInput `pulumi:"inline"`
+}
+
+func (ExperimentRunTreatmentOverridesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentRunTreatmentOverrides)(nil)).Elem()
+}
+
+func (i ExperimentRunTreatmentOverridesArgs) ToExperimentRunTreatmentOverridesOutput() ExperimentRunTreatmentOverridesOutput {
+	return i.ToExperimentRunTreatmentOverridesOutputWithContext(context.Background())
+}
+
+func (i ExperimentRunTreatmentOverridesArgs) ToExperimentRunTreatmentOverridesOutputWithContext(ctx context.Context) ExperimentRunTreatmentOverridesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentRunTreatmentOverridesOutput)
+}
+
+func (i ExperimentRunTreatmentOverridesArgs) ToExperimentRunTreatmentOverridesPtrOutput() ExperimentRunTreatmentOverridesPtrOutput {
+	return i.ToExperimentRunTreatmentOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i ExperimentRunTreatmentOverridesArgs) ToExperimentRunTreatmentOverridesPtrOutputWithContext(ctx context.Context) ExperimentRunTreatmentOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentRunTreatmentOverridesOutput).ToExperimentRunTreatmentOverridesPtrOutputWithContext(ctx)
+}
+
+// ExperimentRunTreatmentOverridesPtrInput is an input type that accepts ExperimentRunTreatmentOverridesArgs, ExperimentRunTreatmentOverridesPtr and ExperimentRunTreatmentOverridesPtrOutput values.
+// You can construct a concrete instance of `ExperimentRunTreatmentOverridesPtrInput` via:
+//
+//	        ExperimentRunTreatmentOverridesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ExperimentRunTreatmentOverridesPtrInput interface {
+	pulumi.Input
+
+	ToExperimentRunTreatmentOverridesPtrOutput() ExperimentRunTreatmentOverridesPtrOutput
+	ToExperimentRunTreatmentOverridesPtrOutputWithContext(context.Context) ExperimentRunTreatmentOverridesPtrOutput
+}
+
+type experimentRunTreatmentOverridesPtrType ExperimentRunTreatmentOverridesArgs
+
+func ExperimentRunTreatmentOverridesPtr(v *ExperimentRunTreatmentOverridesArgs) ExperimentRunTreatmentOverridesPtrInput {
+	return (*experimentRunTreatmentOverridesPtrType)(v)
+}
+
+func (*experimentRunTreatmentOverridesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentRunTreatmentOverrides)(nil)).Elem()
+}
+
+func (i *experimentRunTreatmentOverridesPtrType) ToExperimentRunTreatmentOverridesPtrOutput() ExperimentRunTreatmentOverridesPtrOutput {
+	return i.ToExperimentRunTreatmentOverridesPtrOutputWithContext(context.Background())
+}
+
+func (i *experimentRunTreatmentOverridesPtrType) ToExperimentRunTreatmentOverridesPtrOutputWithContext(ctx context.Context) ExperimentRunTreatmentOverridesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ExperimentRunTreatmentOverridesPtrOutput)
+}
+
+// Treatment overrides for specific entities.
+type ExperimentRunTreatmentOverridesOutput struct{ *pulumi.OutputState }
+
+func (ExperimentRunTreatmentOverridesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentRunTreatmentOverrides)(nil)).Elem()
+}
+
+func (o ExperimentRunTreatmentOverridesOutput) ToExperimentRunTreatmentOverridesOutput() ExperimentRunTreatmentOverridesOutput {
+	return o
+}
+
+func (o ExperimentRunTreatmentOverridesOutput) ToExperimentRunTreatmentOverridesOutputWithContext(ctx context.Context) ExperimentRunTreatmentOverridesOutput {
+	return o
+}
+
+func (o ExperimentRunTreatmentOverridesOutput) ToExperimentRunTreatmentOverridesPtrOutput() ExperimentRunTreatmentOverridesPtrOutput {
+	return o.ToExperimentRunTreatmentOverridesPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentRunTreatmentOverridesOutput) ToExperimentRunTreatmentOverridesPtrOutputWithContext(ctx context.Context) ExperimentRunTreatmentOverridesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentRunTreatmentOverrides) *ExperimentRunTreatmentOverrides {
+		return &v
+	}).(ExperimentRunTreatmentOverridesPtrOutput)
+}
+
+// Map of entity ID to treatment key (t1, t2, ..., or c for control).
+func (o ExperimentRunTreatmentOverridesOutput) Inline() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ExperimentRunTreatmentOverrides) map[string]string { return v.Inline }).(pulumi.StringMapOutput)
+}
+
+type ExperimentRunTreatmentOverridesPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentRunTreatmentOverridesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentRunTreatmentOverrides)(nil)).Elem()
+}
+
+func (o ExperimentRunTreatmentOverridesPtrOutput) ToExperimentRunTreatmentOverridesPtrOutput() ExperimentRunTreatmentOverridesPtrOutput {
+	return o
+}
+
+func (o ExperimentRunTreatmentOverridesPtrOutput) ToExperimentRunTreatmentOverridesPtrOutputWithContext(ctx context.Context) ExperimentRunTreatmentOverridesPtrOutput {
+	return o
+}
+
+func (o ExperimentRunTreatmentOverridesPtrOutput) Elem() ExperimentRunTreatmentOverridesOutput {
+	return o.ApplyT(func(v *ExperimentRunTreatmentOverrides) ExperimentRunTreatmentOverrides {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentRunTreatmentOverrides
+		return ret
+	}).(ExperimentRunTreatmentOverridesOutput)
+}
+
+// Map of entity ID to treatment key (t1, t2, ..., or c for control).
+func (o ExperimentRunTreatmentOverridesPtrOutput) Inline() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *ExperimentRunTreatmentOverrides) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Inline
+	}).(pulumi.StringMapOutput)
+}
+
 // An action for an extension to take at a specific action point.
 type ExtensionAction struct {
 	// The description of the extension Action.
@@ -1048,6 +1195,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentDefinitionAttributeValueMapInput)(nil)).Elem(), ExperimentDefinitionAttributeValueMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentDefinitionTreatmentInput)(nil)).Elem(), ExperimentDefinitionTreatmentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentDefinitionTreatmentArrayInput)(nil)).Elem(), ExperimentDefinitionTreatmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentRunTreatmentOverridesInput)(nil)).Elem(), ExperimentRunTreatmentOverridesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ExperimentRunTreatmentOverridesPtrInput)(nil)).Elem(), ExperimentRunTreatmentOverridesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionInput)(nil)).Elem(), ExtensionActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionActionArrayInput)(nil)).Elem(), ExtensionActionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ExtensionParameterInput)(nil)).Elem(), ExtensionParameterArgs{})
@@ -1064,6 +1213,8 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentDefinitionTreatmentOutput{})
 	pulumi.RegisterOutputType(ExperimentDefinitionTreatmentPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentDefinitionTreatmentArrayOutput{})
+	pulumi.RegisterOutputType(ExperimentRunTreatmentOverridesOutput{})
+	pulumi.RegisterOutputType(ExperimentRunTreatmentOverridesPtrOutput{})
 	pulumi.RegisterOutputType(ExtensionActionOutput{})
 	pulumi.RegisterOutputType(ExtensionActionArrayOutput{})
 	pulumi.RegisterOutputType(ExtensionParameterOutput{})

@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// A resource schema representing a Lake Formation Data Cells Filter.
+// Resource Type definition for AWS::LakeFormation::DataCellsFilter
 type DataCellsFilter struct {
 	pulumi.CustomResourceState
 

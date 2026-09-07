@@ -21,8 +21,14 @@ namespace Pulumi.AwsNative.AgentRegistry.Inputs
         [Input("agentSkillsDefinition")]
         public Input<Inputs.RegistryRecordAgentSkillsDefinitionDescriptorArgs>? AgentSkillsDefinition { get; set; }
 
+        [Input("agui")]
+        public Input<Inputs.RegistryRecordAgUiDescriptorArgs>? Agui { get; set; }
+
         [Input("custom")]
         public Input<Inputs.RegistryRecordCustomDescriptorArgs>? Custom { get; set; }
+
+        [Input("http")]
+        public Input<Inputs.RegistryRecordHttpDescriptorArgs>? Http { get; set; }
 
         [Input("mcpServer")]
         public Input<Inputs.RegistryRecordMcpServerDescriptorArgs>? McpServer { get; set; }

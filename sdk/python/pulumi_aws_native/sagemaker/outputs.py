@@ -42,6 +42,7 @@ __all__ = [
     'ArtifactMetadataProperties',
     'ArtifactSource',
     'ArtifactSourceType',
+    'ClusterAccountingDatabase',
     'ClusterAlarmDetails',
     'ClusterAutoPatchConfig',
     'ClusterAutoScalingConfig',
@@ -125,6 +126,30 @@ __all__ = [
     'EndpointAutoRollbackConfig',
     'EndpointBlueGreenUpdatePolicy',
     'EndpointCapacitySize',
+    'EndpointConfigAsyncInferenceClientConfig',
+    'EndpointConfigAsyncInferenceConfig',
+    'EndpointConfigAsyncInferenceNotificationConfig',
+    'EndpointConfigAsyncInferenceOutputConfig',
+    'EndpointConfigCapacityReservationConfig',
+    'EndpointConfigCaptureContentTypeHeader',
+    'EndpointConfigCaptureOption',
+    'EndpointConfigClarifyExplainerConfig',
+    'EndpointConfigClarifyInferenceConfig',
+    'EndpointConfigClarifyShapBaselineConfig',
+    'EndpointConfigClarifyShapConfig',
+    'EndpointConfigClarifyTextConfig',
+    'EndpointConfigCoreDumpConfig',
+    'EndpointConfigDataCaptureConfig',
+    'EndpointConfigExplainerConfig',
+    'EndpointConfigInstancePool',
+    'EndpointConfigManagedInstanceScaling',
+    'EndpointConfigMetricsConfig',
+    'EndpointConfigPrefixAwareRoutingConfig',
+    'EndpointConfigProductionVariant',
+    'EndpointConfigRoutingConfig',
+    'EndpointConfigScaleInPolicy',
+    'EndpointConfigServerlessConfig',
+    'EndpointConfigVpcConfig',
     'EndpointDeploymentConfig',
     'EndpointRollingUpdatePolicy',
     'EndpointTrafficRoutingConfig',
@@ -313,6 +338,7 @@ __all__ = [
     'MonitoringScheduleStatisticsResource',
     'MonitoringScheduleStoppingCondition',
     'MonitoringScheduleVpcConfig',
+    'NotebookInstanceInstanceMetadataServiceConfiguration',
     'OfflineStoreConfigProperties',
     'OnlineStoreConfigProperties',
     'ParallelismConfigurationProperties',
@@ -1776,6 +1802,81 @@ class ArtifactSourceType(dict):
 
 
 @pulumi.output_type
+class ClusterAccountingDatabase(dict):
+    """
+    External MySQL-compatible accounting database that a Slurm cluster's slurmdbd connects to. Database credentials are supplied out-of-band through the referenced Secrets Manager secret. Supported only with Continuous node provisioning.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterAccountingDatabase. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterAccountingDatabase.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterAccountingDatabase.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint: _builtins.str,
+                 secret_arn: _builtins.str,
+                 name: Optional[_builtins.str] = None,
+                 port: Optional[_builtins.int] = None):
+        """
+        External MySQL-compatible accounting database that a Slurm cluster's slurmdbd connects to. Database credentials are supplied out-of-band through the referenced Secrets Manager secret. Supported only with Continuous node provisioning.
+
+        :param _builtins.str endpoint: Hostname or endpoint of the accounting database, such as an RDS endpoint.
+        :param _builtins.str secret_arn: ARN of the Secrets Manager secret holding the database credentials.
+        :param _builtins.str name: Name of the accounting database schema. Defaults to slurm_acct_db when omitted.
+        :param _builtins.int port: TCP port of the accounting database. Defaults to 3306 when omitted.
+        """
+        pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "secret_arn", secret_arn)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @_builtins.property
+    @pulumi.getter
+    def endpoint(self) -> _builtins.str:
+        """
+        Hostname or endpoint of the accounting database, such as an RDS endpoint.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> _builtins.str:
+        """
+        ARN of the Secrets Manager secret holding the database credentials.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of the accounting database schema. Defaults to slurm_acct_db when omitted.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.int]:
+        """
+        TCP port of the accounting database. Defaults to 3306 when omitted.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
 class ClusterAlarmDetails(dict):
     """
     The details of the alarm to monitor during the AMI update.
@@ -2946,7 +3047,9 @@ class ClusterOrchestratorSlurmConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "slurmConfigStrategy":
+        if key == "accountingDatabase":
+            suggest = "accounting_database"
+        elif key == "slurmConfigStrategy":
             suggest = "slurm_config_strategy"
 
         if suggest:
@@ -2961,14 +3064,22 @@ class ClusterOrchestratorSlurmConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 accounting_database: Optional['outputs.ClusterAccountingDatabase'] = None,
                  slurm_config_strategy: Optional['ClusterOrchestratorSlurmConfigSlurmConfigStrategy'] = None):
         """
         Specifies parameter(s) related to Slurm as orchestrator.
 
         :param 'ClusterOrchestratorSlurmConfigSlurmConfigStrategy' slurm_config_strategy: The strategy for managing Slurm configuration on the cluster.
         """
+        if accounting_database is not None:
+            pulumi.set(__self__, "accounting_database", accounting_database)
         if slurm_config_strategy is not None:
             pulumi.set(__self__, "slurm_config_strategy", slurm_config_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="accountingDatabase")
+    def accounting_database(self) -> Optional['outputs.ClusterAccountingDatabase']:
+        return pulumi.get(self, "accounting_database")
 
     @_builtins.property
     @pulumi.getter(name="slurmConfigStrategy")
@@ -6903,6 +7014,1821 @@ class EndpointCapacitySize(dict):
         The value representing either the number of instances or the number of capacity units.
         """
         return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceClientConfig(dict):
+    """
+    Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrentInvocationsPerInstance":
+            suggest = "max_concurrent_invocations_per_instance"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceClientConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceClientConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceClientConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrent_invocations_per_instance: Optional[_builtins.int] = None):
+        """
+        Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+
+        :param _builtins.int max_concurrent_invocations_per_instance: The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
+        """
+        if max_concurrent_invocations_per_instance is not None:
+            pulumi.set(__self__, "max_concurrent_invocations_per_instance", max_concurrent_invocations_per_instance)
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrentInvocationsPerInstance")
+    def max_concurrent_invocations_per_instance(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
+        """
+        return pulumi.get(self, "max_concurrent_invocations_per_instance")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceConfig(dict):
+    """
+    Specifies configuration for how an endpoint performs asynchronous inference.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "outputConfig":
+            suggest = "output_config"
+        elif key == "clientConfig":
+            suggest = "client_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 output_config: 'outputs.EndpointConfigAsyncInferenceOutputConfig',
+                 client_config: Optional['outputs.EndpointConfigAsyncInferenceClientConfig'] = None):
+        """
+        Specifies configuration for how an endpoint performs asynchronous inference.
+
+        :param 'EndpointConfigAsyncInferenceOutputConfig' output_config: Specifies the configuration for asynchronous inference invocation outputs.
+        :param 'EndpointConfigAsyncInferenceClientConfig' client_config: Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+        """
+        pulumi.set(__self__, "output_config", output_config)
+        if client_config is not None:
+            pulumi.set(__self__, "client_config", client_config)
+
+    @_builtins.property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> 'outputs.EndpointConfigAsyncInferenceOutputConfig':
+        """
+        Specifies the configuration for asynchronous inference invocation outputs.
+        """
+        return pulumi.get(self, "output_config")
+
+    @_builtins.property
+    @pulumi.getter(name="clientConfig")
+    def client_config(self) -> Optional['outputs.EndpointConfigAsyncInferenceClientConfig']:
+        """
+        Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+        """
+        return pulumi.get(self, "client_config")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceNotificationConfig(dict):
+    """
+    Specifies the configuration for notifications of inference results for asynchronous inference.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorTopic":
+            suggest = "error_topic"
+        elif key == "includeInferenceResponseIn":
+            suggest = "include_inference_response_in"
+        elif key == "successTopic":
+            suggest = "success_topic"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceNotificationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceNotificationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceNotificationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_topic: Optional[_builtins.str] = None,
+                 include_inference_response_in: Optional[Sequence[_builtins.str]] = None,
+                 success_topic: Optional[_builtins.str] = None):
+        """
+        Specifies the configuration for notifications of inference results for asynchronous inference.
+
+        :param _builtins.str error_topic: Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
+        :param Sequence[_builtins.str] include_inference_response_in: The Amazon SNS topics where you want the inference response to be included.
+        :param _builtins.str success_topic: Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+        """
+        if error_topic is not None:
+            pulumi.set(__self__, "error_topic", error_topic)
+        if include_inference_response_in is not None:
+            pulumi.set(__self__, "include_inference_response_in", include_inference_response_in)
+        if success_topic is not None:
+            pulumi.set(__self__, "success_topic", success_topic)
+
+    @_builtins.property
+    @pulumi.getter(name="errorTopic")
+    def error_topic(self) -> Optional[_builtins.str]:
+        """
+        Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
+        """
+        return pulumi.get(self, "error_topic")
+
+    @_builtins.property
+    @pulumi.getter(name="includeInferenceResponseIn")
+    def include_inference_response_in(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The Amazon SNS topics where you want the inference response to be included.
+        """
+        return pulumi.get(self, "include_inference_response_in")
+
+    @_builtins.property
+    @pulumi.getter(name="successTopic")
+    def success_topic(self) -> Optional[_builtins.str]:
+        """
+        Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+        """
+        return pulumi.get(self, "success_topic")
+
+
+@pulumi.output_type
+class EndpointConfigAsyncInferenceOutputConfig(dict):
+    """
+    Specifies the configuration for asynchronous inference invocation outputs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "notificationConfig":
+            suggest = "notification_config"
+        elif key == "s3FailurePath":
+            suggest = "s3_failure_path"
+        elif key == "s3OutputPath":
+            suggest = "s3_output_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigAsyncInferenceOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigAsyncInferenceOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigAsyncInferenceOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 notification_config: Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig'] = None,
+                 s3_failure_path: Optional[_builtins.str] = None,
+                 s3_output_path: Optional[_builtins.str] = None):
+        """
+        Specifies the configuration for asynchronous inference invocation outputs.
+
+        :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        :param 'EndpointConfigAsyncInferenceNotificationConfig' notification_config: Specifies the configuration for notifications of inference results for asynchronous inference.
+        :param _builtins.str s3_failure_path: The Amazon S3 location to upload failure inference responses to.
+        :param _builtins.str s3_output_path: The Amazon S3 location to upload inference responses to.
+        """
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if notification_config is not None:
+            pulumi.set(__self__, "notification_config", notification_config)
+        if s3_failure_path is not None:
+            pulumi.set(__self__, "s3_failure_path", s3_failure_path)
+        if s3_output_path is not None:
+            pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="notificationConfig")
+    def notification_config(self) -> Optional['outputs.EndpointConfigAsyncInferenceNotificationConfig']:
+        """
+        Specifies the configuration for notifications of inference results for asynchronous inference.
+        """
+        return pulumi.get(self, "notification_config")
+
+    @_builtins.property
+    @pulumi.getter(name="s3FailurePath")
+    def s3_failure_path(self) -> Optional[_builtins.str]:
+        """
+        The Amazon S3 location to upload failure inference responses to.
+        """
+        return pulumi.get(self, "s3_failure_path")
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> Optional[_builtins.str]:
+        """
+        The Amazon S3 location to upload inference responses to.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+
+@pulumi.output_type
+class EndpointConfigCapacityReservationConfig(dict):
+    """
+    Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "capacityReservationPreference":
+            suggest = "capacity_reservation_preference"
+        elif key == "mlReservationArn":
+            suggest = "ml_reservation_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigCapacityReservationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigCapacityReservationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigCapacityReservationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capacity_reservation_preference: Optional[_builtins.str] = None,
+                 ml_reservation_arn: Optional[_builtins.str] = None):
+        """
+        Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+
+        :param _builtins.str capacity_reservation_preference: Options that you can choose for the capacity reservation.
+        :param _builtins.str ml_reservation_arn: The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        """
+        if capacity_reservation_preference is not None:
+            pulumi.set(__self__, "capacity_reservation_preference", capacity_reservation_preference)
+        if ml_reservation_arn is not None:
+            pulumi.set(__self__, "ml_reservation_arn", ml_reservation_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationPreference")
+    def capacity_reservation_preference(self) -> Optional[_builtins.str]:
+        """
+        Options that you can choose for the capacity reservation.
+        """
+        return pulumi.get(self, "capacity_reservation_preference")
+
+    @_builtins.property
+    @pulumi.getter(name="mlReservationArn")
+    def ml_reservation_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        """
+        return pulumi.get(self, "ml_reservation_arn")
+
+
+@pulumi.output_type
+class EndpointConfigCaptureContentTypeHeader(dict):
+    """
+    Specifies the JSON and CSV content types of the data that the endpoint captures.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "csvContentTypes":
+            suggest = "csv_content_types"
+        elif key == "jsonContentTypes":
+            suggest = "json_content_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigCaptureContentTypeHeader. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigCaptureContentTypeHeader.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigCaptureContentTypeHeader.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 csv_content_types: Optional[Sequence[_builtins.str]] = None,
+                 json_content_types: Optional[Sequence[_builtins.str]] = None):
+        """
+        Specifies the JSON and CSV content types of the data that the endpoint captures.
+
+        :param Sequence[_builtins.str] csv_content_types: A list of the CSV content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+        :param Sequence[_builtins.str] json_content_types: A list of the JSON content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+        """
+        if csv_content_types is not None:
+            pulumi.set(__self__, "csv_content_types", csv_content_types)
+        if json_content_types is not None:
+            pulumi.set(__self__, "json_content_types", json_content_types)
+
+    @_builtins.property
+    @pulumi.getter(name="csvContentTypes")
+    def csv_content_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of the CSV content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+        """
+        return pulumi.get(self, "csv_content_types")
+
+    @_builtins.property
+    @pulumi.getter(name="jsonContentTypes")
+    def json_content_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of the JSON content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+        """
+        return pulumi.get(self, "json_content_types")
+
+
+@pulumi.output_type
+class EndpointConfigCaptureOption(dict):
+    """
+    Specifies whether the endpoint captures input data or output data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureMode":
+            suggest = "capture_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigCaptureOption. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigCaptureOption.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigCaptureOption.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capture_mode: _builtins.str):
+        """
+        Specifies whether the endpoint captures input data or output data.
+
+        :param _builtins.str capture_mode: Specifies whether the endpoint captures input data or output data.
+        """
+        pulumi.set(__self__, "capture_mode", capture_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="captureMode")
+    def capture_mode(self) -> _builtins.str:
+        """
+        Specifies whether the endpoint captures input data or output data.
+        """
+        return pulumi.get(self, "capture_mode")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyExplainerConfig(dict):
+    """
+    The configuration parameters for the SageMaker Clarify explainer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shapConfig":
+            suggest = "shap_config"
+        elif key == "enableExplanations":
+            suggest = "enable_explanations"
+        elif key == "inferenceConfig":
+            suggest = "inference_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyExplainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyExplainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyExplainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 shap_config: 'outputs.EndpointConfigClarifyShapConfig',
+                 enable_explanations: Optional[_builtins.str] = None,
+                 inference_config: Optional['outputs.EndpointConfigClarifyInferenceConfig'] = None):
+        """
+        The configuration parameters for the SageMaker Clarify explainer.
+
+        :param 'EndpointConfigClarifyShapConfig' shap_config: The configuration for SHAP analysis.
+        :param _builtins.str enable_explanations: A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default.
+        :param 'EndpointConfigClarifyInferenceConfig' inference_config: The inference configuration parameter for the model container.
+        """
+        pulumi.set(__self__, "shap_config", shap_config)
+        if enable_explanations is not None:
+            pulumi.set(__self__, "enable_explanations", enable_explanations)
+        if inference_config is not None:
+            pulumi.set(__self__, "inference_config", inference_config)
+
+    @_builtins.property
+    @pulumi.getter(name="shapConfig")
+    def shap_config(self) -> 'outputs.EndpointConfigClarifyShapConfig':
+        """
+        The configuration for SHAP analysis.
+        """
+        return pulumi.get(self, "shap_config")
+
+    @_builtins.property
+    @pulumi.getter(name="enableExplanations")
+    def enable_explanations(self) -> Optional[_builtins.str]:
+        """
+        A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default.
+        """
+        return pulumi.get(self, "enable_explanations")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceConfig")
+    def inference_config(self) -> Optional['outputs.EndpointConfigClarifyInferenceConfig']:
+        """
+        The inference configuration parameter for the model container.
+        """
+        return pulumi.get(self, "inference_config")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyInferenceConfig(dict):
+    """
+    The inference configuration parameter for the model container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentTemplate":
+            suggest = "content_template"
+        elif key == "featureHeaders":
+            suggest = "feature_headers"
+        elif key == "featureTypes":
+            suggest = "feature_types"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "labelAttribute":
+            suggest = "label_attribute"
+        elif key == "labelHeaders":
+            suggest = "label_headers"
+        elif key == "labelIndex":
+            suggest = "label_index"
+        elif key == "maxPayloadInMb":
+            suggest = "max_payload_in_mb"
+        elif key == "maxRecordCount":
+            suggest = "max_record_count"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityIndex":
+            suggest = "probability_index"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyInferenceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyInferenceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyInferenceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_template: Optional[_builtins.str] = None,
+                 feature_headers: Optional[Sequence[_builtins.str]] = None,
+                 feature_types: Optional[Sequence[_builtins.str]] = None,
+                 features_attribute: Optional[_builtins.str] = None,
+                 label_attribute: Optional[_builtins.str] = None,
+                 label_headers: Optional[Sequence[_builtins.str]] = None,
+                 label_index: Optional[_builtins.int] = None,
+                 max_payload_in_mb: Optional[_builtins.int] = None,
+                 max_record_count: Optional[_builtins.int] = None,
+                 probability_attribute: Optional[_builtins.str] = None,
+                 probability_index: Optional[_builtins.int] = None):
+        """
+        The inference configuration parameter for the model container.
+
+        :param _builtins.str content_template: A template string used to format a JSON record into an acceptable model container input.
+        :param Sequence[_builtins.str] feature_headers: The names of the features. If provided, these are included in the endpoint response payload to help readability of the InvokeEndpoint output.
+        :param Sequence[_builtins.str] feature_types: A list of data types of the features (optional). Applicable only to NLP explainability. If provided, FeatureTypes must have at least one 'text' string (for example, ['text']). If FeatureTypes is not provided, the explainer infers the feature types based on the baseline data.
+        :param _builtins.str features_attribute: Provides the JMESPath expression to extract the features from a model container input in JSON Lines format.
+        :param _builtins.str label_attribute: A JMESPath expression used to locate the list of label headers in the model container output.
+        :param Sequence[_builtins.str] label_headers: For multiclass classification problems, the label headers are the names of the classes. Otherwise, the label header is the name of the predicted label.
+        :param _builtins.int label_index: A zero-based index used to extract a label header or list of label headers from model container output in CSV format.
+        :param _builtins.int max_payload_in_mb: The maximum payload size (MB) allowed of a request from the explainer to the model container. Defaults to 6 MB.
+        :param _builtins.int max_record_count: The maximum number of records in a request that the model container can process when querying the model container for the predictions of a synthetic dataset. A record is a unit of input data that inference can be made on, for example, a single line in CSV data.
+        :param _builtins.str probability_attribute: A JMESPath expression used to extract the probability (or score) from the model container output if the model container is in JSON Lines format.
+        :param _builtins.int probability_index: A zero-based index used to extract a probability value (score) or list from model container output in CSV format. If this value is not provided, the entire model container output will be treated as a probability value (score) or list.
+        """
+        if content_template is not None:
+            pulumi.set(__self__, "content_template", content_template)
+        if feature_headers is not None:
+            pulumi.set(__self__, "feature_headers", feature_headers)
+        if feature_types is not None:
+            pulumi.set(__self__, "feature_types", feature_types)
+        if features_attribute is not None:
+            pulumi.set(__self__, "features_attribute", features_attribute)
+        if label_attribute is not None:
+            pulumi.set(__self__, "label_attribute", label_attribute)
+        if label_headers is not None:
+            pulumi.set(__self__, "label_headers", label_headers)
+        if label_index is not None:
+            pulumi.set(__self__, "label_index", label_index)
+        if max_payload_in_mb is not None:
+            pulumi.set(__self__, "max_payload_in_mb", max_payload_in_mb)
+        if max_record_count is not None:
+            pulumi.set(__self__, "max_record_count", max_record_count)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if probability_index is not None:
+            pulumi.set(__self__, "probability_index", probability_index)
+
+    @_builtins.property
+    @pulumi.getter(name="contentTemplate")
+    def content_template(self) -> Optional[_builtins.str]:
+        """
+        A template string used to format a JSON record into an acceptable model container input.
+        """
+        return pulumi.get(self, "content_template")
+
+    @_builtins.property
+    @pulumi.getter(name="featureHeaders")
+    def feature_headers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The names of the features. If provided, these are included in the endpoint response payload to help readability of the InvokeEndpoint output.
+        """
+        return pulumi.get(self, "feature_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="featureTypes")
+    def feature_types(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of data types of the features (optional). Applicable only to NLP explainability. If provided, FeatureTypes must have at least one 'text' string (for example, ['text']). If FeatureTypes is not provided, the explainer infers the feature types based on the baseline data.
+        """
+        return pulumi.get(self, "feature_types")
+
+    @_builtins.property
+    @pulumi.getter(name="featuresAttribute")
+    def features_attribute(self) -> Optional[_builtins.str]:
+        """
+        Provides the JMESPath expression to extract the features from a model container input in JSON Lines format.
+        """
+        return pulumi.get(self, "features_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="labelAttribute")
+    def label_attribute(self) -> Optional[_builtins.str]:
+        """
+        A JMESPath expression used to locate the list of label headers in the model container output.
+        """
+        return pulumi.get(self, "label_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="labelHeaders")
+    def label_headers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        For multiclass classification problems, the label headers are the names of the classes. Otherwise, the label header is the name of the predicted label.
+        """
+        return pulumi.get(self, "label_headers")
+
+    @_builtins.property
+    @pulumi.getter(name="labelIndex")
+    def label_index(self) -> Optional[_builtins.int]:
+        """
+        A zero-based index used to extract a label header or list of label headers from model container output in CSV format.
+        """
+        return pulumi.get(self, "label_index")
+
+    @_builtins.property
+    @pulumi.getter(name="maxPayloadInMb")
+    def max_payload_in_mb(self) -> Optional[_builtins.int]:
+        """
+        The maximum payload size (MB) allowed of a request from the explainer to the model container. Defaults to 6 MB.
+        """
+        return pulumi.get(self, "max_payload_in_mb")
+
+    @_builtins.property
+    @pulumi.getter(name="maxRecordCount")
+    def max_record_count(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of records in a request that the model container can process when querying the model container for the predictions of a synthetic dataset. A record is a unit of input data that inference can be made on, for example, a single line in CSV data.
+        """
+        return pulumi.get(self, "max_record_count")
+
+    @_builtins.property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[_builtins.str]:
+        """
+        A JMESPath expression used to extract the probability (or score) from the model container output if the model container is in JSON Lines format.
+        """
+        return pulumi.get(self, "probability_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="probabilityIndex")
+    def probability_index(self) -> Optional[_builtins.int]:
+        """
+        A zero-based index used to extract a probability value (score) or list from model container output in CSV format. If this value is not provided, the entire model container output will be treated as a probability value (score) or list.
+        """
+        return pulumi.get(self, "probability_index")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyShapBaselineConfig(dict):
+    """
+    The configuration for the SHAP baseline (also called the background or reference dataset) of the Kernal SHAP algorithm.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "mimeType":
+            suggest = "mime_type"
+        elif key == "shapBaseline":
+            suggest = "shap_baseline"
+        elif key == "shapBaselineUri":
+            suggest = "shap_baseline_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyShapBaselineConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyShapBaselineConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyShapBaselineConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mime_type: Optional[_builtins.str] = None,
+                 shap_baseline: Optional[_builtins.str] = None,
+                 shap_baseline_uri: Optional[_builtins.str] = None):
+        """
+        The configuration for the SHAP baseline (also called the background or reference dataset) of the Kernal SHAP algorithm.
+
+        :param _builtins.str mime_type: The MIME type of the baseline data. Choose from 'text/csv' or 'application/jsonlines'. Defaults to 'text/csv'.
+        :param _builtins.str shap_baseline: The inline SHAP baseline data in string format. ShapBaseline can have one or multiple records to be used as the baseline dataset. The format of the SHAP baseline file should be the same format as the training dataset.
+        :param _builtins.str shap_baseline_uri: The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is stored. The format of the SHAP baseline file should be the same format as the format of the training dataset.
+        """
+        if mime_type is not None:
+            pulumi.set(__self__, "mime_type", mime_type)
+        if shap_baseline is not None:
+            pulumi.set(__self__, "shap_baseline", shap_baseline)
+        if shap_baseline_uri is not None:
+            pulumi.set(__self__, "shap_baseline_uri", shap_baseline_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="mimeType")
+    def mime_type(self) -> Optional[_builtins.str]:
+        """
+        The MIME type of the baseline data. Choose from 'text/csv' or 'application/jsonlines'. Defaults to 'text/csv'.
+        """
+        return pulumi.get(self, "mime_type")
+
+    @_builtins.property
+    @pulumi.getter(name="shapBaseline")
+    def shap_baseline(self) -> Optional[_builtins.str]:
+        """
+        The inline SHAP baseline data in string format. ShapBaseline can have one or multiple records to be used as the baseline dataset. The format of the SHAP baseline file should be the same format as the training dataset.
+        """
+        return pulumi.get(self, "shap_baseline")
+
+    @_builtins.property
+    @pulumi.getter(name="shapBaselineUri")
+    def shap_baseline_uri(self) -> Optional[_builtins.str]:
+        """
+        The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is stored. The format of the SHAP baseline file should be the same format as the format of the training dataset.
+        """
+        return pulumi.get(self, "shap_baseline_uri")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyShapConfig(dict):
+    """
+    The configuration for SHAP analysis using SageMaker Clarify Explainer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shapBaselineConfig":
+            suggest = "shap_baseline_config"
+        elif key == "numberOfSamples":
+            suggest = "number_of_samples"
+        elif key == "textConfig":
+            suggest = "text_config"
+        elif key == "useLogit":
+            suggest = "use_logit"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigClarifyShapConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigClarifyShapConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigClarifyShapConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 shap_baseline_config: 'outputs.EndpointConfigClarifyShapBaselineConfig',
+                 number_of_samples: Optional[_builtins.int] = None,
+                 seed: Optional[_builtins.int] = None,
+                 text_config: Optional['outputs.EndpointConfigClarifyTextConfig'] = None,
+                 use_logit: Optional[_builtins.bool] = None):
+        """
+        The configuration for SHAP analysis using SageMaker Clarify Explainer.
+
+        :param 'EndpointConfigClarifyShapBaselineConfig' shap_baseline_config: The configuration for the SHAP baseline of the Kernal SHAP algorithm.
+        :param _builtins.int number_of_samples: The number of samples to be used for analysis by the Kernal SHAP algorithm.
+        :param _builtins.int seed: The starting value used to initialize the random number generator in the explainer. Provide a value for this parameter to obtain a deterministic SHAP result.
+        :param 'EndpointConfigClarifyTextConfig' text_config: A parameter that indicates if text features are treated as text and explanations are provided for individual units of text. Required for natural language processing (NLP) explainability only.
+        :param _builtins.bool use_logit: A Boolean toggle to indicate if you want to use the logit function (true) or log-odds units (false) for model predictions. Defaults to false.
+        """
+        pulumi.set(__self__, "shap_baseline_config", shap_baseline_config)
+        if number_of_samples is not None:
+            pulumi.set(__self__, "number_of_samples", number_of_samples)
+        if seed is not None:
+            pulumi.set(__self__, "seed", seed)
+        if text_config is not None:
+            pulumi.set(__self__, "text_config", text_config)
+        if use_logit is not None:
+            pulumi.set(__self__, "use_logit", use_logit)
+
+    @_builtins.property
+    @pulumi.getter(name="shapBaselineConfig")
+    def shap_baseline_config(self) -> 'outputs.EndpointConfigClarifyShapBaselineConfig':
+        """
+        The configuration for the SHAP baseline of the Kernal SHAP algorithm.
+        """
+        return pulumi.get(self, "shap_baseline_config")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfSamples")
+    def number_of_samples(self) -> Optional[_builtins.int]:
+        """
+        The number of samples to be used for analysis by the Kernal SHAP algorithm.
+        """
+        return pulumi.get(self, "number_of_samples")
+
+    @_builtins.property
+    @pulumi.getter
+    def seed(self) -> Optional[_builtins.int]:
+        """
+        The starting value used to initialize the random number generator in the explainer. Provide a value for this parameter to obtain a deterministic SHAP result.
+        """
+        return pulumi.get(self, "seed")
+
+    @_builtins.property
+    @pulumi.getter(name="textConfig")
+    def text_config(self) -> Optional['outputs.EndpointConfigClarifyTextConfig']:
+        """
+        A parameter that indicates if text features are treated as text and explanations are provided for individual units of text. Required for natural language processing (NLP) explainability only.
+        """
+        return pulumi.get(self, "text_config")
+
+    @_builtins.property
+    @pulumi.getter(name="useLogit")
+    def use_logit(self) -> Optional[_builtins.bool]:
+        """
+        A Boolean toggle to indicate if you want to use the logit function (true) or log-odds units (false) for model predictions. Defaults to false.
+        """
+        return pulumi.get(self, "use_logit")
+
+
+@pulumi.output_type
+class EndpointConfigClarifyTextConfig(dict):
+    """
+    A parameter used to configure the SageMaker Clarify explainer to treat text features as text so that explanations are provided for individual units of text. Required only for natural language processing (NLP) explainability.
+    """
+    def __init__(__self__, *,
+                 granularity: _builtins.str,
+                 language: _builtins.str):
+        """
+        A parameter used to configure the SageMaker Clarify explainer to treat text features as text so that explanations are provided for individual units of text. Required only for natural language processing (NLP) explainability.
+
+        :param _builtins.str granularity: The unit of granularity for the analysis of text features. For example, if the unit is 'token', then each token (like a word in English) of the text is treated as a feature. SHAP values are computed for each unit/feature.
+        :param _builtins.str language: Specifies the language of the text features in ISO 639-1 or ISO 639-3 code of a supported language.
+        """
+        pulumi.set(__self__, "granularity", granularity)
+        pulumi.set(__self__, "language", language)
+
+    @_builtins.property
+    @pulumi.getter
+    def granularity(self) -> _builtins.str:
+        """
+        The unit of granularity for the analysis of text features. For example, if the unit is 'token', then each token (like a word in English) of the text is treated as a feature. SHAP values are computed for each unit/feature.
+        """
+        return pulumi.get(self, "granularity")
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> _builtins.str:
+        """
+        Specifies the language of the text features in ISO 639-1 or ISO 639-3 code of a supported language.
+        """
+        return pulumi.get(self, "language")
+
+
+@pulumi.output_type
+class EndpointConfigCoreDumpConfig(dict):
+    """
+    Specifies where SageMaker writes core dumps from the model container when the process crashes, and how it encrypts them.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationS3Uri":
+            suggest = "destination_s3_uri"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigCoreDumpConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigCoreDumpConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigCoreDumpConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_s3_uri: _builtins.str,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        Specifies where SageMaker writes core dumps from the model container when the process crashes, and how it encrypts them.
+
+        :param _builtins.str destination_s3_uri: The Amazon S3 bucket to send the core dump to.
+        :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must include permissions to call kms:Encrypt.
+        """
+        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationS3Uri")
+    def destination_s3_uri(self) -> _builtins.str:
+        """
+        The Amazon S3 bucket to send the core dump to.
+        """
+        return pulumi.get(self, "destination_s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must include permissions to call kms:Encrypt.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class EndpointConfigDataCaptureConfig(dict):
+    """
+    Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "captureOptions":
+            suggest = "capture_options"
+        elif key == "destinationS3Uri":
+            suggest = "destination_s3_uri"
+        elif key == "initialSamplingPercentage":
+            suggest = "initial_sampling_percentage"
+        elif key == "captureContentTypeHeader":
+            suggest = "capture_content_type_header"
+        elif key == "enableCapture":
+            suggest = "enable_capture"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigDataCaptureConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigDataCaptureConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigDataCaptureConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capture_options: Sequence['outputs.EndpointConfigCaptureOption'],
+                 destination_s3_uri: _builtins.str,
+                 initial_sampling_percentage: _builtins.int,
+                 capture_content_type_header: Optional['outputs.EndpointConfigCaptureContentTypeHeader'] = None,
+                 enable_capture: Optional[_builtins.bool] = None,
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+
+        :param Sequence['EndpointConfigCaptureOption'] capture_options: Specifies whether the endpoint captures input data to your model, output data from your model, or both.
+        :param _builtins.str destination_s3_uri: The S3 bucket where model monitor stores captured data.
+        :param _builtins.int initial_sampling_percentage: The percentage of data to capture.
+        :param 'EndpointConfigCaptureContentTypeHeader' capture_content_type_header: A list of the JSON and CSV content type that the endpoint captures.
+        :param _builtins.bool enable_capture: Set to True to enable data capture.
+        :param _builtins.str kms_key_id: The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "capture_options", capture_options)
+        pulumi.set(__self__, "destination_s3_uri", destination_s3_uri)
+        pulumi.set(__self__, "initial_sampling_percentage", initial_sampling_percentage)
+        if capture_content_type_header is not None:
+            pulumi.set(__self__, "capture_content_type_header", capture_content_type_header)
+        if enable_capture is not None:
+            pulumi.set(__self__, "enable_capture", enable_capture)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="captureOptions")
+    def capture_options(self) -> Sequence['outputs.EndpointConfigCaptureOption']:
+        """
+        Specifies whether the endpoint captures input data to your model, output data from your model, or both.
+        """
+        return pulumi.get(self, "capture_options")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationS3Uri")
+    def destination_s3_uri(self) -> _builtins.str:
+        """
+        The S3 bucket where model monitor stores captured data.
+        """
+        return pulumi.get(self, "destination_s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="initialSamplingPercentage")
+    def initial_sampling_percentage(self) -> _builtins.int:
+        """
+        The percentage of data to capture.
+        """
+        return pulumi.get(self, "initial_sampling_percentage")
+
+    @_builtins.property
+    @pulumi.getter(name="captureContentTypeHeader")
+    def capture_content_type_header(self) -> Optional['outputs.EndpointConfigCaptureContentTypeHeader']:
+        """
+        A list of the JSON and CSV content type that the endpoint captures.
+        """
+        return pulumi.get(self, "capture_content_type_header")
+
+    @_builtins.property
+    @pulumi.getter(name="enableCapture")
+    def enable_capture(self) -> Optional[_builtins.bool]:
+        """
+        Set to True to enable data capture.
+        """
+        return pulumi.get(self, "enable_capture")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class EndpointConfigExplainerConfig(dict):
+    """
+    A parameter to activate explainers.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clarifyExplainerConfig":
+            suggest = "clarify_explainer_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigExplainerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigExplainerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigExplainerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 clarify_explainer_config: Optional['outputs.EndpointConfigClarifyExplainerConfig'] = None):
+        """
+        A parameter to activate explainers.
+
+        :param 'EndpointConfigClarifyExplainerConfig' clarify_explainer_config: A member of ExplainerConfig that contains configuration parameters for the SageMaker Clarify explainer.
+        """
+        if clarify_explainer_config is not None:
+            pulumi.set(__self__, "clarify_explainer_config", clarify_explainer_config)
+
+    @_builtins.property
+    @pulumi.getter(name="clarifyExplainerConfig")
+    def clarify_explainer_config(self) -> Optional['outputs.EndpointConfigClarifyExplainerConfig']:
+        """
+        A member of ExplainerConfig that contains configuration parameters for the SageMaker Clarify explainer.
+        """
+        return pulumi.get(self, "clarify_explainer_config")
+
+
+@pulumi.output_type
+class EndpointConfigInstancePool(dict):
+    """
+    Specifies an instance type and its priority for a heterogeneous endpoint. Use instance pools to configure a production variant with multiple instance types, enabling the endpoint to provision instances across different types based on priority.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceType":
+            suggest = "instance_type"
+        elif key == "modelNameOverride":
+            suggest = "model_name_override"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigInstancePool. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigInstancePool.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigInstancePool.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_type: _builtins.str,
+                 priority: _builtins.int,
+                 model_name_override: Optional[_builtins.str] = None):
+        """
+        Specifies an instance type and its priority for a heterogeneous endpoint. Use instance pools to configure a production variant with multiple instance types, enabling the endpoint to provision instances across different types based on priority.
+
+        :param _builtins.str instance_type: The ML compute instance type for the instance pool.
+        :param _builtins.int priority: The priority for the instance pool. SageMaker attempts to provision instances in order of priority, starting with the lowest value. If instances for a higher-priority pool are unavailable, SageMaker attempts to provision from the next pool. Valid values: 1 to 5, where 1 is the highest priority.
+        :param _builtins.str model_name_override: The name of a SageMaker model to use for this instance pool instead of the model specified for the production variant. Use this to deploy a different model optimized for the instance type in this pool.
+        """
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "priority", priority)
+        if model_name_override is not None:
+            pulumi.set(__self__, "model_name_override", model_name_override)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        The ML compute instance type for the instance pool.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        """
+        The priority for the instance pool. SageMaker attempts to provision instances in order of priority, starting with the lowest value. If instances for a higher-priority pool are unavailable, SageMaker attempts to provision from the next pool. Valid values: 1 to 5, where 1 is the highest priority.
+        """
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="modelNameOverride")
+    def model_name_override(self) -> Optional[_builtins.str]:
+        """
+        The name of a SageMaker model to use for this instance pool instead of the model specified for the production variant. Use this to deploy a different model optimized for the instance type in this pool.
+        """
+        return pulumi.get(self, "model_name_override")
+
+
+@pulumi.output_type
+class EndpointConfigManagedInstanceScaling(dict):
+    """
+    Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxInstanceCount":
+            suggest = "max_instance_count"
+        elif key == "minInstanceCount":
+            suggest = "min_instance_count"
+        elif key == "scaleInPolicy":
+            suggest = "scale_in_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigManagedInstanceScaling. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigManagedInstanceScaling.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigManagedInstanceScaling.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_instance_count: Optional[_builtins.int] = None,
+                 min_instance_count: Optional[_builtins.int] = None,
+                 scale_in_policy: Optional['outputs.EndpointConfigScaleInPolicy'] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+
+        :param _builtins.int max_instance_count: The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        :param _builtins.int min_instance_count: The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        :param 'EndpointConfigScaleInPolicy' scale_in_policy: Configures the scale-in behavior for managed instance scaling.
+        :param _builtins.str status: Indicates whether managed instance scaling is enabled.
+        """
+        if max_instance_count is not None:
+            pulumi.set(__self__, "max_instance_count", max_instance_count)
+        if min_instance_count is not None:
+            pulumi.set(__self__, "min_instance_count", min_instance_count)
+        if scale_in_policy is not None:
+            pulumi.set(__self__, "scale_in_policy", scale_in_policy)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="maxInstanceCount")
+    def max_instance_count(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+        """
+        return pulumi.get(self, "max_instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="minInstanceCount")
+    def min_instance_count(self) -> Optional[_builtins.int]:
+        """
+        The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+        """
+        return pulumi.get(self, "min_instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="scaleInPolicy")
+    def scale_in_policy(self) -> Optional['outputs.EndpointConfigScaleInPolicy']:
+        """
+        Configures the scale-in behavior for managed instance scaling.
+        """
+        return pulumi.get(self, "scale_in_policy")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        """
+        Indicates whether managed instance scaling is enabled.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class EndpointConfigMetricsConfig(dict):
+    """
+    Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableDetailedObservability":
+            suggest = "enable_detailed_observability"
+        elif key == "enableEnhancedMetrics":
+            suggest = "enable_enhanced_metrics"
+        elif key == "metricPublishFrequencyInSeconds":
+            suggest = "metric_publish_frequency_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigMetricsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigMetricsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigMetricsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_detailed_observability: Optional[_builtins.bool] = None,
+                 enable_enhanced_metrics: Optional[_builtins.bool] = None,
+                 metric_publish_frequency_in_seconds: Optional[_builtins.int] = None):
+        """
+        Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+
+        :param _builtins.bool enable_detailed_observability: Specifies whether to enable detailed observability for the endpoint. When set to true, the endpoint publishes container-level inference metrics, per-GPU metrics, per-instance host metrics, and inference component placement metrics.
+        :param _builtins.bool enable_enhanced_metrics: Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization and invocation data at instance and container granularity.
+        :param _builtins.int metric_publish_frequency_in_seconds: The interval, in seconds, at which the endpoint publishes metrics to Amazon CloudWatch. Valid values are 10, 30, 60, 120, 180, 240, and 300. The default is 60.
+        """
+        if enable_detailed_observability is not None:
+            pulumi.set(__self__, "enable_detailed_observability", enable_detailed_observability)
+        if enable_enhanced_metrics is not None:
+            pulumi.set(__self__, "enable_enhanced_metrics", enable_enhanced_metrics)
+        if metric_publish_frequency_in_seconds is not None:
+            pulumi.set(__self__, "metric_publish_frequency_in_seconds", metric_publish_frequency_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="enableDetailedObservability")
+    def enable_detailed_observability(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether to enable detailed observability for the endpoint. When set to true, the endpoint publishes container-level inference metrics, per-GPU metrics, per-instance host metrics, and inference component placement metrics.
+        """
+        return pulumi.get(self, "enable_detailed_observability")
+
+    @_builtins.property
+    @pulumi.getter(name="enableEnhancedMetrics")
+    def enable_enhanced_metrics(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization and invocation data at instance and container granularity.
+        """
+        return pulumi.get(self, "enable_enhanced_metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="metricPublishFrequencyInSeconds")
+    def metric_publish_frequency_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The interval, in seconds, at which the endpoint publishes metrics to Amazon CloudWatch. Valid values are 10, 30, 60, 120, 180, 240, and 300. The default is 60.
+        """
+        return pulumi.get(self, "metric_publish_frequency_in_seconds")
+
+
+@pulumi.output_type
+class EndpointConfigPrefixAwareRoutingConfig(dict):
+    """
+    The configuration for prefix-aware routing on a SageMaker real-time inference endpoint. Specify PrefixLength and ConcurrencyThreshold to control routing behavior.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "concurrencyThreshold":
+            suggest = "concurrency_threshold"
+        elif key == "prefixLength":
+            suggest = "prefix_length"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigPrefixAwareRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigPrefixAwareRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigPrefixAwareRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 concurrency_threshold: Optional[_builtins.int] = None,
+                 prefix_length: Optional[_builtins.int] = None):
+        """
+        The configuration for prefix-aware routing on a SageMaker real-time inference endpoint. Specify PrefixLength and ConcurrencyThreshold to control routing behavior.
+
+        :param _builtins.int concurrency_threshold: The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1 to 1024.
+        :param _builtins.int prefix_length: The maximum length of the prefix used for routing decisions. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1024 to 65536.
+        """
+        if concurrency_threshold is not None:
+            pulumi.set(__self__, "concurrency_threshold", concurrency_threshold)
+        if prefix_length is not None:
+            pulumi.set(__self__, "prefix_length", prefix_length)
+
+    @_builtins.property
+    @pulumi.getter(name="concurrencyThreshold")
+    def concurrency_threshold(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1 to 1024.
+        """
+        return pulumi.get(self, "concurrency_threshold")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixLength")
+    def prefix_length(self) -> Optional[_builtins.int]:
+        """
+        The maximum length of the prefix used for routing decisions. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1024 to 65536.
+        """
+        return pulumi.get(self, "prefix_length")
+
+
+@pulumi.output_type
+class EndpointConfigProductionVariant(dict):
+    """
+    Specifies a model that you want to host and the resources to deploy for hosting it.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "variantName":
+            suggest = "variant_name"
+        elif key == "capacityReservationConfig":
+            suggest = "capacity_reservation_config"
+        elif key == "containerStartupHealthCheckTimeoutInSeconds":
+            suggest = "container_startup_health_check_timeout_in_seconds"
+        elif key == "coreDumpConfig":
+            suggest = "core_dump_config"
+        elif key == "enableSsmAccess":
+            suggest = "enable_ssm_access"
+        elif key == "inferenceAmiVersion":
+            suggest = "inference_ami_version"
+        elif key == "initialInstanceCount":
+            suggest = "initial_instance_count"
+        elif key == "initialVariantWeight":
+            suggest = "initial_variant_weight"
+        elif key == "instancePools":
+            suggest = "instance_pools"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "managedInstanceScaling":
+            suggest = "managed_instance_scaling"
+        elif key == "modelDataDownloadTimeoutInSeconds":
+            suggest = "model_data_download_timeout_in_seconds"
+        elif key == "modelName":
+            suggest = "model_name"
+        elif key == "routingConfig":
+            suggest = "routing_config"
+        elif key == "serverlessConfig":
+            suggest = "serverless_config"
+        elif key == "variantInstanceProvisionTimeoutInSeconds":
+            suggest = "variant_instance_provision_timeout_in_seconds"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigProductionVariant. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigProductionVariant.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigProductionVariant.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 variant_name: _builtins.str,
+                 capacity_reservation_config: Optional['outputs.EndpointConfigCapacityReservationConfig'] = None,
+                 container_startup_health_check_timeout_in_seconds: Optional[_builtins.int] = None,
+                 core_dump_config: Optional['outputs.EndpointConfigCoreDumpConfig'] = None,
+                 enable_ssm_access: Optional[_builtins.bool] = None,
+                 inference_ami_version: Optional[_builtins.str] = None,
+                 initial_instance_count: Optional[_builtins.int] = None,
+                 initial_variant_weight: Optional[_builtins.float] = None,
+                 instance_pools: Optional[Sequence['outputs.EndpointConfigInstancePool']] = None,
+                 instance_type: Optional[_builtins.str] = None,
+                 managed_instance_scaling: Optional['outputs.EndpointConfigManagedInstanceScaling'] = None,
+                 model_data_download_timeout_in_seconds: Optional[_builtins.int] = None,
+                 model_name: Optional[_builtins.str] = None,
+                 routing_config: Optional['outputs.EndpointConfigRoutingConfig'] = None,
+                 serverless_config: Optional['outputs.EndpointConfigServerlessConfig'] = None,
+                 variant_instance_provision_timeout_in_seconds: Optional[_builtins.int] = None,
+                 volume_size_in_gb: Optional[_builtins.int] = None):
+        """
+        Specifies a model that you want to host and the resources to deploy for hosting it.
+
+        :param _builtins.str variant_name: The name of the production variant.
+        :param 'EndpointConfigCapacityReservationConfig' capacity_reservation_config: Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+        :param _builtins.int container_startup_health_check_timeout_in_seconds: The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
+        :param 'EndpointConfigCoreDumpConfig' core_dump_config: Specifies configuration for a core dump from the model container when the process crashes.
+        :param _builtins.bool enable_ssm_access: You can use this parameter to turn on native AWS Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoint.
+        :param _builtins.str inference_ami_version: Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads. By selecting an AMI version, you can ensure that your inference environment is compatible with specific software requirements, such as CUDA driver versions, Linux kernel versions, or AWS Neuron driver versions
+        :param _builtins.int initial_instance_count: Number of instances to launch initially.
+        :param _builtins.float initial_variant_weight: Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+        :param Sequence['EndpointConfigInstancePool'] instance_pools: A list of instance pools for the production variant. Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.
+        :param _builtins.str instance_type: The ML compute instance type.
+        :param _builtins.int model_data_download_timeout_in_seconds: The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
+        :param _builtins.str model_name: The name of the model that you want to host. This is the name that you specified when creating the model.
+        :param 'EndpointConfigRoutingConfig' routing_config: Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+        :param 'EndpointConfigServerlessConfig' serverless_config: The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
+        :param _builtins.int variant_instance_provision_timeout_in_seconds: The timeout value, in seconds, for provisioning instances for the production variant. When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.
+        :param _builtins.int volume_size_in_gb: The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Currently only Amazon EBS gp2 storage volumes are supported.
+        """
+        pulumi.set(__self__, "variant_name", variant_name)
+        if capacity_reservation_config is not None:
+            pulumi.set(__self__, "capacity_reservation_config", capacity_reservation_config)
+        if container_startup_health_check_timeout_in_seconds is not None:
+            pulumi.set(__self__, "container_startup_health_check_timeout_in_seconds", container_startup_health_check_timeout_in_seconds)
+        if core_dump_config is not None:
+            pulumi.set(__self__, "core_dump_config", core_dump_config)
+        if enable_ssm_access is not None:
+            pulumi.set(__self__, "enable_ssm_access", enable_ssm_access)
+        if inference_ami_version is not None:
+            pulumi.set(__self__, "inference_ami_version", inference_ami_version)
+        if initial_instance_count is not None:
+            pulumi.set(__self__, "initial_instance_count", initial_instance_count)
+        if initial_variant_weight is not None:
+            pulumi.set(__self__, "initial_variant_weight", initial_variant_weight)
+        if instance_pools is not None:
+            pulumi.set(__self__, "instance_pools", instance_pools)
+        if instance_type is not None:
+            pulumi.set(__self__, "instance_type", instance_type)
+        if managed_instance_scaling is not None:
+            pulumi.set(__self__, "managed_instance_scaling", managed_instance_scaling)
+        if model_data_download_timeout_in_seconds is not None:
+            pulumi.set(__self__, "model_data_download_timeout_in_seconds", model_data_download_timeout_in_seconds)
+        if model_name is not None:
+            pulumi.set(__self__, "model_name", model_name)
+        if routing_config is not None:
+            pulumi.set(__self__, "routing_config", routing_config)
+        if serverless_config is not None:
+            pulumi.set(__self__, "serverless_config", serverless_config)
+        if variant_instance_provision_timeout_in_seconds is not None:
+            pulumi.set(__self__, "variant_instance_provision_timeout_in_seconds", variant_instance_provision_timeout_in_seconds)
+        if volume_size_in_gb is not None:
+            pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+
+    @_builtins.property
+    @pulumi.getter(name="variantName")
+    def variant_name(self) -> _builtins.str:
+        """
+        The name of the production variant.
+        """
+        return pulumi.get(self, "variant_name")
+
+    @_builtins.property
+    @pulumi.getter(name="capacityReservationConfig")
+    def capacity_reservation_config(self) -> Optional['outputs.EndpointConfigCapacityReservationConfig']:
+        """
+        Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+        """
+        return pulumi.get(self, "capacity_reservation_config")
+
+    @_builtins.property
+    @pulumi.getter(name="containerStartupHealthCheckTimeoutInSeconds")
+    def container_startup_health_check_timeout_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
+        """
+        return pulumi.get(self, "container_startup_health_check_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="coreDumpConfig")
+    def core_dump_config(self) -> Optional['outputs.EndpointConfigCoreDumpConfig']:
+        """
+        Specifies configuration for a core dump from the model container when the process crashes.
+        """
+        return pulumi.get(self, "core_dump_config")
+
+    @_builtins.property
+    @pulumi.getter(name="enableSsmAccess")
+    def enable_ssm_access(self) -> Optional[_builtins.bool]:
+        """
+        You can use this parameter to turn on native AWS Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoint.
+        """
+        return pulumi.get(self, "enable_ssm_access")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceAmiVersion")
+    def inference_ami_version(self) -> Optional[_builtins.str]:
+        """
+        Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads. By selecting an AMI version, you can ensure that your inference environment is compatible with specific software requirements, such as CUDA driver versions, Linux kernel versions, or AWS Neuron driver versions
+        """
+        return pulumi.get(self, "inference_ami_version")
+
+    @_builtins.property
+    @pulumi.getter(name="initialInstanceCount")
+    def initial_instance_count(self) -> Optional[_builtins.int]:
+        """
+        Number of instances to launch initially.
+        """
+        return pulumi.get(self, "initial_instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="initialVariantWeight")
+    def initial_variant_weight(self) -> Optional[_builtins.float]:
+        """
+        Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+        """
+        return pulumi.get(self, "initial_variant_weight")
+
+    @_builtins.property
+    @pulumi.getter(name="instancePools")
+    def instance_pools(self) -> Optional[Sequence['outputs.EndpointConfigInstancePool']]:
+        """
+        A list of instance pools for the production variant. Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.
+        """
+        return pulumi.get(self, "instance_pools")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> Optional[_builtins.str]:
+        """
+        The ML compute instance type.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="managedInstanceScaling")
+    def managed_instance_scaling(self) -> Optional['outputs.EndpointConfigManagedInstanceScaling']:
+        return pulumi.get(self, "managed_instance_scaling")
+
+    @_builtins.property
+    @pulumi.getter(name="modelDataDownloadTimeoutInSeconds")
+    def model_data_download_timeout_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
+        """
+        return pulumi.get(self, "model_data_download_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="modelName")
+    def model_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the model that you want to host. This is the name that you specified when creating the model.
+        """
+        return pulumi.get(self, "model_name")
+
+    @_builtins.property
+    @pulumi.getter(name="routingConfig")
+    def routing_config(self) -> Optional['outputs.EndpointConfigRoutingConfig']:
+        """
+        Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+        """
+        return pulumi.get(self, "routing_config")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessConfig")
+    def serverless_config(self) -> Optional['outputs.EndpointConfigServerlessConfig']:
+        """
+        The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
+        """
+        return pulumi.get(self, "serverless_config")
+
+    @_builtins.property
+    @pulumi.getter(name="variantInstanceProvisionTimeoutInSeconds")
+    def variant_instance_provision_timeout_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The timeout value, in seconds, for provisioning instances for the production variant. When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.
+        """
+        return pulumi.get(self, "variant_instance_provision_timeout_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> Optional[_builtins.int]:
+        """
+        The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Currently only Amazon EBS gp2 storage volumes are supported.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+
+@pulumi.output_type
+class EndpointConfigRoutingConfig(dict):
+    """
+    Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "prefixAwareRoutingConfig":
+            suggest = "prefix_aware_routing_config"
+        elif key == "routingStrategy":
+            suggest = "routing_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigRoutingConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigRoutingConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigRoutingConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 prefix_aware_routing_config: Optional['outputs.EndpointConfigPrefixAwareRoutingConfig'] = None,
+                 routing_strategy: Optional[_builtins.str] = None):
+        """
+        Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+
+        :param 'EndpointConfigPrefixAwareRoutingConfig' prefix_aware_routing_config: The configuration for prefix-aware routing. Specify this property only when you set RoutingStrategy to PREFIX_AWARE.
+        :param _builtins.str routing_strategy: Sets how the endpoint routes incoming traffic.
+        """
+        if prefix_aware_routing_config is not None:
+            pulumi.set(__self__, "prefix_aware_routing_config", prefix_aware_routing_config)
+        if routing_strategy is not None:
+            pulumi.set(__self__, "routing_strategy", routing_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="prefixAwareRoutingConfig")
+    def prefix_aware_routing_config(self) -> Optional['outputs.EndpointConfigPrefixAwareRoutingConfig']:
+        """
+        The configuration for prefix-aware routing. Specify this property only when you set RoutingStrategy to PREFIX_AWARE.
+        """
+        return pulumi.get(self, "prefix_aware_routing_config")
+
+    @_builtins.property
+    @pulumi.getter(name="routingStrategy")
+    def routing_strategy(self) -> Optional[_builtins.str]:
+        """
+        Sets how the endpoint routes incoming traffic.
+        """
+        return pulumi.get(self, "routing_strategy")
+
+
+@pulumi.output_type
+class EndpointConfigScaleInPolicy(dict):
+    """
+    Specifies how the endpoint releases instances when managed instance scaling scales in.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cooldownInMinutes":
+            suggest = "cooldown_in_minutes"
+        elif key == "maximumStepSize":
+            suggest = "maximum_step_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigScaleInPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigScaleInPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigScaleInPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 strategy: _builtins.str,
+                 cooldown_in_minutes: Optional[_builtins.int] = None,
+                 maximum_step_size: Optional[_builtins.int] = None):
+        """
+        Specifies how the endpoint releases instances when managed instance scaling scales in.
+
+        :param _builtins.str strategy: The strategy for scaling in instances. IDLE_RELEASE releases instances that have no hosted inference component copies. CONSOLIDATION consolidates inference component copies onto fewer instances to release more instances.
+        :param _builtins.int cooldown_in_minutes: The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities. Valid values are 5 to 1440. The default is 20.
+        :param _builtins.int maximum_step_size: The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation. Valid values are 1 to 100. The default is 1.
+        """
+        pulumi.set(__self__, "strategy", strategy)
+        if cooldown_in_minutes is not None:
+            pulumi.set(__self__, "cooldown_in_minutes", cooldown_in_minutes)
+        if maximum_step_size is not None:
+            pulumi.set(__self__, "maximum_step_size", maximum_step_size)
+
+    @_builtins.property
+    @pulumi.getter
+    def strategy(self) -> _builtins.str:
+        """
+        The strategy for scaling in instances. IDLE_RELEASE releases instances that have no hosted inference component copies. CONSOLIDATION consolidates inference component copies onto fewer instances to release more instances.
+        """
+        return pulumi.get(self, "strategy")
+
+    @_builtins.property
+    @pulumi.getter(name="cooldownInMinutes")
+    def cooldown_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities. Valid values are 5 to 1440. The default is 20.
+        """
+        return pulumi.get(self, "cooldown_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumStepSize")
+    def maximum_step_size(self) -> Optional[_builtins.int]:
+        """
+        The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation. Valid values are 1 to 100. The default is 1.
+        """
+        return pulumi.get(self, "maximum_step_size")
+
+
+@pulumi.output_type
+class EndpointConfigServerlessConfig(dict):
+    """
+    Specifies the serverless configuration for an endpoint variant.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxConcurrency":
+            suggest = "max_concurrency"
+        elif key == "memorySizeInMb":
+            suggest = "memory_size_in_mb"
+        elif key == "provisionedConcurrency":
+            suggest = "provisioned_concurrency"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigServerlessConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigServerlessConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigServerlessConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_concurrency: _builtins.int,
+                 memory_size_in_mb: _builtins.int,
+                 provisioned_concurrency: Optional[_builtins.int] = None):
+        """
+        Specifies the serverless configuration for an endpoint variant.
+
+        :param _builtins.int max_concurrency: The maximum number of concurrent invocations your serverless endpoint can process.
+        :param _builtins.int memory_size_in_mb: The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
+        :param _builtins.int provisioned_concurrency: The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to MaxConcurrency.
+        """
+        pulumi.set(__self__, "max_concurrency", max_concurrency)
+        pulumi.set(__self__, "memory_size_in_mb", memory_size_in_mb)
+        if provisioned_concurrency is not None:
+            pulumi.set(__self__, "provisioned_concurrency", provisioned_concurrency)
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> _builtins.int:
+        """
+        The maximum number of concurrent invocations your serverless endpoint can process.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @_builtins.property
+    @pulumi.getter(name="memorySizeInMb")
+    def memory_size_in_mb(self) -> _builtins.int:
+        """
+        The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
+        """
+        return pulumi.get(self, "memory_size_in_mb")
+
+    @_builtins.property
+    @pulumi.getter(name="provisionedConcurrency")
+    def provisioned_concurrency(self) -> Optional[_builtins.int]:
+        """
+        The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to MaxConcurrency.
+        """
+        return pulumi.get(self, "provisioned_concurrency")
+
+
+@pulumi.output_type
+class EndpointConfigVpcConfig(dict):
+    """
+    Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EndpointConfigVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EndpointConfigVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EndpointConfigVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+
+        :param Sequence[_builtins.str] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        :param Sequence[_builtins.str] subnets: The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        The ID of the subnets in the VPC to which you want to connect your training job or model.
+        """
+        return pulumi.get(self, "subnets")
 
 
 @pulumi.output_type
@@ -18582,6 +20508,46 @@ class MonitoringScheduleVpcConfig(dict):
         The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
         """
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class NotebookInstanceInstanceMetadataServiceConfiguration(dict):
+    """
+    Information on the IMDS configuration of the notebook instance
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "minimumInstanceMetadataServiceVersion":
+            suggest = "minimum_instance_metadata_service_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NotebookInstanceInstanceMetadataServiceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NotebookInstanceInstanceMetadataServiceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NotebookInstanceInstanceMetadataServiceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 minimum_instance_metadata_service_version: _builtins.str):
+        """
+        Information on the IMDS configuration of the notebook instance
+
+        :param _builtins.str minimum_instance_metadata_service_version: Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
+        """
+        pulumi.set(__self__, "minimum_instance_metadata_service_version", minimum_instance_metadata_service_version)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumInstanceMetadataServiceVersion")
+    def minimum_instance_metadata_service_version(self) -> _builtins.str:
+        """
+        Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
+        """
+        return pulumi.get(self, "minimum_instance_metadata_service_version")
 
 
 @pulumi.output_type

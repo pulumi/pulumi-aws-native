@@ -45,6 +45,38 @@
       },
       "additionalProperties" : false
     },
+    "CodeS3Location" : {
+      "type" : "object",
+      "required" : [ "Bucket", "ObjectKey" ],
+      "properties" : {
+        "Bucket" : {
+          "type" : "string",
+          "minLength" : 3,
+          "maxLength" : 63
+        },
+        "ObjectKey" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 1024
+        },
+        "VersionId" : {
+          "type" : "string",
+          "minLength" : 1,
+          "maxLength" : 1024
+        }
+      },
+      "additionalProperties" : false
+    },
+    "Code" : {
+      "type" : "object",
+      "description" : "The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).",
+      "properties" : {
+        "S3Location" : {
+          "$ref" : "#/definitions/CodeS3Location"
+        }
+      },
+      "additionalProperties" : false
+    },
     "EncryptionConfiguration" : {
       "type" : "object",
       "required" : [ "Type" ],
@@ -144,6 +176,12 @@
     "DefinitionS3Location" : {
       "$ref" : "#/definitions/S3Location"
     },
+    "Code" : {
+      "$ref" : "#/definitions/Code"
+    },
+    "CodeSnapshottedAt" : {
+      "$ref" : "#/definitions/Timestamp"
+    },
     "RoleArn" : {
       "$ref" : "#/definitions/RoleArn"
     },
@@ -180,7 +218,7 @@
   },
   "primaryIdentifier" : [ "/properties/WorkflowArn" ],
   "additionalIdentifiers" : [ [ "/properties/Name" ] ],
-  "readOnlyProperties" : [ "/properties/WorkflowArn", "/properties/WorkflowVersion", "/properties/CreatedAt", "/properties/ModifiedAt", "/properties/WorkflowStatus", "/properties/ScheduleConfiguration" ],
+  "readOnlyProperties" : [ "/properties/WorkflowArn", "/properties/WorkflowVersion", "/properties/CreatedAt", "/properties/ModifiedAt", "/properties/WorkflowStatus", "/properties/ScheduleConfiguration", "/properties/CodeSnapshottedAt" ],
   "createOnlyProperties" : [ "/properties/Name", "/properties/EncryptionConfiguration" ],
   "required" : [ "DefinitionS3Location", "RoleArn" ],
   "handlers" : {

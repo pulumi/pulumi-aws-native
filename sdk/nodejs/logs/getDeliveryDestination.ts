@@ -32,14 +32,6 @@ export interface GetDeliveryDestinationResult {
      */
     readonly arn?: string;
     /**
-     * IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
-     *
-     * The policy must be in JSON string format.
-     *
-     * Length Constraints: Maximum length of 51200
-     */
-    readonly deliveryDestinationPolicy?: outputs.logs.DeliveryDestinationDestinationPolicy;
-    /**
      * The tags that have been assigned to this delivery destination.
      */
     readonly tags?: outputs.Tag[];

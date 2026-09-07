@@ -151,7 +151,7 @@ class DataCellsFilter(pulumi.CustomResource):
                  table_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        A resource schema representing a Lake Formation Data Cells Filter.
+        Resource Type definition for AWS::LakeFormation::DataCellsFilter
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -170,7 +170,7 @@ class DataCellsFilter(pulumi.CustomResource):
                  args: DataCellsFilterArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A resource schema representing a Lake Formation Data Cells Filter.
+        Resource Type definition for AWS::LakeFormation::DataCellsFilter
 
         :param str resource_name: The name of the resource.
         :param DataCellsFilterArgs args: The arguments to use to populate this resource's properties.

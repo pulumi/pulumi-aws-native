@@ -20,10 +20,20 @@ export const getS3AccessPointAttachment: typeof import("./getS3AccessPointAttach
 export const getS3AccessPointAttachmentOutput: typeof import("./getS3AccessPointAttachment").getS3AccessPointAttachmentOutput = null as any;
 utilities.lazyLoad(exports, ["getS3AccessPointAttachment","getS3AccessPointAttachmentOutput"], () => require("./getS3AccessPointAttachment"));
 
+export { GetVolumeArgs, GetVolumeResult, GetVolumeOutputArgs } from "./getVolume";
+export const getVolume: typeof import("./getVolume").getVolume = null as any;
+export const getVolumeOutput: typeof import("./getVolume").getVolumeOutput = null as any;
+utilities.lazyLoad(exports, ["getVolume","getVolumeOutput"], () => require("./getVolume"));
+
 export { S3AccessPointAttachmentArgs } from "./s3accessPointAttachment";
 export type S3AccessPointAttachment = import("./s3accessPointAttachment").S3AccessPointAttachment;
 export const S3AccessPointAttachment: typeof import("./s3accessPointAttachment").S3AccessPointAttachment = null as any;
 utilities.lazyLoad(exports, ["S3AccessPointAttachment"], () => require("./s3accessPointAttachment"));
+
+export { VolumeArgs } from "./volume";
+export type Volume = import("./volume").Volume;
+export const Volume: typeof import("./volume").Volume = null as any;
+utilities.lazyLoad(exports, ["Volume"], () => require("./volume"));
 
 
 // Export enums:
@@ -37,6 +47,8 @@ const _module = {
                 return new DataRepositoryAssociation(name, <any>undefined, { urn })
             case "aws-native:fsx:S3AccessPointAttachment":
                 return new S3AccessPointAttachment(name, <any>undefined, { urn })
+            case "aws-native:fsx:Volume":
+                return new Volume(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

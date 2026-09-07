@@ -445,6 +445,33 @@ namespace Pulumi.AwsNative.CleanRooms
     }
 
     [EnumType]
+    public readonly struct ConfiguredTableAggregationThresholdType : IEquatable<ConfiguredTableAggregationThresholdType>
+    {
+        private readonly string _value;
+
+        private ConfiguredTableAggregationThresholdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfiguredTableAggregationThresholdType CountDistinct { get; } = new ConfiguredTableAggregationThresholdType("COUNT_DISTINCT");
+
+        public static bool operator ==(ConfiguredTableAggregationThresholdType left, ConfiguredTableAggregationThresholdType right) => left.Equals(right);
+        public static bool operator !=(ConfiguredTableAggregationThresholdType left, ConfiguredTableAggregationThresholdType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfiguredTableAggregationThresholdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfiguredTableAggregationThresholdType other && Equals(other);
+        public bool Equals(ConfiguredTableAggregationThresholdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ConfiguredTableAggregationType : IEquatable<ConfiguredTableAggregationType>
     {
         private readonly string _value;
@@ -464,6 +491,34 @@ namespace Pulumi.AwsNative.CleanRooms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConfiguredTableAggregationType other && Equals(other);
         public bool Equals(ConfiguredTableAggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConfiguredTableAllowedAggregateExpressionType : IEquatable<ConfiguredTableAllowedAggregateExpressionType>
+    {
+        private readonly string _value;
+
+        private ConfiguredTableAllowedAggregateExpressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConfiguredTableAllowedAggregateExpressionType ColumnsOnly { get; } = new ConfiguredTableAllowedAggregateExpressionType("COLUMNS_ONLY");
+        public static ConfiguredTableAllowedAggregateExpressionType AnyExpression { get; } = new ConfiguredTableAllowedAggregateExpressionType("ANY_EXPRESSION");
+
+        public static bool operator ==(ConfiguredTableAllowedAggregateExpressionType left, ConfiguredTableAllowedAggregateExpressionType right) => left.Equals(right);
+        public static bool operator !=(ConfiguredTableAllowedAggregateExpressionType left, ConfiguredTableAllowedAggregateExpressionType right) => !left.Equals(right);
+
+        public static explicit operator string(ConfiguredTableAllowedAggregateExpressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConfiguredTableAllowedAggregateExpressionType other && Equals(other);
+        public bool Equals(ConfiguredTableAllowedAggregateExpressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -833,6 +888,61 @@ namespace Pulumi.AwsNative.CleanRooms
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntermediateTableAdditionalAnalyses other && Equals(other);
         public bool Equals(IntermediateTableAdditionalAnalyses other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IntermediateTableAggregationThresholdType : IEquatable<IntermediateTableAggregationThresholdType>
+    {
+        private readonly string _value;
+
+        private IntermediateTableAggregationThresholdType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntermediateTableAggregationThresholdType CountDistinct { get; } = new IntermediateTableAggregationThresholdType("COUNT_DISTINCT");
+
+        public static bool operator ==(IntermediateTableAggregationThresholdType left, IntermediateTableAggregationThresholdType right) => left.Equals(right);
+        public static bool operator !=(IntermediateTableAggregationThresholdType left, IntermediateTableAggregationThresholdType right) => !left.Equals(right);
+
+        public static explicit operator string(IntermediateTableAggregationThresholdType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntermediateTableAggregationThresholdType other && Equals(other);
+        public bool Equals(IntermediateTableAggregationThresholdType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct IntermediateTableAllowedAggregateExpressionType : IEquatable<IntermediateTableAllowedAggregateExpressionType>
+    {
+        private readonly string _value;
+
+        private IntermediateTableAllowedAggregateExpressionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static IntermediateTableAllowedAggregateExpressionType ColumnsOnly { get; } = new IntermediateTableAllowedAggregateExpressionType("COLUMNS_ONLY");
+        public static IntermediateTableAllowedAggregateExpressionType AnyExpression { get; } = new IntermediateTableAllowedAggregateExpressionType("ANY_EXPRESSION");
+
+        public static bool operator ==(IntermediateTableAllowedAggregateExpressionType left, IntermediateTableAllowedAggregateExpressionType right) => left.Equals(right);
+        public static bool operator !=(IntermediateTableAllowedAggregateExpressionType left, IntermediateTableAllowedAggregateExpressionType right) => !left.Equals(right);
+
+        public static explicit operator string(IntermediateTableAllowedAggregateExpressionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IntermediateTableAllowedAggregateExpressionType other && Equals(other);
+        public bool Equals(IntermediateTableAllowedAggregateExpressionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

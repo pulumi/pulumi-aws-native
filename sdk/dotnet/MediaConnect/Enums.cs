@@ -1971,6 +1971,34 @@ namespace Pulumi.AwsNative.MediaConnect
     }
 
     [EnumType]
+    public readonly struct RouterOutputResourceFabricLatencyMode : IEquatable<RouterOutputResourceFabricLatencyMode>
+    {
+        private readonly string _value;
+
+        private RouterOutputResourceFabricLatencyMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RouterOutputResourceFabricLatencyMode Balanced { get; } = new RouterOutputResourceFabricLatencyMode("BALANCED");
+        public static RouterOutputResourceFabricLatencyMode LowLatency { get; } = new RouterOutputResourceFabricLatencyMode("LOW_LATENCY");
+
+        public static bool operator ==(RouterOutputResourceFabricLatencyMode left, RouterOutputResourceFabricLatencyMode right) => left.Equals(right);
+        public static bool operator !=(RouterOutputResourceFabricLatencyMode left, RouterOutputResourceFabricLatencyMode right) => !left.Equals(right);
+
+        public static explicit operator string(RouterOutputResourceFabricLatencyMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RouterOutputResourceFabricLatencyMode other && Equals(other);
+        public bool Equals(RouterOutputResourceFabricLatencyMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct RouterOutputResourceFlowTransitEncryptionKeyType : IEquatable<RouterOutputResourceFlowTransitEncryptionKeyType>
     {
         private readonly string _value;

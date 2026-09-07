@@ -54,6 +54,7 @@ export class RouterOutputResource extends pulumi.CustomResource {
      * The timestamp when the router output was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly fabricConfiguration: pulumi.Output<outputs.mediaconnect.RouterOutputResourceFabricConfiguration | undefined>;
     /**
      * The IP address of the router output.
      */
@@ -132,6 +133,7 @@ export class RouterOutputResource extends pulumi.CustomResource {
             }
             resourceInputs["availabilityZone"] = args?.availabilityZone;
             resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["fabricConfiguration"] = args?.fabricConfiguration;
             resourceInputs["maintenanceConfiguration"] = args?.maintenanceConfiguration;
             resourceInputs["maximumBitrate"] = args?.maximumBitrate;
             resourceInputs["name"] = args?.name;
@@ -154,6 +156,7 @@ export class RouterOutputResource extends pulumi.CustomResource {
             resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["configuration"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["fabricConfiguration"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["maintenanceConfiguration"] = undefined /*out*/;
             resourceInputs["maintenanceType"] = undefined /*out*/;
@@ -184,6 +187,7 @@ export interface RouterOutputResourceArgs {
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     configuration: pulumi.Input<inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration0PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration1PropertiesArgs | inputs.mediaconnect.RouterOutputResourceRouterOutputConfiguration2PropertiesArgs>;
+    fabricConfiguration?: pulumi.Input<inputs.mediaconnect.RouterOutputResourceFabricConfigurationArgs | undefined>;
     /**
      * The maintenance configuration settings applied to this router output.
      */

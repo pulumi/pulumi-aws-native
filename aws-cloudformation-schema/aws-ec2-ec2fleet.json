@@ -14,7 +14,7 @@
       "permissions" : [ "ec2:DescribeFleets" ]
     },
     "create" : {
-      "permissions" : [ "ec2:CreateFleet", "ec2:DescribeFleets", "ec2:CreateTags", "ec2:RunInstances", "iam:PassRole", "ec2:DescribeCapacityReservations" ]
+      "permissions" : [ "ec2:CreateFleet", "ec2:DescribeFleets", "ec2:CreateTags", "ec2:RunInstances", "iam:PassRole", "ec2:DescribeCapacityReservations", "resource-groups:ListGroupResources" ]
     },
     "update" : {
       "permissions" : [ "ec2:ModifyFleet", "ec2:DescribeFleets" ]
@@ -163,6 +163,20 @@
         },
         "Max" : {
           "type" : "integer"
+        }
+      }
+    },
+    "ReservedCapacityFallbackOptionsRequest" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "MarketTypes" : {
+          "uniqueItems" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string",
+            "enum" : [ "on-demand" ]
+          }
         }
       }
     },
@@ -365,13 +379,23 @@
       "additionalProperties" : false,
       "type" : "object",
       "properties" : {
+        "AllocationStrategy" : {
+          "type" : "string",
+          "enum" : [ "prioritized" ]
+        },
+        "ReservedCapacityFallbackOptions" : {
+          "$ref" : "#/definitions/ReservedCapacityFallbackOptionsRequest"
+        },
         "ReservationTypes" : {
-          "uniqueItems" : false,
+          "uniqueItems" : true,
           "type" : "array",
           "items" : {
             "type" : "string",
-            "enum" : [ "interruptible-capacity-reservation" ]
+            "enum" : [ "on-demand-capacity-reservation", "capacity-block", "interruptible-capacity-reservation" ]
           }
+        },
+        "CapacityReservationTarget" : {
+          "$ref" : "#/definitions/CapacityReservationTargetRequest"
         }
       }
     },
@@ -424,6 +448,26 @@
           "type" : "array",
           "items" : {
             "$ref" : "#/definitions/FleetLaunchTemplateOverridesRequest"
+          }
+        }
+      }
+    },
+    "CapacityReservationTargetRequest" : {
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "CapacityReservationIds" : {
+          "uniqueItems" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
+        "CapacityReservationResourceGroupArns" : {
+          "uniqueItems" : true,
+          "type" : "array",
+          "items" : {
+            "type" : "string"
           }
         }
       }

@@ -10,6 +10,8 @@ from ._enums import *
 from .data_repository_association import *
 from .get_data_repository_association import *
 from .get_s3_access_point_attachment import *
+from .get_volume import *
 from .s3_access_point_attachment import *
+from .volume import *
 from ._inputs import *
 from . import outputs

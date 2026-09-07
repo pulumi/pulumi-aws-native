@@ -36,6 +36,7 @@ class OriginEndpointArgs:
                  origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment: pulumi.Input[Optional['OriginEndpointSegmentArgs']] = None,
                  startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_name_output_mode: pulumi.Input[Optional['OriginEndpointStreamNameOutputMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
                  uri_separator: pulumi.Input[Optional['OriginEndpointUriSeparator']] = None):
         """
@@ -76,6 +77,8 @@ class OriginEndpointArgs:
             pulumi.set(__self__, "segment", segment)
         if startover_window_seconds is not None:
             pulumi.set(__self__, "startover_window_seconds", startover_window_seconds)
+        if stream_name_output_mode is not None:
+            pulumi.set(__self__, "stream_name_output_mode", stream_name_output_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if uri_separator is not None:
@@ -226,6 +229,15 @@ class OriginEndpointArgs:
         pulumi.set(self, "startover_window_seconds", value)
 
     @_builtins.property
+    @pulumi.getter(name="streamNameOutputMode")
+    def stream_name_output_mode(self) -> pulumi.Input[Optional['OriginEndpointStreamNameOutputMode']]:
+        return pulumi.get(self, "stream_name_output_mode")
+
+    @stream_name_output_mode.setter
+    def stream_name_output_mode(self, value: pulumi.Input[Optional['OriginEndpointStreamNameOutputMode']]):
+        pulumi.set(self, "stream_name_output_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
@@ -265,6 +277,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment: pulumi.Input[Optional[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']]] = None,
                  startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_name_output_mode: pulumi.Input[Optional['OriginEndpointStreamNameOutputMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uri_separator: pulumi.Input[Optional['OriginEndpointUriSeparator']] = None,
                  __props__=None):
@@ -323,6 +336,7 @@ class OriginEndpoint(pulumi.CustomResource):
                  origin_endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
                  segment: pulumi.Input[Optional[Union['OriginEndpointSegmentArgs', 'OriginEndpointSegmentArgsDict']]] = None,
                  startover_window_seconds: pulumi.Input[Optional[_builtins.int]] = None,
+                 stream_name_output_mode: pulumi.Input[Optional['OriginEndpointStreamNameOutputMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  uri_separator: pulumi.Input[Optional['OriginEndpointUriSeparator']] = None,
                  __props__=None):
@@ -352,6 +366,7 @@ class OriginEndpoint(pulumi.CustomResource):
             __props__.__dict__["origin_endpoint_name"] = origin_endpoint_name
             __props__.__dict__["segment"] = segment
             __props__.__dict__["startover_window_seconds"] = startover_window_seconds
+            __props__.__dict__["stream_name_output_mode"] = stream_name_output_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["uri_separator"] = uri_separator
             __props__.__dict__["arn"] = None
@@ -404,6 +419,7 @@ class OriginEndpoint(pulumi.CustomResource):
         __props__.__dict__["origin_endpoint_name"] = None
         __props__.__dict__["segment"] = None
         __props__.__dict__["startover_window_seconds"] = None
+        __props__.__dict__["stream_name_output_mode"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["uri_separator"] = None
         return OriginEndpoint(resource_name, opts=opts, __props__=__props__)
@@ -556,6 +572,11 @@ class OriginEndpoint(pulumi.CustomResource):
         <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
         """
         return pulumi.get(self, "startover_window_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="streamNameOutputMode")
+    def stream_name_output_mode(self) -> pulumi.Output[Optional['OriginEndpointStreamNameOutputMode']]:
+        return pulumi.get(self, "stream_name_output_mode")
 
     @_builtins.property
     @pulumi.getter

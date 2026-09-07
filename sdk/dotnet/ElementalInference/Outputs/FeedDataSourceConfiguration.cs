@@ -10,9 +10,15 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.ElementalInference.Outputs
 {
 
+    /// <summary>
+    /// Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
+    /// </summary>
     [OutputType]
     public sealed class FeedDataSourceConfiguration
     {
+        /// <summary>
+        /// The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
+        /// </summary>
         public readonly string FixtureId;
 
         [OutputConstructor]

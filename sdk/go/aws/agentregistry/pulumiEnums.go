@@ -1049,10 +1049,11 @@ func (in *registryRecordOAuthCredentialProviderGrantTypePtr) ToRegistryRecordOAu
 type RegistryRecordRecordType string
 
 const (
-	RegistryRecordRecordTypeMcp    = RegistryRecordRecordType("MCP")
-	RegistryRecordRecordTypeAgent  = RegistryRecordRecordType("AGENT")
-	RegistryRecordRecordTypeSkill  = RegistryRecordRecordType("SKILL")
-	RegistryRecordRecordTypeCustom = RegistryRecordRecordType("CUSTOM")
+	RegistryRecordRecordTypeMcp     = RegistryRecordRecordType("MCP")
+	RegistryRecordRecordTypeAgent   = RegistryRecordRecordType("AGENT")
+	RegistryRecordRecordTypeSkill   = RegistryRecordRecordType("SKILL")
+	RegistryRecordRecordTypeCustom  = RegistryRecordRecordType("CUSTOM")
+	RegistryRecordRecordTypeGateway = RegistryRecordRecordType("GATEWAY")
 )
 
 func (RegistryRecordRecordType) ElementType() reflect.Type {
@@ -1181,6 +1182,7 @@ func (o RegistryRecordRecordTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 //	RegistryRecordRecordTypeAgent
 //	RegistryRecordRecordTypeSkill
 //	RegistryRecordRecordTypeCustom
+//	RegistryRecordRecordTypeGateway
 type RegistryRecordRecordTypeInput interface {
 	pulumi.Input
 

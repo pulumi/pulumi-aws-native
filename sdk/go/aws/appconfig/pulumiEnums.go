@@ -878,6 +878,97 @@ func (o ExperimentDefinitionStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
+// Current status of the run.
+type ExperimentRunStatus string
+
+const (
+	ExperimentRunStatusRunning = ExperimentRunStatus("RUNNING")
+	ExperimentRunStatusDone    = ExperimentRunStatus("DONE")
+)
+
+type ExperimentRunStatusOutput struct{ *pulumi.OutputState }
+
+func (ExperimentRunStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExperimentRunStatus)(nil)).Elem()
+}
+
+func (o ExperimentRunStatusOutput) ToExperimentRunStatusOutput() ExperimentRunStatusOutput {
+	return o
+}
+
+func (o ExperimentRunStatusOutput) ToExperimentRunStatusOutputWithContext(ctx context.Context) ExperimentRunStatusOutput {
+	return o
+}
+
+func (o ExperimentRunStatusOutput) ToExperimentRunStatusPtrOutput() ExperimentRunStatusPtrOutput {
+	return o.ToExperimentRunStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentRunStatusOutput) ToExperimentRunStatusPtrOutputWithContext(ctx context.Context) ExperimentRunStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ExperimentRunStatus) *ExperimentRunStatus {
+		return &v
+	}).(ExperimentRunStatusPtrOutput)
+}
+
+func (o ExperimentRunStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ExperimentRunStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentRunStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ExperimentRunStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentRunStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ExperimentRunStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ExperimentRunStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ExperimentRunStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ExperimentRunStatus)(nil)).Elem()
+}
+
+func (o ExperimentRunStatusPtrOutput) ToExperimentRunStatusPtrOutput() ExperimentRunStatusPtrOutput {
+	return o
+}
+
+func (o ExperimentRunStatusPtrOutput) ToExperimentRunStatusPtrOutputWithContext(ctx context.Context) ExperimentRunStatusPtrOutput {
+	return o
+}
+
+func (o ExperimentRunStatusPtrOutput) Elem() ExperimentRunStatusOutput {
+	return o.ApplyT(func(v *ExperimentRunStatus) ExperimentRunStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ExperimentRunStatus
+		return ret
+	}).(ExperimentRunStatusOutput)
+}
+
+func (o ExperimentRunStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ExperimentRunStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ExperimentRunStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheckInput)(nil)).Elem(), ConfigurationProfileDeletionProtectionCheck("ACCOUNT_DEFAULT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationProfileDeletionProtectionCheckPtrInput)(nil)).Elem(), ConfigurationProfileDeletionProtectionCheck("ACCOUNT_DEFAULT"))
@@ -899,4 +990,6 @@ func init() {
 	pulumi.RegisterOutputType(EnvironmentDeletionProtectionCheckPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentDefinitionStatusOutput{})
 	pulumi.RegisterOutputType(ExperimentDefinitionStatusPtrOutput{})
+	pulumi.RegisterOutputType(ExperimentRunStatusOutput{})
+	pulumi.RegisterOutputType(ExperimentRunStatusPtrOutput{})
 }

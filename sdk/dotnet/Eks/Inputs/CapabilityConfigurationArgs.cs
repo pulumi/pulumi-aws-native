@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.Eks.Inputs
     public sealed class CapabilityConfigurationArgs : global::Pulumi.ResourceArgs
     {
         [Input("ack")]
-        public Input<object>? Ack { get; set; }
+        public Input<Inputs.CapabilityAckArgs>? Ack { get; set; }
 
         [Input("argoCd")]
         public Input<Inputs.CapabilityArgoCdArgs>? ArgoCd { get; set; }

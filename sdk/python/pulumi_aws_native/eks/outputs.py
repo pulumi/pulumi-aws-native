@@ -20,6 +20,7 @@ __all__ = [
     'AccessEntryAccessPolicy',
     'AccessEntryAccessScope',
     'AddonPodIdentityAssociation',
+    'CapabilityAck',
     'CapabilityArgoCd',
     'CapabilityArgoCdRoleMapping',
     'CapabilityAwsIdc',
@@ -47,6 +48,7 @@ __all__ = [
     'ClusterLoggingTypeConfig',
     'ClusterNodeResourcesFitConfig',
     'ClusterOutpostConfig',
+    'ClusterPodGcControllerConfig',
     'ClusterProvider',
     'ClusterRemoteNetworkConfig',
     'ClusterRemoteNodeNetwork',
@@ -214,6 +216,61 @@ class AddonPodIdentityAssociation(dict):
         The Kubernetes service account that the pod identity association is created for.
         """
         return pulumi.get(self, "service_account")
+
+
+@pulumi.output_type
+class CapabilityAck(dict):
+    """
+    Configuration settings for an ACK (AWS Controllers for Kubernetes) capability.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "disabledServices":
+            suggest = "disabled_services"
+        elif key == "enableCrossNamespace":
+            suggest = "enable_cross_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CapabilityAck. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CapabilityAck.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CapabilityAck.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 disabled_services: Optional[Sequence[_builtins.str]] = None,
+                 enable_cross_namespace: Optional[_builtins.bool] = None):
+        """
+        Configuration settings for an ACK (AWS Controllers for Kubernetes) capability.
+
+        :param Sequence[_builtins.str] disabled_services: A list of ACK service names to disable. Controllers for services in this list are not installed or managed.
+        :param _builtins.bool enable_cross_namespace: Whether cross-namespace references are enabled for ACK controllers. When not specified, the service default applies.
+        """
+        if disabled_services is not None:
+            pulumi.set(__self__, "disabled_services", disabled_services)
+        if enable_cross_namespace is not None:
+            pulumi.set(__self__, "enable_cross_namespace", enable_cross_namespace)
+
+    @_builtins.property
+    @pulumi.getter(name="disabledServices")
+    def disabled_services(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of ACK service names to disable. Controllers for services in this list are not installed or managed.
+        """
+        return pulumi.get(self, "disabled_services")
+
+    @_builtins.property
+    @pulumi.getter(name="enableCrossNamespace")
+    def enable_cross_namespace(self) -> Optional[_builtins.bool]:
+        """
+        Whether cross-namespace references are enabled for ACK controllers. When not specified, the service default applies.
+        """
+        return pulumi.get(self, "enable_cross_namespace")
 
 
 @pulumi.output_type
@@ -427,7 +484,7 @@ class CapabilityConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 ack: Optional[Any] = None,
+                 ack: Optional['outputs.CapabilityAck'] = None,
                  argo_cd: Optional['outputs.CapabilityArgoCd'] = None):
         """
         Configuration settings for a capability. The structure of this object varies depending on the capability type.
@@ -439,7 +496,7 @@ class CapabilityConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter
-    def ack(self) -> Optional[Any]:
+    def ack(self) -> Optional['outputs.CapabilityAck']:
         return pulumi.get(self, "ack")
 
     @_builtins.property
@@ -1146,6 +1203,8 @@ class ClusterKubeControllerManagerConfig(dict):
         suggest = None
         if key == "horizontalPodAutoscalerControllerConfig":
             suggest = "horizontal_pod_autoscaler_controller_config"
+        elif key == "podGcControllerConfig":
+            suggest = "pod_gc_controller_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ClusterKubeControllerManagerConfig. Access the value via the '{suggest}' property getter instead.")
@@ -1159,17 +1218,25 @@ class ClusterKubeControllerManagerConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 horizontal_pod_autoscaler_controller_config: Optional['outputs.ClusterHorizontalPodAutoscalerControllerConfig'] = None):
+                 horizontal_pod_autoscaler_controller_config: Optional['outputs.ClusterHorizontalPodAutoscalerControllerConfig'] = None,
+                 pod_gc_controller_config: Optional['outputs.ClusterPodGcControllerConfig'] = None):
         """
         The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
         """
         if horizontal_pod_autoscaler_controller_config is not None:
             pulumi.set(__self__, "horizontal_pod_autoscaler_controller_config", horizontal_pod_autoscaler_controller_config)
+        if pod_gc_controller_config is not None:
+            pulumi.set(__self__, "pod_gc_controller_config", pod_gc_controller_config)
 
     @_builtins.property
     @pulumi.getter(name="horizontalPodAutoscalerControllerConfig")
     def horizontal_pod_autoscaler_controller_config(self) -> Optional['outputs.ClusterHorizontalPodAutoscalerControllerConfig']:
         return pulumi.get(self, "horizontal_pod_autoscaler_controller_config")
+
+    @_builtins.property
+    @pulumi.getter(name="podGcControllerConfig")
+    def pod_gc_controller_config(self) -> Optional['outputs.ClusterPodGcControllerConfig']:
+        return pulumi.get(self, "pod_gc_controller_config")
 
 
 @pulumi.output_type
@@ -1489,6 +1556,47 @@ class ClusterOutpostConfig(dict):
         An object representing the placement configuration for the etcd instances of your local Amazon EKS cluster on an AWS Outpost.
         """
         return pulumi.get(self, "etcd_placement")
+
+
+@pulumi.output_type
+class ClusterPodGcControllerConfig(dict):
+    """
+    The pod garbage collector controller configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "terminatedPodGcThreshold":
+            suggest = "terminated_pod_gc_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterPodGcControllerConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterPodGcControllerConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterPodGcControllerConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 terminated_pod_gc_threshold: Optional[_builtins.int] = None):
+        """
+        The pod garbage collector controller configuration.
+
+        :param _builtins.int terminated_pod_gc_threshold: The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.
+        """
+        if terminated_pod_gc_threshold is not None:
+            pulumi.set(__self__, "terminated_pod_gc_threshold", terminated_pod_gc_threshold)
+
+    @_builtins.property
+    @pulumi.getter(name="terminatedPodGcThreshold")
+    def terminated_pod_gc_threshold(self) -> Optional[_builtins.int]:
+        """
+        The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.
+        """
+        return pulumi.get(self, "terminated_pod_gc_threshold")
 
 
 @pulumi.output_type

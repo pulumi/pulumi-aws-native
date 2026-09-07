@@ -139,8 +139,15 @@ class DataCellsFilterRowFilter(dict):
 
 @pulumi.output_type
 class PrincipalPermissionsCatalogResource(dict):
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

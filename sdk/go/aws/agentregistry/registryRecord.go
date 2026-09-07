@@ -19,6 +19,8 @@ type RegistryRecord struct {
 
 	// The timestamp when the registry record was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
+	// The identifier of the AWS account that created the registry record.
+	CreatedBy pulumi.StringOutput `pulumi:"createdBy"`
 	// The description of the registry record.
 	Description pulumi.StringPtrOutput          `pulumi:"description"`
 	Descriptors RegistryRecordDescriptorsOutput `pulumi:"descriptors"`
@@ -35,8 +37,8 @@ type RegistryRecord struct {
 	RecordVersion pulumi.StringPtrOutput `pulumi:"recordVersion"`
 	// The Amazon Resource Name (ARN) of the registry containing the record.
 	RegistryArn pulumi.StringOutput `pulumi:"registryArn"`
-	// The identifier of the registry containing the record.
-	RegistryId pulumi.StringOutput        `pulumi:"registryId"`
+	// The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
+	RegistryId pulumi.StringPtrOutput     `pulumi:"registryId"`
 	Status     RegistryRecordStatusOutput `pulumi:"status"`
 	// Tags to assign to the registry record.
 	Tags aws.TagArrayOutput `pulumi:"tags"`
@@ -56,9 +58,6 @@ func NewRegistryRecord(ctx *pulumi.Context,
 	}
 	if args.RecordType == nil {
 		return nil, errors.New("invalid value for required argument 'RecordType'")
-	}
-	if args.RegistryId == nil {
-		return nil, errors.New("invalid value for required argument 'RegistryId'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"recordType",
@@ -108,8 +107,8 @@ type registryRecordArgs struct {
 	RecordType RegistryRecordRecordType `pulumi:"recordType"`
 	// The version of the registry record.
 	RecordVersion *string `pulumi:"recordVersion"`
-	// The identifier of the registry containing the record.
-	RegistryId string `pulumi:"registryId"`
+	// The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
+	RegistryId *string `pulumi:"registryId"`
 	// Tags to assign to the registry record.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -126,8 +125,8 @@ type RegistryRecordArgs struct {
 	RecordType RegistryRecordRecordTypeInput
 	// The version of the registry record.
 	RecordVersion pulumi.StringPtrInput
-	// The identifier of the registry containing the record.
-	RegistryId pulumi.StringInput
+	// The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
+	RegistryId pulumi.StringPtrInput
 	// Tags to assign to the registry record.
 	Tags aws.TagArrayInput
 }
@@ -174,6 +173,11 @@ func (o RegistryRecordOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryRecord) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
+// The identifier of the AWS account that created the registry record.
+func (o RegistryRecordOutput) CreatedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *RegistryRecord) pulumi.StringOutput { return v.CreatedBy }).(pulumi.StringOutput)
+}
+
 // The description of the registry record.
 func (o RegistryRecordOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RegistryRecord) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
@@ -217,9 +221,9 @@ func (o RegistryRecordOutput) RegistryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegistryRecord) pulumi.StringOutput { return v.RegistryArn }).(pulumi.StringOutput)
 }
 
-// The identifier of the registry containing the record.
-func (o RegistryRecordOutput) RegistryId() pulumi.StringOutput {
-	return o.ApplyT(func(v *RegistryRecord) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
+// The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
+func (o RegistryRecordOutput) RegistryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RegistryRecord) pulumi.StringPtrOutput { return v.RegistryId }).(pulumi.StringPtrOutput)
 }
 
 func (o RegistryRecordOutput) Status() RegistryRecordStatusOutput {

@@ -166,11 +166,24 @@ export const ConfiguredTableAggregateFunctionName = {
 
 export type ConfiguredTableAggregateFunctionName = (typeof ConfiguredTableAggregateFunctionName)[keyof typeof ConfiguredTableAggregateFunctionName];
 
+export const ConfiguredTableAggregationThresholdType = {
+    CountDistinct: "COUNT_DISTINCT",
+} as const;
+
+export type ConfiguredTableAggregationThresholdType = (typeof ConfiguredTableAggregationThresholdType)[keyof typeof ConfiguredTableAggregationThresholdType];
+
 export const ConfiguredTableAggregationType = {
     CountDistinct: "COUNT_DISTINCT",
 } as const;
 
 export type ConfiguredTableAggregationType = (typeof ConfiguredTableAggregationType)[keyof typeof ConfiguredTableAggregationType];
+
+export const ConfiguredTableAllowedAggregateExpressionType = {
+    ColumnsOnly: "COLUMNS_ONLY",
+    AnyExpression: "ANY_EXPRESSION",
+} as const;
+
+export type ConfiguredTableAllowedAggregateExpressionType = (typeof ConfiguredTableAllowedAggregateExpressionType)[keyof typeof ConfiguredTableAllowedAggregateExpressionType];
 
 export const ConfiguredTableAnalysisMethod = {
     DirectQuery: "DIRECT_QUERY",
@@ -309,6 +322,19 @@ export const IntermediateTableAdditionalAnalyses = {
 } as const;
 
 export type IntermediateTableAdditionalAnalyses = (typeof IntermediateTableAdditionalAnalyses)[keyof typeof IntermediateTableAdditionalAnalyses];
+
+export const IntermediateTableAggregationThresholdType = {
+    CountDistinct: "COUNT_DISTINCT",
+} as const;
+
+export type IntermediateTableAggregationThresholdType = (typeof IntermediateTableAggregationThresholdType)[keyof typeof IntermediateTableAggregationThresholdType];
+
+export const IntermediateTableAllowedAggregateExpressionType = {
+    ColumnsOnly: "COLUMNS_ONLY",
+    AnyExpression: "ANY_EXPRESSION",
+} as const;
+
+export type IntermediateTableAllowedAggregateExpressionType = (typeof IntermediateTableAllowedAggregateExpressionType)[keyof typeof IntermediateTableAllowedAggregateExpressionType];
 
 export const IntermediateTableAnalysisRuleType = {
     Custom: "CUSTOM",

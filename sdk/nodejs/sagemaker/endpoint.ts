@@ -52,7 +52,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * The name of the SageMaker endpoint. This name must be unique within an AWS Region.
      */
-    declare public readonly endpointName: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string | undefined>;
     /**
      * Specifies a list of variant properties that you want to exclude when updating an endpoint.
      */

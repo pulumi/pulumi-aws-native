@@ -13,7 +13,6 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
-from . import outputs
 from .. import outputs as _root_outputs
 
 __all__ = [
@@ -25,13 +24,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetDeliveryDestinationResult:
-    def __init__(__self__, arn=None, delivery_destination_policy=None, tags=None):
+    def __init__(__self__, arn=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
-        if delivery_destination_policy and not isinstance(delivery_destination_policy, dict):
-            raise TypeError("Expected argument 'delivery_destination_policy' to be a dict")
-        pulumi.set(__self__, "delivery_destination_policy", delivery_destination_policy)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -43,18 +39,6 @@ class GetDeliveryDestinationResult:
         The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
         """
         return pulumi.get(self, "arn")
-
-    @_builtins.property
-    @pulumi.getter(name="deliveryDestinationPolicy")
-    def delivery_destination_policy(self) -> Optional['outputs.DeliveryDestinationDestinationPolicy']:
-        """
-        IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
-
-        The policy must be in JSON string format.
-
-        Length Constraints: Maximum length of 51200
-        """
-        return pulumi.get(self, "delivery_destination_policy")
 
     @_builtins.property
     @pulumi.getter
@@ -72,7 +56,6 @@ class AwaitableGetDeliveryDestinationResult(GetDeliveryDestinationResult):
             yield self
         return GetDeliveryDestinationResult(
             arn=self.arn,
-            delivery_destination_policy=self.delivery_destination_policy,
             tags=self.tags)
 
 
@@ -92,7 +75,6 @@ def get_delivery_destination(name: Optional[_builtins.str] = None,
 
     return AwaitableGetDeliveryDestinationResult(
         arn=pulumi.get(__ret__, 'arn'),
-        delivery_destination_policy=pulumi.get(__ret__, 'delivery_destination_policy'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_delivery_destination_output(name: pulumi.Input[Optional[_builtins.str]] = None,
                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeliveryDestinationResult]:
@@ -109,5 +91,4 @@ def get_delivery_destination_output(name: pulumi.Input[Optional[_builtins.str]] 
     __ret__ = pulumi.runtime.invoke_output('aws-native:logs:getDeliveryDestination', __args__, opts=opts, typ=GetDeliveryDestinationResult)
     return __ret__.apply(lambda __response__: GetDeliveryDestinationResult(
         arn=pulumi.get(__response__, 'arn'),
-        delivery_destination_policy=pulumi.get(__response__, 'delivery_destination_policy'),
         tags=pulumi.get(__response__, 'tags')))

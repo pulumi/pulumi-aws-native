@@ -26,6 +26,8 @@ __all__ = [
     'ExperimentDefinitionAttributeValueArgsDict',
     'ExperimentDefinitionTreatmentArgs',
     'ExperimentDefinitionTreatmentArgsDict',
+    'ExperimentRunTreatmentOverridesArgs',
+    'ExperimentRunTreatmentOverridesArgsDict',
     'ExtensionActionArgs',
     'ExtensionActionArgsDict',
     'ExtensionParameterArgs',
@@ -425,6 +427,40 @@ class ExperimentDefinitionTreatmentArgs:
     @key.setter
     def key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "key", value)
+
+
+class ExperimentRunTreatmentOverridesArgsDict(TypedDict):
+    """
+    Treatment overrides for specific entities.
+    """
+    inline: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    Map of entity ID to treatment key (t1, t2, ..., or c for control).
+    """
+
+@pulumi.input_type
+class ExperimentRunTreatmentOverridesArgs:
+    def __init__(__self__, *,
+                 inline: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Treatment overrides for specific entities.
+
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] inline: Map of entity ID to treatment key (t1, t2, ..., or c for control).
+        """
+        if inline is not None:
+            pulumi.set(__self__, "inline", inline)
+
+    @_builtins.property
+    @pulumi.getter
+    def inline(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        Map of entity ID to treatment key (t1, t2, ..., or c for control).
+        """
+        return pulumi.get(self, "inline")
+
+    @inline.setter
+    def inline(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "inline", value)
 
 
 class ExtensionActionArgsDict(TypedDict):

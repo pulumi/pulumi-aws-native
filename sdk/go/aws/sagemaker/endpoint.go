@@ -24,7 +24,7 @@ type Endpoint struct {
 	// The name of the endpoint configuration for the SageMaker endpoint. This is a required property.
 	EndpointConfigName pulumi.StringOutput `pulumi:"endpointConfigName"`
 	// The name of the SageMaker endpoint. This name must be unique within an AWS Region.
-	EndpointName pulumi.StringOutput `pulumi:"endpointName"`
+	EndpointName pulumi.StringPtrOutput `pulumi:"endpointName"`
 	// Specifies a list of variant properties that you want to exclude when updating an endpoint.
 	ExcludeRetainedVariantProperties EndpointVariantPropertyArrayOutput `pulumi:"excludeRetainedVariantProperties"`
 	// When set to true, retains all variant properties for an endpoint when it is updated.
@@ -169,8 +169,8 @@ func (o EndpointOutput) EndpointConfigName() pulumi.StringOutput {
 }
 
 // The name of the SageMaker endpoint. This name must be unique within an AWS Region.
-func (o EndpointOutput) EndpointName() pulumi.StringOutput {
-	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.EndpointName }).(pulumi.StringOutput)
+func (o EndpointOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.EndpointName }).(pulumi.StringPtrOutput)
 }
 
 // Specifies a list of variant properties that you want to exclude when updating an endpoint.

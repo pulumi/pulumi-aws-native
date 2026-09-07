@@ -8,6 +8,129 @@ using Pulumi;
 namespace Pulumi.AwsNative.Ec2
 {
     /// <summary>
+    /// Whether this check is included in the rolled-up application status.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationStatusCheckAggregation : IEquatable<ApplicationStatusCheckAggregation>
+    {
+        private readonly string _value;
+
+        private ApplicationStatusCheckAggregation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationStatusCheckAggregation Included { get; } = new ApplicationStatusCheckAggregation("included");
+        public static ApplicationStatusCheckAggregation Excluded { get; } = new ApplicationStatusCheckAggregation("excluded");
+
+        public static bool operator ==(ApplicationStatusCheckAggregation left, ApplicationStatusCheckAggregation right) => left.Equals(right);
+        public static bool operator !=(ApplicationStatusCheckAggregation left, ApplicationStatusCheckAggregation right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationStatusCheckAggregation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationStatusCheckAggregation other && Equals(other);
+        public bool Equals(ApplicationStatusCheckAggregation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP scope used for the health check.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationStatusCheckIpScope : IEquatable<ApplicationStatusCheckIpScope>
+    {
+        private readonly string _value;
+
+        private ApplicationStatusCheckIpScope(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationStatusCheckIpScope Private { get; } = new ApplicationStatusCheckIpScope("private");
+
+        public static bool operator ==(ApplicationStatusCheckIpScope left, ApplicationStatusCheckIpScope right) => left.Equals(right);
+        public static bool operator !=(ApplicationStatusCheckIpScope left, ApplicationStatusCheckIpScope right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationStatusCheckIpScope value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationStatusCheckIpScope other && Equals(other);
+        public bool Equals(ApplicationStatusCheckIpScope other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The IP version used for the health check.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationStatusCheckIpVersion : IEquatable<ApplicationStatusCheckIpVersion>
+    {
+        private readonly string _value;
+
+        private ApplicationStatusCheckIpVersion(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationStatusCheckIpVersion Ipv4 { get; } = new ApplicationStatusCheckIpVersion("ipv4");
+        public static ApplicationStatusCheckIpVersion Ipv6 { get; } = new ApplicationStatusCheckIpVersion("ipv6");
+
+        public static bool operator ==(ApplicationStatusCheckIpVersion left, ApplicationStatusCheckIpVersion right) => left.Equals(right);
+        public static bool operator !=(ApplicationStatusCheckIpVersion left, ApplicationStatusCheckIpVersion right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationStatusCheckIpVersion value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationStatusCheckIpVersion other && Equals(other);
+        public bool Equals(ApplicationStatusCheckIpVersion other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The network protocol used for the health check.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationStatusCheckProtocol : IEquatable<ApplicationStatusCheckProtocol>
+    {
+        private readonly string _value;
+
+        private ApplicationStatusCheckProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationStatusCheckProtocol Http { get; } = new ApplicationStatusCheckProtocol("http");
+        public static ApplicationStatusCheckProtocol Https { get; } = new ApplicationStatusCheckProtocol("https");
+
+        public static bool operator ==(ApplicationStatusCheckProtocol left, ApplicationStatusCheckProtocol right) => left.Equals(right);
+        public static bool operator !=(ApplicationStatusCheckProtocol left, ApplicationStatusCheckProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationStatusCheckProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationStatusCheckProtocol other && Equals(other);
+        public bool Equals(ApplicationStatusCheckProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The format of the exported capacity manager data. Choose 'csv' for comma-separated values or 'parquet' for optimized columnar storage format.
     /// </summary>
     [EnumType]
@@ -598,6 +721,60 @@ namespace Pulumi.AwsNative.Ec2
     }
 
     [EnumType]
+    public readonly struct Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem : IEquatable<Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem>
+    {
+        private readonly string _value;
+
+        private Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem OnDemand { get; } = new Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem("on-demand");
+
+        public static bool operator ==(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem left, Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem right) => left.Equals(right);
+        public static bool operator !=(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem left, Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem other && Equals(other);
+        public bool Equals(Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct Ec2FleetReservedCapacityOptionsRequestAllocationStrategy : IEquatable<Ec2FleetReservedCapacityOptionsRequestAllocationStrategy>
+    {
+        private readonly string _value;
+
+        private Ec2FleetReservedCapacityOptionsRequestAllocationStrategy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Ec2FleetReservedCapacityOptionsRequestAllocationStrategy Prioritized { get; } = new Ec2FleetReservedCapacityOptionsRequestAllocationStrategy("prioritized");
+
+        public static bool operator ==(Ec2FleetReservedCapacityOptionsRequestAllocationStrategy left, Ec2FleetReservedCapacityOptionsRequestAllocationStrategy right) => left.Equals(right);
+        public static bool operator !=(Ec2FleetReservedCapacityOptionsRequestAllocationStrategy left, Ec2FleetReservedCapacityOptionsRequestAllocationStrategy right) => !left.Equals(right);
+
+        public static explicit operator string(Ec2FleetReservedCapacityOptionsRequestAllocationStrategy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Ec2FleetReservedCapacityOptionsRequestAllocationStrategy other && Equals(other);
+        public bool Equals(Ec2FleetReservedCapacityOptionsRequestAllocationStrategy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct Ec2FleetReservedCapacityOptionsRequestReservationTypesItem : IEquatable<Ec2FleetReservedCapacityOptionsRequestReservationTypesItem>
     {
         private readonly string _value;
@@ -607,6 +784,8 @@ namespace Pulumi.AwsNative.Ec2
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static Ec2FleetReservedCapacityOptionsRequestReservationTypesItem OnDemandCapacityReservation { get; } = new Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("on-demand-capacity-reservation");
+        public static Ec2FleetReservedCapacityOptionsRequestReservationTypesItem CapacityBlock { get; } = new Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("capacity-block");
         public static Ec2FleetReservedCapacityOptionsRequestReservationTypesItem InterruptibleCapacityReservation { get; } = new Ec2FleetReservedCapacityOptionsRequestReservationTypesItem("interruptible-capacity-reservation");
 
         public static bool operator ==(Ec2FleetReservedCapacityOptionsRequestReservationTypesItem left, Ec2FleetReservedCapacityOptionsRequestReservationTypesItem right) => left.Equals(right);

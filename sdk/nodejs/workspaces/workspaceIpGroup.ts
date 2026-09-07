@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource type definition for an IP access control group for Amazon WorkSpaces.
+ * Resource Type definition for an IP access control group for Amazon WorkSpaces.
  */
 export class WorkspaceIpGroup extends pulumi.CustomResource {
     /**

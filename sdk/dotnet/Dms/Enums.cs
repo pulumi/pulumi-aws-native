@@ -316,4 +316,36 @@ namespace Pulumi.AwsNative.Dms
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The migration type.
+    /// </summary>
+    [EnumType]
+    public readonly struct ReplicationTaskMigrationType : IEquatable<ReplicationTaskMigrationType>
+    {
+        private readonly string _value;
+
+        private ReplicationTaskMigrationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ReplicationTaskMigrationType FullLoad { get; } = new ReplicationTaskMigrationType("full-load");
+        public static ReplicationTaskMigrationType Cdc { get; } = new ReplicationTaskMigrationType("cdc");
+        public static ReplicationTaskMigrationType FullLoadAndCdc { get; } = new ReplicationTaskMigrationType("full-load-and-cdc");
+
+        public static bool operator ==(ReplicationTaskMigrationType left, ReplicationTaskMigrationType right) => left.Equals(right);
+        public static bool operator !=(ReplicationTaskMigrationType left, ReplicationTaskMigrationType right) => !left.Equals(right);
+
+        public static explicit operator string(ReplicationTaskMigrationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ReplicationTaskMigrationType other && Equals(other);
+        public bool Equals(ReplicationTaskMigrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

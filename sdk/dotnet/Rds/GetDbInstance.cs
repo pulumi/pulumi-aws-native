@@ -651,6 +651,8 @@ namespace Pulumi.AwsNative.Rds
         /// The status of a read replica. If the DB instance isn't a read replica, the value is blank.
         /// </summary>
         public readonly ImmutableArray<Outputs.DbInstanceDbInstanceStatusInfo> StatusInfos;
+        public readonly int? StorageOperationPercentProgress;
+        public readonly string? StorageOperationStatus;
         /// <summary>
         /// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type. 
         ///  This setting doesn't apply to RDS Custom or Amazon Aurora.
@@ -816,6 +818,10 @@ namespace Pulumi.AwsNative.Rds
 
             ImmutableArray<Outputs.DbInstanceDbInstanceStatusInfo> statusInfos,
 
+            int? storageOperationPercentProgress,
+
+            string? storageOperationStatus,
+
             int? storageThroughput,
 
             string? storageType,
@@ -891,6 +897,8 @@ namespace Pulumi.AwsNative.Rds
             SecondaryAvailabilityZone = secondaryAvailabilityZone;
             SourceDbClusterIdentifier = sourceDbClusterIdentifier;
             StatusInfos = statusInfos;
+            StorageOperationPercentProgress = storageOperationPercentProgress;
+            StorageOperationStatus = storageOperationStatus;
             StorageThroughput = storageThroughput;
             StorageType = storageType;
             Tags = tags;

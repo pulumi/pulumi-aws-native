@@ -110,6 +110,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     declare public readonly startoverWindowSeconds: pulumi.Output<number | undefined>;
+    declare public readonly streamNameOutputMode: pulumi.Output<enums.mediapackagev2.OriginEndpointStreamNameOutputMode | undefined>;
     /**
      * The tags associated with the origin endpoint.
      */
@@ -148,6 +149,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["originEndpointName"] = args?.originEndpointName;
             resourceInputs["segment"] = args?.segment;
             resourceInputs["startoverWindowSeconds"] = args?.startoverWindowSeconds;
+            resourceInputs["streamNameOutputMode"] = args?.streamNameOutputMode;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["uriSeparator"] = args?.uriSeparator;
             resourceInputs["arn"] = undefined /*out*/;
@@ -177,6 +179,7 @@ export class OriginEndpoint extends pulumi.CustomResource {
             resourceInputs["originEndpointName"] = undefined /*out*/;
             resourceInputs["segment"] = undefined /*out*/;
             resourceInputs["startoverWindowSeconds"] = undefined /*out*/;
+            resourceInputs["streamNameOutputMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["uriSeparator"] = undefined /*out*/;
         }
@@ -239,6 +242,7 @@ export interface OriginEndpointArgs {
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     startoverWindowSeconds?: pulumi.Input<number | undefined>;
+    streamNameOutputMode?: pulumi.Input<enums.mediapackagev2.OriginEndpointStreamNameOutputMode | undefined>;
     /**
      * The tags associated with the origin endpoint.
      */

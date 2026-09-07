@@ -124,6 +124,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).&lt;/p&gt;
         /// </summary>
         public readonly int? StartoverWindowSeconds;
+        public readonly Pulumi.AwsNative.MediaPackageV2.OriginEndpointStreamNameOutputMode? StreamNameOutputMode;
         /// <summary>
         /// The tags associated with the origin endpoint.
         /// </summary>
@@ -164,6 +165,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             int? startoverWindowSeconds,
 
+            Pulumi.AwsNative.MediaPackageV2.OriginEndpointStreamNameOutputMode? streamNameOutputMode,
+
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags,
 
             Pulumi.AwsNative.MediaPackageV2.OriginEndpointUriSeparator? uriSeparator)
@@ -184,6 +187,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
             MssManifests = mssManifests;
             Segment = segment;
             StartoverWindowSeconds = startoverWindowSeconds;
+            StreamNameOutputMode = streamNameOutputMode;
             Tags = tags;
             UriSeparator = uriSeparator;
         }

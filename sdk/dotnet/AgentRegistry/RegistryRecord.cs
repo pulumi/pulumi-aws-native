@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.AgentRegistry
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
+        /// The identifier of the AWS account that created the registry record.
+        /// </summary>
+        [Output("createdBy")]
+        public Output<string> CreatedBy { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the registry record.
         /// </summary>
         [Output("description")]
@@ -70,10 +76,10 @@ namespace Pulumi.AwsNative.AgentRegistry
         public Output<string> RegistryArn { get; private set; } = null!;
 
         /// <summary>
-        /// The identifier of the registry containing the record.
+        /// The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
         /// </summary>
         [Output("registryId")]
-        public Output<string> RegistryId { get; private set; } = null!;
+        public Output<string?> RegistryId { get; private set; } = null!;
 
         [Output("status")]
         public Output<Pulumi.AwsNative.AgentRegistry.RegistryRecordStatus> Status { get; private set; } = null!;
@@ -171,10 +177,10 @@ namespace Pulumi.AwsNative.AgentRegistry
         public Input<string>? RecordVersion { get; set; }
 
         /// <summary>
-        /// The identifier of the registry containing the record.
+        /// The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
         /// </summary>
-        [Input("registryId", required: true)]
-        public Input<string> RegistryId { get; set; } = null!;
+        [Input("registryId")]
+        public Input<string>? RegistryId { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

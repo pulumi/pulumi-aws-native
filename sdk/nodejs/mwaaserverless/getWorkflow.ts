@@ -22,6 +22,8 @@ export interface GetWorkflowArgs {
 }
 
 export interface GetWorkflowResult {
+    readonly code?: outputs.mwaaserverless.WorkflowCode;
+    readonly codeSnapshottedAt?: string;
     readonly createdAt?: string;
     readonly definitionS3Location?: outputs.mwaaserverless.WorkflowS3Location;
     readonly description?: string;

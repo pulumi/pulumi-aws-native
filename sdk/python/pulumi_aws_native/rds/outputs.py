@@ -450,6 +450,10 @@ class DbInstanceAdditionalStorageVolume(dict):
             suggest = "allocated_storage"
         elif key == "maxAllocatedStorage":
             suggest = "max_allocated_storage"
+        elif key == "storageOperationPercentProgress":
+            suggest = "storage_operation_percent_progress"
+        elif key == "storageOperationStatus":
+            suggest = "storage_operation_status"
         elif key == "storageThroughput":
             suggest = "storage_throughput"
         elif key == "storageType":
@@ -472,6 +476,8 @@ class DbInstanceAdditionalStorageVolume(dict):
                  allocated_storage: Optional[_builtins.str] = None,
                  iops: Optional[_builtins.int] = None,
                  max_allocated_storage: Optional[_builtins.int] = None,
+                 storage_operation_percent_progress: Optional[_builtins.int] = None,
+                 storage_operation_status: Optional[_builtins.str] = None,
                  storage_throughput: Optional[_builtins.int] = None,
                  storage_type: Optional[_builtins.str] = None,
                  volume_name: Optional[_builtins.str] = None):
@@ -493,6 +499,10 @@ class DbInstanceAdditionalStorageVolume(dict):
             pulumi.set(__self__, "iops", iops)
         if max_allocated_storage is not None:
             pulumi.set(__self__, "max_allocated_storage", max_allocated_storage)
+        if storage_operation_percent_progress is not None:
+            pulumi.set(__self__, "storage_operation_percent_progress", storage_operation_percent_progress)
+        if storage_operation_status is not None:
+            pulumi.set(__self__, "storage_operation_status", storage_operation_status)
         if storage_throughput is not None:
             pulumi.set(__self__, "storage_throughput", storage_throughput)
         if storage_type is not None:
@@ -523,6 +533,16 @@ class DbInstanceAdditionalStorageVolume(dict):
         The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
         """
         return pulumi.get(self, "max_allocated_storage")
+
+    @_builtins.property
+    @pulumi.getter(name="storageOperationPercentProgress")
+    def storage_operation_percent_progress(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "storage_operation_percent_progress")
+
+    @_builtins.property
+    @pulumi.getter(name="storageOperationStatus")
+    def storage_operation_status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_operation_status")
 
     @_builtins.property
     @pulumi.getter(name="storageThroughput")

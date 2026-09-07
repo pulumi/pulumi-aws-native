@@ -197,6 +197,7 @@ namespace Pulumi.AwsNative.AgentRegistry
         public static RegistryRecordRecordType Agent { get; } = new RegistryRecordRecordType("AGENT");
         public static RegistryRecordRecordType Skill { get; } = new RegistryRecordRecordType("SKILL");
         public static RegistryRecordRecordType Custom { get; } = new RegistryRecordRecordType("CUSTOM");
+        public static RegistryRecordRecordType Gateway { get; } = new RegistryRecordRecordType("GATEWAY");
 
         public static bool operator ==(RegistryRecordRecordType left, RegistryRecordRecordType right) => left.Equals(right);
         public static bool operator !=(RegistryRecordRecordType left, RegistryRecordRecordType right) => !left.Equals(right);

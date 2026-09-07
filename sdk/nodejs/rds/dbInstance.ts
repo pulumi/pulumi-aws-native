@@ -857,6 +857,8 @@ export class DbInstance extends pulumi.CustomResource {
      *  Not applicable. The encryption for DB instances is managed by the DB cluster.
      */
     declare public readonly storageEncrypted: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly storageOperationPercentProgress: pulumi.Output<number>;
+    declare public /*out*/ readonly storageOperationStatus: pulumi.Output<string>;
     /**
      * Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type.
      *  This setting doesn't apply to RDS Custom or Amazon Aurora.
@@ -1016,6 +1018,8 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["resumeFullAutomationModeTime"] = undefined /*out*/;
             resourceInputs["secondaryAvailabilityZone"] = undefined /*out*/;
             resourceInputs["statusInfos"] = undefined /*out*/;
+            resourceInputs["storageOperationPercentProgress"] = undefined /*out*/;
+            resourceInputs["storageOperationStatus"] = undefined /*out*/;
         } else {
             resourceInputs["additionalStorageVolumes"] = undefined /*out*/;
             resourceInputs["allocatedStorage"] = undefined /*out*/;
@@ -1107,6 +1111,8 @@ export class DbInstance extends pulumi.CustomResource {
             resourceInputs["sourceRegion"] = undefined /*out*/;
             resourceInputs["statusInfos"] = undefined /*out*/;
             resourceInputs["storageEncrypted"] = undefined /*out*/;
+            resourceInputs["storageOperationPercentProgress"] = undefined /*out*/;
+            resourceInputs["storageOperationStatus"] = undefined /*out*/;
             resourceInputs["storageThroughput"] = undefined /*out*/;
             resourceInputs["storageType"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

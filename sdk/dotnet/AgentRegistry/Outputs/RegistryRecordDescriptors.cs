@@ -18,7 +18,9 @@ namespace Pulumi.AwsNative.AgentRegistry.Outputs
     {
         public readonly Outputs.RegistryRecordA2aAgentCardDescriptor? A2aAgentCard;
         public readonly Outputs.RegistryRecordAgentSkillsDefinitionDescriptor? AgentSkillsDefinition;
+        public readonly Outputs.RegistryRecordAgUiDescriptor? Agui;
         public readonly Outputs.RegistryRecordCustomDescriptor? Custom;
+        public readonly Outputs.RegistryRecordHttpDescriptor? Http;
         public readonly Outputs.RegistryRecordMcpServerDescriptor? McpServer;
 
         [OutputConstructor]
@@ -27,13 +29,19 @@ namespace Pulumi.AwsNative.AgentRegistry.Outputs
 
             Outputs.RegistryRecordAgentSkillsDefinitionDescriptor? agentSkillsDefinition,
 
+            Outputs.RegistryRecordAgUiDescriptor? agui,
+
             Outputs.RegistryRecordCustomDescriptor? custom,
+
+            Outputs.RegistryRecordHttpDescriptor? http,
 
             Outputs.RegistryRecordMcpServerDescriptor? mcpServer)
         {
             A2aAgentCard = a2aAgentCard;
             AgentSkillsDefinition = agentSkillsDefinition;
+            Agui = agui;
             Custom = custom;
+            Http = http;
             McpServer = mcpServer;
         }
     }

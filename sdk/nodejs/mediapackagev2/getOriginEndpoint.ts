@@ -86,6 +86,7 @@ export interface GetOriginEndpointResult {
      * <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
      */
     readonly startoverWindowSeconds?: number;
+    readonly streamNameOutputMode?: enums.mediapackagev2.OriginEndpointStreamNameOutputMode;
     /**
      * The tags associated with the origin endpoint.
      */

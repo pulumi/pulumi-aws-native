@@ -109,6 +109,7 @@ import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
+import * as chime from "./chime";
 import * as cleanrooms from "./cleanrooms";
 import * as cleanroomsml from "./cleanroomsml";
 import * as cloudformation from "./cloudformation";
@@ -149,6 +150,7 @@ import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
 import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
+import * as dlm from "./dlm";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
 import * as docdbelastic from "./docdbelastic";
@@ -263,6 +265,7 @@ import * as pcs from "./pcs";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
+import * as pricingplanmanager from "./pricingplanmanager";
 import * as proton from "./proton";
 import * as qbusiness from "./qbusiness";
 import * as qldb from "./qldb";
@@ -389,6 +392,7 @@ export {
     ce,
     certificatemanager,
     chatbot,
+    chime,
     cleanrooms,
     cleanroomsml,
     cloudformation,
@@ -429,6 +433,7 @@ export {
     devopsguru,
     directconnect,
     directoryservice,
+    dlm,
     dms,
     docdb,
     docdbelastic,
@@ -543,6 +548,7 @@ export {
     personalize,
     pinpoint,
     pipes,
+    pricingplanmanager,
     proton,
     qbusiness,
     qldb,

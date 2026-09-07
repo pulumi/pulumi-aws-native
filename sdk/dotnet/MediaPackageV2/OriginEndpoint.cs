@@ -126,6 +126,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [Output("startoverWindowSeconds")]
         public Output<int?> StartoverWindowSeconds { get; private set; } = null!;
 
+        [Output("streamNameOutputMode")]
+        public Output<Pulumi.AwsNative.MediaPackageV2.OriginEndpointStreamNameOutputMode?> StreamNameOutputMode { get; private set; } = null!;
+
         /// <summary>
         /// The tags associated with the origin endpoint.
         /// </summary>
@@ -281,6 +284,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("startoverWindowSeconds")]
         public Input<int>? StartoverWindowSeconds { get; set; }
+
+        [Input("streamNameOutputMode")]
+        public Input<Pulumi.AwsNative.MediaPackageV2.OriginEndpointStreamNameOutputMode>? StreamNameOutputMode { get; set; }
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;

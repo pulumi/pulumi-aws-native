@@ -37,6 +37,7 @@ import * as cassandra from "./cassandra";
 import * as ce from "./ce";
 import * as certificatemanager from "./certificatemanager";
 import * as chatbot from "./chatbot";
+import * as chime from "./chime";
 import * as cleanrooms from "./cleanrooms";
 import * as cleanroomsml from "./cleanroomsml";
 import * as cloudformation from "./cloudformation";
@@ -162,6 +163,7 @@ import * as pcs from "./pcs";
 import * as personalize from "./personalize";
 import * as pinpoint from "./pinpoint";
 import * as pipes from "./pipes";
+import * as pricingplanmanager from "./pricingplanmanager";
 import * as proton from "./proton";
 import * as qbusiness from "./qbusiness";
 import * as quicksight from "./quicksight";
@@ -265,6 +267,7 @@ export {
     ce,
     certificatemanager,
     chatbot,
+    chime,
     cleanrooms,
     cleanroomsml,
     cloudformation,
@@ -390,6 +393,7 @@ export {
     personalize,
     pinpoint,
     pipes,
+    pricingplanmanager,
     proton,
     qbusiness,
     quicksight,

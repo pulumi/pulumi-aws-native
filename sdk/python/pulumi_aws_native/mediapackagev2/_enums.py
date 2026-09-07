@@ -32,6 +32,7 @@ __all__ = [
     'OriginEndpointScteFilter',
     'OriginEndpointScteInManifests',
     'OriginEndpointScteInSegments',
+    'OriginEndpointStreamNameOutputMode',
     'OriginEndpointTsEncryptionMethod',
     'OriginEndpointUriPathType',
     'OriginEndpointUriSeparator',
@@ -226,6 +227,12 @@ class OriginEndpointScteInSegments(_builtins.str, Enum):
     NONE = "NONE"
     ALL = "ALL"
     MATCHES_FILTER = "MATCHES_FILTER"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:OriginEndpointStreamNameOutputMode")
+class OriginEndpointStreamNameOutputMode(_builtins.str, Enum):
+    INDEX = "INDEX"
+    PASSTHROUGH_NAME = "PASSTHROUGH_NAME"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:OriginEndpointTsEncryptionMethod")

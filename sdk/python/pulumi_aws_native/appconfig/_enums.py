@@ -13,6 +13,7 @@ __all__ = [
     'DeploymentStrategyReplicateTo',
     'EnvironmentDeletionProtectionCheck',
     'ExperimentDefinitionStatus',
+    'ExperimentRunStatus',
 ]
 
 
@@ -88,3 +89,12 @@ class ExperimentDefinitionStatus(_builtins.str, Enum):
     ACTIVE = "ACTIVE"
     IDLE = "IDLE"
     ARCHIVED = "ARCHIVED"
+
+
+@pulumi.type_token("aws-native:appconfig:ExperimentRunStatus")
+class ExperimentRunStatus(_builtins.str, Enum):
+    """
+    Current status of the run.
+    """
+    RUNNING = "RUNNING"
+    DONE = "DONE"

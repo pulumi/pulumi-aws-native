@@ -53,7 +53,8 @@ type OriginEndpoint struct {
 	// The segment associated with the origin endpoint.
 	Segment OriginEndpointSegmentPtrOutput `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
-	StartoverWindowSeconds pulumi.IntPtrOutput `pulumi:"startoverWindowSeconds"`
+	StartoverWindowSeconds pulumi.IntPtrOutput                         `pulumi:"startoverWindowSeconds"`
+	StreamNameOutputMode   OriginEndpointStreamNameOutputModePtrOutput `pulumi:"streamNameOutputMode"`
 	// The tags associated with the origin endpoint.
 	Tags         aws.TagArrayOutput                  `pulumi:"tags"`
 	UriSeparator OriginEndpointUriSeparatorPtrOutput `pulumi:"uriSeparator"`
@@ -137,7 +138,8 @@ type originEndpointArgs struct {
 	// The segment associated with the origin endpoint.
 	Segment *OriginEndpointSegment `pulumi:"segment"`
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
-	StartoverWindowSeconds *int `pulumi:"startoverWindowSeconds"`
+	StartoverWindowSeconds *int                                `pulumi:"startoverWindowSeconds"`
+	StreamNameOutputMode   *OriginEndpointStreamNameOutputMode `pulumi:"streamNameOutputMode"`
 	// The tags associated with the origin endpoint.
 	Tags         []aws.Tag                   `pulumi:"tags"`
 	UriSeparator *OriginEndpointUriSeparator `pulumi:"uriSeparator"`
@@ -169,6 +171,7 @@ type OriginEndpointArgs struct {
 	Segment OriginEndpointSegmentPtrInput
 	// <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 	StartoverWindowSeconds pulumi.IntPtrInput
+	StreamNameOutputMode   OriginEndpointStreamNameOutputModePtrInput
 	// The tags associated with the origin endpoint.
 	Tags         aws.TagArrayInput
 	UriSeparator OriginEndpointUriSeparatorPtrInput
@@ -307,6 +310,10 @@ func (o OriginEndpointOutput) Segment() OriginEndpointSegmentPtrOutput {
 // <p>The size of the window (in seconds) to create a window of the live stream that's available for on-demand viewing. Viewers can start-over or catch-up on content that falls within the window. The maximum startover window is 1,209,600 seconds (14 days).</p>
 func (o OriginEndpointOutput) StartoverWindowSeconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OriginEndpoint) pulumi.IntPtrOutput { return v.StartoverWindowSeconds }).(pulumi.IntPtrOutput)
+}
+
+func (o OriginEndpointOutput) StreamNameOutputMode() OriginEndpointStreamNameOutputModePtrOutput {
+	return o.ApplyT(func(v *OriginEndpoint) OriginEndpointStreamNameOutputModePtrOutput { return v.StreamNameOutputMode }).(OriginEndpointStreamNameOutputModePtrOutput)
 }
 
 // The tags associated with the origin endpoint.

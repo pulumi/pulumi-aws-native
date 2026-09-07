@@ -265,7 +265,9 @@ func (o FeedCroppingConfigOutput) TemplateGroups() FeedTemplateGroupArrayOutput 
 	return o.ApplyT(func(v FeedCroppingConfig) []FeedTemplateGroup { return v.TemplateGroups }).(FeedTemplateGroupArrayOutput)
 }
 
+// Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
 type FeedDataSourceConfiguration struct {
+	// The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
 	FixtureId string `pulumi:"fixtureId"`
 }
 
@@ -280,7 +282,9 @@ type FeedDataSourceConfigurationInput interface {
 	ToFeedDataSourceConfigurationOutputWithContext(context.Context) FeedDataSourceConfigurationOutput
 }
 
+// Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
 type FeedDataSourceConfigurationArgs struct {
+	// The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
 	FixtureId pulumi.StringInput `pulumi:"fixtureId"`
 }
 
@@ -337,6 +341,7 @@ func (i *feedDataSourceConfigurationPtrType) ToFeedDataSourceConfigurationPtrOut
 	return pulumi.ToOutputWithContext(ctx, i).(FeedDataSourceConfigurationPtrOutput)
 }
 
+// Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
 type FeedDataSourceConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FeedDataSourceConfigurationOutput) ElementType() reflect.Type {
@@ -361,6 +366,7 @@ func (o FeedDataSourceConfigurationOutput) ToFeedDataSourceConfigurationPtrOutpu
 	}).(FeedDataSourceConfigurationPtrOutput)
 }
 
+// The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
 func (o FeedDataSourceConfigurationOutput) FixtureId() pulumi.StringOutput {
 	return o.ApplyT(func(v FeedDataSourceConfiguration) string { return v.FixtureId }).(pulumi.StringOutput)
 }
@@ -389,6 +395,7 @@ func (o FeedDataSourceConfigurationPtrOutput) Elem() FeedDataSourceConfiguration
 	}).(FeedDataSourceConfigurationOutput)
 }
 
+// The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
 func (o FeedDataSourceConfigurationPtrOutput) FixtureId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FeedDataSourceConfiguration) *string {
 		if v == nil {

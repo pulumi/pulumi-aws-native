@@ -2287,6 +2287,7 @@ type GlobalTableReplicaStreamSpecification struct {
 	//
 	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
 	ResourcePolicy *GlobalTableResourcePolicy `pulumi:"resourcePolicy"`
+	Tags           []GlobalTableTag           `pulumi:"tags"`
 }
 
 // GlobalTableReplicaStreamSpecificationInput is an input type that accepts GlobalTableReplicaStreamSpecificationArgs and GlobalTableReplicaStreamSpecificationOutput values.
@@ -2307,6 +2308,7 @@ type GlobalTableReplicaStreamSpecificationArgs struct {
 	//
 	// You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
 	ResourcePolicy GlobalTableResourcePolicyPtrInput `pulumi:"resourcePolicy"`
+	Tags           GlobalTableTagArrayInput          `pulumi:"tags"`
 }
 
 func (GlobalTableReplicaStreamSpecificationArgs) ElementType() reflect.Type {
@@ -2395,6 +2397,10 @@ func (o GlobalTableReplicaStreamSpecificationOutput) ResourcePolicy() GlobalTabl
 	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) *GlobalTableResourcePolicy { return v.ResourcePolicy }).(GlobalTableResourcePolicyPtrOutput)
 }
 
+func (o GlobalTableReplicaStreamSpecificationOutput) Tags() GlobalTableTagArrayOutput {
+	return o.ApplyT(func(v GlobalTableReplicaStreamSpecification) []GlobalTableTag { return v.Tags }).(GlobalTableTagArrayOutput)
+}
+
 type GlobalTableReplicaStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (GlobalTableReplicaStreamSpecificationPtrOutput) ElementType() reflect.Type {
@@ -2431,6 +2437,15 @@ func (o GlobalTableReplicaStreamSpecificationPtrOutput) ResourcePolicy() GlobalT
 		}
 		return v.ResourcePolicy
 	}).(GlobalTableResourcePolicyPtrOutput)
+}
+
+func (o GlobalTableReplicaStreamSpecificationPtrOutput) Tags() GlobalTableTagArrayOutput {
+	return o.ApplyT(func(v *GlobalTableReplicaStreamSpecification) []GlobalTableTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(GlobalTableTagArrayOutput)
 }
 
 type GlobalTableResourcePolicy struct {
@@ -6401,7 +6416,8 @@ type TableStreamSpecification struct {
 	//   +  ``NEW_IMAGE`` - The entire item, as it appears after it was modified, is written to the stream.
 	//   +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
 	//   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
-	StreamViewType string `pulumi:"streamViewType"`
+	StreamViewType string     `pulumi:"streamViewType"`
+	Tags           []TableTag `pulumi:"tags"`
 }
 
 // TableStreamSpecificationInput is an input type that accepts TableStreamSpecificationArgs and TableStreamSpecificationOutput values.
@@ -6427,6 +6443,7 @@ type TableStreamSpecificationArgs struct {
 	//   +  ``OLD_IMAGE`` - The entire item, as it appeared before it was modified, is written to the stream.
 	//   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
 	StreamViewType pulumi.StringInput `pulumi:"streamViewType"`
+	Tags           TableTagArrayInput `pulumi:"tags"`
 }
 
 func (TableStreamSpecificationArgs) ElementType() reflect.Type {
@@ -6524,6 +6541,10 @@ func (o TableStreamSpecificationOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableStreamSpecification) string { return v.StreamViewType }).(pulumi.StringOutput)
 }
 
+func (o TableStreamSpecificationOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v TableStreamSpecification) []TableTag { return v.Tags }).(TableTagArrayOutput)
+}
+
 type TableStreamSpecificationPtrOutput struct{ *pulumi.OutputState }
 
 func (TableStreamSpecificationPtrOutput) ElementType() reflect.Type {
@@ -6575,6 +6596,15 @@ func (o TableStreamSpecificationPtrOutput) StreamViewType() pulumi.StringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
+func (o TableStreamSpecificationPtrOutput) Tags() TableTagArrayOutput {
+	return o.ApplyT(func(v *TableStreamSpecification) []TableTag {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(TableTagArrayOutput)
+}
+
 // Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
 //
 //	AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
@@ -6584,6 +6614,113 @@ type TableTag struct {
 	Key string `pulumi:"key"`
 	// The value of the tag. Tag values are case-sensitive and can be null.
 	Value string `pulumi:"value"`
+}
+
+// TableTagInput is an input type that accepts TableTagArgs and TableTagOutput values.
+// You can construct a concrete instance of `TableTagInput` via:
+//
+//	TableTagArgs{...}
+type TableTagInput interface {
+	pulumi.Input
+
+	ToTableTagOutput() TableTagOutput
+	ToTableTagOutputWithContext(context.Context) TableTagOutput
+}
+
+// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+//
+//	AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+//	For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+type TableTagArgs struct {
+	// The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag. Tag values are case-sensitive and can be null.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (TableTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTag)(nil)).Elem()
+}
+
+func (i TableTagArgs) ToTableTagOutput() TableTagOutput {
+	return i.ToTableTagOutputWithContext(context.Background())
+}
+
+func (i TableTagArgs) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTagOutput)
+}
+
+// TableTagArrayInput is an input type that accepts TableTagArray and TableTagArrayOutput values.
+// You can construct a concrete instance of `TableTagArrayInput` via:
+//
+//	TableTagArray{ TableTagArgs{...} }
+type TableTagArrayInput interface {
+	pulumi.Input
+
+	ToTableTagArrayOutput() TableTagArrayOutput
+	ToTableTagArrayOutputWithContext(context.Context) TableTagArrayOutput
+}
+
+type TableTagArray []TableTagInput
+
+func (TableTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
+}
+
+func (i TableTagArray) ToTableTagArrayOutput() TableTagArrayOutput {
+	return i.ToTableTagArrayOutputWithContext(context.Background())
+}
+
+func (i TableTagArray) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableTagArrayOutput)
+}
+
+// Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+//
+//	AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+//	For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+type TableTagOutput struct{ *pulumi.OutputState }
+
+func (TableTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableTag)(nil)).Elem()
+}
+
+func (o TableTagOutput) ToTableTagOutput() TableTagOutput {
+	return o
+}
+
+func (o TableTagOutput) ToTableTagOutputWithContext(ctx context.Context) TableTagOutput {
+	return o
+}
+
+// The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+func (o TableTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v TableTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the tag. Tag values are case-sensitive and can be null.
+func (o TableTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v TableTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type TableTagArrayOutput struct{ *pulumi.OutputState }
+
+func (TableTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableTag)(nil)).Elem()
+}
+
+func (o TableTagArrayOutput) ToTableTagArrayOutput() TableTagArrayOutput {
+	return o
+}
+
+func (o TableTagArrayOutput) ToTableTagArrayOutputWithContext(ctx context.Context) TableTagArrayOutput {
+	return o
+}
+
+func (o TableTagArrayOutput) Index(i pulumi.IntInput) TableTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableTag {
+		return vs[0].([]TableTag)[vs[1].(int)]
+	}).(TableTagOutput)
 }
 
 // Represents the settings used to enable or disable Time to Live (TTL) for the specified table.
@@ -6997,6 +7134,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableSseSpecificationPtrInput)(nil)).Elem(), TableSseSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationInput)(nil)).Elem(), TableStreamSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableStreamSpecificationPtrInput)(nil)).Elem(), TableStreamSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagInput)(nil)).Elem(), TableTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableTagArrayInput)(nil)).Elem(), TableTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableTimeToLiveSpecificationPtrInput)(nil)).Elem(), TableTimeToLiveSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableWarmThroughputInput)(nil)).Elem(), TableWarmThroughputArgs{})
@@ -7085,6 +7224,8 @@ func init() {
 	pulumi.RegisterOutputType(TableSseSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationOutput{})
 	pulumi.RegisterOutputType(TableStreamSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(TableTagOutput{})
+	pulumi.RegisterOutputType(TableTagArrayOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationOutput{})
 	pulumi.RegisterOutputType(TableTimeToLiveSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableWarmThroughputOutput{})

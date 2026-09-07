@@ -7,6 +7,10 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ApplicationStatusCheckAggregation',
+    'ApplicationStatusCheckIpScope',
+    'ApplicationStatusCheckIpVersion',
+    'ApplicationStatusCheckProtocol',
     'CapacityManagerDataExportOutputFormat',
     'CapacityManagerDataExportSchedule',
     'CapacityReservationFleetInstanceMatchCriteria',
@@ -25,6 +29,8 @@ __all__ = [
     'Ec2FleetInstanceRequirementsRequestInstanceGenerationsItem',
     'Ec2FleetInstanceRequirementsRequestLocalStorage',
     'Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem',
+    'Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem',
+    'Ec2FleetReservedCapacityOptionsRequestAllocationStrategy',
     'Ec2FleetReservedCapacityOptionsRequestReservationTypesItem',
     'Ec2FleetSpotOptionsRequestAllocationStrategy',
     'Ec2FleetSpotOptionsRequestInstanceInterruptionBehavior',
@@ -135,6 +141,41 @@ __all__ = [
     'VpnConnectionVpnTunnelOptionsSpecificationDpdTimeoutAction',
     'VpnConnectionVpnTunnelOptionsSpecificationStartupAction',
 ]
+
+
+@pulumi.type_token("aws-native:ec2:ApplicationStatusCheckAggregation")
+class ApplicationStatusCheckAggregation(_builtins.str, Enum):
+    """
+    Whether this check is included in the rolled-up application status.
+    """
+    INCLUDED = "included"
+    EXCLUDED = "excluded"
+
+
+@pulumi.type_token("aws-native:ec2:ApplicationStatusCheckIpScope")
+class ApplicationStatusCheckIpScope(_builtins.str, Enum):
+    """
+    The IP scope used for the health check.
+    """
+    PRIVATE = "private"
+
+
+@pulumi.type_token("aws-native:ec2:ApplicationStatusCheckIpVersion")
+class ApplicationStatusCheckIpVersion(_builtins.str, Enum):
+    """
+    The IP version used for the health check.
+    """
+    IPV4 = "ipv4"
+    IPV6 = "ipv6"
+
+
+@pulumi.type_token("aws-native:ec2:ApplicationStatusCheckProtocol")
+class ApplicationStatusCheckProtocol(_builtins.str, Enum):
+    """
+    The network protocol used for the health check.
+    """
+    HTTP = "http"
+    HTTPS = "https"
 
 
 @pulumi.type_token("aws-native:ec2:CapacityManagerDataExportOutputFormat")
@@ -331,8 +372,20 @@ class Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem(_builtins.str, En
     SSD = "ssd"
 
 
+@pulumi.type_token("aws-native:ec2:Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem")
+class Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem(_builtins.str, Enum):
+    ON_DEMAND = "on-demand"
+
+
+@pulumi.type_token("aws-native:ec2:Ec2FleetReservedCapacityOptionsRequestAllocationStrategy")
+class Ec2FleetReservedCapacityOptionsRequestAllocationStrategy(_builtins.str, Enum):
+    PRIORITIZED = "prioritized"
+
+
 @pulumi.type_token("aws-native:ec2:Ec2FleetReservedCapacityOptionsRequestReservationTypesItem")
 class Ec2FleetReservedCapacityOptionsRequestReservationTypesItem(_builtins.str, Enum):
+    ON_DEMAND_CAPACITY_RESERVATION = "on-demand-capacity-reservation"
+    CAPACITY_BLOCK = "capacity-block"
     INTERRUPTIBLE_CAPACITY_RESERVATION = "interruptible-capacity-reservation"
 
 

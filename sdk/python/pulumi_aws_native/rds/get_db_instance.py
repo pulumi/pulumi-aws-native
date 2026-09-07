@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetDbInstanceResult:
-    def __init__(__self__, additional_storage_volumes=None, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, automatic_backup_replication_retention_period=None, automatic_restart_time=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_status=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, instance_create_time=None, iops=None, is_storage_config_upgrade_available=None, latest_restorable_time=None, license_model=None, listener_endpoint=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, percent_progress=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, read_replica_db_cluster_identifiers=None, read_replica_db_instance_identifiers=None, replica_mode=None, resume_full_automation_mode_time=None, secondary_availability_zone=None, source_db_cluster_identifier=None, status_infos=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
+    def __init__(__self__, additional_storage_volumes=None, allocated_storage=None, associated_roles=None, auto_minor_version_upgrade=None, automatic_backup_replication_region=None, automatic_backup_replication_retention_period=None, automatic_restart_time=None, availability_zone=None, backup_retention_period=None, ca_certificate_identifier=None, certificate_details=None, copy_tags_to_snapshot=None, database_insights_mode=None, db_cluster_snapshot_identifier=None, db_instance_arn=None, db_instance_class=None, db_instance_status=None, db_parameter_group_name=None, db_security_groups=None, dbi_resource_id=None, dedicated_log_volume=None, deletion_protection=None, domain=None, domain_auth_secret_arn=None, domain_dns_ips=None, domain_fqdn=None, domain_iam_role_name=None, domain_ou=None, enable_cloudwatch_logs_exports=None, enable_iam_database_authentication=None, enable_performance_insights=None, endpoint=None, engine=None, engine_lifecycle_support=None, engine_version=None, instance_create_time=None, iops=None, is_storage_config_upgrade_available=None, latest_restorable_time=None, license_model=None, listener_endpoint=None, manage_master_user_password=None, master_user_secret=None, max_allocated_storage=None, monitoring_interval=None, monitoring_role_arn=None, multi_az=None, network_type=None, option_group_name=None, percent_progress=None, performance_insights_kms_key_id=None, performance_insights_retention_period=None, port=None, preferred_backup_window=None, preferred_maintenance_window=None, processor_features=None, promotion_tier=None, publicly_accessible=None, read_replica_db_cluster_identifiers=None, read_replica_db_instance_identifiers=None, replica_mode=None, resume_full_automation_mode_time=None, secondary_availability_zone=None, source_db_cluster_identifier=None, status_infos=None, storage_operation_percent_progress=None, storage_operation_status=None, storage_throughput=None, storage_type=None, tags=None, tde_credential_arn=None, vpc_security_groups=None):
         if additional_storage_volumes and not isinstance(additional_storage_volumes, list):
             raise TypeError("Expected argument 'additional_storage_volumes' to be a list")
         pulumi.set(__self__, "additional_storage_volumes", additional_storage_volumes)
@@ -222,6 +222,12 @@ class GetDbInstanceResult:
         if status_infos and not isinstance(status_infos, list):
             raise TypeError("Expected argument 'status_infos' to be a list")
         pulumi.set(__self__, "status_infos", status_infos)
+        if storage_operation_percent_progress and not isinstance(storage_operation_percent_progress, int):
+            raise TypeError("Expected argument 'storage_operation_percent_progress' to be a int")
+        pulumi.set(__self__, "storage_operation_percent_progress", storage_operation_percent_progress)
+        if storage_operation_status and not isinstance(storage_operation_status, str):
+            raise TypeError("Expected argument 'storage_operation_status' to be a str")
+        pulumi.set(__self__, "storage_operation_status", storage_operation_status)
         if storage_throughput and not isinstance(storage_throughput, int):
             raise TypeError("Expected argument 'storage_throughput' to be a int")
         pulumi.set(__self__, "storage_throughput", storage_throughput)
@@ -1023,6 +1029,16 @@ class GetDbInstanceResult:
         return pulumi.get(self, "status_infos")
 
     @_builtins.property
+    @pulumi.getter(name="storageOperationPercentProgress")
+    def storage_operation_percent_progress(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "storage_operation_percent_progress")
+
+    @_builtins.property
+    @pulumi.getter(name="storageOperationStatus")
+    def storage_operation_status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "storage_operation_status")
+
+    @_builtins.property
     @pulumi.getter(name="storageThroughput")
     def storage_throughput(self) -> Optional[_builtins.int]:
         """
@@ -1146,6 +1162,8 @@ class AwaitableGetDbInstanceResult(GetDbInstanceResult):
             secondary_availability_zone=self.secondary_availability_zone,
             source_db_cluster_identifier=self.source_db_cluster_identifier,
             status_infos=self.status_infos,
+            storage_operation_percent_progress=self.storage_operation_percent_progress,
+            storage_operation_status=self.storage_operation_status,
             storage_throughput=self.storage_throughput,
             storage_type=self.storage_type,
             tags=self.tags,
@@ -1253,6 +1271,8 @@ def get_db_instance(db_instance_identifier: Optional[_builtins.str] = None,
         secondary_availability_zone=pulumi.get(__ret__, 'secondary_availability_zone'),
         source_db_cluster_identifier=pulumi.get(__ret__, 'source_db_cluster_identifier'),
         status_infos=pulumi.get(__ret__, 'status_infos'),
+        storage_operation_percent_progress=pulumi.get(__ret__, 'storage_operation_percent_progress'),
+        storage_operation_status=pulumi.get(__ret__, 'storage_operation_status'),
         storage_throughput=pulumi.get(__ret__, 'storage_throughput'),
         storage_type=pulumi.get(__ret__, 'storage_type'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -1357,6 +1377,8 @@ def get_db_instance_output(db_instance_identifier: pulumi.Input[Optional[_builti
         secondary_availability_zone=pulumi.get(__response__, 'secondary_availability_zone'),
         source_db_cluster_identifier=pulumi.get(__response__, 'source_db_cluster_identifier'),
         status_infos=pulumi.get(__response__, 'status_infos'),
+        storage_operation_percent_progress=pulumi.get(__response__, 'storage_operation_percent_progress'),
+        storage_operation_status=pulumi.get(__response__, 'storage_operation_status'),
         storage_throughput=pulumi.get(__response__, 'storage_throughput'),
         storage_type=pulumi.get(__response__, 'storage_type'),
         tags=pulumi.get(__response__, 'tags'),

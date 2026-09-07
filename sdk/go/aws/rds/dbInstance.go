@@ -662,7 +662,9 @@ type DbInstance struct {
 	//  If you specify ``DBSnapshotIdentifier`` property, don't specify this property. The value is inherited from the snapshot.
 	//   *Amazon Aurora*
 	//  Not applicable. The encryption for DB instances is managed by the DB cluster.
-	StorageEncrypted pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	StorageEncrypted                pulumi.BoolPtrOutput `pulumi:"storageEncrypted"`
+	StorageOperationPercentProgress pulumi.IntOutput     `pulumi:"storageOperationPercentProgress"`
+	StorageOperationStatus          pulumi.StringOutput  `pulumi:"storageOperationStatus"`
 	// Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type.
 	//  This setting doesn't apply to RDS Custom or Amazon Aurora.
 	StorageThroughput pulumi.IntPtrOutput `pulumi:"storageThroughput"`
@@ -3020,6 +3022,14 @@ func (o DbInstanceOutput) StatusInfos() DbInstanceDbInstanceStatusInfoArrayOutpu
 //	Not applicable. The encryption for DB instances is managed by the DB cluster.
 func (o DbInstanceOutput) StorageEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DbInstance) pulumi.BoolPtrOutput { return v.StorageEncrypted }).(pulumi.BoolPtrOutput)
+}
+
+func (o DbInstanceOutput) StorageOperationPercentProgress() pulumi.IntOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.IntOutput { return v.StorageOperationPercentProgress }).(pulumi.IntOutput)
+}
+
+func (o DbInstanceOutput) StorageOperationStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *DbInstance) pulumi.StringOutput { return v.StorageOperationStatus }).(pulumi.StringOutput)
 }
 
 // Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the “gp3“ storage type.

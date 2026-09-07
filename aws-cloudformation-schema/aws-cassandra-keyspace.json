@@ -87,7 +87,7 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
     "permissions" : [ "cassandra:TagResource", "cassandra:TagMultiRegionResource", "cassandra:UntagResource", "cassandra:UntagMultiRegionResource" ]
   },

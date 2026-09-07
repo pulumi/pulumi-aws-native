@@ -311,6 +311,165 @@ type AddonTag struct {
 	Value string `pulumi:"value"`
 }
 
+// Configuration settings for an ACK (AWS Controllers for Kubernetes) capability.
+type CapabilityAck struct {
+	// A list of ACK service names to disable. Controllers for services in this list are not installed or managed.
+	DisabledServices []string `pulumi:"disabledServices"`
+	// Whether cross-namespace references are enabled for ACK controllers. When not specified, the service default applies.
+	EnableCrossNamespace *bool `pulumi:"enableCrossNamespace"`
+}
+
+// CapabilityAckInput is an input type that accepts CapabilityAckArgs and CapabilityAckOutput values.
+// You can construct a concrete instance of `CapabilityAckInput` via:
+//
+//	CapabilityAckArgs{...}
+type CapabilityAckInput interface {
+	pulumi.Input
+
+	ToCapabilityAckOutput() CapabilityAckOutput
+	ToCapabilityAckOutputWithContext(context.Context) CapabilityAckOutput
+}
+
+// Configuration settings for an ACK (AWS Controllers for Kubernetes) capability.
+type CapabilityAckArgs struct {
+	// A list of ACK service names to disable. Controllers for services in this list are not installed or managed.
+	DisabledServices pulumi.StringArrayInput `pulumi:"disabledServices"`
+	// Whether cross-namespace references are enabled for ACK controllers. When not specified, the service default applies.
+	EnableCrossNamespace pulumi.BoolPtrInput `pulumi:"enableCrossNamespace"`
+}
+
+func (CapabilityAckArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityAck)(nil)).Elem()
+}
+
+func (i CapabilityAckArgs) ToCapabilityAckOutput() CapabilityAckOutput {
+	return i.ToCapabilityAckOutputWithContext(context.Background())
+}
+
+func (i CapabilityAckArgs) ToCapabilityAckOutputWithContext(ctx context.Context) CapabilityAckOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityAckOutput)
+}
+
+func (i CapabilityAckArgs) ToCapabilityAckPtrOutput() CapabilityAckPtrOutput {
+	return i.ToCapabilityAckPtrOutputWithContext(context.Background())
+}
+
+func (i CapabilityAckArgs) ToCapabilityAckPtrOutputWithContext(ctx context.Context) CapabilityAckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityAckOutput).ToCapabilityAckPtrOutputWithContext(ctx)
+}
+
+// CapabilityAckPtrInput is an input type that accepts CapabilityAckArgs, CapabilityAckPtr and CapabilityAckPtrOutput values.
+// You can construct a concrete instance of `CapabilityAckPtrInput` via:
+//
+//	        CapabilityAckArgs{...}
+//
+//	or:
+//
+//	        nil
+type CapabilityAckPtrInput interface {
+	pulumi.Input
+
+	ToCapabilityAckPtrOutput() CapabilityAckPtrOutput
+	ToCapabilityAckPtrOutputWithContext(context.Context) CapabilityAckPtrOutput
+}
+
+type capabilityAckPtrType CapabilityAckArgs
+
+func CapabilityAckPtr(v *CapabilityAckArgs) CapabilityAckPtrInput {
+	return (*capabilityAckPtrType)(v)
+}
+
+func (*capabilityAckPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityAck)(nil)).Elem()
+}
+
+func (i *capabilityAckPtrType) ToCapabilityAckPtrOutput() CapabilityAckPtrOutput {
+	return i.ToCapabilityAckPtrOutputWithContext(context.Background())
+}
+
+func (i *capabilityAckPtrType) ToCapabilityAckPtrOutputWithContext(ctx context.Context) CapabilityAckPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CapabilityAckPtrOutput)
+}
+
+// Configuration settings for an ACK (AWS Controllers for Kubernetes) capability.
+type CapabilityAckOutput struct{ *pulumi.OutputState }
+
+func (CapabilityAckOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CapabilityAck)(nil)).Elem()
+}
+
+func (o CapabilityAckOutput) ToCapabilityAckOutput() CapabilityAckOutput {
+	return o
+}
+
+func (o CapabilityAckOutput) ToCapabilityAckOutputWithContext(ctx context.Context) CapabilityAckOutput {
+	return o
+}
+
+func (o CapabilityAckOutput) ToCapabilityAckPtrOutput() CapabilityAckPtrOutput {
+	return o.ToCapabilityAckPtrOutputWithContext(context.Background())
+}
+
+func (o CapabilityAckOutput) ToCapabilityAckPtrOutputWithContext(ctx context.Context) CapabilityAckPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CapabilityAck) *CapabilityAck {
+		return &v
+	}).(CapabilityAckPtrOutput)
+}
+
+// A list of ACK service names to disable. Controllers for services in this list are not installed or managed.
+func (o CapabilityAckOutput) DisabledServices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CapabilityAck) []string { return v.DisabledServices }).(pulumi.StringArrayOutput)
+}
+
+// Whether cross-namespace references are enabled for ACK controllers. When not specified, the service default applies.
+func (o CapabilityAckOutput) EnableCrossNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CapabilityAck) *bool { return v.EnableCrossNamespace }).(pulumi.BoolPtrOutput)
+}
+
+type CapabilityAckPtrOutput struct{ *pulumi.OutputState }
+
+func (CapabilityAckPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CapabilityAck)(nil)).Elem()
+}
+
+func (o CapabilityAckPtrOutput) ToCapabilityAckPtrOutput() CapabilityAckPtrOutput {
+	return o
+}
+
+func (o CapabilityAckPtrOutput) ToCapabilityAckPtrOutputWithContext(ctx context.Context) CapabilityAckPtrOutput {
+	return o
+}
+
+func (o CapabilityAckPtrOutput) Elem() CapabilityAckOutput {
+	return o.ApplyT(func(v *CapabilityAck) CapabilityAck {
+		if v != nil {
+			return *v
+		}
+		var ret CapabilityAck
+		return ret
+	}).(CapabilityAckOutput)
+}
+
+// A list of ACK service names to disable. Controllers for services in this list are not installed or managed.
+func (o CapabilityAckPtrOutput) DisabledServices() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CapabilityAck) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisabledServices
+	}).(pulumi.StringArrayOutput)
+}
+
+// Whether cross-namespace references are enabled for ACK controllers. When not specified, the service default applies.
+func (o CapabilityAckPtrOutput) EnableCrossNamespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CapabilityAck) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCrossNamespace
+	}).(pulumi.BoolPtrOutput)
+}
+
 // Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
 type CapabilityArgoCd struct {
 	AwsIdc CapabilityAwsIdc `pulumi:"awsIdc"`
@@ -808,7 +967,7 @@ func (o CapabilityAwsIdcPtrOutput) IdcRegion() pulumi.StringPtrOutput {
 
 // Configuration settings for a capability. The structure of this object varies depending on the capability type.
 type CapabilityConfiguration struct {
-	Ack    interface{}       `pulumi:"ack"`
+	Ack    *CapabilityAck    `pulumi:"ack"`
 	ArgoCd *CapabilityArgoCd `pulumi:"argoCd"`
 }
 
@@ -825,7 +984,7 @@ type CapabilityConfigurationInput interface {
 
 // Configuration settings for a capability. The structure of this object varies depending on the capability type.
 type CapabilityConfigurationArgs struct {
-	Ack    pulumi.Input             `pulumi:"ack"`
+	Ack    CapabilityAckPtrInput    `pulumi:"ack"`
 	ArgoCd CapabilityArgoCdPtrInput `pulumi:"argoCd"`
 }
 
@@ -907,8 +1066,8 @@ func (o CapabilityConfigurationOutput) ToCapabilityConfigurationPtrOutputWithCon
 	}).(CapabilityConfigurationPtrOutput)
 }
 
-func (o CapabilityConfigurationOutput) Ack() pulumi.AnyOutput {
-	return o.ApplyT(func(v CapabilityConfiguration) interface{} { return v.Ack }).(pulumi.AnyOutput)
+func (o CapabilityConfigurationOutput) Ack() CapabilityAckPtrOutput {
+	return o.ApplyT(func(v CapabilityConfiguration) *CapabilityAck { return v.Ack }).(CapabilityAckPtrOutput)
 }
 
 func (o CapabilityConfigurationOutput) ArgoCd() CapabilityArgoCdPtrOutput {
@@ -939,13 +1098,13 @@ func (o CapabilityConfigurationPtrOutput) Elem() CapabilityConfigurationOutput {
 	}).(CapabilityConfigurationOutput)
 }
 
-func (o CapabilityConfigurationPtrOutput) Ack() pulumi.AnyOutput {
-	return o.ApplyT(func(v *CapabilityConfiguration) interface{} {
+func (o CapabilityConfigurationPtrOutput) Ack() CapabilityAckPtrOutput {
+	return o.ApplyT(func(v *CapabilityConfiguration) *CapabilityAck {
 		if v == nil {
 			return nil
 		}
 		return v.Ack
-	}).(pulumi.AnyOutput)
+	}).(CapabilityAckPtrOutput)
 }
 
 func (o CapabilityConfigurationPtrOutput) ArgoCd() CapabilityArgoCdPtrOutput {
@@ -3147,6 +3306,7 @@ func (o ClusterKubeApiServerConfigPtrOutput) ServiceNodePortRange() ClusterServi
 // The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
 type ClusterKubeControllerManagerConfig struct {
 	HorizontalPodAutoscalerControllerConfig *ClusterHorizontalPodAutoscalerControllerConfig `pulumi:"horizontalPodAutoscalerControllerConfig"`
+	PodGcControllerConfig                   *ClusterPodGcControllerConfig                   `pulumi:"podGcControllerConfig"`
 }
 
 // ClusterKubeControllerManagerConfigInput is an input type that accepts ClusterKubeControllerManagerConfigArgs and ClusterKubeControllerManagerConfigOutput values.
@@ -3163,6 +3323,7 @@ type ClusterKubeControllerManagerConfigInput interface {
 // The configuration for the Kubernetes controller manager on an Amazon EKS cluster.
 type ClusterKubeControllerManagerConfigArgs struct {
 	HorizontalPodAutoscalerControllerConfig ClusterHorizontalPodAutoscalerControllerConfigPtrInput `pulumi:"horizontalPodAutoscalerControllerConfig"`
+	PodGcControllerConfig                   ClusterPodGcControllerConfigPtrInput                   `pulumi:"podGcControllerConfig"`
 }
 
 func (ClusterKubeControllerManagerConfigArgs) ElementType() reflect.Type {
@@ -3249,6 +3410,12 @@ func (o ClusterKubeControllerManagerConfigOutput) HorizontalPodAutoscalerControl
 	}).(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput)
 }
 
+func (o ClusterKubeControllerManagerConfigOutput) PodGcControllerConfig() ClusterPodGcControllerConfigPtrOutput {
+	return o.ApplyT(func(v ClusterKubeControllerManagerConfig) *ClusterPodGcControllerConfig {
+		return v.PodGcControllerConfig
+	}).(ClusterPodGcControllerConfigPtrOutput)
+}
+
 type ClusterKubeControllerManagerConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (ClusterKubeControllerManagerConfigPtrOutput) ElementType() reflect.Type {
@@ -3280,6 +3447,15 @@ func (o ClusterKubeControllerManagerConfigPtrOutput) HorizontalPodAutoscalerCont
 		}
 		return v.HorizontalPodAutoscalerControllerConfig
 	}).(ClusterHorizontalPodAutoscalerControllerConfigPtrOutput)
+}
+
+func (o ClusterKubeControllerManagerConfigPtrOutput) PodGcControllerConfig() ClusterPodGcControllerConfigPtrOutput {
+	return o.ApplyT(func(v *ClusterKubeControllerManagerConfig) *ClusterPodGcControllerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PodGcControllerConfig
+	}).(ClusterPodGcControllerConfigPtrOutput)
 }
 
 // The configuration for the Kubernetes scheduler on an Amazon EKS cluster.
@@ -4213,6 +4389,146 @@ func (o ClusterOutpostConfigPtrOutput) OutpostArns() pulumi.StringArrayOutput {
 		}
 		return v.OutpostArns
 	}).(pulumi.StringArrayOutput)
+}
+
+// The pod garbage collector controller configuration.
+type ClusterPodGcControllerConfig struct {
+	// The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.
+	TerminatedPodGcThreshold *int `pulumi:"terminatedPodGcThreshold"`
+}
+
+// ClusterPodGcControllerConfigInput is an input type that accepts ClusterPodGcControllerConfigArgs and ClusterPodGcControllerConfigOutput values.
+// You can construct a concrete instance of `ClusterPodGcControllerConfigInput` via:
+//
+//	ClusterPodGcControllerConfigArgs{...}
+type ClusterPodGcControllerConfigInput interface {
+	pulumi.Input
+
+	ToClusterPodGcControllerConfigOutput() ClusterPodGcControllerConfigOutput
+	ToClusterPodGcControllerConfigOutputWithContext(context.Context) ClusterPodGcControllerConfigOutput
+}
+
+// The pod garbage collector controller configuration.
+type ClusterPodGcControllerConfigArgs struct {
+	// The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.
+	TerminatedPodGcThreshold pulumi.IntPtrInput `pulumi:"terminatedPodGcThreshold"`
+}
+
+func (ClusterPodGcControllerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i ClusterPodGcControllerConfigArgs) ToClusterPodGcControllerConfigOutput() ClusterPodGcControllerConfigOutput {
+	return i.ToClusterPodGcControllerConfigOutputWithContext(context.Background())
+}
+
+func (i ClusterPodGcControllerConfigArgs) ToClusterPodGcControllerConfigOutputWithContext(ctx context.Context) ClusterPodGcControllerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPodGcControllerConfigOutput)
+}
+
+func (i ClusterPodGcControllerConfigArgs) ToClusterPodGcControllerConfigPtrOutput() ClusterPodGcControllerConfigPtrOutput {
+	return i.ToClusterPodGcControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ClusterPodGcControllerConfigArgs) ToClusterPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterPodGcControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPodGcControllerConfigOutput).ToClusterPodGcControllerConfigPtrOutputWithContext(ctx)
+}
+
+// ClusterPodGcControllerConfigPtrInput is an input type that accepts ClusterPodGcControllerConfigArgs, ClusterPodGcControllerConfigPtr and ClusterPodGcControllerConfigPtrOutput values.
+// You can construct a concrete instance of `ClusterPodGcControllerConfigPtrInput` via:
+//
+//	        ClusterPodGcControllerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterPodGcControllerConfigPtrInput interface {
+	pulumi.Input
+
+	ToClusterPodGcControllerConfigPtrOutput() ClusterPodGcControllerConfigPtrOutput
+	ToClusterPodGcControllerConfigPtrOutputWithContext(context.Context) ClusterPodGcControllerConfigPtrOutput
+}
+
+type clusterPodGcControllerConfigPtrType ClusterPodGcControllerConfigArgs
+
+func ClusterPodGcControllerConfigPtr(v *ClusterPodGcControllerConfigArgs) ClusterPodGcControllerConfigPtrInput {
+	return (*clusterPodGcControllerConfigPtrType)(v)
+}
+
+func (*clusterPodGcControllerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPodGcControllerConfig)(nil)).Elem()
+}
+
+func (i *clusterPodGcControllerConfigPtrType) ToClusterPodGcControllerConfigPtrOutput() ClusterPodGcControllerConfigPtrOutput {
+	return i.ToClusterPodGcControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *clusterPodGcControllerConfigPtrType) ToClusterPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterPodGcControllerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterPodGcControllerConfigPtrOutput)
+}
+
+// The pod garbage collector controller configuration.
+type ClusterPodGcControllerConfigOutput struct{ *pulumi.OutputState }
+
+func (ClusterPodGcControllerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterPodGcControllerConfigOutput) ToClusterPodGcControllerConfigOutput() ClusterPodGcControllerConfigOutput {
+	return o
+}
+
+func (o ClusterPodGcControllerConfigOutput) ToClusterPodGcControllerConfigOutputWithContext(ctx context.Context) ClusterPodGcControllerConfigOutput {
+	return o
+}
+
+func (o ClusterPodGcControllerConfigOutput) ToClusterPodGcControllerConfigPtrOutput() ClusterPodGcControllerConfigPtrOutput {
+	return o.ToClusterPodGcControllerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ClusterPodGcControllerConfigOutput) ToClusterPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterPodGcControllerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterPodGcControllerConfig) *ClusterPodGcControllerConfig {
+		return &v
+	}).(ClusterPodGcControllerConfigPtrOutput)
+}
+
+// The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.
+func (o ClusterPodGcControllerConfigOutput) TerminatedPodGcThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterPodGcControllerConfig) *int { return v.TerminatedPodGcThreshold }).(pulumi.IntPtrOutput)
+}
+
+type ClusterPodGcControllerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterPodGcControllerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterPodGcControllerConfig)(nil)).Elem()
+}
+
+func (o ClusterPodGcControllerConfigPtrOutput) ToClusterPodGcControllerConfigPtrOutput() ClusterPodGcControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterPodGcControllerConfigPtrOutput) ToClusterPodGcControllerConfigPtrOutputWithContext(ctx context.Context) ClusterPodGcControllerConfigPtrOutput {
+	return o
+}
+
+func (o ClusterPodGcControllerConfigPtrOutput) Elem() ClusterPodGcControllerConfigOutput {
+	return o.ApplyT(func(v *ClusterPodGcControllerConfig) ClusterPodGcControllerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterPodGcControllerConfig
+		return ret
+	}).(ClusterPodGcControllerConfigOutput)
+}
+
+// The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.
+func (o ClusterPodGcControllerConfigPtrOutput) TerminatedPodGcThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterPodGcControllerConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TerminatedPodGcThreshold
+	}).(pulumi.IntPtrOutput)
 }
 
 type ClusterProvider struct {
@@ -8213,6 +8529,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessEntryAccessScopeInput)(nil)).Elem(), AccessEntryAccessScopeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationInput)(nil)).Elem(), AddonPodIdentityAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AddonPodIdentityAssociationArrayInput)(nil)).Elem(), AddonPodIdentityAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityAckInput)(nil)).Elem(), CapabilityAckArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityAckPtrInput)(nil)).Elem(), CapabilityAckArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityArgoCdInput)(nil)).Elem(), CapabilityArgoCdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityArgoCdPtrInput)(nil)).Elem(), CapabilityArgoCdArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CapabilityArgoCdRoleMappingInput)(nil)).Elem(), CapabilityArgoCdRoleMappingArgs{})
@@ -8263,6 +8581,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterNodeResourcesFitConfigPtrInput)(nil)).Elem(), ClusterNodeResourcesFitConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterOutpostConfigPtrInput)(nil)).Elem(), ClusterOutpostConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPodGcControllerConfigInput)(nil)).Elem(), ClusterPodGcControllerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterPodGcControllerConfigPtrInput)(nil)).Elem(), ClusterPodGcControllerConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProviderInput)(nil)).Elem(), ClusterProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterProviderPtrInput)(nil)).Elem(), ClusterProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterRemoteNetworkConfigInput)(nil)).Elem(), ClusterRemoteNetworkConfigArgs{})
@@ -8319,6 +8639,8 @@ func init() {
 	pulumi.RegisterOutputType(AccessEntryAccessScopeOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationOutput{})
 	pulumi.RegisterOutputType(AddonPodIdentityAssociationArrayOutput{})
+	pulumi.RegisterOutputType(CapabilityAckOutput{})
+	pulumi.RegisterOutputType(CapabilityAckPtrOutput{})
 	pulumi.RegisterOutputType(CapabilityArgoCdOutput{})
 	pulumi.RegisterOutputType(CapabilityArgoCdPtrOutput{})
 	pulumi.RegisterOutputType(CapabilityArgoCdRoleMappingOutput{})
@@ -8373,6 +8695,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterNodeResourcesFitConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigOutput{})
 	pulumi.RegisterOutputType(ClusterOutpostConfigPtrOutput{})
+	pulumi.RegisterOutputType(ClusterPodGcControllerConfigOutput{})
+	pulumi.RegisterOutputType(ClusterPodGcControllerConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterProviderOutput{})
 	pulumi.RegisterOutputType(ClusterProviderPtrOutput{})
 	pulumi.RegisterOutputType(ClusterRemoteNetworkConfigOutput{})

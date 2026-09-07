@@ -42,6 +42,10 @@ export class RegistryRecord extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
+     * The identifier of the AWS account that created the registry record.
+     */
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
+    /**
      * The description of the registry record.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -72,9 +76,9 @@ export class RegistryRecord extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly registryArn: pulumi.Output<string>;
     /**
-     * The identifier of the registry containing the record.
+     * The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
      */
-    declare public readonly registryId: pulumi.Output<string>;
+    declare public readonly registryId: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly status: pulumi.Output<enums.agentregistry.RegistryRecordStatus>;
     /**
      * Tags to assign to the registry record.
@@ -102,9 +106,6 @@ export class RegistryRecord extends pulumi.CustomResource {
             if (args?.recordType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
-            if (args?.registryId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'registryId'");
-            }
             resourceInputs["description"] = args?.description;
             resourceInputs["descriptors"] = args?.descriptors;
             resourceInputs["displayName"] = args?.displayName;
@@ -114,6 +115,7 @@ export class RegistryRecord extends pulumi.CustomResource {
             resourceInputs["registryId"] = args?.registryId;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["recordArn"] = undefined /*out*/;
             resourceInputs["recordId"] = undefined /*out*/;
             resourceInputs["registryArn"] = undefined /*out*/;
@@ -121,6 +123,7 @@ export class RegistryRecord extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["descriptors"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
@@ -165,9 +168,9 @@ export interface RegistryRecordArgs {
      */
     recordVersion?: pulumi.Input<string | undefined>;
     /**
-     * The identifier of the registry containing the record.
+     * The identifier of the registry in which to create the record. You can specify either the registry ID or the registry Amazon Resource Name (ARN). Use the ARN form to reference a registry shared from another account via AWS Resource Access Manager (RAM).
      */
-    registryId: pulumi.Input<string>;
+    registryId?: pulumi.Input<string | undefined>;
     /**
      * Tags to assign to the registry record.
      */

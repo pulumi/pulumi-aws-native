@@ -3537,6 +3537,128 @@ func (o ConfiguredTableAggregationConstraintArrayOutput) Index(i pulumi.IntInput
 	}).(ConfiguredTableAggregationConstraintOutput)
 }
 
+type ConfiguredTableAggregationThreshold struct {
+	AllowedAggregateExpressionType ConfiguredTableAllowedAggregateExpressionType `pulumi:"allowedAggregateExpressionType"`
+	IdentityColumns                []string                                      `pulumi:"identityColumns"`
+	MinimumIdentityCount           int                                           `pulumi:"minimumIdentityCount"`
+	OutputColumnThresholds         []ConfiguredTableOutputColumnThreshold        `pulumi:"outputColumnThresholds"`
+	Type                           ConfiguredTableAggregationThresholdType       `pulumi:"type"`
+}
+
+// ConfiguredTableAggregationThresholdInput is an input type that accepts ConfiguredTableAggregationThresholdArgs and ConfiguredTableAggregationThresholdOutput values.
+// You can construct a concrete instance of `ConfiguredTableAggregationThresholdInput` via:
+//
+//	ConfiguredTableAggregationThresholdArgs{...}
+type ConfiguredTableAggregationThresholdInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationThresholdOutput() ConfiguredTableAggregationThresholdOutput
+	ToConfiguredTableAggregationThresholdOutputWithContext(context.Context) ConfiguredTableAggregationThresholdOutput
+}
+
+type ConfiguredTableAggregationThresholdArgs struct {
+	AllowedAggregateExpressionType ConfiguredTableAllowedAggregateExpressionTypeInput `pulumi:"allowedAggregateExpressionType"`
+	IdentityColumns                pulumi.StringArrayInput                            `pulumi:"identityColumns"`
+	MinimumIdentityCount           pulumi.IntInput                                    `pulumi:"minimumIdentityCount"`
+	OutputColumnThresholds         ConfiguredTableOutputColumnThresholdArrayInput     `pulumi:"outputColumnThresholds"`
+	Type                           ConfiguredTableAggregationThresholdTypeInput       `pulumi:"type"`
+}
+
+func (ConfiguredTableAggregationThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationThreshold)(nil)).Elem()
+}
+
+func (i ConfiguredTableAggregationThresholdArgs) ToConfiguredTableAggregationThresholdOutput() ConfiguredTableAggregationThresholdOutput {
+	return i.ToConfiguredTableAggregationThresholdOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAggregationThresholdArgs) ToConfiguredTableAggregationThresholdOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAggregationThresholdOutput)
+}
+
+// ConfiguredTableAggregationThresholdArrayInput is an input type that accepts ConfiguredTableAggregationThresholdArray and ConfiguredTableAggregationThresholdArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableAggregationThresholdArrayInput` via:
+//
+//	ConfiguredTableAggregationThresholdArray{ ConfiguredTableAggregationThresholdArgs{...} }
+type ConfiguredTableAggregationThresholdArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableAggregationThresholdArrayOutput() ConfiguredTableAggregationThresholdArrayOutput
+	ToConfiguredTableAggregationThresholdArrayOutputWithContext(context.Context) ConfiguredTableAggregationThresholdArrayOutput
+}
+
+type ConfiguredTableAggregationThresholdArray []ConfiguredTableAggregationThresholdInput
+
+func (ConfiguredTableAggregationThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAggregationThreshold)(nil)).Elem()
+}
+
+func (i ConfiguredTableAggregationThresholdArray) ToConfiguredTableAggregationThresholdArrayOutput() ConfiguredTableAggregationThresholdArrayOutput {
+	return i.ToConfiguredTableAggregationThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableAggregationThresholdArray) ToConfiguredTableAggregationThresholdArrayOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableAggregationThresholdArrayOutput)
+}
+
+type ConfiguredTableAggregationThresholdOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableAggregationThreshold)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationThresholdOutput) ToConfiguredTableAggregationThresholdOutput() ConfiguredTableAggregationThresholdOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdOutput) ToConfiguredTableAggregationThresholdOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdOutput) AllowedAggregateExpressionType() ConfiguredTableAllowedAggregateExpressionTypeOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregationThreshold) ConfiguredTableAllowedAggregateExpressionType {
+		return v.AllowedAggregateExpressionType
+	}).(ConfiguredTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (o ConfiguredTableAggregationThresholdOutput) IdentityColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregationThreshold) []string { return v.IdentityColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAggregationThresholdOutput) MinimumIdentityCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregationThreshold) int { return v.MinimumIdentityCount }).(pulumi.IntOutput)
+}
+
+func (o ConfiguredTableAggregationThresholdOutput) OutputColumnThresholds() ConfiguredTableOutputColumnThresholdArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregationThreshold) []ConfiguredTableOutputColumnThreshold {
+		return v.OutputColumnThresholds
+	}).(ConfiguredTableOutputColumnThresholdArrayOutput)
+}
+
+func (o ConfiguredTableAggregationThresholdOutput) Type() ConfiguredTableAggregationThresholdTypeOutput {
+	return o.ApplyT(func(v ConfiguredTableAggregationThreshold) ConfiguredTableAggregationThresholdType { return v.Type }).(ConfiguredTableAggregationThresholdTypeOutput)
+}
+
+type ConfiguredTableAggregationThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableAggregationThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableAggregationThreshold)(nil)).Elem()
+}
+
+func (o ConfiguredTableAggregationThresholdArrayOutput) ToConfiguredTableAggregationThresholdArrayOutput() ConfiguredTableAggregationThresholdArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdArrayOutput) ToConfiguredTableAggregationThresholdArrayOutputWithContext(ctx context.Context) ConfiguredTableAggregationThresholdArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableAggregationThresholdArrayOutput) Index(i pulumi.IntInput) ConfiguredTableAggregationThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableAggregationThreshold {
+		return vs[0].([]ConfiguredTableAggregationThreshold)[vs[1].(int)]
+	}).(ConfiguredTableAggregationThresholdOutput)
+}
+
 type ConfiguredTableAnalysisRule struct {
 	// A policy that describes the associated data usage limitations.
 	Policy ConfiguredTableAnalysisRulePolicy `pulumi:"policy"`
@@ -3747,11 +3869,13 @@ func (o ConfiguredTableAnalysisRuleAggregationOutput) ScalarFunctions() Configur
 }
 
 type ConfiguredTableAnalysisRuleCustom struct {
-	AdditionalAnalyses       *ConfiguredTableAdditionalAnalyses  `pulumi:"additionalAnalyses"`
-	AllowedAnalyses          []string                            `pulumi:"allowedAnalyses"`
-	AllowedAnalysisProviders []string                            `pulumi:"allowedAnalysisProviders"`
-	DifferentialPrivacy      *ConfiguredTableDifferentialPrivacy `pulumi:"differentialPrivacy"`
-	DisallowedOutputColumns  []string                            `pulumi:"disallowedOutputColumns"`
+	AdditionalAnalyses       *ConfiguredTableAdditionalAnalyses    `pulumi:"additionalAnalyses"`
+	AggregationThresholds    []ConfiguredTableAggregationThreshold `pulumi:"aggregationThresholds"`
+	AllowedAnalyses          []string                              `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders []string                              `pulumi:"allowedAnalysisProviders"`
+	ComparisonControls       *ConfiguredTableComparisonControls    `pulumi:"comparisonControls"`
+	DifferentialPrivacy      *ConfiguredTableDifferentialPrivacy   `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  []string                              `pulumi:"disallowedOutputColumns"`
 }
 
 // ConfiguredTableAnalysisRuleCustomInput is an input type that accepts ConfiguredTableAnalysisRuleCustomArgs and ConfiguredTableAnalysisRuleCustomOutput values.
@@ -3766,11 +3890,13 @@ type ConfiguredTableAnalysisRuleCustomInput interface {
 }
 
 type ConfiguredTableAnalysisRuleCustomArgs struct {
-	AdditionalAnalyses       ConfiguredTableAdditionalAnalysesPtrInput  `pulumi:"additionalAnalyses"`
-	AllowedAnalyses          pulumi.StringArrayInput                    `pulumi:"allowedAnalyses"`
-	AllowedAnalysisProviders pulumi.StringArrayInput                    `pulumi:"allowedAnalysisProviders"`
-	DifferentialPrivacy      ConfiguredTableDifferentialPrivacyPtrInput `pulumi:"differentialPrivacy"`
-	DisallowedOutputColumns  pulumi.StringArrayInput                    `pulumi:"disallowedOutputColumns"`
+	AdditionalAnalyses       ConfiguredTableAdditionalAnalysesPtrInput     `pulumi:"additionalAnalyses"`
+	AggregationThresholds    ConfiguredTableAggregationThresholdArrayInput `pulumi:"aggregationThresholds"`
+	AllowedAnalyses          pulumi.StringArrayInput                       `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders pulumi.StringArrayInput                       `pulumi:"allowedAnalysisProviders"`
+	ComparisonControls       ConfiguredTableComparisonControlsPtrInput     `pulumi:"comparisonControls"`
+	DifferentialPrivacy      ConfiguredTableDifferentialPrivacyPtrInput    `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  pulumi.StringArrayInput                       `pulumi:"disallowedOutputColumns"`
 }
 
 func (ConfiguredTableAnalysisRuleCustomArgs) ElementType() reflect.Type {
@@ -3805,12 +3931,24 @@ func (o ConfiguredTableAnalysisRuleCustomOutput) AdditionalAnalyses() Configured
 	}).(ConfiguredTableAdditionalAnalysesPtrOutput)
 }
 
+func (o ConfiguredTableAnalysisRuleCustomOutput) AggregationThresholds() ConfiguredTableAggregationThresholdArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []ConfiguredTableAggregationThreshold {
+		return v.AggregationThresholds
+	}).(ConfiguredTableAggregationThresholdArrayOutput)
+}
+
 func (o ConfiguredTableAnalysisRuleCustomOutput) AllowedAnalyses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []string { return v.AllowedAnalyses }).(pulumi.StringArrayOutput)
 }
 
 func (o ConfiguredTableAnalysisRuleCustomOutput) AllowedAnalysisProviders() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) []string { return v.AllowedAnalysisProviders }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableAnalysisRuleCustomOutput) ComparisonControls() ConfiguredTableComparisonControlsPtrOutput {
+	return o.ApplyT(func(v ConfiguredTableAnalysisRuleCustom) *ConfiguredTableComparisonControls {
+		return v.ComparisonControls
+	}).(ConfiguredTableComparisonControlsPtrOutput)
 }
 
 func (o ConfiguredTableAnalysisRuleCustomOutput) DifferentialPrivacy() ConfiguredTableDifferentialPrivacyPtrOutput {
@@ -4739,6 +4877,154 @@ func (o ConfiguredTableAthenaTableReferencePtrOutput) WorkGroup() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+type ConfiguredTableComparisonControls struct {
+	AllowedColumnComparisonColumns  []string `pulumi:"allowedColumnComparisonColumns"`
+	AllowedLiteralComparisonColumns []string `pulumi:"allowedLiteralComparisonColumns"`
+}
+
+// ConfiguredTableComparisonControlsInput is an input type that accepts ConfiguredTableComparisonControlsArgs and ConfiguredTableComparisonControlsOutput values.
+// You can construct a concrete instance of `ConfiguredTableComparisonControlsInput` via:
+//
+//	ConfiguredTableComparisonControlsArgs{...}
+type ConfiguredTableComparisonControlsInput interface {
+	pulumi.Input
+
+	ToConfiguredTableComparisonControlsOutput() ConfiguredTableComparisonControlsOutput
+	ToConfiguredTableComparisonControlsOutputWithContext(context.Context) ConfiguredTableComparisonControlsOutput
+}
+
+type ConfiguredTableComparisonControlsArgs struct {
+	AllowedColumnComparisonColumns  pulumi.StringArrayInput `pulumi:"allowedColumnComparisonColumns"`
+	AllowedLiteralComparisonColumns pulumi.StringArrayInput `pulumi:"allowedLiteralComparisonColumns"`
+}
+
+func (ConfiguredTableComparisonControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableComparisonControls)(nil)).Elem()
+}
+
+func (i ConfiguredTableComparisonControlsArgs) ToConfiguredTableComparisonControlsOutput() ConfiguredTableComparisonControlsOutput {
+	return i.ToConfiguredTableComparisonControlsOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableComparisonControlsArgs) ToConfiguredTableComparisonControlsOutputWithContext(ctx context.Context) ConfiguredTableComparisonControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableComparisonControlsOutput)
+}
+
+func (i ConfiguredTableComparisonControlsArgs) ToConfiguredTableComparisonControlsPtrOutput() ConfiguredTableComparisonControlsPtrOutput {
+	return i.ToConfiguredTableComparisonControlsPtrOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableComparisonControlsArgs) ToConfiguredTableComparisonControlsPtrOutputWithContext(ctx context.Context) ConfiguredTableComparisonControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableComparisonControlsOutput).ToConfiguredTableComparisonControlsPtrOutputWithContext(ctx)
+}
+
+// ConfiguredTableComparisonControlsPtrInput is an input type that accepts ConfiguredTableComparisonControlsArgs, ConfiguredTableComparisonControlsPtr and ConfiguredTableComparisonControlsPtrOutput values.
+// You can construct a concrete instance of `ConfiguredTableComparisonControlsPtrInput` via:
+//
+//	        ConfiguredTableComparisonControlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfiguredTableComparisonControlsPtrInput interface {
+	pulumi.Input
+
+	ToConfiguredTableComparisonControlsPtrOutput() ConfiguredTableComparisonControlsPtrOutput
+	ToConfiguredTableComparisonControlsPtrOutputWithContext(context.Context) ConfiguredTableComparisonControlsPtrOutput
+}
+
+type configuredTableComparisonControlsPtrType ConfiguredTableComparisonControlsArgs
+
+func ConfiguredTableComparisonControlsPtr(v *ConfiguredTableComparisonControlsArgs) ConfiguredTableComparisonControlsPtrInput {
+	return (*configuredTableComparisonControlsPtrType)(v)
+}
+
+func (*configuredTableComparisonControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableComparisonControls)(nil)).Elem()
+}
+
+func (i *configuredTableComparisonControlsPtrType) ToConfiguredTableComparisonControlsPtrOutput() ConfiguredTableComparisonControlsPtrOutput {
+	return i.ToConfiguredTableComparisonControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *configuredTableComparisonControlsPtrType) ToConfiguredTableComparisonControlsPtrOutputWithContext(ctx context.Context) ConfiguredTableComparisonControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableComparisonControlsPtrOutput)
+}
+
+type ConfiguredTableComparisonControlsOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableComparisonControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableComparisonControls)(nil)).Elem()
+}
+
+func (o ConfiguredTableComparisonControlsOutput) ToConfiguredTableComparisonControlsOutput() ConfiguredTableComparisonControlsOutput {
+	return o
+}
+
+func (o ConfiguredTableComparisonControlsOutput) ToConfiguredTableComparisonControlsOutputWithContext(ctx context.Context) ConfiguredTableComparisonControlsOutput {
+	return o
+}
+
+func (o ConfiguredTableComparisonControlsOutput) ToConfiguredTableComparisonControlsPtrOutput() ConfiguredTableComparisonControlsPtrOutput {
+	return o.ToConfiguredTableComparisonControlsPtrOutputWithContext(context.Background())
+}
+
+func (o ConfiguredTableComparisonControlsOutput) ToConfiguredTableComparisonControlsPtrOutputWithContext(ctx context.Context) ConfiguredTableComparisonControlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfiguredTableComparisonControls) *ConfiguredTableComparisonControls {
+		return &v
+	}).(ConfiguredTableComparisonControlsPtrOutput)
+}
+
+func (o ConfiguredTableComparisonControlsOutput) AllowedColumnComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableComparisonControls) []string { return v.AllowedColumnComparisonColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableComparisonControlsOutput) AllowedLiteralComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfiguredTableComparisonControls) []string { return v.AllowedLiteralComparisonColumns }).(pulumi.StringArrayOutput)
+}
+
+type ConfiguredTableComparisonControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableComparisonControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfiguredTableComparisonControls)(nil)).Elem()
+}
+
+func (o ConfiguredTableComparisonControlsPtrOutput) ToConfiguredTableComparisonControlsPtrOutput() ConfiguredTableComparisonControlsPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableComparisonControlsPtrOutput) ToConfiguredTableComparisonControlsPtrOutputWithContext(ctx context.Context) ConfiguredTableComparisonControlsPtrOutput {
+	return o
+}
+
+func (o ConfiguredTableComparisonControlsPtrOutput) Elem() ConfiguredTableComparisonControlsOutput {
+	return o.ApplyT(func(v *ConfiguredTableComparisonControls) ConfiguredTableComparisonControls {
+		if v != nil {
+			return *v
+		}
+		var ret ConfiguredTableComparisonControls
+		return ret
+	}).(ConfiguredTableComparisonControlsOutput)
+}
+
+func (o ConfiguredTableComparisonControlsPtrOutput) AllowedColumnComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTableComparisonControls) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedColumnComparisonColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o ConfiguredTableComparisonControlsPtrOutput) AllowedLiteralComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfiguredTableComparisonControls) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedLiteralComparisonColumns
+	}).(pulumi.StringArrayOutput)
+}
+
 type ConfiguredTableDifferentialPrivacy struct {
 	Columns []ConfiguredTableDifferentialPrivacyColumn `pulumi:"columns"`
 }
@@ -5078,6 +5364,106 @@ func (o ConfiguredTableGlueTableReferencePtrOutput) TableName() pulumi.StringPtr
 		}
 		return &v.TableName
 	}).(pulumi.StringPtrOutput)
+}
+
+type ConfiguredTableOutputColumnThreshold struct {
+	MinimumIdentityCount int    `pulumi:"minimumIdentityCount"`
+	OutputColumnName     string `pulumi:"outputColumnName"`
+}
+
+// ConfiguredTableOutputColumnThresholdInput is an input type that accepts ConfiguredTableOutputColumnThresholdArgs and ConfiguredTableOutputColumnThresholdOutput values.
+// You can construct a concrete instance of `ConfiguredTableOutputColumnThresholdInput` via:
+//
+//	ConfiguredTableOutputColumnThresholdArgs{...}
+type ConfiguredTableOutputColumnThresholdInput interface {
+	pulumi.Input
+
+	ToConfiguredTableOutputColumnThresholdOutput() ConfiguredTableOutputColumnThresholdOutput
+	ToConfiguredTableOutputColumnThresholdOutputWithContext(context.Context) ConfiguredTableOutputColumnThresholdOutput
+}
+
+type ConfiguredTableOutputColumnThresholdArgs struct {
+	MinimumIdentityCount pulumi.IntInput    `pulumi:"minimumIdentityCount"`
+	OutputColumnName     pulumi.StringInput `pulumi:"outputColumnName"`
+}
+
+func (ConfiguredTableOutputColumnThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (i ConfiguredTableOutputColumnThresholdArgs) ToConfiguredTableOutputColumnThresholdOutput() ConfiguredTableOutputColumnThresholdOutput {
+	return i.ToConfiguredTableOutputColumnThresholdOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableOutputColumnThresholdArgs) ToConfiguredTableOutputColumnThresholdOutputWithContext(ctx context.Context) ConfiguredTableOutputColumnThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableOutputColumnThresholdOutput)
+}
+
+// ConfiguredTableOutputColumnThresholdArrayInput is an input type that accepts ConfiguredTableOutputColumnThresholdArray and ConfiguredTableOutputColumnThresholdArrayOutput values.
+// You can construct a concrete instance of `ConfiguredTableOutputColumnThresholdArrayInput` via:
+//
+//	ConfiguredTableOutputColumnThresholdArray{ ConfiguredTableOutputColumnThresholdArgs{...} }
+type ConfiguredTableOutputColumnThresholdArrayInput interface {
+	pulumi.Input
+
+	ToConfiguredTableOutputColumnThresholdArrayOutput() ConfiguredTableOutputColumnThresholdArrayOutput
+	ToConfiguredTableOutputColumnThresholdArrayOutputWithContext(context.Context) ConfiguredTableOutputColumnThresholdArrayOutput
+}
+
+type ConfiguredTableOutputColumnThresholdArray []ConfiguredTableOutputColumnThresholdInput
+
+func (ConfiguredTableOutputColumnThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (i ConfiguredTableOutputColumnThresholdArray) ToConfiguredTableOutputColumnThresholdArrayOutput() ConfiguredTableOutputColumnThresholdArrayOutput {
+	return i.ToConfiguredTableOutputColumnThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i ConfiguredTableOutputColumnThresholdArray) ToConfiguredTableOutputColumnThresholdArrayOutputWithContext(ctx context.Context) ConfiguredTableOutputColumnThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfiguredTableOutputColumnThresholdArrayOutput)
+}
+
+type ConfiguredTableOutputColumnThresholdOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableOutputColumnThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfiguredTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (o ConfiguredTableOutputColumnThresholdOutput) ToConfiguredTableOutputColumnThresholdOutput() ConfiguredTableOutputColumnThresholdOutput {
+	return o
+}
+
+func (o ConfiguredTableOutputColumnThresholdOutput) ToConfiguredTableOutputColumnThresholdOutputWithContext(ctx context.Context) ConfiguredTableOutputColumnThresholdOutput {
+	return o
+}
+
+func (o ConfiguredTableOutputColumnThresholdOutput) MinimumIdentityCount() pulumi.IntOutput {
+	return o.ApplyT(func(v ConfiguredTableOutputColumnThreshold) int { return v.MinimumIdentityCount }).(pulumi.IntOutput)
+}
+
+func (o ConfiguredTableOutputColumnThresholdOutput) OutputColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfiguredTableOutputColumnThreshold) string { return v.OutputColumnName }).(pulumi.StringOutput)
+}
+
+type ConfiguredTableOutputColumnThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfiguredTableOutputColumnThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfiguredTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (o ConfiguredTableOutputColumnThresholdArrayOutput) ToConfiguredTableOutputColumnThresholdArrayOutput() ConfiguredTableOutputColumnThresholdArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableOutputColumnThresholdArrayOutput) ToConfiguredTableOutputColumnThresholdArrayOutputWithContext(ctx context.Context) ConfiguredTableOutputColumnThresholdArrayOutput {
+	return o
+}
+
+func (o ConfiguredTableOutputColumnThresholdArrayOutput) Index(i pulumi.IntInput) ConfiguredTableOutputColumnThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfiguredTableOutputColumnThreshold {
+		return vs[0].([]ConfiguredTableOutputColumnThreshold)[vs[1].(int)]
+	}).(ConfiguredTableOutputColumnThresholdOutput)
 }
 
 type ConfiguredTableSnowflakeTableReference struct {
@@ -6202,6 +6588,128 @@ type IdNamespaceAssociationTag struct {
 	Value string `pulumi:"value"`
 }
 
+type IntermediateTableAggregationThreshold struct {
+	AllowedAggregateExpressionType IntermediateTableAllowedAggregateExpressionType `pulumi:"allowedAggregateExpressionType"`
+	IdentityColumns                []string                                        `pulumi:"identityColumns"`
+	MinimumIdentityCount           int                                             `pulumi:"minimumIdentityCount"`
+	OutputColumnThresholds         []IntermediateTableOutputColumnThreshold        `pulumi:"outputColumnThresholds"`
+	Type                           IntermediateTableAggregationThresholdType       `pulumi:"type"`
+}
+
+// IntermediateTableAggregationThresholdInput is an input type that accepts IntermediateTableAggregationThresholdArgs and IntermediateTableAggregationThresholdOutput values.
+// You can construct a concrete instance of `IntermediateTableAggregationThresholdInput` via:
+//
+//	IntermediateTableAggregationThresholdArgs{...}
+type IntermediateTableAggregationThresholdInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAggregationThresholdOutput() IntermediateTableAggregationThresholdOutput
+	ToIntermediateTableAggregationThresholdOutputWithContext(context.Context) IntermediateTableAggregationThresholdOutput
+}
+
+type IntermediateTableAggregationThresholdArgs struct {
+	AllowedAggregateExpressionType IntermediateTableAllowedAggregateExpressionTypeInput `pulumi:"allowedAggregateExpressionType"`
+	IdentityColumns                pulumi.StringArrayInput                              `pulumi:"identityColumns"`
+	MinimumIdentityCount           pulumi.IntInput                                      `pulumi:"minimumIdentityCount"`
+	OutputColumnThresholds         IntermediateTableOutputColumnThresholdArrayInput     `pulumi:"outputColumnThresholds"`
+	Type                           IntermediateTableAggregationThresholdTypeInput       `pulumi:"type"`
+}
+
+func (IntermediateTableAggregationThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAggregationThreshold)(nil)).Elem()
+}
+
+func (i IntermediateTableAggregationThresholdArgs) ToIntermediateTableAggregationThresholdOutput() IntermediateTableAggregationThresholdOutput {
+	return i.ToIntermediateTableAggregationThresholdOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableAggregationThresholdArgs) ToIntermediateTableAggregationThresholdOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableAggregationThresholdOutput)
+}
+
+// IntermediateTableAggregationThresholdArrayInput is an input type that accepts IntermediateTableAggregationThresholdArray and IntermediateTableAggregationThresholdArrayOutput values.
+// You can construct a concrete instance of `IntermediateTableAggregationThresholdArrayInput` via:
+//
+//	IntermediateTableAggregationThresholdArray{ IntermediateTableAggregationThresholdArgs{...} }
+type IntermediateTableAggregationThresholdArrayInput interface {
+	pulumi.Input
+
+	ToIntermediateTableAggregationThresholdArrayOutput() IntermediateTableAggregationThresholdArrayOutput
+	ToIntermediateTableAggregationThresholdArrayOutputWithContext(context.Context) IntermediateTableAggregationThresholdArrayOutput
+}
+
+type IntermediateTableAggregationThresholdArray []IntermediateTableAggregationThresholdInput
+
+func (IntermediateTableAggregationThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableAggregationThreshold)(nil)).Elem()
+}
+
+func (i IntermediateTableAggregationThresholdArray) ToIntermediateTableAggregationThresholdArrayOutput() IntermediateTableAggregationThresholdArrayOutput {
+	return i.ToIntermediateTableAggregationThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableAggregationThresholdArray) ToIntermediateTableAggregationThresholdArrayOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableAggregationThresholdArrayOutput)
+}
+
+type IntermediateTableAggregationThresholdOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAggregationThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableAggregationThreshold)(nil)).Elem()
+}
+
+func (o IntermediateTableAggregationThresholdOutput) ToIntermediateTableAggregationThresholdOutput() IntermediateTableAggregationThresholdOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdOutput) ToIntermediateTableAggregationThresholdOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdOutput) AllowedAggregateExpressionType() IntermediateTableAllowedAggregateExpressionTypeOutput {
+	return o.ApplyT(func(v IntermediateTableAggregationThreshold) IntermediateTableAllowedAggregateExpressionType {
+		return v.AllowedAggregateExpressionType
+	}).(IntermediateTableAllowedAggregateExpressionTypeOutput)
+}
+
+func (o IntermediateTableAggregationThresholdOutput) IdentityColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntermediateTableAggregationThreshold) []string { return v.IdentityColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o IntermediateTableAggregationThresholdOutput) MinimumIdentityCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IntermediateTableAggregationThreshold) int { return v.MinimumIdentityCount }).(pulumi.IntOutput)
+}
+
+func (o IntermediateTableAggregationThresholdOutput) OutputColumnThresholds() IntermediateTableOutputColumnThresholdArrayOutput {
+	return o.ApplyT(func(v IntermediateTableAggregationThreshold) []IntermediateTableOutputColumnThreshold {
+		return v.OutputColumnThresholds
+	}).(IntermediateTableOutputColumnThresholdArrayOutput)
+}
+
+func (o IntermediateTableAggregationThresholdOutput) Type() IntermediateTableAggregationThresholdTypeOutput {
+	return o.ApplyT(func(v IntermediateTableAggregationThreshold) IntermediateTableAggregationThresholdType { return v.Type }).(IntermediateTableAggregationThresholdTypeOutput)
+}
+
+type IntermediateTableAggregationThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableAggregationThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableAggregationThreshold)(nil)).Elem()
+}
+
+func (o IntermediateTableAggregationThresholdArrayOutput) ToIntermediateTableAggregationThresholdArrayOutput() IntermediateTableAggregationThresholdArrayOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdArrayOutput) ToIntermediateTableAggregationThresholdArrayOutputWithContext(ctx context.Context) IntermediateTableAggregationThresholdArrayOutput {
+	return o
+}
+
+func (o IntermediateTableAggregationThresholdArrayOutput) Index(i pulumi.IntInput) IntermediateTableAggregationThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntermediateTableAggregationThreshold {
+		return vs[0].([]IntermediateTableAggregationThreshold)[vs[1].(int)]
+	}).(IntermediateTableAggregationThresholdOutput)
+}
+
 type IntermediateTableAnalysisRule struct {
 	Policy IntermediateTableAnalysisRulePolicy `pulumi:"policy"`
 	Type   IntermediateTableAnalysisRuleType   `pulumi:"type"`
@@ -6303,12 +6811,14 @@ func (o IntermediateTableAnalysisRuleArrayOutput) Index(i pulumi.IntInput) Inter
 }
 
 type IntermediateTableAnalysisRuleCustom struct {
-	AdditionalAnalyses       *IntermediateTableAdditionalAnalyses  `pulumi:"additionalAnalyses"`
-	AllowedAnalyses          []string                              `pulumi:"allowedAnalyses"`
-	AllowedAnalysisProviders []string                              `pulumi:"allowedAnalysisProviders"`
-	AllowedResultReceivers   []string                              `pulumi:"allowedResultReceivers"`
-	DifferentialPrivacy      *IntermediateTableDifferentialPrivacy `pulumi:"differentialPrivacy"`
-	DisallowedOutputColumns  []string                              `pulumi:"disallowedOutputColumns"`
+	AdditionalAnalyses       *IntermediateTableAdditionalAnalyses    `pulumi:"additionalAnalyses"`
+	AggregationThresholds    []IntermediateTableAggregationThreshold `pulumi:"aggregationThresholds"`
+	AllowedAnalyses          []string                                `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders []string                                `pulumi:"allowedAnalysisProviders"`
+	AllowedResultReceivers   []string                                `pulumi:"allowedResultReceivers"`
+	ComparisonControls       *IntermediateTableComparisonControls    `pulumi:"comparisonControls"`
+	DifferentialPrivacy      *IntermediateTableDifferentialPrivacy   `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  []string                                `pulumi:"disallowedOutputColumns"`
 }
 
 // IntermediateTableAnalysisRuleCustomInput is an input type that accepts IntermediateTableAnalysisRuleCustomArgs and IntermediateTableAnalysisRuleCustomOutput values.
@@ -6323,12 +6833,14 @@ type IntermediateTableAnalysisRuleCustomInput interface {
 }
 
 type IntermediateTableAnalysisRuleCustomArgs struct {
-	AdditionalAnalyses       IntermediateTableAdditionalAnalysesPtrInput  `pulumi:"additionalAnalyses"`
-	AllowedAnalyses          pulumi.StringArrayInput                      `pulumi:"allowedAnalyses"`
-	AllowedAnalysisProviders pulumi.StringArrayInput                      `pulumi:"allowedAnalysisProviders"`
-	AllowedResultReceivers   pulumi.StringArrayInput                      `pulumi:"allowedResultReceivers"`
-	DifferentialPrivacy      IntermediateTableDifferentialPrivacyPtrInput `pulumi:"differentialPrivacy"`
-	DisallowedOutputColumns  pulumi.StringArrayInput                      `pulumi:"disallowedOutputColumns"`
+	AdditionalAnalyses       IntermediateTableAdditionalAnalysesPtrInput     `pulumi:"additionalAnalyses"`
+	AggregationThresholds    IntermediateTableAggregationThresholdArrayInput `pulumi:"aggregationThresholds"`
+	AllowedAnalyses          pulumi.StringArrayInput                         `pulumi:"allowedAnalyses"`
+	AllowedAnalysisProviders pulumi.StringArrayInput                         `pulumi:"allowedAnalysisProviders"`
+	AllowedResultReceivers   pulumi.StringArrayInput                         `pulumi:"allowedResultReceivers"`
+	ComparisonControls       IntermediateTableComparisonControlsPtrInput     `pulumi:"comparisonControls"`
+	DifferentialPrivacy      IntermediateTableDifferentialPrivacyPtrInput    `pulumi:"differentialPrivacy"`
+	DisallowedOutputColumns  pulumi.StringArrayInput                         `pulumi:"disallowedOutputColumns"`
 }
 
 func (IntermediateTableAnalysisRuleCustomArgs) ElementType() reflect.Type {
@@ -6363,6 +6875,12 @@ func (o IntermediateTableAnalysisRuleCustomOutput) AdditionalAnalyses() Intermed
 	}).(IntermediateTableAdditionalAnalysesPtrOutput)
 }
 
+func (o IntermediateTableAnalysisRuleCustomOutput) AggregationThresholds() IntermediateTableAggregationThresholdArrayOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) []IntermediateTableAggregationThreshold {
+		return v.AggregationThresholds
+	}).(IntermediateTableAggregationThresholdArrayOutput)
+}
+
 func (o IntermediateTableAnalysisRuleCustomOutput) AllowedAnalyses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) []string { return v.AllowedAnalyses }).(pulumi.StringArrayOutput)
 }
@@ -6373,6 +6891,12 @@ func (o IntermediateTableAnalysisRuleCustomOutput) AllowedAnalysisProviders() pu
 
 func (o IntermediateTableAnalysisRuleCustomOutput) AllowedResultReceivers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) []string { return v.AllowedResultReceivers }).(pulumi.StringArrayOutput)
+}
+
+func (o IntermediateTableAnalysisRuleCustomOutput) ComparisonControls() IntermediateTableComparisonControlsPtrOutput {
+	return o.ApplyT(func(v IntermediateTableAnalysisRuleCustom) *IntermediateTableComparisonControls {
+		return v.ComparisonControls
+	}).(IntermediateTableComparisonControlsPtrOutput)
 }
 
 func (o IntermediateTableAnalysisRuleCustomOutput) DifferentialPrivacy() IntermediateTableDifferentialPrivacyPtrOutput {
@@ -6489,6 +7013,154 @@ func (o IntermediateTableAnalysisRulePolicyV1PropertiesOutput) Custom() Intermed
 	return o.ApplyT(func(v IntermediateTableAnalysisRulePolicyV1Properties) IntermediateTableAnalysisRuleCustom {
 		return v.Custom
 	}).(IntermediateTableAnalysisRuleCustomOutput)
+}
+
+type IntermediateTableComparisonControls struct {
+	AllowedColumnComparisonColumns  []string `pulumi:"allowedColumnComparisonColumns"`
+	AllowedLiteralComparisonColumns []string `pulumi:"allowedLiteralComparisonColumns"`
+}
+
+// IntermediateTableComparisonControlsInput is an input type that accepts IntermediateTableComparisonControlsArgs and IntermediateTableComparisonControlsOutput values.
+// You can construct a concrete instance of `IntermediateTableComparisonControlsInput` via:
+//
+//	IntermediateTableComparisonControlsArgs{...}
+type IntermediateTableComparisonControlsInput interface {
+	pulumi.Input
+
+	ToIntermediateTableComparisonControlsOutput() IntermediateTableComparisonControlsOutput
+	ToIntermediateTableComparisonControlsOutputWithContext(context.Context) IntermediateTableComparisonControlsOutput
+}
+
+type IntermediateTableComparisonControlsArgs struct {
+	AllowedColumnComparisonColumns  pulumi.StringArrayInput `pulumi:"allowedColumnComparisonColumns"`
+	AllowedLiteralComparisonColumns pulumi.StringArrayInput `pulumi:"allowedLiteralComparisonColumns"`
+}
+
+func (IntermediateTableComparisonControlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableComparisonControls)(nil)).Elem()
+}
+
+func (i IntermediateTableComparisonControlsArgs) ToIntermediateTableComparisonControlsOutput() IntermediateTableComparisonControlsOutput {
+	return i.ToIntermediateTableComparisonControlsOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableComparisonControlsArgs) ToIntermediateTableComparisonControlsOutputWithContext(ctx context.Context) IntermediateTableComparisonControlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableComparisonControlsOutput)
+}
+
+func (i IntermediateTableComparisonControlsArgs) ToIntermediateTableComparisonControlsPtrOutput() IntermediateTableComparisonControlsPtrOutput {
+	return i.ToIntermediateTableComparisonControlsPtrOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableComparisonControlsArgs) ToIntermediateTableComparisonControlsPtrOutputWithContext(ctx context.Context) IntermediateTableComparisonControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableComparisonControlsOutput).ToIntermediateTableComparisonControlsPtrOutputWithContext(ctx)
+}
+
+// IntermediateTableComparisonControlsPtrInput is an input type that accepts IntermediateTableComparisonControlsArgs, IntermediateTableComparisonControlsPtr and IntermediateTableComparisonControlsPtrOutput values.
+// You can construct a concrete instance of `IntermediateTableComparisonControlsPtrInput` via:
+//
+//	        IntermediateTableComparisonControlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type IntermediateTableComparisonControlsPtrInput interface {
+	pulumi.Input
+
+	ToIntermediateTableComparisonControlsPtrOutput() IntermediateTableComparisonControlsPtrOutput
+	ToIntermediateTableComparisonControlsPtrOutputWithContext(context.Context) IntermediateTableComparisonControlsPtrOutput
+}
+
+type intermediateTableComparisonControlsPtrType IntermediateTableComparisonControlsArgs
+
+func IntermediateTableComparisonControlsPtr(v *IntermediateTableComparisonControlsArgs) IntermediateTableComparisonControlsPtrInput {
+	return (*intermediateTableComparisonControlsPtrType)(v)
+}
+
+func (*intermediateTableComparisonControlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableComparisonControls)(nil)).Elem()
+}
+
+func (i *intermediateTableComparisonControlsPtrType) ToIntermediateTableComparisonControlsPtrOutput() IntermediateTableComparisonControlsPtrOutput {
+	return i.ToIntermediateTableComparisonControlsPtrOutputWithContext(context.Background())
+}
+
+func (i *intermediateTableComparisonControlsPtrType) ToIntermediateTableComparisonControlsPtrOutputWithContext(ctx context.Context) IntermediateTableComparisonControlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableComparisonControlsPtrOutput)
+}
+
+type IntermediateTableComparisonControlsOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableComparisonControlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableComparisonControls)(nil)).Elem()
+}
+
+func (o IntermediateTableComparisonControlsOutput) ToIntermediateTableComparisonControlsOutput() IntermediateTableComparisonControlsOutput {
+	return o
+}
+
+func (o IntermediateTableComparisonControlsOutput) ToIntermediateTableComparisonControlsOutputWithContext(ctx context.Context) IntermediateTableComparisonControlsOutput {
+	return o
+}
+
+func (o IntermediateTableComparisonControlsOutput) ToIntermediateTableComparisonControlsPtrOutput() IntermediateTableComparisonControlsPtrOutput {
+	return o.ToIntermediateTableComparisonControlsPtrOutputWithContext(context.Background())
+}
+
+func (o IntermediateTableComparisonControlsOutput) ToIntermediateTableComparisonControlsPtrOutputWithContext(ctx context.Context) IntermediateTableComparisonControlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IntermediateTableComparisonControls) *IntermediateTableComparisonControls {
+		return &v
+	}).(IntermediateTableComparisonControlsPtrOutput)
+}
+
+func (o IntermediateTableComparisonControlsOutput) AllowedColumnComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntermediateTableComparisonControls) []string { return v.AllowedColumnComparisonColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o IntermediateTableComparisonControlsOutput) AllowedLiteralComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntermediateTableComparisonControls) []string { return v.AllowedLiteralComparisonColumns }).(pulumi.StringArrayOutput)
+}
+
+type IntermediateTableComparisonControlsPtrOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableComparisonControlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IntermediateTableComparisonControls)(nil)).Elem()
+}
+
+func (o IntermediateTableComparisonControlsPtrOutput) ToIntermediateTableComparisonControlsPtrOutput() IntermediateTableComparisonControlsPtrOutput {
+	return o
+}
+
+func (o IntermediateTableComparisonControlsPtrOutput) ToIntermediateTableComparisonControlsPtrOutputWithContext(ctx context.Context) IntermediateTableComparisonControlsPtrOutput {
+	return o
+}
+
+func (o IntermediateTableComparisonControlsPtrOutput) Elem() IntermediateTableComparisonControlsOutput {
+	return o.ApplyT(func(v *IntermediateTableComparisonControls) IntermediateTableComparisonControls {
+		if v != nil {
+			return *v
+		}
+		var ret IntermediateTableComparisonControls
+		return ret
+	}).(IntermediateTableComparisonControlsOutput)
+}
+
+func (o IntermediateTableComparisonControlsPtrOutput) AllowedColumnComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntermediateTableComparisonControls) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedColumnComparisonColumns
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o IntermediateTableComparisonControlsPtrOutput) AllowedLiteralComparisonColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *IntermediateTableComparisonControls) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedLiteralComparisonColumns
+	}).(pulumi.StringArrayOutput)
 }
 
 type IntermediateTableDifferentialPrivacy struct {
@@ -6718,6 +7390,106 @@ func (o IntermediateTableDifferentialPrivacyColumnArrayOutput) Index(i pulumi.In
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntermediateTableDifferentialPrivacyColumn {
 		return vs[0].([]IntermediateTableDifferentialPrivacyColumn)[vs[1].(int)]
 	}).(IntermediateTableDifferentialPrivacyColumnOutput)
+}
+
+type IntermediateTableOutputColumnThreshold struct {
+	MinimumIdentityCount int    `pulumi:"minimumIdentityCount"`
+	OutputColumnName     string `pulumi:"outputColumnName"`
+}
+
+// IntermediateTableOutputColumnThresholdInput is an input type that accepts IntermediateTableOutputColumnThresholdArgs and IntermediateTableOutputColumnThresholdOutput values.
+// You can construct a concrete instance of `IntermediateTableOutputColumnThresholdInput` via:
+//
+//	IntermediateTableOutputColumnThresholdArgs{...}
+type IntermediateTableOutputColumnThresholdInput interface {
+	pulumi.Input
+
+	ToIntermediateTableOutputColumnThresholdOutput() IntermediateTableOutputColumnThresholdOutput
+	ToIntermediateTableOutputColumnThresholdOutputWithContext(context.Context) IntermediateTableOutputColumnThresholdOutput
+}
+
+type IntermediateTableOutputColumnThresholdArgs struct {
+	MinimumIdentityCount pulumi.IntInput    `pulumi:"minimumIdentityCount"`
+	OutputColumnName     pulumi.StringInput `pulumi:"outputColumnName"`
+}
+
+func (IntermediateTableOutputColumnThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (i IntermediateTableOutputColumnThresholdArgs) ToIntermediateTableOutputColumnThresholdOutput() IntermediateTableOutputColumnThresholdOutput {
+	return i.ToIntermediateTableOutputColumnThresholdOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableOutputColumnThresholdArgs) ToIntermediateTableOutputColumnThresholdOutputWithContext(ctx context.Context) IntermediateTableOutputColumnThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableOutputColumnThresholdOutput)
+}
+
+// IntermediateTableOutputColumnThresholdArrayInput is an input type that accepts IntermediateTableOutputColumnThresholdArray and IntermediateTableOutputColumnThresholdArrayOutput values.
+// You can construct a concrete instance of `IntermediateTableOutputColumnThresholdArrayInput` via:
+//
+//	IntermediateTableOutputColumnThresholdArray{ IntermediateTableOutputColumnThresholdArgs{...} }
+type IntermediateTableOutputColumnThresholdArrayInput interface {
+	pulumi.Input
+
+	ToIntermediateTableOutputColumnThresholdArrayOutput() IntermediateTableOutputColumnThresholdArrayOutput
+	ToIntermediateTableOutputColumnThresholdArrayOutputWithContext(context.Context) IntermediateTableOutputColumnThresholdArrayOutput
+}
+
+type IntermediateTableOutputColumnThresholdArray []IntermediateTableOutputColumnThresholdInput
+
+func (IntermediateTableOutputColumnThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (i IntermediateTableOutputColumnThresholdArray) ToIntermediateTableOutputColumnThresholdArrayOutput() IntermediateTableOutputColumnThresholdArrayOutput {
+	return i.ToIntermediateTableOutputColumnThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i IntermediateTableOutputColumnThresholdArray) ToIntermediateTableOutputColumnThresholdArrayOutputWithContext(ctx context.Context) IntermediateTableOutputColumnThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntermediateTableOutputColumnThresholdArrayOutput)
+}
+
+type IntermediateTableOutputColumnThresholdOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableOutputColumnThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntermediateTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (o IntermediateTableOutputColumnThresholdOutput) ToIntermediateTableOutputColumnThresholdOutput() IntermediateTableOutputColumnThresholdOutput {
+	return o
+}
+
+func (o IntermediateTableOutputColumnThresholdOutput) ToIntermediateTableOutputColumnThresholdOutputWithContext(ctx context.Context) IntermediateTableOutputColumnThresholdOutput {
+	return o
+}
+
+func (o IntermediateTableOutputColumnThresholdOutput) MinimumIdentityCount() pulumi.IntOutput {
+	return o.ApplyT(func(v IntermediateTableOutputColumnThreshold) int { return v.MinimumIdentityCount }).(pulumi.IntOutput)
+}
+
+func (o IntermediateTableOutputColumnThresholdOutput) OutputColumnName() pulumi.StringOutput {
+	return o.ApplyT(func(v IntermediateTableOutputColumnThreshold) string { return v.OutputColumnName }).(pulumi.StringOutput)
+}
+
+type IntermediateTableOutputColumnThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (IntermediateTableOutputColumnThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntermediateTableOutputColumnThreshold)(nil)).Elem()
+}
+
+func (o IntermediateTableOutputColumnThresholdArrayOutput) ToIntermediateTableOutputColumnThresholdArrayOutput() IntermediateTableOutputColumnThresholdArrayOutput {
+	return o
+}
+
+func (o IntermediateTableOutputColumnThresholdArrayOutput) ToIntermediateTableOutputColumnThresholdArrayOutputWithContext(ctx context.Context) IntermediateTableOutputColumnThresholdArrayOutput {
+	return o
+}
+
+func (o IntermediateTableOutputColumnThresholdArrayOutput) Index(i pulumi.IntInput) IntermediateTableOutputColumnThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntermediateTableOutputColumnThreshold {
+		return vs[0].([]IntermediateTableOutputColumnThreshold)[vs[1].(int)]
+	}).(IntermediateTableOutputColumnThresholdOutput)
 }
 
 type IntermediateTablePopulationAnalysisConfiguration struct {
@@ -9342,6 +10114,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregateColumnArrayInput)(nil)).Elem(), ConfiguredTableAggregateColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationConstraintInput)(nil)).Elem(), ConfiguredTableAggregationConstraintArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationConstraintArrayInput)(nil)).Elem(), ConfiguredTableAggregationConstraintArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationThresholdInput)(nil)).Elem(), ConfiguredTableAggregationThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAggregationThresholdArrayInput)(nil)).Elem(), ConfiguredTableAggregationThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleInput)(nil)).Elem(), ConfiguredTableAnalysisRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleArrayInput)(nil)).Elem(), ConfiguredTableAnalysisRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAnalysisRuleAggregationInput)(nil)).Elem(), ConfiguredTableAnalysisRuleAggregationArgs{})
@@ -9361,11 +10135,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV11PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesInput)(nil)).Elem(), ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableAthenaTableReferenceInput)(nil)).Elem(), ConfiguredTableAthenaTableReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableComparisonControlsInput)(nil)).Elem(), ConfiguredTableComparisonControlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableComparisonControlsPtrInput)(nil)).Elem(), ConfiguredTableComparisonControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyPtrInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableDifferentialPrivacyColumnArrayInput)(nil)).Elem(), ConfiguredTableDifferentialPrivacyColumnArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableGlueTableReferenceInput)(nil)).Elem(), ConfiguredTableGlueTableReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableOutputColumnThresholdInput)(nil)).Elem(), ConfiguredTableOutputColumnThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableOutputColumnThresholdArrayInput)(nil)).Elem(), ConfiguredTableOutputColumnThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSnowflakeTableReferenceInput)(nil)).Elem(), ConfiguredTableSnowflakeTableReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaPropertiesInput)(nil)).Elem(), ConfiguredTableSnowflakeTableSchemaPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfiguredTableSnowflakeTableSchemaV1Input)(nil)).Elem(), ConfiguredTableSnowflakeTableSchemaV1Args{})
@@ -9377,15 +10155,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationIdMappingConfigPtrInput)(nil)).Elem(), IdNamespaceAssociationIdMappingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IdNamespaceAssociationInputReferenceConfigInput)(nil)).Elem(), IdNamespaceAssociationInputReferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAggregationThresholdInput)(nil)).Elem(), IntermediateTableAggregationThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAggregationThresholdArrayInput)(nil)).Elem(), IntermediateTableAggregationThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleInput)(nil)).Elem(), IntermediateTableAnalysisRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleArrayInput)(nil)).Elem(), IntermediateTableAnalysisRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRuleCustomInput)(nil)).Elem(), IntermediateTableAnalysisRuleCustomArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRulePolicyInput)(nil)).Elem(), IntermediateTableAnalysisRulePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableAnalysisRulePolicyV1PropertiesInput)(nil)).Elem(), IntermediateTableAnalysisRulePolicyV1PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableComparisonControlsInput)(nil)).Elem(), IntermediateTableComparisonControlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableComparisonControlsPtrInput)(nil)).Elem(), IntermediateTableComparisonControlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyPtrInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyColumnInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyColumnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableDifferentialPrivacyColumnArrayInput)(nil)).Elem(), IntermediateTableDifferentialPrivacyColumnArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableOutputColumnThresholdInput)(nil)).Elem(), IntermediateTableOutputColumnThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTableOutputColumnThresholdArrayInput)(nil)).Elem(), IntermediateTableOutputColumnThresholdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTablePopulationAnalysisConfigurationInput)(nil)).Elem(), IntermediateTablePopulationAnalysisConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTablePopulationAnalysisSqlParametersInput)(nil)).Elem(), IntermediateTablePopulationAnalysisSqlParametersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntermediateTablePopulationAnalysisSqlParametersPtrInput)(nil)).Elem(), IntermediateTablePopulationAnalysisSqlParametersArgs{})
@@ -9469,6 +10253,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAggregateColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregationConstraintOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAggregationConstraintArrayOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationThresholdOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableAggregationThresholdArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAnalysisRuleAggregationOutput{})
@@ -9489,12 +10275,16 @@ func init() {
 	pulumi.RegisterOutputType(ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAthenaTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableAthenaTableReferencePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableComparisonControlsOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableComparisonControlsPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyPtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableDifferentialPrivacyColumnArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableGlueTableReferencePtrOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableOutputColumnThresholdOutput{})
+	pulumi.RegisterOutputType(ConfiguredTableOutputColumnThresholdArrayOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableReferenceOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableReferencePtrOutput{})
 	pulumi.RegisterOutputType(ConfiguredTableSnowflakeTableSchemaPropertiesOutput{})
@@ -9519,15 +10309,21 @@ func init() {
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferenceConfigOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesOutput{})
 	pulumi.RegisterOutputType(IdNamespaceAssociationInputReferencePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAggregationThresholdOutput{})
+	pulumi.RegisterOutputType(IntermediateTableAggregationThresholdArrayOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleArrayOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAnalysisRuleCustomOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAnalysisRulePolicyOutput{})
 	pulumi.RegisterOutputType(IntermediateTableAnalysisRulePolicyV1PropertiesOutput{})
+	pulumi.RegisterOutputType(IntermediateTableComparisonControlsOutput{})
+	pulumi.RegisterOutputType(IntermediateTableComparisonControlsPtrOutput{})
 	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyOutput{})
 	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyPtrOutput{})
 	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyColumnOutput{})
 	pulumi.RegisterOutputType(IntermediateTableDifferentialPrivacyColumnArrayOutput{})
+	pulumi.RegisterOutputType(IntermediateTableOutputColumnThresholdOutput{})
+	pulumi.RegisterOutputType(IntermediateTableOutputColumnThresholdArrayOutput{})
 	pulumi.RegisterOutputType(IntermediateTablePopulationAnalysisConfigurationOutput{})
 	pulumi.RegisterOutputType(IntermediateTablePopulationAnalysisSqlParametersOutput{})
 	pulumi.RegisterOutputType(IntermediateTablePopulationAnalysisSqlParametersPtrOutput{})

@@ -217,6 +217,13 @@ export const OriginEndpointScteInSegments = {
 
 export type OriginEndpointScteInSegments = (typeof OriginEndpointScteInSegments)[keyof typeof OriginEndpointScteInSegments];
 
+export const OriginEndpointStreamNameOutputMode = {
+    Index: "INDEX",
+    PassthroughName: "PASSTHROUGH_NAME",
+} as const;
+
+export type OriginEndpointStreamNameOutputMode = (typeof OriginEndpointStreamNameOutputMode)[keyof typeof OriginEndpointStreamNameOutputMode];
+
 export const OriginEndpointTsEncryptionMethod = {
     Aes128: "AES_128",
     SampleAes: "SAMPLE_AES",

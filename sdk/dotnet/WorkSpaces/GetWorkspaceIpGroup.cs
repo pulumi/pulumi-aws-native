@@ -12,19 +12,19 @@ namespace Pulumi.AwsNative.WorkSpaces
     public static class GetWorkspaceIpGroup
     {
         /// <summary>
-        /// Resource type definition for an IP access control group for Amazon WorkSpaces.
+        /// Resource Type definition for an IP access control group for Amazon WorkSpaces.
         /// </summary>
         public static Task<GetWorkspaceIpGroupResult> InvokeAsync(GetWorkspaceIpGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceIpGroupResult>("aws-native:workspaces:getWorkspaceIpGroup", args ?? new GetWorkspaceIpGroupArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for an IP access control group for Amazon WorkSpaces.
+        /// Resource Type definition for an IP access control group for Amazon WorkSpaces.
         /// </summary>
         public static Output<GetWorkspaceIpGroupResult> Invoke(GetWorkspaceIpGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceIpGroupResult>("aws-native:workspaces:getWorkspaceIpGroup", args ?? new GetWorkspaceIpGroupInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Resource type definition for an IP access control group for Amazon WorkSpaces.
+        /// Resource Type definition for an IP access control group for Amazon WorkSpaces.
         /// </summary>
         public static Output<GetWorkspaceIpGroupResult> Invoke(GetWorkspaceIpGroupInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceIpGroupResult>("aws-native:workspaces:getWorkspaceIpGroup", args ?? new GetWorkspaceIpGroupInvokeArgs(), options.WithDefaults());

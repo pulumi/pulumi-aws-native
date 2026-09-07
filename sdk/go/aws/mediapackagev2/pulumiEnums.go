@@ -4485,6 +4485,171 @@ func (in *originEndpointScteInSegmentsPtr) ToOriginEndpointScteInSegmentsPtrOutp
 	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointScteInSegmentsPtrOutput)
 }
 
+type OriginEndpointStreamNameOutputMode string
+
+const (
+	OriginEndpointStreamNameOutputModeIndex           = OriginEndpointStreamNameOutputMode("INDEX")
+	OriginEndpointStreamNameOutputModePassthroughName = OriginEndpointStreamNameOutputMode("PASSTHROUGH_NAME")
+)
+
+func (OriginEndpointStreamNameOutputMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointStreamNameOutputMode)(nil)).Elem()
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToOriginEndpointStreamNameOutputModeOutput() OriginEndpointStreamNameOutputModeOutput {
+	return pulumi.ToOutput(e).(OriginEndpointStreamNameOutputModeOutput)
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToOriginEndpointStreamNameOutputModeOutputWithContext(ctx context.Context) OriginEndpointStreamNameOutputModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginEndpointStreamNameOutputModeOutput)
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToOriginEndpointStreamNameOutputModePtrOutput() OriginEndpointStreamNameOutputModePtrOutput {
+	return e.ToOriginEndpointStreamNameOutputModePtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToOriginEndpointStreamNameOutputModePtrOutputWithContext(ctx context.Context) OriginEndpointStreamNameOutputModePtrOutput {
+	return OriginEndpointStreamNameOutputMode(e).ToOriginEndpointStreamNameOutputModeOutputWithContext(ctx).ToOriginEndpointStreamNameOutputModePtrOutputWithContext(ctx)
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginEndpointStreamNameOutputMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginEndpointStreamNameOutputModeOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointStreamNameOutputModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginEndpointStreamNameOutputMode)(nil)).Elem()
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToOriginEndpointStreamNameOutputModeOutput() OriginEndpointStreamNameOutputModeOutput {
+	return o
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToOriginEndpointStreamNameOutputModeOutputWithContext(ctx context.Context) OriginEndpointStreamNameOutputModeOutput {
+	return o
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToOriginEndpointStreamNameOutputModePtrOutput() OriginEndpointStreamNameOutputModePtrOutput {
+	return o.ToOriginEndpointStreamNameOutputModePtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToOriginEndpointStreamNameOutputModePtrOutputWithContext(ctx context.Context) OriginEndpointStreamNameOutputModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginEndpointStreamNameOutputMode) *OriginEndpointStreamNameOutputMode {
+		return &v
+	}).(OriginEndpointStreamNameOutputModePtrOutput)
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointStreamNameOutputMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointStreamNameOutputModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginEndpointStreamNameOutputMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginEndpointStreamNameOutputModePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginEndpointStreamNameOutputModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginEndpointStreamNameOutputMode)(nil)).Elem()
+}
+
+func (o OriginEndpointStreamNameOutputModePtrOutput) ToOriginEndpointStreamNameOutputModePtrOutput() OriginEndpointStreamNameOutputModePtrOutput {
+	return o
+}
+
+func (o OriginEndpointStreamNameOutputModePtrOutput) ToOriginEndpointStreamNameOutputModePtrOutputWithContext(ctx context.Context) OriginEndpointStreamNameOutputModePtrOutput {
+	return o
+}
+
+func (o OriginEndpointStreamNameOutputModePtrOutput) Elem() OriginEndpointStreamNameOutputModeOutput {
+	return o.ApplyT(func(v *OriginEndpointStreamNameOutputMode) OriginEndpointStreamNameOutputMode {
+		if v != nil {
+			return *v
+		}
+		var ret OriginEndpointStreamNameOutputMode
+		return ret
+	}).(OriginEndpointStreamNameOutputModeOutput)
+}
+
+func (o OriginEndpointStreamNameOutputModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginEndpointStreamNameOutputModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginEndpointStreamNameOutputMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginEndpointStreamNameOutputModeInput is an input type that accepts values of the OriginEndpointStreamNameOutputMode enum
+// A concrete instance of `OriginEndpointStreamNameOutputModeInput` can be one of the following:
+//
+//	OriginEndpointStreamNameOutputModeIndex
+//	OriginEndpointStreamNameOutputModePassthroughName
+type OriginEndpointStreamNameOutputModeInput interface {
+	pulumi.Input
+
+	ToOriginEndpointStreamNameOutputModeOutput() OriginEndpointStreamNameOutputModeOutput
+	ToOriginEndpointStreamNameOutputModeOutputWithContext(context.Context) OriginEndpointStreamNameOutputModeOutput
+}
+
+var originEndpointStreamNameOutputModePtrType = reflect.TypeOf((**OriginEndpointStreamNameOutputMode)(nil)).Elem()
+
+type OriginEndpointStreamNameOutputModePtrInput interface {
+	pulumi.Input
+
+	ToOriginEndpointStreamNameOutputModePtrOutput() OriginEndpointStreamNameOutputModePtrOutput
+	ToOriginEndpointStreamNameOutputModePtrOutputWithContext(context.Context) OriginEndpointStreamNameOutputModePtrOutput
+}
+
+type originEndpointStreamNameOutputModePtr string
+
+func OriginEndpointStreamNameOutputModePtr(v string) OriginEndpointStreamNameOutputModePtrInput {
+	return (*originEndpointStreamNameOutputModePtr)(&v)
+}
+
+func (*originEndpointStreamNameOutputModePtr) ElementType() reflect.Type {
+	return originEndpointStreamNameOutputModePtrType
+}
+
+func (in *originEndpointStreamNameOutputModePtr) ToOriginEndpointStreamNameOutputModePtrOutput() OriginEndpointStreamNameOutputModePtrOutput {
+	return pulumi.ToOutput(in).(OriginEndpointStreamNameOutputModePtrOutput)
+}
+
+func (in *originEndpointStreamNameOutputModePtr) ToOriginEndpointStreamNameOutputModePtrOutputWithContext(ctx context.Context) OriginEndpointStreamNameOutputModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginEndpointStreamNameOutputModePtrOutput)
+}
+
 type OriginEndpointTsEncryptionMethod string
 
 const (
@@ -5037,6 +5202,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInManifestsPtrInput)(nil)).Elem(), OriginEndpointScteInManifests("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointScteInSegmentsPtrInput)(nil)).Elem(), OriginEndpointScteInSegments("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointStreamNameOutputModeInput)(nil)).Elem(), OriginEndpointStreamNameOutputMode("INDEX"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointStreamNameOutputModePtrInput)(nil)).Elem(), OriginEndpointStreamNameOutputMode("INDEX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointTsEncryptionMethodPtrInput)(nil)).Elem(), OriginEndpointTsEncryptionMethod("AES_128"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointUriPathTypeInput)(nil)).Elem(), OriginEndpointUriPathType("LEAF"))
@@ -5099,6 +5266,8 @@ func init() {
 	pulumi.RegisterOutputType(OriginEndpointScteInManifestsPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsOutput{})
 	pulumi.RegisterOutputType(OriginEndpointScteInSegmentsPtrOutput{})
+	pulumi.RegisterOutputType(OriginEndpointStreamNameOutputModeOutput{})
+	pulumi.RegisterOutputType(OriginEndpointStreamNameOutputModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointTsEncryptionMethodOutput{})
 	pulumi.RegisterOutputType(OriginEndpointTsEncryptionMethodPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointUriPathTypeOutput{})

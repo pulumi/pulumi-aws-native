@@ -18,6 +18,9 @@ namespace Pulumi.AwsNative.Eks.Inputs
         [Input("horizontalPodAutoscalerControllerConfig")]
         public Input<Inputs.ClusterHorizontalPodAutoscalerControllerConfigArgs>? HorizontalPodAutoscalerControllerConfig { get; set; }
 
+        [Input("podGcControllerConfig")]
+        public Input<Inputs.ClusterPodGcControllerConfigArgs>? PodGcControllerConfig { get; set; }
+
         public ClusterKubeControllerManagerConfigArgs()
         {
         }

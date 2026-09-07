@@ -12,6 +12,12 @@ namespace Pulumi.AwsNative.Ec2.Inputs
 
     public sealed class Ec2FleetReservedCapacityOptionsRequestArgs : global::Pulumi.ResourceArgs
     {
+        [Input("allocationStrategy")]
+        public Input<Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestAllocationStrategy>? AllocationStrategy { get; set; }
+
+        [Input("capacityReservationTarget")]
+        public Input<Inputs.Ec2FleetCapacityReservationTargetRequestArgs>? CapacityReservationTarget { get; set; }
+
         [Input("reservationTypes")]
         private InputList<Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestReservationTypesItem>? _reservationTypes;
         public InputList<Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestReservationTypesItem> ReservationTypes
@@ -19,6 +25,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
             get => _reservationTypes ?? (_reservationTypes = new InputList<Pulumi.AwsNative.Ec2.Ec2FleetReservedCapacityOptionsRequestReservationTypesItem>());
             set => _reservationTypes = value;
         }
+
+        [Input("reservedCapacityFallbackOptions")]
+        public Input<Inputs.Ec2FleetReservedCapacityFallbackOptionsRequestArgs>? ReservedCapacityFallbackOptions { get; set; }
 
         public Ec2FleetReservedCapacityOptionsRequestArgs()
         {

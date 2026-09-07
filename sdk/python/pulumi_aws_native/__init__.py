@@ -111,6 +111,8 @@ if typing.TYPE_CHECKING:
     certificatemanager = __certificatemanager
     import pulumi_aws_native.chatbot as __chatbot
     chatbot = __chatbot
+    import pulumi_aws_native.chime as __chime
+    chime = __chime
     import pulumi_aws_native.cleanrooms as __cleanrooms
     cleanrooms = __cleanrooms
     import pulumi_aws_native.cleanroomsml as __cleanroomsml
@@ -191,6 +193,8 @@ if typing.TYPE_CHECKING:
     directconnect = __directconnect
     import pulumi_aws_native.directoryservice as __directoryservice
     directoryservice = __directoryservice
+    import pulumi_aws_native.dlm as __dlm
+    dlm = __dlm
     import pulumi_aws_native.dms as __dms
     dms = __dms
     import pulumi_aws_native.docdb as __docdb
@@ -419,6 +423,8 @@ if typing.TYPE_CHECKING:
     pinpoint = __pinpoint
     import pulumi_aws_native.pipes as __pipes
     pipes = __pipes
+    import pulumi_aws_native.pricingplanmanager as __pricingplanmanager
+    pricingplanmanager = __pricingplanmanager
     import pulumi_aws_native.proton as __proton
     proton = __proton
     import pulumi_aws_native.qbusiness as __qbusiness
@@ -622,6 +628,7 @@ else:
     ce = _utilities.lazy_import('pulumi_aws_native.ce')
     certificatemanager = _utilities.lazy_import('pulumi_aws_native.certificatemanager')
     chatbot = _utilities.lazy_import('pulumi_aws_native.chatbot')
+    chime = _utilities.lazy_import('pulumi_aws_native.chime')
     cleanrooms = _utilities.lazy_import('pulumi_aws_native.cleanrooms')
     cleanroomsml = _utilities.lazy_import('pulumi_aws_native.cleanroomsml')
     cloudformation = _utilities.lazy_import('pulumi_aws_native.cloudformation')
@@ -662,6 +669,7 @@ else:
     devopsguru = _utilities.lazy_import('pulumi_aws_native.devopsguru')
     directconnect = _utilities.lazy_import('pulumi_aws_native.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws_native.directoryservice')
+    dlm = _utilities.lazy_import('pulumi_aws_native.dlm')
     dms = _utilities.lazy_import('pulumi_aws_native.dms')
     docdb = _utilities.lazy_import('pulumi_aws_native.docdb')
     docdbelastic = _utilities.lazy_import('pulumi_aws_native.docdbelastic')
@@ -776,6 +784,7 @@ else:
     personalize = _utilities.lazy_import('pulumi_aws_native.personalize')
     pinpoint = _utilities.lazy_import('pulumi_aws_native.pinpoint')
     pipes = _utilities.lazy_import('pulumi_aws_native.pipes')
+    pricingplanmanager = _utilities.lazy_import('pulumi_aws_native.pricingplanmanager')
     proton = _utilities.lazy_import('pulumi_aws_native.proton')
     qbusiness = _utilities.lazy_import('pulumi_aws_native.qbusiness')
     qldb = _utilities.lazy_import('pulumi_aws_native.qldb')
@@ -997,6 +1006,7 @@ _utilities.register(
    "aws-native:appconfig:DeploymentStrategy": "DeploymentStrategy",
    "aws-native:appconfig:Environment": "Environment",
    "aws-native:appconfig:ExperimentDefinition": "ExperimentDefinition",
+   "aws-native:appconfig:ExperimentRun": "ExperimentRun",
    "aws-native:appconfig:Extension": "Extension",
    "aws-native:appconfig:ExtensionAssociation": "ExtensionAssociation",
    "aws-native:appconfig:HostedConfigurationVersion": "HostedConfigurationVersion"
@@ -1387,6 +1397,14 @@ _utilities.register(
    "aws-native:chatbot:CustomAction": "CustomAction",
    "aws-native:chatbot:MicrosoftTeamsChannelConfiguration": "MicrosoftTeamsChannelConfiguration",
    "aws-native:chatbot:SlackChannelConfiguration": "SlackChannelConfiguration"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "chime",
+  "fqn": "pulumi_aws_native.chime",
+  "classes": {
+   "aws-native:chime:MediaPipelineKinesisVideoStreamPool": "MediaPipelineKinesisVideoStreamPool"
   }
  },
  {
@@ -1909,6 +1927,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "dlm",
+  "fqn": "pulumi_aws_native.dlm",
+  "classes": {
+   "aws-native:dlm:LifecyclePolicy": "LifecyclePolicy"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "dms",
   "fqn": "pulumi_aws_native.dms",
   "classes": {
@@ -1920,7 +1946,8 @@ _utilities.register(
    "aws-native:dms:InstanceProfile": "InstanceProfile",
    "aws-native:dms:MigrationProject": "MigrationProject",
    "aws-native:dms:ReplicationConfig": "ReplicationConfig",
-   "aws-native:dms:ReplicationSubnetGroup": "ReplicationSubnetGroup"
+   "aws-native:dms:ReplicationSubnetGroup": "ReplicationSubnetGroup",
+   "aws-native:dms:ReplicationTask": "ReplicationTask"
   }
  },
  {
@@ -1973,6 +2000,7 @@ _utilities.register(
   "mod": "ec2",
   "fqn": "pulumi_aws_native.ec2",
   "classes": {
+   "aws-native:ec2:ApplicationStatusCheck": "ApplicationStatusCheck",
    "aws-native:ec2:CapacityManagerDataExport": "CapacityManagerDataExport",
    "aws-native:ec2:CapacityReservation": "CapacityReservation",
    "aws-native:ec2:CapacityReservationFleet": "CapacityReservationFleet",
@@ -2344,7 +2372,8 @@ _utilities.register(
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
    "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation",
-   "aws-native:fsx:S3AccessPointAttachment": "S3AccessPointAttachment"
+   "aws-native:fsx:S3AccessPointAttachment": "S3AccessPointAttachment",
+   "aws-native:fsx:Volume": "Volume"
   }
  },
  {
@@ -3371,6 +3400,14 @@ _utilities.register(
  },
  {
   "pkg": "aws-native",
+  "mod": "pricingplanmanager",
+  "fqn": "pulumi_aws_native.pricingplanmanager",
+  "classes": {
+   "aws-native:pricingplanmanager:Subscription": "Subscription"
+  }
+ },
+ {
+  "pkg": "aws-native",
   "mod": "proton",
   "fqn": "pulumi_aws_native.proton",
   "classes": {
@@ -3776,6 +3813,7 @@ _utilities.register(
    "aws-native:sagemaker:DeviceFleet": "DeviceFleet",
    "aws-native:sagemaker:Domain": "Domain",
    "aws-native:sagemaker:Endpoint": "Endpoint",
+   "aws-native:sagemaker:EndpointConfig": "EndpointConfig",
    "aws-native:sagemaker:Experiment": "Experiment",
    "aws-native:sagemaker:ExperimentTrialComponent": "ExperimentTrialComponent",
    "aws-native:sagemaker:FeatureGroup": "FeatureGroup",
@@ -3795,6 +3833,7 @@ _utilities.register(
    "aws-native:sagemaker:ModelPackageGroup": "ModelPackageGroup",
    "aws-native:sagemaker:ModelQualityJobDefinition": "ModelQualityJobDefinition",
    "aws-native:sagemaker:MonitoringSchedule": "MonitoringSchedule",
+   "aws-native:sagemaker:NotebookInstance": "NotebookInstance",
    "aws-native:sagemaker:PartnerApp": "PartnerApp",
    "aws-native:sagemaker:Pipeline": "Pipeline",
    "aws-native:sagemaker:ProcessingJob": "ProcessingJob",

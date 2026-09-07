@@ -69,6 +69,7 @@ class RegistryRecordRecordType(_builtins.str, Enum):
     AGENT = "AGENT"
     SKILL = "SKILL"
     CUSTOM = "CUSTOM"
+    GATEWAY = "GATEWAY"
 
 
 @pulumi.type_token("aws-native:agentregistry:RegistryRecordStatus")

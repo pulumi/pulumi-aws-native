@@ -13,9 +13,12 @@ namespace Pulumi.AwsNative.LakeFormation.Outputs
     [OutputType]
     public sealed class PrincipalPermissionsCatalogResource
     {
+        public readonly string? Id;
+
         [OutputConstructor]
-        private PrincipalPermissionsCatalogResource()
+        private PrincipalPermissionsCatalogResource(string? id)
         {
+            Id = id;
         }
     }
 }

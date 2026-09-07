@@ -123,17 +123,31 @@ class FeedCroppingConfigArgs:
 
 
 class FeedDataSourceConfigurationArgsDict(TypedDict):
+    """
+    Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
+    """
     fixture_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
+    """
 
 @pulumi.input_type
 class FeedDataSourceConfigurationArgs:
     def __init__(__self__, *,
                  fixture_id: pulumi.Input[_builtins.str]):
+        """
+        Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
+
+        :param pulumi.Input[_builtins.str] fixture_id: The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
+        """
         pulumi.set(__self__, "fixture_id", fixture_id)
 
     @_builtins.property
     @pulumi.getter(name="fixtureId")
     def fixture_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
+        """
         return pulumi.get(self, "fixture_id")
 
     @fixture_id.setter

@@ -70,6 +70,7 @@ AWS::AppConfig::Deployment
 AWS::AppConfig::DeploymentStrategy
 AWS::AppConfig::Environment
 AWS::AppConfig::ExperimentDefinition
+AWS::AppConfig::ExperimentRun
 AWS::AppConfig::Extension
 AWS::AppConfig::ExtensionAssociation
 AWS::AppConfig::HostedConfigurationVersion
@@ -220,6 +221,7 @@ AWS::CertificateManager::Certificate
 AWS::Chatbot::CustomAction
 AWS::Chatbot::MicrosoftTeamsChannelConfiguration
 AWS::Chatbot::SlackChannelConfiguration
+AWS::Chime::MediaPipelineKinesisVideoStreamPool
 AWS::CleanRooms::AnalysisTemplate
 AWS::CleanRooms::Collaboration
 AWS::CleanRooms::ConfiguredTable
@@ -384,6 +386,7 @@ AWS::CustomerProfiles::Recommender
 AWS::CustomerProfiles::SegmentDefinition
 AWS::DAX::ParameterGroup
 AWS::DAX::SubnetGroup
+AWS::DLM::LifecyclePolicy
 AWS::DMS::Certificate
 AWS::DMS::DataMigration
 AWS::DMS::DataProvider
@@ -393,6 +396,7 @@ AWS::DMS::InstanceProfile
 AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
 AWS::DMS::ReplicationSubnetGroup
+AWS::DMS::ReplicationTask
 AWS::DRS::SourceNetwork
 AWS::DSQL::Cluster
 AWS::DataBrew::Dataset
@@ -483,6 +487,7 @@ AWS::DocDBElastic::Cluster
 AWS::DynamoDB::Backup
 AWS::DynamoDB::GlobalTable
 AWS::DynamoDB::Table
+AWS::EC2::ApplicationStatusCheck
 AWS::EC2::CapacityManagerDataExport
 AWS::EC2::CapacityReservation
 AWS::EC2::CapacityReservationFleet
@@ -684,6 +689,7 @@ AWS::FMS::Policy
 AWS::FMS::ResourceSet
 AWS::FSx::DataRepositoryAssociation
 AWS::FSx::S3AccessPointAttachment
+AWS::FSx::Volume
 AWS::FinSpace::Environment
 AWS::Forecast::Dataset
 AWS::Forecast::DatasetGroup
@@ -1124,6 +1130,7 @@ AWS::Personalize::Schema
 AWS::Personalize::Solution
 AWS::Pinpoint::InAppTemplate
 AWS::Pipes::Pipe
+AWS::PricingPlanManager::Subscription
 AWS::Proton::EnvironmentAccountConnection
 AWS::Proton::EnvironmentTemplate
 AWS::Proton::ServiceTemplate
@@ -1365,6 +1372,7 @@ AWS::SageMaker::Device
 AWS::SageMaker::DeviceFleet
 AWS::SageMaker::Domain
 AWS::SageMaker::Endpoint
+AWS::SageMaker::EndpointConfig
 AWS::SageMaker::Experiment
 AWS::SageMaker::ExperimentTrialComponent
 AWS::SageMaker::FeatureGroup
@@ -1384,6 +1392,7 @@ AWS::SageMaker::ModelPackage
 AWS::SageMaker::ModelPackageGroup
 AWS::SageMaker::ModelQualityJobDefinition
 AWS::SageMaker::MonitoringSchedule
+AWS::SageMaker::NotebookInstance
 AWS::SageMaker::PartnerApp
 AWS::SageMaker::Pipeline
 AWS::SageMaker::ProcessingJob

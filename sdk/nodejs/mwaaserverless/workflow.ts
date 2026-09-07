@@ -37,6 +37,8 @@ export class Workflow extends pulumi.CustomResource {
         return obj['__pulumiType'] === Workflow.__pulumiType;
     }
 
+    declare public readonly code: pulumi.Output<outputs.mwaaserverless.WorkflowCode | undefined>;
+    declare public /*out*/ readonly codeSnapshottedAt: pulumi.Output<string>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     declare public readonly definitionS3Location: pulumi.Output<outputs.mwaaserverless.WorkflowS3Location>;
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -70,6 +72,7 @@ export class Workflow extends pulumi.CustomResource {
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
+            resourceInputs["code"] = args?.code;
             resourceInputs["definitionS3Location"] = args?.definitionS3Location;
             resourceInputs["description"] = args?.description;
             resourceInputs["encryptionConfiguration"] = args?.encryptionConfiguration;
@@ -79,6 +82,7 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["roleArn"] = args?.roleArn;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["triggerMode"] = args?.triggerMode;
+            resourceInputs["codeSnapshottedAt"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
             resourceInputs["scheduleConfiguration"] = undefined /*out*/;
@@ -86,6 +90,8 @@ export class Workflow extends pulumi.CustomResource {
             resourceInputs["workflowStatus"] = undefined /*out*/;
             resourceInputs["workflowVersion"] = undefined /*out*/;
         } else {
+            resourceInputs["code"] = undefined /*out*/;
+            resourceInputs["codeSnapshottedAt"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["definitionS3Location"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
@@ -113,6 +119,7 @@ export class Workflow extends pulumi.CustomResource {
  * The set of arguments for constructing a Workflow resource.
  */
 export interface WorkflowArgs {
+    code?: pulumi.Input<inputs.mwaaserverless.WorkflowCodeArgs | undefined>;
     definitionS3Location: pulumi.Input<inputs.mwaaserverless.WorkflowS3LocationArgs>;
     description?: pulumi.Input<string | undefined>;
     encryptionConfiguration?: pulumi.Input<inputs.mwaaserverless.WorkflowEncryptionConfigurationArgs | undefined>;

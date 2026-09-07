@@ -313,6 +313,7 @@ func (o DataCellsFilterRowFilterPtrOutput) FilterExpression() pulumi.StringPtrOu
 }
 
 type PrincipalPermissionsCatalogResource struct {
+	Id *string `pulumi:"id"`
 }
 
 // PrincipalPermissionsCatalogResourceInput is an input type that accepts PrincipalPermissionsCatalogResourceArgs and PrincipalPermissionsCatalogResourceOutput values.
@@ -327,6 +328,7 @@ type PrincipalPermissionsCatalogResourceInput interface {
 }
 
 type PrincipalPermissionsCatalogResourceArgs struct {
+	Id pulumi.StringPtrInput `pulumi:"id"`
 }
 
 func (PrincipalPermissionsCatalogResourceArgs) ElementType() reflect.Type {
@@ -406,6 +408,10 @@ func (o PrincipalPermissionsCatalogResourceOutput) ToPrincipalPermissionsCatalog
 	}).(PrincipalPermissionsCatalogResourcePtrOutput)
 }
 
+func (o PrincipalPermissionsCatalogResourceOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrincipalPermissionsCatalogResource) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
 type PrincipalPermissionsCatalogResourcePtrOutput struct{ *pulumi.OutputState }
 
 func (PrincipalPermissionsCatalogResourcePtrOutput) ElementType() reflect.Type {
@@ -428,6 +434,15 @@ func (o PrincipalPermissionsCatalogResourcePtrOutput) Elem() PrincipalPermission
 		var ret PrincipalPermissionsCatalogResource
 		return ret
 	}).(PrincipalPermissionsCatalogResourceOutput)
+}
+
+func (o PrincipalPermissionsCatalogResourcePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrincipalPermissionsCatalogResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
 }
 
 // A wildcard object, consisting of an optional list of excluded column names or indexes.

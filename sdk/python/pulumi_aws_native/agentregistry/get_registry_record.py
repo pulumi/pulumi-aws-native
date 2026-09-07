@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetRegistryRecordResult:
-    def __init__(__self__, created_at=None, description=None, descriptors=None, display_name=None, name=None, record_arn=None, record_id=None, record_version=None, registry_arn=None, status=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, created_by=None, description=None, descriptors=None, display_name=None, name=None, record_arn=None, record_id=None, record_version=None, registry_arn=None, status=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if created_by and not isinstance(created_by, str):
+            raise TypeError("Expected argument 'created_by' to be a str")
+        pulumi.set(__self__, "created_by", created_by)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -71,6 +74,14 @@ class GetRegistryRecordResult:
         The timestamp when the registry record was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the AWS account that created the registry record.
+        """
+        return pulumi.get(self, "created_by")
 
     @_builtins.property
     @pulumi.getter
@@ -162,6 +173,7 @@ class AwaitableGetRegistryRecordResult(GetRegistryRecordResult):
             yield self
         return GetRegistryRecordResult(
             created_at=self.created_at,
+            created_by=self.created_by,
             description=self.description,
             descriptors=self.descriptors,
             display_name=self.display_name,
@@ -189,6 +201,7 @@ def get_registry_record(record_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetRegistryRecordResult(
         created_at=pulumi.get(__ret__, 'created_at'),
+        created_by=pulumi.get(__ret__, 'created_by'),
         description=pulumi.get(__ret__, 'description'),
         descriptors=pulumi.get(__ret__, 'descriptors'),
         display_name=pulumi.get(__ret__, 'display_name'),
@@ -213,6 +226,7 @@ def get_registry_record_output(record_arn: pulumi.Input[Optional[_builtins.str]]
     __ret__ = pulumi.runtime.invoke_output('aws-native:agentregistry:getRegistryRecord', __args__, opts=opts, typ=GetRegistryRecordResult)
     return __ret__.apply(lambda __response__: GetRegistryRecordResult(
         created_at=pulumi.get(__response__, 'created_at'),
+        created_by=pulumi.get(__response__, 'created_by'),
         description=pulumi.get(__response__, 'description'),
         descriptors=pulumi.get(__response__, 'descriptors'),
         display_name=pulumi.get(__response__, 'display_name'),

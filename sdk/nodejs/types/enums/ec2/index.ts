@@ -2,6 +2,45 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplicationStatusCheckAggregation = {
+    Included: "included",
+    Excluded: "excluded",
+} as const;
+
+/**
+ * Whether this check is included in the rolled-up application status.
+ */
+export type ApplicationStatusCheckAggregation = (typeof ApplicationStatusCheckAggregation)[keyof typeof ApplicationStatusCheckAggregation];
+
+export const ApplicationStatusCheckIpScope = {
+    Private: "private",
+} as const;
+
+/**
+ * The IP scope used for the health check.
+ */
+export type ApplicationStatusCheckIpScope = (typeof ApplicationStatusCheckIpScope)[keyof typeof ApplicationStatusCheckIpScope];
+
+export const ApplicationStatusCheckIpVersion = {
+    Ipv4: "ipv4",
+    Ipv6: "ipv6",
+} as const;
+
+/**
+ * The IP version used for the health check.
+ */
+export type ApplicationStatusCheckIpVersion = (typeof ApplicationStatusCheckIpVersion)[keyof typeof ApplicationStatusCheckIpVersion];
+
+export const ApplicationStatusCheckProtocol = {
+    Http: "http",
+    Https: "https",
+} as const;
+
+/**
+ * The network protocol used for the health check.
+ */
+export type ApplicationStatusCheckProtocol = (typeof ApplicationStatusCheckProtocol)[keyof typeof ApplicationStatusCheckProtocol];
+
 export const CapacityManagerDataExportOutputFormat = {
     Csv: "csv",
     Parquet: "parquet",
@@ -214,7 +253,21 @@ export const Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem = {
 
 export type Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem = (typeof Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem)[keyof typeof Ec2FleetInstanceRequirementsRequestLocalStorageTypesItem];
 
+export const Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem = {
+    OnDemand: "on-demand",
+} as const;
+
+export type Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem = (typeof Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem)[keyof typeof Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem];
+
+export const Ec2FleetReservedCapacityOptionsRequestAllocationStrategy = {
+    Prioritized: "prioritized",
+} as const;
+
+export type Ec2FleetReservedCapacityOptionsRequestAllocationStrategy = (typeof Ec2FleetReservedCapacityOptionsRequestAllocationStrategy)[keyof typeof Ec2FleetReservedCapacityOptionsRequestAllocationStrategy];
+
 export const Ec2FleetReservedCapacityOptionsRequestReservationTypesItem = {
+    OnDemandCapacityReservation: "on-demand-capacity-reservation",
+    CapacityBlock: "capacity-block",
     InterruptibleCapacityReservation: "interruptible-capacity-reservation",
 } as const;
 

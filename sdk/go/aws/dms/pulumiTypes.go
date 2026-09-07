@@ -7266,6 +7266,13 @@ type ReplicationSubnetGroupTag struct {
 	Value string `pulumi:"value"`
 }
 
+type ReplicationTaskTag struct {
+	// Tag key
+	Key string `pulumi:"key"`
+	// Tag value
+	Value string `pulumi:"value"`
+}
+
 // The property describes schema conversion application attributes for the migration project.
 type SchemaConversionApplicationAttributesProperties struct {
 	S3BucketPath    *string `pulumi:"s3BucketPath"`

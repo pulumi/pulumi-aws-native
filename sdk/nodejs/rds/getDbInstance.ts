@@ -571,6 +571,8 @@ export interface GetDbInstanceResult {
      * The status of a read replica. If the DB instance isn't a read replica, the value is blank.
      */
     readonly statusInfos?: outputs.rds.DbInstanceDbInstanceStatusInfo[];
+    readonly storageOperationPercentProgress?: number;
+    readonly storageOperationStatus?: string;
     /**
      * Specifies the storage throughput value, in mebibyte per second (MiBps), for the DB instance. This setting applies only to the ``gp3`` storage type.
      *  This setting doesn't apply to RDS Custom or Amazon Aurora.

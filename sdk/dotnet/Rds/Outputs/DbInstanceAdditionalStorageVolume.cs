@@ -28,6 +28,8 @@ namespace Pulumi.AwsNative.Rds.Outputs
         /// The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
         /// </summary>
         public readonly int? MaxAllocatedStorage;
+        public readonly int? StorageOperationPercentProgress;
+        public readonly string? StorageOperationStatus;
         /// <summary>
         /// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         /// </summary>
@@ -51,6 +53,10 @@ namespace Pulumi.AwsNative.Rds.Outputs
 
             int? maxAllocatedStorage,
 
+            int? storageOperationPercentProgress,
+
+            string? storageOperationStatus,
+
             int? storageThroughput,
 
             string? storageType,
@@ -60,6 +66,8 @@ namespace Pulumi.AwsNative.Rds.Outputs
             AllocatedStorage = allocatedStorage;
             Iops = iops;
             MaxAllocatedStorage = maxAllocatedStorage;
+            StorageOperationPercentProgress = storageOperationPercentProgress;
+            StorageOperationStatus = storageOperationStatus;
             StorageThroughput = storageThroughput;
             StorageType = storageType;
             VolumeName = volumeName;

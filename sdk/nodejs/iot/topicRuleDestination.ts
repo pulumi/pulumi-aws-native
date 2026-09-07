@@ -46,6 +46,10 @@ export class TopicRuleDestination extends pulumi.CustomResource {
      */
     declare public readonly httpUrlProperties: pulumi.Output<outputs.iot.TopicRuleDestinationHttpUrlDestinationSummary | undefined>;
     /**
+     * InfluxDB destination properties.
+     */
+    declare public readonly influxDbProperties: pulumi.Output<outputs.iot.TopicRuleDestinationInfluxDbDestinationProperties | undefined>;
+    /**
      * The status of the TopicRuleDestination.
      */
     declare public readonly status: pulumi.Output<enums.iot.TopicRuleDestinationStatus | undefined>;
@@ -70,6 +74,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
         opts = opts || {};
         if (!opts.id) {
             resourceInputs["httpUrlProperties"] = args?.httpUrlProperties;
+            resourceInputs["influxDbProperties"] = args?.influxDbProperties;
             resourceInputs["status"] = args?.status;
             resourceInputs["vpcProperties"] = args?.vpcProperties;
             resourceInputs["arn"] = undefined /*out*/;
@@ -77,12 +82,13 @@ export class TopicRuleDestination extends pulumi.CustomResource {
         } else {
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["httpUrlProperties"] = undefined /*out*/;
+            resourceInputs["influxDbProperties"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
             resourceInputs["statusReason"] = undefined /*out*/;
             resourceInputs["vpcProperties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["httpUrlProperties", "vpcProperties"] };
+        const replaceOnChanges = { replaceOnChanges: ["httpUrlProperties", "influxDbProperties", "vpcProperties"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(TopicRuleDestination.__pulumiType, name, resourceInputs, opts);
     }
@@ -96,6 +102,10 @@ export interface TopicRuleDestinationArgs {
      * HTTP URL destination properties.
      */
     httpUrlProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationHttpUrlDestinationSummaryArgs | undefined>;
+    /**
+     * InfluxDB destination properties.
+     */
+    influxDbProperties?: pulumi.Input<inputs.iot.TopicRuleDestinationInfluxDbDestinationPropertiesArgs | undefined>;
     /**
      * The status of the TopicRuleDestination.
      */

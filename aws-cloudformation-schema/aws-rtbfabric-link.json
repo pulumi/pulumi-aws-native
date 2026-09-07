@@ -385,7 +385,7 @@
       "permissions" : [ "rtbfabric:GetLink", "rtbfabric:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "rtbfabric:UpdateLink", "rtbfabric:GetLink", "rtbfabric:TagResource", "rtbfabric:UntagResource", "rtbfabric:ListTagsForResource" ]
+      "permissions" : [ "rtbfabric:UpdateLink", "rtbfabric:UpdateLinkModuleFlow", "rtbfabric:GetLink", "rtbfabric:TagResource", "rtbfabric:UntagResource", "rtbfabric:ListTagsForResource" ]
     },
     "delete" : {
       "permissions" : [ "rtbfabric:DeleteLink", "rtbfabric:GetLink" ]

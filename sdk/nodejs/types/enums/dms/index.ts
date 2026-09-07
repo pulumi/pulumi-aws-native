@@ -101,3 +101,14 @@ export const ReplicationConfigReplicationType = {
  * The type of AWS DMS Serverless replication to provision using this replication configuration
  */
 export type ReplicationConfigReplicationType = (typeof ReplicationConfigReplicationType)[keyof typeof ReplicationConfigReplicationType];
+
+export const ReplicationTaskMigrationType = {
+    FullLoad: "full-load",
+    Cdc: "cdc",
+    FullLoadAndCdc: "full-load-and-cdc",
+} as const;
+
+/**
+ * The migration type.
+ */
+export type ReplicationTaskMigrationType = (typeof ReplicationTaskMigrationType)[keyof typeof ReplicationTaskMigrationType];

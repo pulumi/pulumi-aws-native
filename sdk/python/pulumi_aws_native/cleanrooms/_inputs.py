@@ -70,6 +70,8 @@ __all__ = [
     'ConfiguredTableAggregateColumnArgsDict',
     'ConfiguredTableAggregationConstraintArgs',
     'ConfiguredTableAggregationConstraintArgsDict',
+    'ConfiguredTableAggregationThresholdArgs',
+    'ConfiguredTableAggregationThresholdArgsDict',
     'ConfiguredTableAnalysisRuleArgs',
     'ConfiguredTableAnalysisRuleArgsDict',
     'ConfiguredTableAnalysisRuleAggregationArgs',
@@ -104,12 +106,16 @@ __all__ = [
     'ConfiguredTableAssociationAnalysisRulePolicyV12PropertiesArgsDict',
     'ConfiguredTableAthenaTableReferenceArgs',
     'ConfiguredTableAthenaTableReferenceArgsDict',
+    'ConfiguredTableComparisonControlsArgs',
+    'ConfiguredTableComparisonControlsArgsDict',
     'ConfiguredTableDifferentialPrivacyArgs',
     'ConfiguredTableDifferentialPrivacyArgsDict',
     'ConfiguredTableDifferentialPrivacyColumnArgs',
     'ConfiguredTableDifferentialPrivacyColumnArgsDict',
     'ConfiguredTableGlueTableReferenceArgs',
     'ConfiguredTableGlueTableReferenceArgsDict',
+    'ConfiguredTableOutputColumnThresholdArgs',
+    'ConfiguredTableOutputColumnThresholdArgsDict',
     'ConfiguredTableSnowflakeTableReferenceArgs',
     'ConfiguredTableSnowflakeTableReferenceArgsDict',
     'ConfiguredTableSnowflakeTableSchemaPropertiesArgs',
@@ -128,6 +134,8 @@ __all__ = [
     'IdNamespaceAssociationIdMappingConfigArgsDict',
     'IdNamespaceAssociationInputReferenceConfigArgs',
     'IdNamespaceAssociationInputReferenceConfigArgsDict',
+    'IntermediateTableAggregationThresholdArgs',
+    'IntermediateTableAggregationThresholdArgsDict',
     'IntermediateTableAnalysisRuleArgs',
     'IntermediateTableAnalysisRuleArgsDict',
     'IntermediateTableAnalysisRuleCustomArgs',
@@ -136,10 +144,14 @@ __all__ = [
     'IntermediateTableAnalysisRulePolicyArgsDict',
     'IntermediateTableAnalysisRulePolicyV1PropertiesArgs',
     'IntermediateTableAnalysisRulePolicyV1PropertiesArgsDict',
+    'IntermediateTableComparisonControlsArgs',
+    'IntermediateTableComparisonControlsArgsDict',
     'IntermediateTableDifferentialPrivacyArgs',
     'IntermediateTableDifferentialPrivacyArgsDict',
     'IntermediateTableDifferentialPrivacyColumnArgs',
     'IntermediateTableDifferentialPrivacyColumnArgsDict',
+    'IntermediateTableOutputColumnThresholdArgs',
+    'IntermediateTableOutputColumnThresholdArgsDict',
     'IntermediateTablePopulationAnalysisConfigurationArgs',
     'IntermediateTablePopulationAnalysisConfigurationArgsDict',
     'IntermediateTablePopulationAnalysisSqlParametersArgs',
@@ -1263,6 +1275,74 @@ class ConfiguredTableAggregationConstraintArgs:
         pulumi.set(self, "type", value)
 
 
+class ConfiguredTableAggregationThresholdArgsDict(TypedDict):
+    allowed_aggregate_expression_type: pulumi.Input['ConfiguredTableAllowedAggregateExpressionType']
+    identity_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    minimum_identity_count: pulumi.Input[_builtins.int]
+    type: pulumi.Input['ConfiguredTableAggregationThresholdType']
+    output_column_thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableOutputColumnThresholdArgsDict']]]]]
+
+@pulumi.input_type
+class ConfiguredTableAggregationThresholdArgs:
+    def __init__(__self__, *,
+                 allowed_aggregate_expression_type: pulumi.Input['ConfiguredTableAllowedAggregateExpressionType'],
+                 identity_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 minimum_identity_count: pulumi.Input[_builtins.int],
+                 type: pulumi.Input['ConfiguredTableAggregationThresholdType'],
+                 output_column_thresholds: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableOutputColumnThresholdArgs']]]] = None):
+        pulumi.set(__self__, "allowed_aggregate_expression_type", allowed_aggregate_expression_type)
+        pulumi.set(__self__, "identity_columns", identity_columns)
+        pulumi.set(__self__, "minimum_identity_count", minimum_identity_count)
+        pulumi.set(__self__, "type", type)
+        if output_column_thresholds is not None:
+            pulumi.set(__self__, "output_column_thresholds", output_column_thresholds)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAggregateExpressionType")
+    def allowed_aggregate_expression_type(self) -> pulumi.Input['ConfiguredTableAllowedAggregateExpressionType']:
+        return pulumi.get(self, "allowed_aggregate_expression_type")
+
+    @allowed_aggregate_expression_type.setter
+    def allowed_aggregate_expression_type(self, value: pulumi.Input['ConfiguredTableAllowedAggregateExpressionType']):
+        pulumi.set(self, "allowed_aggregate_expression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityColumns")
+    def identity_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "identity_columns")
+
+    @identity_columns.setter
+    def identity_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "identity_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumIdentityCount")
+    def minimum_identity_count(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "minimum_identity_count")
+
+    @minimum_identity_count.setter
+    def minimum_identity_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_identity_count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ConfiguredTableAggregationThresholdType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ConfiguredTableAggregationThresholdType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputColumnThresholds")
+    def output_column_thresholds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableOutputColumnThresholdArgs']]]]:
+        return pulumi.get(self, "output_column_thresholds")
+
+    @output_column_thresholds.setter
+    def output_column_thresholds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableOutputColumnThresholdArgs']]]]):
+        pulumi.set(self, "output_column_thresholds", value)
+
+
 class ConfiguredTableAnalysisRuleArgsDict(TypedDict):
     policy: pulumi.Input['ConfiguredTableAnalysisRulePolicyArgsDict']
     """
@@ -1419,7 +1499,9 @@ class ConfiguredTableAnalysisRuleAggregationArgs:
 class ConfiguredTableAnalysisRuleCustomArgsDict(TypedDict):
     allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     additional_analyses: NotRequired[pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']]]
+    aggregation_thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableAggregationThresholdArgsDict']]]]]
     allowed_analysis_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    comparison_controls: NotRequired[pulumi.Input[Optional['ConfiguredTableComparisonControlsArgsDict']]]
     differential_privacy: NotRequired[pulumi.Input[Optional['ConfiguredTableDifferentialPrivacyArgsDict']]]
     disallowed_output_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
@@ -1428,14 +1510,20 @@ class ConfiguredTableAnalysisRuleCustomArgs:
     def __init__(__self__, *,
                  allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  additional_analyses: pulumi.Input[Optional['ConfiguredTableAdditionalAnalyses']] = None,
+                 aggregation_thresholds: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableAggregationThresholdArgs']]]] = None,
                  allowed_analysis_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comparison_controls: pulumi.Input[Optional['ConfiguredTableComparisonControlsArgs']] = None,
                  differential_privacy: pulumi.Input[Optional['ConfiguredTableDifferentialPrivacyArgs']] = None,
                  disallowed_output_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "allowed_analyses", allowed_analyses)
         if additional_analyses is not None:
             pulumi.set(__self__, "additional_analyses", additional_analyses)
+        if aggregation_thresholds is not None:
+            pulumi.set(__self__, "aggregation_thresholds", aggregation_thresholds)
         if allowed_analysis_providers is not None:
             pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
+        if comparison_controls is not None:
+            pulumi.set(__self__, "comparison_controls", comparison_controls)
         if differential_privacy is not None:
             pulumi.set(__self__, "differential_privacy", differential_privacy)
         if disallowed_output_columns is not None:
@@ -1460,6 +1548,15 @@ class ConfiguredTableAnalysisRuleCustomArgs:
         pulumi.set(self, "additional_analyses", value)
 
     @_builtins.property
+    @pulumi.getter(name="aggregationThresholds")
+    def aggregation_thresholds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableAggregationThresholdArgs']]]]:
+        return pulumi.get(self, "aggregation_thresholds")
+
+    @aggregation_thresholds.setter
+    def aggregation_thresholds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConfiguredTableAggregationThresholdArgs']]]]):
+        pulumi.set(self, "aggregation_thresholds", value)
+
+    @_builtins.property
     @pulumi.getter(name="allowedAnalysisProviders")
     def allowed_analysis_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_analysis_providers")
@@ -1467,6 +1564,15 @@ class ConfiguredTableAnalysisRuleCustomArgs:
     @allowed_analysis_providers.setter
     def allowed_analysis_providers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_analysis_providers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonControls")
+    def comparison_controls(self) -> pulumi.Input[Optional['ConfiguredTableComparisonControlsArgs']]:
+        return pulumi.get(self, "comparison_controls")
+
+    @comparison_controls.setter
+    def comparison_controls(self, value: pulumi.Input[Optional['ConfiguredTableComparisonControlsArgs']]):
+        pulumi.set(self, "comparison_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="differentialPrivacy")
@@ -1942,6 +2048,37 @@ class ConfiguredTableAthenaTableReferenceArgs:
         pulumi.set(self, "region", value)
 
 
+class ConfiguredTableComparisonControlsArgsDict(TypedDict):
+    allowed_column_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    allowed_literal_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class ConfiguredTableComparisonControlsArgs:
+    def __init__(__self__, *,
+                 allowed_column_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 allowed_literal_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "allowed_column_comparison_columns", allowed_column_comparison_columns)
+        pulumi.set(__self__, "allowed_literal_comparison_columns", allowed_literal_comparison_columns)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedColumnComparisonColumns")
+    def allowed_column_comparison_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "allowed_column_comparison_columns")
+
+    @allowed_column_comparison_columns.setter
+    def allowed_column_comparison_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_column_comparison_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLiteralComparisonColumns")
+    def allowed_literal_comparison_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "allowed_literal_comparison_columns")
+
+    @allowed_literal_comparison_columns.setter
+    def allowed_literal_comparison_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_literal_comparison_columns", value)
+
+
 class ConfiguredTableDifferentialPrivacyArgsDict(TypedDict):
     columns: pulumi.Input[Sequence[pulumi.Input['ConfiguredTableDifferentialPrivacyColumnArgsDict']]]
 
@@ -2022,6 +2159,37 @@ class ConfiguredTableGlueTableReferenceArgs:
     @region.setter
     def region(self, value: pulumi.Input[Optional['ConfiguredTableCommercialRegion']]):
         pulumi.set(self, "region", value)
+
+
+class ConfiguredTableOutputColumnThresholdArgsDict(TypedDict):
+    minimum_identity_count: pulumi.Input[_builtins.int]
+    output_column_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class ConfiguredTableOutputColumnThresholdArgs:
+    def __init__(__self__, *,
+                 minimum_identity_count: pulumi.Input[_builtins.int],
+                 output_column_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "minimum_identity_count", minimum_identity_count)
+        pulumi.set(__self__, "output_column_name", output_column_name)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumIdentityCount")
+    def minimum_identity_count(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "minimum_identity_count")
+
+    @minimum_identity_count.setter
+    def minimum_identity_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_identity_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputColumnName")
+    def output_column_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "output_column_name")
+
+    @output_column_name.setter
+    def output_column_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "output_column_name", value)
 
 
 class ConfiguredTableSnowflakeTableReferenceArgsDict(TypedDict):
@@ -2350,6 +2518,74 @@ class IdNamespaceAssociationInputReferenceConfigArgs:
         pulumi.set(self, "manage_resource_policies", value)
 
 
+class IntermediateTableAggregationThresholdArgsDict(TypedDict):
+    allowed_aggregate_expression_type: pulumi.Input['IntermediateTableAllowedAggregateExpressionType']
+    identity_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    minimum_identity_count: pulumi.Input[_builtins.int]
+    type: pulumi.Input['IntermediateTableAggregationThresholdType']
+    output_column_thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableOutputColumnThresholdArgsDict']]]]]
+
+@pulumi.input_type
+class IntermediateTableAggregationThresholdArgs:
+    def __init__(__self__, *,
+                 allowed_aggregate_expression_type: pulumi.Input['IntermediateTableAllowedAggregateExpressionType'],
+                 identity_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 minimum_identity_count: pulumi.Input[_builtins.int],
+                 type: pulumi.Input['IntermediateTableAggregationThresholdType'],
+                 output_column_thresholds: pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableOutputColumnThresholdArgs']]]] = None):
+        pulumi.set(__self__, "allowed_aggregate_expression_type", allowed_aggregate_expression_type)
+        pulumi.set(__self__, "identity_columns", identity_columns)
+        pulumi.set(__self__, "minimum_identity_count", minimum_identity_count)
+        pulumi.set(__self__, "type", type)
+        if output_column_thresholds is not None:
+            pulumi.set(__self__, "output_column_thresholds", output_column_thresholds)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedAggregateExpressionType")
+    def allowed_aggregate_expression_type(self) -> pulumi.Input['IntermediateTableAllowedAggregateExpressionType']:
+        return pulumi.get(self, "allowed_aggregate_expression_type")
+
+    @allowed_aggregate_expression_type.setter
+    def allowed_aggregate_expression_type(self, value: pulumi.Input['IntermediateTableAllowedAggregateExpressionType']):
+        pulumi.set(self, "allowed_aggregate_expression_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityColumns")
+    def identity_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "identity_columns")
+
+    @identity_columns.setter
+    def identity_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "identity_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumIdentityCount")
+    def minimum_identity_count(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "minimum_identity_count")
+
+    @minimum_identity_count.setter
+    def minimum_identity_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_identity_count", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['IntermediateTableAggregationThresholdType']:
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['IntermediateTableAggregationThresholdType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputColumnThresholds")
+    def output_column_thresholds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableOutputColumnThresholdArgs']]]]:
+        return pulumi.get(self, "output_column_thresholds")
+
+    @output_column_thresholds.setter
+    def output_column_thresholds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableOutputColumnThresholdArgs']]]]):
+        pulumi.set(self, "output_column_thresholds", value)
+
+
 class IntermediateTableAnalysisRuleArgsDict(TypedDict):
     policy: pulumi.Input['IntermediateTableAnalysisRulePolicyArgsDict']
     type: pulumi.Input['IntermediateTableAnalysisRuleType']
@@ -2384,8 +2620,10 @@ class IntermediateTableAnalysisRuleArgs:
 class IntermediateTableAnalysisRuleCustomArgsDict(TypedDict):
     allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     additional_analyses: NotRequired[pulumi.Input[Optional['IntermediateTableAdditionalAnalyses']]]
+    aggregation_thresholds: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableAggregationThresholdArgsDict']]]]]
     allowed_analysis_providers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     allowed_result_receivers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    comparison_controls: NotRequired[pulumi.Input[Optional['IntermediateTableComparisonControlsArgsDict']]]
     differential_privacy: NotRequired[pulumi.Input[Optional['IntermediateTableDifferentialPrivacyArgsDict']]]
     disallowed_output_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
 
@@ -2394,17 +2632,23 @@ class IntermediateTableAnalysisRuleCustomArgs:
     def __init__(__self__, *,
                  allowed_analyses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  additional_analyses: pulumi.Input[Optional['IntermediateTableAdditionalAnalyses']] = None,
+                 aggregation_thresholds: pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableAggregationThresholdArgs']]]] = None,
                  allowed_analysis_providers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  allowed_result_receivers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 comparison_controls: pulumi.Input[Optional['IntermediateTableComparisonControlsArgs']] = None,
                  differential_privacy: pulumi.Input[Optional['IntermediateTableDifferentialPrivacyArgs']] = None,
                  disallowed_output_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "allowed_analyses", allowed_analyses)
         if additional_analyses is not None:
             pulumi.set(__self__, "additional_analyses", additional_analyses)
+        if aggregation_thresholds is not None:
+            pulumi.set(__self__, "aggregation_thresholds", aggregation_thresholds)
         if allowed_analysis_providers is not None:
             pulumi.set(__self__, "allowed_analysis_providers", allowed_analysis_providers)
         if allowed_result_receivers is not None:
             pulumi.set(__self__, "allowed_result_receivers", allowed_result_receivers)
+        if comparison_controls is not None:
+            pulumi.set(__self__, "comparison_controls", comparison_controls)
         if differential_privacy is not None:
             pulumi.set(__self__, "differential_privacy", differential_privacy)
         if disallowed_output_columns is not None:
@@ -2429,6 +2673,15 @@ class IntermediateTableAnalysisRuleCustomArgs:
         pulumi.set(self, "additional_analyses", value)
 
     @_builtins.property
+    @pulumi.getter(name="aggregationThresholds")
+    def aggregation_thresholds(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableAggregationThresholdArgs']]]]:
+        return pulumi.get(self, "aggregation_thresholds")
+
+    @aggregation_thresholds.setter
+    def aggregation_thresholds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['IntermediateTableAggregationThresholdArgs']]]]):
+        pulumi.set(self, "aggregation_thresholds", value)
+
+    @_builtins.property
     @pulumi.getter(name="allowedAnalysisProviders")
     def allowed_analysis_providers(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         return pulumi.get(self, "allowed_analysis_providers")
@@ -2445,6 +2698,15 @@ class IntermediateTableAnalysisRuleCustomArgs:
     @allowed_result_receivers.setter
     def allowed_result_receivers(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "allowed_result_receivers", value)
+
+    @_builtins.property
+    @pulumi.getter(name="comparisonControls")
+    def comparison_controls(self) -> pulumi.Input[Optional['IntermediateTableComparisonControlsArgs']]:
+        return pulumi.get(self, "comparison_controls")
+
+    @comparison_controls.setter
+    def comparison_controls(self, value: pulumi.Input[Optional['IntermediateTableComparisonControlsArgs']]):
+        pulumi.set(self, "comparison_controls", value)
 
     @_builtins.property
     @pulumi.getter(name="differentialPrivacy")
@@ -2503,6 +2765,37 @@ class IntermediateTableAnalysisRulePolicyV1PropertiesArgs:
         pulumi.set(self, "custom", value)
 
 
+class IntermediateTableComparisonControlsArgsDict(TypedDict):
+    allowed_column_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    allowed_literal_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class IntermediateTableComparisonControlsArgs:
+    def __init__(__self__, *,
+                 allowed_column_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 allowed_literal_comparison_columns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "allowed_column_comparison_columns", allowed_column_comparison_columns)
+        pulumi.set(__self__, "allowed_literal_comparison_columns", allowed_literal_comparison_columns)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedColumnComparisonColumns")
+    def allowed_column_comparison_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "allowed_column_comparison_columns")
+
+    @allowed_column_comparison_columns.setter
+    def allowed_column_comparison_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_column_comparison_columns", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedLiteralComparisonColumns")
+    def allowed_literal_comparison_columns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "allowed_literal_comparison_columns")
+
+    @allowed_literal_comparison_columns.setter
+    def allowed_literal_comparison_columns(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "allowed_literal_comparison_columns", value)
+
+
 class IntermediateTableDifferentialPrivacyArgsDict(TypedDict):
     columns: pulumi.Input[Sequence[pulumi.Input['IntermediateTableDifferentialPrivacyColumnArgsDict']]]
 
@@ -2539,6 +2832,37 @@ class IntermediateTableDifferentialPrivacyColumnArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+
+class IntermediateTableOutputColumnThresholdArgsDict(TypedDict):
+    minimum_identity_count: pulumi.Input[_builtins.int]
+    output_column_name: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class IntermediateTableOutputColumnThresholdArgs:
+    def __init__(__self__, *,
+                 minimum_identity_count: pulumi.Input[_builtins.int],
+                 output_column_name: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "minimum_identity_count", minimum_identity_count)
+        pulumi.set(__self__, "output_column_name", output_column_name)
+
+    @_builtins.property
+    @pulumi.getter(name="minimumIdentityCount")
+    def minimum_identity_count(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "minimum_identity_count")
+
+    @minimum_identity_count.setter
+    def minimum_identity_count(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "minimum_identity_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="outputColumnName")
+    def output_column_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "output_column_name")
+
+    @output_column_name.setter
+    def output_column_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "output_column_name", value)
 
 
 class IntermediateTablePopulationAnalysisConfigurationArgsDict(TypedDict):

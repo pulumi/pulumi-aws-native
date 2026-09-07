@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.MediaConnect
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("fabricConfiguration")]
+        public Output<Outputs.RouterOutputResourceFabricConfiguration?> FabricConfiguration { get; private set; } = null!;
+
         /// <summary>
         /// The IP address of the router output.
         /// </summary>
@@ -178,6 +181,9 @@ namespace Pulumi.AwsNative.MediaConnect
 
         [Input("configuration", required: true)]
         public object Configuration { get; set; } = null!;
+
+        [Input("fabricConfiguration")]
+        public Input<Inputs.RouterOutputResourceFabricConfigurationArgs>? FabricConfiguration { get; set; }
 
         /// <summary>
         /// The maintenance configuration settings applied to this router output.

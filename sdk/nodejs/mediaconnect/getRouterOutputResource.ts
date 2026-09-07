@@ -34,6 +34,7 @@ export interface GetRouterOutputResourceResult {
      * The timestamp when the router output was created.
      */
     readonly createdAt?: string;
+    readonly fabricConfiguration?: outputs.mediaconnect.RouterOutputResourceFabricConfiguration;
     /**
      * The unique identifier of the router output.
      */

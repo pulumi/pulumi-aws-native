@@ -967,6 +967,37 @@
       }
     }
   },
+  "aws-native:appconfig:ExperimentRun": {
+    "cfTypeName": "AWS::AppConfig::ExperimentRun",
+    "properties": {
+      "applicationIdentifier": {
+        "type": "string",
+        "description": "The application name or ID used to create the experiment run."
+      },
+      "description": {
+        "type": "string",
+        "description": "Description of the experiment run."
+      },
+      "experimentDefinitionIdentifier": {
+        "type": "string",
+        "description": "The experiment definition name or ID used to create the experiment run."
+      },
+      "exposurePercentage": {
+        "type": "number",
+        "description": "Percentage of traffic exposed to the experiment (0-100)."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to associate with the experiment run."
+      },
+      "treatmentOverrides": {
+        "$ref": "#/types/aws-native:appconfig:ExperimentRunTreatmentOverrides"
+      }
+    }
+  },
   "aws-native:appconfig:ExtensionAssociation": {
     "cfTypeName": "AWS::AppConfig::ExtensionAssociation",
     "properties": {
@@ -5180,6 +5211,65 @@
       }
     }
   },
+  "aws-native:dlm:LifecyclePolicy": {
+    "cfTypeName": "AWS::DLM::LifecyclePolicy",
+    "properties": {
+      "copyTags": {
+        "type": "boolean",
+        "description": "**[Default policies only]** Indicates whether the policy should copy tags from the source resource to the snapshot or AMI. If you do not specify a value, the default is false."
+      },
+      "createInterval": {
+        "type": "integer",
+        "description": "**[Default policies only]** Specifies how often the policy should run and create snapshots or AMIs. The creation frequency can range from 1 to 7 days."
+      },
+      "crossRegionCopyTargets": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:dlm:LifecyclePolicyCrossRegionCopyTarget"
+        },
+        "description": "*[Default policies only]* Specifies destination Regions for snapshot or AMI copies. You can specify up to 3 destination Regions. If you do not want to create cross-Region copies, omit this parameter."
+      },
+      "defaultPolicy": {
+        "type": "string",
+        "description": "**[Default policies only]** Specify the type of default policy to create."
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the lifecycle policy. The characters ^[0-9A-Za-z _-]+$ are supported."
+      },
+      "exclusions": {
+        "$ref": "#/types/aws-native:dlm:LifecyclePolicyExclusions",
+        "description": "*[Default policies only]* Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters."
+      },
+      "executionRoleArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the IAM role used to run the operations specified by the lifecycle policy."
+      },
+      "extendDeletion": {
+        "type": "boolean",
+        "description": "**[Default policies only]** Defines the snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state."
+      },
+      "policyDetails": {
+        "$ref": "#/types/aws-native:dlm:LifecyclePolicyPolicyDetails",
+        "description": "The configuration details of the lifecycle policy.\n\n\u003e If you create a default policy, you can specify the request parameters either in the request body, or in the PolicyDetails request structure, but not both."
+      },
+      "retainInterval": {
+        "type": "integer",
+        "description": "**[Default policies only]** Specifies how long the policy should retain snapshots or AMIs before deleting them. The retention period can range from 2 to 14 days, but it must be greater than the creation frequency to ensure that the policy retains at least 1 snapshot or AMI at any given time."
+      },
+      "state": {
+        "type": "string",
+        "description": "The activation state of the lifecycle policy."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to apply to the lifecycle policy during creation."
+      }
+    }
+  },
   "aws-native:dms:Certificate": {
     "cfTypeName": "AWS::DMS::Certificate",
     "properties": {
@@ -5404,6 +5494,66 @@
       }
     }
   },
+  "aws-native:dms:ReplicationTask": {
+    "cfTypeName": "AWS::DMS::ReplicationTask",
+    "properties": {
+      "cdcStartPosition": {
+        "type": "string",
+        "description": "Indicates when you want a change data capture (CDC) operation to start. Use either CdcStartPosition or CdcStartTime to specify when you want a CDC operation to start. Specifying both values results in an error."
+      },
+      "cdcStartTime": {
+        "type": "number",
+        "description": "Indicates the start time for a change data capture (CDC) operation. Use either CdcStartTime or CdcStartPosition to specify when you want a CDC operation to start. Specifying both values results in an error."
+      },
+      "cdcStopPosition": {
+        "type": "string",
+        "description": "Indicates when you want a change data capture (CDC) operation to stop. The value can be either server time or commit time."
+      },
+      "migrationType": {
+        "$ref": "#/types/aws-native:dms:ReplicationTaskMigrationType",
+        "description": "The migration type."
+      },
+      "replicationInstanceArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of a replication instance."
+      },
+      "replicationTaskIdentifier": {
+        "type": "string",
+        "description": "An identifier for the replication task."
+      },
+      "replicationTaskSettings": {
+        "type": "string",
+        "description": "Overall settings for the task, in JSON format"
+      },
+      "resourceIdentifier": {
+        "type": "string",
+        "description": "A friendly name for the resource identifier at the end of the EndpointArn response parameter that is returned in the created Endpoint object."
+      },
+      "sourceEndpointArn": {
+        "type": "string",
+        "description": "An Amazon Resource Name (ARN) that uniquely identifies the source endpoint."
+      },
+      "tableMappings": {
+        "type": "string",
+        "description": "The table mappings for the task, in JSON format."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "One or more tags to be assigned to the replication task."
+      },
+      "targetEndpointArn": {
+        "type": "string",
+        "description": "An Amazon Resource Name (ARN) that uniquely identifies the target endpoint."
+      },
+      "taskData": {
+        "type": "string",
+        "description": "Supplemental information that the task requires to migrate the data for certain source and target endpoints."
+      }
+    }
+  },
   "aws-native:docdb:GlobalCluster": {
     "cfTypeName": "AWS::DocDB::GlobalCluster",
     "properties": {
@@ -5489,6 +5639,77 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "A map of key and value pairs this cluster is tagged with."
+      }
+    }
+  },
+  "aws-native:ec2:ApplicationStatusCheck": {
+    "cfTypeName": "AWS::EC2::ApplicationStatusCheck",
+    "properties": {
+      "aggregation": {
+        "$ref": "#/types/aws-native:ec2:ApplicationStatusCheckAggregation",
+        "description": "Whether this check is included in the rolled-up application status."
+      },
+      "deviceIndex": {
+        "type": "integer",
+        "description": "The network interface device index used for the health check."
+      },
+      "failureThreshold": {
+        "type": "integer",
+        "description": "The number of consecutive failed probes required to mark the instance unhealthy."
+      },
+      "healthCheckPaths": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:ec2:ApplicationStatusCheckHealthCheckPath"
+        },
+        "description": "The source/destination network paths used for the health check."
+      },
+      "initializationGracePeriodSeconds": {
+        "type": "integer",
+        "description": "Seconds to wait after instance launch before beginning health checks."
+      },
+      "interval": {
+        "type": "integer",
+        "description": "The interval, in seconds, between health check probes."
+      },
+      "ipScope": {
+        "$ref": "#/types/aws-native:ec2:ApplicationStatusCheckIpScope",
+        "description": "The IP scope used for the health check."
+      },
+      "ipVersion": {
+        "$ref": "#/types/aws-native:ec2:ApplicationStatusCheckIpVersion",
+        "description": "The IP version used for the health check."
+      },
+      "path": {
+        "type": "string",
+        "description": "The HTTP path used for the health check."
+      },
+      "port": {
+        "type": "integer",
+        "description": "The port used for the health check."
+      },
+      "protocol": {
+        "$ref": "#/types/aws-native:ec2:ApplicationStatusCheckProtocol",
+        "description": "The network protocol used for the health check."
+      },
+      "statusCodeMatcher": {
+        "type": "string",
+        "description": "The HTTP status codes considered successful (e.g., \"200-299\")."
+      },
+      "successThreshold": {
+        "type": "integer",
+        "description": "The number of consecutive successful probes required to mark the instance healthy."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to apply to the application status check."
+      },
+      "timeout": {
+        "type": "integer",
+        "description": "The timeout, in seconds, for each health check probe."
       }
     }
   },
@@ -11831,6 +12052,10 @@
         "$ref": "#/types/aws-native:iot:TopicRuleDestinationHttpUrlDestinationSummary",
         "description": "HTTP URL destination properties."
       },
+      "influxDbProperties": {
+        "$ref": "#/types/aws-native:iot:TopicRuleDestinationInfluxDbDestinationProperties",
+        "description": "InfluxDB destination properties."
+      },
       "status": {
         "$ref": "#/types/aws-native:iot:TopicRuleDestinationStatus",
         "description": "The status of the TopicRuleDestination."
@@ -14547,6 +14772,29 @@
       },
       "vpcEndpointId": {
         "type": "string"
+      }
+    }
+  },
+  "aws-native:pricingplanmanager:Subscription": {
+    "cfTypeName": "AWS::PricingPlanManager::Subscription",
+    "properties": {
+      "planFamily": {
+        "$ref": "#/types/aws-native:pricingplanmanager:SubscriptionPlanFamily",
+        "description": "The name of the pricing plan family."
+      },
+      "planTier": {
+        "type": "string",
+        "description": "The tier of the pricing plan. CloudFormation does not change the tier of an existing subscription; a stack update that changes the tier, upgrading or downgrading it, is rejected."
+      },
+      "resourceArns": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The ARNs of resources associated with the subscription."
+      },
+      "usageLevel": {
+        "$ref": "#/types/aws-native:pricingplanmanager:SubscriptionUsageLevel"
       }
     }
   },

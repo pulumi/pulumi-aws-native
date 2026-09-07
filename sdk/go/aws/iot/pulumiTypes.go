@@ -11501,7 +11501,8 @@ type TopicRuleAction struct {
 	// Write to an Amazon Kinesis Firehose stream.
 	Firehose *TopicRuleFirehoseAction `pulumi:"firehose"`
 	// Send data to an HTTPS endpoint.
-	Http *TopicRuleHttpAction `pulumi:"http"`
+	Http     *TopicRuleHttpAction     `pulumi:"http"`
+	InfluxDb *TopicRuleInfluxDbAction `pulumi:"influxDb"`
 	// Sends message data to an AWS IoT Analytics channel.
 	IotAnalytics *TopicRuleIotAnalyticsAction `pulumi:"iotAnalytics"`
 	// Sends an input to an AWS IoT Events detector.
@@ -11561,7 +11562,8 @@ type TopicRuleActionArgs struct {
 	// Write to an Amazon Kinesis Firehose stream.
 	Firehose TopicRuleFirehoseActionPtrInput `pulumi:"firehose"`
 	// Send data to an HTTPS endpoint.
-	Http TopicRuleHttpActionPtrInput `pulumi:"http"`
+	Http     TopicRuleHttpActionPtrInput     `pulumi:"http"`
+	InfluxDb TopicRuleInfluxDbActionPtrInput `pulumi:"influxDb"`
 	// Sends message data to an AWS IoT Analytics channel.
 	IotAnalytics TopicRuleIotAnalyticsActionPtrInput `pulumi:"iotAnalytics"`
 	// Sends an input to an AWS IoT Events detector.
@@ -11734,6 +11736,10 @@ func (o TopicRuleActionOutput) Firehose() TopicRuleFirehoseActionPtrOutput {
 // Send data to an HTTPS endpoint.
 func (o TopicRuleActionOutput) Http() TopicRuleHttpActionPtrOutput {
 	return o.ApplyT(func(v TopicRuleAction) *TopicRuleHttpAction { return v.Http }).(TopicRuleHttpActionPtrOutput)
+}
+
+func (o TopicRuleActionOutput) InfluxDb() TopicRuleInfluxDbActionPtrOutput {
+	return o.ApplyT(func(v TopicRuleAction) *TopicRuleInfluxDbAction { return v.InfluxDb }).(TopicRuleInfluxDbActionPtrOutput)
 }
 
 // Sends message data to an AWS IoT Analytics channel.
@@ -11910,6 +11916,15 @@ func (o TopicRuleActionPtrOutput) Http() TopicRuleHttpActionPtrOutput {
 		}
 		return v.Http
 	}).(TopicRuleHttpActionPtrOutput)
+}
+
+func (o TopicRuleActionPtrOutput) InfluxDb() TopicRuleInfluxDbActionPtrOutput {
+	return o.ApplyT(func(v *TopicRuleAction) *TopicRuleInfluxDbAction {
+		if v == nil {
+			return nil
+		}
+		return v.InfluxDb
+	}).(TopicRuleInfluxDbActionPtrOutput)
 }
 
 // Sends message data to an AWS IoT Analytics channel.
@@ -13240,6 +13255,219 @@ func (o TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput) ConfirmationUrl(
 			return nil
 		}
 		return v.ConfirmationUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleDestinationInfluxDbDestinationProperties struct {
+	// The endpoint URL of the InfluxDB database.
+	Endpoint string `pulumi:"endpoint"`
+	// The version of the InfluxDB database (for example, V2 or V3).
+	InfluxDbVersion string `pulumi:"influxDbVersion"`
+	// The ARN or name of the Secrets Manager secret containing the InfluxDB API token.
+	SecretId string `pulumi:"secretId"`
+	// The key name within the secret that contains the InfluxDB token.
+	SecretKey *string `pulumi:"secretKey"`
+	// The type of the secret value (SecretString or SecretBinary).
+	SecretType *string `pulumi:"secretType"`
+}
+
+// TopicRuleDestinationInfluxDbDestinationPropertiesInput is an input type that accepts TopicRuleDestinationInfluxDbDestinationPropertiesArgs and TopicRuleDestinationInfluxDbDestinationPropertiesOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationInfluxDbDestinationPropertiesInput` via:
+//
+//	TopicRuleDestinationInfluxDbDestinationPropertiesArgs{...}
+type TopicRuleDestinationInfluxDbDestinationPropertiesInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationInfluxDbDestinationPropertiesOutput() TopicRuleDestinationInfluxDbDestinationPropertiesOutput
+	ToTopicRuleDestinationInfluxDbDestinationPropertiesOutputWithContext(context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesOutput
+}
+
+type TopicRuleDestinationInfluxDbDestinationPropertiesArgs struct {
+	// The endpoint URL of the InfluxDB database.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// The version of the InfluxDB database (for example, V2 or V3).
+	InfluxDbVersion pulumi.StringInput `pulumi:"influxDbVersion"`
+	// The ARN or name of the Secrets Manager secret containing the InfluxDB API token.
+	SecretId pulumi.StringInput `pulumi:"secretId"`
+	// The key name within the secret that contains the InfluxDB token.
+	SecretKey pulumi.StringPtrInput `pulumi:"secretKey"`
+	// The type of the secret value (SecretString or SecretBinary).
+	SecretType pulumi.StringPtrInput `pulumi:"secretType"`
+}
+
+func (TopicRuleDestinationInfluxDbDestinationPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationInfluxDbDestinationProperties)(nil)).Elem()
+}
+
+func (i TopicRuleDestinationInfluxDbDestinationPropertiesArgs) ToTopicRuleDestinationInfluxDbDestinationPropertiesOutput() TopicRuleDestinationInfluxDbDestinationPropertiesOutput {
+	return i.ToTopicRuleDestinationInfluxDbDestinationPropertiesOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationInfluxDbDestinationPropertiesArgs) ToTopicRuleDestinationInfluxDbDestinationPropertiesOutputWithContext(ctx context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationInfluxDbDestinationPropertiesOutput)
+}
+
+func (i TopicRuleDestinationInfluxDbDestinationPropertiesArgs) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput() TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return i.ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleDestinationInfluxDbDestinationPropertiesArgs) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationInfluxDbDestinationPropertiesOutput).ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(ctx)
+}
+
+// TopicRuleDestinationInfluxDbDestinationPropertiesPtrInput is an input type that accepts TopicRuleDestinationInfluxDbDestinationPropertiesArgs, TopicRuleDestinationInfluxDbDestinationPropertiesPtr and TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput values.
+// You can construct a concrete instance of `TopicRuleDestinationInfluxDbDestinationPropertiesPtrInput` via:
+//
+//	        TopicRuleDestinationInfluxDbDestinationPropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleDestinationInfluxDbDestinationPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput() TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput
+	ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput
+}
+
+type topicRuleDestinationInfluxDbDestinationPropertiesPtrType TopicRuleDestinationInfluxDbDestinationPropertiesArgs
+
+func TopicRuleDestinationInfluxDbDestinationPropertiesPtr(v *TopicRuleDestinationInfluxDbDestinationPropertiesArgs) TopicRuleDestinationInfluxDbDestinationPropertiesPtrInput {
+	return (*topicRuleDestinationInfluxDbDestinationPropertiesPtrType)(v)
+}
+
+func (*topicRuleDestinationInfluxDbDestinationPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationInfluxDbDestinationProperties)(nil)).Elem()
+}
+
+func (i *topicRuleDestinationInfluxDbDestinationPropertiesPtrType) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput() TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return i.ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleDestinationInfluxDbDestinationPropertiesPtrType) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput)
+}
+
+type TopicRuleDestinationInfluxDbDestinationPropertiesOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationInfluxDbDestinationPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleDestinationInfluxDbDestinationProperties)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) ToTopicRuleDestinationInfluxDbDestinationPropertiesOutput() TopicRuleDestinationInfluxDbDestinationPropertiesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) ToTopicRuleDestinationInfluxDbDestinationPropertiesOutputWithContext(ctx context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesOutput {
+	return o
+}
+
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput() TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return o.ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleDestinationInfluxDbDestinationProperties) *TopicRuleDestinationInfluxDbDestinationProperties {
+		return &v
+	}).(TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput)
+}
+
+// The endpoint URL of the InfluxDB database.
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDestinationInfluxDbDestinationProperties) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// The version of the InfluxDB database (for example, V2 or V3).
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) InfluxDbVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDestinationInfluxDbDestinationProperties) string { return v.InfluxDbVersion }).(pulumi.StringOutput)
+}
+
+// The ARN or name of the Secrets Manager secret containing the InfluxDB API token.
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) SecretId() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleDestinationInfluxDbDestinationProperties) string { return v.SecretId }).(pulumi.StringOutput)
+}
+
+// The key name within the secret that contains the InfluxDB token.
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationInfluxDbDestinationProperties) *string { return v.SecretKey }).(pulumi.StringPtrOutput)
+}
+
+// The type of the secret value (SecretString or SecretBinary).
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesOutput) SecretType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleDestinationInfluxDbDestinationProperties) *string { return v.SecretType }).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleDestinationInfluxDbDestinationProperties)(nil)).Elem()
+}
+
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput() TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) ToTopicRuleDestinationInfluxDbDestinationPropertiesPtrOutputWithContext(ctx context.Context) TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput {
+	return o
+}
+
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) Elem() TopicRuleDestinationInfluxDbDestinationPropertiesOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationInfluxDbDestinationProperties) TopicRuleDestinationInfluxDbDestinationProperties {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleDestinationInfluxDbDestinationProperties
+		return ret
+	}).(TopicRuleDestinationInfluxDbDestinationPropertiesOutput)
+}
+
+// The endpoint URL of the InfluxDB database.
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationInfluxDbDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// The version of the InfluxDB database (for example, V2 or V3).
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) InfluxDbVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationInfluxDbDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InfluxDbVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN or name of the Secrets Manager secret containing the InfluxDB API token.
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) SecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationInfluxDbDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The key name within the secret that contains the InfluxDB token.
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) SecretKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationInfluxDbDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the secret value (SecretString or SecretBinary).
+func (o TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput) SecretType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleDestinationInfluxDbDestinationProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -14778,6 +15006,422 @@ func (o TopicRuleHttpAuthorizationPtrOutput) Sigv4() TopicRuleSigV4Authorization
 		}
 		return v.Sigv4
 	}).(TopicRuleSigV4AuthorizationPtrOutput)
+}
+
+type TopicRuleInfluxDbAction struct {
+	BatchConfig    *TopicRuleInfluxDbBatchConfig `pulumi:"batchConfig"`
+	DatabaseName   string                        `pulumi:"databaseName"`
+	DestinationArn string                        `pulumi:"destinationArn"`
+	Organization   *string                       `pulumi:"organization"`
+	RoleArn        string                        `pulumi:"roleArn"`
+	TableName      string                        `pulumi:"tableName"`
+	Tags           map[string]string             `pulumi:"tags"`
+	TimestampUnit  *string                       `pulumi:"timestampUnit"`
+}
+
+// TopicRuleInfluxDbActionInput is an input type that accepts TopicRuleInfluxDbActionArgs and TopicRuleInfluxDbActionOutput values.
+// You can construct a concrete instance of `TopicRuleInfluxDbActionInput` via:
+//
+//	TopicRuleInfluxDbActionArgs{...}
+type TopicRuleInfluxDbActionInput interface {
+	pulumi.Input
+
+	ToTopicRuleInfluxDbActionOutput() TopicRuleInfluxDbActionOutput
+	ToTopicRuleInfluxDbActionOutputWithContext(context.Context) TopicRuleInfluxDbActionOutput
+}
+
+type TopicRuleInfluxDbActionArgs struct {
+	BatchConfig    TopicRuleInfluxDbBatchConfigPtrInput `pulumi:"batchConfig"`
+	DatabaseName   pulumi.StringInput                   `pulumi:"databaseName"`
+	DestinationArn pulumi.StringInput                   `pulumi:"destinationArn"`
+	Organization   pulumi.StringPtrInput                `pulumi:"organization"`
+	RoleArn        pulumi.StringInput                   `pulumi:"roleArn"`
+	TableName      pulumi.StringInput                   `pulumi:"tableName"`
+	Tags           pulumi.StringMapInput                `pulumi:"tags"`
+	TimestampUnit  pulumi.StringPtrInput                `pulumi:"timestampUnit"`
+}
+
+func (TopicRuleInfluxDbActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleInfluxDbAction)(nil)).Elem()
+}
+
+func (i TopicRuleInfluxDbActionArgs) ToTopicRuleInfluxDbActionOutput() TopicRuleInfluxDbActionOutput {
+	return i.ToTopicRuleInfluxDbActionOutputWithContext(context.Background())
+}
+
+func (i TopicRuleInfluxDbActionArgs) ToTopicRuleInfluxDbActionOutputWithContext(ctx context.Context) TopicRuleInfluxDbActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleInfluxDbActionOutput)
+}
+
+func (i TopicRuleInfluxDbActionArgs) ToTopicRuleInfluxDbActionPtrOutput() TopicRuleInfluxDbActionPtrOutput {
+	return i.ToTopicRuleInfluxDbActionPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleInfluxDbActionArgs) ToTopicRuleInfluxDbActionPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleInfluxDbActionOutput).ToTopicRuleInfluxDbActionPtrOutputWithContext(ctx)
+}
+
+// TopicRuleInfluxDbActionPtrInput is an input type that accepts TopicRuleInfluxDbActionArgs, TopicRuleInfluxDbActionPtr and TopicRuleInfluxDbActionPtrOutput values.
+// You can construct a concrete instance of `TopicRuleInfluxDbActionPtrInput` via:
+//
+//	        TopicRuleInfluxDbActionArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleInfluxDbActionPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleInfluxDbActionPtrOutput() TopicRuleInfluxDbActionPtrOutput
+	ToTopicRuleInfluxDbActionPtrOutputWithContext(context.Context) TopicRuleInfluxDbActionPtrOutput
+}
+
+type topicRuleInfluxDbActionPtrType TopicRuleInfluxDbActionArgs
+
+func TopicRuleInfluxDbActionPtr(v *TopicRuleInfluxDbActionArgs) TopicRuleInfluxDbActionPtrInput {
+	return (*topicRuleInfluxDbActionPtrType)(v)
+}
+
+func (*topicRuleInfluxDbActionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleInfluxDbAction)(nil)).Elem()
+}
+
+func (i *topicRuleInfluxDbActionPtrType) ToTopicRuleInfluxDbActionPtrOutput() TopicRuleInfluxDbActionPtrOutput {
+	return i.ToTopicRuleInfluxDbActionPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleInfluxDbActionPtrType) ToTopicRuleInfluxDbActionPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleInfluxDbActionPtrOutput)
+}
+
+type TopicRuleInfluxDbActionOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleInfluxDbActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleInfluxDbAction)(nil)).Elem()
+}
+
+func (o TopicRuleInfluxDbActionOutput) ToTopicRuleInfluxDbActionOutput() TopicRuleInfluxDbActionOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbActionOutput) ToTopicRuleInfluxDbActionOutputWithContext(ctx context.Context) TopicRuleInfluxDbActionOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbActionOutput) ToTopicRuleInfluxDbActionPtrOutput() TopicRuleInfluxDbActionPtrOutput {
+	return o.ToTopicRuleInfluxDbActionPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleInfluxDbActionOutput) ToTopicRuleInfluxDbActionPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleInfluxDbAction) *TopicRuleInfluxDbAction {
+		return &v
+	}).(TopicRuleInfluxDbActionPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) BatchConfig() TopicRuleInfluxDbBatchConfigPtrOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) *TopicRuleInfluxDbBatchConfig { return v.BatchConfig }).(TopicRuleInfluxDbBatchConfigPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) DatabaseName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) string { return v.DatabaseName }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) DestinationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) string { return v.DestinationArn }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) *string { return v.Organization }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o TopicRuleInfluxDbActionOutput) TimestampUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbAction) *string { return v.TimestampUnit }).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleInfluxDbActionPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleInfluxDbActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleInfluxDbAction)(nil)).Elem()
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) ToTopicRuleInfluxDbActionPtrOutput() TopicRuleInfluxDbActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) ToTopicRuleInfluxDbActionPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbActionPtrOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) Elem() TopicRuleInfluxDbActionOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) TopicRuleInfluxDbAction {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleInfluxDbAction
+		return ret
+	}).(TopicRuleInfluxDbActionOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) BatchConfig() TopicRuleInfluxDbBatchConfigPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) *TopicRuleInfluxDbBatchConfig {
+		if v == nil {
+			return nil
+		}
+		return v.BatchConfig
+	}).(TopicRuleInfluxDbBatchConfigPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DatabaseName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) DestinationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) Organization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Organization
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) TableName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TableName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(pulumi.StringMapOutput)
+}
+
+func (o TopicRuleInfluxDbActionPtrOutput) TimestampUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbAction) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimestampUnit
+	}).(pulumi.StringPtrOutput)
+}
+
+type TopicRuleInfluxDbBatchConfig struct {
+	BatchAcrossTopics *bool `pulumi:"batchAcrossTopics"`
+	MaxBatchOpenMs    *int  `pulumi:"maxBatchOpenMs"`
+	MaxBatchSize      *int  `pulumi:"maxBatchSize"`
+	MaxBatchSizeBytes *int  `pulumi:"maxBatchSizeBytes"`
+}
+
+// TopicRuleInfluxDbBatchConfigInput is an input type that accepts TopicRuleInfluxDbBatchConfigArgs and TopicRuleInfluxDbBatchConfigOutput values.
+// You can construct a concrete instance of `TopicRuleInfluxDbBatchConfigInput` via:
+//
+//	TopicRuleInfluxDbBatchConfigArgs{...}
+type TopicRuleInfluxDbBatchConfigInput interface {
+	pulumi.Input
+
+	ToTopicRuleInfluxDbBatchConfigOutput() TopicRuleInfluxDbBatchConfigOutput
+	ToTopicRuleInfluxDbBatchConfigOutputWithContext(context.Context) TopicRuleInfluxDbBatchConfigOutput
+}
+
+type TopicRuleInfluxDbBatchConfigArgs struct {
+	BatchAcrossTopics pulumi.BoolPtrInput `pulumi:"batchAcrossTopics"`
+	MaxBatchOpenMs    pulumi.IntPtrInput  `pulumi:"maxBatchOpenMs"`
+	MaxBatchSize      pulumi.IntPtrInput  `pulumi:"maxBatchSize"`
+	MaxBatchSizeBytes pulumi.IntPtrInput  `pulumi:"maxBatchSizeBytes"`
+}
+
+func (TopicRuleInfluxDbBatchConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleInfluxDbBatchConfig)(nil)).Elem()
+}
+
+func (i TopicRuleInfluxDbBatchConfigArgs) ToTopicRuleInfluxDbBatchConfigOutput() TopicRuleInfluxDbBatchConfigOutput {
+	return i.ToTopicRuleInfluxDbBatchConfigOutputWithContext(context.Background())
+}
+
+func (i TopicRuleInfluxDbBatchConfigArgs) ToTopicRuleInfluxDbBatchConfigOutputWithContext(ctx context.Context) TopicRuleInfluxDbBatchConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleInfluxDbBatchConfigOutput)
+}
+
+func (i TopicRuleInfluxDbBatchConfigArgs) ToTopicRuleInfluxDbBatchConfigPtrOutput() TopicRuleInfluxDbBatchConfigPtrOutput {
+	return i.ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i TopicRuleInfluxDbBatchConfigArgs) ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleInfluxDbBatchConfigOutput).ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(ctx)
+}
+
+// TopicRuleInfluxDbBatchConfigPtrInput is an input type that accepts TopicRuleInfluxDbBatchConfigArgs, TopicRuleInfluxDbBatchConfigPtr and TopicRuleInfluxDbBatchConfigPtrOutput values.
+// You can construct a concrete instance of `TopicRuleInfluxDbBatchConfigPtrInput` via:
+//
+//	        TopicRuleInfluxDbBatchConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type TopicRuleInfluxDbBatchConfigPtrInput interface {
+	pulumi.Input
+
+	ToTopicRuleInfluxDbBatchConfigPtrOutput() TopicRuleInfluxDbBatchConfigPtrOutput
+	ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(context.Context) TopicRuleInfluxDbBatchConfigPtrOutput
+}
+
+type topicRuleInfluxDbBatchConfigPtrType TopicRuleInfluxDbBatchConfigArgs
+
+func TopicRuleInfluxDbBatchConfigPtr(v *TopicRuleInfluxDbBatchConfigArgs) TopicRuleInfluxDbBatchConfigPtrInput {
+	return (*topicRuleInfluxDbBatchConfigPtrType)(v)
+}
+
+func (*topicRuleInfluxDbBatchConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleInfluxDbBatchConfig)(nil)).Elem()
+}
+
+func (i *topicRuleInfluxDbBatchConfigPtrType) ToTopicRuleInfluxDbBatchConfigPtrOutput() TopicRuleInfluxDbBatchConfigPtrOutput {
+	return i.ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *topicRuleInfluxDbBatchConfigPtrType) ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbBatchConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TopicRuleInfluxDbBatchConfigPtrOutput)
+}
+
+type TopicRuleInfluxDbBatchConfigOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleInfluxDbBatchConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TopicRuleInfluxDbBatchConfig)(nil)).Elem()
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) ToTopicRuleInfluxDbBatchConfigOutput() TopicRuleInfluxDbBatchConfigOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) ToTopicRuleInfluxDbBatchConfigOutputWithContext(ctx context.Context) TopicRuleInfluxDbBatchConfigOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) ToTopicRuleInfluxDbBatchConfigPtrOutput() TopicRuleInfluxDbBatchConfigPtrOutput {
+	return o.ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(context.Background())
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbBatchConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TopicRuleInfluxDbBatchConfig) *TopicRuleInfluxDbBatchConfig {
+		return &v
+	}).(TopicRuleInfluxDbBatchConfigPtrOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) BatchAcrossTopics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbBatchConfig) *bool { return v.BatchAcrossTopics }).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) MaxBatchOpenMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbBatchConfig) *int { return v.MaxBatchOpenMs }).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) MaxBatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbBatchConfig) *int { return v.MaxBatchSize }).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigOutput) MaxBatchSizeBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v TopicRuleInfluxDbBatchConfig) *int { return v.MaxBatchSizeBytes }).(pulumi.IntPtrOutput)
+}
+
+type TopicRuleInfluxDbBatchConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (TopicRuleInfluxDbBatchConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TopicRuleInfluxDbBatchConfig)(nil)).Elem()
+}
+
+func (o TopicRuleInfluxDbBatchConfigPtrOutput) ToTopicRuleInfluxDbBatchConfigPtrOutput() TopicRuleInfluxDbBatchConfigPtrOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbBatchConfigPtrOutput) ToTopicRuleInfluxDbBatchConfigPtrOutputWithContext(ctx context.Context) TopicRuleInfluxDbBatchConfigPtrOutput {
+	return o
+}
+
+func (o TopicRuleInfluxDbBatchConfigPtrOutput) Elem() TopicRuleInfluxDbBatchConfigOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbBatchConfig) TopicRuleInfluxDbBatchConfig {
+		if v != nil {
+			return *v
+		}
+		var ret TopicRuleInfluxDbBatchConfig
+		return ret
+	}).(TopicRuleInfluxDbBatchConfigOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigPtrOutput) BatchAcrossTopics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbBatchConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.BatchAcrossTopics
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigPtrOutput) MaxBatchOpenMs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBatchOpenMs
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigPtrOutput) MaxBatchSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBatchSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o TopicRuleInfluxDbBatchConfigPtrOutput) MaxBatchSizeBytes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TopicRuleInfluxDbBatchConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxBatchSizeBytes
+	}).(pulumi.IntPtrOutput)
 }
 
 type TopicRuleIotAnalyticsAction struct {
@@ -19202,6 +19846,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleCloudwatchMetricActionPtrInput)(nil)).Elem(), TopicRuleCloudwatchMetricActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationHttpUrlDestinationSummaryInput)(nil)).Elem(), TopicRuleDestinationHttpUrlDestinationSummaryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationHttpUrlDestinationSummaryPtrInput)(nil)).Elem(), TopicRuleDestinationHttpUrlDestinationSummaryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationInfluxDbDestinationPropertiesInput)(nil)).Elem(), TopicRuleDestinationInfluxDbDestinationPropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationInfluxDbDestinationPropertiesPtrInput)(nil)).Elem(), TopicRuleDestinationInfluxDbDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcDestinationPropertiesInput)(nil)).Elem(), TopicRuleDestinationVpcDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDestinationVpcDestinationPropertiesPtrInput)(nil)).Elem(), TopicRuleDestinationVpcDestinationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleDynamoDBv2ActionInput)(nil)).Elem(), TopicRuleDynamoDBv2ActionArgs{})
@@ -19218,6 +19864,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpActionHeaderArrayInput)(nil)).Elem(), TopicRuleHttpActionHeaderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpAuthorizationInput)(nil)).Elem(), TopicRuleHttpAuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleHttpAuthorizationPtrInput)(nil)).Elem(), TopicRuleHttpAuthorizationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleInfluxDbActionInput)(nil)).Elem(), TopicRuleInfluxDbActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleInfluxDbActionPtrInput)(nil)).Elem(), TopicRuleInfluxDbActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleInfluxDbBatchConfigInput)(nil)).Elem(), TopicRuleInfluxDbBatchConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleInfluxDbBatchConfigPtrInput)(nil)).Elem(), TopicRuleInfluxDbBatchConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotAnalyticsActionInput)(nil)).Elem(), TopicRuleIotAnalyticsActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotAnalyticsActionPtrInput)(nil)).Elem(), TopicRuleIotAnalyticsActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TopicRuleIotEventsActionInput)(nil)).Elem(), TopicRuleIotEventsActionArgs{})
@@ -19431,6 +20081,8 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleCloudwatchMetricActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationHttpUrlDestinationSummaryOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationHttpUrlDestinationSummaryPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationInfluxDbDestinationPropertiesOutput{})
+	pulumi.RegisterOutputType(TopicRuleDestinationInfluxDbDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationVpcDestinationPropertiesOutput{})
 	pulumi.RegisterOutputType(TopicRuleDestinationVpcDestinationPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleDynamoDBv2ActionOutput{})
@@ -19447,6 +20099,10 @@ func init() {
 	pulumi.RegisterOutputType(TopicRuleHttpActionHeaderArrayOutput{})
 	pulumi.RegisterOutputType(TopicRuleHttpAuthorizationOutput{})
 	pulumi.RegisterOutputType(TopicRuleHttpAuthorizationPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleInfluxDbActionOutput{})
+	pulumi.RegisterOutputType(TopicRuleInfluxDbActionPtrOutput{})
+	pulumi.RegisterOutputType(TopicRuleInfluxDbBatchConfigOutput{})
+	pulumi.RegisterOutputType(TopicRuleInfluxDbBatchConfigPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleIotAnalyticsActionOutput{})
 	pulumi.RegisterOutputType(TopicRuleIotAnalyticsActionPtrOutput{})
 	pulumi.RegisterOutputType(TopicRuleIotEventsActionOutput{})

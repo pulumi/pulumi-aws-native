@@ -33,7 +33,8 @@ type LookupRouterOutputResourceResult struct {
 	Arn           *string     `pulumi:"arn"`
 	Configuration interface{} `pulumi:"configuration"`
 	// The timestamp when the router output was created.
-	CreatedAt *string `pulumi:"createdAt"`
+	CreatedAt           *string                                  `pulumi:"createdAt"`
+	FabricConfiguration *RouterOutputResourceFabricConfiguration `pulumi:"fabricConfiguration"`
 	// The unique identifier of the router output.
 	Id *string `pulumi:"id"`
 	// The IP address of the router output.
@@ -102,6 +103,12 @@ func (o LookupRouterOutputResourceResultOutput) Configuration() pulumi.AnyOutput
 // The timestamp when the router output was created.
 func (o LookupRouterOutputResourceResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupRouterOutputResourceResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupRouterOutputResourceResultOutput) FabricConfiguration() RouterOutputResourceFabricConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupRouterOutputResourceResult) *RouterOutputResourceFabricConfiguration {
+		return v.FabricConfiguration
+	}).(RouterOutputResourceFabricConfigurationPtrOutput)
 }
 
 // The unique identifier of the router output.

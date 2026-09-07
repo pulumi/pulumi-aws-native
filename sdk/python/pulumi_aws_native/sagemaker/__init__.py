@@ -19,6 +19,7 @@ from .device import *
 from .device_fleet import *
 from .domain import *
 from .endpoint import *
+from .endpoint_config import *
 from .experiment import *
 from .experiment_trial_component import *
 from .feature_group import *
@@ -33,6 +34,7 @@ from .get_data_quality_job_definition import *
 from .get_device_fleet import *
 from .get_domain import *
 from .get_endpoint import *
+from .get_endpoint_config import *
 from .get_experiment import *
 from .get_experiment_trial_component import *
 from .get_feature_group import *
@@ -52,6 +54,7 @@ from .get_model_package import *
 from .get_model_package_group import *
 from .get_model_quality_job_definition import *
 from .get_monitoring_schedule import *
+from .get_notebook_instance import *
 from .get_partner_app import *
 from .get_pipeline import *
 from .get_processing_job import *
@@ -77,6 +80,7 @@ from .model_package import *
 from .model_package_group import *
 from .model_quality_job_definition import *
 from .monitoring_schedule import *
+from .notebook_instance import *
 from .partner_app import *
 from .pipeline import *
 from .processing_job import *

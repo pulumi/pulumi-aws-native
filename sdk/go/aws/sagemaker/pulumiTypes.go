@@ -3503,6 +3503,203 @@ type ArtifactTag struct {
 	Value string `pulumi:"value"`
 }
 
+// External MySQL-compatible accounting database that a Slurm cluster's slurmdbd connects to. Database credentials are supplied out-of-band through the referenced Secrets Manager secret. Supported only with Continuous node provisioning.
+type ClusterAccountingDatabase struct {
+	// Hostname or endpoint of the accounting database, such as an RDS endpoint.
+	Endpoint string `pulumi:"endpoint"`
+	// Name of the accounting database schema. Defaults to slurm_acct_db when omitted.
+	Name *string `pulumi:"name"`
+	// TCP port of the accounting database. Defaults to 3306 when omitted.
+	Port *int `pulumi:"port"`
+	// ARN of the Secrets Manager secret holding the database credentials.
+	SecretArn string `pulumi:"secretArn"`
+}
+
+// ClusterAccountingDatabaseInput is an input type that accepts ClusterAccountingDatabaseArgs and ClusterAccountingDatabaseOutput values.
+// You can construct a concrete instance of `ClusterAccountingDatabaseInput` via:
+//
+//	ClusterAccountingDatabaseArgs{...}
+type ClusterAccountingDatabaseInput interface {
+	pulumi.Input
+
+	ToClusterAccountingDatabaseOutput() ClusterAccountingDatabaseOutput
+	ToClusterAccountingDatabaseOutputWithContext(context.Context) ClusterAccountingDatabaseOutput
+}
+
+// External MySQL-compatible accounting database that a Slurm cluster's slurmdbd connects to. Database credentials are supplied out-of-band through the referenced Secrets Manager secret. Supported only with Continuous node provisioning.
+type ClusterAccountingDatabaseArgs struct {
+	// Hostname or endpoint of the accounting database, such as an RDS endpoint.
+	Endpoint pulumi.StringInput `pulumi:"endpoint"`
+	// Name of the accounting database schema. Defaults to slurm_acct_db when omitted.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// TCP port of the accounting database. Defaults to 3306 when omitted.
+	Port pulumi.IntPtrInput `pulumi:"port"`
+	// ARN of the Secrets Manager secret holding the database credentials.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+}
+
+func (ClusterAccountingDatabaseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccountingDatabase)(nil)).Elem()
+}
+
+func (i ClusterAccountingDatabaseArgs) ToClusterAccountingDatabaseOutput() ClusterAccountingDatabaseOutput {
+	return i.ToClusterAccountingDatabaseOutputWithContext(context.Background())
+}
+
+func (i ClusterAccountingDatabaseArgs) ToClusterAccountingDatabaseOutputWithContext(ctx context.Context) ClusterAccountingDatabaseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccountingDatabaseOutput)
+}
+
+func (i ClusterAccountingDatabaseArgs) ToClusterAccountingDatabasePtrOutput() ClusterAccountingDatabasePtrOutput {
+	return i.ToClusterAccountingDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i ClusterAccountingDatabaseArgs) ToClusterAccountingDatabasePtrOutputWithContext(ctx context.Context) ClusterAccountingDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccountingDatabaseOutput).ToClusterAccountingDatabasePtrOutputWithContext(ctx)
+}
+
+// ClusterAccountingDatabasePtrInput is an input type that accepts ClusterAccountingDatabaseArgs, ClusterAccountingDatabasePtr and ClusterAccountingDatabasePtrOutput values.
+// You can construct a concrete instance of `ClusterAccountingDatabasePtrInput` via:
+//
+//	        ClusterAccountingDatabaseArgs{...}
+//
+//	or:
+//
+//	        nil
+type ClusterAccountingDatabasePtrInput interface {
+	pulumi.Input
+
+	ToClusterAccountingDatabasePtrOutput() ClusterAccountingDatabasePtrOutput
+	ToClusterAccountingDatabasePtrOutputWithContext(context.Context) ClusterAccountingDatabasePtrOutput
+}
+
+type clusterAccountingDatabasePtrType ClusterAccountingDatabaseArgs
+
+func ClusterAccountingDatabasePtr(v *ClusterAccountingDatabaseArgs) ClusterAccountingDatabasePtrInput {
+	return (*clusterAccountingDatabasePtrType)(v)
+}
+
+func (*clusterAccountingDatabasePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccountingDatabase)(nil)).Elem()
+}
+
+func (i *clusterAccountingDatabasePtrType) ToClusterAccountingDatabasePtrOutput() ClusterAccountingDatabasePtrOutput {
+	return i.ToClusterAccountingDatabasePtrOutputWithContext(context.Background())
+}
+
+func (i *clusterAccountingDatabasePtrType) ToClusterAccountingDatabasePtrOutputWithContext(ctx context.Context) ClusterAccountingDatabasePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ClusterAccountingDatabasePtrOutput)
+}
+
+// External MySQL-compatible accounting database that a Slurm cluster's slurmdbd connects to. Database credentials are supplied out-of-band through the referenced Secrets Manager secret. Supported only with Continuous node provisioning.
+type ClusterAccountingDatabaseOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccountingDatabaseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ClusterAccountingDatabase)(nil)).Elem()
+}
+
+func (o ClusterAccountingDatabaseOutput) ToClusterAccountingDatabaseOutput() ClusterAccountingDatabaseOutput {
+	return o
+}
+
+func (o ClusterAccountingDatabaseOutput) ToClusterAccountingDatabaseOutputWithContext(ctx context.Context) ClusterAccountingDatabaseOutput {
+	return o
+}
+
+func (o ClusterAccountingDatabaseOutput) ToClusterAccountingDatabasePtrOutput() ClusterAccountingDatabasePtrOutput {
+	return o.ToClusterAccountingDatabasePtrOutputWithContext(context.Background())
+}
+
+func (o ClusterAccountingDatabaseOutput) ToClusterAccountingDatabasePtrOutputWithContext(ctx context.Context) ClusterAccountingDatabasePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ClusterAccountingDatabase) *ClusterAccountingDatabase {
+		return &v
+	}).(ClusterAccountingDatabasePtrOutput)
+}
+
+// Hostname or endpoint of the accounting database, such as an RDS endpoint.
+func (o ClusterAccountingDatabaseOutput) Endpoint() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterAccountingDatabase) string { return v.Endpoint }).(pulumi.StringOutput)
+}
+
+// Name of the accounting database schema. Defaults to slurm_acct_db when omitted.
+func (o ClusterAccountingDatabaseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterAccountingDatabase) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// TCP port of the accounting database. Defaults to 3306 when omitted.
+func (o ClusterAccountingDatabaseOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ClusterAccountingDatabase) *int { return v.Port }).(pulumi.IntPtrOutput)
+}
+
+// ARN of the Secrets Manager secret holding the database credentials.
+func (o ClusterAccountingDatabaseOutput) SecretArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ClusterAccountingDatabase) string { return v.SecretArn }).(pulumi.StringOutput)
+}
+
+type ClusterAccountingDatabasePtrOutput struct{ *pulumi.OutputState }
+
+func (ClusterAccountingDatabasePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ClusterAccountingDatabase)(nil)).Elem()
+}
+
+func (o ClusterAccountingDatabasePtrOutput) ToClusterAccountingDatabasePtrOutput() ClusterAccountingDatabasePtrOutput {
+	return o
+}
+
+func (o ClusterAccountingDatabasePtrOutput) ToClusterAccountingDatabasePtrOutputWithContext(ctx context.Context) ClusterAccountingDatabasePtrOutput {
+	return o
+}
+
+func (o ClusterAccountingDatabasePtrOutput) Elem() ClusterAccountingDatabaseOutput {
+	return o.ApplyT(func(v *ClusterAccountingDatabase) ClusterAccountingDatabase {
+		if v != nil {
+			return *v
+		}
+		var ret ClusterAccountingDatabase
+		return ret
+	}).(ClusterAccountingDatabaseOutput)
+}
+
+// Hostname or endpoint of the accounting database, such as an RDS endpoint.
+func (o ClusterAccountingDatabasePtrOutput) Endpoint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAccountingDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Endpoint
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the accounting database schema. Defaults to slurm_acct_db when omitted.
+func (o ClusterAccountingDatabasePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAccountingDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// TCP port of the accounting database. Defaults to 3306 when omitted.
+func (o ClusterAccountingDatabasePtrOutput) Port() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ClusterAccountingDatabase) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Port
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of the Secrets Manager secret holding the database credentials.
+func (o ClusterAccountingDatabasePtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterAccountingDatabase) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
 // The details of the alarm to monitor during the AMI update.
 type ClusterAlarmDetails struct {
 	// The name of the alarm.
@@ -6690,6 +6887,7 @@ func (o ClusterOrchestratorEksConfigPtrOutput) ClusterArn() pulumi.StringPtrOutp
 
 // Specifies parameter(s) related to Slurm as orchestrator.
 type ClusterOrchestratorSlurmConfig struct {
+	AccountingDatabase *ClusterAccountingDatabase `pulumi:"accountingDatabase"`
 	// The strategy for managing Slurm configuration on the cluster.
 	SlurmConfigStrategy *ClusterOrchestratorSlurmConfigSlurmConfigStrategy `pulumi:"slurmConfigStrategy"`
 }
@@ -6707,6 +6905,7 @@ type ClusterOrchestratorSlurmConfigInput interface {
 
 // Specifies parameter(s) related to Slurm as orchestrator.
 type ClusterOrchestratorSlurmConfigArgs struct {
+	AccountingDatabase ClusterAccountingDatabasePtrInput `pulumi:"accountingDatabase"`
 	// The strategy for managing Slurm configuration on the cluster.
 	SlurmConfigStrategy ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrInput `pulumi:"slurmConfigStrategy"`
 }
@@ -6789,6 +6988,10 @@ func (o ClusterOrchestratorSlurmConfigOutput) ToClusterOrchestratorSlurmConfigPt
 	}).(ClusterOrchestratorSlurmConfigPtrOutput)
 }
 
+func (o ClusterOrchestratorSlurmConfigOutput) AccountingDatabase() ClusterAccountingDatabasePtrOutput {
+	return o.ApplyT(func(v ClusterOrchestratorSlurmConfig) *ClusterAccountingDatabase { return v.AccountingDatabase }).(ClusterAccountingDatabasePtrOutput)
+}
+
 // The strategy for managing Slurm configuration on the cluster.
 func (o ClusterOrchestratorSlurmConfigOutput) SlurmConfigStrategy() ClusterOrchestratorSlurmConfigSlurmConfigStrategyPtrOutput {
 	return o.ApplyT(func(v ClusterOrchestratorSlurmConfig) *ClusterOrchestratorSlurmConfigSlurmConfigStrategy {
@@ -6818,6 +7021,15 @@ func (o ClusterOrchestratorSlurmConfigPtrOutput) Elem() ClusterOrchestratorSlurm
 		var ret ClusterOrchestratorSlurmConfig
 		return ret
 	}).(ClusterOrchestratorSlurmConfigOutput)
+}
+
+func (o ClusterOrchestratorSlurmConfigPtrOutput) AccountingDatabase() ClusterAccountingDatabasePtrOutput {
+	return o.ApplyT(func(v *ClusterOrchestratorSlurmConfig) *ClusterAccountingDatabase {
+		if v == nil {
+			return nil
+		}
+		return v.AccountingDatabase
+	}).(ClusterAccountingDatabasePtrOutput)
 }
 
 // The strategy for managing Slurm configuration on the cluster.
@@ -16592,6 +16804,4288 @@ func (o EndpointCapacitySizePtrOutput) Value() pulumi.IntPtrOutput {
 		}
 		return &v.Value
 	}).(pulumi.IntPtrOutput)
+}
+
+// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+type EndpointConfigAsyncInferenceClientConfig struct {
+	// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
+	MaxConcurrentInvocationsPerInstance *int `pulumi:"maxConcurrentInvocationsPerInstance"`
+}
+
+// EndpointConfigAsyncInferenceClientConfigInput is an input type that accepts EndpointConfigAsyncInferenceClientConfigArgs and EndpointConfigAsyncInferenceClientConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceClientConfigInput` via:
+//
+//	EndpointConfigAsyncInferenceClientConfigArgs{...}
+type EndpointConfigAsyncInferenceClientConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceClientConfigOutput() EndpointConfigAsyncInferenceClientConfigOutput
+	ToEndpointConfigAsyncInferenceClientConfigOutputWithContext(context.Context) EndpointConfigAsyncInferenceClientConfigOutput
+}
+
+// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+type EndpointConfigAsyncInferenceClientConfigArgs struct {
+	// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
+	MaxConcurrentInvocationsPerInstance pulumi.IntPtrInput `pulumi:"maxConcurrentInvocationsPerInstance"`
+}
+
+func (EndpointConfigAsyncInferenceClientConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigAsyncInferenceClientConfigArgs) ToEndpointConfigAsyncInferenceClientConfigOutput() EndpointConfigAsyncInferenceClientConfigOutput {
+	return i.ToEndpointConfigAsyncInferenceClientConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceClientConfigArgs) ToEndpointConfigAsyncInferenceClientConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceClientConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceClientConfigOutput)
+}
+
+func (i EndpointConfigAsyncInferenceClientConfigArgs) ToEndpointConfigAsyncInferenceClientConfigPtrOutput() EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceClientConfigArgs) ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceClientConfigOutput).ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigAsyncInferenceClientConfigPtrInput is an input type that accepts EndpointConfigAsyncInferenceClientConfigArgs, EndpointConfigAsyncInferenceClientConfigPtr and EndpointConfigAsyncInferenceClientConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceClientConfigPtrInput` via:
+//
+//	        EndpointConfigAsyncInferenceClientConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigAsyncInferenceClientConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceClientConfigPtrOutput() EndpointConfigAsyncInferenceClientConfigPtrOutput
+	ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(context.Context) EndpointConfigAsyncInferenceClientConfigPtrOutput
+}
+
+type endpointConfigAsyncInferenceClientConfigPtrType EndpointConfigAsyncInferenceClientConfigArgs
+
+func EndpointConfigAsyncInferenceClientConfigPtr(v *EndpointConfigAsyncInferenceClientConfigArgs) EndpointConfigAsyncInferenceClientConfigPtrInput {
+	return (*endpointConfigAsyncInferenceClientConfigPtrType)(v)
+}
+
+func (*endpointConfigAsyncInferenceClientConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigAsyncInferenceClientConfigPtrType) ToEndpointConfigAsyncInferenceClientConfigPtrOutput() EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigAsyncInferenceClientConfigPtrType) ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceClientConfigPtrOutput)
+}
+
+// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+type EndpointConfigAsyncInferenceClientConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceClientConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceClientConfigOutput) ToEndpointConfigAsyncInferenceClientConfigOutput() EndpointConfigAsyncInferenceClientConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceClientConfigOutput) ToEndpointConfigAsyncInferenceClientConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceClientConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceClientConfigOutput) ToEndpointConfigAsyncInferenceClientConfigPtrOutput() EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return o.ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigAsyncInferenceClientConfigOutput) ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigAsyncInferenceClientConfig) *EndpointConfigAsyncInferenceClientConfig {
+		return &v
+	}).(EndpointConfigAsyncInferenceClientConfigPtrOutput)
+}
+
+// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
+func (o EndpointConfigAsyncInferenceClientConfigOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceClientConfig) *int { return v.MaxConcurrentInvocationsPerInstance }).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigAsyncInferenceClientConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceClientConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceClientConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceClientConfigPtrOutput) ToEndpointConfigAsyncInferenceClientConfigPtrOutput() EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceClientConfigPtrOutput) ToEndpointConfigAsyncInferenceClientConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceClientConfigPtrOutput) Elem() EndpointConfigAsyncInferenceClientConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceClientConfig) EndpointConfigAsyncInferenceClientConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigAsyncInferenceClientConfig
+		return ret
+	}).(EndpointConfigAsyncInferenceClientConfigOutput)
+}
+
+// The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
+func (o EndpointConfigAsyncInferenceClientConfigPtrOutput) MaxConcurrentInvocationsPerInstance() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceClientConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentInvocationsPerInstance
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies configuration for how an endpoint performs asynchronous inference.
+type EndpointConfigAsyncInferenceConfig struct {
+	// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+	ClientConfig *EndpointConfigAsyncInferenceClientConfig `pulumi:"clientConfig"`
+	// Specifies the configuration for asynchronous inference invocation outputs.
+	OutputConfig EndpointConfigAsyncInferenceOutputConfig `pulumi:"outputConfig"`
+}
+
+// EndpointConfigAsyncInferenceConfigInput is an input type that accepts EndpointConfigAsyncInferenceConfigArgs and EndpointConfigAsyncInferenceConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceConfigInput` via:
+//
+//	EndpointConfigAsyncInferenceConfigArgs{...}
+type EndpointConfigAsyncInferenceConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceConfigOutput() EndpointConfigAsyncInferenceConfigOutput
+	ToEndpointConfigAsyncInferenceConfigOutputWithContext(context.Context) EndpointConfigAsyncInferenceConfigOutput
+}
+
+// Specifies configuration for how an endpoint performs asynchronous inference.
+type EndpointConfigAsyncInferenceConfigArgs struct {
+	// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+	ClientConfig EndpointConfigAsyncInferenceClientConfigPtrInput `pulumi:"clientConfig"`
+	// Specifies the configuration for asynchronous inference invocation outputs.
+	OutputConfig EndpointConfigAsyncInferenceOutputConfigInput `pulumi:"outputConfig"`
+}
+
+func (EndpointConfigAsyncInferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigAsyncInferenceConfigArgs) ToEndpointConfigAsyncInferenceConfigOutput() EndpointConfigAsyncInferenceConfigOutput {
+	return i.ToEndpointConfigAsyncInferenceConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceConfigArgs) ToEndpointConfigAsyncInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceConfigOutput)
+}
+
+func (i EndpointConfigAsyncInferenceConfigArgs) ToEndpointConfigAsyncInferenceConfigPtrOutput() EndpointConfigAsyncInferenceConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceConfigArgs) ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceConfigOutput).ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigAsyncInferenceConfigPtrInput is an input type that accepts EndpointConfigAsyncInferenceConfigArgs, EndpointConfigAsyncInferenceConfigPtr and EndpointConfigAsyncInferenceConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceConfigPtrInput` via:
+//
+//	        EndpointConfigAsyncInferenceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigAsyncInferenceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceConfigPtrOutput() EndpointConfigAsyncInferenceConfigPtrOutput
+	ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(context.Context) EndpointConfigAsyncInferenceConfigPtrOutput
+}
+
+type endpointConfigAsyncInferenceConfigPtrType EndpointConfigAsyncInferenceConfigArgs
+
+func EndpointConfigAsyncInferenceConfigPtr(v *EndpointConfigAsyncInferenceConfigArgs) EndpointConfigAsyncInferenceConfigPtrInput {
+	return (*endpointConfigAsyncInferenceConfigPtrType)(v)
+}
+
+func (*endpointConfigAsyncInferenceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigAsyncInferenceConfigPtrType) ToEndpointConfigAsyncInferenceConfigPtrOutput() EndpointConfigAsyncInferenceConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigAsyncInferenceConfigPtrType) ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceConfigPtrOutput)
+}
+
+// Specifies configuration for how an endpoint performs asynchronous inference.
+type EndpointConfigAsyncInferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceConfigOutput) ToEndpointConfigAsyncInferenceConfigOutput() EndpointConfigAsyncInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceConfigOutput) ToEndpointConfigAsyncInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceConfigOutput) ToEndpointConfigAsyncInferenceConfigPtrOutput() EndpointConfigAsyncInferenceConfigPtrOutput {
+	return o.ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigAsyncInferenceConfigOutput) ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigAsyncInferenceConfig) *EndpointConfigAsyncInferenceConfig {
+		return &v
+	}).(EndpointConfigAsyncInferenceConfigPtrOutput)
+}
+
+// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+func (o EndpointConfigAsyncInferenceConfigOutput) ClientConfig() EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceConfig) *EndpointConfigAsyncInferenceClientConfig {
+		return v.ClientConfig
+	}).(EndpointConfigAsyncInferenceClientConfigPtrOutput)
+}
+
+// Specifies the configuration for asynchronous inference invocation outputs.
+func (o EndpointConfigAsyncInferenceConfigOutput) OutputConfig() EndpointConfigAsyncInferenceOutputConfigOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceConfig) EndpointConfigAsyncInferenceOutputConfig {
+		return v.OutputConfig
+	}).(EndpointConfigAsyncInferenceOutputConfigOutput)
+}
+
+type EndpointConfigAsyncInferenceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceConfigPtrOutput) ToEndpointConfigAsyncInferenceConfigPtrOutput() EndpointConfigAsyncInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceConfigPtrOutput) ToEndpointConfigAsyncInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceConfigPtrOutput) Elem() EndpointConfigAsyncInferenceConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceConfig) EndpointConfigAsyncInferenceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigAsyncInferenceConfig
+		return ret
+	}).(EndpointConfigAsyncInferenceConfigOutput)
+}
+
+// Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+func (o EndpointConfigAsyncInferenceConfigPtrOutput) ClientConfig() EndpointConfigAsyncInferenceClientConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceConfig) *EndpointConfigAsyncInferenceClientConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ClientConfig
+	}).(EndpointConfigAsyncInferenceClientConfigPtrOutput)
+}
+
+// Specifies the configuration for asynchronous inference invocation outputs.
+func (o EndpointConfigAsyncInferenceConfigPtrOutput) OutputConfig() EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceConfig) *EndpointConfigAsyncInferenceOutputConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputConfig
+	}).(EndpointConfigAsyncInferenceOutputConfigPtrOutput)
+}
+
+// Specifies the configuration for notifications of inference results for asynchronous inference.
+type EndpointConfigAsyncInferenceNotificationConfig struct {
+	// Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
+	ErrorTopic *string `pulumi:"errorTopic"`
+	// The Amazon SNS topics where you want the inference response to be included.
+	IncludeInferenceResponseIn []string `pulumi:"includeInferenceResponseIn"`
+	// Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+	SuccessTopic *string `pulumi:"successTopic"`
+}
+
+// EndpointConfigAsyncInferenceNotificationConfigInput is an input type that accepts EndpointConfigAsyncInferenceNotificationConfigArgs and EndpointConfigAsyncInferenceNotificationConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceNotificationConfigInput` via:
+//
+//	EndpointConfigAsyncInferenceNotificationConfigArgs{...}
+type EndpointConfigAsyncInferenceNotificationConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceNotificationConfigOutput() EndpointConfigAsyncInferenceNotificationConfigOutput
+	ToEndpointConfigAsyncInferenceNotificationConfigOutputWithContext(context.Context) EndpointConfigAsyncInferenceNotificationConfigOutput
+}
+
+// Specifies the configuration for notifications of inference results for asynchronous inference.
+type EndpointConfigAsyncInferenceNotificationConfigArgs struct {
+	// Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
+	ErrorTopic pulumi.StringPtrInput `pulumi:"errorTopic"`
+	// The Amazon SNS topics where you want the inference response to be included.
+	IncludeInferenceResponseIn pulumi.StringArrayInput `pulumi:"includeInferenceResponseIn"`
+	// Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+	SuccessTopic pulumi.StringPtrInput `pulumi:"successTopic"`
+}
+
+func (EndpointConfigAsyncInferenceNotificationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigAsyncInferenceNotificationConfigArgs) ToEndpointConfigAsyncInferenceNotificationConfigOutput() EndpointConfigAsyncInferenceNotificationConfigOutput {
+	return i.ToEndpointConfigAsyncInferenceNotificationConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceNotificationConfigArgs) ToEndpointConfigAsyncInferenceNotificationConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceNotificationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceNotificationConfigOutput)
+}
+
+func (i EndpointConfigAsyncInferenceNotificationConfigArgs) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutput() EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceNotificationConfigArgs) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceNotificationConfigOutput).ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigAsyncInferenceNotificationConfigPtrInput is an input type that accepts EndpointConfigAsyncInferenceNotificationConfigArgs, EndpointConfigAsyncInferenceNotificationConfigPtr and EndpointConfigAsyncInferenceNotificationConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceNotificationConfigPtrInput` via:
+//
+//	        EndpointConfigAsyncInferenceNotificationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigAsyncInferenceNotificationConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceNotificationConfigPtrOutput() EndpointConfigAsyncInferenceNotificationConfigPtrOutput
+	ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(context.Context) EndpointConfigAsyncInferenceNotificationConfigPtrOutput
+}
+
+type endpointConfigAsyncInferenceNotificationConfigPtrType EndpointConfigAsyncInferenceNotificationConfigArgs
+
+func EndpointConfigAsyncInferenceNotificationConfigPtr(v *EndpointConfigAsyncInferenceNotificationConfigArgs) EndpointConfigAsyncInferenceNotificationConfigPtrInput {
+	return (*endpointConfigAsyncInferenceNotificationConfigPtrType)(v)
+}
+
+func (*endpointConfigAsyncInferenceNotificationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigAsyncInferenceNotificationConfigPtrType) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutput() EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigAsyncInferenceNotificationConfigPtrType) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// Specifies the configuration for notifications of inference results for asynchronous inference.
+type EndpointConfigAsyncInferenceNotificationConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceNotificationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) ToEndpointConfigAsyncInferenceNotificationConfigOutput() EndpointConfigAsyncInferenceNotificationConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) ToEndpointConfigAsyncInferenceNotificationConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceNotificationConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutput() EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return o.ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigAsyncInferenceNotificationConfig) *EndpointConfigAsyncInferenceNotificationConfig {
+		return &v
+	}).(EndpointConfigAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) ErrorTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceNotificationConfig) *string { return v.ErrorTopic }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon SNS topics where you want the inference response to be included.
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) IncludeInferenceResponseIn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceNotificationConfig) []string { return v.IncludeInferenceResponseIn }).(pulumi.StringArrayOutput)
+}
+
+// Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+func (o EndpointConfigAsyncInferenceNotificationConfigOutput) SuccessTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceNotificationConfig) *string { return v.SuccessTopic }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigAsyncInferenceNotificationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceNotificationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceNotificationConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutput() EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) ToEndpointConfigAsyncInferenceNotificationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) Elem() EndpointConfigAsyncInferenceNotificationConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceNotificationConfig) EndpointConfigAsyncInferenceNotificationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigAsyncInferenceNotificationConfig
+		return ret
+	}).(EndpointConfigAsyncInferenceNotificationConfigOutput)
+}
+
+// Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
+func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) ErrorTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon SNS topics where you want the inference response to be included.
+func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) IncludeInferenceResponseIn() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceNotificationConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IncludeInferenceResponseIn
+	}).(pulumi.StringArrayOutput)
+}
+
+// Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+func (o EndpointConfigAsyncInferenceNotificationConfigPtrOutput) SuccessTopic() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceNotificationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SuccessTopic
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for asynchronous inference invocation outputs.
+type EndpointConfigAsyncInferenceOutputConfig struct {
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Specifies the configuration for notifications of inference results for asynchronous inference.
+	NotificationConfig *EndpointConfigAsyncInferenceNotificationConfig `pulumi:"notificationConfig"`
+	// The Amazon S3 location to upload failure inference responses to.
+	S3FailurePath *string `pulumi:"s3FailurePath"`
+	// The Amazon S3 location to upload inference responses to.
+	S3OutputPath *string `pulumi:"s3OutputPath"`
+}
+
+// EndpointConfigAsyncInferenceOutputConfigInput is an input type that accepts EndpointConfigAsyncInferenceOutputConfigArgs and EndpointConfigAsyncInferenceOutputConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceOutputConfigInput` via:
+//
+//	EndpointConfigAsyncInferenceOutputConfigArgs{...}
+type EndpointConfigAsyncInferenceOutputConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceOutputConfigOutput() EndpointConfigAsyncInferenceOutputConfigOutput
+	ToEndpointConfigAsyncInferenceOutputConfigOutputWithContext(context.Context) EndpointConfigAsyncInferenceOutputConfigOutput
+}
+
+// Specifies the configuration for asynchronous inference invocation outputs.
+type EndpointConfigAsyncInferenceOutputConfigArgs struct {
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Specifies the configuration for notifications of inference results for asynchronous inference.
+	NotificationConfig EndpointConfigAsyncInferenceNotificationConfigPtrInput `pulumi:"notificationConfig"`
+	// The Amazon S3 location to upload failure inference responses to.
+	S3FailurePath pulumi.StringPtrInput `pulumi:"s3FailurePath"`
+	// The Amazon S3 location to upload inference responses to.
+	S3OutputPath pulumi.StringPtrInput `pulumi:"s3OutputPath"`
+}
+
+func (EndpointConfigAsyncInferenceOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigAsyncInferenceOutputConfigArgs) ToEndpointConfigAsyncInferenceOutputConfigOutput() EndpointConfigAsyncInferenceOutputConfigOutput {
+	return i.ToEndpointConfigAsyncInferenceOutputConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceOutputConfigArgs) ToEndpointConfigAsyncInferenceOutputConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceOutputConfigOutput)
+}
+
+func (i EndpointConfigAsyncInferenceOutputConfigArgs) ToEndpointConfigAsyncInferenceOutputConfigPtrOutput() EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigAsyncInferenceOutputConfigArgs) ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceOutputConfigOutput).ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigAsyncInferenceOutputConfigPtrInput is an input type that accepts EndpointConfigAsyncInferenceOutputConfigArgs, EndpointConfigAsyncInferenceOutputConfigPtr and EndpointConfigAsyncInferenceOutputConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigAsyncInferenceOutputConfigPtrInput` via:
+//
+//	        EndpointConfigAsyncInferenceOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigAsyncInferenceOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigAsyncInferenceOutputConfigPtrOutput() EndpointConfigAsyncInferenceOutputConfigPtrOutput
+	ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(context.Context) EndpointConfigAsyncInferenceOutputConfigPtrOutput
+}
+
+type endpointConfigAsyncInferenceOutputConfigPtrType EndpointConfigAsyncInferenceOutputConfigArgs
+
+func EndpointConfigAsyncInferenceOutputConfigPtr(v *EndpointConfigAsyncInferenceOutputConfigArgs) EndpointConfigAsyncInferenceOutputConfigPtrInput {
+	return (*endpointConfigAsyncInferenceOutputConfigPtrType)(v)
+}
+
+func (*endpointConfigAsyncInferenceOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigAsyncInferenceOutputConfigPtrType) ToEndpointConfigAsyncInferenceOutputConfigPtrOutput() EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return i.ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigAsyncInferenceOutputConfigPtrType) ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigAsyncInferenceOutputConfigPtrOutput)
+}
+
+// Specifies the configuration for asynchronous inference invocation outputs.
+type EndpointConfigAsyncInferenceOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) ToEndpointConfigAsyncInferenceOutputConfigOutput() EndpointConfigAsyncInferenceOutputConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) ToEndpointConfigAsyncInferenceOutputConfigOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceOutputConfigOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) ToEndpointConfigAsyncInferenceOutputConfigPtrOutput() EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return o.ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigAsyncInferenceOutputConfig) *EndpointConfigAsyncInferenceOutputConfig {
+		return &v
+	}).(EndpointConfigAsyncInferenceOutputConfigPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for notifications of inference results for asynchronous inference.
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) NotificationConfig() EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceOutputConfig) *EndpointConfigAsyncInferenceNotificationConfig {
+		return v.NotificationConfig
+	}).(EndpointConfigAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// The Amazon S3 location to upload failure inference responses to.
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) S3FailurePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceOutputConfig) *string { return v.S3FailurePath }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 location to upload inference responses to.
+func (o EndpointConfigAsyncInferenceOutputConfigOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigAsyncInferenceOutputConfig) *string { return v.S3OutputPath }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigAsyncInferenceOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigAsyncInferenceOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigAsyncInferenceOutputConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) ToEndpointConfigAsyncInferenceOutputConfigPtrOutput() EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) ToEndpointConfigAsyncInferenceOutputConfigPtrOutputWithContext(ctx context.Context) EndpointConfigAsyncInferenceOutputConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) Elem() EndpointConfigAsyncInferenceOutputConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceOutputConfig) EndpointConfigAsyncInferenceOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigAsyncInferenceOutputConfig
+		return ret
+	}).(EndpointConfigAsyncInferenceOutputConfigOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the configuration for notifications of inference results for asynchronous inference.
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) NotificationConfig() EndpointConfigAsyncInferenceNotificationConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceOutputConfig) *EndpointConfigAsyncInferenceNotificationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NotificationConfig
+	}).(EndpointConfigAsyncInferenceNotificationConfigPtrOutput)
+}
+
+// The Amazon S3 location to upload failure inference responses to.
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) S3FailurePath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3FailurePath
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 location to upload inference responses to.
+func (o EndpointConfigAsyncInferenceOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigAsyncInferenceOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+type EndpointConfigCapacityReservationConfig struct {
+	// Options that you can choose for the capacity reservation.
+	CapacityReservationPreference *string `pulumi:"capacityReservationPreference"`
+	// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+	MlReservationArn *string `pulumi:"mlReservationArn"`
+}
+
+// EndpointConfigCapacityReservationConfigInput is an input type that accepts EndpointConfigCapacityReservationConfigArgs and EndpointConfigCapacityReservationConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigCapacityReservationConfigInput` via:
+//
+//	EndpointConfigCapacityReservationConfigArgs{...}
+type EndpointConfigCapacityReservationConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCapacityReservationConfigOutput() EndpointConfigCapacityReservationConfigOutput
+	ToEndpointConfigCapacityReservationConfigOutputWithContext(context.Context) EndpointConfigCapacityReservationConfigOutput
+}
+
+// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+type EndpointConfigCapacityReservationConfigArgs struct {
+	// Options that you can choose for the capacity reservation.
+	CapacityReservationPreference pulumi.StringPtrInput `pulumi:"capacityReservationPreference"`
+	// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+	MlReservationArn pulumi.StringPtrInput `pulumi:"mlReservationArn"`
+}
+
+func (EndpointConfigCapacityReservationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCapacityReservationConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigCapacityReservationConfigArgs) ToEndpointConfigCapacityReservationConfigOutput() EndpointConfigCapacityReservationConfigOutput {
+	return i.ToEndpointConfigCapacityReservationConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCapacityReservationConfigArgs) ToEndpointConfigCapacityReservationConfigOutputWithContext(ctx context.Context) EndpointConfigCapacityReservationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCapacityReservationConfigOutput)
+}
+
+func (i EndpointConfigCapacityReservationConfigArgs) ToEndpointConfigCapacityReservationConfigPtrOutput() EndpointConfigCapacityReservationConfigPtrOutput {
+	return i.ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCapacityReservationConfigArgs) ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCapacityReservationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCapacityReservationConfigOutput).ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigCapacityReservationConfigPtrInput is an input type that accepts EndpointConfigCapacityReservationConfigArgs, EndpointConfigCapacityReservationConfigPtr and EndpointConfigCapacityReservationConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigCapacityReservationConfigPtrInput` via:
+//
+//	        EndpointConfigCapacityReservationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigCapacityReservationConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCapacityReservationConfigPtrOutput() EndpointConfigCapacityReservationConfigPtrOutput
+	ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(context.Context) EndpointConfigCapacityReservationConfigPtrOutput
+}
+
+type endpointConfigCapacityReservationConfigPtrType EndpointConfigCapacityReservationConfigArgs
+
+func EndpointConfigCapacityReservationConfigPtr(v *EndpointConfigCapacityReservationConfigArgs) EndpointConfigCapacityReservationConfigPtrInput {
+	return (*endpointConfigCapacityReservationConfigPtrType)(v)
+}
+
+func (*endpointConfigCapacityReservationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCapacityReservationConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigCapacityReservationConfigPtrType) ToEndpointConfigCapacityReservationConfigPtrOutput() EndpointConfigCapacityReservationConfigPtrOutput {
+	return i.ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigCapacityReservationConfigPtrType) ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCapacityReservationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCapacityReservationConfigPtrOutput)
+}
+
+// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+type EndpointConfigCapacityReservationConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCapacityReservationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCapacityReservationConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigCapacityReservationConfigOutput) ToEndpointConfigCapacityReservationConfigOutput() EndpointConfigCapacityReservationConfigOutput {
+	return o
+}
+
+func (o EndpointConfigCapacityReservationConfigOutput) ToEndpointConfigCapacityReservationConfigOutputWithContext(ctx context.Context) EndpointConfigCapacityReservationConfigOutput {
+	return o
+}
+
+func (o EndpointConfigCapacityReservationConfigOutput) ToEndpointConfigCapacityReservationConfigPtrOutput() EndpointConfigCapacityReservationConfigPtrOutput {
+	return o.ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigCapacityReservationConfigOutput) ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCapacityReservationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigCapacityReservationConfig) *EndpointConfigCapacityReservationConfig {
+		return &v
+	}).(EndpointConfigCapacityReservationConfigPtrOutput)
+}
+
+// Options that you can choose for the capacity reservation.
+func (o EndpointConfigCapacityReservationConfigOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigCapacityReservationConfig) *string { return v.CapacityReservationPreference }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+func (o EndpointConfigCapacityReservationConfigOutput) MlReservationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigCapacityReservationConfig) *string { return v.MlReservationArn }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigCapacityReservationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCapacityReservationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCapacityReservationConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigCapacityReservationConfigPtrOutput) ToEndpointConfigCapacityReservationConfigPtrOutput() EndpointConfigCapacityReservationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCapacityReservationConfigPtrOutput) ToEndpointConfigCapacityReservationConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCapacityReservationConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCapacityReservationConfigPtrOutput) Elem() EndpointConfigCapacityReservationConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigCapacityReservationConfig) EndpointConfigCapacityReservationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigCapacityReservationConfig
+		return ret
+	}).(EndpointConfigCapacityReservationConfigOutput)
+}
+
+// Options that you can choose for the capacity reservation.
+func (o EndpointConfigCapacityReservationConfigPtrOutput) CapacityReservationPreference() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigCapacityReservationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CapacityReservationPreference
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+func (o EndpointConfigCapacityReservationConfigPtrOutput) MlReservationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigCapacityReservationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MlReservationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the JSON and CSV content types of the data that the endpoint captures.
+type EndpointConfigCaptureContentTypeHeader struct {
+	// A list of the CSV content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+	CsvContentTypes []string `pulumi:"csvContentTypes"`
+	// A list of the JSON content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+	JsonContentTypes []string `pulumi:"jsonContentTypes"`
+}
+
+// EndpointConfigCaptureContentTypeHeaderInput is an input type that accepts EndpointConfigCaptureContentTypeHeaderArgs and EndpointConfigCaptureContentTypeHeaderOutput values.
+// You can construct a concrete instance of `EndpointConfigCaptureContentTypeHeaderInput` via:
+//
+//	EndpointConfigCaptureContentTypeHeaderArgs{...}
+type EndpointConfigCaptureContentTypeHeaderInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCaptureContentTypeHeaderOutput() EndpointConfigCaptureContentTypeHeaderOutput
+	ToEndpointConfigCaptureContentTypeHeaderOutputWithContext(context.Context) EndpointConfigCaptureContentTypeHeaderOutput
+}
+
+// Specifies the JSON and CSV content types of the data that the endpoint captures.
+type EndpointConfigCaptureContentTypeHeaderArgs struct {
+	// A list of the CSV content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+	CsvContentTypes pulumi.StringArrayInput `pulumi:"csvContentTypes"`
+	// A list of the JSON content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+	JsonContentTypes pulumi.StringArrayInput `pulumi:"jsonContentTypes"`
+}
+
+func (EndpointConfigCaptureContentTypeHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (i EndpointConfigCaptureContentTypeHeaderArgs) ToEndpointConfigCaptureContentTypeHeaderOutput() EndpointConfigCaptureContentTypeHeaderOutput {
+	return i.ToEndpointConfigCaptureContentTypeHeaderOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCaptureContentTypeHeaderArgs) ToEndpointConfigCaptureContentTypeHeaderOutputWithContext(ctx context.Context) EndpointConfigCaptureContentTypeHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCaptureContentTypeHeaderOutput)
+}
+
+func (i EndpointConfigCaptureContentTypeHeaderArgs) ToEndpointConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return i.ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCaptureContentTypeHeaderArgs) ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCaptureContentTypeHeaderOutput).ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigCaptureContentTypeHeaderPtrInput is an input type that accepts EndpointConfigCaptureContentTypeHeaderArgs, EndpointConfigCaptureContentTypeHeaderPtr and EndpointConfigCaptureContentTypeHeaderPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigCaptureContentTypeHeaderPtrInput` via:
+//
+//	        EndpointConfigCaptureContentTypeHeaderArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigCaptureContentTypeHeaderPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigCaptureContentTypeHeaderPtrOutput
+	ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Context) EndpointConfigCaptureContentTypeHeaderPtrOutput
+}
+
+type endpointConfigCaptureContentTypeHeaderPtrType EndpointConfigCaptureContentTypeHeaderArgs
+
+func EndpointConfigCaptureContentTypeHeaderPtr(v *EndpointConfigCaptureContentTypeHeaderArgs) EndpointConfigCaptureContentTypeHeaderPtrInput {
+	return (*endpointConfigCaptureContentTypeHeaderPtrType)(v)
+}
+
+func (*endpointConfigCaptureContentTypeHeaderPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (i *endpointConfigCaptureContentTypeHeaderPtrType) ToEndpointConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return i.ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigCaptureContentTypeHeaderPtrType) ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+// Specifies the JSON and CSV content types of the data that the endpoint captures.
+type EndpointConfigCaptureContentTypeHeaderOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCaptureContentTypeHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (o EndpointConfigCaptureContentTypeHeaderOutput) ToEndpointConfigCaptureContentTypeHeaderOutput() EndpointConfigCaptureContentTypeHeaderOutput {
+	return o
+}
+
+func (o EndpointConfigCaptureContentTypeHeaderOutput) ToEndpointConfigCaptureContentTypeHeaderOutputWithContext(ctx context.Context) EndpointConfigCaptureContentTypeHeaderOutput {
+	return o
+}
+
+func (o EndpointConfigCaptureContentTypeHeaderOutput) ToEndpointConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigCaptureContentTypeHeaderOutput) ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigCaptureContentTypeHeader) *EndpointConfigCaptureContentTypeHeader {
+		return &v
+	}).(EndpointConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+// A list of the CSV content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+func (o EndpointConfigCaptureContentTypeHeaderOutput) CsvContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigCaptureContentTypeHeader) []string { return v.CsvContentTypes }).(pulumi.StringArrayOutput)
+}
+
+// A list of the JSON content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+func (o EndpointConfigCaptureContentTypeHeaderOutput) JsonContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigCaptureContentTypeHeader) []string { return v.JsonContentTypes }).(pulumi.StringArrayOutput)
+}
+
+type EndpointConfigCaptureContentTypeHeaderPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCaptureContentTypeHeaderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCaptureContentTypeHeader)(nil)).Elem()
+}
+
+func (o EndpointConfigCaptureContentTypeHeaderPtrOutput) ToEndpointConfigCaptureContentTypeHeaderPtrOutput() EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCaptureContentTypeHeaderPtrOutput) ToEndpointConfigCaptureContentTypeHeaderPtrOutputWithContext(ctx context.Context) EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCaptureContentTypeHeaderPtrOutput) Elem() EndpointConfigCaptureContentTypeHeaderOutput {
+	return o.ApplyT(func(v *EndpointConfigCaptureContentTypeHeader) EndpointConfigCaptureContentTypeHeader {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigCaptureContentTypeHeader
+		return ret
+	}).(EndpointConfigCaptureContentTypeHeaderOutput)
+}
+
+// A list of the CSV content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+func (o EndpointConfigCaptureContentTypeHeaderPtrOutput) CsvContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigCaptureContentTypeHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CsvContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of the JSON content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+func (o EndpointConfigCaptureContentTypeHeaderPtrOutput) JsonContentTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigCaptureContentTypeHeader) []string {
+		if v == nil {
+			return nil
+		}
+		return v.JsonContentTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Specifies whether the endpoint captures input data or output data.
+type EndpointConfigCaptureOption struct {
+	// Specifies whether the endpoint captures input data or output data.
+	CaptureMode string `pulumi:"captureMode"`
+}
+
+// EndpointConfigCaptureOptionInput is an input type that accepts EndpointConfigCaptureOptionArgs and EndpointConfigCaptureOptionOutput values.
+// You can construct a concrete instance of `EndpointConfigCaptureOptionInput` via:
+//
+//	EndpointConfigCaptureOptionArgs{...}
+type EndpointConfigCaptureOptionInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCaptureOptionOutput() EndpointConfigCaptureOptionOutput
+	ToEndpointConfigCaptureOptionOutputWithContext(context.Context) EndpointConfigCaptureOptionOutput
+}
+
+// Specifies whether the endpoint captures input data or output data.
+type EndpointConfigCaptureOptionArgs struct {
+	// Specifies whether the endpoint captures input data or output data.
+	CaptureMode pulumi.StringInput `pulumi:"captureMode"`
+}
+
+func (EndpointConfigCaptureOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCaptureOption)(nil)).Elem()
+}
+
+func (i EndpointConfigCaptureOptionArgs) ToEndpointConfigCaptureOptionOutput() EndpointConfigCaptureOptionOutput {
+	return i.ToEndpointConfigCaptureOptionOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCaptureOptionArgs) ToEndpointConfigCaptureOptionOutputWithContext(ctx context.Context) EndpointConfigCaptureOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCaptureOptionOutput)
+}
+
+// EndpointConfigCaptureOptionArrayInput is an input type that accepts EndpointConfigCaptureOptionArray and EndpointConfigCaptureOptionArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigCaptureOptionArrayInput` via:
+//
+//	EndpointConfigCaptureOptionArray{ EndpointConfigCaptureOptionArgs{...} }
+type EndpointConfigCaptureOptionArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCaptureOptionArrayOutput() EndpointConfigCaptureOptionArrayOutput
+	ToEndpointConfigCaptureOptionArrayOutputWithContext(context.Context) EndpointConfigCaptureOptionArrayOutput
+}
+
+type EndpointConfigCaptureOptionArray []EndpointConfigCaptureOptionInput
+
+func (EndpointConfigCaptureOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigCaptureOption)(nil)).Elem()
+}
+
+func (i EndpointConfigCaptureOptionArray) ToEndpointConfigCaptureOptionArrayOutput() EndpointConfigCaptureOptionArrayOutput {
+	return i.ToEndpointConfigCaptureOptionArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCaptureOptionArray) ToEndpointConfigCaptureOptionArrayOutputWithContext(ctx context.Context) EndpointConfigCaptureOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCaptureOptionArrayOutput)
+}
+
+// Specifies whether the endpoint captures input data or output data.
+type EndpointConfigCaptureOptionOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCaptureOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCaptureOption)(nil)).Elem()
+}
+
+func (o EndpointConfigCaptureOptionOutput) ToEndpointConfigCaptureOptionOutput() EndpointConfigCaptureOptionOutput {
+	return o
+}
+
+func (o EndpointConfigCaptureOptionOutput) ToEndpointConfigCaptureOptionOutputWithContext(ctx context.Context) EndpointConfigCaptureOptionOutput {
+	return o
+}
+
+// Specifies whether the endpoint captures input data or output data.
+func (o EndpointConfigCaptureOptionOutput) CaptureMode() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigCaptureOption) string { return v.CaptureMode }).(pulumi.StringOutput)
+}
+
+type EndpointConfigCaptureOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCaptureOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigCaptureOption)(nil)).Elem()
+}
+
+func (o EndpointConfigCaptureOptionArrayOutput) ToEndpointConfigCaptureOptionArrayOutput() EndpointConfigCaptureOptionArrayOutput {
+	return o
+}
+
+func (o EndpointConfigCaptureOptionArrayOutput) ToEndpointConfigCaptureOptionArrayOutputWithContext(ctx context.Context) EndpointConfigCaptureOptionArrayOutput {
+	return o
+}
+
+func (o EndpointConfigCaptureOptionArrayOutput) Index(i pulumi.IntInput) EndpointConfigCaptureOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigCaptureOption {
+		return vs[0].([]EndpointConfigCaptureOption)[vs[1].(int)]
+	}).(EndpointConfigCaptureOptionOutput)
+}
+
+// The configuration parameters for the SageMaker Clarify explainer.
+type EndpointConfigClarifyExplainerConfig struct {
+	// A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default.
+	EnableExplanations *string `pulumi:"enableExplanations"`
+	// The inference configuration parameter for the model container.
+	InferenceConfig *EndpointConfigClarifyInferenceConfig `pulumi:"inferenceConfig"`
+	// The configuration for SHAP analysis.
+	ShapConfig EndpointConfigClarifyShapConfig `pulumi:"shapConfig"`
+}
+
+// EndpointConfigClarifyExplainerConfigInput is an input type that accepts EndpointConfigClarifyExplainerConfigArgs and EndpointConfigClarifyExplainerConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyExplainerConfigInput` via:
+//
+//	EndpointConfigClarifyExplainerConfigArgs{...}
+type EndpointConfigClarifyExplainerConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyExplainerConfigOutput() EndpointConfigClarifyExplainerConfigOutput
+	ToEndpointConfigClarifyExplainerConfigOutputWithContext(context.Context) EndpointConfigClarifyExplainerConfigOutput
+}
+
+// The configuration parameters for the SageMaker Clarify explainer.
+type EndpointConfigClarifyExplainerConfigArgs struct {
+	// A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default.
+	EnableExplanations pulumi.StringPtrInput `pulumi:"enableExplanations"`
+	// The inference configuration parameter for the model container.
+	InferenceConfig EndpointConfigClarifyInferenceConfigPtrInput `pulumi:"inferenceConfig"`
+	// The configuration for SHAP analysis.
+	ShapConfig EndpointConfigClarifyShapConfigInput `pulumi:"shapConfig"`
+}
+
+func (EndpointConfigClarifyExplainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigOutput() EndpointConfigClarifyExplainerConfigOutput {
+	return i.ToEndpointConfigClarifyExplainerConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyExplainerConfigOutput)
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return i.ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyExplainerConfigArgs) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyExplainerConfigOutput).ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyExplainerConfigPtrInput is an input type that accepts EndpointConfigClarifyExplainerConfigArgs, EndpointConfigClarifyExplainerConfigPtr and EndpointConfigClarifyExplainerConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyExplainerConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyExplainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyExplainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput
+	ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyExplainerConfigPtrOutput
+}
+
+type endpointConfigClarifyExplainerConfigPtrType EndpointConfigClarifyExplainerConfigArgs
+
+func EndpointConfigClarifyExplainerConfigPtr(v *EndpointConfigClarifyExplainerConfigArgs) EndpointConfigClarifyExplainerConfigPtrInput {
+	return (*endpointConfigClarifyExplainerConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyExplainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyExplainerConfigPtrType) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return i.ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyExplainerConfigPtrType) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
+// The configuration parameters for the SageMaker Clarify explainer.
+type EndpointConfigClarifyExplainerConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyExplainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigOutput() EndpointConfigClarifyExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyExplainerConfigOutput) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyExplainerConfig {
+		return &v
+	}).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
+// A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default.
+func (o EndpointConfigClarifyExplainerConfigOutput) EnableExplanations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyExplainerConfig) *string { return v.EnableExplanations }).(pulumi.StringPtrOutput)
+}
+
+// The inference configuration parameter for the model container.
+func (o EndpointConfigClarifyExplainerConfigOutput) InferenceConfig() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyInferenceConfig {
+		return v.InferenceConfig
+	}).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+// The configuration for SHAP analysis.
+func (o EndpointConfigClarifyExplainerConfigOutput) ShapConfig() EndpointConfigClarifyShapConfigOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyExplainerConfig) EndpointConfigClarifyShapConfig { return v.ShapConfig }).(EndpointConfigClarifyShapConfigOutput)
+}
+
+type EndpointConfigClarifyExplainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyExplainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) ToEndpointConfigClarifyExplainerConfigPtrOutput() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) ToEndpointConfigClarifyExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) Elem() EndpointConfigClarifyExplainerConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) EndpointConfigClarifyExplainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyExplainerConfig
+		return ret
+	}).(EndpointConfigClarifyExplainerConfigOutput)
+}
+
+// A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default.
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) EnableExplanations() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EnableExplanations
+	}).(pulumi.StringPtrOutput)
+}
+
+// The inference configuration parameter for the model container.
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) InferenceConfig() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyInferenceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceConfig
+	}).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+// The configuration for SHAP analysis.
+func (o EndpointConfigClarifyExplainerConfigPtrOutput) ShapConfig() EndpointConfigClarifyShapConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyExplainerConfig) *EndpointConfigClarifyShapConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ShapConfig
+	}).(EndpointConfigClarifyShapConfigPtrOutput)
+}
+
+// The inference configuration parameter for the model container.
+type EndpointConfigClarifyInferenceConfig struct {
+	// A template string used to format a JSON record into an acceptable model container input.
+	ContentTemplate *string `pulumi:"contentTemplate"`
+	// The names of the features. If provided, these are included in the endpoint response payload to help readability of the InvokeEndpoint output.
+	FeatureHeaders []string `pulumi:"featureHeaders"`
+	// A list of data types of the features (optional). Applicable only to NLP explainability. If provided, FeatureTypes must have at least one 'text' string (for example, ['text']). If FeatureTypes is not provided, the explainer infers the feature types based on the baseline data.
+	FeatureTypes []string `pulumi:"featureTypes"`
+	// Provides the JMESPath expression to extract the features from a model container input in JSON Lines format.
+	FeaturesAttribute *string `pulumi:"featuresAttribute"`
+	// A JMESPath expression used to locate the list of label headers in the model container output.
+	LabelAttribute *string `pulumi:"labelAttribute"`
+	// For multiclass classification problems, the label headers are the names of the classes. Otherwise, the label header is the name of the predicted label.
+	LabelHeaders []string `pulumi:"labelHeaders"`
+	// A zero-based index used to extract a label header or list of label headers from model container output in CSV format.
+	LabelIndex *int `pulumi:"labelIndex"`
+	// The maximum payload size (MB) allowed of a request from the explainer to the model container. Defaults to 6 MB.
+	MaxPayloadInMb *int `pulumi:"maxPayloadInMb"`
+	// The maximum number of records in a request that the model container can process when querying the model container for the predictions of a synthetic dataset. A record is a unit of input data that inference can be made on, for example, a single line in CSV data.
+	MaxRecordCount *int `pulumi:"maxRecordCount"`
+	// A JMESPath expression used to extract the probability (or score) from the model container output if the model container is in JSON Lines format.
+	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
+	// A zero-based index used to extract a probability value (score) or list from model container output in CSV format. If this value is not provided, the entire model container output will be treated as a probability value (score) or list.
+	ProbabilityIndex *int `pulumi:"probabilityIndex"`
+}
+
+// EndpointConfigClarifyInferenceConfigInput is an input type that accepts EndpointConfigClarifyInferenceConfigArgs and EndpointConfigClarifyInferenceConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyInferenceConfigInput` via:
+//
+//	EndpointConfigClarifyInferenceConfigArgs{...}
+type EndpointConfigClarifyInferenceConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyInferenceConfigOutput() EndpointConfigClarifyInferenceConfigOutput
+	ToEndpointConfigClarifyInferenceConfigOutputWithContext(context.Context) EndpointConfigClarifyInferenceConfigOutput
+}
+
+// The inference configuration parameter for the model container.
+type EndpointConfigClarifyInferenceConfigArgs struct {
+	// A template string used to format a JSON record into an acceptable model container input.
+	ContentTemplate pulumi.StringPtrInput `pulumi:"contentTemplate"`
+	// The names of the features. If provided, these are included in the endpoint response payload to help readability of the InvokeEndpoint output.
+	FeatureHeaders pulumi.StringArrayInput `pulumi:"featureHeaders"`
+	// A list of data types of the features (optional). Applicable only to NLP explainability. If provided, FeatureTypes must have at least one 'text' string (for example, ['text']). If FeatureTypes is not provided, the explainer infers the feature types based on the baseline data.
+	FeatureTypes pulumi.StringArrayInput `pulumi:"featureTypes"`
+	// Provides the JMESPath expression to extract the features from a model container input in JSON Lines format.
+	FeaturesAttribute pulumi.StringPtrInput `pulumi:"featuresAttribute"`
+	// A JMESPath expression used to locate the list of label headers in the model container output.
+	LabelAttribute pulumi.StringPtrInput `pulumi:"labelAttribute"`
+	// For multiclass classification problems, the label headers are the names of the classes. Otherwise, the label header is the name of the predicted label.
+	LabelHeaders pulumi.StringArrayInput `pulumi:"labelHeaders"`
+	// A zero-based index used to extract a label header or list of label headers from model container output in CSV format.
+	LabelIndex pulumi.IntPtrInput `pulumi:"labelIndex"`
+	// The maximum payload size (MB) allowed of a request from the explainer to the model container. Defaults to 6 MB.
+	MaxPayloadInMb pulumi.IntPtrInput `pulumi:"maxPayloadInMb"`
+	// The maximum number of records in a request that the model container can process when querying the model container for the predictions of a synthetic dataset. A record is a unit of input data that inference can be made on, for example, a single line in CSV data.
+	MaxRecordCount pulumi.IntPtrInput `pulumi:"maxRecordCount"`
+	// A JMESPath expression used to extract the probability (or score) from the model container output if the model container is in JSON Lines format.
+	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
+	// A zero-based index used to extract a probability value (score) or list from model container output in CSV format. If this value is not provided, the entire model container output will be treated as a probability value (score) or list.
+	ProbabilityIndex pulumi.IntPtrInput `pulumi:"probabilityIndex"`
+}
+
+func (EndpointConfigClarifyInferenceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigOutput() EndpointConfigClarifyInferenceConfigOutput {
+	return i.ToEndpointConfigClarifyInferenceConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyInferenceConfigOutput)
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return i.ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyInferenceConfigArgs) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyInferenceConfigOutput).ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyInferenceConfigPtrInput is an input type that accepts EndpointConfigClarifyInferenceConfigArgs, EndpointConfigClarifyInferenceConfigPtr and EndpointConfigClarifyInferenceConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyInferenceConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyInferenceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyInferenceConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput
+	ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyInferenceConfigPtrOutput
+}
+
+type endpointConfigClarifyInferenceConfigPtrType EndpointConfigClarifyInferenceConfigArgs
+
+func EndpointConfigClarifyInferenceConfigPtr(v *EndpointConfigClarifyInferenceConfigArgs) EndpointConfigClarifyInferenceConfigPtrInput {
+	return (*endpointConfigClarifyInferenceConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyInferenceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyInferenceConfigPtrType) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return i.ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyInferenceConfigPtrType) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+// The inference configuration parameter for the model container.
+type EndpointConfigClarifyInferenceConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyInferenceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigOutput() EndpointConfigClarifyInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyInferenceConfigOutput) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyInferenceConfig) *EndpointConfigClarifyInferenceConfig {
+		return &v
+	}).(EndpointConfigClarifyInferenceConfigPtrOutput)
+}
+
+// A template string used to format a JSON record into an acceptable model container input.
+func (o EndpointConfigClarifyInferenceConfigOutput) ContentTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.ContentTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The names of the features. If provided, these are included in the endpoint response payload to help readability of the InvokeEndpoint output.
+func (o EndpointConfigClarifyInferenceConfigOutput) FeatureHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) []string { return v.FeatureHeaders }).(pulumi.StringArrayOutput)
+}
+
+// A list of data types of the features (optional). Applicable only to NLP explainability. If provided, FeatureTypes must have at least one 'text' string (for example, ['text']). If FeatureTypes is not provided, the explainer infers the feature types based on the baseline data.
+func (o EndpointConfigClarifyInferenceConfigOutput) FeatureTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) []string { return v.FeatureTypes }).(pulumi.StringArrayOutput)
+}
+
+// Provides the JMESPath expression to extract the features from a model container input in JSON Lines format.
+func (o EndpointConfigClarifyInferenceConfigOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.FeaturesAttribute }).(pulumi.StringPtrOutput)
+}
+
+// A JMESPath expression used to locate the list of label headers in the model container output.
+func (o EndpointConfigClarifyInferenceConfigOutput) LabelAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.LabelAttribute }).(pulumi.StringPtrOutput)
+}
+
+// For multiclass classification problems, the label headers are the names of the classes. Otherwise, the label header is the name of the predicted label.
+func (o EndpointConfigClarifyInferenceConfigOutput) LabelHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) []string { return v.LabelHeaders }).(pulumi.StringArrayOutput)
+}
+
+// A zero-based index used to extract a label header or list of label headers from model container output in CSV format.
+func (o EndpointConfigClarifyInferenceConfigOutput) LabelIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.LabelIndex }).(pulumi.IntPtrOutput)
+}
+
+// The maximum payload size (MB) allowed of a request from the explainer to the model container. Defaults to 6 MB.
+func (o EndpointConfigClarifyInferenceConfigOutput) MaxPayloadInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.MaxPayloadInMb }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of records in a request that the model container can process when querying the model container for the predictions of a synthetic dataset. A record is a unit of input data that inference can be made on, for example, a single line in CSV data.
+func (o EndpointConfigClarifyInferenceConfigOutput) MaxRecordCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.MaxRecordCount }).(pulumi.IntPtrOutput)
+}
+
+// A JMESPath expression used to extract the probability (or score) from the model container output if the model container is in JSON Lines format.
+func (o EndpointConfigClarifyInferenceConfigOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *string { return v.ProbabilityAttribute }).(pulumi.StringPtrOutput)
+}
+
+// A zero-based index used to extract a probability value (score) or list from model container output in CSV format. If this value is not provided, the entire model container output will be treated as a probability value (score) or list.
+func (o EndpointConfigClarifyInferenceConfigOutput) ProbabilityIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyInferenceConfig) *int { return v.ProbabilityIndex }).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigClarifyInferenceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyInferenceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyInferenceConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ToEndpointConfigClarifyInferenceConfigPtrOutput() EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ToEndpointConfigClarifyInferenceConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyInferenceConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) Elem() EndpointConfigClarifyInferenceConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) EndpointConfigClarifyInferenceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyInferenceConfig
+		return ret
+	}).(EndpointConfigClarifyInferenceConfigOutput)
+}
+
+// A template string used to format a JSON record into an acceptable model container input.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ContentTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The names of the features. If provided, these are included in the endpoint response payload to help readability of the InvokeEndpoint output.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) FeatureHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FeatureHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of data types of the features (optional). Applicable only to NLP explainability. If provided, FeatureTypes must have at least one 'text' string (for example, ['text']). If FeatureTypes is not provided, the explainer infers the feature types based on the baseline data.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) FeatureTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FeatureTypes
+	}).(pulumi.StringArrayOutput)
+}
+
+// Provides the JMESPath expression to extract the features from a model container input in JSON Lines format.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// A JMESPath expression used to locate the list of label headers in the model container output.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) LabelAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// For multiclass classification problems, the label headers are the names of the classes. Otherwise, the label header is the name of the predicted label.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) LabelHeaders() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.LabelHeaders
+	}).(pulumi.StringArrayOutput)
+}
+
+// A zero-based index used to extract a label header or list of label headers from model container output in CSV format.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) LabelIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.LabelIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum payload size (MB) allowed of a request from the explainer to the model container. Defaults to 6 MB.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) MaxPayloadInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxPayloadInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of records in a request that the model container can process when querying the model container for the predictions of a synthetic dataset. A record is a unit of input data that inference can be made on, for example, a single line in CSV data.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) MaxRecordCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxRecordCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// A JMESPath expression used to extract the probability (or score) from the model container output if the model container is in JSON Lines format.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// A zero-based index used to extract a probability value (score) or list from model container output in CSV format. If this value is not provided, the entire model container output will be treated as a probability value (score) or list.
+func (o EndpointConfigClarifyInferenceConfigPtrOutput) ProbabilityIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyInferenceConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration for the SHAP baseline (also called the background or reference dataset) of the Kernal SHAP algorithm.
+type EndpointConfigClarifyShapBaselineConfig struct {
+	// The MIME type of the baseline data. Choose from 'text/csv' or 'application/jsonlines'. Defaults to 'text/csv'.
+	MimeType *string `pulumi:"mimeType"`
+	// The inline SHAP baseline data in string format. ShapBaseline can have one or multiple records to be used as the baseline dataset. The format of the SHAP baseline file should be the same format as the training dataset.
+	ShapBaseline *string `pulumi:"shapBaseline"`
+	// The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is stored. The format of the SHAP baseline file should be the same format as the format of the training dataset.
+	ShapBaselineUri *string `pulumi:"shapBaselineUri"`
+}
+
+// EndpointConfigClarifyShapBaselineConfigInput is an input type that accepts EndpointConfigClarifyShapBaselineConfigArgs and EndpointConfigClarifyShapBaselineConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapBaselineConfigInput` via:
+//
+//	EndpointConfigClarifyShapBaselineConfigArgs{...}
+type EndpointConfigClarifyShapBaselineConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapBaselineConfigOutput() EndpointConfigClarifyShapBaselineConfigOutput
+	ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(context.Context) EndpointConfigClarifyShapBaselineConfigOutput
+}
+
+// The configuration for the SHAP baseline (also called the background or reference dataset) of the Kernal SHAP algorithm.
+type EndpointConfigClarifyShapBaselineConfigArgs struct {
+	// The MIME type of the baseline data. Choose from 'text/csv' or 'application/jsonlines'. Defaults to 'text/csv'.
+	MimeType pulumi.StringPtrInput `pulumi:"mimeType"`
+	// The inline SHAP baseline data in string format. ShapBaseline can have one or multiple records to be used as the baseline dataset. The format of the SHAP baseline file should be the same format as the training dataset.
+	ShapBaseline pulumi.StringPtrInput `pulumi:"shapBaseline"`
+	// The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is stored. The format of the SHAP baseline file should be the same format as the format of the training dataset.
+	ShapBaselineUri pulumi.StringPtrInput `pulumi:"shapBaselineUri"`
+}
+
+func (EndpointConfigClarifyShapBaselineConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigOutput() EndpointConfigClarifyShapBaselineConfigOutput {
+	return i.ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapBaselineConfigOutput)
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapBaselineConfigArgs) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapBaselineConfigOutput).ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyShapBaselineConfigPtrInput is an input type that accepts EndpointConfigClarifyShapBaselineConfigArgs, EndpointConfigClarifyShapBaselineConfigPtr and EndpointConfigClarifyShapBaselineConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapBaselineConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyShapBaselineConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyShapBaselineConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput
+	ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput
+}
+
+type endpointConfigClarifyShapBaselineConfigPtrType EndpointConfigClarifyShapBaselineConfigArgs
+
+func EndpointConfigClarifyShapBaselineConfigPtr(v *EndpointConfigClarifyShapBaselineConfigArgs) EndpointConfigClarifyShapBaselineConfigPtrInput {
+	return (*endpointConfigClarifyShapBaselineConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyShapBaselineConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyShapBaselineConfigPtrType) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyShapBaselineConfigPtrType) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapBaselineConfigPtrOutput)
+}
+
+// The configuration for the SHAP baseline (also called the background or reference dataset) of the Kernal SHAP algorithm.
+type EndpointConfigClarifyShapBaselineConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapBaselineConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigOutput() EndpointConfigClarifyShapBaselineConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o.ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyShapBaselineConfig) *EndpointConfigClarifyShapBaselineConfig {
+		return &v
+	}).(EndpointConfigClarifyShapBaselineConfigPtrOutput)
+}
+
+// The MIME type of the baseline data. Choose from 'text/csv' or 'application/jsonlines'. Defaults to 'text/csv'.
+func (o EndpointConfigClarifyShapBaselineConfigOutput) MimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapBaselineConfig) *string { return v.MimeType }).(pulumi.StringPtrOutput)
+}
+
+// The inline SHAP baseline data in string format. ShapBaseline can have one or multiple records to be used as the baseline dataset. The format of the SHAP baseline file should be the same format as the training dataset.
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ShapBaseline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapBaselineConfig) *string { return v.ShapBaseline }).(pulumi.StringPtrOutput)
+}
+
+// The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is stored. The format of the SHAP baseline file should be the same format as the format of the training dataset.
+func (o EndpointConfigClarifyShapBaselineConfigOutput) ShapBaselineUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapBaselineConfig) *string { return v.ShapBaselineUri }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigClarifyShapBaselineConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapBaselineConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapBaselineConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutput() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ToEndpointConfigClarifyShapBaselineConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) Elem() EndpointConfigClarifyShapBaselineConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) EndpointConfigClarifyShapBaselineConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyShapBaselineConfig
+		return ret
+	}).(EndpointConfigClarifyShapBaselineConfigOutput)
+}
+
+// The MIME type of the baseline data. Choose from 'text/csv' or 'application/jsonlines'. Defaults to 'text/csv'.
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) MimeType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MimeType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The inline SHAP baseline data in string format. ShapBaseline can have one or multiple records to be used as the baseline dataset. The format of the SHAP baseline file should be the same format as the training dataset.
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ShapBaseline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShapBaseline
+	}).(pulumi.StringPtrOutput)
+}
+
+// The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is stored. The format of the SHAP baseline file should be the same format as the format of the training dataset.
+func (o EndpointConfigClarifyShapBaselineConfigPtrOutput) ShapBaselineUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapBaselineConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ShapBaselineUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The configuration for SHAP analysis using SageMaker Clarify Explainer.
+type EndpointConfigClarifyShapConfig struct {
+	// The number of samples to be used for analysis by the Kernal SHAP algorithm.
+	NumberOfSamples *int `pulumi:"numberOfSamples"`
+	// The starting value used to initialize the random number generator in the explainer. Provide a value for this parameter to obtain a deterministic SHAP result.
+	Seed *int `pulumi:"seed"`
+	// The configuration for the SHAP baseline of the Kernal SHAP algorithm.
+	ShapBaselineConfig EndpointConfigClarifyShapBaselineConfig `pulumi:"shapBaselineConfig"`
+	// A parameter that indicates if text features are treated as text and explanations are provided for individual units of text. Required for natural language processing (NLP) explainability only.
+	TextConfig *EndpointConfigClarifyTextConfig `pulumi:"textConfig"`
+	// A Boolean toggle to indicate if you want to use the logit function (true) or log-odds units (false) for model predictions. Defaults to false.
+	UseLogit *bool `pulumi:"useLogit"`
+}
+
+// EndpointConfigClarifyShapConfigInput is an input type that accepts EndpointConfigClarifyShapConfigArgs and EndpointConfigClarifyShapConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapConfigInput` via:
+//
+//	EndpointConfigClarifyShapConfigArgs{...}
+type EndpointConfigClarifyShapConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapConfigOutput() EndpointConfigClarifyShapConfigOutput
+	ToEndpointConfigClarifyShapConfigOutputWithContext(context.Context) EndpointConfigClarifyShapConfigOutput
+}
+
+// The configuration for SHAP analysis using SageMaker Clarify Explainer.
+type EndpointConfigClarifyShapConfigArgs struct {
+	// The number of samples to be used for analysis by the Kernal SHAP algorithm.
+	NumberOfSamples pulumi.IntPtrInput `pulumi:"numberOfSamples"`
+	// The starting value used to initialize the random number generator in the explainer. Provide a value for this parameter to obtain a deterministic SHAP result.
+	Seed pulumi.IntPtrInput `pulumi:"seed"`
+	// The configuration for the SHAP baseline of the Kernal SHAP algorithm.
+	ShapBaselineConfig EndpointConfigClarifyShapBaselineConfigInput `pulumi:"shapBaselineConfig"`
+	// A parameter that indicates if text features are treated as text and explanations are provided for individual units of text. Required for natural language processing (NLP) explainability only.
+	TextConfig EndpointConfigClarifyTextConfigPtrInput `pulumi:"textConfig"`
+	// A Boolean toggle to indicate if you want to use the logit function (true) or log-odds units (false) for model predictions. Defaults to false.
+	UseLogit pulumi.BoolPtrInput `pulumi:"useLogit"`
+}
+
+func (EndpointConfigClarifyShapConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigOutput() EndpointConfigClarifyShapConfigOutput {
+	return i.ToEndpointConfigClarifyShapConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapConfigOutput)
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyShapConfigArgs) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapConfigOutput).ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyShapConfigPtrInput is an input type that accepts EndpointConfigClarifyShapConfigArgs, EndpointConfigClarifyShapConfigPtr and EndpointConfigClarifyShapConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyShapConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyShapConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyShapConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput
+	ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyShapConfigPtrOutput
+}
+
+type endpointConfigClarifyShapConfigPtrType EndpointConfigClarifyShapConfigArgs
+
+func EndpointConfigClarifyShapConfigPtr(v *EndpointConfigClarifyShapConfigArgs) EndpointConfigClarifyShapConfigPtrInput {
+	return (*endpointConfigClarifyShapConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyShapConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyShapConfigPtrType) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return i.ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyShapConfigPtrType) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyShapConfigPtrOutput)
+}
+
+// The configuration for SHAP analysis using SageMaker Clarify Explainer.
+type EndpointConfigClarifyShapConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigOutput() EndpointConfigClarifyShapConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return o.ToEndpointConfigClarifyShapConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyShapConfigOutput) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyShapConfig) *EndpointConfigClarifyShapConfig {
+		return &v
+	}).(EndpointConfigClarifyShapConfigPtrOutput)
+}
+
+// The number of samples to be used for analysis by the Kernal SHAP algorithm.
+func (o EndpointConfigClarifyShapConfigOutput) NumberOfSamples() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *int { return v.NumberOfSamples }).(pulumi.IntPtrOutput)
+}
+
+// The starting value used to initialize the random number generator in the explainer. Provide a value for this parameter to obtain a deterministic SHAP result.
+func (o EndpointConfigClarifyShapConfigOutput) Seed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *int { return v.Seed }).(pulumi.IntPtrOutput)
+}
+
+// The configuration for the SHAP baseline of the Kernal SHAP algorithm.
+func (o EndpointConfigClarifyShapConfigOutput) ShapBaselineConfig() EndpointConfigClarifyShapBaselineConfigOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) EndpointConfigClarifyShapBaselineConfig {
+		return v.ShapBaselineConfig
+	}).(EndpointConfigClarifyShapBaselineConfigOutput)
+}
+
+// A parameter that indicates if text features are treated as text and explanations are provided for individual units of text. Required for natural language processing (NLP) explainability only.
+func (o EndpointConfigClarifyShapConfigOutput) TextConfig() EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *EndpointConfigClarifyTextConfig { return v.TextConfig }).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+// A Boolean toggle to indicate if you want to use the logit function (true) or log-odds units (false) for model predictions. Defaults to false.
+func (o EndpointConfigClarifyShapConfigOutput) UseLogit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyShapConfig) *bool { return v.UseLogit }).(pulumi.BoolPtrOutput)
+}
+
+type EndpointConfigClarifyShapConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyShapConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyShapConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) ToEndpointConfigClarifyShapConfigPtrOutput() EndpointConfigClarifyShapConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) ToEndpointConfigClarifyShapConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyShapConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyShapConfigPtrOutput) Elem() EndpointConfigClarifyShapConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) EndpointConfigClarifyShapConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyShapConfig
+		return ret
+	}).(EndpointConfigClarifyShapConfigOutput)
+}
+
+// The number of samples to be used for analysis by the Kernal SHAP algorithm.
+func (o EndpointConfigClarifyShapConfigPtrOutput) NumberOfSamples() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberOfSamples
+	}).(pulumi.IntPtrOutput)
+}
+
+// The starting value used to initialize the random number generator in the explainer. Provide a value for this parameter to obtain a deterministic SHAP result.
+func (o EndpointConfigClarifyShapConfigPtrOutput) Seed() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Seed
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration for the SHAP baseline of the Kernal SHAP algorithm.
+func (o EndpointConfigClarifyShapConfigPtrOutput) ShapBaselineConfig() EndpointConfigClarifyShapBaselineConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *EndpointConfigClarifyShapBaselineConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ShapBaselineConfig
+	}).(EndpointConfigClarifyShapBaselineConfigPtrOutput)
+}
+
+// A parameter that indicates if text features are treated as text and explanations are provided for individual units of text. Required for natural language processing (NLP) explainability only.
+func (o EndpointConfigClarifyShapConfigPtrOutput) TextConfig() EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *EndpointConfigClarifyTextConfig {
+		if v == nil {
+			return nil
+		}
+		return v.TextConfig
+	}).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+// A Boolean toggle to indicate if you want to use the logit function (true) or log-odds units (false) for model predictions. Defaults to false.
+func (o EndpointConfigClarifyShapConfigPtrOutput) UseLogit() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyShapConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLogit
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A parameter used to configure the SageMaker Clarify explainer to treat text features as text so that explanations are provided for individual units of text. Required only for natural language processing (NLP) explainability.
+type EndpointConfigClarifyTextConfig struct {
+	// The unit of granularity for the analysis of text features. For example, if the unit is 'token', then each token (like a word in English) of the text is treated as a feature. SHAP values are computed for each unit/feature.
+	Granularity string `pulumi:"granularity"`
+	// Specifies the language of the text features in ISO 639-1 or ISO 639-3 code of a supported language.
+	Language string `pulumi:"language"`
+}
+
+// EndpointConfigClarifyTextConfigInput is an input type that accepts EndpointConfigClarifyTextConfigArgs and EndpointConfigClarifyTextConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyTextConfigInput` via:
+//
+//	EndpointConfigClarifyTextConfigArgs{...}
+type EndpointConfigClarifyTextConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyTextConfigOutput() EndpointConfigClarifyTextConfigOutput
+	ToEndpointConfigClarifyTextConfigOutputWithContext(context.Context) EndpointConfigClarifyTextConfigOutput
+}
+
+// A parameter used to configure the SageMaker Clarify explainer to treat text features as text so that explanations are provided for individual units of text. Required only for natural language processing (NLP) explainability.
+type EndpointConfigClarifyTextConfigArgs struct {
+	// The unit of granularity for the analysis of text features. For example, if the unit is 'token', then each token (like a word in English) of the text is treated as a feature. SHAP values are computed for each unit/feature.
+	Granularity pulumi.StringInput `pulumi:"granularity"`
+	// Specifies the language of the text features in ISO 639-1 or ISO 639-3 code of a supported language.
+	Language pulumi.StringInput `pulumi:"language"`
+}
+
+func (EndpointConfigClarifyTextConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigOutput() EndpointConfigClarifyTextConfigOutput {
+	return i.ToEndpointConfigClarifyTextConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyTextConfigOutput)
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return i.ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigClarifyTextConfigArgs) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyTextConfigOutput).ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigClarifyTextConfigPtrInput is an input type that accepts EndpointConfigClarifyTextConfigArgs, EndpointConfigClarifyTextConfigPtr and EndpointConfigClarifyTextConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigClarifyTextConfigPtrInput` via:
+//
+//	        EndpointConfigClarifyTextConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigClarifyTextConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput
+	ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Context) EndpointConfigClarifyTextConfigPtrOutput
+}
+
+type endpointConfigClarifyTextConfigPtrType EndpointConfigClarifyTextConfigArgs
+
+func EndpointConfigClarifyTextConfigPtr(v *EndpointConfigClarifyTextConfigArgs) EndpointConfigClarifyTextConfigPtrInput {
+	return (*endpointConfigClarifyTextConfigPtrType)(v)
+}
+
+func (*endpointConfigClarifyTextConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigClarifyTextConfigPtrType) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return i.ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigClarifyTextConfigPtrType) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+// A parameter used to configure the SageMaker Clarify explainer to treat text features as text so that explanations are provided for individual units of text. Required only for natural language processing (NLP) explainability.
+type EndpointConfigClarifyTextConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyTextConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigOutput() EndpointConfigClarifyTextConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ToEndpointConfigClarifyTextConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigClarifyTextConfigOutput) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigClarifyTextConfig) *EndpointConfigClarifyTextConfig {
+		return &v
+	}).(EndpointConfigClarifyTextConfigPtrOutput)
+}
+
+// The unit of granularity for the analysis of text features. For example, if the unit is 'token', then each token (like a word in English) of the text is treated as a feature. SHAP values are computed for each unit/feature.
+func (o EndpointConfigClarifyTextConfigOutput) Granularity() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyTextConfig) string { return v.Granularity }).(pulumi.StringOutput)
+}
+
+// Specifies the language of the text features in ISO 639-1 or ISO 639-3 code of a supported language.
+func (o EndpointConfigClarifyTextConfigOutput) Language() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigClarifyTextConfig) string { return v.Language }).(pulumi.StringOutput)
+}
+
+type EndpointConfigClarifyTextConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigClarifyTextConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigClarifyTextConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) ToEndpointConfigClarifyTextConfigPtrOutput() EndpointConfigClarifyTextConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) ToEndpointConfigClarifyTextConfigPtrOutputWithContext(ctx context.Context) EndpointConfigClarifyTextConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigClarifyTextConfigPtrOutput) Elem() EndpointConfigClarifyTextConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyTextConfig) EndpointConfigClarifyTextConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigClarifyTextConfig
+		return ret
+	}).(EndpointConfigClarifyTextConfigOutput)
+}
+
+// The unit of granularity for the analysis of text features. For example, if the unit is 'token', then each token (like a word in English) of the text is treated as a feature. SHAP values are computed for each unit/feature.
+func (o EndpointConfigClarifyTextConfigPtrOutput) Granularity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyTextConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Granularity
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the language of the text features in ISO 639-1 or ISO 639-3 code of a supported language.
+func (o EndpointConfigClarifyTextConfigPtrOutput) Language() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigClarifyTextConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Language
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies where SageMaker writes core dumps from the model container when the process crashes, and how it encrypts them.
+type EndpointConfigCoreDumpConfig struct {
+	// The Amazon S3 bucket to send the core dump to.
+	DestinationS3Uri string `pulumi:"destinationS3Uri"`
+	// The AWS Key Management Service (AWS KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must include permissions to call kms:Encrypt.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// EndpointConfigCoreDumpConfigInput is an input type that accepts EndpointConfigCoreDumpConfigArgs and EndpointConfigCoreDumpConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigCoreDumpConfigInput` via:
+//
+//	EndpointConfigCoreDumpConfigArgs{...}
+type EndpointConfigCoreDumpConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCoreDumpConfigOutput() EndpointConfigCoreDumpConfigOutput
+	ToEndpointConfigCoreDumpConfigOutputWithContext(context.Context) EndpointConfigCoreDumpConfigOutput
+}
+
+// Specifies where SageMaker writes core dumps from the model container when the process crashes, and how it encrypts them.
+type EndpointConfigCoreDumpConfigArgs struct {
+	// The Amazon S3 bucket to send the core dump to.
+	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
+	// The AWS Key Management Service (AWS KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must include permissions to call kms:Encrypt.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (EndpointConfigCoreDumpConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCoreDumpConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigCoreDumpConfigArgs) ToEndpointConfigCoreDumpConfigOutput() EndpointConfigCoreDumpConfigOutput {
+	return i.ToEndpointConfigCoreDumpConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCoreDumpConfigArgs) ToEndpointConfigCoreDumpConfigOutputWithContext(ctx context.Context) EndpointConfigCoreDumpConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCoreDumpConfigOutput)
+}
+
+func (i EndpointConfigCoreDumpConfigArgs) ToEndpointConfigCoreDumpConfigPtrOutput() EndpointConfigCoreDumpConfigPtrOutput {
+	return i.ToEndpointConfigCoreDumpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigCoreDumpConfigArgs) ToEndpointConfigCoreDumpConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCoreDumpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCoreDumpConfigOutput).ToEndpointConfigCoreDumpConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigCoreDumpConfigPtrInput is an input type that accepts EndpointConfigCoreDumpConfigArgs, EndpointConfigCoreDumpConfigPtr and EndpointConfigCoreDumpConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigCoreDumpConfigPtrInput` via:
+//
+//	        EndpointConfigCoreDumpConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigCoreDumpConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigCoreDumpConfigPtrOutput() EndpointConfigCoreDumpConfigPtrOutput
+	ToEndpointConfigCoreDumpConfigPtrOutputWithContext(context.Context) EndpointConfigCoreDumpConfigPtrOutput
+}
+
+type endpointConfigCoreDumpConfigPtrType EndpointConfigCoreDumpConfigArgs
+
+func EndpointConfigCoreDumpConfigPtr(v *EndpointConfigCoreDumpConfigArgs) EndpointConfigCoreDumpConfigPtrInput {
+	return (*endpointConfigCoreDumpConfigPtrType)(v)
+}
+
+func (*endpointConfigCoreDumpConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCoreDumpConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigCoreDumpConfigPtrType) ToEndpointConfigCoreDumpConfigPtrOutput() EndpointConfigCoreDumpConfigPtrOutput {
+	return i.ToEndpointConfigCoreDumpConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigCoreDumpConfigPtrType) ToEndpointConfigCoreDumpConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCoreDumpConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigCoreDumpConfigPtrOutput)
+}
+
+// Specifies where SageMaker writes core dumps from the model container when the process crashes, and how it encrypts them.
+type EndpointConfigCoreDumpConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCoreDumpConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigCoreDumpConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigCoreDumpConfigOutput) ToEndpointConfigCoreDumpConfigOutput() EndpointConfigCoreDumpConfigOutput {
+	return o
+}
+
+func (o EndpointConfigCoreDumpConfigOutput) ToEndpointConfigCoreDumpConfigOutputWithContext(ctx context.Context) EndpointConfigCoreDumpConfigOutput {
+	return o
+}
+
+func (o EndpointConfigCoreDumpConfigOutput) ToEndpointConfigCoreDumpConfigPtrOutput() EndpointConfigCoreDumpConfigPtrOutput {
+	return o.ToEndpointConfigCoreDumpConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigCoreDumpConfigOutput) ToEndpointConfigCoreDumpConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCoreDumpConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigCoreDumpConfig) *EndpointConfigCoreDumpConfig {
+		return &v
+	}).(EndpointConfigCoreDumpConfigPtrOutput)
+}
+
+// The Amazon S3 bucket to send the core dump to.
+func (o EndpointConfigCoreDumpConfigOutput) DestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigCoreDumpConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must include permissions to call kms:Encrypt.
+func (o EndpointConfigCoreDumpConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigCoreDumpConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigCoreDumpConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigCoreDumpConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigCoreDumpConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigCoreDumpConfigPtrOutput) ToEndpointConfigCoreDumpConfigPtrOutput() EndpointConfigCoreDumpConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCoreDumpConfigPtrOutput) ToEndpointConfigCoreDumpConfigPtrOutputWithContext(ctx context.Context) EndpointConfigCoreDumpConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigCoreDumpConfigPtrOutput) Elem() EndpointConfigCoreDumpConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigCoreDumpConfig) EndpointConfigCoreDumpConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigCoreDumpConfig
+		return ret
+	}).(EndpointConfigCoreDumpConfigOutput)
+}
+
+// The Amazon S3 bucket to send the core dump to.
+func (o EndpointConfigCoreDumpConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigCoreDumpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must include permissions to call kms:Encrypt.
+func (o EndpointConfigCoreDumpConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigCoreDumpConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+type EndpointConfigDataCaptureConfig struct {
+	// A list of the JSON and CSV content type that the endpoint captures.
+	CaptureContentTypeHeader *EndpointConfigCaptureContentTypeHeader `pulumi:"captureContentTypeHeader"`
+	// Specifies whether the endpoint captures input data to your model, output data from your model, or both.
+	CaptureOptions []EndpointConfigCaptureOption `pulumi:"captureOptions"`
+	// The S3 bucket where model monitor stores captured data.
+	DestinationS3Uri string `pulumi:"destinationS3Uri"`
+	// Set to True to enable data capture.
+	EnableCapture *bool `pulumi:"enableCapture"`
+	// The percentage of data to capture.
+	InitialSamplingPercentage int `pulumi:"initialSamplingPercentage"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+}
+
+// EndpointConfigDataCaptureConfigInput is an input type that accepts EndpointConfigDataCaptureConfigArgs and EndpointConfigDataCaptureConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigDataCaptureConfigInput` via:
+//
+//	EndpointConfigDataCaptureConfigArgs{...}
+type EndpointConfigDataCaptureConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigDataCaptureConfigOutput() EndpointConfigDataCaptureConfigOutput
+	ToEndpointConfigDataCaptureConfigOutputWithContext(context.Context) EndpointConfigDataCaptureConfigOutput
+}
+
+// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+type EndpointConfigDataCaptureConfigArgs struct {
+	// A list of the JSON and CSV content type that the endpoint captures.
+	CaptureContentTypeHeader EndpointConfigCaptureContentTypeHeaderPtrInput `pulumi:"captureContentTypeHeader"`
+	// Specifies whether the endpoint captures input data to your model, output data from your model, or both.
+	CaptureOptions EndpointConfigCaptureOptionArrayInput `pulumi:"captureOptions"`
+	// The S3 bucket where model monitor stores captured data.
+	DestinationS3Uri pulumi.StringInput `pulumi:"destinationS3Uri"`
+	// Set to True to enable data capture.
+	EnableCapture pulumi.BoolPtrInput `pulumi:"enableCapture"`
+	// The percentage of data to capture.
+	InitialSamplingPercentage pulumi.IntInput `pulumi:"initialSamplingPercentage"`
+	// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+}
+
+func (EndpointConfigDataCaptureConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigDataCaptureConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigDataCaptureConfigArgs) ToEndpointConfigDataCaptureConfigOutput() EndpointConfigDataCaptureConfigOutput {
+	return i.ToEndpointConfigDataCaptureConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigDataCaptureConfigArgs) ToEndpointConfigDataCaptureConfigOutputWithContext(ctx context.Context) EndpointConfigDataCaptureConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigDataCaptureConfigOutput)
+}
+
+func (i EndpointConfigDataCaptureConfigArgs) ToEndpointConfigDataCaptureConfigPtrOutput() EndpointConfigDataCaptureConfigPtrOutput {
+	return i.ToEndpointConfigDataCaptureConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigDataCaptureConfigArgs) ToEndpointConfigDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigDataCaptureConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigDataCaptureConfigOutput).ToEndpointConfigDataCaptureConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigDataCaptureConfigPtrInput is an input type that accepts EndpointConfigDataCaptureConfigArgs, EndpointConfigDataCaptureConfigPtr and EndpointConfigDataCaptureConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigDataCaptureConfigPtrInput` via:
+//
+//	        EndpointConfigDataCaptureConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigDataCaptureConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigDataCaptureConfigPtrOutput() EndpointConfigDataCaptureConfigPtrOutput
+	ToEndpointConfigDataCaptureConfigPtrOutputWithContext(context.Context) EndpointConfigDataCaptureConfigPtrOutput
+}
+
+type endpointConfigDataCaptureConfigPtrType EndpointConfigDataCaptureConfigArgs
+
+func EndpointConfigDataCaptureConfigPtr(v *EndpointConfigDataCaptureConfigArgs) EndpointConfigDataCaptureConfigPtrInput {
+	return (*endpointConfigDataCaptureConfigPtrType)(v)
+}
+
+func (*endpointConfigDataCaptureConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigDataCaptureConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigDataCaptureConfigPtrType) ToEndpointConfigDataCaptureConfigPtrOutput() EndpointConfigDataCaptureConfigPtrOutput {
+	return i.ToEndpointConfigDataCaptureConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigDataCaptureConfigPtrType) ToEndpointConfigDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigDataCaptureConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigDataCaptureConfigPtrOutput)
+}
+
+// Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+type EndpointConfigDataCaptureConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigDataCaptureConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigDataCaptureConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigDataCaptureConfigOutput) ToEndpointConfigDataCaptureConfigOutput() EndpointConfigDataCaptureConfigOutput {
+	return o
+}
+
+func (o EndpointConfigDataCaptureConfigOutput) ToEndpointConfigDataCaptureConfigOutputWithContext(ctx context.Context) EndpointConfigDataCaptureConfigOutput {
+	return o
+}
+
+func (o EndpointConfigDataCaptureConfigOutput) ToEndpointConfigDataCaptureConfigPtrOutput() EndpointConfigDataCaptureConfigPtrOutput {
+	return o.ToEndpointConfigDataCaptureConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigDataCaptureConfigOutput) ToEndpointConfigDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigDataCaptureConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigDataCaptureConfig) *EndpointConfigDataCaptureConfig {
+		return &v
+	}).(EndpointConfigDataCaptureConfigPtrOutput)
+}
+
+// A list of the JSON and CSV content type that the endpoint captures.
+func (o EndpointConfigDataCaptureConfigOutput) CaptureContentTypeHeader() EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyT(func(v EndpointConfigDataCaptureConfig) *EndpointConfigCaptureContentTypeHeader {
+		return v.CaptureContentTypeHeader
+	}).(EndpointConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+// Specifies whether the endpoint captures input data to your model, output data from your model, or both.
+func (o EndpointConfigDataCaptureConfigOutput) CaptureOptions() EndpointConfigCaptureOptionArrayOutput {
+	return o.ApplyT(func(v EndpointConfigDataCaptureConfig) []EndpointConfigCaptureOption { return v.CaptureOptions }).(EndpointConfigCaptureOptionArrayOutput)
+}
+
+// The S3 bucket where model monitor stores captured data.
+func (o EndpointConfigDataCaptureConfigOutput) DestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigDataCaptureConfig) string { return v.DestinationS3Uri }).(pulumi.StringOutput)
+}
+
+// Set to True to enable data capture.
+func (o EndpointConfigDataCaptureConfigOutput) EnableCapture() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigDataCaptureConfig) *bool { return v.EnableCapture }).(pulumi.BoolPtrOutput)
+}
+
+// The percentage of data to capture.
+func (o EndpointConfigDataCaptureConfigOutput) InitialSamplingPercentage() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigDataCaptureConfig) int { return v.InitialSamplingPercentage }).(pulumi.IntOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
+func (o EndpointConfigDataCaptureConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigDataCaptureConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigDataCaptureConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigDataCaptureConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigDataCaptureConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigDataCaptureConfigPtrOutput) ToEndpointConfigDataCaptureConfigPtrOutput() EndpointConfigDataCaptureConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigDataCaptureConfigPtrOutput) ToEndpointConfigDataCaptureConfigPtrOutputWithContext(ctx context.Context) EndpointConfigDataCaptureConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigDataCaptureConfigPtrOutput) Elem() EndpointConfigDataCaptureConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigDataCaptureConfig) EndpointConfigDataCaptureConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigDataCaptureConfig
+		return ret
+	}).(EndpointConfigDataCaptureConfigOutput)
+}
+
+// A list of the JSON and CSV content type that the endpoint captures.
+func (o EndpointConfigDataCaptureConfigPtrOutput) CaptureContentTypeHeader() EndpointConfigCaptureContentTypeHeaderPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigDataCaptureConfig) *EndpointConfigCaptureContentTypeHeader {
+		if v == nil {
+			return nil
+		}
+		return v.CaptureContentTypeHeader
+	}).(EndpointConfigCaptureContentTypeHeaderPtrOutput)
+}
+
+// Specifies whether the endpoint captures input data to your model, output data from your model, or both.
+func (o EndpointConfigDataCaptureConfigPtrOutput) CaptureOptions() EndpointConfigCaptureOptionArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigDataCaptureConfig) []EndpointConfigCaptureOption {
+		if v == nil {
+			return nil
+		}
+		return v.CaptureOptions
+	}).(EndpointConfigCaptureOptionArrayOutput)
+}
+
+// The S3 bucket where model monitor stores captured data.
+func (o EndpointConfigDataCaptureConfigPtrOutput) DestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigDataCaptureConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set to True to enable data capture.
+func (o EndpointConfigDataCaptureConfigPtrOutput) EnableCapture() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigDataCaptureConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableCapture
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The percentage of data to capture.
+func (o EndpointConfigDataCaptureConfigPtrOutput) InitialSamplingPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigDataCaptureConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InitialSamplingPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+// The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
+func (o EndpointConfigDataCaptureConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigDataCaptureConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A parameter to activate explainers.
+type EndpointConfigExplainerConfig struct {
+	// A member of ExplainerConfig that contains configuration parameters for the SageMaker Clarify explainer.
+	ClarifyExplainerConfig *EndpointConfigClarifyExplainerConfig `pulumi:"clarifyExplainerConfig"`
+}
+
+// EndpointConfigExplainerConfigInput is an input type that accepts EndpointConfigExplainerConfigArgs and EndpointConfigExplainerConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigExplainerConfigInput` via:
+//
+//	EndpointConfigExplainerConfigArgs{...}
+type EndpointConfigExplainerConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigExplainerConfigOutput() EndpointConfigExplainerConfigOutput
+	ToEndpointConfigExplainerConfigOutputWithContext(context.Context) EndpointConfigExplainerConfigOutput
+}
+
+// A parameter to activate explainers.
+type EndpointConfigExplainerConfigArgs struct {
+	// A member of ExplainerConfig that contains configuration parameters for the SageMaker Clarify explainer.
+	ClarifyExplainerConfig EndpointConfigClarifyExplainerConfigPtrInput `pulumi:"clarifyExplainerConfig"`
+}
+
+func (EndpointConfigExplainerConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigOutput() EndpointConfigExplainerConfigOutput {
+	return i.ToEndpointConfigExplainerConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigExplainerConfigOutput)
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return i.ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigExplainerConfigArgs) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigExplainerConfigOutput).ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigExplainerConfigPtrInput is an input type that accepts EndpointConfigExplainerConfigArgs, EndpointConfigExplainerConfigPtr and EndpointConfigExplainerConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigExplainerConfigPtrInput` via:
+//
+//	        EndpointConfigExplainerConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigExplainerConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput
+	ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Context) EndpointConfigExplainerConfigPtrOutput
+}
+
+type endpointConfigExplainerConfigPtrType EndpointConfigExplainerConfigArgs
+
+func EndpointConfigExplainerConfigPtr(v *EndpointConfigExplainerConfigArgs) EndpointConfigExplainerConfigPtrInput {
+	return (*endpointConfigExplainerConfigPtrType)(v)
+}
+
+func (*endpointConfigExplainerConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigExplainerConfigPtrType) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return i.ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigExplainerConfigPtrType) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigExplainerConfigPtrOutput)
+}
+
+// A parameter to activate explainers.
+type EndpointConfigExplainerConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigExplainerConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigOutput() EndpointConfigExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return o.ToEndpointConfigExplainerConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigExplainerConfigOutput) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigExplainerConfig) *EndpointConfigExplainerConfig {
+		return &v
+	}).(EndpointConfigExplainerConfigPtrOutput)
+}
+
+// A member of ExplainerConfig that contains configuration parameters for the SageMaker Clarify explainer.
+func (o EndpointConfigExplainerConfigOutput) ClarifyExplainerConfig() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigExplainerConfig) *EndpointConfigClarifyExplainerConfig {
+		return v.ClarifyExplainerConfig
+	}).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
+type EndpointConfigExplainerConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigExplainerConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigExplainerConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigExplainerConfigPtrOutput) ToEndpointConfigExplainerConfigPtrOutput() EndpointConfigExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigPtrOutput) ToEndpointConfigExplainerConfigPtrOutputWithContext(ctx context.Context) EndpointConfigExplainerConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigExplainerConfigPtrOutput) Elem() EndpointConfigExplainerConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigExplainerConfig) EndpointConfigExplainerConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigExplainerConfig
+		return ret
+	}).(EndpointConfigExplainerConfigOutput)
+}
+
+// A member of ExplainerConfig that contains configuration parameters for the SageMaker Clarify explainer.
+func (o EndpointConfigExplainerConfigPtrOutput) ClarifyExplainerConfig() EndpointConfigClarifyExplainerConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigExplainerConfig) *EndpointConfigClarifyExplainerConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ClarifyExplainerConfig
+	}).(EndpointConfigClarifyExplainerConfigPtrOutput)
+}
+
+// Specifies an instance type and its priority for a heterogeneous endpoint. Use instance pools to configure a production variant with multiple instance types, enabling the endpoint to provision instances across different types based on priority.
+type EndpointConfigInstancePool struct {
+	// The ML compute instance type for the instance pool.
+	InstanceType string `pulumi:"instanceType"`
+	// The name of a SageMaker model to use for this instance pool instead of the model specified for the production variant. Use this to deploy a different model optimized for the instance type in this pool.
+	ModelNameOverride *string `pulumi:"modelNameOverride"`
+	// The priority for the instance pool. SageMaker attempts to provision instances in order of priority, starting with the lowest value. If instances for a higher-priority pool are unavailable, SageMaker attempts to provision from the next pool. Valid values: 1 to 5, where 1 is the highest priority.
+	Priority int `pulumi:"priority"`
+}
+
+// EndpointConfigInstancePoolInput is an input type that accepts EndpointConfigInstancePoolArgs and EndpointConfigInstancePoolOutput values.
+// You can construct a concrete instance of `EndpointConfigInstancePoolInput` via:
+//
+//	EndpointConfigInstancePoolArgs{...}
+type EndpointConfigInstancePoolInput interface {
+	pulumi.Input
+
+	ToEndpointConfigInstancePoolOutput() EndpointConfigInstancePoolOutput
+	ToEndpointConfigInstancePoolOutputWithContext(context.Context) EndpointConfigInstancePoolOutput
+}
+
+// Specifies an instance type and its priority for a heterogeneous endpoint. Use instance pools to configure a production variant with multiple instance types, enabling the endpoint to provision instances across different types based on priority.
+type EndpointConfigInstancePoolArgs struct {
+	// The ML compute instance type for the instance pool.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// The name of a SageMaker model to use for this instance pool instead of the model specified for the production variant. Use this to deploy a different model optimized for the instance type in this pool.
+	ModelNameOverride pulumi.StringPtrInput `pulumi:"modelNameOverride"`
+	// The priority for the instance pool. SageMaker attempts to provision instances in order of priority, starting with the lowest value. If instances for a higher-priority pool are unavailable, SageMaker attempts to provision from the next pool. Valid values: 1 to 5, where 1 is the highest priority.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (EndpointConfigInstancePoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigInstancePool)(nil)).Elem()
+}
+
+func (i EndpointConfigInstancePoolArgs) ToEndpointConfigInstancePoolOutput() EndpointConfigInstancePoolOutput {
+	return i.ToEndpointConfigInstancePoolOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigInstancePoolArgs) ToEndpointConfigInstancePoolOutputWithContext(ctx context.Context) EndpointConfigInstancePoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigInstancePoolOutput)
+}
+
+// EndpointConfigInstancePoolArrayInput is an input type that accepts EndpointConfigInstancePoolArray and EndpointConfigInstancePoolArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigInstancePoolArrayInput` via:
+//
+//	EndpointConfigInstancePoolArray{ EndpointConfigInstancePoolArgs{...} }
+type EndpointConfigInstancePoolArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigInstancePoolArrayOutput() EndpointConfigInstancePoolArrayOutput
+	ToEndpointConfigInstancePoolArrayOutputWithContext(context.Context) EndpointConfigInstancePoolArrayOutput
+}
+
+type EndpointConfigInstancePoolArray []EndpointConfigInstancePoolInput
+
+func (EndpointConfigInstancePoolArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigInstancePool)(nil)).Elem()
+}
+
+func (i EndpointConfigInstancePoolArray) ToEndpointConfigInstancePoolArrayOutput() EndpointConfigInstancePoolArrayOutput {
+	return i.ToEndpointConfigInstancePoolArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigInstancePoolArray) ToEndpointConfigInstancePoolArrayOutputWithContext(ctx context.Context) EndpointConfigInstancePoolArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigInstancePoolArrayOutput)
+}
+
+// Specifies an instance type and its priority for a heterogeneous endpoint. Use instance pools to configure a production variant with multiple instance types, enabling the endpoint to provision instances across different types based on priority.
+type EndpointConfigInstancePoolOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigInstancePoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigInstancePool)(nil)).Elem()
+}
+
+func (o EndpointConfigInstancePoolOutput) ToEndpointConfigInstancePoolOutput() EndpointConfigInstancePoolOutput {
+	return o
+}
+
+func (o EndpointConfigInstancePoolOutput) ToEndpointConfigInstancePoolOutputWithContext(ctx context.Context) EndpointConfigInstancePoolOutput {
+	return o
+}
+
+// The ML compute instance type for the instance pool.
+func (o EndpointConfigInstancePoolOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigInstancePool) string { return v.InstanceType }).(pulumi.StringOutput)
+}
+
+// The name of a SageMaker model to use for this instance pool instead of the model specified for the production variant. Use this to deploy a different model optimized for the instance type in this pool.
+func (o EndpointConfigInstancePoolOutput) ModelNameOverride() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigInstancePool) *string { return v.ModelNameOverride }).(pulumi.StringPtrOutput)
+}
+
+// The priority for the instance pool. SageMaker attempts to provision instances in order of priority, starting with the lowest value. If instances for a higher-priority pool are unavailable, SageMaker attempts to provision from the next pool. Valid values: 1 to 5, where 1 is the highest priority.
+func (o EndpointConfigInstancePoolOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigInstancePool) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type EndpointConfigInstancePoolArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigInstancePoolArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigInstancePool)(nil)).Elem()
+}
+
+func (o EndpointConfigInstancePoolArrayOutput) ToEndpointConfigInstancePoolArrayOutput() EndpointConfigInstancePoolArrayOutput {
+	return o
+}
+
+func (o EndpointConfigInstancePoolArrayOutput) ToEndpointConfigInstancePoolArrayOutputWithContext(ctx context.Context) EndpointConfigInstancePoolArrayOutput {
+	return o
+}
+
+func (o EndpointConfigInstancePoolArrayOutput) Index(i pulumi.IntInput) EndpointConfigInstancePoolOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigInstancePool {
+		return vs[0].([]EndpointConfigInstancePool)[vs[1].(int)]
+	}).(EndpointConfigInstancePoolOutput)
+}
+
+// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+type EndpointConfigManagedInstanceScaling struct {
+	// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+	MaxInstanceCount *int `pulumi:"maxInstanceCount"`
+	// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+	MinInstanceCount *int `pulumi:"minInstanceCount"`
+	// Configures the scale-in behavior for managed instance scaling.
+	ScaleInPolicy *EndpointConfigScaleInPolicy `pulumi:"scaleInPolicy"`
+	// Indicates whether managed instance scaling is enabled.
+	Status *string `pulumi:"status"`
+}
+
+// EndpointConfigManagedInstanceScalingInput is an input type that accepts EndpointConfigManagedInstanceScalingArgs and EndpointConfigManagedInstanceScalingOutput values.
+// You can construct a concrete instance of `EndpointConfigManagedInstanceScalingInput` via:
+//
+//	EndpointConfigManagedInstanceScalingArgs{...}
+type EndpointConfigManagedInstanceScalingInput interface {
+	pulumi.Input
+
+	ToEndpointConfigManagedInstanceScalingOutput() EndpointConfigManagedInstanceScalingOutput
+	ToEndpointConfigManagedInstanceScalingOutputWithContext(context.Context) EndpointConfigManagedInstanceScalingOutput
+}
+
+// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+type EndpointConfigManagedInstanceScalingArgs struct {
+	// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+	MaxInstanceCount pulumi.IntPtrInput `pulumi:"maxInstanceCount"`
+	// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+	MinInstanceCount pulumi.IntPtrInput `pulumi:"minInstanceCount"`
+	// Configures the scale-in behavior for managed instance scaling.
+	ScaleInPolicy EndpointConfigScaleInPolicyPtrInput `pulumi:"scaleInPolicy"`
+	// Indicates whether managed instance scaling is enabled.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (EndpointConfigManagedInstanceScalingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingOutput() EndpointConfigManagedInstanceScalingOutput {
+	return i.ToEndpointConfigManagedInstanceScalingOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigManagedInstanceScalingOutput)
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return i.ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigManagedInstanceScalingArgs) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigManagedInstanceScalingOutput).ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigManagedInstanceScalingPtrInput is an input type that accepts EndpointConfigManagedInstanceScalingArgs, EndpointConfigManagedInstanceScalingPtr and EndpointConfigManagedInstanceScalingPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigManagedInstanceScalingPtrInput` via:
+//
+//	        EndpointConfigManagedInstanceScalingArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigManagedInstanceScalingPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput
+	ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Context) EndpointConfigManagedInstanceScalingPtrOutput
+}
+
+type endpointConfigManagedInstanceScalingPtrType EndpointConfigManagedInstanceScalingArgs
+
+func EndpointConfigManagedInstanceScalingPtr(v *EndpointConfigManagedInstanceScalingArgs) EndpointConfigManagedInstanceScalingPtrInput {
+	return (*endpointConfigManagedInstanceScalingPtrType)(v)
+}
+
+func (*endpointConfigManagedInstanceScalingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (i *endpointConfigManagedInstanceScalingPtrType) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return i.ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigManagedInstanceScalingPtrType) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigManagedInstanceScalingPtrOutput)
+}
+
+// Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+type EndpointConfigManagedInstanceScalingOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigManagedInstanceScalingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingOutput() EndpointConfigManagedInstanceScalingOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return o.ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigManagedInstanceScalingOutput) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigManagedInstanceScaling) *EndpointConfigManagedInstanceScaling {
+		return &v
+	}).(EndpointConfigManagedInstanceScalingPtrOutput)
+}
+
+// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+func (o EndpointConfigManagedInstanceScalingOutput) MaxInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigManagedInstanceScaling) *int { return v.MaxInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+func (o EndpointConfigManagedInstanceScalingOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigManagedInstanceScaling) *int { return v.MinInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Configures the scale-in behavior for managed instance scaling.
+func (o EndpointConfigManagedInstanceScalingOutput) ScaleInPolicy() EndpointConfigScaleInPolicyPtrOutput {
+	return o.ApplyT(func(v EndpointConfigManagedInstanceScaling) *EndpointConfigScaleInPolicy { return v.ScaleInPolicy }).(EndpointConfigScaleInPolicyPtrOutput)
+}
+
+// Indicates whether managed instance scaling is enabled.
+func (o EndpointConfigManagedInstanceScalingOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigManagedInstanceScaling) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigManagedInstanceScalingPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigManagedInstanceScalingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigManagedInstanceScaling)(nil)).Elem()
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) ToEndpointConfigManagedInstanceScalingPtrOutput() EndpointConfigManagedInstanceScalingPtrOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) ToEndpointConfigManagedInstanceScalingPtrOutputWithContext(ctx context.Context) EndpointConfigManagedInstanceScalingPtrOutput {
+	return o
+}
+
+func (o EndpointConfigManagedInstanceScalingPtrOutput) Elem() EndpointConfigManagedInstanceScalingOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) EndpointConfigManagedInstanceScaling {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigManagedInstanceScaling
+		return ret
+	}).(EndpointConfigManagedInstanceScalingOutput)
+}
+
+// The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+func (o EndpointConfigManagedInstanceScalingPtrOutput) MaxInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+func (o EndpointConfigManagedInstanceScalingPtrOutput) MinInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinInstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Configures the scale-in behavior for managed instance scaling.
+func (o EndpointConfigManagedInstanceScalingPtrOutput) ScaleInPolicy() EndpointConfigScaleInPolicyPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) *EndpointConfigScaleInPolicy {
+		if v == nil {
+			return nil
+		}
+		return v.ScaleInPolicy
+	}).(EndpointConfigScaleInPolicyPtrOutput)
+}
+
+// Indicates whether managed instance scaling is enabled.
+func (o EndpointConfigManagedInstanceScalingPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigManagedInstanceScaling) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+type EndpointConfigMetricsConfig struct {
+	// Specifies whether to enable detailed observability for the endpoint. When set to true, the endpoint publishes container-level inference metrics, per-GPU metrics, per-instance host metrics, and inference component placement metrics.
+	EnableDetailedObservability *bool `pulumi:"enableDetailedObservability"`
+	// Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization and invocation data at instance and container granularity.
+	EnableEnhancedMetrics *bool `pulumi:"enableEnhancedMetrics"`
+	// The interval, in seconds, at which the endpoint publishes metrics to Amazon CloudWatch. Valid values are 10, 30, 60, 120, 180, 240, and 300. The default is 60.
+	MetricPublishFrequencyInSeconds *int `pulumi:"metricPublishFrequencyInSeconds"`
+}
+
+// EndpointConfigMetricsConfigInput is an input type that accepts EndpointConfigMetricsConfigArgs and EndpointConfigMetricsConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigMetricsConfigInput` via:
+//
+//	EndpointConfigMetricsConfigArgs{...}
+type EndpointConfigMetricsConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigMetricsConfigOutput() EndpointConfigMetricsConfigOutput
+	ToEndpointConfigMetricsConfigOutputWithContext(context.Context) EndpointConfigMetricsConfigOutput
+}
+
+// Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+type EndpointConfigMetricsConfigArgs struct {
+	// Specifies whether to enable detailed observability for the endpoint. When set to true, the endpoint publishes container-level inference metrics, per-GPU metrics, per-instance host metrics, and inference component placement metrics.
+	EnableDetailedObservability pulumi.BoolPtrInput `pulumi:"enableDetailedObservability"`
+	// Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization and invocation data at instance and container granularity.
+	EnableEnhancedMetrics pulumi.BoolPtrInput `pulumi:"enableEnhancedMetrics"`
+	// The interval, in seconds, at which the endpoint publishes metrics to Amazon CloudWatch. Valid values are 10, 30, 60, 120, 180, 240, and 300. The default is 60.
+	MetricPublishFrequencyInSeconds pulumi.IntPtrInput `pulumi:"metricPublishFrequencyInSeconds"`
+}
+
+func (EndpointConfigMetricsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigMetricsConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigMetricsConfigArgs) ToEndpointConfigMetricsConfigOutput() EndpointConfigMetricsConfigOutput {
+	return i.ToEndpointConfigMetricsConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigMetricsConfigArgs) ToEndpointConfigMetricsConfigOutputWithContext(ctx context.Context) EndpointConfigMetricsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigMetricsConfigOutput)
+}
+
+func (i EndpointConfigMetricsConfigArgs) ToEndpointConfigMetricsConfigPtrOutput() EndpointConfigMetricsConfigPtrOutput {
+	return i.ToEndpointConfigMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigMetricsConfigArgs) ToEndpointConfigMetricsConfigPtrOutputWithContext(ctx context.Context) EndpointConfigMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigMetricsConfigOutput).ToEndpointConfigMetricsConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigMetricsConfigPtrInput is an input type that accepts EndpointConfigMetricsConfigArgs, EndpointConfigMetricsConfigPtr and EndpointConfigMetricsConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigMetricsConfigPtrInput` via:
+//
+//	        EndpointConfigMetricsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigMetricsConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigMetricsConfigPtrOutput() EndpointConfigMetricsConfigPtrOutput
+	ToEndpointConfigMetricsConfigPtrOutputWithContext(context.Context) EndpointConfigMetricsConfigPtrOutput
+}
+
+type endpointConfigMetricsConfigPtrType EndpointConfigMetricsConfigArgs
+
+func EndpointConfigMetricsConfigPtr(v *EndpointConfigMetricsConfigArgs) EndpointConfigMetricsConfigPtrInput {
+	return (*endpointConfigMetricsConfigPtrType)(v)
+}
+
+func (*endpointConfigMetricsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigMetricsConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigMetricsConfigPtrType) ToEndpointConfigMetricsConfigPtrOutput() EndpointConfigMetricsConfigPtrOutput {
+	return i.ToEndpointConfigMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigMetricsConfigPtrType) ToEndpointConfigMetricsConfigPtrOutputWithContext(ctx context.Context) EndpointConfigMetricsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigMetricsConfigPtrOutput)
+}
+
+// Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+type EndpointConfigMetricsConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigMetricsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigMetricsConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigMetricsConfigOutput) ToEndpointConfigMetricsConfigOutput() EndpointConfigMetricsConfigOutput {
+	return o
+}
+
+func (o EndpointConfigMetricsConfigOutput) ToEndpointConfigMetricsConfigOutputWithContext(ctx context.Context) EndpointConfigMetricsConfigOutput {
+	return o
+}
+
+func (o EndpointConfigMetricsConfigOutput) ToEndpointConfigMetricsConfigPtrOutput() EndpointConfigMetricsConfigPtrOutput {
+	return o.ToEndpointConfigMetricsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigMetricsConfigOutput) ToEndpointConfigMetricsConfigPtrOutputWithContext(ctx context.Context) EndpointConfigMetricsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigMetricsConfig) *EndpointConfigMetricsConfig {
+		return &v
+	}).(EndpointConfigMetricsConfigPtrOutput)
+}
+
+// Specifies whether to enable detailed observability for the endpoint. When set to true, the endpoint publishes container-level inference metrics, per-GPU metrics, per-instance host metrics, and inference component placement metrics.
+func (o EndpointConfigMetricsConfigOutput) EnableDetailedObservability() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigMetricsConfig) *bool { return v.EnableDetailedObservability }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization and invocation data at instance and container granularity.
+func (o EndpointConfigMetricsConfigOutput) EnableEnhancedMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigMetricsConfig) *bool { return v.EnableEnhancedMetrics }).(pulumi.BoolPtrOutput)
+}
+
+// The interval, in seconds, at which the endpoint publishes metrics to Amazon CloudWatch. Valid values are 10, 30, 60, 120, 180, 240, and 300. The default is 60.
+func (o EndpointConfigMetricsConfigOutput) MetricPublishFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigMetricsConfig) *int { return v.MetricPublishFrequencyInSeconds }).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigMetricsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigMetricsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigMetricsConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigMetricsConfigPtrOutput) ToEndpointConfigMetricsConfigPtrOutput() EndpointConfigMetricsConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigMetricsConfigPtrOutput) ToEndpointConfigMetricsConfigPtrOutputWithContext(ctx context.Context) EndpointConfigMetricsConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigMetricsConfigPtrOutput) Elem() EndpointConfigMetricsConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigMetricsConfig) EndpointConfigMetricsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigMetricsConfig
+		return ret
+	}).(EndpointConfigMetricsConfigOutput)
+}
+
+// Specifies whether to enable detailed observability for the endpoint. When set to true, the endpoint publishes container-level inference metrics, per-GPU metrics, per-instance host metrics, and inference component placement metrics.
+func (o EndpointConfigMetricsConfigPtrOutput) EnableDetailedObservability() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigMetricsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableDetailedObservability
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization and invocation data at instance and container granularity.
+func (o EndpointConfigMetricsConfigPtrOutput) EnableEnhancedMetrics() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigMetricsConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableEnhancedMetrics
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The interval, in seconds, at which the endpoint publishes metrics to Amazon CloudWatch. Valid values are 10, 30, 60, 120, 180, 240, and 300. The default is 60.
+func (o EndpointConfigMetricsConfigPtrOutput) MetricPublishFrequencyInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigMetricsConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MetricPublishFrequencyInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The configuration for prefix-aware routing on a SageMaker real-time inference endpoint. Specify PrefixLength and ConcurrencyThreshold to control routing behavior.
+type EndpointConfigPrefixAwareRoutingConfig struct {
+	// The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1 to 1024.
+	ConcurrencyThreshold *int `pulumi:"concurrencyThreshold"`
+	// The maximum length of the prefix used for routing decisions. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1024 to 65536.
+	PrefixLength *int `pulumi:"prefixLength"`
+}
+
+// EndpointConfigPrefixAwareRoutingConfigInput is an input type that accepts EndpointConfigPrefixAwareRoutingConfigArgs and EndpointConfigPrefixAwareRoutingConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigPrefixAwareRoutingConfigInput` via:
+//
+//	EndpointConfigPrefixAwareRoutingConfigArgs{...}
+type EndpointConfigPrefixAwareRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigPrefixAwareRoutingConfigOutput() EndpointConfigPrefixAwareRoutingConfigOutput
+	ToEndpointConfigPrefixAwareRoutingConfigOutputWithContext(context.Context) EndpointConfigPrefixAwareRoutingConfigOutput
+}
+
+// The configuration for prefix-aware routing on a SageMaker real-time inference endpoint. Specify PrefixLength and ConcurrencyThreshold to control routing behavior.
+type EndpointConfigPrefixAwareRoutingConfigArgs struct {
+	// The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1 to 1024.
+	ConcurrencyThreshold pulumi.IntPtrInput `pulumi:"concurrencyThreshold"`
+	// The maximum length of the prefix used for routing decisions. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1024 to 65536.
+	PrefixLength pulumi.IntPtrInput `pulumi:"prefixLength"`
+}
+
+func (EndpointConfigPrefixAwareRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigPrefixAwareRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigPrefixAwareRoutingConfigArgs) ToEndpointConfigPrefixAwareRoutingConfigOutput() EndpointConfigPrefixAwareRoutingConfigOutput {
+	return i.ToEndpointConfigPrefixAwareRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigPrefixAwareRoutingConfigArgs) ToEndpointConfigPrefixAwareRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigPrefixAwareRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigPrefixAwareRoutingConfigOutput)
+}
+
+func (i EndpointConfigPrefixAwareRoutingConfigArgs) ToEndpointConfigPrefixAwareRoutingConfigPtrOutput() EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return i.ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigPrefixAwareRoutingConfigArgs) ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigPrefixAwareRoutingConfigOutput).ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigPrefixAwareRoutingConfigPtrInput is an input type that accepts EndpointConfigPrefixAwareRoutingConfigArgs, EndpointConfigPrefixAwareRoutingConfigPtr and EndpointConfigPrefixAwareRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigPrefixAwareRoutingConfigPtrInput` via:
+//
+//	        EndpointConfigPrefixAwareRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigPrefixAwareRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigPrefixAwareRoutingConfigPtrOutput() EndpointConfigPrefixAwareRoutingConfigPtrOutput
+	ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(context.Context) EndpointConfigPrefixAwareRoutingConfigPtrOutput
+}
+
+type endpointConfigPrefixAwareRoutingConfigPtrType EndpointConfigPrefixAwareRoutingConfigArgs
+
+func EndpointConfigPrefixAwareRoutingConfigPtr(v *EndpointConfigPrefixAwareRoutingConfigArgs) EndpointConfigPrefixAwareRoutingConfigPtrInput {
+	return (*endpointConfigPrefixAwareRoutingConfigPtrType)(v)
+}
+
+func (*endpointConfigPrefixAwareRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigPrefixAwareRoutingConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigPrefixAwareRoutingConfigPtrType) ToEndpointConfigPrefixAwareRoutingConfigPtrOutput() EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return i.ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigPrefixAwareRoutingConfigPtrType) ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigPrefixAwareRoutingConfigPtrOutput)
+}
+
+// The configuration for prefix-aware routing on a SageMaker real-time inference endpoint. Specify PrefixLength and ConcurrencyThreshold to control routing behavior.
+type EndpointConfigPrefixAwareRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigPrefixAwareRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigPrefixAwareRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigPrefixAwareRoutingConfigOutput) ToEndpointConfigPrefixAwareRoutingConfigOutput() EndpointConfigPrefixAwareRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigPrefixAwareRoutingConfigOutput) ToEndpointConfigPrefixAwareRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigPrefixAwareRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigPrefixAwareRoutingConfigOutput) ToEndpointConfigPrefixAwareRoutingConfigPtrOutput() EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return o.ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigPrefixAwareRoutingConfigOutput) ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigPrefixAwareRoutingConfig) *EndpointConfigPrefixAwareRoutingConfig {
+		return &v
+	}).(EndpointConfigPrefixAwareRoutingConfigPtrOutput)
+}
+
+// The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1 to 1024.
+func (o EndpointConfigPrefixAwareRoutingConfigOutput) ConcurrencyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigPrefixAwareRoutingConfig) *int { return v.ConcurrencyThreshold }).(pulumi.IntPtrOutput)
+}
+
+// The maximum length of the prefix used for routing decisions. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1024 to 65536.
+func (o EndpointConfigPrefixAwareRoutingConfigOutput) PrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigPrefixAwareRoutingConfig) *int { return v.PrefixLength }).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigPrefixAwareRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigPrefixAwareRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigPrefixAwareRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigPrefixAwareRoutingConfigPtrOutput) ToEndpointConfigPrefixAwareRoutingConfigPtrOutput() EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigPrefixAwareRoutingConfigPtrOutput) ToEndpointConfigPrefixAwareRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigPrefixAwareRoutingConfigPtrOutput) Elem() EndpointConfigPrefixAwareRoutingConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigPrefixAwareRoutingConfig) EndpointConfigPrefixAwareRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigPrefixAwareRoutingConfig
+		return ret
+	}).(EndpointConfigPrefixAwareRoutingConfigOutput)
+}
+
+// The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1 to 1024.
+func (o EndpointConfigPrefixAwareRoutingConfigPtrOutput) ConcurrencyThreshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigPrefixAwareRoutingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConcurrencyThreshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum length of the prefix used for routing decisions. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1024 to 65536.
+func (o EndpointConfigPrefixAwareRoutingConfigPtrOutput) PrefixLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigPrefixAwareRoutingConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixLength
+	}).(pulumi.IntPtrOutput)
+}
+
+// Specifies a model that you want to host and the resources to deploy for hosting it.
+type EndpointConfigProductionVariant struct {
+	// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+	CapacityReservationConfig *EndpointConfigCapacityReservationConfig `pulumi:"capacityReservationConfig"`
+	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
+	ContainerStartupHealthCheckTimeoutInSeconds *int `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Specifies configuration for a core dump from the model container when the process crashes.
+	CoreDumpConfig *EndpointConfigCoreDumpConfig `pulumi:"coreDumpConfig"`
+	// You can use this parameter to turn on native AWS Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoint.
+	EnableSsmAccess *bool `pulumi:"enableSsmAccess"`
+	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads. By selecting an AMI version, you can ensure that your inference environment is compatible with specific software requirements, such as CUDA driver versions, Linux kernel versions, or AWS Neuron driver versions
+	InferenceAmiVersion *string `pulumi:"inferenceAmiVersion"`
+	// Number of instances to launch initially.
+	InitialInstanceCount *int `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+	InitialVariantWeight *float64 `pulumi:"initialVariantWeight"`
+	// A list of instance pools for the production variant. Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.
+	InstancePools []EndpointConfigInstancePool `pulumi:"instancePools"`
+	// The ML compute instance type.
+	InstanceType           *string                               `pulumi:"instanceType"`
+	ManagedInstanceScaling *EndpointConfigManagedInstanceScaling `pulumi:"managedInstanceScaling"`
+	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
+	ModelDataDownloadTimeoutInSeconds *int `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	// The name of the model that you want to host. This is the name that you specified when creating the model.
+	ModelName *string `pulumi:"modelName"`
+	// Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+	RoutingConfig *EndpointConfigRoutingConfig `pulumi:"routingConfig"`
+	// The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
+	ServerlessConfig *EndpointConfigServerlessConfig `pulumi:"serverlessConfig"`
+	// The timeout value, in seconds, for provisioning instances for the production variant. When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.
+	VariantInstanceProvisionTimeoutInSeconds *int `pulumi:"variantInstanceProvisionTimeoutInSeconds"`
+	// The name of the production variant.
+	VariantName string `pulumi:"variantName"`
+	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Currently only Amazon EBS gp2 storage volumes are supported.
+	VolumeSizeInGb *int `pulumi:"volumeSizeInGb"`
+}
+
+// EndpointConfigProductionVariantInput is an input type that accepts EndpointConfigProductionVariantArgs and EndpointConfigProductionVariantOutput values.
+// You can construct a concrete instance of `EndpointConfigProductionVariantInput` via:
+//
+//	EndpointConfigProductionVariantArgs{...}
+type EndpointConfigProductionVariantInput interface {
+	pulumi.Input
+
+	ToEndpointConfigProductionVariantOutput() EndpointConfigProductionVariantOutput
+	ToEndpointConfigProductionVariantOutputWithContext(context.Context) EndpointConfigProductionVariantOutput
+}
+
+// Specifies a model that you want to host and the resources to deploy for hosting it.
+type EndpointConfigProductionVariantArgs struct {
+	// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+	CapacityReservationConfig EndpointConfigCapacityReservationConfigPtrInput `pulumi:"capacityReservationConfig"`
+	// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
+	ContainerStartupHealthCheckTimeoutInSeconds pulumi.IntPtrInput `pulumi:"containerStartupHealthCheckTimeoutInSeconds"`
+	// Specifies configuration for a core dump from the model container when the process crashes.
+	CoreDumpConfig EndpointConfigCoreDumpConfigPtrInput `pulumi:"coreDumpConfig"`
+	// You can use this parameter to turn on native AWS Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoint.
+	EnableSsmAccess pulumi.BoolPtrInput `pulumi:"enableSsmAccess"`
+	// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads. By selecting an AMI version, you can ensure that your inference environment is compatible with specific software requirements, such as CUDA driver versions, Linux kernel versions, or AWS Neuron driver versions
+	InferenceAmiVersion pulumi.StringPtrInput `pulumi:"inferenceAmiVersion"`
+	// Number of instances to launch initially.
+	InitialInstanceCount pulumi.IntPtrInput `pulumi:"initialInstanceCount"`
+	// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+	InitialVariantWeight pulumi.Float64PtrInput `pulumi:"initialVariantWeight"`
+	// A list of instance pools for the production variant. Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.
+	InstancePools EndpointConfigInstancePoolArrayInput `pulumi:"instancePools"`
+	// The ML compute instance type.
+	InstanceType           pulumi.StringPtrInput                        `pulumi:"instanceType"`
+	ManagedInstanceScaling EndpointConfigManagedInstanceScalingPtrInput `pulumi:"managedInstanceScaling"`
+	// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
+	ModelDataDownloadTimeoutInSeconds pulumi.IntPtrInput `pulumi:"modelDataDownloadTimeoutInSeconds"`
+	// The name of the model that you want to host. This is the name that you specified when creating the model.
+	ModelName pulumi.StringPtrInput `pulumi:"modelName"`
+	// Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+	RoutingConfig EndpointConfigRoutingConfigPtrInput `pulumi:"routingConfig"`
+	// The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
+	ServerlessConfig EndpointConfigServerlessConfigPtrInput `pulumi:"serverlessConfig"`
+	// The timeout value, in seconds, for provisioning instances for the production variant. When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.
+	VariantInstanceProvisionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"variantInstanceProvisionTimeoutInSeconds"`
+	// The name of the production variant.
+	VariantName pulumi.StringInput `pulumi:"variantName"`
+	// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Currently only Amazon EBS gp2 storage volumes are supported.
+	VolumeSizeInGb pulumi.IntPtrInput `pulumi:"volumeSizeInGb"`
+}
+
+func (EndpointConfigProductionVariantArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigProductionVariant)(nil)).Elem()
+}
+
+func (i EndpointConfigProductionVariantArgs) ToEndpointConfigProductionVariantOutput() EndpointConfigProductionVariantOutput {
+	return i.ToEndpointConfigProductionVariantOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigProductionVariantArgs) ToEndpointConfigProductionVariantOutputWithContext(ctx context.Context) EndpointConfigProductionVariantOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigProductionVariantOutput)
+}
+
+// EndpointConfigProductionVariantArrayInput is an input type that accepts EndpointConfigProductionVariantArray and EndpointConfigProductionVariantArrayOutput values.
+// You can construct a concrete instance of `EndpointConfigProductionVariantArrayInput` via:
+//
+//	EndpointConfigProductionVariantArray{ EndpointConfigProductionVariantArgs{...} }
+type EndpointConfigProductionVariantArrayInput interface {
+	pulumi.Input
+
+	ToEndpointConfigProductionVariantArrayOutput() EndpointConfigProductionVariantArrayOutput
+	ToEndpointConfigProductionVariantArrayOutputWithContext(context.Context) EndpointConfigProductionVariantArrayOutput
+}
+
+type EndpointConfigProductionVariantArray []EndpointConfigProductionVariantInput
+
+func (EndpointConfigProductionVariantArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigProductionVariant)(nil)).Elem()
+}
+
+func (i EndpointConfigProductionVariantArray) ToEndpointConfigProductionVariantArrayOutput() EndpointConfigProductionVariantArrayOutput {
+	return i.ToEndpointConfigProductionVariantArrayOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigProductionVariantArray) ToEndpointConfigProductionVariantArrayOutputWithContext(ctx context.Context) EndpointConfigProductionVariantArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigProductionVariantArrayOutput)
+}
+
+// Specifies a model that you want to host and the resources to deploy for hosting it.
+type EndpointConfigProductionVariantOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigProductionVariantOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigProductionVariant)(nil)).Elem()
+}
+
+func (o EndpointConfigProductionVariantOutput) ToEndpointConfigProductionVariantOutput() EndpointConfigProductionVariantOutput {
+	return o
+}
+
+func (o EndpointConfigProductionVariantOutput) ToEndpointConfigProductionVariantOutputWithContext(ctx context.Context) EndpointConfigProductionVariantOutput {
+	return o
+}
+
+// Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+func (o EndpointConfigProductionVariantOutput) CapacityReservationConfig() EndpointConfigCapacityReservationConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *EndpointConfigCapacityReservationConfig {
+		return v.CapacityReservationConfig
+	}).(EndpointConfigCapacityReservationConfigPtrOutput)
+}
+
+// The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
+func (o EndpointConfigProductionVariantOutput) ContainerStartupHealthCheckTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.ContainerStartupHealthCheckTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Specifies configuration for a core dump from the model container when the process crashes.
+func (o EndpointConfigProductionVariantOutput) CoreDumpConfig() EndpointConfigCoreDumpConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *EndpointConfigCoreDumpConfig { return v.CoreDumpConfig }).(EndpointConfigCoreDumpConfigPtrOutput)
+}
+
+// You can use this parameter to turn on native AWS Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoint.
+func (o EndpointConfigProductionVariantOutput) EnableSsmAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *bool { return v.EnableSsmAccess }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads. By selecting an AMI version, you can ensure that your inference environment is compatible with specific software requirements, such as CUDA driver versions, Linux kernel versions, or AWS Neuron driver versions
+func (o EndpointConfigProductionVariantOutput) InferenceAmiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.InferenceAmiVersion }).(pulumi.StringPtrOutput)
+}
+
+// Number of instances to launch initially.
+func (o EndpointConfigProductionVariantOutput) InitialInstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.InitialInstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+func (o EndpointConfigProductionVariantOutput) InitialVariantWeight() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *float64 { return v.InitialVariantWeight }).(pulumi.Float64PtrOutput)
+}
+
+// A list of instance pools for the production variant. Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.
+func (o EndpointConfigProductionVariantOutput) InstancePools() EndpointConfigInstancePoolArrayOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) []EndpointConfigInstancePool { return v.InstancePools }).(EndpointConfigInstancePoolArrayOutput)
+}
+
+// The ML compute instance type.
+func (o EndpointConfigProductionVariantOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.InstanceType }).(pulumi.StringPtrOutput)
+}
+
+func (o EndpointConfigProductionVariantOutput) ManagedInstanceScaling() EndpointConfigManagedInstanceScalingPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *EndpointConfigManagedInstanceScaling {
+		return v.ManagedInstanceScaling
+	}).(EndpointConfigManagedInstanceScalingPtrOutput)
+}
+
+// The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
+func (o EndpointConfigProductionVariantOutput) ModelDataDownloadTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.ModelDataDownloadTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The name of the model that you want to host. This is the name that you specified when creating the model.
+func (o EndpointConfigProductionVariantOutput) ModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *string { return v.ModelName }).(pulumi.StringPtrOutput)
+}
+
+// Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+func (o EndpointConfigProductionVariantOutput) RoutingConfig() EndpointConfigRoutingConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *EndpointConfigRoutingConfig { return v.RoutingConfig }).(EndpointConfigRoutingConfigPtrOutput)
+}
+
+// The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
+func (o EndpointConfigProductionVariantOutput) ServerlessConfig() EndpointConfigServerlessConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *EndpointConfigServerlessConfig { return v.ServerlessConfig }).(EndpointConfigServerlessConfigPtrOutput)
+}
+
+// The timeout value, in seconds, for provisioning instances for the production variant. When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.
+func (o EndpointConfigProductionVariantOutput) VariantInstanceProvisionTimeoutInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.VariantInstanceProvisionTimeoutInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The name of the production variant.
+func (o EndpointConfigProductionVariantOutput) VariantName() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) string { return v.VariantName }).(pulumi.StringOutput)
+}
+
+// The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Currently only Amazon EBS gp2 storage volumes are supported.
+func (o EndpointConfigProductionVariantOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigProductionVariant) *int { return v.VolumeSizeInGb }).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigProductionVariantArrayOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigProductionVariantArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]EndpointConfigProductionVariant)(nil)).Elem()
+}
+
+func (o EndpointConfigProductionVariantArrayOutput) ToEndpointConfigProductionVariantArrayOutput() EndpointConfigProductionVariantArrayOutput {
+	return o
+}
+
+func (o EndpointConfigProductionVariantArrayOutput) ToEndpointConfigProductionVariantArrayOutputWithContext(ctx context.Context) EndpointConfigProductionVariantArrayOutput {
+	return o
+}
+
+func (o EndpointConfigProductionVariantArrayOutput) Index(i pulumi.IntInput) EndpointConfigProductionVariantOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) EndpointConfigProductionVariant {
+		return vs[0].([]EndpointConfigProductionVariant)[vs[1].(int)]
+	}).(EndpointConfigProductionVariantOutput)
+}
+
+// Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+type EndpointConfigRoutingConfig struct {
+	// The configuration for prefix-aware routing. Specify this property only when you set RoutingStrategy to PREFIX_AWARE.
+	PrefixAwareRoutingConfig *EndpointConfigPrefixAwareRoutingConfig `pulumi:"prefixAwareRoutingConfig"`
+	// Sets how the endpoint routes incoming traffic.
+	RoutingStrategy *string `pulumi:"routingStrategy"`
+}
+
+// EndpointConfigRoutingConfigInput is an input type that accepts EndpointConfigRoutingConfigArgs and EndpointConfigRoutingConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigRoutingConfigInput` via:
+//
+//	EndpointConfigRoutingConfigArgs{...}
+type EndpointConfigRoutingConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigRoutingConfigOutput() EndpointConfigRoutingConfigOutput
+	ToEndpointConfigRoutingConfigOutputWithContext(context.Context) EndpointConfigRoutingConfigOutput
+}
+
+// Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+type EndpointConfigRoutingConfigArgs struct {
+	// The configuration for prefix-aware routing. Specify this property only when you set RoutingStrategy to PREFIX_AWARE.
+	PrefixAwareRoutingConfig EndpointConfigPrefixAwareRoutingConfigPtrInput `pulumi:"prefixAwareRoutingConfig"`
+	// Sets how the endpoint routes incoming traffic.
+	RoutingStrategy pulumi.StringPtrInput `pulumi:"routingStrategy"`
+}
+
+func (EndpointConfigRoutingConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigOutput() EndpointConfigRoutingConfigOutput {
+	return i.ToEndpointConfigRoutingConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigRoutingConfigOutput)
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return i.ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigRoutingConfigArgs) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigRoutingConfigOutput).ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigRoutingConfigPtrInput is an input type that accepts EndpointConfigRoutingConfigArgs, EndpointConfigRoutingConfigPtr and EndpointConfigRoutingConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigRoutingConfigPtrInput` via:
+//
+//	        EndpointConfigRoutingConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigRoutingConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput
+	ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Context) EndpointConfigRoutingConfigPtrOutput
+}
+
+type endpointConfigRoutingConfigPtrType EndpointConfigRoutingConfigArgs
+
+func EndpointConfigRoutingConfigPtr(v *EndpointConfigRoutingConfigArgs) EndpointConfigRoutingConfigPtrInput {
+	return (*endpointConfigRoutingConfigPtrType)(v)
+}
+
+func (*endpointConfigRoutingConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigRoutingConfigPtrType) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return i.ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigRoutingConfigPtrType) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigRoutingConfigPtrOutput)
+}
+
+// Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+type EndpointConfigRoutingConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigRoutingConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigOutput() EndpointConfigRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return o.ToEndpointConfigRoutingConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigRoutingConfigOutput) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigRoutingConfig) *EndpointConfigRoutingConfig {
+		return &v
+	}).(EndpointConfigRoutingConfigPtrOutput)
+}
+
+// The configuration for prefix-aware routing. Specify this property only when you set RoutingStrategy to PREFIX_AWARE.
+func (o EndpointConfigRoutingConfigOutput) PrefixAwareRoutingConfig() EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return o.ApplyT(func(v EndpointConfigRoutingConfig) *EndpointConfigPrefixAwareRoutingConfig {
+		return v.PrefixAwareRoutingConfig
+	}).(EndpointConfigPrefixAwareRoutingConfigPtrOutput)
+}
+
+// Sets how the endpoint routes incoming traffic.
+func (o EndpointConfigRoutingConfigOutput) RoutingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointConfigRoutingConfig) *string { return v.RoutingStrategy }).(pulumi.StringPtrOutput)
+}
+
+type EndpointConfigRoutingConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigRoutingConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigRoutingConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) ToEndpointConfigRoutingConfigPtrOutput() EndpointConfigRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) ToEndpointConfigRoutingConfigPtrOutputWithContext(ctx context.Context) EndpointConfigRoutingConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigRoutingConfigPtrOutput) Elem() EndpointConfigRoutingConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigRoutingConfig) EndpointConfigRoutingConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigRoutingConfig
+		return ret
+	}).(EndpointConfigRoutingConfigOutput)
+}
+
+// The configuration for prefix-aware routing. Specify this property only when you set RoutingStrategy to PREFIX_AWARE.
+func (o EndpointConfigRoutingConfigPtrOutput) PrefixAwareRoutingConfig() EndpointConfigPrefixAwareRoutingConfigPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigRoutingConfig) *EndpointConfigPrefixAwareRoutingConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PrefixAwareRoutingConfig
+	}).(EndpointConfigPrefixAwareRoutingConfigPtrOutput)
+}
+
+// Sets how the endpoint routes incoming traffic.
+func (o EndpointConfigRoutingConfigPtrOutput) RoutingStrategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigRoutingConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RoutingStrategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies how the endpoint releases instances when managed instance scaling scales in.
+type EndpointConfigScaleInPolicy struct {
+	// The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities. Valid values are 5 to 1440. The default is 20.
+	CooldownInMinutes *int `pulumi:"cooldownInMinutes"`
+	// The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation. Valid values are 1 to 100. The default is 1.
+	MaximumStepSize *int `pulumi:"maximumStepSize"`
+	// The strategy for scaling in instances. IDLE_RELEASE releases instances that have no hosted inference component copies. CONSOLIDATION consolidates inference component copies onto fewer instances to release more instances.
+	Strategy string `pulumi:"strategy"`
+}
+
+// EndpointConfigScaleInPolicyInput is an input type that accepts EndpointConfigScaleInPolicyArgs and EndpointConfigScaleInPolicyOutput values.
+// You can construct a concrete instance of `EndpointConfigScaleInPolicyInput` via:
+//
+//	EndpointConfigScaleInPolicyArgs{...}
+type EndpointConfigScaleInPolicyInput interface {
+	pulumi.Input
+
+	ToEndpointConfigScaleInPolicyOutput() EndpointConfigScaleInPolicyOutput
+	ToEndpointConfigScaleInPolicyOutputWithContext(context.Context) EndpointConfigScaleInPolicyOutput
+}
+
+// Specifies how the endpoint releases instances when managed instance scaling scales in.
+type EndpointConfigScaleInPolicyArgs struct {
+	// The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities. Valid values are 5 to 1440. The default is 20.
+	CooldownInMinutes pulumi.IntPtrInput `pulumi:"cooldownInMinutes"`
+	// The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation. Valid values are 1 to 100. The default is 1.
+	MaximumStepSize pulumi.IntPtrInput `pulumi:"maximumStepSize"`
+	// The strategy for scaling in instances. IDLE_RELEASE releases instances that have no hosted inference component copies. CONSOLIDATION consolidates inference component copies onto fewer instances to release more instances.
+	Strategy pulumi.StringInput `pulumi:"strategy"`
+}
+
+func (EndpointConfigScaleInPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigScaleInPolicy)(nil)).Elem()
+}
+
+func (i EndpointConfigScaleInPolicyArgs) ToEndpointConfigScaleInPolicyOutput() EndpointConfigScaleInPolicyOutput {
+	return i.ToEndpointConfigScaleInPolicyOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigScaleInPolicyArgs) ToEndpointConfigScaleInPolicyOutputWithContext(ctx context.Context) EndpointConfigScaleInPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigScaleInPolicyOutput)
+}
+
+func (i EndpointConfigScaleInPolicyArgs) ToEndpointConfigScaleInPolicyPtrOutput() EndpointConfigScaleInPolicyPtrOutput {
+	return i.ToEndpointConfigScaleInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigScaleInPolicyArgs) ToEndpointConfigScaleInPolicyPtrOutputWithContext(ctx context.Context) EndpointConfigScaleInPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigScaleInPolicyOutput).ToEndpointConfigScaleInPolicyPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigScaleInPolicyPtrInput is an input type that accepts EndpointConfigScaleInPolicyArgs, EndpointConfigScaleInPolicyPtr and EndpointConfigScaleInPolicyPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigScaleInPolicyPtrInput` via:
+//
+//	        EndpointConfigScaleInPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigScaleInPolicyPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigScaleInPolicyPtrOutput() EndpointConfigScaleInPolicyPtrOutput
+	ToEndpointConfigScaleInPolicyPtrOutputWithContext(context.Context) EndpointConfigScaleInPolicyPtrOutput
+}
+
+type endpointConfigScaleInPolicyPtrType EndpointConfigScaleInPolicyArgs
+
+func EndpointConfigScaleInPolicyPtr(v *EndpointConfigScaleInPolicyArgs) EndpointConfigScaleInPolicyPtrInput {
+	return (*endpointConfigScaleInPolicyPtrType)(v)
+}
+
+func (*endpointConfigScaleInPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigScaleInPolicy)(nil)).Elem()
+}
+
+func (i *endpointConfigScaleInPolicyPtrType) ToEndpointConfigScaleInPolicyPtrOutput() EndpointConfigScaleInPolicyPtrOutput {
+	return i.ToEndpointConfigScaleInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigScaleInPolicyPtrType) ToEndpointConfigScaleInPolicyPtrOutputWithContext(ctx context.Context) EndpointConfigScaleInPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigScaleInPolicyPtrOutput)
+}
+
+// Specifies how the endpoint releases instances when managed instance scaling scales in.
+type EndpointConfigScaleInPolicyOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigScaleInPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigScaleInPolicy)(nil)).Elem()
+}
+
+func (o EndpointConfigScaleInPolicyOutput) ToEndpointConfigScaleInPolicyOutput() EndpointConfigScaleInPolicyOutput {
+	return o
+}
+
+func (o EndpointConfigScaleInPolicyOutput) ToEndpointConfigScaleInPolicyOutputWithContext(ctx context.Context) EndpointConfigScaleInPolicyOutput {
+	return o
+}
+
+func (o EndpointConfigScaleInPolicyOutput) ToEndpointConfigScaleInPolicyPtrOutput() EndpointConfigScaleInPolicyPtrOutput {
+	return o.ToEndpointConfigScaleInPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigScaleInPolicyOutput) ToEndpointConfigScaleInPolicyPtrOutputWithContext(ctx context.Context) EndpointConfigScaleInPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigScaleInPolicy) *EndpointConfigScaleInPolicy {
+		return &v
+	}).(EndpointConfigScaleInPolicyPtrOutput)
+}
+
+// The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities. Valid values are 5 to 1440. The default is 20.
+func (o EndpointConfigScaleInPolicyOutput) CooldownInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigScaleInPolicy) *int { return v.CooldownInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation. Valid values are 1 to 100. The default is 1.
+func (o EndpointConfigScaleInPolicyOutput) MaximumStepSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigScaleInPolicy) *int { return v.MaximumStepSize }).(pulumi.IntPtrOutput)
+}
+
+// The strategy for scaling in instances. IDLE_RELEASE releases instances that have no hosted inference component copies. CONSOLIDATION consolidates inference component copies onto fewer instances to release more instances.
+func (o EndpointConfigScaleInPolicyOutput) Strategy() pulumi.StringOutput {
+	return o.ApplyT(func(v EndpointConfigScaleInPolicy) string { return v.Strategy }).(pulumi.StringOutput)
+}
+
+type EndpointConfigScaleInPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigScaleInPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigScaleInPolicy)(nil)).Elem()
+}
+
+func (o EndpointConfigScaleInPolicyPtrOutput) ToEndpointConfigScaleInPolicyPtrOutput() EndpointConfigScaleInPolicyPtrOutput {
+	return o
+}
+
+func (o EndpointConfigScaleInPolicyPtrOutput) ToEndpointConfigScaleInPolicyPtrOutputWithContext(ctx context.Context) EndpointConfigScaleInPolicyPtrOutput {
+	return o
+}
+
+func (o EndpointConfigScaleInPolicyPtrOutput) Elem() EndpointConfigScaleInPolicyOutput {
+	return o.ApplyT(func(v *EndpointConfigScaleInPolicy) EndpointConfigScaleInPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigScaleInPolicy
+		return ret
+	}).(EndpointConfigScaleInPolicyOutput)
+}
+
+// The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities. Valid values are 5 to 1440. The default is 20.
+func (o EndpointConfigScaleInPolicyPtrOutput) CooldownInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigScaleInPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.CooldownInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation. Valid values are 1 to 100. The default is 1.
+func (o EndpointConfigScaleInPolicyPtrOutput) MaximumStepSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigScaleInPolicy) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaximumStepSize
+	}).(pulumi.IntPtrOutput)
+}
+
+// The strategy for scaling in instances. IDLE_RELEASE releases instances that have no hosted inference component copies. CONSOLIDATION consolidates inference component copies onto fewer instances to release more instances.
+func (o EndpointConfigScaleInPolicyPtrOutput) Strategy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigScaleInPolicy) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Strategy
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the serverless configuration for an endpoint variant.
+type EndpointConfigServerlessConfig struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process.
+	MaxConcurrency int `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
+	MemorySizeInMb int `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to MaxConcurrency.
+	ProvisionedConcurrency *int `pulumi:"provisionedConcurrency"`
+}
+
+// EndpointConfigServerlessConfigInput is an input type that accepts EndpointConfigServerlessConfigArgs and EndpointConfigServerlessConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigServerlessConfigInput` via:
+//
+//	EndpointConfigServerlessConfigArgs{...}
+type EndpointConfigServerlessConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigServerlessConfigOutput() EndpointConfigServerlessConfigOutput
+	ToEndpointConfigServerlessConfigOutputWithContext(context.Context) EndpointConfigServerlessConfigOutput
+}
+
+// Specifies the serverless configuration for an endpoint variant.
+type EndpointConfigServerlessConfigArgs struct {
+	// The maximum number of concurrent invocations your serverless endpoint can process.
+	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
+	// The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
+	MemorySizeInMb pulumi.IntInput `pulumi:"memorySizeInMb"`
+	// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to MaxConcurrency.
+	ProvisionedConcurrency pulumi.IntPtrInput `pulumi:"provisionedConcurrency"`
+}
+
+func (EndpointConfigServerlessConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigServerlessConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigServerlessConfigArgs) ToEndpointConfigServerlessConfigOutput() EndpointConfigServerlessConfigOutput {
+	return i.ToEndpointConfigServerlessConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigServerlessConfigArgs) ToEndpointConfigServerlessConfigOutputWithContext(ctx context.Context) EndpointConfigServerlessConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigServerlessConfigOutput)
+}
+
+func (i EndpointConfigServerlessConfigArgs) ToEndpointConfigServerlessConfigPtrOutput() EndpointConfigServerlessConfigPtrOutput {
+	return i.ToEndpointConfigServerlessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigServerlessConfigArgs) ToEndpointConfigServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigServerlessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigServerlessConfigOutput).ToEndpointConfigServerlessConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigServerlessConfigPtrInput is an input type that accepts EndpointConfigServerlessConfigArgs, EndpointConfigServerlessConfigPtr and EndpointConfigServerlessConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigServerlessConfigPtrInput` via:
+//
+//	        EndpointConfigServerlessConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigServerlessConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigServerlessConfigPtrOutput() EndpointConfigServerlessConfigPtrOutput
+	ToEndpointConfigServerlessConfigPtrOutputWithContext(context.Context) EndpointConfigServerlessConfigPtrOutput
+}
+
+type endpointConfigServerlessConfigPtrType EndpointConfigServerlessConfigArgs
+
+func EndpointConfigServerlessConfigPtr(v *EndpointConfigServerlessConfigArgs) EndpointConfigServerlessConfigPtrInput {
+	return (*endpointConfigServerlessConfigPtrType)(v)
+}
+
+func (*endpointConfigServerlessConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigServerlessConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigServerlessConfigPtrType) ToEndpointConfigServerlessConfigPtrOutput() EndpointConfigServerlessConfigPtrOutput {
+	return i.ToEndpointConfigServerlessConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigServerlessConfigPtrType) ToEndpointConfigServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigServerlessConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigServerlessConfigPtrOutput)
+}
+
+// Specifies the serverless configuration for an endpoint variant.
+type EndpointConfigServerlessConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigServerlessConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigServerlessConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigServerlessConfigOutput) ToEndpointConfigServerlessConfigOutput() EndpointConfigServerlessConfigOutput {
+	return o
+}
+
+func (o EndpointConfigServerlessConfigOutput) ToEndpointConfigServerlessConfigOutputWithContext(ctx context.Context) EndpointConfigServerlessConfigOutput {
+	return o
+}
+
+func (o EndpointConfigServerlessConfigOutput) ToEndpointConfigServerlessConfigPtrOutput() EndpointConfigServerlessConfigPtrOutput {
+	return o.ToEndpointConfigServerlessConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigServerlessConfigOutput) ToEndpointConfigServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigServerlessConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigServerlessConfig) *EndpointConfigServerlessConfig {
+		return &v
+	}).(EndpointConfigServerlessConfigPtrOutput)
+}
+
+// The maximum number of concurrent invocations your serverless endpoint can process.
+func (o EndpointConfigServerlessConfigOutput) MaxConcurrency() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigServerlessConfig) int { return v.MaxConcurrency }).(pulumi.IntOutput)
+}
+
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
+func (o EndpointConfigServerlessConfigOutput) MemorySizeInMb() pulumi.IntOutput {
+	return o.ApplyT(func(v EndpointConfigServerlessConfig) int { return v.MemorySizeInMb }).(pulumi.IntOutput)
+}
+
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to MaxConcurrency.
+func (o EndpointConfigServerlessConfigOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointConfigServerlessConfig) *int { return v.ProvisionedConcurrency }).(pulumi.IntPtrOutput)
+}
+
+type EndpointConfigServerlessConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigServerlessConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigServerlessConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigServerlessConfigPtrOutput) ToEndpointConfigServerlessConfigPtrOutput() EndpointConfigServerlessConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigServerlessConfigPtrOutput) ToEndpointConfigServerlessConfigPtrOutputWithContext(ctx context.Context) EndpointConfigServerlessConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigServerlessConfigPtrOutput) Elem() EndpointConfigServerlessConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigServerlessConfig) EndpointConfigServerlessConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigServerlessConfig
+		return ret
+	}).(EndpointConfigServerlessConfigOutput)
+}
+
+// The maximum number of concurrent invocations your serverless endpoint can process.
+func (o EndpointConfigServerlessConfigPtrOutput) MaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
+// The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
+func (o EndpointConfigServerlessConfigPtrOutput) MemorySizeInMb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MemorySizeInMb
+	}).(pulumi.IntPtrOutput)
+}
+
+// The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to MaxConcurrency.
+func (o EndpointConfigServerlessConfigPtrOutput) ProvisionedConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointConfigServerlessConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ProvisionedConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
+// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+type EndpointConfigTag struct {
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+type EndpointConfigVpcConfig struct {
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// EndpointConfigVpcConfigInput is an input type that accepts EndpointConfigVpcConfigArgs and EndpointConfigVpcConfigOutput values.
+// You can construct a concrete instance of `EndpointConfigVpcConfigInput` via:
+//
+//	EndpointConfigVpcConfigArgs{...}
+type EndpointConfigVpcConfigInput interface {
+	pulumi.Input
+
+	ToEndpointConfigVpcConfigOutput() EndpointConfigVpcConfigOutput
+	ToEndpointConfigVpcConfigOutputWithContext(context.Context) EndpointConfigVpcConfigOutput
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+type EndpointConfigVpcConfigArgs struct {
+	// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// The ID of the subnets in the VPC to which you want to connect your training job or model.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (EndpointConfigVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigOutput() EndpointConfigVpcConfigOutput {
+	return i.ToEndpointConfigVpcConfigOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigOutputWithContext(ctx context.Context) EndpointConfigVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigVpcConfigOutput)
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return i.ToEndpointConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i EndpointConfigVpcConfigArgs) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigVpcConfigOutput).ToEndpointConfigVpcConfigPtrOutputWithContext(ctx)
+}
+
+// EndpointConfigVpcConfigPtrInput is an input type that accepts EndpointConfigVpcConfigArgs, EndpointConfigVpcConfigPtr and EndpointConfigVpcConfigPtrOutput values.
+// You can construct a concrete instance of `EndpointConfigVpcConfigPtrInput` via:
+//
+//	        EndpointConfigVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type EndpointConfigVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput
+	ToEndpointConfigVpcConfigPtrOutputWithContext(context.Context) EndpointConfigVpcConfigPtrOutput
+}
+
+type endpointConfigVpcConfigPtrType EndpointConfigVpcConfigArgs
+
+func EndpointConfigVpcConfigPtr(v *EndpointConfigVpcConfigArgs) EndpointConfigVpcConfigPtrInput {
+	return (*endpointConfigVpcConfigPtrType)(v)
+}
+
+func (*endpointConfigVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (i *endpointConfigVpcConfigPtrType) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return i.ToEndpointConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *endpointConfigVpcConfigPtrType) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(EndpointConfigVpcConfigPtrOutput)
+}
+
+// Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+type EndpointConfigVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigOutput() EndpointConfigVpcConfigOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigOutputWithContext(ctx context.Context) EndpointConfigVpcConfigOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return o.ToEndpointConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o EndpointConfigVpcConfigOutput) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v EndpointConfigVpcConfig) *EndpointConfigVpcConfig {
+		return &v
+	}).(EndpointConfigVpcConfigPtrOutput)
+}
+
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+func (o EndpointConfigVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model.
+func (o EndpointConfigVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v EndpointConfigVpcConfig) []string { return v.Subnets }).(pulumi.StringArrayOutput)
+}
+
+type EndpointConfigVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (EndpointConfigVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EndpointConfigVpcConfig)(nil)).Elem()
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) ToEndpointConfigVpcConfigPtrOutput() EndpointConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) ToEndpointConfigVpcConfigPtrOutputWithContext(ctx context.Context) EndpointConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o EndpointConfigVpcConfigPtrOutput) Elem() EndpointConfigVpcConfigOutput {
+	return o.ApplyT(func(v *EndpointConfigVpcConfig) EndpointConfigVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret EndpointConfigVpcConfig
+		return ret
+	}).(EndpointConfigVpcConfigOutput)
+}
+
+// The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+func (o EndpointConfigVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// The ID of the subnets in the VPC to which you want to connect your training job or model.
+func (o EndpointConfigVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *EndpointConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
 }
 
 type EndpointDeploymentConfig struct {
@@ -45116,6 +49610,156 @@ func (o MonitoringScheduleVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
+// Information on the IMDS configuration of the notebook instance
+type NotebookInstanceInstanceMetadataServiceConfiguration struct {
+	// Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
+	MinimumInstanceMetadataServiceVersion string `pulumi:"minimumInstanceMetadataServiceVersion"`
+}
+
+// NotebookInstanceInstanceMetadataServiceConfigurationInput is an input type that accepts NotebookInstanceInstanceMetadataServiceConfigurationArgs and NotebookInstanceInstanceMetadataServiceConfigurationOutput values.
+// You can construct a concrete instance of `NotebookInstanceInstanceMetadataServiceConfigurationInput` via:
+//
+//	NotebookInstanceInstanceMetadataServiceConfigurationArgs{...}
+type NotebookInstanceInstanceMetadataServiceConfigurationInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput
+	ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput
+}
+
+// Information on the IMDS configuration of the notebook instance
+type NotebookInstanceInstanceMetadataServiceConfigurationArgs struct {
+	// Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
+	MinimumInstanceMetadataServiceVersion pulumi.StringInput `pulumi:"minimumInstanceMetadataServiceVersion"`
+}
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationOutput)
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceInstanceMetadataServiceConfigurationArgs) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationOutput).ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx)
+}
+
+// NotebookInstanceInstanceMetadataServiceConfigurationPtrInput is an input type that accepts NotebookInstanceInstanceMetadataServiceConfigurationArgs, NotebookInstanceInstanceMetadataServiceConfigurationPtr and NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput values.
+// You can construct a concrete instance of `NotebookInstanceInstanceMetadataServiceConfigurationPtrInput` via:
+//
+//	        NotebookInstanceInstanceMetadataServiceConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type NotebookInstanceInstanceMetadataServiceConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput
+	ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput
+}
+
+type notebookInstanceInstanceMetadataServiceConfigurationPtrType NotebookInstanceInstanceMetadataServiceConfigurationArgs
+
+func NotebookInstanceInstanceMetadataServiceConfigurationPtr(v *NotebookInstanceInstanceMetadataServiceConfigurationArgs) NotebookInstanceInstanceMetadataServiceConfigurationPtrInput {
+	return (*notebookInstanceInstanceMetadataServiceConfigurationPtrType)(v)
+}
+
+func (*notebookInstanceInstanceMetadataServiceConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (i *notebookInstanceInstanceMetadataServiceConfigurationPtrType) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return i.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *notebookInstanceInstanceMetadataServiceConfigurationPtrType) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
+}
+
+// Information on the IMDS configuration of the notebook instance
+type NotebookInstanceInstanceMetadataServiceConfigurationOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationOutput() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v NotebookInstanceInstanceMetadataServiceConfiguration) *NotebookInstanceInstanceMetadataServiceConfiguration {
+		return &v
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput)
+}
+
+// Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
+func (o NotebookInstanceInstanceMetadataServiceConfigurationOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v NotebookInstanceInstanceMetadataServiceConfiguration) string {
+		return v.MinimumInstanceMetadataServiceVersion
+	}).(pulumi.StringOutput)
+}
+
+type NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**NotebookInstanceInstanceMetadataServiceConfiguration)(nil)).Elem()
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutput() NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) ToNotebookInstanceInstanceMetadataServiceConfigurationPtrOutputWithContext(ctx context.Context) NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput {
+	return o
+}
+
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) Elem() NotebookInstanceInstanceMetadataServiceConfigurationOutput {
+	return o.ApplyT(func(v *NotebookInstanceInstanceMetadataServiceConfiguration) NotebookInstanceInstanceMetadataServiceConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret NotebookInstanceInstanceMetadataServiceConfiguration
+		return ret
+	}).(NotebookInstanceInstanceMetadataServiceConfigurationOutput)
+}
+
+// Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
+func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) MinimumInstanceMetadataServiceVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *NotebookInstanceInstanceMetadataServiceConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.MinimumInstanceMetadataServiceVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
+type NotebookInstanceTag struct {
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // The configuration of an `OfflineStore` .
 type OfflineStoreConfigProperties struct {
 	// The meta data of the Glue table that is autogenerated when an `OfflineStore` is created.
@@ -58156,6 +62800,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactSourceInput)(nil)).Elem(), ArtifactSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactSourceTypeInput)(nil)).Elem(), ArtifactSourceTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ArtifactSourceTypeArrayInput)(nil)).Elem(), ArtifactSourceTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccountingDatabaseInput)(nil)).Elem(), ClusterAccountingDatabaseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAccountingDatabasePtrInput)(nil)).Elem(), ClusterAccountingDatabaseArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsInput)(nil)).Elem(), ClusterAlarmDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAlarmDetailsArrayInput)(nil)).Elem(), ClusterAlarmDetailsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterAutoPatchConfigInput)(nil)).Elem(), ClusterAutoPatchConfigArgs{})
@@ -58314,6 +62960,54 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointBlueGreenUpdatePolicyPtrInput)(nil)).Elem(), EndpointBlueGreenUpdatePolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCapacitySizeInput)(nil)).Elem(), EndpointCapacitySizeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointCapacitySizePtrInput)(nil)).Elem(), EndpointCapacitySizeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceClientConfigInput)(nil)).Elem(), EndpointConfigAsyncInferenceClientConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceClientConfigPtrInput)(nil)).Elem(), EndpointConfigAsyncInferenceClientConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceConfigInput)(nil)).Elem(), EndpointConfigAsyncInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceConfigPtrInput)(nil)).Elem(), EndpointConfigAsyncInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceNotificationConfigInput)(nil)).Elem(), EndpointConfigAsyncInferenceNotificationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceNotificationConfigPtrInput)(nil)).Elem(), EndpointConfigAsyncInferenceNotificationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceOutputConfigInput)(nil)).Elem(), EndpointConfigAsyncInferenceOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigAsyncInferenceOutputConfigPtrInput)(nil)).Elem(), EndpointConfigAsyncInferenceOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCapacityReservationConfigInput)(nil)).Elem(), EndpointConfigCapacityReservationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCapacityReservationConfigPtrInput)(nil)).Elem(), EndpointConfigCapacityReservationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCaptureContentTypeHeaderInput)(nil)).Elem(), EndpointConfigCaptureContentTypeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCaptureContentTypeHeaderPtrInput)(nil)).Elem(), EndpointConfigCaptureContentTypeHeaderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCaptureOptionInput)(nil)).Elem(), EndpointConfigCaptureOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCaptureOptionArrayInput)(nil)).Elem(), EndpointConfigCaptureOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyExplainerConfigInput)(nil)).Elem(), EndpointConfigClarifyExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyExplainerConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyInferenceConfigInput)(nil)).Elem(), EndpointConfigClarifyInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyInferenceConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyInferenceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfigInput)(nil)).Elem(), EndpointConfigClarifyShapBaselineConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapBaselineConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyShapBaselineConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapConfigInput)(nil)).Elem(), EndpointConfigClarifyShapConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyShapConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyShapConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyTextConfigInput)(nil)).Elem(), EndpointConfigClarifyTextConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigClarifyTextConfigPtrInput)(nil)).Elem(), EndpointConfigClarifyTextConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCoreDumpConfigInput)(nil)).Elem(), EndpointConfigCoreDumpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigCoreDumpConfigPtrInput)(nil)).Elem(), EndpointConfigCoreDumpConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigDataCaptureConfigInput)(nil)).Elem(), EndpointConfigDataCaptureConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigDataCaptureConfigPtrInput)(nil)).Elem(), EndpointConfigDataCaptureConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigExplainerConfigInput)(nil)).Elem(), EndpointConfigExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigExplainerConfigPtrInput)(nil)).Elem(), EndpointConfigExplainerConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigInstancePoolInput)(nil)).Elem(), EndpointConfigInstancePoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigInstancePoolArrayInput)(nil)).Elem(), EndpointConfigInstancePoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigManagedInstanceScalingInput)(nil)).Elem(), EndpointConfigManagedInstanceScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigManagedInstanceScalingPtrInput)(nil)).Elem(), EndpointConfigManagedInstanceScalingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigMetricsConfigInput)(nil)).Elem(), EndpointConfigMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigMetricsConfigPtrInput)(nil)).Elem(), EndpointConfigMetricsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigPrefixAwareRoutingConfigInput)(nil)).Elem(), EndpointConfigPrefixAwareRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigPrefixAwareRoutingConfigPtrInput)(nil)).Elem(), EndpointConfigPrefixAwareRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigProductionVariantInput)(nil)).Elem(), EndpointConfigProductionVariantArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigProductionVariantArrayInput)(nil)).Elem(), EndpointConfigProductionVariantArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigRoutingConfigInput)(nil)).Elem(), EndpointConfigRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigRoutingConfigPtrInput)(nil)).Elem(), EndpointConfigRoutingConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigScaleInPolicyInput)(nil)).Elem(), EndpointConfigScaleInPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigScaleInPolicyPtrInput)(nil)).Elem(), EndpointConfigScaleInPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigServerlessConfigInput)(nil)).Elem(), EndpointConfigServerlessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigServerlessConfigPtrInput)(nil)).Elem(), EndpointConfigServerlessConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigVpcConfigInput)(nil)).Elem(), EndpointConfigVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigVpcConfigPtrInput)(nil)).Elem(), EndpointConfigVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointDeploymentConfigPtrInput)(nil)).Elem(), EndpointDeploymentConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointRollingUpdatePolicyInput)(nil)).Elem(), EndpointRollingUpdatePolicyArgs{})
@@ -58654,6 +63348,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleStoppingConditionPtrInput)(nil)).Elem(), MonitoringScheduleStoppingConditionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleVpcConfigInput)(nil)).Elem(), MonitoringScheduleVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleVpcConfigPtrInput)(nil)).Elem(), MonitoringScheduleVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationPtrInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OfflineStoreConfigPropertiesInput)(nil)).Elem(), OfflineStoreConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OfflineStoreConfigPropertiesPtrInput)(nil)).Elem(), OfflineStoreConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineStoreConfigPropertiesInput)(nil)).Elem(), OnlineStoreConfigPropertiesArgs{})
@@ -58854,6 +63550,8 @@ func init() {
 	pulumi.RegisterOutputType(ArtifactSourceOutput{})
 	pulumi.RegisterOutputType(ArtifactSourceTypeOutput{})
 	pulumi.RegisterOutputType(ArtifactSourceTypeArrayOutput{})
+	pulumi.RegisterOutputType(ClusterAccountingDatabaseOutput{})
+	pulumi.RegisterOutputType(ClusterAccountingDatabasePtrOutput{})
 	pulumi.RegisterOutputType(ClusterAlarmDetailsOutput{})
 	pulumi.RegisterOutputType(ClusterAlarmDetailsArrayOutput{})
 	pulumi.RegisterOutputType(ClusterAutoPatchConfigOutput{})
@@ -59014,6 +63712,54 @@ func init() {
 	pulumi.RegisterOutputType(EndpointBlueGreenUpdatePolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointCapacitySizeOutput{})
 	pulumi.RegisterOutputType(EndpointCapacitySizePtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceClientConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceClientConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceNotificationConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceNotificationConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceOutputConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigAsyncInferenceOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCapacityReservationConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCapacityReservationConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCaptureContentTypeHeaderOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCaptureContentTypeHeaderPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCaptureOptionOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCaptureOptionArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyExplainerConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyExplainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyInferenceConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyInferenceConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapBaselineConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapBaselineConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyShapConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyTextConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigClarifyTextConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCoreDumpConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigCoreDumpConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigDataCaptureConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigDataCaptureConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigExplainerConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigExplainerConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigInstancePoolOutput{})
+	pulumi.RegisterOutputType(EndpointConfigInstancePoolArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigManagedInstanceScalingOutput{})
+	pulumi.RegisterOutputType(EndpointConfigManagedInstanceScalingPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigMetricsConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigMetricsConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigPrefixAwareRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigPrefixAwareRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigProductionVariantOutput{})
+	pulumi.RegisterOutputType(EndpointConfigProductionVariantArrayOutput{})
+	pulumi.RegisterOutputType(EndpointConfigRoutingConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigRoutingConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigScaleInPolicyOutput{})
+	pulumi.RegisterOutputType(EndpointConfigScaleInPolicyPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigServerlessConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigServerlessConfigPtrOutput{})
+	pulumi.RegisterOutputType(EndpointConfigVpcConfigOutput{})
+	pulumi.RegisterOutputType(EndpointConfigVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigOutput{})
 	pulumi.RegisterOutputType(EndpointDeploymentConfigPtrOutput{})
 	pulumi.RegisterOutputType(EndpointRollingUpdatePolicyOutput{})
@@ -59358,6 +64104,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleStoppingConditionPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OfflineStoreConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(OfflineStoreConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OnlineStoreConfigPropertiesOutput{})

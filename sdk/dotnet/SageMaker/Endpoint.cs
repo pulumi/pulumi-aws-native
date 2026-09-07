@@ -37,7 +37,7 @@ namespace Pulumi.AwsNative.SageMaker
         /// The name of the SageMaker endpoint. This name must be unique within an AWS Region.
         /// </summary>
         [Output("endpointName")]
-        public Output<string> EndpointName { get; private set; } = null!;
+        public Output<string?> EndpointName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies a list of variant properties that you want to exclude when updating an endpoint.

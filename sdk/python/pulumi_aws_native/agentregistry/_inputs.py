@@ -32,6 +32,8 @@ __all__ = [
     'RegistryDiscoveryConfigurationArgsDict',
     'RegistryRecordA2aAgentCardDescriptorArgs',
     'RegistryRecordA2aAgentCardDescriptorArgsDict',
+    'RegistryRecordAgUiDescriptorArgs',
+    'RegistryRecordAgUiDescriptorArgsDict',
     'RegistryRecordAgentSkillsAdditionalDataArgs',
     'RegistryRecordAgentSkillsAdditionalDataArgsDict',
     'RegistryRecordAgentSkillsDefinitionDescriptorArgs',
@@ -50,6 +52,8 @@ __all__ = [
     'RegistryRecordDescriptorSourceFromUrlArgsDict',
     'RegistryRecordDescriptorsArgs',
     'RegistryRecordDescriptorsArgsDict',
+    'RegistryRecordHttpDescriptorArgs',
+    'RegistryRecordHttpDescriptorArgsDict',
     'RegistryRecordIamCredentialProviderArgs',
     'RegistryRecordIamCredentialProviderArgsDict',
     'RegistryRecordMcpServerAdditionalDataArgs',
@@ -64,6 +68,10 @@ __all__ = [
     'RegistryRecordSkillMdSourceArgsDict',
     'RegistryRecordSkillMdSourceFromUrlArgs',
     'RegistryRecordSkillMdSourceFromUrlArgsDict',
+    'RegistryRecordSourceOnlyDescriptorSourceArgs',
+    'RegistryRecordSourceOnlyDescriptorSourceArgsDict',
+    'RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs',
+    'RegistryRecordSourceOnlyDescriptorSourceFromUrlArgsDict',
 ]
 
 class RegistryApprovalConfigurationArgsDict(TypedDict):
@@ -449,6 +457,32 @@ class RegistryRecordA2aAgentCardDescriptorArgs:
         pulumi.set(self, "source", value)
 
 
+class RegistryRecordAgUiDescriptorArgsDict(TypedDict):
+    """
+    The AG-UI (Agent-User Interaction) descriptor, populated for records detected from an AG-UI protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+    """
+    source: NotRequired[pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgsDict']]]
+
+@pulumi.input_type
+class RegistryRecordAgUiDescriptorArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgs']] = None):
+        """
+        The AG-UI (Agent-User Interaction) descriptor, populated for records detected from an AG-UI protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
 class RegistryRecordAgentSkillsAdditionalDataArgsDict(TypedDict):
     """
     Additional data associated with an agent skills definition descriptor.
@@ -782,7 +816,9 @@ class RegistryRecordDescriptorsArgsDict(TypedDict):
     """
     a2a_agent_card: NotRequired[pulumi.Input[Optional['RegistryRecordA2aAgentCardDescriptorArgsDict']]]
     agent_skills_definition: NotRequired[pulumi.Input[Optional['RegistryRecordAgentSkillsDefinitionDescriptorArgsDict']]]
+    agui: NotRequired[pulumi.Input[Optional['RegistryRecordAgUiDescriptorArgsDict']]]
     custom: NotRequired[pulumi.Input[Optional['RegistryRecordCustomDescriptorArgsDict']]]
+    http: NotRequired[pulumi.Input[Optional['RegistryRecordHttpDescriptorArgsDict']]]
     mcp_server: NotRequired[pulumi.Input[Optional['RegistryRecordMcpServerDescriptorArgsDict']]]
 
 @pulumi.input_type
@@ -790,7 +826,9 @@ class RegistryRecordDescriptorsArgs:
     def __init__(__self__, *,
                  a2a_agent_card: pulumi.Input[Optional['RegistryRecordA2aAgentCardDescriptorArgs']] = None,
                  agent_skills_definition: pulumi.Input[Optional['RegistryRecordAgentSkillsDefinitionDescriptorArgs']] = None,
+                 agui: pulumi.Input[Optional['RegistryRecordAgUiDescriptorArgs']] = None,
                  custom: pulumi.Input[Optional['RegistryRecordCustomDescriptorArgs']] = None,
+                 http: pulumi.Input[Optional['RegistryRecordHttpDescriptorArgs']] = None,
                  mcp_server: pulumi.Input[Optional['RegistryRecordMcpServerDescriptorArgs']] = None):
         """
         The typed set of descriptors for a registry record. Exactly one descriptor field is populated based on the record type.
@@ -799,8 +837,12 @@ class RegistryRecordDescriptorsArgs:
             pulumi.set(__self__, "a2a_agent_card", a2a_agent_card)
         if agent_skills_definition is not None:
             pulumi.set(__self__, "agent_skills_definition", agent_skills_definition)
+        if agui is not None:
+            pulumi.set(__self__, "agui", agui)
         if custom is not None:
             pulumi.set(__self__, "custom", custom)
+        if http is not None:
+            pulumi.set(__self__, "http", http)
         if mcp_server is not None:
             pulumi.set(__self__, "mcp_server", mcp_server)
 
@@ -824,12 +866,30 @@ class RegistryRecordDescriptorsArgs:
 
     @_builtins.property
     @pulumi.getter
+    def agui(self) -> pulumi.Input[Optional['RegistryRecordAgUiDescriptorArgs']]:
+        return pulumi.get(self, "agui")
+
+    @agui.setter
+    def agui(self, value: pulumi.Input[Optional['RegistryRecordAgUiDescriptorArgs']]):
+        pulumi.set(self, "agui", value)
+
+    @_builtins.property
+    @pulumi.getter
     def custom(self) -> pulumi.Input[Optional['RegistryRecordCustomDescriptorArgs']]:
         return pulumi.get(self, "custom")
 
     @custom.setter
     def custom(self, value: pulumi.Input[Optional['RegistryRecordCustomDescriptorArgs']]):
         pulumi.set(self, "custom", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def http(self) -> pulumi.Input[Optional['RegistryRecordHttpDescriptorArgs']]:
+        return pulumi.get(self, "http")
+
+    @http.setter
+    def http(self, value: pulumi.Input[Optional['RegistryRecordHttpDescriptorArgs']]):
+        pulumi.set(self, "http", value)
 
     @_builtins.property
     @pulumi.getter(name="mcpServer")
@@ -839,6 +899,32 @@ class RegistryRecordDescriptorsArgs:
     @mcp_server.setter
     def mcp_server(self, value: pulumi.Input[Optional['RegistryRecordMcpServerDescriptorArgs']]):
         pulumi.set(self, "mcp_server", value)
+
+
+class RegistryRecordHttpDescriptorArgsDict(TypedDict):
+    """
+    The HTTP descriptor, populated for records detected from an HTTP protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+    """
+    source: NotRequired[pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgsDict']]]
+
+@pulumi.input_type
+class RegistryRecordHttpDescriptorArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgs']] = None):
+        """
+        The HTTP descriptor, populated for records detected from an HTTP protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+        """
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgs']]:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceArgs']]):
+        pulumi.set(self, "source", value)
 
 
 class RegistryRecordIamCredentialProviderArgsDict(TypedDict):
@@ -1198,6 +1284,65 @@ class RegistryRecordSkillMdSourceFromUrlArgs:
     def url(self) -> pulumi.Input[_builtins.str]:
         """
         URL source for the SkillMd document.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "url", value)
+
+
+class RegistryRecordSourceOnlyDescriptorSourceArgsDict(TypedDict):
+    """
+    Source configuration for a source-only descriptor. Unlike mcpServer/a2aAgentCard sources, source-only descriptors do not support credential providers.
+    """
+    from_url: NotRequired[pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceFromUrlArgsDict']]]
+
+@pulumi.input_type
+class RegistryRecordSourceOnlyDescriptorSourceArgs:
+    def __init__(__self__, *,
+                 from_url: pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs']] = None):
+        """
+        Source configuration for a source-only descriptor. Unlike mcpServer/a2aAgentCard sources, source-only descriptors do not support credential providers.
+        """
+        if from_url is not None:
+            pulumi.set(__self__, "from_url", from_url)
+
+    @_builtins.property
+    @pulumi.getter(name="fromUrl")
+    def from_url(self) -> pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs']]:
+        return pulumi.get(self, "from_url")
+
+    @from_url.setter
+    def from_url(self, value: pulumi.Input[Optional['RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs']]):
+        pulumi.set(self, "from_url", value)
+
+
+class RegistryRecordSourceOnlyDescriptorSourceFromUrlArgsDict(TypedDict):
+    """
+    URL-based source configuration for a source-only descriptor.
+    """
+    url: pulumi.Input[_builtins.str]
+    """
+    URL source for descriptor content.
+    """
+
+@pulumi.input_type
+class RegistryRecordSourceOnlyDescriptorSourceFromUrlArgs:
+    def __init__(__self__, *,
+                 url: pulumi.Input[_builtins.str]):
+        """
+        URL-based source configuration for a source-only descriptor.
+
+        :param pulumi.Input[_builtins.str] url: URL source for descriptor content.
+        """
+        pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[_builtins.str]:
+        """
+        URL source for descriptor content.
         """
         return pulumi.get(self, "url")
 

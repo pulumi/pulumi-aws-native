@@ -33,6 +33,12 @@ namespace Pulumi.AwsNative.Rds.Inputs
         [Input("maxAllocatedStorage")]
         public Input<int>? MaxAllocatedStorage { get; set; }
 
+        [Input("storageOperationPercentProgress")]
+        public Input<int>? StorageOperationPercentProgress { get; set; }
+
+        [Input("storageOperationStatus")]
+        public Input<string>? StorageOperationStatus { get; set; }
+
         /// <summary>
         /// The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
         /// </summary>

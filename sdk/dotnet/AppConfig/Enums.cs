@@ -212,4 +212,35 @@ namespace Pulumi.AwsNative.AppConfig
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Current status of the run.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExperimentRunStatus : IEquatable<ExperimentRunStatus>
+    {
+        private readonly string _value;
+
+        private ExperimentRunStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ExperimentRunStatus Running { get; } = new ExperimentRunStatus("RUNNING");
+        public static ExperimentRunStatus Done { get; } = new ExperimentRunStatus("DONE");
+
+        public static bool operator ==(ExperimentRunStatus left, ExperimentRunStatus right) => left.Equals(right);
+        public static bool operator !=(ExperimentRunStatus left, ExperimentRunStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ExperimentRunStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExperimentRunStatus other && Equals(other);
+        public bool Equals(ExperimentRunStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

@@ -62,6 +62,9 @@ namespace Pulumi.AwsNative.IoT.Inputs
         [Input("http")]
         public Input<Inputs.TopicRuleHttpActionArgs>? Http { get; set; }
 
+        [Input("influxDb")]
+        public Input<Inputs.TopicRuleInfluxDbActionArgs>? InfluxDb { get; set; }
+
         /// <summary>
         /// Sends message data to an AWS IoT Analytics channel.
         /// </summary>

@@ -877,6 +877,13 @@ export namespace agentregistry {
     }
 
     /**
+     * The AG-UI (Agent-User Interaction) descriptor, populated for records detected from an AG-UI protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+     */
+    export interface RegistryRecordAgUiDescriptor {
+        source?: outputs.agentregistry.RegistryRecordSourceOnlyDescriptorSource;
+    }
+
+    /**
      * Additional data associated with an agent skills definition descriptor.
      */
     export interface RegistryRecordAgentSkillsAdditionalData {
@@ -957,8 +964,17 @@ export namespace agentregistry {
     export interface RegistryRecordDescriptors {
         a2aAgentCard?: outputs.agentregistry.RegistryRecordA2aAgentCardDescriptor;
         agentSkillsDefinition?: outputs.agentregistry.RegistryRecordAgentSkillsDefinitionDescriptor;
+        agui?: outputs.agentregistry.RegistryRecordAgUiDescriptor;
         custom?: outputs.agentregistry.RegistryRecordCustomDescriptor;
+        http?: outputs.agentregistry.RegistryRecordHttpDescriptor;
         mcpServer?: outputs.agentregistry.RegistryRecordMcpServerDescriptor;
+    }
+
+    /**
+     * The HTTP descriptor, populated for records detected from an HTTP protocol source. This descriptor is source-only: its content is synchronized from the configured source URL rather than supplied inline.
+     */
+    export interface RegistryRecordHttpDescriptor {
+        source?: outputs.agentregistry.RegistryRecordSourceOnlyDescriptorSource;
     }
 
     /**
@@ -1042,6 +1058,23 @@ export namespace agentregistry {
     export interface RegistryRecordSkillMdSourceFromUrl {
         /**
          * URL source for the SkillMd document.
+         */
+        url: string;
+    }
+
+    /**
+     * Source configuration for a source-only descriptor. Unlike mcpServer/a2aAgentCard sources, source-only descriptors do not support credential providers.
+     */
+    export interface RegistryRecordSourceOnlyDescriptorSource {
+        fromUrl?: outputs.agentregistry.RegistryRecordSourceOnlyDescriptorSourceFromUrl;
+    }
+
+    /**
+     * URL-based source configuration for a source-only descriptor.
+     */
+    export interface RegistryRecordSourceOnlyDescriptorSourceFromUrl {
+        /**
+         * URL source for descriptor content.
          */
         url: string;
     }
@@ -3080,6 +3113,16 @@ export namespace appconfig {
          * Traffic weight percentage.
          */
         weight: number;
+    }
+
+    /**
+     * Treatment overrides for specific entities.
+     */
+    export interface ExperimentRunTreatmentOverrides {
+        /**
+         * Map of entity ID to treatment key (t1, t2, ..., or c for control).
+         */
+        inline?: {[key: string]: string};
     }
 
     /**
@@ -20807,6 +20850,23 @@ export namespace chatbot {
 
 }
 
+export namespace chime {
+    /**
+     * The configuration settings for the Kinesis video stream.
+     */
+    export interface StreamConfigurationProperties {
+        /**
+         * The amount of time that data is retained, in hours.
+         */
+        dataRetentionInHours?: number;
+        /**
+         * The AWS Region of the video stream.
+         */
+        region: string;
+    }
+
+}
+
 export namespace cleanrooms {
     export interface AnalysisTemplateAnalysisParameter {
         /**
@@ -21040,6 +21100,14 @@ export namespace cleanrooms {
         type: enums.cleanrooms.ConfiguredTableAggregationType;
     }
 
+    export interface ConfiguredTableAggregationThreshold {
+        allowedAggregateExpressionType: enums.cleanrooms.ConfiguredTableAllowedAggregateExpressionType;
+        identityColumns: string[];
+        minimumIdentityCount: number;
+        outputColumnThresholds?: outputs.cleanrooms.ConfiguredTableOutputColumnThreshold[];
+        type: enums.cleanrooms.ConfiguredTableAggregationThresholdType;
+    }
+
     export interface ConfiguredTableAnalysisRule {
         /**
          * A policy that describes the associated data usage limitations.
@@ -21064,8 +21132,10 @@ export namespace cleanrooms {
 
     export interface ConfiguredTableAnalysisRuleCustom {
         additionalAnalyses?: enums.cleanrooms.ConfiguredTableAdditionalAnalyses;
+        aggregationThresholds?: outputs.cleanrooms.ConfiguredTableAggregationThreshold[];
         allowedAnalyses: string[];
         allowedAnalysisProviders?: string[];
+        comparisonControls?: outputs.cleanrooms.ConfiguredTableComparisonControls;
         differentialPrivacy?: outputs.cleanrooms.ConfiguredTableDifferentialPrivacy;
         disallowedOutputColumns?: string[];
     }
@@ -21150,6 +21220,11 @@ export namespace cleanrooms {
         workGroup: string;
     }
 
+    export interface ConfiguredTableComparisonControls {
+        allowedColumnComparisonColumns: string[];
+        allowedLiteralComparisonColumns: string[];
+    }
+
     export interface ConfiguredTableDifferentialPrivacy {
         columns: outputs.cleanrooms.ConfiguredTableDifferentialPrivacyColumn[];
     }
@@ -21162,6 +21237,11 @@ export namespace cleanrooms {
         databaseName: string;
         region?: enums.cleanrooms.ConfiguredTableCommercialRegion;
         tableName: string;
+    }
+
+    export interface ConfiguredTableOutputColumnThreshold {
+        minimumIdentityCount: number;
+        outputColumnName: string;
     }
 
     export interface ConfiguredTableSnowflakeTableReference {
@@ -21261,6 +21341,14 @@ export namespace cleanrooms {
         idNamespaceType?: enums.cleanrooms.IdNamespaceAssociationInputReferencePropertiesIdNamespaceType;
     }
 
+    export interface IntermediateTableAggregationThreshold {
+        allowedAggregateExpressionType: enums.cleanrooms.IntermediateTableAllowedAggregateExpressionType;
+        identityColumns: string[];
+        minimumIdentityCount: number;
+        outputColumnThresholds?: outputs.cleanrooms.IntermediateTableOutputColumnThreshold[];
+        type: enums.cleanrooms.IntermediateTableAggregationThresholdType;
+    }
+
     export interface IntermediateTableAnalysisRule {
         policy: outputs.cleanrooms.IntermediateTableAnalysisRulePolicy;
         type: enums.cleanrooms.IntermediateTableAnalysisRuleType;
@@ -21268,9 +21356,11 @@ export namespace cleanrooms {
 
     export interface IntermediateTableAnalysisRuleCustom {
         additionalAnalyses?: enums.cleanrooms.IntermediateTableAdditionalAnalyses;
+        aggregationThresholds?: outputs.cleanrooms.IntermediateTableAggregationThreshold[];
         allowedAnalyses: string[];
         allowedAnalysisProviders?: string[];
         allowedResultReceivers?: string[];
+        comparisonControls?: outputs.cleanrooms.IntermediateTableComparisonControls;
         differentialPrivacy?: outputs.cleanrooms.IntermediateTableDifferentialPrivacy;
         disallowedOutputColumns?: string[];
     }
@@ -21283,12 +21373,22 @@ export namespace cleanrooms {
         custom: outputs.cleanrooms.IntermediateTableAnalysisRuleCustom;
     }
 
+    export interface IntermediateTableComparisonControls {
+        allowedColumnComparisonColumns: string[];
+        allowedLiteralComparisonColumns: string[];
+    }
+
     export interface IntermediateTableDifferentialPrivacy {
         columns: outputs.cleanrooms.IntermediateTableDifferentialPrivacyColumn[];
     }
 
     export interface IntermediateTableDifferentialPrivacyColumn {
         name: string;
+    }
+
+    export interface IntermediateTableOutputColumnThreshold {
+        minimumIdentityCount: number;
+        outputColumnName: string;
     }
 
     export interface IntermediateTablePopulationAnalysisConfiguration {
@@ -35448,6 +35548,542 @@ export namespace directoryservice {
 
 }
 
+export namespace dlm {
+    export interface LifecyclePolicyAction {
+        /**
+         * The rule for copying shared snapshots across Regions.
+         */
+        crossRegionCopy: outputs.dlm.LifecyclePolicyCrossRegionCopyAction[];
+        /**
+         * A descriptive name for the action.
+         */
+        name: string;
+    }
+
+    /**
+     * Information about the retention period for the snapshot archiving rule.
+     */
+    export interface LifecyclePolicyArchiveRetainRule {
+        /**
+         * Information about retention period in the Amazon EBS Snapshots Archive. For more information, see [Archive Amazon EBS snapshots](https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/snapshot-archive.html) .
+         */
+        retentionArchiveTier: outputs.dlm.LifecyclePolicyRetentionArchiveTier;
+    }
+
+    /**
+     * **[Custom snapshot policies that target volumes only]** The snapshot archiving rule for the schedule. When you specify an archiving rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's retention threshold is met. Snapshots are then retained in the archive tier for the archive retention period that you specify.
+     */
+    export interface LifecyclePolicyArchiveRule {
+        /**
+         * Information about the retention period for the snapshot archiving rule.
+         */
+        retainRule: outputs.dlm.LifecyclePolicyArchiveRetainRule;
+    }
+
+    /**
+     * The creation rule.
+     */
+    export interface LifecyclePolicyCreateRule {
+        /**
+         * The schedule, as a Cron expression. The schedule interval must be between 1 hour and 1 year.
+         */
+        cronExpression?: string;
+        /**
+         * The interval between snapshots. The supported values are 1, 2, 3, 4, 6, 8, 12, and 24.
+         */
+        interval?: number;
+        /**
+         * The interval unit.
+         */
+        intervalUnit?: string;
+        /**
+         * **[Custom snapshot policies only]** Specifies the destination for snapshots created by the policy. The allowed destinations depend on the location of the targeted resources.
+         *
+         * - If the policy targets resources in a Region, then you must create snapshots in the same Region as the source resource.
+         * - If the policy targets resources in a Local Zone, you can create snapshots in the same Local Zone or in its parent Region.
+         * - If the policy targets resources on an Outpost, then you can create snapshots on the same Outpost or in its parent Region.
+         *
+         * Default: `CLOUD`
+         */
+        location?: string;
+        /**
+         * **[Custom snapshot policies that target instances only]** Specifies pre and/or post scripts for a snapshot lifecycle policy that targets instances. This is useful for creating application-consistent snapshots, or for performing specific administrative tasks before or after Amazon Data Lifecycle Manager initiates snapshot creation.
+         */
+        scripts?: outputs.dlm.LifecyclePolicyScript[];
+        /**
+         * The time, in UTC, to start the operation. The supported format is hh:mm.
+         *
+         * The operation occurs within a one-hour window following the specified time. If you do not specify a time, Amazon Data Lifecycle Manager selects a time within the next 24 hours.
+         */
+        times?: string[];
+    }
+
+    export interface LifecyclePolicyCrossRegionCopyAction {
+        /**
+         * The encryption settings for the copied snapshot.
+         */
+        encryptionConfiguration: outputs.dlm.LifecyclePolicyEncryptionConfiguration;
+        /**
+         * Specifies a retention rule for cross-Region snapshot copies created by snapshot or event-based policies, or cross-Region AMI copies created by AMI policies. After the retention period expires, the cross-Region copy is deleted.
+         */
+        retainRule?: outputs.dlm.LifecyclePolicyCrossRegionCopyRetainRule;
+        /**
+         * The target Region.
+         */
+        target: string;
+    }
+
+    /**
+     * **[Custom AMI policies only]** The AMI deprecation rule for cross-Region AMI copies created by the rule.
+     */
+    export interface LifecyclePolicyCrossRegionCopyDeprecateRule {
+        /**
+         * The period after which to deprecate the cross-Region AMI copies. The period must be less than or equal to the cross-Region AMI copy retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
+         */
+        interval: number;
+        /**
+         * The unit of time in which to measure the **Interval**. For example, to deprecate a cross-Region AMI copy after 3 months, specify `Interval=3` and `IntervalUnit=MONTHS`.
+         */
+        intervalUnit: string;
+    }
+
+    /**
+     * The retention rule that indicates how long the cross-Region snapshot or AMI copies are to be retained in the destination Region.
+     */
+    export interface LifecyclePolicyCrossRegionCopyRetainRule {
+        /**
+         * The amount of time to retain a cross-Region snapshot or AMI copy. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval: number;
+        /**
+         * The unit of time for time-based retention. For example, to retain a cross-Region copy for 3 months, specify `Interval=3` and `IntervalUnit=MONTHS`.
+         */
+        intervalUnit: string;
+    }
+
+    export interface LifecyclePolicyCrossRegionCopyRule {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         */
+        cmkArn?: string;
+        /**
+         * Indicates whether to copy all user-defined tags from the source snapshot or AMI to the cross-Region copy.
+         */
+        copyTags?: boolean;
+        /**
+         * *[Custom AMI policies only]* The AMI deprecation rule for cross-Region AMI copies created by the rule.
+         */
+        deprecateRule?: outputs.dlm.LifecyclePolicyCrossRegionCopyDeprecateRule;
+        /**
+         * To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is `false` or if encryption by default is not enabled.
+         */
+        encrypted: boolean;
+        /**
+         * The retention rule that indicates how long the cross-Region snapshot or AMI copies are to be retained in the destination Region.
+         */
+        retainRule?: outputs.dlm.LifecyclePolicyCrossRegionCopyRetainRule;
+        /**
+         * **[Custom snapshot policies only]** The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+         */
+        target?: string;
+        /**
+         * **[Custom AMI policies only]** The target Region or the Amazon Resource Name (ARN) of the target Outpost for the AMI copies.
+         */
+        targetRegion?: string;
+    }
+
+    export interface LifecyclePolicyCrossRegionCopyTarget {
+        /**
+         * The target Region, for example `us-east-1`.
+         */
+        targetRegion?: string;
+    }
+
+    /**
+     * **[Custom AMI policies only]** The AMI deprecation rule for the schedule.
+     */
+    export interface LifecyclePolicyDeprecateRule {
+        /**
+         * If the schedule has a count-based retention rule, this parameter specifies the number of oldest AMIs to deprecate. The count must be less than or equal to the schedule's retention count, and it can't be greater than 1000.
+         */
+        count?: number;
+        /**
+         * If the schedule has an age-based retention rule, this parameter specifies the period after which to deprecate AMIs created by the schedule. The period must be less than or equal to the schedule's retention period, and it can't be greater than 10 years. This is equivalent to 120 months, 520 weeks, or 3650 days.
+         */
+        interval?: number;
+        /**
+         * The unit of time in which to measure the **Interval**.
+         */
+        intervalUnit?: string;
+    }
+
+    /**
+     * The encryption settings for the copied snapshot.
+     */
+    export interface LifecyclePolicyEncryptionConfiguration {
+        /**
+         * The Amazon Resource Name (ARN) of the AWS KMS key to use for EBS encryption. If this parameter is not specified, the default KMS key for the account is used.
+         */
+        cmkArn?: string;
+        /**
+         * To encrypt a copy of an unencrypted snapshot when encryption by default is not enabled, enable encryption using this parameter. Copies of encrypted snapshots are encrypted, even if this parameter is `false` or when encryption by default is not enabled.
+         */
+        encrypted: boolean;
+    }
+
+    /**
+     * Information about the event.
+     */
+    export interface LifecyclePolicyEventParameters {
+        /**
+         * The snapshot description that can trigger the policy. The description pattern is specified using a regular expression. The policy runs only if a snapshot with a description that matches the specified pattern is shared with your account.
+         */
+        descriptionRegex?: string;
+        /**
+         * The type of event. Currently, only snapshot sharing events are supported.
+         */
+        eventType: string;
+        /**
+         * The IDs of the AWS accounts that can trigger policy by sharing snapshots with your account. The policy only runs if one of the specified AWS accounts shares a snapshot with your account.
+         */
+        snapshotOwner: string[];
+    }
+
+    /**
+     * **[Event-based policies only]** The event that activates the event-based policy.
+     */
+    export interface LifecyclePolicyEventSource {
+        /**
+         * Information about the event.
+         */
+        parameters?: outputs.dlm.LifecyclePolicyEventParameters;
+        /**
+         * The source of the event. Currently only managed Amazon EventBridge events are supported.
+         */
+        type: string;
+    }
+
+    /**
+     * **[Default policies only]** Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters.
+     */
+    export interface LifecyclePolicyExclusions {
+        /**
+         * **[Default policies for EBS snapshots only]** Indicates whether to exclude volumes that are attached to instances as the boot volume. If you exclude boot volumes, only volumes attached as data (non-boot) volumes will be backed up by the policy. To exclude boot volumes, specify `true`.
+         */
+        excludeBootVolumes?: boolean;
+        /**
+         * **[Default policies for EBS-backed AMIs only]** Specifies whether to exclude volumes that have specific tags.
+         */
+        excludeTags?: outputs.dlm.LifecyclePolicyTag[];
+        /**
+         * *[Default policies for EBS snapshots only]* Specifies the volume types to exclude. Volumes of the specified types will not be targeted by the policy.
+         */
+        excludeVolumeTypes?: string[];
+    }
+
+    /**
+     * **[Custom snapshot policies only]** The rule for enabling fast snapshot restore.
+     */
+    export interface LifecyclePolicyFastRestoreRule {
+        /**
+         * The Availability Zone IDs in which to enable fast snapshot restore.
+         */
+        availabilityZoneIds?: string[];
+        /**
+         * The Availability Zones in which to enable fast snapshot restore.
+         */
+        availabilityZones?: string[];
+        /**
+         * The number of snapshots to be enabled with fast snapshot restore.
+         */
+        count?: number;
+        /**
+         * The amount of time to enable fast snapshot restore. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: number;
+        /**
+         * The unit of time for enabling fast snapshot restore.
+         */
+        intervalUnit?: string;
+    }
+
+    /**
+     * **[Custom snapshot and AMI policies only]** A set of optional parameters for snapshot and AMI lifecycle policies.
+     */
+    export interface LifecyclePolicyParameters {
+        /**
+         * **[Custom snapshot policies that target instances only]** Indicates whether to exclude the root volume from multi-volume snapshot sets. The default is `false`. If you specify `true`, then the root volumes attached to targeted instances will be excluded from the multi-volume snapshot sets created by the policy.
+         */
+        excludeBootVolume?: boolean;
+        /**
+         * **[Custom snapshot policies that target instances only]** The tags used to identify data (non-root) volumes to exclude from multi-volume snapshot sets. If you create a snapshot lifecycle policy that targets instances and you specify tags for this parameter, then data volumes with the specified tags that are attached to targeted instances will be excluded from the multi-volume snapshot sets created by the policy.
+         */
+        excludeDataVolumeTags?: outputs.dlm.LifecyclePolicyTag[];
+        /**
+         * **[Custom AMI policies only]** Indicates whether targeted instances are rebooted when the lifecycle policy runs. `true` indicates that targeted instances are not rebooted when the policy runs. `false` indicates that target instances are rebooted when the policy runs.
+         *
+         * The default is `true` (instances are not rebooted).
+         */
+        noReboot?: boolean;
+    }
+
+    /**
+     * The configuration details of the lifecycle policy.
+     */
+    export interface LifecyclePolicyPolicyDetails {
+        /**
+         * **[Event-based policies only]** The actions to be performed when the event-based policy is activated. You can specify only one action per policy.
+         */
+        actions?: outputs.dlm.LifecyclePolicyAction[];
+        /**
+         * **[Default policies only]** Indicates whether the policy should copy tags from the source resource to the snapshot or AMI. If you do not specify a value, the default is `false`.
+         *
+         * Default: `false`
+         */
+        copyTags?: boolean;
+        /**
+         * **[Default policies only]** Specifies how often the policy should run and create snapshots or AMIs. The creation frequency can range from 1 to 7 days. If you do not specify a value, the default is 1.
+         *
+         * Default: 1
+         */
+        createInterval?: number;
+        /**
+         * *[Default policies only]* Specifies destination Regions for snapshot or AMI copies. You can specify up to 3 destination Regions. If you do not want to create cross-Region copies, omit this parameter.
+         */
+        crossRegionCopyTargets?: outputs.dlm.LifecyclePolicyCrossRegionCopyTarget[];
+        /**
+         * *[Event-based policies only]* The event that activates the event-based policy.
+         */
+        eventSource?: outputs.dlm.LifecyclePolicyEventSource;
+        /**
+         * *[Default policies only]* Specifies exclusion parameters for volumes or instances for which you do not want to create snapshots or AMIs. The policy will not create snapshots or AMIs for target resources that match any of the specified exclusion parameters.
+         */
+        exclusions?: outputs.dlm.LifecyclePolicyExclusions;
+        /**
+         * **[Default policies only]** Defines the snapshot or AMI retention behavior for the policy if the source volume or instance is deleted, or if the policy enters the error, disabled, or deleted state.
+         *
+         * Default: `false`
+         */
+        extendDeletion?: boolean;
+        /**
+         * *[Custom snapshot and AMI policies only]* A set of optional parameters for snapshot and AMI lifecycle policies.
+         *
+         * > If you are modifying a policy that was created or previously modified using the Amazon Data Lifecycle Manager console, then you must include this parameter and specify either the default values or the new values that you require. You can't omit this parameter or set its values to null.
+         */
+        parameters?: outputs.dlm.LifecyclePolicyParameters;
+        /**
+         * The type of policy to create. Specify one of the following:
+         *
+         * - `SIMPLIFIED` -- To create a default policy.
+         * - `STANDARD` -- To create a custom policy.
+         */
+        policyLanguage?: string;
+        /**
+         * The type of policy. Specify `EBS_SNAPSHOT_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of Amazon EBS snapshots. Specify `IMAGE_MANAGEMENT` to create a lifecycle policy that manages the lifecycle of EBS-backed AMIs. Specify `EVENT_BASED_POLICY` to create an event-based policy that performs specific actions when a defined event occurs in your AWS account.
+         *
+         * The default is `EBS_SNAPSHOT_MANAGEMENT`.
+         */
+        policyType?: string;
+        /**
+         * **[Custom snapshot and AMI policies only]** The location of the resources to backup. If the source resources are located in a Region, specify `CLOUD`.
+         */
+        resourceLocations?: string[];
+        /**
+         * **[Default policies only]** Specify the type of default policy to create.
+         *
+         * - To create a default policy for EBS snapshots, that creates snapshots of all volumes in the Region that do not have recent backups, specify `VOLUME`.
+         * - To create a default policy for EBS-backed AMIs, that creates EBS-backed AMIs from all instances in the Region that do not have recent backups, specify `INSTANCE`.
+         */
+        resourceType?: string;
+        /**
+         * **[Custom snapshot policies only]** The target resource type for snapshot and AMI lifecycle policies. Use `VOLUME` to create snapshots of individual volumes or use `INSTANCE` to create multi-volume snapshots from the volumes for an instance.
+         */
+        resourceTypes?: string[];
+        /**
+         * **[Default policies only]** Specifies how long the policy should retain snapshots or AMIs before deleting them. The retention period can range from 2 to 14 days, but it must be greater than the creation frequency to ensure that the policy retains at least 1 snapshot or AMI at any given time. If you do not specify a value, the default is 7.
+         *
+         * Default: 7
+         */
+        retainInterval?: number;
+        /**
+         * **[Custom snapshot and AMI policies only]** The schedules of policy-defined actions for snapshot and AMI lifecycle policies. A policy can have up to four schedules -- one mandatory schedule and up to three optional schedules.
+         */
+        schedules?: outputs.dlm.LifecyclePolicySchedule[];
+        /**
+         * **[Custom snapshot and AMI policies only]** The single tag that identifies targeted resources for this policy.
+         */
+        targetTags?: outputs.dlm.LifecyclePolicyTag[];
+    }
+
+    /**
+     * The retention rule for snapshots or AMIs created by the policy.
+     */
+    export interface LifecyclePolicyRetainRule {
+        /**
+         * The number of snapshots to retain for each volume, up to a maximum of 1000. For example if you want to retain a maximum of three snapshots, specify `3`. When the fourth snapshot is created, the oldest retained snapshot is deleted, or it is moved to the archive tier if you have specified an `ArchiveRule`.
+         */
+        count?: number;
+        /**
+         * The amount of time to retain each snapshot. The maximum is 100 years. This is equivalent to 1200 months, 5200 weeks, or 36500 days.
+         */
+        interval?: number;
+        /**
+         * The unit of time for time-based retention. For example, to retain snapshots for 3 months, specify `Interval=3` and `IntervalUnit=MONTHS`. Once the snapshot has been retained for 3 months, it is deleted, or it is moved to the archive tier if you have specified an `ArchiveRule`.
+         */
+        intervalUnit?: string;
+    }
+
+    /**
+     * Information about retention period in the Amazon EBS Snapshots Archive.
+     */
+    export interface LifecyclePolicyRetentionArchiveTier {
+        /**
+         * The maximum number of snapshots to retain in the archive storage tier for each volume. The count must ensure that each snapshot remains in the archive tier for at least 90 days.
+         */
+        count?: number;
+        /**
+         * Specifies the period of time to retain snapshots in the archive tier. After this period expires, the snapshot is permanently deleted.
+         */
+        interval?: number;
+        /**
+         * The unit of time in which to measure the **Interval**. For example, to retain snapshots in the archive tier for 6 months, specify `Interval=6` and `IntervalUnit=MONTHS`.
+         */
+        intervalUnit?: string;
+    }
+
+    export interface LifecyclePolicySchedule {
+        /**
+         * *[Custom snapshot policies that target volumes only]* The snapshot archiving rule for the schedule. When you specify an archiving rule, snapshots are automatically moved from the standard tier to the archive tier once the schedule's retention threshold is met. Snapshots are then retained in the archive tier for the archive retention period that you specify.
+         *
+         * For more information about using snapshot archiving, see [Considerations for snapshot lifecycle policies](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-ami-policy.html#dlm-archive) .
+         */
+        archiveRule?: outputs.dlm.LifecyclePolicyArchiveRule;
+        /**
+         * Copy all user-defined tags on a source volume to snapshots of the volume created by this policy.
+         */
+        copyTags?: boolean;
+        /**
+         * The creation rule.
+         */
+        createRule?: outputs.dlm.LifecyclePolicyCreateRule;
+        /**
+         * Specifies a rule for copying snapshots or AMIs across Regions.
+         */
+        crossRegionCopyRules?: outputs.dlm.LifecyclePolicyCrossRegionCopyRule[];
+        /**
+         * *[Custom AMI policies only]* The AMI deprecation rule for the schedule.
+         */
+        deprecateRule?: outputs.dlm.LifecyclePolicyDeprecateRule;
+        /**
+         * *[Custom snapshot policies only]* The rule for enabling fast snapshot restore.
+         */
+        fastRestoreRule?: outputs.dlm.LifecyclePolicyFastRestoreRule;
+        /**
+         * The name of the schedule.
+         */
+        name?: string;
+        /**
+         * The retention rule for snapshots or AMIs created by the policy.
+         */
+        retainRule?: outputs.dlm.LifecyclePolicyRetainRule;
+        /**
+         * **[Custom snapshot policies only]** The rule for sharing snapshots with other AWS accounts.
+         */
+        shareRules?: outputs.dlm.LifecyclePolicyShareRule[];
+        /**
+         * The tags to apply to policy-created resources. These user-defined tags are in addition to the AWS-added lifecycle tags.
+         */
+        tagsToAdd?: outputs.dlm.LifecyclePolicyTag[];
+        /**
+         * **[AMI policies and snapshot policies that target instances only]** A collection of key/value pairs with values determined dynamically when the policy is executed. Keys may be any valid Amazon EC2 tag key. Values must be in one of the two following formats: `$(instance-id)` or `$(timestamp)`. Variable tags are only valid for EBS Snapshot Management -- Instance policies.
+         */
+        variableTags?: outputs.dlm.LifecyclePolicyTag[];
+    }
+
+    export interface LifecyclePolicyScript {
+        /**
+         * Indicates whether Amazon Data Lifecycle Manager should default to crash-consistent snapshots if the pre script fails.
+         *
+         * - To default to crash consistent snapshot if the pre script fails, specify `true`.
+         * - To skip the instance for snapshot creation if the pre script fails, specify `false`.
+         *
+         * This parameter is supported only if you run a pre script. If you run a post script only, omit this parameter.
+         *
+         * Default: `true`
+         */
+        executeOperationOnScriptFailure?: boolean;
+        /**
+         * The SSM document that includes the pre and/or post scripts to run.
+         *
+         * If you are automating VSS backups, specify `AWS_VSS_BACKUP`. In this case, Amazon Data Lifecycle Manager automatically uses the `AWSEC2-CreateVssSnapshot` SSM document.
+         *
+         * If you are using a custom SSM document that you own, specify either the name or ARN of the SSM document. If you are using a custom SSM document that is shared with you, specify the ARN of the SSM document.
+         */
+        executionHandler?: string;
+        /**
+         * Indicates the service used to execute the pre and/or post scripts.
+         *
+         * Default: `AWS_SYSTEMS_MANAGER`
+         */
+        executionHandlerService?: string;
+        /**
+         * Specifies a timeout period, in seconds, after which Amazon Data Lifecycle Manager fails the script run attempt if it has not completed. If a script does not complete within its timeout period, Amazon Data Lifecycle Manager fails the attempt. The timeout period applies to the pre and post scripts individually.
+         *
+         * Default: 10
+         */
+        executionTimeout?: number;
+        /**
+         * Specifies the number of times Amazon Data Lifecycle Manager should retry scripts that fail.
+         *
+         * If the pre script fails, Amazon Data Lifecycle Manager retries the entire snapshot creation process, including running the pre and post scripts.
+         *
+         * If the post script fails, Amazon Data Lifecycle Manager retries the post script only; in this case, the pre script will have completed and the snapshot might have been created.
+         *
+         * If you do not want Amazon Data Lifecycle Manager to retry failed scripts, specify `0`.
+         *
+         * Default: 0
+         */
+        maximumRetryCount?: number;
+        /**
+         * Indicate which scripts Amazon Data Lifecycle Manager should run on target instances. Pre scripts run before Amazon Data Lifecycle Manager initiates snapshot creation. Post scripts run after Amazon Data Lifecycle Manager initiates snapshot creation.
+         *
+         * - To run a pre script only, specify `PRE`.
+         * - To run a post script only, specify `POST`.
+         * - To run both pre and post scripts, specify both `PRE` and `POST`.
+         *
+         * Default: PRE and POST
+         */
+        stages?: string[];
+    }
+
+    export interface LifecyclePolicyShareRule {
+        /**
+         * The IDs of the AWS accounts with which to share the snapshots.
+         */
+        targetAccounts?: string[];
+        /**
+         * The period after which snapshots that are shared with other AWS accounts are automatically unshared.
+         */
+        unshareInterval?: number;
+        /**
+         * The unit of time for the automatic unsharing interval.
+         */
+        unshareIntervalUnit?: string;
+    }
+
+    export interface LifecyclePolicyTag {
+        /**
+         * The tag key.
+         */
+        key: string;
+        /**
+         * The tag value.
+         */
+        value: string;
+    }
+
+}
+
 export namespace dms {
     export interface DataMigrationSettings {
         /**
@@ -37104,6 +37740,7 @@ export namespace dynamodb {
          * You can update the `ResourcePolicy` property if you've specified more than one table using the [AWS ::DynamoDB::GlobalTable](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-dynamodb-globaltable.html) resource.
          */
         resourcePolicy?: outputs.dynamodb.GlobalTableResourcePolicy;
+        tags?: outputs.dynamodb.GlobalTableTag[];
     }
 
     export interface GlobalTableResourcePolicy {
@@ -37529,6 +38166,23 @@ export namespace dynamodb {
          *   +  ``NEW_AND_OLD_IMAGES`` - Both the new and the old item images of the item are written to the stream.
          */
         streamViewType: string;
+        tags?: outputs.dynamodb.TableTag[];
+    }
+
+    /**
+     * Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table.
+     *  AWS-assigned tag names and values are automatically assigned the ``aws:`` prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix ``user:`` in the Cost Allocation Report. You cannot backdate the application of a tag.
+     *  For an overview on tagging DynamoDB resources, see [Tagging for DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html) in the *Amazon DynamoDB Developer Guide*.
+     */
+    export interface TableTag {
+        /**
+         * The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value.
+         */
+        key: string;
+        /**
+         * The value of the tag. Tag values are case-sensitive and can be null.
+         */
+        value: string;
     }
 
     /**
@@ -37564,6 +38218,21 @@ export namespace dynamodb {
 }
 
 export namespace ec2 {
+    export interface ApplicationStatusCheckHealthCheckPath {
+        destinations?: outputs.ec2.ApplicationStatusCheckHealthCheckPathDestination[];
+        source?: outputs.ec2.ApplicationStatusCheckHealthCheckPathSource;
+    }
+
+    export interface ApplicationStatusCheckHealthCheckPathDestination {
+        securityGroupId?: string;
+        subnetId?: string;
+    }
+
+    export interface ApplicationStatusCheckHealthCheckPathSource {
+        securityGroupId?: string;
+        subnetId?: string;
+    }
+
     export interface BlockPublicAccessStatesProperties {
         /**
          * The mode of VPC BPA. Options here are off, block-bidirectional, block-ingress
@@ -37811,6 +38480,11 @@ export namespace ec2 {
          * If you do not specify a value, the fleet fulfils the On-Demand capacity according to the chosen On-Demand allocation strategy.
          */
         usageStrategy?: enums.ec2.Ec2FleetCapacityReservationOptionsRequestUsageStrategy;
+    }
+
+    export interface Ec2FleetCapacityReservationTargetRequest {
+        capacityReservationIds?: string[];
+        capacityReservationResourceGroupArns?: string[];
     }
 
     export interface Ec2FleetCpuPerformanceFactorRequest {
@@ -38451,8 +39125,15 @@ export namespace ec2 {
         privateIpAddress?: string;
     }
 
+    export interface Ec2FleetReservedCapacityFallbackOptionsRequest {
+        marketTypes?: enums.ec2.Ec2FleetReservedCapacityFallbackOptionsRequestMarketTypesItem[];
+    }
+
     export interface Ec2FleetReservedCapacityOptionsRequest {
+        allocationStrategy?: enums.ec2.Ec2FleetReservedCapacityOptionsRequestAllocationStrategy;
+        capacityReservationTarget?: outputs.ec2.Ec2FleetCapacityReservationTargetRequest;
         reservationTypes?: enums.ec2.Ec2FleetReservedCapacityOptionsRequestReservationTypesItem[];
+        reservedCapacityFallbackOptions?: outputs.ec2.Ec2FleetReservedCapacityFallbackOptionsRequest;
     }
 
     export interface Ec2FleetSpotOptionsRequest {
@@ -46693,6 +47374,20 @@ export namespace eks {
     }
 
     /**
+     * Configuration settings for an ACK (AWS Controllers for Kubernetes) capability.
+     */
+    export interface CapabilityAck {
+        /**
+         * A list of ACK service names to disable. Controllers for services in this list are not installed or managed.
+         */
+        disabledServices?: string[];
+        /**
+         * Whether cross-namespace references are enabled for ACK controllers. When not specified, the service default applies.
+         */
+        enableCrossNamespace?: boolean;
+    }
+
+    /**
      * Configuration settings for an Argo CD capability. This includes the Kubernetes namespace, IAM Identity Center integration, RBAC role mappings, and network access configuration.
      */
     export interface CapabilityArgoCd {
@@ -46748,7 +47443,7 @@ export namespace eks {
      * Configuration settings for a capability. The structure of this object varies depending on the capability type.
      */
     export interface CapabilityConfiguration {
-        ack?: any;
+        ack?: outputs.eks.CapabilityAck;
         argoCd?: outputs.eks.CapabilityArgoCd;
     }
 
@@ -46955,6 +47650,7 @@ export namespace eks {
      */
     export interface ClusterKubeControllerManagerConfig {
         horizontalPodAutoscalerControllerConfig?: outputs.eks.ClusterHorizontalPodAutoscalerControllerConfig;
+        podGcControllerConfig?: outputs.eks.ClusterPodGcControllerConfig;
     }
 
     /**
@@ -47039,6 +47735,16 @@ export namespace eks {
          * The ARN of the Outpost that you want to use for your local Amazon EKS cluster on Outposts. Only a single Outpost ARN is supported.
          */
         outpostArns: string[];
+    }
+
+    /**
+     * The pod garbage collector controller configuration.
+     */
+    export interface ClusterPodGcControllerConfig {
+        /**
+         * The number of terminated pods that can exist before the terminated pod garbage collector starts deleting them.
+         */
+        terminatedPodGcThreshold?: number;
     }
 
     export interface ClusterProvider {
@@ -49033,7 +49739,13 @@ export namespace elementalinference {
         templateGroups?: outputs.elementalinference.FeedTemplateGroup[];
     }
 
+    /**
+     * Identifies the fixture whose event data Elemental Inference maps onto the clipping metadata for an output.
+     */
     export interface FeedDataSourceConfiguration {
+        /**
+         * The ID of the fixture whose event data you want Elemental Inference to map onto this clipping output. To obtain this ID, use the SearchFixtures operation.
+         */
         fixtureId: string;
     }
 
@@ -52196,6 +52908,241 @@ export namespace fsx {
          * Specifies the virtual private cloud (VPC) for the S3 access point VPC configuration, if one exists.
          */
         vpcId: string;
+    }
+
+    export interface VolumeAggregateConfiguration {
+        /**
+         * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+         */
+        aggregates?: string[];
+        /**
+         * Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
+         */
+        constituentsPerAggregate?: number;
+    }
+
+    export interface VolumeAutocommitPeriod {
+        /**
+         * Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+         */
+        type: string;
+        /**
+         * Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         */
+        value?: number;
+    }
+
+    export interface VolumeClientConfigurations {
+        /**
+         * A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+         */
+        clients: string;
+        /**
+         * The configuration object for mounting a Network File System (NFS) file system.
+         */
+        options: string[];
+    }
+
+    export interface VolumeNfsExports {
+        /**
+         * The configuration object for mounting a Network File System (NFS) file system.
+         */
+        clientConfigurations: outputs.fsx.VolumeClientConfigurations[];
+    }
+
+    export interface VolumeOntapConfiguration {
+        /**
+         * Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
+         */
+        aggregateConfiguration?: outputs.fsx.VolumeAggregateConfiguration;
+        /**
+         * A boolean flag indicating whether tags for the volume should be copied to backups.
+         */
+        copyTagsToBackups?: string;
+        /**
+         * Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+         */
+        junctionPath?: string;
+        /**
+         * Specifies the type of volume you are creating. Valid values are the following: RW or DP
+         */
+        ontapVolumeType?: string;
+        /**
+         * Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+         */
+        securityStyle?: string;
+        /**
+         * Specifies the configured size of the volume, in bytes.
+         */
+        sizeInBytes?: string;
+        /**
+         * Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+         */
+        sizeInMegabytes?: string;
+        /**
+         * The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
+         */
+        snaplockConfiguration?: outputs.fsx.VolumeSnaplockConfiguration;
+        /**
+         * Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+         */
+        snapshotPolicy?: string;
+        /**
+         * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+         */
+        storageEfficiencyEnabled?: string;
+        /**
+         * Specifies the ONTAP SVM in which to create the volume.
+         */
+        storageVirtualMachineId: string;
+        /**
+         * Describes the data tiering policy for an ONTAP volume.
+         */
+        tieringPolicy?: outputs.fsx.VolumeTieringPolicy;
+        /**
+         * Use to specify the style of an ONTAP volume.
+         */
+        volumeStyle?: string;
+    }
+
+    export interface VolumeOpenZfsConfiguration {
+        /**
+         * A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+         */
+        copyTagsToSnapshots?: boolean;
+        /**
+         * Specifies the method used to compress the data on the volume
+         */
+        dataCompressionType?: string;
+        /**
+         * The configuration object for mounting a Network File System (NFS) file system.
+         */
+        nfsExports?: outputs.fsx.VolumeNfsExports[];
+        /**
+         * The configuration object for mounting a Network File System (NFS) file system.
+         */
+        options?: string[];
+        /**
+         * The configuration of an Amazon FSx for OpenZFS volume.
+         */
+        originSnapshot?: outputs.fsx.VolumeOriginSnapshot;
+        /**
+         * The ID of the volume to use as the parent volume of the volume that you are creating.
+         */
+        parentVolumeId: string;
+        /**
+         * A Boolean value indicating whether the volume is read-only.
+         */
+        readOnly?: boolean;
+        /**
+         * Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+         */
+        recordSizeKiB?: number;
+        /**
+         * Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+         */
+        storageCapacityQuotaGiB?: number;
+        /**
+         * Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+         */
+        storageCapacityReservationGiB?: number;
+        /**
+         * Configures how much storage users and groups can use on the volume.
+         */
+        userAndGroupQuotas?: outputs.fsx.VolumeUserAndGroupQuotas[];
+    }
+
+    export interface VolumeOriginSnapshot {
+        /**
+         * The configuration object for mounting a Network File System (NFS) file system.
+         */
+        copyStrategy: string;
+        /**
+         * Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
+         */
+        snapshotArn: string;
+    }
+
+    export interface VolumeRetentionPeriod {
+        /**
+         * Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+         */
+        type: string;
+        /**
+         * Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+         */
+        value?: number;
+    }
+
+    export interface VolumeSnaplockConfiguration {
+        /**
+         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+         */
+        auditLogVolume?: string;
+        /**
+         * The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
+         */
+        autocommitPeriod?: outputs.fsx.VolumeAutocommitPeriod;
+        /**
+         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+         */
+        privilegedDelete?: string;
+        /**
+         * Specifies the retention period of an FSx for ONTAP SnapLock volume.
+         */
+        retentionPeriod?: outputs.fsx.VolumeSnaplockRetentionPeriod;
+        /**
+         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+         */
+        snaplockType: string;
+        /**
+         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+         */
+        volumeAppendModeEnabled?: string;
+    }
+
+    export interface VolumeSnaplockRetentionPeriod {
+        /**
+         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+         */
+        defaultRetention: outputs.fsx.VolumeRetentionPeriod;
+        /**
+         * The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+         */
+        maximumRetention: outputs.fsx.VolumeRetentionPeriod;
+        /**
+         * The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
+         */
+        minimumRetention: outputs.fsx.VolumeRetentionPeriod;
+    }
+
+    /**
+     * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+     */
+    export interface VolumeTieringPolicy {
+        /**
+         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+         */
+        coolingPeriod?: number;
+        /**
+         * Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+         */
+        name?: string;
+    }
+
+    export interface VolumeUserAndGroupQuotas {
+        /**
+         * The ID of the user or group that the quota applies to.
+         */
+        id: number;
+        /**
+         * The user or group's storage quota, in gibibytes (GiB).
+         */
+        storageCapacityQuotaGiB: number;
+        /**
+         * Specifies whether the quota applies to a user or group.
+         */
+        type: string;
     }
 
 }
@@ -58649,6 +59596,7 @@ export namespace iot {
          * Send data to an HTTPS endpoint.
          */
         http?: outputs.iot.TopicRuleHttpAction;
+        influxDb?: outputs.iot.TopicRuleInfluxDbAction;
         /**
          * Sends message data to an AWS IoT Analytics channel.
          */
@@ -58827,6 +59775,29 @@ export namespace iot {
         confirmationUrl?: string;
     }
 
+    export interface TopicRuleDestinationInfluxDbDestinationProperties {
+        /**
+         * The endpoint URL of the InfluxDB database.
+         */
+        endpoint: string;
+        /**
+         * The version of the InfluxDB database (for example, V2 or V3).
+         */
+        influxDbVersion: string;
+        /**
+         * The ARN or name of the Secrets Manager secret containing the InfluxDB API token.
+         */
+        secretId: string;
+        /**
+         * The key name within the secret that contains the InfluxDB token.
+         */
+        secretKey?: string;
+        /**
+         * The type of the secret value (SecretString or SecretBinary).
+         */
+        secretType?: string;
+    }
+
     export interface TopicRuleDestinationVpcDestinationProperties {
         /**
          * The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
@@ -58981,6 +59952,24 @@ export namespace iot {
          * Use Sig V4 authorization. For more information, see [Signature Version 4 Signing Process](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) .
          */
         sigv4?: outputs.iot.TopicRuleSigV4Authorization;
+    }
+
+    export interface TopicRuleInfluxDbAction {
+        batchConfig?: outputs.iot.TopicRuleInfluxDbBatchConfig;
+        databaseName: string;
+        destinationArn: string;
+        organization?: string;
+        roleArn: string;
+        tableName: string;
+        tags?: {[key: string]: string};
+        timestampUnit?: string;
+    }
+
+    export interface TopicRuleInfluxDbBatchConfig {
+        batchAcrossTopics?: boolean;
+        maxBatchOpenMs?: number;
+        maxBatchSize?: number;
+        maxBatchSizeBytes?: number;
     }
 
     export interface TopicRuleIotAnalyticsAction {
@@ -66185,6 +67174,7 @@ export namespace lakeformation {
     }
 
     export interface PrincipalPermissionsCatalogResource {
+        id?: string;
     }
 
     /**
@@ -71797,6 +72787,13 @@ export namespace mediaconnect {
     }
 
     /**
+     * The fabric configuration settings for the router output.
+     */
+    export interface RouterOutputResourceFabricConfiguration {
+        recoveryLatencyMode: enums.mediaconnect.RouterOutputResourceFabricLatencyMode;
+    }
+
+    /**
      * The configuration that defines how content is encrypted during transit between the MediaConnect router and a MediaConnect flow.
      */
     export interface RouterOutputResourceFlowTransitEncryption {
@@ -75539,6 +76536,19 @@ export namespace mwaa {
 }
 
 export namespace mwaaserverless {
+    /**
+     * The location of code artifacts in Amazon S3 for the workflow. Modeled as a single-member container so it stays extensible to future artifact types (e.g. OCI images).
+     */
+    export interface WorkflowCode {
+        s3Location?: outputs.mwaaserverless.WorkflowCodeS3Location;
+    }
+
+    export interface WorkflowCodeS3Location {
+        bucket: string;
+        objectKey: string;
+        versionId?: string;
+    }
+
     export interface WorkflowEncryptionConfiguration {
         kmsKeyId?: string;
         type: enums.mwaaserverless.WorkflowEncryptionConfigurationType;
@@ -114003,6 +115013,8 @@ export namespace rds {
          * The upper limit in gibibytes (GiB) to which RDS can automatically scale the storage of the additional storage volume.
          */
         maxAllocatedStorage?: number;
+        storageOperationPercentProgress?: number;
+        storageOperationStatus?: string;
         /**
          * The storage throughput value for the additional storage volume, in mebibytes per second (MiBps). This setting applies only to the General Purpose SSD (``gp3``) storage type.
          */
@@ -119405,6 +120417,28 @@ export namespace sagemaker {
     }
 
     /**
+     * External MySQL-compatible accounting database that a Slurm cluster's slurmdbd connects to. Database credentials are supplied out-of-band through the referenced Secrets Manager secret. Supported only with Continuous node provisioning.
+     */
+    export interface ClusterAccountingDatabase {
+        /**
+         * Hostname or endpoint of the accounting database, such as an RDS endpoint.
+         */
+        endpoint: string;
+        /**
+         * Name of the accounting database schema. Defaults to slurm_acct_db when omitted.
+         */
+        name?: string;
+        /**
+         * TCP port of the accounting database. Defaults to 3306 when omitted.
+         */
+        port?: number;
+        /**
+         * ARN of the Secrets Manager secret holding the database credentials.
+         */
+        secretArn: string;
+    }
+
+    /**
      * The details of the alarm to monitor during the AMI update.
      */
     export interface ClusterAlarmDetails {
@@ -119681,6 +120715,7 @@ export namespace sagemaker {
      * Specifies parameter(s) related to Slurm as orchestrator.
      */
     export interface ClusterOrchestratorSlurmConfig {
+        accountingDatabase?: outputs.sagemaker.ClusterAccountingDatabase;
         /**
          * The strategy for managing Slurm configuration on the cluster.
          */
@@ -120712,6 +121747,495 @@ export namespace sagemaker {
          * The value representing either the number of instances or the number of capacity units.
          */
         value: number;
+    }
+
+    /**
+     * Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+     */
+    export interface EndpointConfigAsyncInferenceClientConfig {
+        /**
+         * The maximum number of concurrent requests sent by the SageMaker client to the model container. If no value is provided, SageMaker will choose an optimal value for you.
+         */
+        maxConcurrentInvocationsPerInstance?: number;
+    }
+
+    /**
+     * Specifies configuration for how an endpoint performs asynchronous inference.
+     */
+    export interface EndpointConfigAsyncInferenceConfig {
+        /**
+         * Configures the behavior of the client used by SageMaker to interact with the model container during asynchronous inference.
+         */
+        clientConfig?: outputs.sagemaker.EndpointConfigAsyncInferenceClientConfig;
+        /**
+         * Specifies the configuration for asynchronous inference invocation outputs.
+         */
+        outputConfig: outputs.sagemaker.EndpointConfigAsyncInferenceOutputConfig;
+    }
+
+    /**
+     * Specifies the configuration for notifications of inference results for asynchronous inference.
+     */
+    export interface EndpointConfigAsyncInferenceNotificationConfig {
+        /**
+         * Amazon SNS topic to post a notification to when an inference fails. If no topic is provided, no notification is sent on failure.
+         */
+        errorTopic?: string;
+        /**
+         * The Amazon SNS topics where you want the inference response to be included.
+         */
+        includeInferenceResponseIn?: string[];
+        /**
+         * Amazon SNS topic to post a notification to when an inference completes successfully. If no topic is provided, no notification is sent on success.
+         */
+        successTopic?: string;
+    }
+
+    /**
+     * Specifies the configuration for asynchronous inference invocation outputs.
+     */
+    export interface EndpointConfigAsyncInferenceOutputConfig {
+        /**
+         * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the asynchronous inference output in Amazon S3.
+         */
+        kmsKeyId?: string;
+        /**
+         * Specifies the configuration for notifications of inference results for asynchronous inference.
+         */
+        notificationConfig?: outputs.sagemaker.EndpointConfigAsyncInferenceNotificationConfig;
+        /**
+         * The Amazon S3 location to upload failure inference responses to.
+         */
+        s3FailurePath?: string;
+        /**
+         * The Amazon S3 location to upload inference responses to.
+         */
+        s3OutputPath?: string;
+    }
+
+    /**
+     * Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+     */
+    export interface EndpointConfigCapacityReservationConfig {
+        /**
+         * Options that you can choose for the capacity reservation.
+         */
+        capacityReservationPreference?: string;
+        /**
+         * The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+         */
+        mlReservationArn?: string;
+    }
+
+    /**
+     * Specifies the JSON and CSV content types of the data that the endpoint captures.
+     */
+    export interface EndpointConfigCaptureContentTypeHeader {
+        /**
+         * A list of the CSV content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+         */
+        csvContentTypes?: string[];
+        /**
+         * A list of the JSON content types of the data that the endpoint captures. For the endpoint to capture the data, you must also specify the content type when you invoke the endpoint.
+         */
+        jsonContentTypes?: string[];
+    }
+
+    /**
+     * Specifies whether the endpoint captures input data or output data.
+     */
+    export interface EndpointConfigCaptureOption {
+        /**
+         * Specifies whether the endpoint captures input data or output data.
+         */
+        captureMode: string;
+    }
+
+    /**
+     * The configuration parameters for the SageMaker Clarify explainer.
+     */
+    export interface EndpointConfigClarifyExplainerConfig {
+        /**
+         * A JMESPath boolean expression used to filter which records to explain. Explanations are activated by default.
+         */
+        enableExplanations?: string;
+        /**
+         * The inference configuration parameter for the model container.
+         */
+        inferenceConfig?: outputs.sagemaker.EndpointConfigClarifyInferenceConfig;
+        /**
+         * The configuration for SHAP analysis.
+         */
+        shapConfig: outputs.sagemaker.EndpointConfigClarifyShapConfig;
+    }
+
+    /**
+     * The inference configuration parameter for the model container.
+     */
+    export interface EndpointConfigClarifyInferenceConfig {
+        /**
+         * A template string used to format a JSON record into an acceptable model container input.
+         */
+        contentTemplate?: string;
+        /**
+         * The names of the features. If provided, these are included in the endpoint response payload to help readability of the InvokeEndpoint output.
+         */
+        featureHeaders?: string[];
+        /**
+         * A list of data types of the features (optional). Applicable only to NLP explainability. If provided, FeatureTypes must have at least one 'text' string (for example, ['text']). If FeatureTypes is not provided, the explainer infers the feature types based on the baseline data.
+         */
+        featureTypes?: string[];
+        /**
+         * Provides the JMESPath expression to extract the features from a model container input in JSON Lines format.
+         */
+        featuresAttribute?: string;
+        /**
+         * A JMESPath expression used to locate the list of label headers in the model container output.
+         */
+        labelAttribute?: string;
+        /**
+         * For multiclass classification problems, the label headers are the names of the classes. Otherwise, the label header is the name of the predicted label.
+         */
+        labelHeaders?: string[];
+        /**
+         * A zero-based index used to extract a label header or list of label headers from model container output in CSV format.
+         */
+        labelIndex?: number;
+        /**
+         * The maximum payload size (MB) allowed of a request from the explainer to the model container. Defaults to 6 MB.
+         */
+        maxPayloadInMb?: number;
+        /**
+         * The maximum number of records in a request that the model container can process when querying the model container for the predictions of a synthetic dataset. A record is a unit of input data that inference can be made on, for example, a single line in CSV data.
+         */
+        maxRecordCount?: number;
+        /**
+         * A JMESPath expression used to extract the probability (or score) from the model container output if the model container is in JSON Lines format.
+         */
+        probabilityAttribute?: string;
+        /**
+         * A zero-based index used to extract a probability value (score) or list from model container output in CSV format. If this value is not provided, the entire model container output will be treated as a probability value (score) or list.
+         */
+        probabilityIndex?: number;
+    }
+
+    /**
+     * The configuration for the SHAP baseline (also called the background or reference dataset) of the Kernal SHAP algorithm.
+     */
+    export interface EndpointConfigClarifyShapBaselineConfig {
+        /**
+         * The MIME type of the baseline data. Choose from 'text/csv' or 'application/jsonlines'. Defaults to 'text/csv'.
+         */
+        mimeType?: string;
+        /**
+         * The inline SHAP baseline data in string format. ShapBaseline can have one or multiple records to be used as the baseline dataset. The format of the SHAP baseline file should be the same format as the training dataset.
+         */
+        shapBaseline?: string;
+        /**
+         * The uniform resource identifier (URI) of the S3 bucket where the SHAP baseline file is stored. The format of the SHAP baseline file should be the same format as the format of the training dataset.
+         */
+        shapBaselineUri?: string;
+    }
+
+    /**
+     * The configuration for SHAP analysis using SageMaker Clarify Explainer.
+     */
+    export interface EndpointConfigClarifyShapConfig {
+        /**
+         * The number of samples to be used for analysis by the Kernal SHAP algorithm.
+         */
+        numberOfSamples?: number;
+        /**
+         * The starting value used to initialize the random number generator in the explainer. Provide a value for this parameter to obtain a deterministic SHAP result.
+         */
+        seed?: number;
+        /**
+         * The configuration for the SHAP baseline of the Kernal SHAP algorithm.
+         */
+        shapBaselineConfig: outputs.sagemaker.EndpointConfigClarifyShapBaselineConfig;
+        /**
+         * A parameter that indicates if text features are treated as text and explanations are provided for individual units of text. Required for natural language processing (NLP) explainability only.
+         */
+        textConfig?: outputs.sagemaker.EndpointConfigClarifyTextConfig;
+        /**
+         * A Boolean toggle to indicate if you want to use the logit function (true) or log-odds units (false) for model predictions. Defaults to false.
+         */
+        useLogit?: boolean;
+    }
+
+    /**
+     * A parameter used to configure the SageMaker Clarify explainer to treat text features as text so that explanations are provided for individual units of text. Required only for natural language processing (NLP) explainability.
+     */
+    export interface EndpointConfigClarifyTextConfig {
+        /**
+         * The unit of granularity for the analysis of text features. For example, if the unit is 'token', then each token (like a word in English) of the text is treated as a feature. SHAP values are computed for each unit/feature.
+         */
+        granularity: string;
+        /**
+         * Specifies the language of the text features in ISO 639-1 or ISO 639-3 code of a supported language.
+         */
+        language: string;
+    }
+
+    /**
+     * Specifies where SageMaker writes core dumps from the model container when the process crashes, and how it encrypts them.
+     */
+    export interface EndpointConfigCoreDumpConfig {
+        /**
+         * The Amazon S3 bucket to send the core dump to.
+         */
+        destinationS3Uri: string;
+        /**
+         * The AWS Key Management Service (AWS KMS) key that SageMaker uses to encrypt the core dump data at rest using Amazon S3 server-side encryption. If you use a KMS key ID or an alias of your KMS key, the SageMaker execution role must include permissions to call kms:Encrypt.
+         */
+        kmsKeyId?: string;
+    }
+
+    /**
+     * Specifies how to capture endpoint data for model monitor. The data capture configuration applies to all production variants hosted at the endpoint.
+     */
+    export interface EndpointConfigDataCaptureConfig {
+        /**
+         * A list of the JSON and CSV content type that the endpoint captures.
+         */
+        captureContentTypeHeader?: outputs.sagemaker.EndpointConfigCaptureContentTypeHeader;
+        /**
+         * Specifies whether the endpoint captures input data to your model, output data from your model, or both.
+         */
+        captureOptions: outputs.sagemaker.EndpointConfigCaptureOption[];
+        /**
+         * The S3 bucket where model monitor stores captured data.
+         */
+        destinationS3Uri: string;
+        /**
+         * Set to True to enable data capture.
+         */
+        enableCapture?: boolean;
+        /**
+         * The percentage of data to capture.
+         */
+        initialSamplingPercentage: number;
+        /**
+         * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker uses to encrypt the captured data at rest using Amazon S3 server-side encryption.
+         */
+        kmsKeyId?: string;
+    }
+
+    /**
+     * A parameter to activate explainers.
+     */
+    export interface EndpointConfigExplainerConfig {
+        /**
+         * A member of ExplainerConfig that contains configuration parameters for the SageMaker Clarify explainer.
+         */
+        clarifyExplainerConfig?: outputs.sagemaker.EndpointConfigClarifyExplainerConfig;
+    }
+
+    /**
+     * Specifies an instance type and its priority for a heterogeneous endpoint. Use instance pools to configure a production variant with multiple instance types, enabling the endpoint to provision instances across different types based on priority.
+     */
+    export interface EndpointConfigInstancePool {
+        /**
+         * The ML compute instance type for the instance pool.
+         */
+        instanceType: string;
+        /**
+         * The name of a SageMaker model to use for this instance pool instead of the model specified for the production variant. Use this to deploy a different model optimized for the instance type in this pool.
+         */
+        modelNameOverride?: string;
+        /**
+         * The priority for the instance pool. SageMaker attempts to provision instances in order of priority, starting with the lowest value. If instances for a higher-priority pool are unavailable, SageMaker attempts to provision from the next pool. Valid values: 1 to 5, where 1 is the highest priority.
+         */
+        priority: number;
+    }
+
+    /**
+     * Settings that control the range in the number of instances that the endpoint provisions as it scales up or down to accommodate traffic.
+     */
+    export interface EndpointConfigManagedInstanceScaling {
+        /**
+         * The maximum number of instances that the endpoint can provision when it scales up to accommodate an increase in traffic.
+         */
+        maxInstanceCount?: number;
+        /**
+         * The minimum number of instances that the endpoint must retain when it scales down to accommodate a decrease in traffic.
+         */
+        minInstanceCount?: number;
+        /**
+         * Configures the scale-in behavior for managed instance scaling.
+         */
+        scaleInPolicy?: outputs.sagemaker.EndpointConfigScaleInPolicy;
+        /**
+         * Indicates whether managed instance scaling is enabled.
+         */
+        status?: string;
+    }
+
+    /**
+     * Specifies the metrics that the endpoint publishes to Amazon CloudWatch, the frequency of publication, and whether to enable enhanced or detailed observability metrics.
+     */
+    export interface EndpointConfigMetricsConfig {
+        /**
+         * Specifies whether to enable detailed observability for the endpoint. When set to true, the endpoint publishes container-level inference metrics, per-GPU metrics, per-instance host metrics, and inference component placement metrics.
+         */
+        enableDetailedObservability?: boolean;
+        /**
+         * Specifies whether to enable enhanced metrics for the endpoint. Enhanced metrics provide utilization and invocation data at instance and container granularity.
+         */
+        enableEnhancedMetrics?: boolean;
+        /**
+         * The interval, in seconds, at which the endpoint publishes metrics to Amazon CloudWatch. Valid values are 10, 30, 60, 120, 180, 240, and 300. The default is 60.
+         */
+        metricPublishFrequencyInSeconds?: number;
+    }
+
+    /**
+     * The configuration for prefix-aware routing on a SageMaker real-time inference endpoint. Specify PrefixLength and ConcurrencyThreshold to control routing behavior.
+     */
+    export interface EndpointConfigPrefixAwareRoutingConfig {
+        /**
+         * The maximum number of in-flight requests on the target instance before the endpoint routes to another instance. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1 to 1024.
+         */
+        concurrencyThreshold?: number;
+        /**
+         * The maximum length of the prefix used for routing decisions. Required when RoutingStrategy is PREFIX_AWARE. Valid values are 1024 to 65536.
+         */
+        prefixLength?: number;
+    }
+
+    /**
+     * Specifies a model that you want to host and the resources to deploy for hosting it.
+     */
+    export interface EndpointConfigProductionVariant {
+        /**
+         * Settings for the capacity reservation for the compute instances that SageMaker AI reserves for an endpoint.
+         */
+        capacityReservationConfig?: outputs.sagemaker.EndpointConfigCapacityReservationConfig;
+        /**
+         * The timeout value, in seconds, for your inference container to pass health check by SageMaker Hosting.
+         */
+        containerStartupHealthCheckTimeoutInSeconds?: number;
+        /**
+         * Specifies configuration for a core dump from the model container when the process crashes.
+         */
+        coreDumpConfig?: outputs.sagemaker.EndpointConfigCoreDumpConfig;
+        /**
+         * You can use this parameter to turn on native AWS Systems Manager (SSM) access for a production variant behind an endpoint. By default, SSM access is disabled for all production variants behind an endpoint.
+         */
+        enableSsmAccess?: boolean;
+        /**
+         * Specifies an option from a collection of preconfigured Amazon Machine Image (AMI) images. Each image is configured by AWS with a set of software and driver versions. AWS optimizes these configurations for different machine learning workloads. By selecting an AMI version, you can ensure that your inference environment is compatible with specific software requirements, such as CUDA driver versions, Linux kernel versions, or AWS Neuron driver versions
+         */
+        inferenceAmiVersion?: string;
+        /**
+         * Number of instances to launch initially.
+         */
+        initialInstanceCount?: number;
+        /**
+         * Determines initial traffic distribution among all of the models that you specify in the endpoint configuration.
+         */
+        initialVariantWeight?: number;
+        /**
+         * A list of instance pools for the production variant. Each instance pool specifies an instance type and its priority for provisioning. Use instance pools to configure heterogeneous endpoints that deploy models across multiple instance types.
+         */
+        instancePools?: outputs.sagemaker.EndpointConfigInstancePool[];
+        /**
+         * The ML compute instance type.
+         */
+        instanceType?: string;
+        managedInstanceScaling?: outputs.sagemaker.EndpointConfigManagedInstanceScaling;
+        /**
+         * The timeout value, in seconds, to download and extract the model that you want to host from Amazon S3 to the individual inference instance associated with this production variant.
+         */
+        modelDataDownloadTimeoutInSeconds?: number;
+        /**
+         * The name of the model that you want to host. This is the name that you specified when creating the model.
+         */
+        modelName?: string;
+        /**
+         * Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+         */
+        routingConfig?: outputs.sagemaker.EndpointConfigRoutingConfig;
+        /**
+         * The serverless configuration for an endpoint. Specifies a serverless endpoint configuration instead of an instance-based endpoint configuration.
+         */
+        serverlessConfig?: outputs.sagemaker.EndpointConfigServerlessConfig;
+        /**
+         * The timeout value, in seconds, for provisioning instances for the production variant. When SageMaker encounters an insufficient capacity error while provisioning instances, it retries with the next instance pool (if configured) or waits until the timeout expires. This timeout applies only to capacity provisioning and does not include the time for model download or container startup.
+         */
+        variantInstanceProvisionTimeoutInSeconds?: number;
+        /**
+         * The name of the production variant.
+         */
+        variantName: string;
+        /**
+         * The size, in GB, of the ML storage volume attached to individual inference instance associated with the production variant. Currently only Amazon EBS gp2 storage volumes are supported.
+         */
+        volumeSizeInGb?: number;
+    }
+
+    /**
+     * Settings that control how the endpoint routes incoming traffic to the instances that the endpoint hosts.
+     */
+    export interface EndpointConfigRoutingConfig {
+        /**
+         * The configuration for prefix-aware routing. Specify this property only when you set RoutingStrategy to PREFIX_AWARE.
+         */
+        prefixAwareRoutingConfig?: outputs.sagemaker.EndpointConfigPrefixAwareRoutingConfig;
+        /**
+         * Sets how the endpoint routes incoming traffic.
+         */
+        routingStrategy?: string;
+    }
+
+    /**
+     * Specifies how the endpoint releases instances when managed instance scaling scales in.
+     */
+    export interface EndpointConfigScaleInPolicy {
+        /**
+         * The cooldown period, in minutes, after the last endpoint operation before the endpoint evaluates consolidation scale-in opportunities. Valid values are 5 to 1440. The default is 20.
+         */
+        cooldownInMinutes?: number;
+        /**
+         * The maximum number of instances that the endpoint can terminate at a time during a consolidation scale-in operation. Valid values are 1 to 100. The default is 1.
+         */
+        maximumStepSize?: number;
+        /**
+         * The strategy for scaling in instances. IDLE_RELEASE releases instances that have no hosted inference component copies. CONSOLIDATION consolidates inference component copies onto fewer instances to release more instances.
+         */
+        strategy: string;
+    }
+
+    /**
+     * Specifies the serverless configuration for an endpoint variant.
+     */
+    export interface EndpointConfigServerlessConfig {
+        /**
+         * The maximum number of concurrent invocations your serverless endpoint can process.
+         */
+        maxConcurrency: number;
+        /**
+         * The memory size of your serverless endpoint. Valid values are in 1 GB increments: 1024 MB, 2048 MB, 3072 MB, 4096 MB, 5120 MB, or 6144 MB.
+         */
+        memorySizeInMb: number;
+        /**
+         * The amount of provisioned concurrency to allocate for the serverless endpoint. Should be less than or equal to MaxConcurrency.
+         */
+        provisionedConcurrency?: number;
+    }
+
+    /**
+     * Specifies an Amazon Virtual Private Cloud (VPC) that your SageMaker jobs, hosted models, and compute resources have access to. You can control access to and from your resources by configuring a VPC.
+     */
+    export interface EndpointConfigVpcConfig {
+        /**
+         * The VPC security group IDs, in the form sg-xxxxxxxx. Specify the security groups for the VPC that is specified in the Subnets field.
+         */
+        securityGroupIds: string[];
+        /**
+         * The ID of the subnets in the VPC to which you want to connect your training job or model.
+         */
+        subnets: string[];
     }
 
     export interface EndpointDeploymentConfig {
@@ -123786,6 +125310,16 @@ export namespace sagemaker {
          * The ID of the subnets in the VPC to which you want to connect to your monitoring jobs.
          */
         subnets: string[];
+    }
+
+    /**
+     * Information on the IMDS configuration of the notebook instance
+     */
+    export interface NotebookInstanceInstanceMetadataServiceConfiguration {
+        /**
+         * Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
+         */
+        minimumInstanceMetadataServiceVersion: string;
     }
 
     /**

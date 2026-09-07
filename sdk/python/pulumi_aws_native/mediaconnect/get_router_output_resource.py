@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetRouterOutputResourceResult:
-    def __init__(__self__, arn=None, configuration=None, created_at=None, id=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, output_type=None, routed_state=None, routing_scope=None, state=None, tags=None, tier=None, updated_at=None):
+    def __init__(__self__, arn=None, configuration=None, created_at=None, fabric_configuration=None, id=None, ip_address=None, maintenance_configuration=None, maintenance_type=None, maximum_bitrate=None, name=None, output_type=None, routed_state=None, routing_scope=None, state=None, tags=None, tier=None, updated_at=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -36,6 +36,9 @@ class GetRouterOutputResourceResult:
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
+        if fabric_configuration and not isinstance(fabric_configuration, dict):
+            raise TypeError("Expected argument 'fabric_configuration' to be a dict")
+        pulumi.set(__self__, "fabric_configuration", fabric_configuration)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -96,6 +99,11 @@ class GetRouterOutputResourceResult:
         The timestamp when the router output was created.
         """
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter(name="fabricConfiguration")
+    def fabric_configuration(self) -> Optional['outputs.RouterOutputResourceFabricConfiguration']:
+        return pulumi.get(self, "fabric_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -211,6 +219,7 @@ class AwaitableGetRouterOutputResourceResult(GetRouterOutputResourceResult):
             arn=self.arn,
             configuration=self.configuration,
             created_at=self.created_at,
+            fabric_configuration=self.fabric_configuration,
             id=self.id,
             ip_address=self.ip_address,
             maintenance_configuration=self.maintenance_configuration,
@@ -242,6 +251,7 @@ def get_router_output_resource(arn: Optional[_builtins.str] = None,
         arn=pulumi.get(__ret__, 'arn'),
         configuration=pulumi.get(__ret__, 'configuration'),
         created_at=pulumi.get(__ret__, 'created_at'),
+        fabric_configuration=pulumi.get(__ret__, 'fabric_configuration'),
         id=pulumi.get(__ret__, 'id'),
         ip_address=pulumi.get(__ret__, 'ip_address'),
         maintenance_configuration=pulumi.get(__ret__, 'maintenance_configuration'),
@@ -270,6 +280,7 @@ def get_router_output_resource_output(arn: pulumi.Input[Optional[_builtins.str]]
         arn=pulumi.get(__response__, 'arn'),
         configuration=pulumi.get(__response__, 'configuration'),
         created_at=pulumi.get(__response__, 'created_at'),
+        fabric_configuration=pulumi.get(__response__, 'fabric_configuration'),
         id=pulumi.get(__response__, 'id'),
         ip_address=pulumi.get(__response__, 'ip_address'),
         maintenance_configuration=pulumi.get(__response__, 'maintenance_configuration'),

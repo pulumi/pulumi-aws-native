@@ -33,12 +33,6 @@ type LookupDeliveryDestinationArgs struct {
 type LookupDeliveryDestinationResult struct {
 	// The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
 	Arn *string `pulumi:"arn"`
-	// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
-	//
-	// The policy must be in JSON string format.
-	//
-	// Length Constraints: Maximum length of 51200
-	DeliveryDestinationPolicy *DeliveryDestinationDestinationPolicy `pulumi:"deliveryDestinationPolicy"`
 	// The tags that have been assigned to this delivery destination.
 	Tags []aws.Tag `pulumi:"tags"`
 }
@@ -74,17 +68,6 @@ func (o LookupDeliveryDestinationResultOutput) ToLookupDeliveryDestinationResult
 // The Amazon Resource Name (ARN) that uniquely identifies this delivery destination.
 func (o LookupDeliveryDestinationResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDeliveryDestinationResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
-}
-
-// IAM policy that grants permissions to CloudWatch Logs to deliver logs cross-account to a specified destination in this account.
-//
-// The policy must be in JSON string format.
-//
-// Length Constraints: Maximum length of 51200
-func (o LookupDeliveryDestinationResultOutput) DeliveryDestinationPolicy() DeliveryDestinationDestinationPolicyPtrOutput {
-	return o.ApplyT(func(v LookupDeliveryDestinationResult) *DeliveryDestinationDestinationPolicy {
-		return v.DeliveryDestinationPolicy
-	}).(DeliveryDestinationDestinationPolicyPtrOutput)
 }
 
 // The tags that have been assigned to this delivery destination.
