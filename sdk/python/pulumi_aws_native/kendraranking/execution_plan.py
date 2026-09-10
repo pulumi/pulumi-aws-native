@@ -99,20 +99,20 @@ class ExecutionPlan(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: pulumi.Input[Optional[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict']]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict', 'outputs.ExecutionPlanCapacityUnitsConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A KendraRanking Rescore execution plan
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict']] capacity_units: Capacity units
+        :param pulumi.Input[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict', 'outputs.ExecutionPlanCapacityUnitsConfiguration']] capacity_units: Capacity units
         :param pulumi.Input[_builtins.str] description: A description for the execution plan
         :param pulumi.Input[_builtins.str] name: A name for the rescore execution plan.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for labeling the execution plan
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for labeling the execution plan
         """
         ...
     @overload
@@ -138,10 +138,10 @@ class ExecutionPlan(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 capacity_units: pulumi.Input[Optional[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict']]] = None,
+                 capacity_units: pulumi.Input[Optional[Union['ExecutionPlanCapacityUnitsConfigurationArgs', 'ExecutionPlanCapacityUnitsConfigurationArgsDict', 'outputs.ExecutionPlanCapacityUnitsConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -120,7 +120,7 @@ class VpceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpce_configuration_description: pulumi.Input[Optional[_builtins.str]] = None,
                  vpce_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vpce_service_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -131,7 +131,7 @@ class VpceConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] service_dns_name: The DNS name that Device Farm will use to map to the private service you want to access.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         :param pulumi.Input[_builtins.str] vpce_configuration_description: An optional description that provides details about your VPC endpoint configuration.
@@ -165,7 +165,7 @@ class VpceConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  service_dns_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpce_configuration_description: pulumi.Input[Optional[_builtins.str]] = None,
                  vpce_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
                  vpce_service_name: pulumi.Input[Optional[_builtins.str]] = None,

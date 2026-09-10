@@ -99,7 +99,7 @@ class HostKey(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  host_key_body: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::Transfer::HostKey
@@ -109,7 +109,7 @@ class HostKey(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The text description for this host key.
         :param pulumi.Input[_builtins.str] host_key_body: The private key portion of an SSH key pair. Transfer Family accepts RSA, ECDSA, and ED25519 keys.
         :param pulumi.Input[_builtins.str] server_id: The identifier of the server that contains the host key.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to group and search for host keys.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to group and search for host keys.
         """
         ...
     @overload
@@ -138,7 +138,7 @@ class HostKey(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  host_key_body: pulumi.Input[Optional[_builtins.str]] = None,
                  server_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

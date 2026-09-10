@@ -1204,7 +1204,7 @@ class FormButton(dict):
     def __init__(__self__, *,
                  children: Optional[_builtins.str] = None,
                  excluded: Optional[_builtins.bool] = None,
-                 position: Optional[Any] = None):
+                 position: Optional[Union['outputs.FormFieldPosition0Properties', 'outputs.FormFieldPosition1Properties', 'outputs.FormFieldPosition2Properties']] = None):
         """
         :param _builtins.str children: Describes the button's properties.
         :param _builtins.bool excluded: Specifies whether the button is visible on the form.
@@ -1235,7 +1235,7 @@ class FormButton(dict):
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[Any]:
+    def position(self) -> Optional[Union['outputs.FormFieldPosition0Properties', 'outputs.FormFieldPosition1Properties', 'outputs.FormFieldPosition2Properties']]:
         """
         The position of the button.
         """
@@ -1368,7 +1368,7 @@ class FormFieldConfig(dict):
                  excluded: Optional[_builtins.bool] = None,
                  input_type: Optional['outputs.FormFieldInputConfig'] = None,
                  label: Optional[_builtins.str] = None,
-                 position: Optional[Any] = None,
+                 position: Optional[Union['outputs.FormFieldPosition0Properties', 'outputs.FormFieldPosition1Properties', 'outputs.FormFieldPosition2Properties']] = None,
                  validations: Optional[Sequence['outputs.FormFieldValidationConfiguration']] = None):
         """
         :param _builtins.bool excluded: Specifies whether to hide a field.
@@ -1414,7 +1414,7 @@ class FormFieldConfig(dict):
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[Any]:
+    def position(self) -> Optional[Union['outputs.FormFieldPosition0Properties', 'outputs.FormFieldPosition1Properties', 'outputs.FormFieldPosition2Properties']]:
         """
         Specifies the field position.
         """
@@ -2062,7 +2062,7 @@ class FormSectionalElement(dict):
                  excluded: Optional[_builtins.bool] = None,
                  level: Optional[_builtins.float] = None,
                  orientation: Optional[_builtins.str] = None,
-                 position: Optional[Any] = None,
+                 position: Optional[Union['outputs.FormFieldPosition0Properties', 'outputs.FormFieldPosition1Properties', 'outputs.FormFieldPosition2Properties']] = None,
                  text: Optional[_builtins.str] = None):
         """
         :param _builtins.str type: The type of sectional element. Valid values are `Heading` , `Text` , and `Divider` .
@@ -2118,7 +2118,7 @@ class FormSectionalElement(dict):
 
     @_builtins.property
     @pulumi.getter
-    def position(self) -> Optional[Any]:
+    def position(self) -> Optional[Union['outputs.FormFieldPosition0Properties', 'outputs.FormFieldPosition1Properties', 'outputs.FormFieldPosition2Properties']]:
         """
         Specifies the position of the text in a field for a `Text` sectional element.
         """
@@ -2157,9 +2157,9 @@ class FormStyle(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 horizontal_gap: Optional[Any] = None,
-                 outer_padding: Optional[Any] = None,
-                 vertical_gap: Optional[Any] = None):
+                 horizontal_gap: Optional[Union['outputs.FormStyleConfig0Properties', 'outputs.FormStyleConfig1Properties']] = None,
+                 outer_padding: Optional[Union['outputs.FormStyleConfig0Properties', 'outputs.FormStyleConfig1Properties']] = None,
+                 vertical_gap: Optional[Union['outputs.FormStyleConfig0Properties', 'outputs.FormStyleConfig1Properties']] = None):
         """
         :param Union['FormStyleConfig0Properties', 'FormStyleConfig1Properties'] horizontal_gap: The spacing for the horizontal gap.
         :param Union['FormStyleConfig0Properties', 'FormStyleConfig1Properties'] outer_padding: The size of the outer padding for the form.
@@ -2174,7 +2174,7 @@ class FormStyle(dict):
 
     @_builtins.property
     @pulumi.getter(name="horizontalGap")
-    def horizontal_gap(self) -> Optional[Any]:
+    def horizontal_gap(self) -> Optional[Union['outputs.FormStyleConfig0Properties', 'outputs.FormStyleConfig1Properties']]:
         """
         The spacing for the horizontal gap.
         """
@@ -2182,7 +2182,7 @@ class FormStyle(dict):
 
     @_builtins.property
     @pulumi.getter(name="outerPadding")
-    def outer_padding(self) -> Optional[Any]:
+    def outer_padding(self) -> Optional[Union['outputs.FormStyleConfig0Properties', 'outputs.FormStyleConfig1Properties']]:
         """
         The size of the outer padding for the form.
         """
@@ -2190,7 +2190,7 @@ class FormStyle(dict):
 
     @_builtins.property
     @pulumi.getter(name="verticalGap")
-    def vertical_gap(self) -> Optional[Any]:
+    def vertical_gap(self) -> Optional[Union['outputs.FormStyleConfig0Properties', 'outputs.FormStyleConfig1Properties']]:
         """
         The spacing for the vertical gap.
         """

@@ -117,7 +117,7 @@ class RouteServer(pulumi.CustomResource):
                  persist_routes: pulumi.Input[Optional['RouteServerPersistRoutes']] = None,
                  persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
                  sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         VPC Route Server
@@ -128,7 +128,7 @@ class RouteServer(pulumi.CustomResource):
         :param pulumi.Input['RouteServerPersistRoutes'] persist_routes: Whether to enable persistent routes
         :param pulumi.Input[_builtins.int] persist_routes_duration: The duration of persistent routes in minutes
         :param pulumi.Input[_builtins.bool] sns_notifications_enabled: Whether to enable SNS notifications
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -158,7 +158,7 @@ class RouteServer(pulumi.CustomResource):
                  persist_routes: pulumi.Input[Optional['RouteServerPersistRoutes']] = None,
                  persist_routes_duration: pulumi.Input[Optional[_builtins.int]] = None,
                  sns_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

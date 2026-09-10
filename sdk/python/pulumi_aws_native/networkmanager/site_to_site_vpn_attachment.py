@@ -115,7 +115,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpn_connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -126,7 +126,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] core_network_id: The ID of a core network where you're creating a site-to-site VPN attachment.
         :param pulumi.Input[_builtins.str] network_function_group_name: The name of the network function group attachment.
         :param pulumi.Input[_builtins.str] routing_policy_label: Routing policy label
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the attachment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the attachment.
         :param pulumi.Input[_builtins.str] vpn_connection_arn: The ARN of the site-to-site VPN attachment.
         """
         ...
@@ -156,7 +156,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
                  core_network_id: pulumi.Input[Optional[_builtins.str]] = None,
                  network_function_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  routing_policy_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpn_connection_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

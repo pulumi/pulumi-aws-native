@@ -83,7 +83,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_lifecycle_config: pulumi.Input[Optional[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict']]] = None,
+                 resource_lifecycle_config: pulumi.Input[Optional[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict', 'outputs.ApplicationResourceLifecycleConfig']]] = None,
                  __props__=None):
         """
         The AWS::ElasticBeanstalk::Application resource specifies an Elastic Beanstalk application.
@@ -92,7 +92,7 @@ class Application(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: A name for the Elastic Beanstalk application. If you don't specify a name, AWS CloudFormation generates a unique physical ID and uses that ID for the application name.
         :param pulumi.Input[_builtins.str] description: Your description of the application.
-        :param pulumi.Input[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict']] resource_lifecycle_config: Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
+        :param pulumi.Input[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict', 'outputs.ApplicationResourceLifecycleConfig']] resource_lifecycle_config: Specifies an application resource lifecycle configuration to prevent your application from accumulating too many versions.
         """
         ...
     @overload
@@ -120,7 +120,7 @@ class Application(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_lifecycle_config: pulumi.Input[Optional[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict']]] = None,
+                 resource_lifecycle_config: pulumi.Input[Optional[Union['ApplicationResourceLifecycleConfigArgs', 'ApplicationResourceLifecycleConfigArgsDict', 'outputs.ApplicationResourceLifecycleConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

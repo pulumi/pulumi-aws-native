@@ -133,9 +133,9 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ontap_configuration: pulumi.Input[Optional[Union['VolumeOntapConfigurationArgs', 'VolumeOntapConfigurationArgsDict']]] = None,
-                 open_zfs_configuration: pulumi.Input[Optional[Union['VolumeOpenZfsConfigurationArgs', 'VolumeOpenZfsConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ontap_configuration: pulumi.Input[Optional[Union['VolumeOntapConfigurationArgs', 'VolumeOntapConfigurationArgsDict', 'outputs.VolumeOntapConfiguration']]] = None,
+                 open_zfs_configuration: pulumi.Input[Optional[Union['VolumeOpenZfsConfigurationArgs', 'VolumeOpenZfsConfigurationArgsDict', 'outputs.VolumeOpenZfsConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -145,9 +145,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] backup_id: Specifies the ID of the volume backup to use to create a new volume.
         :param pulumi.Input[_builtins.str] name: The name of the volume.
-        :param pulumi.Input[Union['VolumeOntapConfigurationArgs', 'VolumeOntapConfigurationArgsDict']] ontap_configuration: The configuration of an Amazon FSx for NetApp ONTAP volume.
-        :param pulumi.Input[Union['VolumeOpenZfsConfigurationArgs', 'VolumeOpenZfsConfigurationArgsDict']] open_zfs_configuration: The configuration of an Amazon FSx for OpenZFS volume.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Union['VolumeOntapConfigurationArgs', 'VolumeOntapConfigurationArgsDict', 'outputs.VolumeOntapConfiguration']] ontap_configuration: The configuration of an Amazon FSx for NetApp ONTAP volume.
+        :param pulumi.Input[Union['VolumeOpenZfsConfigurationArgs', 'VolumeOpenZfsConfigurationArgsDict', 'outputs.VolumeOpenZfsConfiguration']] open_zfs_configuration: The configuration of an Amazon FSx for OpenZFS volume.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         :param pulumi.Input[_builtins.str] volume_type: The type of the volume.
         """
         ...
@@ -176,9 +176,9 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  backup_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 ontap_configuration: pulumi.Input[Optional[Union['VolumeOntapConfigurationArgs', 'VolumeOntapConfigurationArgsDict']]] = None,
-                 open_zfs_configuration: pulumi.Input[Optional[Union['VolumeOpenZfsConfigurationArgs', 'VolumeOpenZfsConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 ontap_configuration: pulumi.Input[Optional[Union['VolumeOntapConfigurationArgs', 'VolumeOntapConfigurationArgsDict', 'outputs.VolumeOntapConfiguration']]] = None,
+                 open_zfs_configuration: pulumi.Input[Optional[Union['VolumeOpenZfsConfigurationArgs', 'VolumeOpenZfsConfigurationArgsDict', 'outputs.VolumeOpenZfsConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

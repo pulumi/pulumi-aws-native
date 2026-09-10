@@ -130,12 +130,12 @@ class Extension(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict']]]]]]] = None,
+                 actions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict', 'outputs.ExtensionAction']]]]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::Extension
@@ -175,12 +175,12 @@ class Extension(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict']]]]]] actions: The actions defined in the extension.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict', 'outputs.ExtensionAction']]]]]] actions: The actions defined in the extension.
         :param pulumi.Input[_builtins.str] description: Description of the extension.
         :param pulumi.Input[_builtins.int] latest_version_number: You can omit this field when you create an extension. When you create a new version, specify the most recent current version number. For example, you create version 3, enter 2 for this field.
         :param pulumi.Input[_builtins.str] name: Name of the extension.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]] parameters: The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value tags to apply to this resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]] parameters: The parameters accepted by the extension. You specify parameter values when you associate the extension to an AWS AppConfig resource by using the `CreateExtensionAssociation` API action. For AWS Lambda extension actions, these parameters are included in the Lambda request object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value tags to apply to this resource.
         """
         ...
     @overload
@@ -239,12 +239,12 @@ class Extension(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict']]]]]]] = None,
+                 actions: pulumi.Input[Optional[Mapping[str, pulumi.Input[Sequence[pulumi.Input[Union['ExtensionActionArgs', 'ExtensionActionArgsDict', 'outputs.ExtensionAction']]]]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  latest_version_number: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ExtensionParameterArgs', 'ExtensionParameterArgsDict', 'outputs.ExtensionParameter']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

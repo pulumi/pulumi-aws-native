@@ -117,8 +117,8 @@ class Connector(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider: pulumi.Input[Optional['ConnectorCloudProvider']] = None,
-                 provider_configuration: pulumi.Input[Optional[Union['ConnectorProviderConfigurationArgs', 'ConnectorProviderConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 provider_configuration: pulumi.Input[Optional[Union['ConnectorProviderConfigurationArgs', 'ConnectorProviderConfigurationArgsDict', 'outputs.ConnectorProviderConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates and manages a multi-cloud connector for Amazon Inspector, enabling vulnerability scanning of Azure resources.
@@ -128,8 +128,8 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Optional description of the connector.
         :param pulumi.Input[_builtins.str] name: Display name for the connector.
         :param pulumi.Input['ConnectorCloudProvider'] provider: The cloud provider for this connector.
-        :param pulumi.Input[Union['ConnectorProviderConfigurationArgs', 'ConnectorProviderConfigurationArgsDict']] provider_configuration: Provider-specific configuration including regions and scope.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to apply to the connector.
+        :param pulumi.Input[Union['ConnectorProviderConfigurationArgs', 'ConnectorProviderConfigurationArgsDict', 'outputs.ConnectorProviderConfiguration']] provider_configuration: Provider-specific configuration including regions and scope.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to apply to the connector.
         """
         ...
     @overload
@@ -158,8 +158,8 @@ class Connector(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider: pulumi.Input[Optional['ConnectorCloudProvider']] = None,
-                 provider_configuration: pulumi.Input[Optional[Union['ConnectorProviderConfigurationArgs', 'ConnectorProviderConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 provider_configuration: pulumi.Input[Optional[Union['ConnectorProviderConfigurationArgs', 'ConnectorProviderConfigurationArgsDict', 'outputs.ConnectorProviderConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

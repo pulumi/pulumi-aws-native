@@ -84,8 +84,8 @@ class MediaPipelineKinesisVideoStreamPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_configuration: pulumi.Input[Optional[Union['StreamConfigurationPropertiesArgs', 'StreamConfigurationPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stream_configuration: pulumi.Input[Optional[Union['StreamConfigurationPropertiesArgs', 'StreamConfigurationPropertiesArgsDict', 'outputs.StreamConfigurationProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for an Amazon Chime SDK Media Pipeline Kinesis Video Stream Pool
@@ -93,8 +93,8 @@ class MediaPipelineKinesisVideoStreamPool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] pool_name: The name of the Kinesis Video Stream Pool.
-        :param pulumi.Input[Union['StreamConfigurationPropertiesArgs', 'StreamConfigurationPropertiesArgsDict']] stream_configuration: The configuration settings for the Kinesis video stream.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the Kinesis Video Stream Pool.
+        :param pulumi.Input[Union['StreamConfigurationPropertiesArgs', 'StreamConfigurationPropertiesArgsDict', 'outputs.StreamConfigurationProperties']] stream_configuration: The configuration settings for the Kinesis video stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the Kinesis Video Stream Pool.
         """
         ...
     @overload
@@ -121,8 +121,8 @@ class MediaPipelineKinesisVideoStreamPool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  pool_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_configuration: pulumi.Input[Optional[Union['StreamConfigurationPropertiesArgs', 'StreamConfigurationPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 stream_configuration: pulumi.Input[Optional[Union['StreamConfigurationPropertiesArgs', 'StreamConfigurationPropertiesArgsDict', 'outputs.StreamConfigurationProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

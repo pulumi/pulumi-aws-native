@@ -49,7 +49,7 @@ class ResourceCollection(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: pulumi.Input[Optional[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
+                 resource_collection_filter: pulumi.Input[Optional[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict', 'outputs.ResourceCollectionFilter']]] = None,
                  __props__=None):
         """
         This resource schema represents the ResourceCollection resource in the Amazon DevOps Guru.
@@ -117,7 +117,7 @@ class ResourceCollection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
+        :param pulumi.Input[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict', 'outputs.ResourceCollectionFilter']] resource_collection_filter: Information about a filter used to specify which AWS resources are analyzed for anomalous behavior by DevOps Guru.
         """
         ...
     @overload
@@ -204,7 +204,7 @@ class ResourceCollection(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_collection_filter: pulumi.Input[Optional[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict']]] = None,
+                 resource_collection_filter: pulumi.Input[Optional[Union['ResourceCollectionFilterArgs', 'ResourceCollectionFilterArgsDict', 'outputs.ResourceCollectionFilter']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

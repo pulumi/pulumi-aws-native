@@ -165,11 +165,11 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
                  inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']]] = None,
                  ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::QLDB::Stream.
@@ -231,7 +231,7 @@ class Stream(pulumi.CustomResource):
                The `InclusiveStartTime` cannot be in the future and must be before `ExclusiveEndTime` .
                
                If you provide an `InclusiveStartTime` that is before the ledger's `CreationDateTime` , QLDB effectively defaults it to the ledger's `CreationDateTime` .
-        :param pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request.
+        :param pulumi.Input[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']] kinesis_configuration: The configuration settings of the Kinesis Data Streams destination for your stream request.
         :param pulumi.Input[_builtins.str] ledger_name: The name of the ledger.
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
                
@@ -239,7 +239,7 @@ class Stream(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] stream_name: The name that you want to assign to the QLDB journal stream. User-defined names can help identify and indicate the purpose of a stream.
                
                Your stream name must be unique among other *active* streams for a given ledger. Stream names have the same naming constraints as ledger names, as defined in [Quotas in Amazon QLDB](https://docs.aws.amazon.com/qldb/latest/developerguide/limits.html#limits.naming) in the *Amazon QLDB Developer Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -314,11 +314,11 @@ class Stream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  exclusive_end_time: pulumi.Input[Optional[_builtins.str]] = None,
                  inclusive_start_time: pulumi.Input[Optional[_builtins.str]] = None,
-                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict']]] = None,
+                 kinesis_configuration: pulumi.Input[Optional[Union['StreamKinesisConfigurationArgs', 'StreamKinesisConfigurationArgsDict', 'outputs.StreamKinesisConfiguration']]] = None,
                  ledger_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  stream_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

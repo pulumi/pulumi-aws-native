@@ -123,19 +123,19 @@ class ConfiguredModelAlgorithm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 inference_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict']]] = None,
+                 inference_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict', 'outputs.ConfiguredModelAlgorithmInferenceContainerConfig']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 training_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict', 'outputs.ConfiguredModelAlgorithmContainerConfig']]] = None,
                  __props__=None):
         """
         Definition of AWS::CleanRoomsML::ConfiguredModelAlgorithm Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms-ml configured model algorithm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms-ml configured model algorithm.
         """
         ...
     @overload
@@ -162,12 +162,12 @@ class ConfiguredModelAlgorithm(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 inference_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict']]] = None,
+                 inference_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmInferenceContainerConfigArgs', 'ConfiguredModelAlgorithmInferenceContainerConfigArgsDict', 'outputs.ConfiguredModelAlgorithmInferenceContainerConfig']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 training_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 training_container_config: pulumi.Input[Optional[Union['ConfiguredModelAlgorithmContainerConfigArgs', 'ConfiguredModelAlgorithmContainerConfigArgsDict', 'outputs.ConfiguredModelAlgorithmContainerConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

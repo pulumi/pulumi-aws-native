@@ -2890,7 +2890,7 @@ class GatewayAuthorizingClaimMatchValueType(dict):
 
     def __init__(__self__, *,
                  claim_match_operator: 'GatewayClaimMatchOperatorType',
-                 claim_match_value: Any):
+                 claim_match_value: Union['outputs.GatewayClaimMatchValueType0Properties', 'outputs.GatewayClaimMatchValueType1Properties']):
         pulumi.set(__self__, "claim_match_operator", claim_match_operator)
         pulumi.set(__self__, "claim_match_value", claim_match_value)
 
@@ -2901,7 +2901,7 @@ class GatewayAuthorizingClaimMatchValueType(dict):
 
     @_builtins.property
     @pulumi.getter(name="claimMatchValue")
-    def claim_match_value(self) -> Any:
+    def claim_match_value(self) -> Union['outputs.GatewayClaimMatchValueType0Properties', 'outputs.GatewayClaimMatchValueType1Properties']:
         return pulumi.get(self, "claim_match_value")
 
 
@@ -3048,7 +3048,7 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
                  allowed_clients: Optional[Sequence[_builtins.str]] = None,
                  allowed_scopes: Optional[Sequence[_builtins.str]] = None,
                  custom_claims: Optional[Sequence['outputs.GatewayCustomClaimValidationType']] = None,
-                 private_endpoint: Optional[Any] = None):
+                 private_endpoint: Optional[Union['outputs.GatewayPrivateEndpoint0Properties', 'outputs.GatewayPrivateEndpoint1Properties']] = None):
         pulumi.set(__self__, "discovery_url", discovery_url)
         if advertised_scope_mapping is not None:
             pulumi.set(__self__, "advertised_scope_mapping", advertised_scope_mapping)
@@ -3095,7 +3095,7 @@ class GatewayCustomJwtAuthorizerConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="privateEndpoint")
-    def private_endpoint(self) -> Optional[Any]:
+    def private_endpoint(self) -> Optional[Union['outputs.GatewayPrivateEndpoint0Properties', 'outputs.GatewayPrivateEndpoint1Properties']]:
         return pulumi.get(self, "private_endpoint")
 
 
@@ -3544,12 +3544,12 @@ class GatewayRuleAction0Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 configuration_bundle: Any):
+                 configuration_bundle: Union['outputs.GatewayRuleConfigurationBundleAction0Properties', 'outputs.GatewayRuleConfigurationBundleAction1Properties']):
         pulumi.set(__self__, "configuration_bundle", configuration_bundle)
 
     @_builtins.property
     @pulumi.getter(name="configurationBundle")
-    def configuration_bundle(self) -> Any:
+    def configuration_bundle(self) -> Union['outputs.GatewayRuleConfigurationBundleAction0Properties', 'outputs.GatewayRuleConfigurationBundleAction1Properties']:
         return pulumi.get(self, "configuration_bundle")
 
 
@@ -3573,12 +3573,12 @@ class GatewayRuleAction1Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 route_to_target: Any):
+                 route_to_target: Union['outputs.GatewayRuleRouteToTargetAction0Properties', 'outputs.GatewayRuleRouteToTargetAction1Properties']):
         pulumi.set(__self__, "route_to_target", route_to_target)
 
     @_builtins.property
     @pulumi.getter(name="routeToTarget")
-    def route_to_target(self) -> Any:
+    def route_to_target(self) -> Union['outputs.GatewayRuleRouteToTargetAction0Properties', 'outputs.GatewayRuleRouteToTargetAction1Properties']:
         return pulumi.get(self, "route_to_target")
 
 
@@ -4749,7 +4749,7 @@ class GatewayTargetCredentialProviderConfiguration(dict):
 
     def __init__(__self__, *,
                  credential_provider_type: 'GatewayTargetCredentialProviderType',
-                 credential_provider: Optional[Any] = None):
+                 credential_provider: Optional[Union['outputs.GatewayTargetCredentialProvider0Properties', 'outputs.GatewayTargetCredentialProvider1Properties', 'outputs.GatewayTargetCredentialProvider2Properties']] = None):
         """
         :param 'GatewayTargetCredentialProviderType' credential_provider_type: The credential provider type for the gateway target.
         :param Union['GatewayTargetCredentialProvider0Properties', 'GatewayTargetCredentialProvider1Properties', 'GatewayTargetCredentialProvider2Properties'] credential_provider: The credential provider for the gateway target.
@@ -4768,7 +4768,7 @@ class GatewayTargetCredentialProviderConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="credentialProvider")
-    def credential_provider(self) -> Optional[Any]:
+    def credential_provider(self) -> Optional[Union['outputs.GatewayTargetCredentialProvider0Properties', 'outputs.GatewayTargetCredentialProvider1Properties', 'outputs.GatewayTargetCredentialProvider2Properties']]:
         """
         The credential provider for the gateway target.
         """
@@ -4778,12 +4778,12 @@ class GatewayTargetCredentialProviderConfiguration(dict):
 @pulumi.output_type
 class GatewayTargetHttpApiSchemaConfiguration(dict):
     def __init__(__self__, *,
-                 source: Any):
+                 source: Union['outputs.GatewayTargetApiSchemaConfiguration0Properties', 'outputs.GatewayTargetApiSchemaConfiguration1Properties']):
         pulumi.set(__self__, "source", source)
 
     @_builtins.property
     @pulumi.getter
-    def source(self) -> Any:
+    def source(self) -> Union['outputs.GatewayTargetApiSchemaConfiguration0Properties', 'outputs.GatewayTargetApiSchemaConfiguration1Properties']:
         return pulumi.get(self, "source")
 
 
@@ -5149,7 +5149,7 @@ class GatewayTargetMcpLambdaTargetConfiguration(dict):
 
     def __init__(__self__, *,
                  lambda_arn: _builtins.str,
-                 tool_schema: Any):
+                 tool_schema: Union['outputs.GatewayTargetToolSchema0Properties', 'outputs.GatewayTargetToolSchema1Properties']):
         pulumi.set(__self__, "lambda_arn", lambda_arn)
         pulumi.set(__self__, "tool_schema", tool_schema)
 
@@ -5160,7 +5160,7 @@ class GatewayTargetMcpLambdaTargetConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="toolSchema")
-    def tool_schema(self) -> Any:
+    def tool_schema(self) -> Union['outputs.GatewayTargetToolSchema0Properties', 'outputs.GatewayTargetToolSchema1Properties']:
         return pulumi.get(self, "tool_schema")
 
 
@@ -5190,7 +5190,7 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
     def __init__(__self__, *,
                  endpoint: _builtins.str,
                  listing_mode: Optional['GatewayTargetListingMode'] = None,
-                 mcp_tool_schema: Optional[Any] = None,
+                 mcp_tool_schema: Optional[Union['outputs.GatewayTargetMcpToolSchemaConfiguration0Properties', 'outputs.GatewayTargetMcpToolSchemaConfiguration1Properties']] = None,
                  resource_priority: Optional[_builtins.float] = None):
         pulumi.set(__self__, "endpoint", endpoint)
         if listing_mode is not None:
@@ -5212,7 +5212,7 @@ class GatewayTargetMcpServerTargetConfiguration(dict):
 
     @_builtins.property
     @pulumi.getter(name="mcpToolSchema")
-    def mcp_tool_schema(self) -> Optional[Any]:
+    def mcp_tool_schema(self) -> Optional[Union['outputs.GatewayTargetMcpToolSchemaConfiguration0Properties', 'outputs.GatewayTargetMcpToolSchemaConfiguration1Properties']]:
         return pulumi.get(self, "mcp_tool_schema")
 
     @_builtins.property
@@ -5241,12 +5241,12 @@ class GatewayTargetMcpTargetConfiguration0Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 open_api_schema: Any):
+                 open_api_schema: Union['outputs.GatewayTargetApiSchemaConfiguration0Properties', 'outputs.GatewayTargetApiSchemaConfiguration1Properties']):
         pulumi.set(__self__, "open_api_schema", open_api_schema)
 
     @_builtins.property
     @pulumi.getter(name="openApiSchema")
-    def open_api_schema(self) -> Any:
+    def open_api_schema(self) -> Union['outputs.GatewayTargetApiSchemaConfiguration0Properties', 'outputs.GatewayTargetApiSchemaConfiguration1Properties']:
         return pulumi.get(self, "open_api_schema")
 
 
@@ -5270,12 +5270,12 @@ class GatewayTargetMcpTargetConfiguration1Properties(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 smithy_model: Any):
+                 smithy_model: Union['outputs.GatewayTargetApiSchemaConfiguration0Properties', 'outputs.GatewayTargetApiSchemaConfiguration1Properties']):
         pulumi.set(__self__, "smithy_model", smithy_model)
 
     @_builtins.property
     @pulumi.getter(name="smithyModel")
-    def smithy_model(self) -> Any:
+    def smithy_model(self) -> Union['outputs.GatewayTargetApiSchemaConfiguration0Properties', 'outputs.GatewayTargetApiSchemaConfiguration1Properties']:
         return pulumi.get(self, "smithy_model")
 
 
@@ -5911,36 +5911,36 @@ class GatewayTargetStickinessConfiguration(dict):
 @pulumi.output_type
 class GatewayTargetTargetConfiguration0Properties(dict):
     def __init__(__self__, *,
-                 mcp: Any):
+                 mcp: Union['outputs.GatewayTargetMcpTargetConfiguration0Properties', 'outputs.GatewayTargetMcpTargetConfiguration1Properties', 'outputs.GatewayTargetMcpTargetConfiguration2Properties', 'outputs.GatewayTargetMcpTargetConfiguration3Properties', 'outputs.GatewayTargetMcpTargetConfiguration4Properties', 'outputs.GatewayTargetMcpTargetConfiguration5Properties']):
         pulumi.set(__self__, "mcp", mcp)
 
     @_builtins.property
     @pulumi.getter
-    def mcp(self) -> Any:
+    def mcp(self) -> Union['outputs.GatewayTargetMcpTargetConfiguration0Properties', 'outputs.GatewayTargetMcpTargetConfiguration1Properties', 'outputs.GatewayTargetMcpTargetConfiguration2Properties', 'outputs.GatewayTargetMcpTargetConfiguration3Properties', 'outputs.GatewayTargetMcpTargetConfiguration4Properties', 'outputs.GatewayTargetMcpTargetConfiguration5Properties']:
         return pulumi.get(self, "mcp")
 
 
 @pulumi.output_type
 class GatewayTargetTargetConfiguration1Properties(dict):
     def __init__(__self__, *,
-                 http: Any):
+                 http: Union['outputs.GatewayTargetHttpTargetConfiguration0Properties', 'outputs.GatewayTargetHttpTargetConfiguration1Properties']):
         pulumi.set(__self__, "http", http)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> Any:
+    def http(self) -> Union['outputs.GatewayTargetHttpTargetConfiguration0Properties', 'outputs.GatewayTargetHttpTargetConfiguration1Properties']:
         return pulumi.get(self, "http")
 
 
 @pulumi.output_type
 class GatewayTargetTargetConfiguration2Properties(dict):
     def __init__(__self__, *,
-                 inference: Any):
+                 inference: Union['outputs.GatewayTargetInferenceTargetConfiguration0Properties', 'outputs.GatewayTargetInferenceTargetConfiguration1Properties']):
         pulumi.set(__self__, "inference", inference)
 
     @_builtins.property
     @pulumi.getter
-    def inference(self) -> Any:
+    def inference(self) -> Union['outputs.GatewayTargetInferenceTargetConfiguration0Properties', 'outputs.GatewayTargetInferenceTargetConfiguration1Properties']:
         return pulumi.get(self, "inference")
 
 
@@ -6277,9 +6277,9 @@ class HarnessAgentCoreMemoryRetrievalConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 relevance_score: Optional[Any] = None,
+                 relevance_score: Optional[Union[_builtins.float, _builtins.str]] = None,
                  strategy_id: Optional[_builtins.str] = None,
-                 top_k: Optional[Any] = None):
+                 top_k: Optional[Union[_builtins.int, _builtins.str]] = None):
         """
         :param Union[_builtins.float, _builtins.str] relevance_score: Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
         :param Union[_builtins.int, _builtins.str] top_k: Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
@@ -6293,7 +6293,7 @@ class HarnessAgentCoreMemoryRetrievalConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="relevanceScore")
-    def relevance_score(self) -> Optional[Any]:
+    def relevance_score(self) -> Optional[Union[_builtins.float, _builtins.str]]:
         """
         Minimum relevance score for retrieved memories. Typed as both number and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON number; both forms must validate.
         """
@@ -6306,7 +6306,7 @@ class HarnessAgentCoreMemoryRetrievalConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="topK")
-    def top_k(self) -> Optional[Any]:
+    def top_k(self) -> Optional[Union[_builtins.int, _builtins.str]]:
         """
         Maximum number of memory records to retrieve. Typed as both integer and string because CloudFormation marshals scalars nested in dynamic-key (patternProperties) maps as strings, while direct API/CDK callers send a JSON integer; both forms must validate.
         """

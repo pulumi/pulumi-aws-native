@@ -215,10 +215,10 @@ class ScalingPolicy(pulumi.CustomResource):
                  metric_aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
                  min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 predictive_scaling_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 predictive_scaling_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict', 'outputs.ScalingPolicyPredictiveScalingConfiguration']]] = None,
                  scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
-                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict']]]]] = None,
-                 target_tracking_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict']]] = None,
+                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict', 'outputs.ScalingPolicyStepAdjustment']]]]] = None,
+                 target_tracking_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict', 'outputs.ScalingPolicyTargetTrackingConfiguration']]] = None,
                  __props__=None):
         """
         The AWS::AutoScaling::ScalingPolicy resource specifies an Amazon EC2 Auto Scaling scaling policy so that the Auto Scaling group can scale the number of instances available for your application.
@@ -232,10 +232,10 @@ class ScalingPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] metric_aggregation_type: The aggregation type for the CloudWatch metrics. The valid values are Minimum, Maximum, and Average. If the aggregation type is null, the value is treated as Average. Valid only if the policy type is StepScaling.
         :param pulumi.Input[_builtins.int] min_adjustment_magnitude: The minimum value to scale by when the adjustment type is PercentChangeInCapacity. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a MinAdjustmentMagnitude of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a MinAdjustmentMagnitude of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.
         :param pulumi.Input[_builtins.str] policy_type: One of the following policy types: TargetTrackingScaling, StepScaling, SimpleScaling (default), PredictiveScaling
-        :param pulumi.Input[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict']] predictive_scaling_configuration: A predictive scaling policy. Includes support for predefined metrics only.
+        :param pulumi.Input[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict', 'outputs.ScalingPolicyPredictiveScalingConfiguration']] predictive_scaling_configuration: A predictive scaling policy. Includes support for predefined metrics only.
         :param pulumi.Input[_builtins.int] scaling_adjustment: The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value. Required if the policy type is SimpleScaling. (Not used with any other policy type.)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict']]]] step_adjustments: A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
-        :param pulumi.Input[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict']] target_tracking_configuration: A target tracking scaling policy. Includes support for predefined or customized metrics.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict', 'outputs.ScalingPolicyStepAdjustment']]]] step_adjustments: A set of adjustments that enable you to scale based on the size of the alarm breach. Required if the policy type is StepScaling. (Not used with any other policy type.)
+        :param pulumi.Input[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict', 'outputs.ScalingPolicyTargetTrackingConfiguration']] target_tracking_configuration: A target tracking scaling policy. Includes support for predefined or customized metrics.
         """
         ...
     @overload
@@ -268,10 +268,10 @@ class ScalingPolicy(pulumi.CustomResource):
                  metric_aggregation_type: pulumi.Input[Optional[_builtins.str]] = None,
                  min_adjustment_magnitude: pulumi.Input[Optional[_builtins.int]] = None,
                  policy_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 predictive_scaling_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict']]] = None,
+                 predictive_scaling_configuration: pulumi.Input[Optional[Union['ScalingPolicyPredictiveScalingConfigurationArgs', 'ScalingPolicyPredictiveScalingConfigurationArgsDict', 'outputs.ScalingPolicyPredictiveScalingConfiguration']]] = None,
                  scaling_adjustment: pulumi.Input[Optional[_builtins.int]] = None,
-                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict']]]]] = None,
-                 target_tracking_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict']]] = None,
+                 step_adjustments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalingPolicyStepAdjustmentArgs', 'ScalingPolicyStepAdjustmentArgsDict', 'outputs.ScalingPolicyStepAdjustment']]]]] = None,
+                 target_tracking_configuration: pulumi.Input[Optional[Union['ScalingPolicyTargetTrackingConfigurationArgs', 'ScalingPolicyTargetTrackingConfigurationArgsDict', 'outputs.ScalingPolicyTargetTrackingConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

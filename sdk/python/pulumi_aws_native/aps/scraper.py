@@ -146,12 +146,12 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
-                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
-                 scrape_configuration: pulumi.Input[Optional[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
-                 scraper_logging_configuration: pulumi.Input[Optional[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict']]] = None,
-                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']]] = None,
+                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']]] = None,
+                 scrape_configuration: pulumi.Input[Optional[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict', 'outputs.ScraperScrapeConfiguration']]] = None,
+                 scraper_logging_configuration: pulumi.Input[Optional[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict', 'outputs.ScraperLoggingConfiguration']]] = None,
+                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::APS::Scraper
@@ -159,12 +159,12 @@ class Scraper(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: Scraper alias.
-        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
-        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']] role_configuration: The role configuration in an Amazon Managed Service for Prometheus scraper.
-        :param pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']] scrape_configuration: The configuration in use by the scraper.
-        :param pulumi.Input[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict']] scraper_logging_configuration: The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
-        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']] source: The Amazon EKS cluster from which the scraper collects metrics.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']] destination: The Amazon Managed Service for Prometheus workspace the scraper sends metrics to.
+        :param pulumi.Input[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']] role_configuration: The role configuration in an Amazon Managed Service for Prometheus scraper.
+        :param pulumi.Input[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict', 'outputs.ScraperScrapeConfiguration']] scrape_configuration: The configuration in use by the scraper.
+        :param pulumi.Input[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict', 'outputs.ScraperLoggingConfiguration']] scraper_logging_configuration: The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        :param pulumi.Input[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']] source: The Amazon EKS cluster from which the scraper collects metrics.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -191,12 +191,12 @@ class Scraper(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict']]] = None,
-                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict']]] = None,
-                 scrape_configuration: pulumi.Input[Optional[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict']]] = None,
-                 scraper_logging_configuration: pulumi.Input[Optional[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict']]] = None,
-                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 destination: pulumi.Input[Optional[Union['ScraperDestinationArgs', 'ScraperDestinationArgsDict', 'outputs.ScraperDestination']]] = None,
+                 role_configuration: pulumi.Input[Optional[Union['ScraperRoleConfigurationArgs', 'ScraperRoleConfigurationArgsDict', 'outputs.ScraperRoleConfiguration']]] = None,
+                 scrape_configuration: pulumi.Input[Optional[Union['ScraperScrapeConfigurationArgs', 'ScraperScrapeConfigurationArgsDict', 'outputs.ScraperScrapeConfiguration']]] = None,
+                 scraper_logging_configuration: pulumi.Input[Optional[Union['ScraperLoggingConfigurationArgs', 'ScraperLoggingConfigurationArgsDict', 'outputs.ScraperLoggingConfiguration']]] = None,
+                 source: pulumi.Input[Optional[Union['ScraperSourceArgs', 'ScraperSourceArgsDict', 'outputs.ScraperSource']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

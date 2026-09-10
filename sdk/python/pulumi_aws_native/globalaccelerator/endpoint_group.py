@@ -192,14 +192,14 @@ class EndpointGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict', 'outputs.EndpointGroupEndpointConfiguration']]]]] = None,
                  endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_port: pulumi.Input[Optional[_builtins.int]] = None,
                  health_check_protocol: pulumi.Input[Optional['EndpointGroupHealthCheckProtocol']] = None,
                  listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
+                 port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict', 'outputs.EndpointGroupPortOverride']]]]] = None,
                  threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
                  traffic_dial_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):
@@ -208,14 +208,14 @@ class EndpointGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]] endpoint_configurations: The list of endpoint objects.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict', 'outputs.EndpointGroupEndpointConfiguration']]]] endpoint_configurations: The list of endpoint objects.
         :param pulumi.Input[_builtins.str] endpoint_group_region: The name of the AWS Region where the endpoint group is located
         :param pulumi.Input[_builtins.int] health_check_interval_seconds: The time in seconds between each health check for an endpoint. Must be a value of 10 or 30
         :param pulumi.Input[_builtins.str] health_check_path: If the protocol is HTTP/S, then this value provides the ping path that Global Accelerator uses for the destination on the endpoints for health checks. The default is slash (/).
         :param pulumi.Input[_builtins.int] health_check_port: The port that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input['EndpointGroupHealthCheckProtocol'] health_check_protocol: The protocol that AWS Global Accelerator uses to check the health of endpoints in this endpoint group.
         :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the listener
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]] port_overrides: Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict', 'outputs.EndpointGroupPortOverride']]]] port_overrides: Allows you to override the destination ports used to route traffic to an endpoint. Using a port override lets you map a list of external destination ports (that your users send traffic to) to a list of internal destination ports that you want an application endpoint to receive traffic on.
         :param pulumi.Input[_builtins.int] threshold_count: The number of consecutive health checks required to set the state of the endpoint to unhealthy.
         :param pulumi.Input[_builtins.float] traffic_dial_percentage: The percentage of traffic to sent to an AWS Region
         """
@@ -243,14 +243,14 @@ class EndpointGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict']]]]] = None,
+                 endpoint_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupEndpointConfigurationArgs', 'EndpointGroupEndpointConfigurationArgsDict', 'outputs.EndpointGroupEndpointConfiguration']]]]] = None,
                  endpoint_group_region: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_interval_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  health_check_port: pulumi.Input[Optional[_builtins.int]] = None,
                  health_check_protocol: pulumi.Input[Optional['EndpointGroupHealthCheckProtocol']] = None,
                  listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict']]]]] = None,
+                 port_overrides: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointGroupPortOverrideArgs', 'EndpointGroupPortOverrideArgsDict', 'outputs.EndpointGroupPortOverride']]]]] = None,
                  threshold_count: pulumi.Input[Optional[_builtins.int]] = None,
                  traffic_dial_percentage: pulumi.Input[Optional[_builtins.float]] = None,
                  __props__=None):

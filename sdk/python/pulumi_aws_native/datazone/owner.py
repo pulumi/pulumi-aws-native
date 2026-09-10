@@ -97,7 +97,7 @@ class Owner(pulumi.CustomResource):
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional['OwnerEntityType']] = None,
-                 owner: pulumi.Input[Optional[Union['OwnerPropertiesArgs', 'OwnerPropertiesArgsDict']]] = None,
+                 owner: pulumi.Input[Optional[Union['OwnerPropertiesArgs', 'OwnerPropertiesArgsDict', 'outputs.OwnerProperties']]] = None,
                  __props__=None):
         """
         A owner can set up authorization permissions on their resources.
@@ -107,7 +107,7 @@ class Owner(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the domain in which you want to add the entity owner.
         :param pulumi.Input[_builtins.str] entity_identifier: The ID of the entity to which you want to add an owner.
         :param pulumi.Input['OwnerEntityType'] entity_type: The type of an entity.
-        :param pulumi.Input[Union['OwnerPropertiesArgs', 'OwnerPropertiesArgsDict']] owner: The owner that you want to add to the entity.
+        :param pulumi.Input[Union['OwnerPropertiesArgs', 'OwnerPropertiesArgsDict', 'outputs.OwnerProperties']] owner: The owner that you want to add to the entity.
         """
         ...
     @overload
@@ -136,7 +136,7 @@ class Owner(pulumi.CustomResource):
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  entity_type: pulumi.Input[Optional['OwnerEntityType']] = None,
-                 owner: pulumi.Input[Optional[Union['OwnerPropertiesArgs', 'OwnerPropertiesArgsDict']]] = None,
+                 owner: pulumi.Input[Optional[Union['OwnerPropertiesArgs', 'OwnerPropertiesArgsDict', 'outputs.OwnerProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

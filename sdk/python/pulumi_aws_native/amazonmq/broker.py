@@ -411,25 +411,25 @@ class Broker(pulumi.CustomResource):
                  authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  broker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict', 'outputs.BrokerConfigurationId']]] = None,
                  data_replication_mode: pulumi.Input[Optional[Union['BrokerDataReplicationMode', _builtins.str]]] = None,
                  data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_mode: pulumi.Input[Optional[Union['BrokerDeploymentMode', _builtins.str]]] = None,
-                 encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
+                 encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict', 'outputs.BrokerEncryptionOptions']]] = None,
                  engine_type: pulumi.Input[Optional[Union['BrokerEngineType', _builtins.str]]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  host_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
-                 logs: pulumi.Input[Optional[Union['BrokerLogListArgs', 'BrokerLogListArgsDict']]] = None,
-                 maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowArgs', 'BrokerMaintenanceWindowArgsDict']]] = None,
+                 ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict', 'outputs.BrokerLdapServerMetadata']]] = None,
+                 logs: pulumi.Input[Optional[Union['BrokerLogListArgs', 'BrokerLogListArgsDict', 'outputs.BrokerLogList']]] = None,
+                 maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowArgs', 'BrokerMaintenanceWindowArgsDict', 'outputs.BrokerMaintenanceWindow']]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_share_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_size: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[Union['BrokerStorageType', _builtins.str]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict', 'outputs.BrokerUser']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::AmazonMQ::Broker
@@ -590,20 +590,20 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] broker_name: Required. The broker's name. This value must be unique in your AWS account , 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.
                
                > Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other AWS services, including CloudWatch Logs . Broker names are not intended to be used for private or sensitive data.
-        :param pulumi.Input[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict']] configuration: The intended configuration (ID and revision) to be set when creating or updating.
+        :param pulumi.Input[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict', 'outputs.BrokerConfigurationId']] configuration: The intended configuration (ID and revision) to be set when creating or updating.
                This property is write-only so that applications of a ConfigurationAssociation do not cause drift.
         :param pulumi.Input[Union['BrokerDataReplicationMode', _builtins.str]] data_replication_mode: Defines whether this broker is a part of a data replication pair.
         :param pulumi.Input[_builtins.str] data_replication_primary_broker_arn: The ARN of the primary broker that is used to replicate data from in a data replication pair when creating a replica.
                This field is only used at creation-time. Changes to it subsequently are ignored by CloudFormation.
                Information on the current primary is available on the DataReplicationMetadata object returned by the API.
         :param pulumi.Input[Union['BrokerDeploymentMode', _builtins.str]] deployment_mode: Required. The broker's deployment mode.
-        :param pulumi.Input[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']] encryption_options: Encryption options for the broker.
+        :param pulumi.Input[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict', 'outputs.BrokerEncryptionOptions']] encryption_options: Encryption options for the broker.
         :param pulumi.Input[Union['BrokerEngineType', _builtins.str]] engine_type: Required. The type of broker engine. Currently, Amazon MQ supports `ACTIVEMQ` and `RABBITMQ` .
         :param pulumi.Input[_builtins.str] engine_version: The version specified to use. See also EngineVersionCurrent.
         :param pulumi.Input[_builtins.str] host_instance_type: Required. The broker's instance type.
-        :param pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']] ldap_server_metadata: Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
-        :param pulumi.Input[Union['BrokerLogListArgs', 'BrokerLogListArgsDict']] logs: Enables Amazon CloudWatch logging for brokers.
-        :param pulumi.Input[Union['BrokerMaintenanceWindowArgs', 'BrokerMaintenanceWindowArgsDict']] maintenance_window_start_time: The parameters that determine the WeeklyStartTime.
+        :param pulumi.Input[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict', 'outputs.BrokerLdapServerMetadata']] ldap_server_metadata: Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.
+        :param pulumi.Input[Union['BrokerLogListArgs', 'BrokerLogListArgsDict', 'outputs.BrokerLogList']] logs: Enables Amazon CloudWatch logging for brokers.
+        :param pulumi.Input[Union['BrokerMaintenanceWindowArgs', 'BrokerMaintenanceWindowArgsDict', 'outputs.BrokerMaintenanceWindow']] maintenance_window_start_time: The parameters that determine the WeeklyStartTime.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to `false` by default, if no value is provided.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_share_arns: The ARNs of the resource shares to be associated with the broker.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.
@@ -612,8 +612,8 @@ class Broker(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.
                
                > If you specify subnets in a [shared VPC](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html) for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your AWS account . Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your AWS account .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Create tags when creating the broker.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]] users: Users to configure on the broker.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Create tags when creating the broker.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict', 'outputs.BrokerUser']]]] users: Users to configure on the broker.
                For RabbitMQ, this should be one user, created when the broker is created, and changes thereafter are ignored.
                For ActiveMQ, changes to anything but Password are detected and will trigger an update,
                but changes to Password cannot be detected so updates to Password may not take effect unless there is some other change.
@@ -792,25 +792,25 @@ class Broker(pulumi.CustomResource):
                  authentication_strategy: pulumi.Input[Optional[_builtins.str]] = None,
                  auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  broker_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['BrokerConfigurationIdArgs', 'BrokerConfigurationIdArgsDict', 'outputs.BrokerConfigurationId']]] = None,
                  data_replication_mode: pulumi.Input[Optional[Union['BrokerDataReplicationMode', _builtins.str]]] = None,
                  data_replication_primary_broker_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_mode: pulumi.Input[Optional[Union['BrokerDeploymentMode', _builtins.str]]] = None,
-                 encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict']]] = None,
+                 encryption_options: pulumi.Input[Optional[Union['BrokerEncryptionOptionsArgs', 'BrokerEncryptionOptionsArgsDict', 'outputs.BrokerEncryptionOptions']]] = None,
                  engine_type: pulumi.Input[Optional[Union['BrokerEngineType', _builtins.str]]] = None,
                  engine_version: pulumi.Input[Optional[_builtins.str]] = None,
                  host_instance_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict']]] = None,
-                 logs: pulumi.Input[Optional[Union['BrokerLogListArgs', 'BrokerLogListArgsDict']]] = None,
-                 maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowArgs', 'BrokerMaintenanceWindowArgsDict']]] = None,
+                 ldap_server_metadata: pulumi.Input[Optional[Union['BrokerLdapServerMetadataArgs', 'BrokerLdapServerMetadataArgsDict', 'outputs.BrokerLdapServerMetadata']]] = None,
+                 logs: pulumi.Input[Optional[Union['BrokerLogListArgs', 'BrokerLogListArgsDict', 'outputs.BrokerLogList']]] = None,
+                 maintenance_window_start_time: pulumi.Input[Optional[Union['BrokerMaintenanceWindowArgs', 'BrokerMaintenanceWindowArgsDict', 'outputs.BrokerMaintenanceWindow']]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  resource_share_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  storage_size: pulumi.Input[Optional[_builtins.int]] = None,
                  storage_type: pulumi.Input[Optional[Union['BrokerStorageType', _builtins.str]]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 users: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrokerUserArgs', 'BrokerUserArgsDict', 'outputs.BrokerUser']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

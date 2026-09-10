@@ -168,11 +168,11 @@ class Memory(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
-                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict', 'outputs.MemoryIndexedKey']]]]] = None,
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
+                 memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict', 'outputs.MemoryStrategy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict', 'outputs.MemoryStreamDeliveryResources']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -183,7 +183,7 @@ class Memory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] encryption_key_arn: The memory encryption key Amazon Resource Name (ARN).
         :param pulumi.Input[_builtins.int] event_expiry_duration: Duration in days until memory events expire
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: The memory role ARN.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]] memory_strategies: The memory strategies.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict', 'outputs.MemoryStrategy']]]] memory_strategies: The memory strategies.
         :param pulumi.Input[_builtins.str] name: The memory name.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the resources.
         """
@@ -214,11 +214,11 @@ class Memory(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  event_expiry_duration: pulumi.Input[Optional[_builtins.int]] = None,
-                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict']]]]] = None,
+                 indexed_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryIndexedKeyArgs', 'MemoryIndexedKeyArgsDict', 'outputs.MemoryIndexedKey']]]]] = None,
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
+                 memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict', 'outputs.MemoryStrategy']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
+                 stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict', 'outputs.MemoryStreamDeliveryResources']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

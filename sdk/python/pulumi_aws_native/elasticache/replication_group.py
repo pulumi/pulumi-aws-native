@@ -695,10 +695,10 @@ class ReplicationGroup(pulumi.CustomResource):
                  global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict', 'outputs.ReplicationGroupLogDeliveryConfigurationRequest']]]]] = None,
                  multi_az_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_group_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
+                 node_group_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict', 'outputs.ReplicationGroupNodeGroupConfiguration']]]]] = None,
                  notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  num_cache_clusters: pulumi.Input[Optional[_builtins.int]] = None,
                  num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
@@ -715,7 +715,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshotting_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  transit_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  user_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -741,10 +741,10 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_replication_group_id: The name of the Global datastore
         :param pulumi.Input[_builtins.str] ip_discovery: The network type you choose when creating a replication group, either ipv4 | ipv6. IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the Nitro system.
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the KMS key used to encrypt the disk on the cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict']]]] log_delivery_configurations: Specifies the destination, format and type of the logs.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict', 'outputs.ReplicationGroupLogDeliveryConfigurationRequest']]]] log_delivery_configurations: Specifies the destination, format and type of the logs.
         :param pulumi.Input[_builtins.bool] multi_az_enabled: A flag indicating if you have Multi-AZ enabled to enhance fault tolerance. For more information, see Minimizing Downtime: Multi-AZ.
         :param pulumi.Input[_builtins.str] network_type: Must be either ipv4 | ipv6 | dual_stack. IPv6 is supported for workloads using Redis OSS engine version 6.2 onward or Memcached engine version 1.6.6 on all instances built on the Nitro system
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]] node_group_configuration: NodeGroupConfiguration is a property of the AWS::ElastiCache::ReplicationGroup resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict', 'outputs.ReplicationGroupNodeGroupConfiguration']]]] node_group_configuration: NodeGroupConfiguration is a property of the AWS::ElastiCache::ReplicationGroup resource that configures an Amazon ElastiCache (ElastiCache) Redis cluster node group.
         :param pulumi.Input[_builtins.str] notification_topic_arn: The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic to which notifications are sent.
         :param pulumi.Input[_builtins.int] num_cache_clusters: The number of clusters this replication group initially has.This parameter is not used if there is more than one node group (shard). You should use ReplicasPerNodeGroup instead.
         :param pulumi.Input[_builtins.int] num_node_groups: An optional parameter that specifies the number of node groups (shards) for this Redis (cluster mode enabled) replication group. For Redis (cluster mode disabled) either omit this parameter or set it to 1.
@@ -763,7 +763,7 @@ class ReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of days for which ElastiCache retains automatic snapshots before deleting them. For example, if you set SnapshotRetentionLimit to 5, a snapshot that was taken today is retained for 5 days before being deleted.
         :param pulumi.Input[_builtins.str] snapshot_window: The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot of your node group (shard).
         :param pulumi.Input[_builtins.str] snapshotting_cluster_id: The cluster ID that is used as the daily snapshot source for the replication group. This parameter cannot be set for Redis (cluster mode enabled) replication groups.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of cost allocation tags to be added to this resource. Tags are comma-separated key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of cost allocation tags to be added to this resource. Tags are comma-separated key,value pairs (e.g. Key=myKey, Value=myKeyValue. You can include multiple tags as shown following: Key=myKey, Value=myKeyValue Key=mySecondKey, Value=mySecondKeyValue.
         :param pulumi.Input[_builtins.bool] transit_encryption_enabled: A flag that enables in-transit encryption when set to true.
         :param pulumi.Input[_builtins.str] transit_encryption_mode: A setting that allows you to migrate your clients to use in-transit encryption, with no downtime. When setting TransitEncryptionEnabled to true, you can set your TransitEncryptionMode to preferred in the same request, to allow both encrypted and unencrypted connections at the same time. Once you migrate all your Redis OSS clients to use encrypted connections you can modify the value to required to allow encrypted connections only. Setting TransitEncryptionMode to required is a two-step process that requires you to first set the TransitEncryptionMode to preferred, after that you can set TransitEncryptionMode to required. This process will not trigger the replacement of the replication group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_group_ids: The ID of user group to associate with the replication group.
@@ -808,10 +808,10 @@ class ReplicationGroup(pulumi.CustomResource):
                  global_replication_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  ip_discovery: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict']]]]] = None,
+                 log_delivery_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupLogDeliveryConfigurationRequestArgs', 'ReplicationGroupLogDeliveryConfigurationRequestArgsDict', 'outputs.ReplicationGroupLogDeliveryConfigurationRequest']]]]] = None,
                  multi_az_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  network_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 node_group_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict']]]]] = None,
+                 node_group_configuration: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ReplicationGroupNodeGroupConfigurationArgs', 'ReplicationGroupNodeGroupConfigurationArgsDict', 'outputs.ReplicationGroupNodeGroupConfiguration']]]]] = None,
                  notification_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  num_cache_clusters: pulumi.Input[Optional[_builtins.int]] = None,
                  num_node_groups: pulumi.Input[Optional[_builtins.int]] = None,
@@ -828,7 +828,7 @@ class ReplicationGroup(pulumi.CustomResource):
                  snapshot_retention_limit: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_window: pulumi.Input[Optional[_builtins.str]] = None,
                  snapshotting_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_encryption_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  transit_encryption_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  user_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,

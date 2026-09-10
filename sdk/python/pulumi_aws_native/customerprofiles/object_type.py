@@ -247,13 +247,13 @@ class ObjectType(pulumi.CustomResource):
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict']]]]] = None,
-                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict', 'outputs.ObjectTypeFieldMap']]]]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict', 'outputs.ObjectTypeKeyMap']]]]] = None,
                  max_profile_object_count: pulumi.Input[Optional[_builtins.int]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_last_updated_timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
                  source_priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -266,13 +266,13 @@ class ObjectType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_name: The unique name of the domain.
         :param pulumi.Input[_builtins.str] encryption_key: The default encryption key
         :param pulumi.Input[_builtins.int] expiration_days: The default number of days until the data within the domain expires.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict']]]] fields: A list of the name and ObjectType field.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict']]]] keys: A list of unique keys that can be used to map data to the profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict', 'outputs.ObjectTypeFieldMap']]]] fields: A list of the name and ObjectType field.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict', 'outputs.ObjectTypeKeyMap']]]] keys: A list of unique keys that can be used to map data to the profile.
         :param pulumi.Input[_builtins.int] max_profile_object_count: The maximum number of profile objects for this object type
         :param pulumi.Input[_builtins.str] object_type_name: The name of the profile object type.
         :param pulumi.Input[_builtins.str] source_last_updated_timestamp_format: The format of your sourceLastUpdatedTimestamp that was previously set up.
         :param pulumi.Input[_builtins.int] source_priority: Defines the priority order of object types. Lower value indicates higher priority.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the integration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags (keys and values) associated with the integration.
         :param pulumi.Input[_builtins.str] template_id: A unique identifier for the object template.
         """
         ...
@@ -304,13 +304,13 @@ class ObjectType(pulumi.CustomResource):
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
                  expiration_days: pulumi.Input[Optional[_builtins.int]] = None,
-                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict']]]]] = None,
-                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict']]]]] = None,
+                 fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeFieldMapArgs', 'ObjectTypeFieldMapArgsDict', 'outputs.ObjectTypeFieldMap']]]]] = None,
+                 keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ObjectTypeKeyMapArgs', 'ObjectTypeKeyMapArgsDict', 'outputs.ObjectTypeKeyMap']]]]] = None,
                  max_profile_object_count: pulumi.Input[Optional[_builtins.int]] = None,
                  object_type_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_last_updated_timestamp_format: pulumi.Input[Optional[_builtins.str]] = None,
                  source_priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

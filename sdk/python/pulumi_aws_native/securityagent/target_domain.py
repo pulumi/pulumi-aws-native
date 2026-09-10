@@ -82,7 +82,7 @@ class TargetDomain(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  verification_method: pulumi.Input[Optional['TargetDomainVerificationMethod']] = None,
                  __props__=None):
@@ -91,7 +91,7 @@ class TargetDomain(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags for the target domain
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags for the target domain
         :param pulumi.Input[_builtins.str] target_domain_name: Domain name of the target domain
         :param pulumi.Input['TargetDomainVerificationMethod'] verification_method: Verification method for the target domain
         """
@@ -119,7 +119,7 @@ class TargetDomain(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_domain_name: pulumi.Input[Optional[_builtins.str]] = None,
                  verification_method: pulumi.Input[Optional['TargetDomainVerificationMethod']] = None,
                  __props__=None):

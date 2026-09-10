@@ -200,8 +200,8 @@ class Graph(pulumi.CustomResource):
                  provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
                  public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None,
                  __props__=None):
         """
         The AWS::NeptuneGraph::Graph resource creates an Amazon NeptuneGraph Graph.
@@ -230,8 +230,8 @@ class Graph(pulumi.CustomResource):
                Replica Count should always be less than or equal to 2.
                
                _Default_: If not specified, the default value is 1.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with this graph.
-        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']] vector_search_configuration: Vector Search Configuration
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with this graph.
+        :param pulumi.Input[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']] vector_search_configuration: Vector Search Configuration
         """
         ...
     @overload
@@ -263,8 +263,8 @@ class Graph(pulumi.CustomResource):
                  provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
                  public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 vector_search_configuration: pulumi.Input[Optional[Union['GraphVectorSearchConfigurationArgs', 'GraphVectorSearchConfigurationArgsDict', 'outputs.GraphVectorSearchConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

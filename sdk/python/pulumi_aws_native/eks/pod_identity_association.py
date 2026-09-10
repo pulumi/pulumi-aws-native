@@ -163,7 +163,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_account: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -177,7 +177,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy: The policy of the pod identity association.
         :param pulumi.Input[_builtins.str] role_arn: The IAM role ARN that the pod identity association is created for.
         :param pulumi.Input[_builtins.str] service_account: The Kubernetes service account that the pod identity association is created for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] target_role_arn: The Target Role Arn of the pod identity association.
         """
         ...
@@ -210,7 +210,7 @@ class PodIdentityAssociation(pulumi.CustomResource):
                  policy: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_account: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -53,7 +53,7 @@ class GetAppBlockResult:
 
     @_builtins.property
     @pulumi.getter
-    def tags(self) -> Optional[Sequence[Any]]:
+    def tags(self) -> Optional[Sequence[Union['outputs.AppBlockTag0Properties', 'outputs.AppBlockTag1Properties']]]:
         """
         The tags of the app block.
         """

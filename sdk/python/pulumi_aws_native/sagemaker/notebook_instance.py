@@ -293,7 +293,7 @@ class NotebookInstance(pulumi.CustomResource):
                  additional_code_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_code_repository: pulumi.Input[Optional[_builtins.str]] = None,
                  direct_internet_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']]] = None,
+                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -303,7 +303,7 @@ class NotebookInstance(pulumi.CustomResource):
                  root_access: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  volume_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -315,7 +315,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] additional_code_repositories: An array of up to three Git repositories associated with the notebook instance. These can be either the names of Git repositories stored as resources in your account, or the URL of Git repositories in AWS CodeCommit or in any other Git repository. These repositories are cloned at the same level as the default repository of your notebook instance.
         :param pulumi.Input[_builtins.str] default_code_repository: The Git repository associated with the notebook instance as its default code repository. This can be either the name of a Git repository stored as a resource in your account, or the URL of a Git repository in AWS CodeCommit or in any other Git repository. When you open a notebook instance, it opens in the directory that contains this repository.
         :param pulumi.Input[_builtins.str] direct_internet_access: Sets whether SageMaker AI provides internet access to the notebook instance. If you set this to Disabled this notebook instance is able to access resources only in your VPC, and is not be able to connect to SageMaker AI training and endpoint services unless you configure a NAT Gateway in your VPC. You can set the value of this parameter to Disabled only if you set a value for the SubnetId parameter.
-        :param pulumi.Input[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance.
+        :param pulumi.Input[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']] instance_metadata_service_configuration: Information on the IMDS configuration of the notebook instance.
         :param pulumi.Input[_builtins.str] instance_type: The type of ML compute instance to launch for the notebook instance. Expect some interruption of service if this parameter is changed as CloudFormation stops a notebook instance and starts it up again to update it.
         :param pulumi.Input[_builtins.str] kms_key_id: The Amazon Resource Name (ARN) of a AWS Key Management Service key that SageMaker AI uses to encrypt data on the storage volume attached to your notebook instance. The KMS key you provide must be enabled.
         :param pulumi.Input[_builtins.str] lifecycle_config_name: The name of a lifecycle configuration to associate with the notebook instance.
@@ -325,7 +325,7 @@ class NotebookInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] root_access: Whether root access is enabled or disabled for users of the notebook instance. The default value is Enabled. Lifecycle configurations need root access to be able to set up a notebook instance. Because of this, lifecycle configurations associated with a notebook instance always run with root access even if you disable root access for users.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for the same VPC as specified in the subnet.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet in a VPC to which you would like to have a connectivity from your ML compute instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.int] volume_size_in_gb: The size, in GB, of the ML storage volume to attach to the notebook instance. The default value is 5 GB. Expect some interruption of service if this parameter is changed as CloudFormation stops a notebook instance and starts it up again to update it.
         """
         ...
@@ -356,7 +356,7 @@ class NotebookInstance(pulumi.CustomResource):
                  additional_code_repositories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  default_code_repository: pulumi.Input[Optional[_builtins.str]] = None,
                  direct_internet_access: pulumi.Input[Optional[_builtins.str]] = None,
-                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict']]] = None,
+                 instance_metadata_service_configuration: pulumi.Input[Optional[Union['NotebookInstanceInstanceMetadataServiceConfigurationArgs', 'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict', 'outputs.NotebookInstanceInstanceMetadataServiceConfiguration']]] = None,
                  instance_type: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  lifecycle_config_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -366,7 +366,7 @@ class NotebookInstance(pulumi.CustomResource):
                  root_access: pulumi.Input[Optional[_builtins.str]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  volume_size_in_gb: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

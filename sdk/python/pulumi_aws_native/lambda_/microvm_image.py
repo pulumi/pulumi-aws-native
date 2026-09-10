@@ -232,16 +232,16 @@ class MicrovmImage(pulumi.CustomResource):
                  base_image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  base_image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  build_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 code_artifact: pulumi.Input[Optional[Union['MicrovmImageCodeArtifactArgs', 'MicrovmImageCodeArtifactArgsDict']]] = None,
-                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageCpuConfigurationArgs', 'MicrovmImageCpuConfigurationArgsDict']]]]] = None,
+                 code_artifact: pulumi.Input[Optional[Union['MicrovmImageCodeArtifactArgs', 'MicrovmImageCodeArtifactArgsDict', 'outputs.MicrovmImageCodeArtifact']]] = None,
+                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageCpuConfigurationArgs', 'MicrovmImageCpuConfigurationArgsDict', 'outputs.MicrovmImageCpuConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageEnvironmentVariableArgs', 'MicrovmImageEnvironmentVariableArgsDict']]]]] = None,
-                 hooks: pulumi.Input[Optional[Union['HooksArgs', 'HooksArgsDict']]] = None,
-                 logging: pulumi.Input[Optional[Union['MicrovmImageLoggingArgs', 'MicrovmImageLoggingArgsDict']]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageEnvironmentVariableArgs', 'MicrovmImageEnvironmentVariableArgsDict', 'outputs.MicrovmImageEnvironmentVariable']]]]] = None,
+                 hooks: pulumi.Input[Optional[Union['HooksArgs', 'HooksArgsDict', 'outputs.Hooks']]] = None,
+                 logging: pulumi.Input[Optional[Union['MicrovmImageLoggingArgs', 'MicrovmImageLoggingArgsDict', 'outputs.MicrovmImageLogging']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageResourcesArgs', 'MicrovmImageResourcesArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageResourcesArgs', 'MicrovmImageResourcesArgsDict', 'outputs.MicrovmImageResources']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::MicrovmImage
@@ -251,12 +251,12 @@ class MicrovmImage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] base_image_arn: ARN of the base MicroVM image.
         :param pulumi.Input[_builtins.str] base_image_version: Specific version of the base MicroVM image to use.
         :param pulumi.Input[_builtins.str] build_role_arn: ARN of the IAM build role.
-        :param pulumi.Input[Union['MicrovmImageCodeArtifactArgs', 'MicrovmImageCodeArtifactArgsDict']] code_artifact: Code artifact for the active MicroVM image.
+        :param pulumi.Input[Union['MicrovmImageCodeArtifactArgs', 'MicrovmImageCodeArtifactArgsDict', 'outputs.MicrovmImageCodeArtifact']] code_artifact: Code artifact for the active MicroVM image.
         :param pulumi.Input[_builtins.str] description: Human-readable description of the MicroVM image and its purpose.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MicrovmImageEnvironmentVariableArgs', 'MicrovmImageEnvironmentVariableArgsDict']]]] environment_variables: Environment variables to set in the container during the snapshot build.
-        :param pulumi.Input[Union['MicrovmImageLoggingArgs', 'MicrovmImageLoggingArgsDict']] logging: Configuration for MicroVM image logging.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MicrovmImageEnvironmentVariableArgs', 'MicrovmImageEnvironmentVariableArgsDict', 'outputs.MicrovmImageEnvironmentVariable']]]] environment_variables: Environment variables to set in the container during the snapshot build.
+        :param pulumi.Input[Union['MicrovmImageLoggingArgs', 'MicrovmImageLoggingArgsDict', 'outputs.MicrovmImageLogging']] logging: Configuration for MicroVM image logging.
         :param pulumi.Input[_builtins.str] name: Unique name for the MicroVM image within the account.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs to associate with the MicroVM image for organization and management.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs to associate with the MicroVM image for organization and management.
         """
         ...
     @overload
@@ -286,16 +286,16 @@ class MicrovmImage(pulumi.CustomResource):
                  base_image_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  base_image_version: pulumi.Input[Optional[_builtins.str]] = None,
                  build_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 code_artifact: pulumi.Input[Optional[Union['MicrovmImageCodeArtifactArgs', 'MicrovmImageCodeArtifactArgsDict']]] = None,
-                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageCpuConfigurationArgs', 'MicrovmImageCpuConfigurationArgsDict']]]]] = None,
+                 code_artifact: pulumi.Input[Optional[Union['MicrovmImageCodeArtifactArgs', 'MicrovmImageCodeArtifactArgsDict', 'outputs.MicrovmImageCodeArtifact']]] = None,
+                 cpu_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageCpuConfigurationArgs', 'MicrovmImageCpuConfigurationArgsDict', 'outputs.MicrovmImageCpuConfiguration']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  egress_network_connectors: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageEnvironmentVariableArgs', 'MicrovmImageEnvironmentVariableArgsDict']]]]] = None,
-                 hooks: pulumi.Input[Optional[Union['HooksArgs', 'HooksArgsDict']]] = None,
-                 logging: pulumi.Input[Optional[Union['MicrovmImageLoggingArgs', 'MicrovmImageLoggingArgsDict']]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageEnvironmentVariableArgs', 'MicrovmImageEnvironmentVariableArgsDict', 'outputs.MicrovmImageEnvironmentVariable']]]]] = None,
+                 hooks: pulumi.Input[Optional[Union['HooksArgs', 'HooksArgsDict', 'outputs.Hooks']]] = None,
+                 logging: pulumi.Input[Optional[Union['MicrovmImageLoggingArgs', 'MicrovmImageLoggingArgsDict', 'outputs.MicrovmImageLogging']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageResourcesArgs', 'MicrovmImageResourcesArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 resources: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MicrovmImageResourcesArgs', 'MicrovmImageResourcesArgsDict', 'outputs.MicrovmImageResources']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -261,7 +261,7 @@ class Workload(pulumi.CustomResource):
                  architectural_design: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_config: pulumi.Input[Optional[Union['DiscoveryConfigPropertiesArgs', 'DiscoveryConfigPropertiesArgsDict']]] = None,
+                 discovery_config: pulumi.Input[Optional[Union['DiscoveryConfigPropertiesArgs', 'DiscoveryConfigPropertiesArgsDict', 'outputs.DiscoveryConfigProperties']]] = None,
                  environment: pulumi.Input[Optional['WorkloadEnvironment']] = None,
                  industry: pulumi.Input[Optional[_builtins.str]] = None,
                  industry_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -269,7 +269,7 @@ class Workload(pulumi.CustomResource):
                  non_aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  review_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workload_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -281,7 +281,7 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] architectural_design: The URL of the architectural design for the workload.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_regions: The list of Amazon Web Services Regions associated with the workload.
         :param pulumi.Input[_builtins.str] description: The description for the workload.
-        :param pulumi.Input[Union['DiscoveryConfigPropertiesArgs', 'DiscoveryConfigPropertiesArgsDict']] discovery_config: Discovery configuration associated to the workload.
+        :param pulumi.Input[Union['DiscoveryConfigPropertiesArgs', 'DiscoveryConfigPropertiesArgsDict', 'outputs.DiscoveryConfigProperties']] discovery_config: Discovery configuration associated to the workload.
         :param pulumi.Input['WorkloadEnvironment'] environment: The environment for the workload.
         :param pulumi.Input[_builtins.str] industry: The industry for the workload.
         :param pulumi.Input[_builtins.str] industry_type: The industry type for the workload.
@@ -289,7 +289,7 @@ class Workload(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_aws_regions: The list of non-Amazon Web Services Regions associated with the workload.
         :param pulumi.Input[_builtins.str] notes: The notes associated with the workload.
         :param pulumi.Input[_builtins.str] review_owner: The review owner of the workload.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the workload.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the workload.
         :param pulumi.Input[_builtins.str] workload_name: The name of the workload.
         """
         ...
@@ -320,7 +320,7 @@ class Workload(pulumi.CustomResource):
                  architectural_design: pulumi.Input[Optional[_builtins.str]] = None,
                  aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 discovery_config: pulumi.Input[Optional[Union['DiscoveryConfigPropertiesArgs', 'DiscoveryConfigPropertiesArgsDict']]] = None,
+                 discovery_config: pulumi.Input[Optional[Union['DiscoveryConfigPropertiesArgs', 'DiscoveryConfigPropertiesArgsDict', 'outputs.DiscoveryConfigProperties']]] = None,
                  environment: pulumi.Input[Optional['WorkloadEnvironment']] = None,
                  industry: pulumi.Input[Optional[_builtins.str]] = None,
                  industry_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -328,7 +328,7 @@ class Workload(pulumi.CustomResource):
                  non_aws_regions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  notes: pulumi.Input[Optional[_builtins.str]] = None,
                  review_owner: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workload_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

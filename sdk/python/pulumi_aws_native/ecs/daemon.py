@@ -176,11 +176,11 @@ class Daemon(pulumi.CustomResource):
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  propagate_tags: pulumi.Input[Optional['DaemonPropagateTags']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Information about a daemon resource.
@@ -190,7 +190,7 @@ class Daemon(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capacity_provider_arns: The Amazon Resource Names (ARNs) of the capacity providers associated with the daemon.
         :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
         :param pulumi.Input[_builtins.str] daemon_task_definition_arn: The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
-        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']] deployment_configuration: The deployment configuration used for this daemon deployment.
+        :param pulumi.Input[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']] deployment_configuration: The deployment configuration used for this daemon deployment.
         :param pulumi.Input[_builtins.bool] enable_ecs_managed_tags: Specifies whether Amazon ECS managed tags are turned on for the daemon tasks.
         :param pulumi.Input[_builtins.bool] enable_execute_command: Specifies whether the execute command functionality is turned on for the daemon tasks.
         :param pulumi.Input['DaemonPropagateTags'] propagate_tags: Specifies whether tags are propagated from the daemon to the daemon tasks.
@@ -223,11 +223,11 @@ class Daemon(pulumi.CustomResource):
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
+                 deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict', 'outputs.DaemonDeploymentConfiguration']]] = None,
                  enable_ecs_managed_tags: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_execute_command: pulumi.Input[Optional[_builtins.bool]] = None,
                  propagate_tags: pulumi.Input[Optional['DaemonPropagateTags']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

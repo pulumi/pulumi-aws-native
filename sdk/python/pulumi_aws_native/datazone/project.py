@@ -229,14 +229,14 @@ class Project(pulumi.CustomResource):
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 membership_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
+                 membership_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict', 'outputs.ProjectMembershipAssignment']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_category: pulumi.Input[Optional[_builtins.str]] = None,
                  project_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  project_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  project_profile_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict', 'outputs.ProjectResourceTag']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict', 'outputs.ProjectEnvironmentConfigurationUserParameter']]]]] = None,
                  __props__=None):
         """
         Amazon DataZone projects are business use case–based groupings of people, assets (data), and tools used to simplify access to the AWS analytics.
@@ -247,14 +247,14 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] domain_identifier: The ID of the Amazon DataZone domain in which this project is created.
         :param pulumi.Input[_builtins.str] domain_unit_id: The ID of the domain unit.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The glossary terms that can be used in this Amazon DataZone project.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]] membership_assignments: The project membership assignments.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict', 'outputs.ProjectMembershipAssignment']]]] membership_assignments: The project membership assignments.
         :param pulumi.Input[_builtins.str] name: The name of the Amazon DataZone project.
         :param pulumi.Input[_builtins.str] project_category: The project category.
         :param pulumi.Input[_builtins.str] project_execution_role: The project execution role ARN.
         :param pulumi.Input[_builtins.str] project_profile_id: The project profile ID.
         :param pulumi.Input[_builtins.str] project_profile_version: The project profile version to which the project should be updated. You can only specify the following string for this parameter: latest.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]] resource_tags: The resource tags of the project.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]] user_parameters: The user parameters of the project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict', 'outputs.ProjectResourceTag']]]] resource_tags: The resource tags of the project.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict', 'outputs.ProjectEnvironmentConfigurationUserParameter']]]] user_parameters: The user parameters of the project.
         """
         ...
     @overload
@@ -284,14 +284,14 @@ class Project(pulumi.CustomResource):
                  domain_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_unit_id: pulumi.Input[Optional[_builtins.str]] = None,
                  glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 membership_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict']]]]] = None,
+                 membership_assignments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectMembershipAssignmentArgs', 'ProjectMembershipAssignmentArgsDict', 'outputs.ProjectMembershipAssignment']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_category: pulumi.Input[Optional[_builtins.str]] = None,
                  project_execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  project_profile_id: pulumi.Input[Optional[_builtins.str]] = None,
                  project_profile_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict']]]]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict']]]]] = None,
+                 resource_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectResourceTagArgs', 'ProjectResourceTagArgsDict', 'outputs.ProjectResourceTag']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProjectEnvironmentConfigurationUserParameterArgs', 'ProjectEnvironmentConfigurationUserParameterArgsDict', 'outputs.ProjectEnvironmentConfigurationUserParameter']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

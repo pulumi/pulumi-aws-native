@@ -211,12 +211,12 @@ class LocationAzureBlob(pulumi.CustomResource):
                  azure_access_tier: pulumi.Input[Optional['LocationAzureBlobAzureAccessTier']] = None,
                  azure_blob_authentication_type: pulumi.Input[Optional['LocationAzureBlobAzureBlobAuthenticationType']] = None,
                  azure_blob_container_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_blob_sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobAzureBlobSasConfigurationArgs', 'LocationAzureBlobAzureBlobSasConfigurationArgsDict']]] = None,
+                 azure_blob_sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobAzureBlobSasConfigurationArgs', 'LocationAzureBlobAzureBlobSasConfigurationArgsDict', 'outputs.LocationAzureBlobAzureBlobSasConfiguration']]] = None,
                  azure_blob_type: pulumi.Input[Optional['LocationAzureBlobAzureBlobType']] = None,
-                 cmk_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict']]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict', 'outputs.LocationAzureBlobCmkSecretConfig']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict', 'outputs.LocationAzureBlobCustomSecretConfig']]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DataSync::LocationAzureBlob.
@@ -227,18 +227,18 @@ class LocationAzureBlob(pulumi.CustomResource):
         :param pulumi.Input['LocationAzureBlobAzureAccessTier'] azure_access_tier: Specifies an access tier for the objects you're transferring into your Azure Blob Storage container.
         :param pulumi.Input['LocationAzureBlobAzureBlobAuthenticationType'] azure_blob_authentication_type: The specific authentication type that you want DataSync to use to access your Azure Blob Container.
         :param pulumi.Input[_builtins.str] azure_blob_container_url: The URL of the Azure Blob container that was described.
-        :param pulumi.Input[Union['LocationAzureBlobAzureBlobSasConfigurationArgs', 'LocationAzureBlobAzureBlobSasConfigurationArgsDict']] azure_blob_sas_configuration: Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
+        :param pulumi.Input[Union['LocationAzureBlobAzureBlobSasConfigurationArgs', 'LocationAzureBlobAzureBlobSasConfigurationArgsDict', 'outputs.LocationAzureBlobAzureBlobSasConfiguration']] azure_blob_sas_configuration: Specifies the SAS configuration that allows DataSync to access your Azure Blob Storage.
                
                > If you provide an authentication token using `SasConfiguration` , but do not provide secret configuration details using `CmkSecretConfig` or `CustomSecretConfig` , then DataSync stores the token using your AWS account's secrets manager secret.
         :param pulumi.Input['LocationAzureBlobAzureBlobType'] azure_blob_type: Specifies a blob type for the objects you're transferring into your Azure Blob Storage container.
-        :param pulumi.Input[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict']] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
+        :param pulumi.Input[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict', 'outputs.LocationAzureBlobCmkSecretConfig']] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, such as an authentication token, secret key, password, or Kerberos keytab that DataSync uses to access a specific storage location, with a customer-managed AWS KMS key .
                
                > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
-        :param pulumi.Input[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict']] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        :param pulumi.Input[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict', 'outputs.LocationAzureBlobCustomSecretConfig']] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
                
                > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         :param pulumi.Input[_builtins.str] subdirectory: The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -268,12 +268,12 @@ class LocationAzureBlob(pulumi.CustomResource):
                  azure_access_tier: pulumi.Input[Optional['LocationAzureBlobAzureAccessTier']] = None,
                  azure_blob_authentication_type: pulumi.Input[Optional['LocationAzureBlobAzureBlobAuthenticationType']] = None,
                  azure_blob_container_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 azure_blob_sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobAzureBlobSasConfigurationArgs', 'LocationAzureBlobAzureBlobSasConfigurationArgsDict']]] = None,
+                 azure_blob_sas_configuration: pulumi.Input[Optional[Union['LocationAzureBlobAzureBlobSasConfigurationArgs', 'LocationAzureBlobAzureBlobSasConfigurationArgsDict', 'outputs.LocationAzureBlobAzureBlobSasConfiguration']]] = None,
                  azure_blob_type: pulumi.Input[Optional['LocationAzureBlobAzureBlobType']] = None,
-                 cmk_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict']]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict', 'outputs.LocationAzureBlobCmkSecretConfig']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict', 'outputs.LocationAzureBlobCustomSecretConfig']]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

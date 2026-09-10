@@ -210,14 +210,14 @@ class AiGuardrail(pulumi.CustomResource):
                  assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  blocked_input_messaging: pulumi.Input[Optional[_builtins.str]] = None,
                  blocked_outputs_messaging: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContentPolicyConfigArgs', 'AiGuardrailAiGuardrailContentPolicyConfigArgsDict']]] = None,
-                 contextual_grounding_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs', 'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 content_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContentPolicyConfigArgs', 'AiGuardrailAiGuardrailContentPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailContentPolicyConfig']]] = None,
+                 contextual_grounding_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs', 'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sensitive_information_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs', 'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
+                 sensitive_information_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs', 'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailTopicPolicyConfigArgs', 'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict']]] = None,
-                 word_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailWordPolicyConfigArgs', 'AiGuardrailAiGuardrailWordPolicyConfigArgsDict']]] = None,
+                 topic_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailTopicPolicyConfigArgs', 'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailTopicPolicyConfig']]] = None,
+                 word_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailWordPolicyConfigArgs', 'AiGuardrailAiGuardrailWordPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailWordPolicyConfig']]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AIGuardrail Resource Type
@@ -227,14 +227,14 @@ class AiGuardrail(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Amazon Q in Connect assistant. Can be either the ID or the ARN. URLs cannot contain the ARN.
         :param pulumi.Input[_builtins.str] blocked_input_messaging: Messaging for when violations are detected in text
         :param pulumi.Input[_builtins.str] blocked_outputs_messaging: Messaging for when violations are detected in text
-        :param pulumi.Input[Union['AiGuardrailAiGuardrailContentPolicyConfigArgs', 'AiGuardrailAiGuardrailContentPolicyConfigArgsDict']] content_policy_config: Contains details about how to handle harmful content.
-        :param pulumi.Input[Union['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs', 'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict']] contextual_grounding_policy_config: The policy configuration details for the AI Guardrail's contextual grounding policy.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailContentPolicyConfigArgs', 'AiGuardrailAiGuardrailContentPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailContentPolicyConfig']] content_policy_config: Contains details about how to handle harmful content.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs', 'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfig']] contextual_grounding_policy_config: The policy configuration details for the AI Guardrail's contextual grounding policy.
         :param pulumi.Input[_builtins.str] description: Description of the guardrail or its version
         :param pulumi.Input[_builtins.str] name: The name of the AI Guardrail.
-        :param pulumi.Input[Union['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs', 'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict']] sensitive_information_policy_config: Contains details about PII entities and regular expressions to configure for the AI Guardrail.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs', 'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig']] sensitive_information_policy_config: Contains details about PII entities and regular expressions to configure for the AI Guardrail.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags used to organize, track, or control access for this resource.
-        :param pulumi.Input[Union['AiGuardrailAiGuardrailTopicPolicyConfigArgs', 'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict']] topic_policy_config: Contains details about topics that the AI Guardrail should identify and deny.
-        :param pulumi.Input[Union['AiGuardrailAiGuardrailWordPolicyConfigArgs', 'AiGuardrailAiGuardrailWordPolicyConfigArgsDict']] word_policy_config: Contains details about the word policy to configured for the AI Guardrail.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailTopicPolicyConfigArgs', 'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailTopicPolicyConfig']] topic_policy_config: Contains details about topics that the AI Guardrail should identify and deny.
+        :param pulumi.Input[Union['AiGuardrailAiGuardrailWordPolicyConfigArgs', 'AiGuardrailAiGuardrailWordPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailWordPolicyConfig']] word_policy_config: Contains details about the word policy to configured for the AI Guardrail.
         """
         ...
     @overload
@@ -263,14 +263,14 @@ class AiGuardrail(pulumi.CustomResource):
                  assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
                  blocked_input_messaging: pulumi.Input[Optional[_builtins.str]] = None,
                  blocked_outputs_messaging: pulumi.Input[Optional[_builtins.str]] = None,
-                 content_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContentPolicyConfigArgs', 'AiGuardrailAiGuardrailContentPolicyConfigArgsDict']]] = None,
-                 contextual_grounding_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs', 'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict']]] = None,
+                 content_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContentPolicyConfigArgs', 'AiGuardrailAiGuardrailContentPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailContentPolicyConfig']]] = None,
+                 contextual_grounding_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgs', 'AiGuardrailAiGuardrailContextualGroundingPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailContextualGroundingPolicyConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 sensitive_information_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs', 'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict']]] = None,
+                 sensitive_information_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgs', 'AiGuardrailAiGuardrailSensitiveInformationPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailSensitiveInformationPolicyConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 topic_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailTopicPolicyConfigArgs', 'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict']]] = None,
-                 word_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailWordPolicyConfigArgs', 'AiGuardrailAiGuardrailWordPolicyConfigArgsDict']]] = None,
+                 topic_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailTopicPolicyConfigArgs', 'AiGuardrailAiGuardrailTopicPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailTopicPolicyConfig']]] = None,
+                 word_policy_config: pulumi.Input[Optional[Union['AiGuardrailAiGuardrailWordPolicyConfigArgs', 'AiGuardrailAiGuardrailWordPolicyConfigArgsDict', 'outputs.AiGuardrailAiGuardrailWordPolicyConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

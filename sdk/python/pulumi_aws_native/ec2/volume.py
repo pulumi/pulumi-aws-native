@@ -384,7 +384,7 @@ class Volume(pulumi.CustomResource):
                  size: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_initialization_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -450,7 +450,7 @@ class Volume(pulumi.CustomResource):
                  +  standard: ``1 - 1024`` GiB
         :param pulumi.Input[_builtins.str] snapshot_id: The snapshot from which to create the volume. Only specify to create a volume from a snapshot. To create a new empty volume, omit this parameter and specify a value for ``Size`` instead. To create a volume copy, omit this parameter and specify ``SourceVolumeId`` instead.
         :param pulumi.Input[_builtins.str] source_volume_id: The ID of the source EBS volume to copy. When specified, the volume is created as an exact copy of the specified volume. Only specify to create a volume copy. To create a new empty volume or to create a volume from a snapshot, omit this parameter,
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to apply to the volume during creation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to apply to the volume during creation.
         :param pulumi.Input[_builtins.int] throughput: The throughput to provision for a volume, with a maximum of 2,000 MiB/s.
                 This parameter is valid only for ``gp3`` volumes. The default value is 125.
                 Valid Range: Minimum value of 125. Maximum value of 2000.
@@ -523,7 +523,7 @@ class Volume(pulumi.CustomResource):
                  size: pulumi.Input[Optional[_builtins.int]] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  source_volume_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  throughput: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_initialization_rate: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None,
