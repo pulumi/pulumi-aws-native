@@ -13,7 +13,7 @@ namespace Pulumi.AwsNative.FSx.Inputs
     public sealed class VolumeSnaplockRetentionPeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+        /// The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period.
         /// </summary>
         [Input("defaultRetention", required: true)]
         public Input<Inputs.VolumeRetentionPeriodArgs> DefaultRetention { get; set; } = null!;

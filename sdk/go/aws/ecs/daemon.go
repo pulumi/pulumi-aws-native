@@ -21,6 +21,7 @@ type Daemon struct {
 	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
 	ClusterArn   pulumi.StringPtrOutput `pulumi:"clusterArn"`
 	CreatedAt    pulumi.StringOutput    `pulumi:"createdAt"`
+	Critical     pulumi.BoolPtrOutput   `pulumi:"critical"`
 	DaemonArn    pulumi.StringOutput    `pulumi:"daemonArn"`
 	DaemonName   pulumi.StringPtrOutput `pulumi:"daemonName"`
 	DaemonStatus DaemonStatusOutput     `pulumi:"daemonStatus"`
@@ -88,6 +89,7 @@ type daemonArgs struct {
 	CapacityProviderArns []string `pulumi:"capacityProviderArns"`
 	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
 	ClusterArn *string `pulumi:"clusterArn"`
+	Critical   *bool   `pulumi:"critical"`
 	DaemonName *string `pulumi:"daemonName"`
 	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
 	DaemonTaskDefinitionArn *string `pulumi:"daemonTaskDefinitionArn"`
@@ -108,6 +110,7 @@ type DaemonArgs struct {
 	CapacityProviderArns pulumi.StringArrayInput
 	// The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
 	ClusterArn pulumi.StringPtrInput
+	Critical   pulumi.BoolPtrInput
 	DaemonName pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the daemon task definition used by this revision.
 	DaemonTaskDefinitionArn pulumi.StringPtrInput
@@ -171,6 +174,10 @@ func (o DaemonOutput) ClusterArn() pulumi.StringPtrOutput {
 
 func (o DaemonOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Daemon) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o DaemonOutput) Critical() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Daemon) pulumi.BoolPtrOutput { return v.Critical }).(pulumi.BoolPtrOutput)
 }
 
 func (o DaemonOutput) DaemonArn() pulumi.StringOutput {

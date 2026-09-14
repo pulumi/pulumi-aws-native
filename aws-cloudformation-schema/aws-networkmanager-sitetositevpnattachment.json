@@ -163,7 +163,7 @@
     "permissions" : [ "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:ListTagsForResource" ]
   },
   "additionalProperties" : false,
-  "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/VpnConnectionArn", "/properties/RoutingPolicyLabel" ],
+  "createOnlyProperties" : [ "/properties/CoreNetworkId", "/properties/VpnConnectionArn" ],
   "writeOnlyProperties" : [ "/properties/RoutingPolicyLabel" ],
   "readOnlyProperties" : [ "/properties/CoreNetworkArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/AttachmentType", "/properties/State", "/properties/ResourceArn", "/properties/AttachmentId", "/properties/OwnerAccountId", "/properties/EdgeLocation", "/properties/AttachmentPolicyRuleNumber", "/properties/SegmentName", "/properties/LastModificationErrors", "/properties/ProposedSegmentChange", "/properties/ProposedNetworkFunctionGroupChange" ],
   "primaryIdentifier" : [ "/properties/AttachmentId" ],
@@ -178,7 +178,7 @@
       "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment" ]
     },
     "update" : {
-      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:ListTagsForResource", "networkmanager:TagResource", "networkmanager:UntagResource", "ec2:DescribeRegions" ]
+      "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:ListTagsForResource", "networkmanager:TagResource", "networkmanager:UntagResource", "networkmanager:PutAttachmentRoutingPolicyLabel", "networkmanager:RemoveAttachmentRoutingPolicyLabel", "networkmanager:ListAttachmentRoutingPolicyAssociations", "ec2:DescribeRegions" ]
     },
     "delete" : {
       "permissions" : [ "networkmanager:GetSiteToSiteVpnAttachment", "networkmanager:DeleteAttachment", "ec2:DescribeRegions" ],

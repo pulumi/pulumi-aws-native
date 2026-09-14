@@ -33,6 +33,8 @@ type Graph struct {
 	//
 	// _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	GraphName pulumi.StringPtrOutput `pulumi:"graphName"`
+	// The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+	ImportTask GraphImportTaskPtrOutput `pulumi:"importTask"`
 	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// Memory for the Graph.
@@ -69,6 +71,7 @@ func NewGraph(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"graphName",
+		"importTask",
 		"kmsKeyIdentifier",
 		"replicaCount",
 		"vectorSearchConfiguration",
@@ -117,6 +120,8 @@ type graphArgs struct {
 	//
 	// _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	GraphName *string `pulumi:"graphName"`
+	// The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+	ImportTask *GraphImportTask `pulumi:"importTask"`
 	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Memory for the Graph.
@@ -153,6 +158,8 @@ type GraphArgs struct {
 	//
 	// _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 	GraphName pulumi.StringPtrInput
+	// The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+	ImportTask GraphImportTaskPtrInput
 	// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Memory for the Graph.
@@ -243,6 +250,11 @@ func (o GraphOutput) GraphId() pulumi.StringOutput {
 // _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
 func (o GraphOutput) GraphName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringPtrOutput { return v.GraphName }).(pulumi.StringPtrOutput)
+}
+
+// The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+func (o GraphOutput) ImportTask() GraphImportTaskPtrOutput {
+	return o.ApplyT(func(v *Graph) GraphImportTaskPtrOutput { return v.ImportTask }).(GraphImportTaskPtrOutput)
 }
 
 // The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.

@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -26,6 +29,7 @@ export interface GetHubV2Result {
      * The Amazon Resource Name of the Security Hub V2 resource.
      */
     readonly hubV2Arn?: string;
+    readonly networkScanning?: outputs.securityhub.HubV2NetworkScanning;
     /**
      * The date and time when the service was enabled in the account.
      */

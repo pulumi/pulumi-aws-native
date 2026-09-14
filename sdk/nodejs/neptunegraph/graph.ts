@@ -64,6 +64,10 @@ export class Graph extends pulumi.CustomResource {
      */
     declare public readonly graphName: pulumi.Output<string | undefined>;
     /**
+     * The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+     */
+    declare public readonly importTask: pulumi.Output<outputs.neptunegraph.GraphImportTask | undefined>;
+    /**
      * The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
@@ -114,6 +118,7 @@ export class Graph extends pulumi.CustomResource {
             }
             resourceInputs["deletionProtection"] = args?.deletionProtection;
             resourceInputs["graphName"] = args?.graphName;
+            resourceInputs["importTask"] = args?.importTask;
             resourceInputs["kmsKeyIdentifier"] = args?.kmsKeyIdentifier;
             resourceInputs["provisionedMemory"] = args?.provisionedMemory;
             resourceInputs["publicConnectivity"] = args?.publicConnectivity;
@@ -129,6 +134,7 @@ export class Graph extends pulumi.CustomResource {
             resourceInputs["graphArn"] = undefined /*out*/;
             resourceInputs["graphId"] = undefined /*out*/;
             resourceInputs["graphName"] = undefined /*out*/;
+            resourceInputs["importTask"] = undefined /*out*/;
             resourceInputs["kmsKeyIdentifier"] = undefined /*out*/;
             resourceInputs["provisionedMemory"] = undefined /*out*/;
             resourceInputs["publicConnectivity"] = undefined /*out*/;
@@ -137,7 +143,7 @@ export class Graph extends pulumi.CustomResource {
             resourceInputs["vectorSearchConfiguration"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["graphName", "kmsKeyIdentifier", "replicaCount", "vectorSearchConfiguration"] };
+        const replaceOnChanges = { replaceOnChanges: ["graphName", "importTask", "kmsKeyIdentifier", "replicaCount", "vectorSearchConfiguration"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Graph.__pulumiType, name, resourceInputs, opts);
     }
@@ -161,6 +167,10 @@ export interface GraphArgs {
      * _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
      */
     graphName?: pulumi.Input<string | undefined>;
+    /**
+     * The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+     */
+    importTask?: pulumi.Input<inputs.neptunegraph.GraphImportTaskArgs | undefined>;
     /**
      * The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
      */

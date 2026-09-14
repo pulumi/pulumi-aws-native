@@ -32,6 +32,7 @@ __all__ = [
     'ConnectorV2AzureScopeConfigurationScopeType',
     'DelegatedAdminStatus',
     'FindingAggregatorRegionLinkingMode',
+    'HubV2NetworkScanningStatus',
     'InsightDateRangeUnit',
     'InsightMapFilterComparison',
     'InsightStringFilterComparison',
@@ -348,6 +349,15 @@ class FindingAggregatorRegionLinkingMode(_builtins.str, Enum):
     ALL_REGIONS = "ALL_REGIONS"
     ALL_REGIONS_EXCEPT_SPECIFIED = "ALL_REGIONS_EXCEPT_SPECIFIED"
     SPECIFIED_REGIONS = "SPECIFIED_REGIONS"
+
+
+@pulumi.type_token("aws-native:securityhub:HubV2NetworkScanningStatus")
+class HubV2NetworkScanningStatus(_builtins.str, Enum):
+    """
+    Whether the Network Scanning feature is enabled for this account and Region.
+    """
+    ENABLED = "ENABLED"
+    DISABLED = "DISABLED"
 
 
 @pulumi.type_token("aws-native:securityhub:InsightDateRangeUnit")

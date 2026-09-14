@@ -203,6 +203,16 @@
       "required" : [ "TargetName" ],
       "additionalProperties" : false
     },
+    "SystemManagedBlock" : {
+      "type" : "object",
+      "properties" : {
+        "ManagedBy" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "ManagedBy" ],
+      "additionalProperties" : false
+    },
     "TargetTrafficSplitEntry" : {
       "type" : "object",
       "properties" : {
@@ -353,13 +363,16 @@
     "Status" : {
       "$ref" : "#/definitions/GatewayRuleStatus"
     },
+    "System" : {
+      "$ref" : "#/definitions/SystemManagedBlock"
+    },
     "UpdatedAt" : {
       "type" : "string",
       "format" : "date-time"
     }
   },
   "required" : [ "Actions", "Priority" ],
-  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/GatewayArn", "/properties/RuleId", "/properties/Status", "/properties/UpdatedAt" ],
+  "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/GatewayArn", "/properties/RuleId", "/properties/Status", "/properties/System", "/properties/UpdatedAt" ],
   "createOnlyProperties" : [ "/properties/GatewayIdentifier" ],
   "primaryIdentifier" : [ "/properties/GatewayIdentifier", "/properties/RuleId" ],
   "handlers" : {

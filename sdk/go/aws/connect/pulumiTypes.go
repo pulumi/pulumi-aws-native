@@ -9606,47 +9606,6 @@ func (i MetricCalculationPropertiesArgs) ToMetricCalculationPropertiesOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationPropertiesOutput)
 }
 
-func (i MetricCalculationPropertiesArgs) ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput {
-	return i.ToMetricCalculationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i MetricCalculationPropertiesArgs) ToMetricCalculationPropertiesPtrOutputWithContext(ctx context.Context) MetricCalculationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationPropertiesOutput).ToMetricCalculationPropertiesPtrOutputWithContext(ctx)
-}
-
-// MetricCalculationPropertiesPtrInput is an input type that accepts MetricCalculationPropertiesArgs, MetricCalculationPropertiesPtr and MetricCalculationPropertiesPtrOutput values.
-// You can construct a concrete instance of `MetricCalculationPropertiesPtrInput` via:
-//
-//	        MetricCalculationPropertiesArgs{...}
-//
-//	or:
-//
-//	        nil
-type MetricCalculationPropertiesPtrInput interface {
-	pulumi.Input
-
-	ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput
-	ToMetricCalculationPropertiesPtrOutputWithContext(context.Context) MetricCalculationPropertiesPtrOutput
-}
-
-type metricCalculationPropertiesPtrType MetricCalculationPropertiesArgs
-
-func MetricCalculationPropertiesPtr(v *MetricCalculationPropertiesArgs) MetricCalculationPropertiesPtrInput {
-	return (*metricCalculationPropertiesPtrType)(v)
-}
-
-func (*metricCalculationPropertiesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MetricCalculationProperties)(nil)).Elem()
-}
-
-func (i *metricCalculationPropertiesPtrType) ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput {
-	return i.ToMetricCalculationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (i *metricCalculationPropertiesPtrType) ToMetricCalculationPropertiesPtrOutputWithContext(ctx context.Context) MetricCalculationPropertiesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MetricCalculationPropertiesPtrOutput)
-}
-
 // The calculation configuration for the metric
 type MetricCalculationPropertiesOutput struct{ *pulumi.OutputState }
 
@@ -9660,16 +9619,6 @@ func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesOutput()
 
 func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesOutputWithContext(ctx context.Context) MetricCalculationPropertiesOutput {
 	return o
-}
-
-func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesPtrOutput() MetricCalculationPropertiesPtrOutput {
-	return o.ToMetricCalculationPropertiesPtrOutputWithContext(context.Background())
-}
-
-func (o MetricCalculationPropertiesOutput) ToMetricCalculationPropertiesPtrOutputWithContext(ctx context.Context) MetricCalculationPropertiesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MetricCalculationProperties) *MetricCalculationProperties {
-		return &v
-	}).(MetricCalculationPropertiesPtrOutput)
 }
 
 // The calculation formula
@@ -20878,7 +20827,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationComponentInput)(nil)).Elem(), MetricCalculationComponentArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationComponentArrayInput)(nil)).Elem(), MetricCalculationComponentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationPropertiesInput)(nil)).Elem(), MetricCalculationPropertiesArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MetricCalculationPropertiesPtrInput)(nil)).Elem(), MetricCalculationPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterInput)(nil)).Elem(), MetricFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterArrayInput)(nil)).Elem(), MetricFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MetricFilterBooleanConditionInput)(nil)).Elem(), MetricFilterBooleanConditionArgs{})

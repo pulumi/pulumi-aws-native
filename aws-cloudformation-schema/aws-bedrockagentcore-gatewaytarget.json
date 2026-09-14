@@ -275,6 +275,44 @@
       "required" : [ "Source" ],
       "additionalProperties" : false
     },
+    "HttpConnectorParameters" : {
+      "type" : "object",
+      "maxProperties" : 10,
+      "minProperties" : 0,
+      "patternProperties" : {
+        "^[a-zA-Z][a-zA-Z0-9_-]*$" : {
+          "type" : "string",
+          "maxLength" : 1024,
+          "minLength" : 1
+        }
+      },
+      "additionalProperties" : false
+    },
+    "HttpConnectorSource" : {
+      "type" : "object",
+      "properties" : {
+        "ConnectorId" : {
+          "type" : "string",
+          "maxLength" : 256,
+          "minLength" : 1
+        }
+      },
+      "required" : [ "ConnectorId" ],
+      "additionalProperties" : false
+    },
+    "HttpConnectorTargetConfiguration" : {
+      "type" : "object",
+      "properties" : {
+        "Source" : {
+          "$ref" : "#/definitions/HttpConnectorSource"
+        },
+        "Parameters" : {
+          "$ref" : "#/definitions/HttpConnectorParameters"
+        }
+      },
+      "required" : [ "Source" ],
+      "additionalProperties" : false
+    },
     "HttpTargetConfiguration" : {
       "oneOf" : [ {
         "type" : "object",
@@ -295,6 +333,16 @@
           }
         },
         "required" : [ "Passthrough" ],
+        "additionalProperties" : false
+      }, {
+        "type" : "object",
+        "title" : "Connector",
+        "properties" : {
+          "Connector" : {
+            "$ref" : "#/definitions/HttpConnectorTargetConfiguration"
+          }
+        },
+        "required" : [ "Connector" ],
         "additionalProperties" : false
       } ]
     },

@@ -16975,6 +16975,7 @@ export namespace bedrockagentcore {
         routingDomain?: pulumi.Input<string | undefined>;
         securityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         subnetIds: pulumi.Input<pulumi.Input<string>[]>;
+        tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
         vpcIdentifier: pulumi.Input<string>;
     }
 
@@ -17217,12 +17218,25 @@ export namespace bedrockagentcore {
         source: pulumi.Input<inputs.bedrockagentcore.GatewayTargetApiSchemaConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetApiSchemaConfiguration1PropertiesArgs>;
     }
 
+    export interface GatewayTargetHttpConnectorSourceArgs {
+        connectorId: pulumi.Input<string>;
+    }
+
+    export interface GatewayTargetHttpConnectorTargetConfigurationArgs {
+        parameters?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+        source: pulumi.Input<inputs.bedrockagentcore.GatewayTargetHttpConnectorSourceArgs>;
+    }
+
     export interface GatewayTargetHttpTargetConfiguration0PropertiesArgs {
         agentcoreRuntime: pulumi.Input<inputs.bedrockagentcore.GatewayTargetRuntimeTargetConfigurationArgs>;
     }
 
     export interface GatewayTargetHttpTargetConfiguration1PropertiesArgs {
         passthrough: pulumi.Input<inputs.bedrockagentcore.GatewayTargetPassthroughTargetConfigurationArgs>;
+    }
+
+    export interface GatewayTargetHttpTargetConfiguration2PropertiesArgs {
+        connector: pulumi.Input<inputs.bedrockagentcore.GatewayTargetHttpConnectorTargetConfigurationArgs>;
     }
 
     export interface GatewayTargetIamCredentialProviderArgs {
@@ -17386,7 +17400,7 @@ export namespace bedrockagentcore {
     }
 
     export interface GatewayTargetTargetConfiguration1PropertiesArgs {
-        http: pulumi.Input<inputs.bedrockagentcore.GatewayTargetHttpTargetConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetHttpTargetConfiguration1PropertiesArgs>;
+        http: pulumi.Input<inputs.bedrockagentcore.GatewayTargetHttpTargetConfiguration0PropertiesArgs | inputs.bedrockagentcore.GatewayTargetHttpTargetConfiguration1PropertiesArgs | inputs.bedrockagentcore.GatewayTargetHttpTargetConfiguration2PropertiesArgs>;
     }
 
     export interface GatewayTargetTargetConfiguration2PropertiesArgs {
@@ -23766,7 +23780,7 @@ export namespace codebuild {
          * - `S3` : The report results are exported to an S3 bucket.
          * - `NO_EXPORT` : The report results are not exported.
          */
-        exportConfigType: pulumi.Input<enums.codebuild.ReportGroupReportExportConfigExportConfigType>;
+        exportConfigType: pulumi.Input<string>;
         /**
          * A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
          */
@@ -23796,7 +23810,7 @@ export namespace codebuild {
          * - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
          * - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
          */
-        packaging?: pulumi.Input<enums.codebuild.ReportGroupS3ReportExportConfigPackaging | undefined>;
+        packaging?: pulumi.Input<string | undefined>;
         /**
          * The path to the exported report's raw data results.
          */
@@ -26221,7 +26235,7 @@ export namespace configuration {
         /**
          * The frequency with which AWS Config delivers configuration snapshots.
          */
-        deliveryFrequency?: pulumi.Input<string | undefined>;
+        deliveryFrequency?: pulumi.Input<enums.configuration.DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency | undefined>;
     }
 
     /**
@@ -35707,6 +35721,16 @@ export namespace docdbelastic {
 }
 
 export namespace drs {
+    /**
+     * Configuration of a machine's license.
+     */
+    export interface LaunchConfigurationTemplateLicensingArgs {
+        /**
+         * Whether to enable Bring your own license or not.
+         */
+        osByol?: pulumi.Input<boolean | undefined>;
+    }
+
 }
 
 export namespace dsql {
@@ -44307,7 +44331,7 @@ export namespace ecs {
          */
         name?: pulumi.Input<string | undefined>;
         /**
-         * The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+         * The protocol that's used for the port mapping. Valid values are ``tcp`` and ``udp`` (case-sensitive). The default is ``tcp``. Amazon ECS treats any other specified value as ``tcp``. ``protocol`` is immutable in a Service Connect service. To update this field, you must delete and redeploy the service.
          */
         protocol?: pulumi.Input<string | undefined>;
     }
@@ -50272,7 +50296,13 @@ export namespace fsx {
 
     export interface VolumeAggregateConfigurationArgs {
         /**
-         * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+         * The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.
+         *
+         * Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
+         *
+         * - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.
+         * - The value of `Aggregates` contains aggregates that are not present.
+         * - One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.
          */
         aggregates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
@@ -50283,29 +50313,38 @@ export namespace fsx {
 
     export interface VolumeAutocommitPeriodArgs {
         /**
-         * Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+         * Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` .
          */
         type: pulumi.Input<string>;
         /**
-         * Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+         * Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:
+         *
+         * - `Minutes` : 5 - 65,535
+         * - `Hours` : 1 - 65,535
+         * - `Days` : 1 - 3,650
+         * - `Months` : 1 - 120
+         * - `Years` : 1 - 10
          */
         value?: pulumi.Input<number | undefined>;
     }
 
     export interface VolumeClientConfigurationsArgs {
         /**
-         * A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+         * A value that specifies who can mount the file system. You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
          */
         clients: pulumi.Input<string>;
         /**
-         * The configuration object for mounting a Network File System (NFS) file system.
+         * The options to use when mounting the file system. For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
+         *
+         * - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
+         * - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
          */
         options: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface VolumeNfsExportsArgs {
         /**
-         * The configuration object for mounting a Network File System (NFS) file system.
+         * A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
          */
         clientConfigurations: pulumi.Input<pulumi.Input<inputs.fsx.VolumeClientConfigurationsArgs>[]>;
     }
@@ -50316,19 +50355,30 @@ export namespace fsx {
          */
         aggregateConfiguration?: pulumi.Input<inputs.fsx.VolumeAggregateConfigurationArgs | undefined>;
         /**
-         * A boolean flag indicating whether tags for the volume should be copied to backups.
+         * A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
          */
         copyTagsToBackups?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+         * Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` .
          */
         junctionPath?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the type of volume you are creating. Valid values are the following: RW or DP
+         * Specifies the type of volume you are creating. Valid values are the following:
+         *
+         * - `RW` specifies a read/write volume. `RW` is the default.
+         * - `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.
+         *
+         * For more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-types) in the Amazon FSx for NetApp ONTAP User Guide.
          */
         ontapVolumeType?: pulumi.Input<string | undefined>;
         /**
-         * Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+         * Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. Specify one of the following values:
+         *
+         * - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
+         * - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
+         * - `MIXED` This is an advanced setting. For more information, see the topic [What the security styles and their effects are](https://docs.aws.amazon.com/https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html) in the NetApp Documentation Center.
+         *
+         * For more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the FSx for ONTAP User Guide.
          */
         securityStyle?: pulumi.Input<string | undefined>;
         /**
@@ -50336,7 +50386,7 @@ export namespace fsx {
          */
         sizeInBytes?: pulumi.Input<string | undefined>;
         /**
-         * Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+         * Use `SizeInBytes` instead. Specifies the size of the volume, in megabytes (MB), that you are creating.
          */
         sizeInMegabytes?: pulumi.Input<string | undefined>;
         /**
@@ -50344,11 +50394,21 @@ export namespace fsx {
          */
         snaplockConfiguration?: pulumi.Input<inputs.fsx.VolumeSnaplockConfigurationArgs | undefined>;
         /**
-         * Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+         * Specifies the snapshot policy for the volume. There are three built-in snapshot policies:
+         *
+         * - `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.
+         * - `default-1weekly` : This policy is the same as the `default` policy except that it only retains one snapshot from the weekly schedule.
+         * - `none` : This policy does not take any snapshots. This policy can be assigned to volumes to prevent automatic snapshots from being taken.
+         *
+         * You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.
+         *
+         * For more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx for NetApp ONTAP User Guide.
          */
         snapshotPolicy?: pulumi.Input<string | undefined>;
         /**
          * Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+         *
+         * `StorageEfficiencyEnabled` is required when creating a `RW` volume ( `OntapVolumeType` set to `RW` ).
          */
         storageEfficiencyEnabled?: pulumi.Input<string | undefined>;
         /**
@@ -50356,22 +50416,36 @@ export namespace fsx {
          */
         storageVirtualMachineId: pulumi.Input<string>;
         /**
-         * Describes the data tiering policy for an ONTAP volume.
+         * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+         *
+         * Valid tiering policies are the following:
+         *
+         * - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
+         *
+         * - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+         *
+         * - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+         *
+         * - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
          */
         tieringPolicy?: pulumi.Input<inputs.fsx.VolumeTieringPolicyArgs | undefined>;
         /**
-         * Use to specify the style of an ONTAP volume.
+         * Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes that you can use for different purposes, FlexVol and FlexGroup volumes. For more information, see [Volume styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-styles) in the Amazon FSx for NetApp ONTAP User Guide.
          */
         volumeStyle?: pulumi.Input<string | undefined>;
     }
 
     export interface VolumeOpenZfsConfigurationArgs {
         /**
-         * A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+         * A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to `false` . If this value is set to `true` , and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to `true` , and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
          */
         copyTagsToSnapshots?: pulumi.Input<boolean | undefined>;
         /**
-         * Specifies the method used to compress the data on the volume
+         * Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.
+         *
+         * - `NONE` - Doesn't compress the data on the volume. `NONE` is the default.
+         * - `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
+         * - `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
          */
         dataCompressionType?: pulumi.Input<string | undefined>;
         /**
@@ -50379,11 +50453,11 @@ export namespace fsx {
          */
         nfsExports?: pulumi.Input<pulumi.Input<inputs.fsx.VolumeNfsExportsArgs>[] | undefined>;
         /**
-         * The configuration object for mounting a Network File System (NFS) file system.
+         * To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
          */
         options?: pulumi.Input<pulumi.Input<string>[] | undefined>;
         /**
-         * The configuration of an Amazon FSx for OpenZFS volume.
+         * The configuration object that specifies the snapshot to use as the origin of the data for the volume.
          */
         originSnapshot?: pulumi.Input<inputs.fsx.VolumeOriginSnapshotArgs | undefined>;
         /**
@@ -50395,15 +50469,17 @@ export namespace fsx {
          */
         readOnly?: pulumi.Input<boolean | undefined>;
         /**
-         * Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+         * Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB. For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* .
          */
         recordSizeKiB?: pulumi.Input<number | undefined>;
         /**
-         * Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+         * Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .
+         *
+         * For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
          */
         storageCapacityQuotaGiB?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+         * Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
          */
         storageCapacityReservationGiB?: pulumi.Input<number | undefined>;
         /**
@@ -50414,7 +50490,14 @@ export namespace fsx {
 
     export interface VolumeOriginSnapshotArgs {
         /**
-         * The configuration object for mounting a Network File System (NFS) file system.
+         * Specifies the strategy used when copying data from the snapshot to the new volume.
+         *
+         * - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
+         * - `FULL_COPY` - Copies all data from the snapshot to the new volume.
+         *
+         * Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.
+         *
+         * > The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) .
          */
         copyStrategy: pulumi.Input<string>;
         /**
@@ -50425,18 +50508,27 @@ export namespace fsx {
 
     export interface VolumeRetentionPeriodArgs {
         /**
-         * Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+         * Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period.
          */
         type: pulumi.Input<string>;
         /**
-         * Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+         * Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:
+         *
+         * - `Seconds` : 0 - 65,535
+         * - `Minutes` : 0 - 65,535
+         * - `Hours` : 0 - 24
+         * - `Days` : 0 - 365
+         * - `Months` : 0 - 12
+         * - `Years` : 0 - 100
          */
         value?: pulumi.Input<number | undefined>;
     }
 
     export interface VolumeSnaplockConfigurationArgs {
         /**
-         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+         * Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false` . If you set `AuditLogVolume` to `true` , the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months.
+         *
+         * For more information, see [SnapLock audit log volumes](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume) .
          */
         auditLogVolume?: pulumi.Input<string | undefined>;
         /**
@@ -50444,7 +50536,9 @@ export namespace fsx {
          */
         autocommitPeriod?: pulumi.Input<inputs.fsx.VolumeAutocommitPeriodArgs | undefined>;
         /**
-         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+         * Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. `PERMANENTLY_DISABLED` is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is `DISABLED` .
+         *
+         * For more information, see [Privileged delete](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete) .
          */
         privilegedDelete?: pulumi.Input<string | undefined>;
         /**
@@ -50452,18 +50546,23 @@ export namespace fsx {
          */
         retentionPeriod?: pulumi.Input<inputs.fsx.VolumeSnaplockRetentionPeriodArgs | undefined>;
         /**
-         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+         * Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. You can choose one of the following retention modes:
+         *
+         * - `COMPLIANCE` : Files transitioned to write once, read many (WORM) on a Compliance volume can't be deleted until their retention periods expire. This retention mode is used to address government or industry-specific mandates or to protect against ransomware attacks. For more information, see [SnapLock Compliance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html) .
+         * - `ENTERPRISE` : Files transitioned to WORM on an Enterprise volume can be deleted by authorized users before their retention periods expire using privileged delete. This retention mode is used to advance an organization's data integrity and internal compliance or to test retention settings before using SnapLock Compliance. For more information, see [SnapLock Enterprise](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html) .
          */
         snaplockType: pulumi.Input<string>;
         /**
-         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+         * Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is `false` .
+         *
+         * For more information, see [Volume-append mode](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append) .
          */
         volumeAppendModeEnabled?: pulumi.Input<string | undefined>;
     }
 
     export interface VolumeSnaplockRetentionPeriodArgs {
         /**
-         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+         * The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period.
          */
         defaultRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
         /**
@@ -50476,16 +50575,18 @@ export namespace fsx {
         minimumRetention: pulumi.Input<inputs.fsx.VolumeRetentionPeriodArgs>;
     }
 
-    /**
-     * Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
-     */
     export interface VolumeTieringPolicyArgs {
         /**
-         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+         * Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
          */
         coolingPeriod?: pulumi.Input<number | undefined>;
         /**
-         * Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+         * Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
+         *
+         * - `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.
+         * - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+         * - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+         * - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
          */
         name?: pulumi.Input<string | undefined>;
     }
@@ -73506,6 +73607,80 @@ export namespace neptune {
 }
 
 export namespace neptunegraph {
+    /**
+     * Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+     */
+    export interface GraphImportOptionsArgs {
+        /**
+         * Options for importing data from a Neptune database.
+         */
+        neptune?: pulumi.Input<inputs.neptunegraph.GraphNeptuneImportOptionsArgs | undefined>;
+    }
+
+    /**
+     * The import task details to import data into the graph at creation time.
+     */
+    export interface GraphImportTaskArgs {
+        /**
+         * The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+         */
+        blankNodeHandling?: pulumi.Input<enums.neptunegraph.GraphImportTaskBlankNodeHandling | undefined>;
+        /**
+         * If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+         */
+        failOnError?: pulumi.Input<boolean | undefined>;
+        /**
+         * Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+         */
+        format?: pulumi.Input<enums.neptunegraph.GraphImportTaskFormat | undefined>;
+        /**
+         * Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+         */
+        importOptions?: pulumi.Input<inputs.neptunegraph.GraphImportOptionsArgs | undefined>;
+        /**
+         * The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+         */
+        maxProvisionedMemory?: pulumi.Input<number | undefined>;
+        /**
+         * The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+         */
+        minProvisionedMemory?: pulumi.Input<number | undefined>;
+        /**
+         * The parquet type of the import task. Required when Format is PARQUET.
+         */
+        parquetType?: pulumi.Input<enums.neptunegraph.GraphImportTaskParquetType | undefined>;
+        /**
+         * The ARN of the IAM role that will allow access to the data that is to be imported.
+         */
+        roleArn: pulumi.Input<string>;
+        /**
+         * A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+         */
+        source: pulumi.Input<string>;
+    }
+
+    /**
+     * Options for importing data from a Neptune database.
+     */
+    export interface GraphNeptuneImportOptionsArgs {
+        /**
+         * Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+         */
+        preserveDefaultVertexLabels?: pulumi.Input<boolean | undefined>;
+        /**
+         * Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+         */
+        preserveEdgeIds?: pulumi.Input<boolean | undefined>;
+        /**
+         * The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+         */
+        s3ExportKmsKeyId: pulumi.Input<string>;
+        /**
+         * The path to an S3 bucket from which to import data.
+         */
+        s3ExportPath: pulumi.Input<string>;
+    }
+
     /**
      * The vector search configuration.
      */
@@ -113141,6 +113316,11 @@ export namespace s3 {
         outputSchemaVersion: pulumi.Input<string>;
     }
 
+    export interface BucketDefaultEventHoldArgs {
+        days?: pulumi.Input<number | undefined>;
+        years?: pulumi.Input<number | undefined>;
+    }
+
     /**
      * The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
      *    +  The ``DefaultRetention`` settings require both a mode and a period.
@@ -113151,6 +113331,7 @@ export namespace s3 {
          * The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
          */
         days?: pulumi.Input<number | undefined>;
+        defaultEventHold?: pulumi.Input<inputs.s3.BucketDefaultEventHoldArgs | undefined>;
         /**
          * The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
          */
@@ -123874,6 +124055,16 @@ export namespace securityhub {
          * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
          */
         secretArn: pulumi.Input<string>;
+    }
+
+    /**
+     * Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+     */
+    export interface HubV2NetworkScanningArgs {
+        /**
+         * Whether the Network Scanning feature is enabled for this account and Region.
+         */
+        status: pulumi.Input<enums.securityhub.HubV2NetworkScanningStatus>;
     }
 
     /**

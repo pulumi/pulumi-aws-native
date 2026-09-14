@@ -388,9 +388,9 @@
     "taggable" : true,
     "tagOnCreate" : true,
     "tagUpdatable" : true,
-    "cloudFormationSystemTags" : false,
+    "cloudFormationSystemTags" : true,
     "tagProperty" : "/properties/Tags",
-    "permissions" : [ "acm-pca:TagCertificateAuthority", "acm-pca:UntagCertificateAuthority" ]
+    "permissions" : [ "acm-pca:TagCertificateAuthority", "acm-pca:UntagCertificateAuthority", "acm-pca:ListTags" ]
   },
   "additionalProperties" : false,
   "required" : [ "Type", "KeyAlgorithm", "SigningAlgorithm", "Subject" ],

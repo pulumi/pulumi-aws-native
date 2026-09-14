@@ -16,7 +16,8 @@ type HubV2 struct {
 	pulumi.CustomResourceState
 
 	// The Amazon Resource Name of the Security Hub V2 resource.
-	HubV2Arn pulumi.StringOutput `pulumi:"hubV2Arn"`
+	HubV2Arn        pulumi.StringOutput           `pulumi:"hubV2Arn"`
+	NetworkScanning HubV2NetworkScanningPtrOutput `pulumi:"networkScanning"`
 	// The date and time when the service was enabled in the account.
 	SubscribedAt pulumi.StringOutput `pulumi:"subscribedAt"`
 	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
@@ -63,12 +64,14 @@ func (HubV2State) ElementType() reflect.Type {
 }
 
 type hubV2Args struct {
+	NetworkScanning *HubV2NetworkScanning `pulumi:"networkScanning"`
 	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a HubV2 resource.
 type HubV2Args struct {
+	NetworkScanning HubV2NetworkScanningPtrInput
 	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
 	Tags pulumi.StringMapInput
 }
@@ -113,6 +116,10 @@ func (o HubV2Output) ToHubV2OutputWithContext(ctx context.Context) HubV2Output {
 // The Amazon Resource Name of the Security Hub V2 resource.
 func (o HubV2Output) HubV2Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HubV2) pulumi.StringOutput { return v.HubV2Arn }).(pulumi.StringOutput)
+}
+
+func (o HubV2Output) NetworkScanning() HubV2NetworkScanningPtrOutput {
+	return o.ApplyT(func(v *HubV2) HubV2NetworkScanningPtrOutput { return v.NetworkScanning }).(HubV2NetworkScanningPtrOutput)
 }
 
 // The date and time when the service was enabled in the account.

@@ -26,6 +26,7 @@ class DaemonArgs:
     def __init__(__self__, *,
                  capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 critical: pulumi.Input[Optional[_builtins.bool]] = None,
                  daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_configuration: pulumi.Input[Optional['DaemonDeploymentConfigurationArgs']] = None,
@@ -48,6 +49,8 @@ class DaemonArgs:
             pulumi.set(__self__, "capacity_provider_arns", capacity_provider_arns)
         if cluster_arn is not None:
             pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if critical is not None:
+            pulumi.set(__self__, "critical", critical)
         if daemon_name is not None:
             pulumi.set(__self__, "daemon_name", daemon_name)
         if daemon_task_definition_arn is not None:
@@ -86,6 +89,15 @@ class DaemonArgs:
     @cluster_arn.setter
     def cluster_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "cluster_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def critical(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "critical")
+
+    @critical.setter
+    def critical(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "critical", value)
 
     @_builtins.property
     @pulumi.getter(name="daemonName")
@@ -174,6 +186,7 @@ class Daemon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 critical: pulumi.Input[Optional[_builtins.bool]] = None,
                  daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
@@ -221,6 +234,7 @@ class Daemon(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_provider_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 critical: pulumi.Input[Optional[_builtins.bool]] = None,
                  daemon_name: pulumi.Input[Optional[_builtins.str]] = None,
                  daemon_task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_configuration: pulumi.Input[Optional[Union['DaemonDeploymentConfigurationArgs', 'DaemonDeploymentConfigurationArgsDict']]] = None,
@@ -239,6 +253,7 @@ class Daemon(pulumi.CustomResource):
 
             __props__.__dict__["capacity_provider_arns"] = capacity_provider_arns
             __props__.__dict__["cluster_arn"] = cluster_arn
+            __props__.__dict__["critical"] = critical
             __props__.__dict__["daemon_name"] = daemon_name
             __props__.__dict__["daemon_task_definition_arn"] = daemon_task_definition_arn
             __props__.__dict__["deployment_configuration"] = deployment_configuration
@@ -278,6 +293,7 @@ class Daemon(pulumi.CustomResource):
         __props__.__dict__["capacity_provider_arns"] = None
         __props__.__dict__["cluster_arn"] = None
         __props__.__dict__["created_at"] = None
+        __props__.__dict__["critical"] = None
         __props__.__dict__["daemon_arn"] = None
         __props__.__dict__["daemon_name"] = None
         __props__.__dict__["daemon_status"] = None
@@ -311,6 +327,11 @@ class Daemon(pulumi.CustomResource):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def critical(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "critical")
 
     @_builtins.property
     @pulumi.getter(name="daemonArn")

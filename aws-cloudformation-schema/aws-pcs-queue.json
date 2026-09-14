@@ -119,18 +119,18 @@
   "handlers" : {
     "create" : {
       "permissions" : [ "ec2:CreateNetworkInterface", "ec2:DescribeVpcs", "ec2:DescribeSubnets", "ec2:DescribeSecurityGroups", "ec2:GetSecurityGroupsForVpc", "iam:CreateServiceLinkedRole", "secretsmanager:CreateSecret", "secretsmanager:TagResource", "pcs:CreateQueue", "pcs:GetQueue", "pcs:ListTagsForResource", "pcs:TagResource" ],
-      "timeoutInMinutes" : 60
+      "timeoutInMinutes" : 160
     },
     "read" : {
       "permissions" : [ "pcs:GetQueue", "pcs:ListTagsForResource" ]
     },
     "update" : {
       "permissions" : [ "pcs:GetQueue", "pcs:UpdateQueue", "pcs:ListTagsForResource", "pcs:TagResource", "pcs:UntagResource" ],
-      "timeoutInMinutes" : 60
+      "timeoutInMinutes" : 160
     },
     "delete" : {
       "permissions" : [ "pcs:DeleteQueue", "pcs:GetQueue" ],
-      "timeoutInMinutes" : 60
+      "timeoutInMinutes" : 160
     },
     "list" : {
       "handlerSchema" : {

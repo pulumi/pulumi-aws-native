@@ -222,10 +222,16 @@ __all__ = [
     'GatewayTargetCredentialProviderConfigurationArgsDict',
     'GatewayTargetHttpApiSchemaConfigurationArgs',
     'GatewayTargetHttpApiSchemaConfigurationArgsDict',
+    'GatewayTargetHttpConnectorSourceArgs',
+    'GatewayTargetHttpConnectorSourceArgsDict',
+    'GatewayTargetHttpConnectorTargetConfigurationArgs',
+    'GatewayTargetHttpConnectorTargetConfigurationArgsDict',
     'GatewayTargetHttpTargetConfiguration0PropertiesArgs',
     'GatewayTargetHttpTargetConfiguration0PropertiesArgsDict',
     'GatewayTargetHttpTargetConfiguration1PropertiesArgs',
     'GatewayTargetHttpTargetConfiguration1PropertiesArgsDict',
+    'GatewayTargetHttpTargetConfiguration2PropertiesArgs',
+    'GatewayTargetHttpTargetConfiguration2PropertiesArgsDict',
     'GatewayTargetIamCredentialProviderArgs',
     'GatewayTargetIamCredentialProviderArgsDict',
     'GatewayTargetInferenceConnectorSourceArgs',
@@ -3568,6 +3574,7 @@ class GatewayManagedVpcResourceArgsDict(TypedDict):
     vpc_identifier: pulumi.Input[_builtins.str]
     routing_domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
 
 @pulumi.input_type
 class GatewayManagedVpcResourceArgs:
@@ -3576,7 +3583,8 @@ class GatewayManagedVpcResourceArgs:
                  subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  vpc_identifier: pulumi.Input[_builtins.str],
                  routing_domain: pulumi.Input[Optional[_builtins.str]] = None,
-                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+                 security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
@@ -3584,6 +3592,8 @@ class GatewayManagedVpcResourceArgs:
             pulumi.set(__self__, "routing_domain", routing_domain)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressType")
@@ -3629,6 +3639,15 @@ class GatewayManagedVpcResourceArgs:
     @security_group_ids.setter
     def security_group_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "security_group_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 class GatewayMcpGatewayConfigurationArgsDict(TypedDict):
@@ -5020,6 +5039,57 @@ class GatewayTargetHttpApiSchemaConfigurationArgs:
         pulumi.set(self, "source", value)
 
 
+class GatewayTargetHttpConnectorSourceArgsDict(TypedDict):
+    connector_id: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class GatewayTargetHttpConnectorSourceArgs:
+    def __init__(__self__, *,
+                 connector_id: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "connector_id", connector_id)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "connector_id")
+
+    @connector_id.setter
+    def connector_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connector_id", value)
+
+
+class GatewayTargetHttpConnectorTargetConfigurationArgsDict(TypedDict):
+    source: pulumi.Input['GatewayTargetHttpConnectorSourceArgsDict']
+    parameters: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+
+@pulumi.input_type
+class GatewayTargetHttpConnectorTargetConfigurationArgs:
+    def __init__(__self__, *,
+                 source: pulumi.Input['GatewayTargetHttpConnectorSourceArgs'],
+                 parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        pulumi.set(__self__, "source", source)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input['GatewayTargetHttpConnectorSourceArgs']:
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input['GatewayTargetHttpConnectorSourceArgs']):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "parameters", value)
+
+
 class GatewayTargetHttpTargetConfiguration0PropertiesArgsDict(TypedDict):
     agentcore_runtime: pulumi.Input['GatewayTargetRuntimeTargetConfigurationArgsDict']
 
@@ -5056,6 +5126,25 @@ class GatewayTargetHttpTargetConfiguration1PropertiesArgs:
     @passthrough.setter
     def passthrough(self, value: pulumi.Input['GatewayTargetPassthroughTargetConfigurationArgs']):
         pulumi.set(self, "passthrough", value)
+
+
+class GatewayTargetHttpTargetConfiguration2PropertiesArgsDict(TypedDict):
+    connector: pulumi.Input['GatewayTargetHttpConnectorTargetConfigurationArgsDict']
+
+@pulumi.input_type
+class GatewayTargetHttpTargetConfiguration2PropertiesArgs:
+    def __init__(__self__, *,
+                 connector: pulumi.Input['GatewayTargetHttpConnectorTargetConfigurationArgs']):
+        pulumi.set(__self__, "connector", connector)
+
+    @_builtins.property
+    @pulumi.getter
+    def connector(self) -> pulumi.Input['GatewayTargetHttpConnectorTargetConfigurationArgs']:
+        return pulumi.get(self, "connector")
+
+    @connector.setter
+    def connector(self, value: pulumi.Input['GatewayTargetHttpConnectorTargetConfigurationArgs']):
+        pulumi.set(self, "connector", value)
 
 
 class GatewayTargetIamCredentialProviderArgsDict(TypedDict):
@@ -6082,21 +6171,21 @@ class GatewayTargetTargetConfiguration0PropertiesArgs:
 
 
 class GatewayTargetTargetConfiguration1PropertiesArgsDict(TypedDict):
-    http: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetHttpTargetConfiguration1PropertiesArgsDict']]
+    http: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgsDict', 'GatewayTargetHttpTargetConfiguration1PropertiesArgsDict', 'GatewayTargetHttpTargetConfiguration2PropertiesArgsDict']]
 
 @pulumi.input_type
 class GatewayTargetTargetConfiguration1PropertiesArgs:
     def __init__(__self__, *,
-                 http: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs']]):
+                 http: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs', 'GatewayTargetHttpTargetConfiguration2PropertiesArgs']]):
         pulumi.set(__self__, "http", http)
 
     @_builtins.property
     @pulumi.getter
-    def http(self) -> pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs']]:
+    def http(self) -> pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs', 'GatewayTargetHttpTargetConfiguration2PropertiesArgs']]:
         return pulumi.get(self, "http")
 
     @http.setter
-    def http(self, value: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs']]):
+    def http(self, value: pulumi.Input[Union['GatewayTargetHttpTargetConfiguration0PropertiesArgs', 'GatewayTargetHttpTargetConfiguration1PropertiesArgs', 'GatewayTargetHttpTargetConfiguration2PropertiesArgs']]):
         pulumi.set(self, "http", value)
 
 

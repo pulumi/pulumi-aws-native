@@ -56,6 +56,7 @@ import * as codestarnotifications from "./codestarnotifications";
 import * as cognito from "./cognito";
 import * as comprehend from "./comprehend";
 import * as computeoptimizer from "./computeoptimizer";
+import * as configuration from "./configuration";
 import * as connect from "./connect";
 import * as connectcampaignsv2 from "./connectcampaignsv2";
 import * as controltower from "./controltower";
@@ -70,6 +71,7 @@ import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
+import * as drs from "./drs";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
 import * as ecr from "./ecr";
@@ -286,6 +288,7 @@ export {
     cognito,
     comprehend,
     computeoptimizer,
+    configuration,
     connect,
     connectcampaignsv2,
     controltower,
@@ -300,6 +303,7 @@ export {
     devopsguru,
     dms,
     docdb,
+    drs,
     dynamodb,
     ec2,
     ecr,

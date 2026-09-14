@@ -2262,8 +2262,28 @@
             "primaryIdentifier": [
                 "arn"
             ],
+            "listHandlerSchema": {
+                "properties": {
+                    "AppId": {
+                        "description": "The unique ID for an Amplify app.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "AppId"
+                ]
+            },
             "listInputs": {
-                "type": "object"
+                "properties": {
+                    "appId": {
+                        "type": "string",
+                        "description": "The unique ID for an Amplify app."
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "appId"
+                ]
             },
             "hasListHandler": true
         },
@@ -21908,6 +21928,9 @@
                 "webAclArn",
                 "workloadIdentityDetails"
             ],
+            "writeOnly": [
+                "authorizerConfiguration/customJwtAuthorizer/privateEndpoint/managedVpcResource/tags"
+            ],
             "tagsProperty": "tags",
             "tagsStyle": "stringMap",
             "primaryIdentifier": [
@@ -22115,6 +22138,9 @@
                 "status": {
                     "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleStatus"
                 },
+                "system": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:GatewayRuleSystemManagedBlock"
+                },
                 "updatedAt": {
                     "type": "string"
                 }
@@ -22131,6 +22157,7 @@
                 "gatewayArn",
                 "ruleId",
                 "status",
+                "system",
                 "updatedAt"
             ],
             "primaryIdentifier": [
@@ -26277,7 +26304,8 @@
                 },
                 "authorizationBehavior": {
                     "type": "string",
-                    "description": "The authorization behavior for the ACME endpoint."
+                    "description": "The authorization behavior for the ACME endpoint.",
+                    "replaceOnChanges": true
                 },
                 "certificateAuthority": {
                     "$ref": "#/types/aws-native:certificatemanager:AcmeEndpointCertificateAuthority"
@@ -26311,6 +26339,7 @@
                 "certificateAuthority"
             ],
             "createOnly": [
+                "authorizationBehavior",
                 "certificateTags"
             ],
             "readOnly": [
@@ -34277,7 +34306,7 @@
                     "description": "A list of tag key and value pairs associated with this report group.\n\nThese tags are available for use by AWS services that support AWS CodeBuild report group tags."
                 },
                 "type": {
-                    "$ref": "#/types/aws-native:codebuild:ReportGroupType",
+                    "type": "string",
                     "description": "The type of the `ReportGroup` . This can be one of the following values:\n\n- **CODE_COVERAGE** - The report group contains code coverage reports.\n- **TEST** - The report group contains test reports."
                 }
             },
@@ -34285,6 +34314,9 @@
                 "arn": {
                     "type": "string",
                     "description": "The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` ."
+                },
+                "awsId": {
+                    "type": "string"
                 },
                 "deleteReports": {
                     "type": "boolean",
@@ -34307,7 +34339,7 @@
                     "description": "A list of tag key and value pairs associated with this report group.\n\nThese tags are available for use by AWS services that support AWS CodeBuild report group tags."
                 },
                 "type": {
-                    "$ref": "#/types/aws-native:codebuild:ReportGroupType",
+                    "type": "string",
                     "description": "The type of the `ReportGroup` . This can be one of the following values:\n\n- **CODE_COVERAGE** - The report group contains code coverage reports.\n- **TEST** - The report group contains test reports.",
                     "replaceOnChanges": true
                 }
@@ -34324,20 +34356,17 @@
                 "type"
             ],
             "readOnly": [
-                "arn"
+                "arn",
+                "id"
             ],
-            "writeOnly": [
-                "deleteReports"
-            ],
+            "irreversibleNames": {
+                "awsId": "Id"
+            },
             "tagsProperty": "tags",
             "tagsStyle": "keyValueArray",
             "primaryIdentifier": [
-                "arn"
-            ],
-            "listInputs": {
-                "type": "object"
-            },
-            "hasListHandler": true
+                "id"
+            ]
         },
         "aws-native:codebuild:SourceCredential": {
             "cf": "AWS::CodeBuild::SourceCredential",
@@ -39134,11 +39163,11 @@
                 },
                 "name": {
                     "type": "string",
-                    "description": "A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .\n\nUpdates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update."
+                    "description": "The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name."
                 },
                 "s3BucketName": {
                     "type": "string",
-                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.\n\nIf you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* ."
+                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files."
                 },
                 "s3KeyPrefix": {
                     "type": "string",
@@ -39146,29 +39175,26 @@
                 },
                 "s3KmsKeyArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket."
+                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket."
                 },
                 "snsTopicArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.\n\nIf you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* ."
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes."
                 }
             },
             "outputs": {
-                "awsId": {
-                    "type": "string"
-                },
                 "configSnapshotDeliveryProperties": {
                     "$ref": "#/types/aws-native:configuration:DeliveryChannelConfigSnapshotDeliveryProperties",
                     "description": "The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket."
                 },
                 "name": {
                     "type": "string",
-                    "description": "A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .\n\nUpdates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.",
+                    "description": "The name of the delivery channel. By default, AWS Config assigns the name \"default\" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.",
                     "replaceOnChanges": true
                 },
                 "s3BucketName": {
                     "type": "string",
-                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.\n\nIf you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* ."
+                    "description": "The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files."
                 },
                 "s3KeyPrefix": {
                     "type": "string",
@@ -39176,11 +39202,11 @@
                 },
                 "s3KmsKeyArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket."
+                    "description": "The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket."
                 },
                 "snsTopicArn": {
                     "type": "string",
-                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.\n\nIf you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* ."
+                    "description": "The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes."
                 }
             },
             "autoNamingSpec": {
@@ -39192,11 +39218,7 @@
             "createOnly": [
                 "name"
             ],
-            "readOnly": [
-                "id"
-            ],
             "irreversibleNames": {
-                "awsId": "Id",
                 "s3BucketName": "S3BucketName",
                 "s3KeyPrefix": "S3KeyPrefix",
                 "s3KmsKeyArn": "S3KmsKeyArn",
@@ -39206,8 +39228,12 @@
                 "property": "Name"
             },
             "primaryIdentifier": [
-                "id"
-            ]
+                "name"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true
         },
         "aws-native:configuration:OrganizationConformancePack": {
             "cf": "AWS::Config::OrganizationConformancePack",
@@ -41563,7 +41589,10 @@
                 "maxLength": 128
             },
             "required": [
-                "instanceArn"
+                "instanceArn",
+                "metricCalculation",
+                "status",
+                "unit"
             ],
             "createOnly": [
                 "instanceArn",
@@ -57919,6 +57948,120 @@
             },
             "hasListHandler": true
         },
+        "aws-native:drs:LaunchConfigurationTemplate": {
+            "cf": "AWS::DRS::LaunchConfigurationTemplate",
+            "inputs": {
+                "copyPrivateIp": {
+                    "type": "boolean",
+                    "description": "Copy private IP."
+                },
+                "copyTags": {
+                    "type": "boolean",
+                    "description": "Copy tags."
+                },
+                "exportBucketArn": {
+                    "type": "string",
+                    "description": "S3 bucket ARN to export Source Network templates."
+                },
+                "launchDisposition": {
+                    "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateLaunchDisposition",
+                    "description": "Launch disposition."
+                },
+                "launchIntoSourceInstance": {
+                    "type": "boolean",
+                    "description": "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance."
+                },
+                "licensing": {
+                    "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateLicensing"
+                },
+                "postLaunchEnabled": {
+                    "type": "boolean",
+                    "description": "Whether we want to activate post-launch actions."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:CreateOnlyTag"
+                    },
+                    "description": "A set of tags associated with the Launch Configuration Template."
+                },
+                "targetInstanceTypeRightSizingMethod": {
+                    "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod",
+                    "description": "Target instance type right-sizing method."
+                }
+            },
+            "outputs": {
+                "arn": {
+                    "type": "string",
+                    "description": "ARN of the Launch Configuration Template."
+                },
+                "copyPrivateIp": {
+                    "type": "boolean",
+                    "description": "Copy private IP."
+                },
+                "copyTags": {
+                    "type": "boolean",
+                    "description": "Copy tags."
+                },
+                "exportBucketArn": {
+                    "type": "string",
+                    "description": "S3 bucket ARN to export Source Network templates."
+                },
+                "launchConfigurationTemplateId": {
+                    "type": "string",
+                    "description": "ID of the Launch Configuration Template."
+                },
+                "launchDisposition": {
+                    "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateLaunchDisposition",
+                    "description": "Launch disposition."
+                },
+                "launchIntoSourceInstance": {
+                    "type": "boolean",
+                    "description": "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance."
+                },
+                "licensing": {
+                    "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateLicensing"
+                },
+                "postLaunchEnabled": {
+                    "type": "boolean",
+                    "description": "Whether we want to activate post-launch actions."
+                },
+                "tags": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/aws-native:index:CreateOnlyTag"
+                    },
+                    "description": "A set of tags associated with the Launch Configuration Template.",
+                    "replaceOnChanges": true
+                },
+                "targetInstanceTypeRightSizingMethod": {
+                    "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod",
+                    "description": "Target instance type right-sizing method."
+                }
+            },
+            "createOnly": [
+                "tags"
+            ],
+            "readOnly": [
+                "arn",
+                "launchConfigurationTemplateId"
+            ],
+            "unorderedCollections": [
+                "tags"
+            ],
+            "irreversibleNames": {
+                "launchConfigurationTemplateId": "LaunchConfigurationTemplateID"
+            },
+            "tagsProperty": "tags",
+            "tagsStyle": "keyValueArrayCreateOnly",
+            "primaryIdentifier": [
+                "arn"
+            ],
+            "listInputs": {
+                "type": "object"
+            },
+            "hasListHandler": true
+        },
         "aws-native:drs:SourceNetwork": {
             "cf": "AWS::DRS::SourceNetwork",
             "inputs": {
@@ -71832,6 +71975,9 @@
                     "type": "string",
                     "description": "The Amazon Resource Name (ARN) of the cluster that the daemon is running in."
                 },
+                "critical": {
+                    "type": "boolean"
+                },
                 "daemonName": {
                     "type": "string"
                 },
@@ -71877,6 +72023,9 @@
                 },
                 "createdAt": {
                     "type": "string"
+                },
+                "critical": {
+                    "type": "boolean"
                 },
                 "daemonArn": {
                     "type": "string"
@@ -71937,6 +72086,7 @@
             ],
             "writeOnly": [
                 "capacityProviderArns",
+                "critical",
                 "daemonName",
                 "daemonTaskDefinitionArn",
                 "deploymentConfiguration",
@@ -83811,7 +83961,7 @@
                     "items": {
                         "$ref": "#/types/aws-native:index:Tag"
                     },
-                    "description": "One or more tags."
+                    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
                 },
                 "volumeType": {
                     "type": "string",
@@ -83838,22 +83988,22 @@
                 },
                 "resourceArn": {
                     "type": "string",
-                    "description": "Returns the volume's Amazon Resource Name (ARN)."
+                    "description": "Returns the volume's Amazon Resource Name (ARN).\n\nExample: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`"
                 },
                 "tags": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/aws-native:index:Tag"
                     },
-                    "description": "One or more tags."
+                    "description": "An array of key-value pairs to apply to this resource.\n\nFor more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) ."
                 },
                 "uuid": {
                     "type": "string",
-                    "description": "Returns the volume's ID."
+                    "description": "Returns the volume's universally unique identifier (UUID).\n\nExample: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`"
                 },
                 "volumeId": {
                     "type": "string",
-                    "description": "Returns the volume's universally unique identifier (UUID)."
+                    "description": "Returns the volume's ID.\n\nExample: `fsvol-0123456789abcdefa`"
                 },
                 "volumeType": {
                     "type": "string",
@@ -83866,37 +84016,12 @@
             },
             "createOnly": [
                 "backupId",
-                "ontapConfiguration/aggregateConfiguration",
-                "ontapConfiguration/aggregateConfiguration/aggregates",
-                "ontapConfiguration/aggregateConfiguration/constituentsPerAggregate",
-                "ontapConfiguration/ontapVolumeType",
-                "ontapConfiguration/snaplockConfiguration/snaplockType",
-                "ontapConfiguration/storageVirtualMachineId",
-                "ontapConfiguration/volumeStyle",
-                "openZfsConfiguration/originSnapshot",
-                "openZfsConfiguration/originSnapshot/copyStrategy",
-                "openZfsConfiguration/originSnapshot/snapshotArn",
-                "openZfsConfiguration/parentVolumeId",
                 "volumeType"
             ],
             "readOnly": [
                 "resourceArn",
                 "uuid",
                 "volumeId"
-            ],
-            "writeOnly": [
-                "backupId",
-                "ontapConfiguration/aggregateConfiguration/constituentsPerAggregate",
-                "openZfsConfiguration/options"
-            ],
-            "unorderedCollections": [
-                "ontapConfiguration/aggregateConfiguration/aggregates",
-                "openZfsConfiguration/nfsExports",
-                "openZfsConfiguration/nfsExports/*/clientConfigurations",
-                "openZfsConfiguration/nfsExports/*/clientConfigurations/*/options",
-                "openZfsConfiguration/options",
-                "openZfsConfiguration/userAndGroupQuotas",
-                "tags"
             ],
             "irreversibleNames": {
                 "openZfsConfiguration": "OpenZFSConfiguration",
@@ -83910,11 +84035,7 @@
             },
             "primaryIdentifier": [
                 "volumeId"
-            ],
-            "listInputs": {
-                "type": "object"
-            },
-            "hasListHandler": true
+            ]
         },
         "aws-native:gamelift:Alias": {
             "cf": "AWS::GameLift::Alias",
@@ -122318,6 +122439,10 @@
                     "type": "string",
                     "description": "Contains a user-supplied name for the Graph. \n\nIf you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.\n\n_Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name."
                 },
+                "importTask": {
+                    "$ref": "#/types/aws-native:neptunegraph:GraphImportTask",
+                    "description": "The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source."
+                },
                 "kmsKeyIdentifier": {
                     "type": "string",
                     "description": "The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key."
@@ -122368,6 +122493,11 @@
                     "description": "Contains a user-supplied name for the Graph. \n\nIf you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.\n\n_Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.",
                     "replaceOnChanges": true
                 },
+                "importTask": {
+                    "$ref": "#/types/aws-native:neptunegraph:GraphImportTask",
+                    "description": "The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.",
+                    "replaceOnChanges": true
+                },
                 "kmsKeyIdentifier": {
                     "type": "string",
                     "description": "The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.",
@@ -122409,6 +122539,7 @@
             ],
             "createOnly": [
                 "graphName",
+                "importTask",
                 "kmsKeyIdentifier",
                 "replicaCount",
                 "vectorSearchConfiguration"
@@ -122417,6 +122548,9 @@
                 "endpoint",
                 "graphArn",
                 "graphId"
+            ],
+            "writeOnly": [
+                "importTask"
             ],
             "unorderedCollections": [
                 "tags"
@@ -123511,8 +123645,7 @@
                 },
                 "routingPolicyLabel": {
                     "type": "string",
-                    "description": "Routing policy label",
-                    "replaceOnChanges": true
+                    "description": "Routing policy label"
                 },
                 "segmentName": {
                     "type": "string",
@@ -123549,7 +123682,6 @@
                 "coreNetworkId",
                 "edgeLocation",
                 "options",
-                "routingPolicyLabel",
                 "transportAttachmentId"
             ],
             "readOnly": [
@@ -124277,8 +124409,7 @@
                 },
                 "routingPolicyLabel": {
                     "type": "string",
-                    "description": "Routing policy label",
-                    "replaceOnChanges": true
+                    "description": "Routing policy label"
                 },
                 "segmentName": {
                     "type": "string",
@@ -124307,8 +124438,7 @@
             ],
             "createOnly": [
                 "coreNetworkId",
-                "directConnectGatewayArn",
-                "routingPolicyLabel"
+                "directConnectGatewayArn"
             ],
             "readOnly": [
                 "attachmentId",
@@ -124831,8 +124961,7 @@
                 },
                 "routingPolicyLabel": {
                     "type": "string",
-                    "description": "Routing policy label",
-                    "replaceOnChanges": true
+                    "description": "Routing policy label"
                 },
                 "segmentName": {
                     "type": "string",
@@ -124865,7 +124994,6 @@
             ],
             "createOnly": [
                 "coreNetworkId",
-                "routingPolicyLabel",
                 "vpnConnectionArn"
             ],
             "readOnly": [
@@ -125337,8 +125465,7 @@
                 },
                 "routingPolicyLabel": {
                     "type": "string",
-                    "description": "Routing policy label",
-                    "replaceOnChanges": true
+                    "description": "Routing policy label"
                 },
                 "segmentName": {
                     "type": "string",
@@ -125379,7 +125506,6 @@
             ],
             "createOnly": [
                 "coreNetworkId",
-                "routingPolicyLabel",
                 "vpcArn"
             ],
             "readOnly": [
@@ -140499,7 +140625,7 @@
                 },
                 "engineVersion": {
                     "type": "string",
-                    "description": "The version number of the database engine to use.\n For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.\n The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.\n  *Amazon Aurora* \n Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.\n  *Db2* \n See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *MariaDB* \n See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Microsoft SQL Server* \n See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*\n  *MySQL* \n See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Oracle* \n See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*\n  *PostgreSQL* \n See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*"
+                    "description": "The version number of the database engine to use.\n For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.\n The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.\n  *Amazon Aurora* \n Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.\n  *Db2* \n See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *MariaDB* \n See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Microsoft SQL Server* \n See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*\n  *MySQL* \n See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Oracle* \n See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*\n  *PostgreSQL* \n See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*\n  If you specify a version prefix rather than a full version number, AWS CloudFormation uses prefix matching during drift detection.\n For example, ``\"8.0\"`` for MySQL or ``\"16\"`` for PostgreSQL matches any version that starts with that prefix."
                 },
                 "iops": {
                     "type": "integer",
@@ -140885,7 +141011,7 @@
                 },
                 "engineVersion": {
                     "type": "string",
-                    "description": "The version number of the database engine to use.\n For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.\n The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.\n  *Amazon Aurora* \n Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.\n  *Db2* \n See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *MariaDB* \n See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Microsoft SQL Server* \n See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*\n  *MySQL* \n See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Oracle* \n See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*\n  *PostgreSQL* \n See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*"
+                    "description": "The version number of the database engine to use.\n For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.\n The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.\n  *Amazon Aurora* \n Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.\n  *Db2* \n See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *MariaDB* \n See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Microsoft SQL Server* \n See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*\n  *MySQL* \n See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Oracle* \n See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*\n  *PostgreSQL* \n See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*\n  If you specify a version prefix rather than a full version number, AWS CloudFormation uses prefix matching during drift detection.\n For example, ``\"8.0\"`` for MySQL or ``\"16\"`` for PostgreSQL matches any version that starts with that prefix."
                 },
                 "instanceCreateTime": {
                     "type": "string",
@@ -162407,6 +162533,9 @@
         "aws-native:securityhub:HubV2": {
             "cf": "AWS::SecurityHub::HubV2",
             "inputs": {
+                "networkScanning": {
+                    "$ref": "#/types/aws-native:securityhub:HubV2NetworkScanning"
+                },
                 "tags": {
                     "type": "object",
                     "additionalProperties": {
@@ -162419,6 +162548,9 @@
                 "hubV2Arn": {
                     "type": "string",
                     "description": "The Amazon Resource Name of the Security Hub V2 resource."
+                },
+                "networkScanning": {
+                    "$ref": "#/types/aws-native:securityhub:HubV2NetworkScanning"
                 },
                 "subscribedAt": {
                     "type": "string",
@@ -165179,6 +165311,75 @@
             ],
             "listInputs": {
                 "type": "object"
+            },
+            "hasListHandler": true
+        },
+        "aws-native:servicediscovery:Instance": {
+            "cf": "AWS::ServiceDiscovery::Instance",
+            "inputs": {
+                "instanceAttributes": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A string map that contains information for the service that is specified in ServiceId.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property."
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "An identifier that you want to associate with the instance."
+                },
+                "serviceId": {
+                    "type": "string",
+                    "description": "The ID or Amazon Resource Name (ARN) of the service that you want to use for settings for the instance."
+                }
+            },
+            "outputs": {
+                "instanceAttributes": {
+                    "$ref": "pulumi.json#/Any",
+                    "description": "A string map that contains information for the service that is specified in ServiceId.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property."
+                },
+                "instanceId": {
+                    "type": "string",
+                    "description": "An identifier that you want to associate with the instance.",
+                    "replaceOnChanges": true
+                },
+                "serviceId": {
+                    "type": "string",
+                    "description": "The ID or Amazon Resource Name (ARN) of the service that you want to use for settings for the instance.",
+                    "replaceOnChanges": true
+                }
+            },
+            "required": [
+                "instanceAttributes",
+                "serviceId"
+            ],
+            "createOnly": [
+                "instanceId",
+                "serviceId"
+            ],
+            "primaryIdentifier": [
+                "serviceId",
+                "instanceId"
+            ],
+            "listHandlerSchema": {
+                "properties": {
+                    "ServiceId": {
+                        "description": "The ID or Amazon Resource Name (ARN) of the service that you want to use for settings for the instance.",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "ServiceId"
+                ]
+            },
+            "listInputs": {
+                "properties": {
+                    "serviceId": {
+                        "type": "string",
+                        "description": "The ID or Amazon Resource Name (ARN) of the service that you want to use for settings for the instance."
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "serviceId"
+                ]
             },
             "hasListHandler": true
         },
@@ -208752,6 +208953,12 @@
                         "type": "string"
                     }
                 },
+                "tags": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
                 "vpcIdentifier": {
                     "type": "string"
                 }
@@ -209115,6 +209322,17 @@
         },
         "aws-native:bedrockagentcore:GatewayRuleStatus": {
             "type": "string"
+        },
+        "aws-native:bedrockagentcore:GatewayRuleSystemManagedBlock": {
+            "type": "object",
+            "properties": {
+                "managedBy": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "managedBy"
+            ]
         },
         "aws-native:bedrockagentcore:GatewayRuleTargetTrafficSplitEntry": {
             "type": "object",
@@ -209550,6 +209768,34 @@
                 "source"
             ]
         },
+        "aws-native:bedrockagentcore:GatewayTargetHttpConnectorSource": {
+            "type": "object",
+            "properties": {
+                "connectorId": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "connectorId"
+            ]
+        },
+        "aws-native:bedrockagentcore:GatewayTargetHttpConnectorTargetConfiguration": {
+            "type": "object",
+            "properties": {
+                "parameters": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "source": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:GatewayTargetHttpConnectorSource"
+                }
+            },
+            "required": [
+                "source"
+            ]
+        },
         "aws-native:bedrockagentcore:GatewayTargetHttpTargetConfiguration0Properties": {
             "type": "object",
             "properties": {
@@ -209570,6 +209816,17 @@
             },
             "required": [
                 "passthrough"
+            ]
+        },
+        "aws-native:bedrockagentcore:GatewayTargetHttpTargetConfiguration2Properties": {
+            "type": "object",
+            "properties": {
+                "connector": {
+                    "$ref": "#/types/aws-native:bedrockagentcore:GatewayTargetHttpConnectorTargetConfiguration"
+                }
+            },
+            "required": [
+                "connector"
             ]
         },
         "aws-native:bedrockagentcore:GatewayTargetIamCredentialProvider": {
@@ -210160,6 +210417,9 @@
                         },
                         {
                             "$ref": "#/types/aws-native:bedrockagentcore:GatewayTargetHttpTargetConfiguration1Properties"
+                        },
+                        {
+                            "$ref": "#/types/aws-native:bedrockagentcore:GatewayTargetHttpTargetConfiguration2Properties"
                         }
                     ]
                 }
@@ -221602,7 +221862,7 @@
             "type": "object",
             "properties": {
                 "exportConfigType": {
-                    "$ref": "#/types/aws-native:codebuild:ReportGroupReportExportConfigExportConfigType",
+                    "type": "string",
                     "description": "The export configuration type. Valid values are:\n\n- `S3` : The report results are exported to an S3 bucket.\n- `NO_EXPORT` : The report results are not exported."
                 },
                 "s3Destination": {
@@ -221616,9 +221876,6 @@
             "irreversibleNames": {
                 "s3Destination": "S3Destination"
             }
-        },
-        "aws-native:codebuild:ReportGroupReportExportConfigExportConfigType": {
-            "type": "string"
         },
         "aws-native:codebuild:ReportGroupS3ReportExportConfig": {
             "type": "object",
@@ -221640,7 +221897,7 @@
                     "description": "The encryption key for the report's encrypted raw data."
                 },
                 "packaging": {
-                    "$ref": "#/types/aws-native:codebuild:ReportGroupS3ReportExportConfigPackaging",
+                    "type": "string",
                     "description": "The type of build output artifact to create. Valid values include:\n\n- `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.\n- `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket."
                 },
                 "path": {
@@ -221651,9 +221908,6 @@
             "required": [
                 "bucket"
             ]
-        },
-        "aws-native:codebuild:ReportGroupS3ReportExportConfigPackaging": {
-            "type": "string"
         },
         "aws-native:codebuild:ReportGroupTag": {
             "type": "object",
@@ -221671,9 +221925,6 @@
                 "key",
                 "value"
             ]
-        },
-        "aws-native:codebuild:ReportGroupType": {
-            "type": "string"
         },
         "aws-native:codecommit:RepositoryCode": {
             "type": "object",
@@ -225200,10 +225451,13 @@
             "type": "object",
             "properties": {
                 "deliveryFrequency": {
-                    "type": "string",
+                    "$ref": "#/types/aws-native:configuration:DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency",
                     "description": "The frequency with which AWS Config delivers configuration snapshots."
                 }
             }
+        },
+        "aws-native:configuration:DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency": {
+            "type": "string"
         },
         "aws-native:configuration:OrganizationConformancePackConformancePackInputParameter": {
             "type": "object",
@@ -240984,6 +241238,38 @@
                 "value"
             ]
         },
+        "aws-native:drs:LaunchConfigurationTemplateLaunchDisposition": {
+            "type": "string"
+        },
+        "aws-native:drs:LaunchConfigurationTemplateLicensing": {
+            "type": "object",
+            "properties": {
+                "osByol": {
+                    "type": "boolean",
+                    "description": "Whether to enable Bring your own license or not."
+                }
+            }
+        },
+        "aws-native:drs:LaunchConfigurationTemplateTag": {
+            "type": "object",
+            "properties": {
+                "key": {
+                    "type": "string",
+                    "description": "The key name of the tag."
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value for the tag."
+                }
+            },
+            "required": [
+                "key",
+                "value"
+            ]
+        },
+        "aws-native:drs:LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod": {
+            "type": "string"
+        },
         "aws-native:drs:SourceNetworkTag": {
             "type": "object",
             "properties": {
@@ -252102,7 +252388,7 @@
                 },
                 "protocol": {
                     "type": "string",
-                    "description": "The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment."
+                    "description": "The protocol that's used for the port mapping. Valid values are ``tcp`` and ``udp`` (case-sensitive). The default is ``tcp``. Amazon ECS treats any other specified value as ``tcp``. ``protocol`` is immutable in a Service Connect service. To update this field, you must delete and redeploy the service."
                 }
             }
         },
@@ -260539,13 +260825,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.",
-                    "replaceOnChanges": true
+                    "description": "The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.\n\nAmazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:\n\n- The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.\n- The value of `Aggregates` contains aggregates that are not present.\n- One or more of the aggregates supplied are too close to the volume limit to support adding more volumes."
                 },
                 "constituentsPerAggregate": {
                     "type": "integer",
-                    "description": "Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.",
-                    "replaceOnChanges": true
+                    "description": "Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume."
                 }
             }
         },
@@ -260554,11 +260838,11 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE."
+                    "description": "Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` ."
                 },
                 "value": {
                     "type": "integer",
-                    "description": "Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume."
+                    "description": "Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:\n\n- `Minutes` : 5 - 65,535\n- `Hours` : 1 - 65,535\n- `Days` : 1 - 3,650\n- `Months` : 1 - 120\n- `Years` : 1 - 10"
                 }
             },
             "required": [
@@ -260570,14 +260854,14 @@
             "properties": {
                 "clients": {
                     "type": "string",
-                    "description": "A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client."
+                    "description": "A value that specifies who can mount the file system. You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client."
                 },
                 "options": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "The configuration object for mounting a Network File System (NFS) file system."
+                    "description": "The options to use when mounting the file system. For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:\n\n- `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.\n- `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data."
                 }
             },
             "required": [
@@ -260593,7 +260877,7 @@
                     "items": {
                         "$ref": "#/types/aws-native:fsx:VolumeClientConfigurations"
                     },
-                    "description": "The configuration object for mounting a Network File System (NFS) file system."
+                    "description": "A list of configuration objects that contain the client and options for mounting the OpenZFS file system."
                 }
             },
             "required": [
@@ -260605,25 +260889,23 @@
             "properties": {
                 "aggregateConfiguration": {
                     "$ref": "#/types/aws-native:fsx:VolumeAggregateConfiguration",
-                    "description": "Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.",
-                    "replaceOnChanges": true
+                    "description": "Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates."
                 },
                 "copyTagsToBackups": {
                     "type": "string",
-                    "description": "A boolean flag indicating whether tags for the volume should be copied to backups."
+                    "description": "A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value."
                 },
                 "junctionPath": {
                     "type": "string",
-                    "description": "Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3."
+                    "description": "Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` ."
                 },
                 "ontapVolumeType": {
                     "type": "string",
-                    "description": "Specifies the type of volume you are creating. Valid values are the following: RW or DP",
-                    "replaceOnChanges": true
+                    "description": "Specifies the type of volume you are creating. Valid values are the following:\n\n- `RW` specifies a read/write volume. `RW` is the default.\n- `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.\n\nFor more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-types) in the Amazon FSx for NetApp ONTAP User Guide."
                 },
                 "securityStyle": {
                     "type": "string",
-                    "description": "Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style."
+                    "description": "Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. Specify one of the following values:\n\n- `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.\n- `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.\n- `MIXED` This is an advanced setting. For more information, see the topic [What the security styles and their effects are](https://docs.aws.amazon.com/https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html) in the NetApp Documentation Center.\n\nFor more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the FSx for ONTAP User Guide."
                 },
                 "sizeInBytes": {
                     "type": "string",
@@ -260631,7 +260913,7 @@
                 },
                 "sizeInMegabytes": {
                     "type": "string",
-                    "description": "Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating"
+                    "description": "Use `SizeInBytes` instead. Specifies the size of the volume, in megabytes (MB), that you are creating."
                 },
                 "snaplockConfiguration": {
                     "$ref": "#/types/aws-native:fsx:VolumeSnaplockConfiguration",
@@ -260639,25 +260921,23 @@
                 },
                 "snapshotPolicy": {
                     "type": "string",
-                    "description": "Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none."
+                    "description": "Specifies the snapshot policy for the volume. There are three built-in snapshot policies:\n\n- `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.\n- `default-1weekly` : This policy is the same as the `default` policy except that it only retains one snapshot from the weekly schedule.\n- `none` : This policy does not take any snapshots. This policy can be assigned to volumes to prevent automatic snapshots from being taken.\n\nYou can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.\n\nFor more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx for NetApp ONTAP User Guide."
                 },
                 "storageEfficiencyEnabled": {
                     "type": "string",
-                    "description": "Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them."
+                    "description": "Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.\n\n`StorageEfficiencyEnabled` is required when creating a `RW` volume ( `OntapVolumeType` set to `RW` )."
                 },
                 "storageVirtualMachineId": {
                     "type": "string",
-                    "description": "Specifies the ONTAP SVM in which to create the volume.",
-                    "replaceOnChanges": true
+                    "description": "Specifies the ONTAP SVM in which to create the volume."
                 },
                 "tieringPolicy": {
                     "$ref": "#/types/aws-native:fsx:VolumeTieringPolicy",
-                    "description": "Describes the data tiering policy for an ONTAP volume."
+                    "description": "Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.\n\nValid tiering policies are the following:\n\n- `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.\n\n- `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.\n\n- `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.\n\n- `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier."
                 },
                 "volumeStyle": {
                     "type": "string",
-                    "description": "Use to specify the style of an ONTAP volume.",
-                    "replaceOnChanges": true
+                    "description": "Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes that you can use for different purposes, FlexVol and FlexGroup volumes. For more information, see [Volume styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-styles) in the Amazon FSx for NetApp ONTAP User Guide."
                 }
             },
             "required": [
@@ -260669,11 +260949,11 @@
             "properties": {
                 "copyTagsToSnapshots": {
                     "type": "boolean",
-                    "description": "A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value."
+                    "description": "A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to `false` . If this value is set to `true` , and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to `true` , and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value."
                 },
                 "dataCompressionType": {
                     "type": "string",
-                    "description": "Specifies the method used to compress the data on the volume"
+                    "description": "Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.\n\n- `NONE` - Doesn't compress the data on the volume. `NONE` is the default.\n- `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.\n- `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds."
                 },
                 "nfsExports": {
                     "type": "array",
@@ -260687,17 +260967,15 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "The configuration object for mounting a Network File System (NFS) file system."
+                    "description": "To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` ."
                 },
                 "originSnapshot": {
                     "$ref": "#/types/aws-native:fsx:VolumeOriginSnapshot",
-                    "description": "The configuration of an Amazon FSx for OpenZFS volume.",
-                    "replaceOnChanges": true
+                    "description": "The configuration object that specifies the snapshot to use as the origin of the data for the volume."
                 },
                 "parentVolumeId": {
                     "type": "string",
-                    "description": "The ID of the volume to use as the parent volume of the volume that you are creating.",
-                    "replaceOnChanges": true
+                    "description": "The ID of the volume to use as the parent volume of the volume that you are creating."
                 },
                 "readOnly": {
                     "type": "boolean",
@@ -260705,15 +260983,15 @@
                 },
                 "recordSizeKiB": {
                     "type": "integer",
-                    "description": "Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB)."
+                    "description": "Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB. For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* ."
                 },
                 "storageCapacityQuotaGiB": {
                     "type": "integer",
-                    "description": "Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1."
+                    "description": "Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .\n\nFor more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* ."
                 },
                 "storageCapacityReservationGiB": {
                     "type": "integer",
-                    "description": "Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide."
+                    "description": "Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* ."
                 },
                 "userAndGroupQuotas": {
                     "type": "array",
@@ -260732,13 +261010,11 @@
             "properties": {
                 "copyStrategy": {
                     "type": "string",
-                    "description": "The configuration object for mounting a Network File System (NFS) file system.",
-                    "replaceOnChanges": true
+                    "description": "Specifies the strategy used when copying data from the snapshot to the new volume.\n\n- `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.\n- `FULL_COPY` - Copies all data from the snapshot to the new volume.\n\nSpecify this option to create the volume from a snapshot on another FSx for OpenZFS file system.\n\n\u003e The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) ."
                 },
                 "snapshotArn": {
                     "type": "string",
-                    "description": "Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.",
-                    "replaceOnChanges": true
+                    "description": "Specifies the snapshot to use when creating an OpenZFS volume from a snapshot."
                 }
             },
             "required": [
@@ -260754,11 +261030,11 @@
             "properties": {
                 "type": {
                     "type": "string",
-                    "description": "Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period."
+                    "description": "Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period."
                 },
                 "value": {
                     "type": "integer",
-                    "description": "Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED."
+                    "description": "Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:\n\n- `Seconds` : 0 - 65,535\n- `Minutes` : 0 - 65,535\n- `Hours` : 0 - 24\n- `Days` : 0 - 365\n- `Months` : 0 - 12\n- `Years` : 0 - 100"
                 }
             },
             "required": [
@@ -260770,7 +261046,7 @@
             "properties": {
                 "auditLogVolume": {
                     "type": "string",
-                    "description": "Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume"
+                    "description": "Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false` . If you set `AuditLogVolume` to `true` , the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months.\n\nFor more information, see [SnapLock audit log volumes](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume) ."
                 },
                 "autocommitPeriod": {
                     "$ref": "#/types/aws-native:fsx:VolumeAutocommitPeriod",
@@ -260778,7 +261054,7 @@
                 },
                 "privilegedDelete": {
                     "type": "string",
-                    "description": "Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume."
+                    "description": "Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. `PERMANENTLY_DISABLED` is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is `DISABLED` .\n\nFor more information, see [Privileged delete](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete) ."
                 },
                 "retentionPeriod": {
                     "$ref": "#/types/aws-native:fsx:VolumeSnaplockRetentionPeriod",
@@ -260786,12 +261062,11 @@
                 },
                 "snaplockType": {
                     "type": "string",
-                    "description": "Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.",
-                    "replaceOnChanges": true
+                    "description": "Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. You can choose one of the following retention modes:\n\n- `COMPLIANCE` : Files transitioned to write once, read many (WORM) on a Compliance volume can't be deleted until their retention periods expire. This retention mode is used to address government or industry-specific mandates or to protect against ransomware attacks. For more information, see [SnapLock Compliance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html) .\n- `ENTERPRISE` : Files transitioned to WORM on an Enterprise volume can be deleted by authorized users before their retention periods expire using privileged delete. This retention mode is used to advance an organization's data integrity and internal compliance or to test retention settings before using SnapLock Compliance. For more information, see [SnapLock Enterprise](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html) ."
                 },
                 "volumeAppendModeEnabled": {
                     "type": "string",
-                    "description": "Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume."
+                    "description": "Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is `false` .\n\nFor more information, see [Volume-append mode](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append) ."
                 }
             },
             "required": [
@@ -260803,7 +261078,7 @@
             "properties": {
                 "defaultRetention": {
                     "$ref": "#/types/aws-native:fsx:VolumeRetentionPeriod",
-                    "description": "The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume."
+                    "description": "The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period."
                 },
                 "maximumRetention": {
                     "$ref": "#/types/aws-native:fsx:VolumeRetentionPeriod",
@@ -260825,11 +261100,11 @@
             "properties": {
                 "key": {
                     "type": "string",
-                    "description": "A value that specifies the TagKey, the name of the tag. Tag keys must be unique for the resource to which they are attached."
+                    "description": "A value that specifies the `TagKey` , the name of the tag. Tag keys must be unique for the resource to which they are attached."
                 },
                 "value": {
                     "type": "string",
-                    "description": "A value that specifies the TagValue, the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of finances : April and also of payroll : April."
+                    "description": "A value that specifies the `TagValue` , the value assigned to the corresponding tag key. Tag values can be null and don't have to be unique in a tag set. For example, you can have a key-value pair in a tag set of `finances : April` and also of `payroll : April` ."
                 }
             },
             "required": [
@@ -260842,11 +261117,11 @@
             "properties": {
                 "coolingPeriod": {
                     "type": "integer",
-                    "description": "Specifies the number of days that user data in a volume must remain inactive before it is considered \"cold\" and moved to the capacity pool."
+                    "description": "Specifies the number of days that user data in a volume must remain inactive before it is considered \"cold\" and moved to the capacity pool. Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` ."
                 },
                 "name": {
                     "type": "string",
-                    "description": "Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY."
+                    "description": "Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .\n\n- `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.\n- `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.\n- `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.\n- `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier."
                 }
             }
         },
@@ -295238,6 +295513,98 @@
             "required": [
                 "key"
             ]
+        },
+        "aws-native:neptunegraph:GraphImportOptions": {
+            "type": "object",
+            "properties": {
+                "neptune": {
+                    "$ref": "#/types/aws-native:neptunegraph:GraphNeptuneImportOptions",
+                    "description": "Options for importing data from a Neptune database."
+                }
+            }
+        },
+        "aws-native:neptunegraph:GraphImportTask": {
+            "type": "object",
+            "properties": {
+                "blankNodeHandling": {
+                    "$ref": "#/types/aws-native:neptunegraph:GraphImportTaskBlankNodeHandling",
+                    "description": "The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES"
+                },
+                "failOnError": {
+                    "type": "boolean",
+                    "description": "If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible."
+                },
+                "format": {
+                    "$ref": "#/types/aws-native:neptunegraph:GraphImportTaskFormat",
+                    "description": "Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format."
+                },
+                "importOptions": {
+                    "$ref": "#/types/aws-native:neptunegraph:GraphImportOptions",
+                    "description": "Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered)."
+                },
+                "maxProvisionedMemory": {
+                    "type": "integer",
+                    "description": "The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used."
+                },
+                "minProvisionedMemory": {
+                    "type": "integer",
+                    "description": "The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16"
+                },
+                "parquetType": {
+                    "$ref": "#/types/aws-native:neptunegraph:GraphImportTaskParquetType",
+                    "description": "The parquet type of the import task. Required when Format is PARQUET."
+                },
+                "roleArn": {
+                    "type": "string",
+                    "description": "The ARN of the IAM role that will allow access to the data that is to be imported."
+                },
+                "source": {
+                    "type": "string",
+                    "description": "A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot."
+                }
+            },
+            "required": [
+                "roleArn",
+                "source"
+            ]
+        },
+        "aws-native:neptunegraph:GraphImportTaskBlankNodeHandling": {
+            "type": "string"
+        },
+        "aws-native:neptunegraph:GraphImportTaskFormat": {
+            "type": "string"
+        },
+        "aws-native:neptunegraph:GraphImportTaskParquetType": {
+            "type": "string"
+        },
+        "aws-native:neptunegraph:GraphNeptuneImportOptions": {
+            "type": "object",
+            "properties": {
+                "preserveDefaultVertexLabels": {
+                    "type": "boolean",
+                    "description": "Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false."
+                },
+                "preserveEdgeIds": {
+                    "type": "boolean",
+                    "description": "Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId."
+                },
+                "s3ExportKmsKeyId": {
+                    "type": "string",
+                    "description": "The KMS key to use to encrypt data in the S3 bucket where the graph data is exported."
+                },
+                "s3ExportPath": {
+                    "type": "string",
+                    "description": "The path to an S3 bucket from which to import data."
+                }
+            },
+            "required": [
+                "s3ExportKmsKeyId",
+                "s3ExportPath"
+            ],
+            "irreversibleNames": {
+                "s3ExportKmsKeyId": "S3ExportKmsKeyId",
+                "s3ExportPath": "S3ExportPath"
+            }
         },
         "aws-native:neptunegraph:GraphSnapshotStatus": {
             "type": "string"
@@ -352345,12 +352712,26 @@
                 "outputSchemaVersion"
             ]
         },
+        "aws-native:s3:BucketDefaultEventHold": {
+            "type": "object",
+            "properties": {
+                "days": {
+                    "type": "integer"
+                },
+                "years": {
+                    "type": "integer"
+                }
+            }
+        },
         "aws-native:s3:BucketDefaultRetention": {
             "type": "object",
             "properties": {
                 "days": {
                     "type": "integer",
                     "description": "The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``."
+                },
+                "defaultEventHold": {
+                    "$ref": "#/types/aws-native:s3:BucketDefaultEventHold"
                 },
                 "mode": {
                     "$ref": "#/types/aws-native:s3:BucketDefaultRetentionMode",
@@ -367399,6 +367780,21 @@
             "type": "string"
         },
         "aws-native:securityhub:FindingAggregatorRegionLinkingMode": {
+            "type": "string"
+        },
+        "aws-native:securityhub:HubV2NetworkScanning": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "$ref": "#/types/aws-native:securityhub:HubV2NetworkScanningStatus",
+                    "description": "Whether the Network Scanning feature is enabled for this account and Region."
+                }
+            },
+            "required": [
+                "status"
+            ]
+        },
+        "aws-native:securityhub:HubV2NetworkScanningStatus": {
             "type": "string"
         },
         "aws-native:securityhub:InsightAwsSecurityFindingFilters": {
@@ -385717,7 +386113,7 @@
         "aws-native:codebuild:getReportGroup": {
             "cf": "AWS::CodeBuild::ReportGroup",
             "ids": [
-                "arn"
+                "id"
             ]
         },
         "aws-native:codebuild:getSourceCredential": {
@@ -385966,7 +386362,7 @@
         "aws-native:configuration:getDeliveryChannel": {
             "cf": "AWS::Config::DeliveryChannel",
             "ids": [
-                "id"
+                "name"
             ]
         },
         "aws-native:configuration:getOrganizationConformancePack": {
@@ -386917,6 +387313,12 @@
             "cf": "AWS::DocDBElastic::Cluster",
             "ids": [
                 "clusterArn"
+            ]
+        },
+        "aws-native:drs:getLaunchConfigurationTemplate": {
+            "cf": "AWS::DRS::LaunchConfigurationTemplate",
+            "ids": [
+                "arn"
             ]
         },
         "aws-native:drs:getSourceNetwork": {
@@ -392299,6 +392701,13 @@
             "cf": "AWS::ServiceDiscovery::HttpNamespace",
             "ids": [
                 "id"
+            ]
+        },
+        "aws-native:servicediscovery:getInstance": {
+            "cf": "AWS::ServiceDiscovery::Instance",
+            "ids": [
+                "serviceId",
+                "instanceId"
             ]
         },
         "aws-native:servicediscovery:getPrivateDnsNamespace": {

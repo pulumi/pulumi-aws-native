@@ -41,24 +41,32 @@ namespace Pulumi.AwsNative.FSx
 
         /// <summary>
         /// Returns the volume's Amazon Resource Name (ARN).
+        /// 
+        /// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// One or more tags.
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         [Output("tags")]
         public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the volume's ID.
+        /// Returns the volume's universally unique identifier (UUID).
+        /// 
+        /// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
         /// </summary>
         [Output("uuid")]
         public Output<string> Uuid { get; private set; } = null!;
 
         /// <summary>
-        /// Returns the volume's universally unique identifier (UUID).
+        /// Returns the volume's ID.
+        /// 
+        /// Example: `fsvol-0123456789abcdefa`
         /// </summary>
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -95,13 +103,6 @@ namespace Pulumi.AwsNative.FSx
                 ReplaceOnChanges =
                 {
                     "backupId",
-                    "ontapConfiguration.aggregateConfiguration",
-                    "ontapConfiguration.ontapVolumeType",
-                    "ontapConfiguration.snaplockConfiguration.snaplockType",
-                    "ontapConfiguration.storageVirtualMachineId",
-                    "ontapConfiguration.volumeStyle",
-                    "openZfsConfiguration.originSnapshot",
-                    "openZfsConfiguration.parentVolumeId",
                     "volumeType",
                 },
             };
@@ -154,7 +155,9 @@ namespace Pulumi.AwsNative.FSx
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
 
         /// <summary>
-        /// One or more tags.
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
         {

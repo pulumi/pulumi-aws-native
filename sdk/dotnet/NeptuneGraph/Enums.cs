@@ -8,6 +8,99 @@ using Pulumi;
 namespace Pulumi.AwsNative.NeptuneGraph
 {
     /// <summary>
+    /// The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+    /// </summary>
+    [EnumType]
+    public readonly struct GraphImportTaskBlankNodeHandling : IEquatable<GraphImportTaskBlankNodeHandling>
+    {
+        private readonly string _value;
+
+        private GraphImportTaskBlankNodeHandling(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GraphImportTaskBlankNodeHandling ConvertToIri { get; } = new GraphImportTaskBlankNodeHandling("convertToIri");
+
+        public static bool operator ==(GraphImportTaskBlankNodeHandling left, GraphImportTaskBlankNodeHandling right) => left.Equals(right);
+        public static bool operator !=(GraphImportTaskBlankNodeHandling left, GraphImportTaskBlankNodeHandling right) => !left.Equals(right);
+
+        public static explicit operator string(GraphImportTaskBlankNodeHandling value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GraphImportTaskBlankNodeHandling other && Equals(other);
+        public bool Equals(GraphImportTaskBlankNodeHandling other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+    /// </summary>
+    [EnumType]
+    public readonly struct GraphImportTaskFormat : IEquatable<GraphImportTaskFormat>
+    {
+        private readonly string _value;
+
+        private GraphImportTaskFormat(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GraphImportTaskFormat Csv { get; } = new GraphImportTaskFormat("CSV");
+        public static GraphImportTaskFormat OpenCypher { get; } = new GraphImportTaskFormat("OPEN_CYPHER");
+        public static GraphImportTaskFormat Parquet { get; } = new GraphImportTaskFormat("PARQUET");
+        public static GraphImportTaskFormat Ntriples { get; } = new GraphImportTaskFormat("NTRIPLES");
+
+        public static bool operator ==(GraphImportTaskFormat left, GraphImportTaskFormat right) => left.Equals(right);
+        public static bool operator !=(GraphImportTaskFormat left, GraphImportTaskFormat right) => !left.Equals(right);
+
+        public static explicit operator string(GraphImportTaskFormat value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GraphImportTaskFormat other && Equals(other);
+        public bool Equals(GraphImportTaskFormat other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The parquet type of the import task. Required when Format is PARQUET.
+    /// </summary>
+    [EnumType]
+    public readonly struct GraphImportTaskParquetType : IEquatable<GraphImportTaskParquetType>
+    {
+        private readonly string _value;
+
+        private GraphImportTaskParquetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static GraphImportTaskParquetType Columnar { get; } = new GraphImportTaskParquetType("COLUMNAR");
+
+        public static bool operator ==(GraphImportTaskParquetType left, GraphImportTaskParquetType right) => left.Equals(right);
+        public static bool operator !=(GraphImportTaskParquetType left, GraphImportTaskParquetType right) => !left.Equals(right);
+
+        public static explicit operator string(GraphImportTaskParquetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GraphImportTaskParquetType other && Equals(other);
+        public bool Equals(GraphImportTaskParquetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The current status of the graph snapshot.
     /// </summary>
     [EnumType]

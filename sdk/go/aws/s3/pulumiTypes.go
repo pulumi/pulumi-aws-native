@@ -2031,12 +2031,161 @@ func (o BucketDataExportPtrOutput) OutputSchemaVersion() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+type BucketDefaultEventHold struct {
+	Days  *int `pulumi:"days"`
+	Years *int `pulumi:"years"`
+}
+
+// BucketDefaultEventHoldInput is an input type that accepts BucketDefaultEventHoldArgs and BucketDefaultEventHoldOutput values.
+// You can construct a concrete instance of `BucketDefaultEventHoldInput` via:
+//
+//	BucketDefaultEventHoldArgs{...}
+type BucketDefaultEventHoldInput interface {
+	pulumi.Input
+
+	ToBucketDefaultEventHoldOutput() BucketDefaultEventHoldOutput
+	ToBucketDefaultEventHoldOutputWithContext(context.Context) BucketDefaultEventHoldOutput
+}
+
+type BucketDefaultEventHoldArgs struct {
+	Days  pulumi.IntPtrInput `pulumi:"days"`
+	Years pulumi.IntPtrInput `pulumi:"years"`
+}
+
+func (BucketDefaultEventHoldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDefaultEventHold)(nil)).Elem()
+}
+
+func (i BucketDefaultEventHoldArgs) ToBucketDefaultEventHoldOutput() BucketDefaultEventHoldOutput {
+	return i.ToBucketDefaultEventHoldOutputWithContext(context.Background())
+}
+
+func (i BucketDefaultEventHoldArgs) ToBucketDefaultEventHoldOutputWithContext(ctx context.Context) BucketDefaultEventHoldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultEventHoldOutput)
+}
+
+func (i BucketDefaultEventHoldArgs) ToBucketDefaultEventHoldPtrOutput() BucketDefaultEventHoldPtrOutput {
+	return i.ToBucketDefaultEventHoldPtrOutputWithContext(context.Background())
+}
+
+func (i BucketDefaultEventHoldArgs) ToBucketDefaultEventHoldPtrOutputWithContext(ctx context.Context) BucketDefaultEventHoldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultEventHoldOutput).ToBucketDefaultEventHoldPtrOutputWithContext(ctx)
+}
+
+// BucketDefaultEventHoldPtrInput is an input type that accepts BucketDefaultEventHoldArgs, BucketDefaultEventHoldPtr and BucketDefaultEventHoldPtrOutput values.
+// You can construct a concrete instance of `BucketDefaultEventHoldPtrInput` via:
+//
+//	        BucketDefaultEventHoldArgs{...}
+//
+//	or:
+//
+//	        nil
+type BucketDefaultEventHoldPtrInput interface {
+	pulumi.Input
+
+	ToBucketDefaultEventHoldPtrOutput() BucketDefaultEventHoldPtrOutput
+	ToBucketDefaultEventHoldPtrOutputWithContext(context.Context) BucketDefaultEventHoldPtrOutput
+}
+
+type bucketDefaultEventHoldPtrType BucketDefaultEventHoldArgs
+
+func BucketDefaultEventHoldPtr(v *BucketDefaultEventHoldArgs) BucketDefaultEventHoldPtrInput {
+	return (*bucketDefaultEventHoldPtrType)(v)
+}
+
+func (*bucketDefaultEventHoldPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDefaultEventHold)(nil)).Elem()
+}
+
+func (i *bucketDefaultEventHoldPtrType) ToBucketDefaultEventHoldPtrOutput() BucketDefaultEventHoldPtrOutput {
+	return i.ToBucketDefaultEventHoldPtrOutputWithContext(context.Background())
+}
+
+func (i *bucketDefaultEventHoldPtrType) ToBucketDefaultEventHoldPtrOutputWithContext(ctx context.Context) BucketDefaultEventHoldPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BucketDefaultEventHoldPtrOutput)
+}
+
+type BucketDefaultEventHoldOutput struct{ *pulumi.OutputState }
+
+func (BucketDefaultEventHoldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BucketDefaultEventHold)(nil)).Elem()
+}
+
+func (o BucketDefaultEventHoldOutput) ToBucketDefaultEventHoldOutput() BucketDefaultEventHoldOutput {
+	return o
+}
+
+func (o BucketDefaultEventHoldOutput) ToBucketDefaultEventHoldOutputWithContext(ctx context.Context) BucketDefaultEventHoldOutput {
+	return o
+}
+
+func (o BucketDefaultEventHoldOutput) ToBucketDefaultEventHoldPtrOutput() BucketDefaultEventHoldPtrOutput {
+	return o.ToBucketDefaultEventHoldPtrOutputWithContext(context.Background())
+}
+
+func (o BucketDefaultEventHoldOutput) ToBucketDefaultEventHoldPtrOutputWithContext(ctx context.Context) BucketDefaultEventHoldPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BucketDefaultEventHold) *BucketDefaultEventHold {
+		return &v
+	}).(BucketDefaultEventHoldPtrOutput)
+}
+
+func (o BucketDefaultEventHoldOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketDefaultEventHold) *int { return v.Days }).(pulumi.IntPtrOutput)
+}
+
+func (o BucketDefaultEventHoldOutput) Years() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BucketDefaultEventHold) *int { return v.Years }).(pulumi.IntPtrOutput)
+}
+
+type BucketDefaultEventHoldPtrOutput struct{ *pulumi.OutputState }
+
+func (BucketDefaultEventHoldPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BucketDefaultEventHold)(nil)).Elem()
+}
+
+func (o BucketDefaultEventHoldPtrOutput) ToBucketDefaultEventHoldPtrOutput() BucketDefaultEventHoldPtrOutput {
+	return o
+}
+
+func (o BucketDefaultEventHoldPtrOutput) ToBucketDefaultEventHoldPtrOutputWithContext(ctx context.Context) BucketDefaultEventHoldPtrOutput {
+	return o
+}
+
+func (o BucketDefaultEventHoldPtrOutput) Elem() BucketDefaultEventHoldOutput {
+	return o.ApplyT(func(v *BucketDefaultEventHold) BucketDefaultEventHold {
+		if v != nil {
+			return *v
+		}
+		var ret BucketDefaultEventHold
+		return ret
+	}).(BucketDefaultEventHoldOutput)
+}
+
+func (o BucketDefaultEventHoldPtrOutput) Days() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketDefaultEventHold) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Days
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o BucketDefaultEventHoldPtrOutput) Years() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BucketDefaultEventHold) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Years
+	}).(pulumi.IntPtrOutput)
+}
+
 // The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
 //   - The “DefaultRetention“ settings require both a mode and a period.
 //   - The “DefaultRetention“ period can be either “Days“ or “Years“ but you must select one. You cannot specify “Days“ and “Years“ at the same time.
 type BucketDefaultRetention struct {
 	// The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
-	Days *int `pulumi:"days"`
+	Days             *int                    `pulumi:"days"`
+	DefaultEventHold *BucketDefaultEventHold `pulumi:"defaultEventHold"`
 	// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
 	Mode *BucketDefaultRetentionMode `pulumi:"mode"`
 	// The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -2059,7 +2208,8 @@ type BucketDefaultRetentionInput interface {
 //   - The “DefaultRetention“ period can be either “Days“ or “Years“ but you must select one. You cannot specify “Days“ and “Years“ at the same time.
 type BucketDefaultRetentionArgs struct {
 	// The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
-	Days pulumi.IntPtrInput `pulumi:"days"`
+	Days             pulumi.IntPtrInput             `pulumi:"days"`
+	DefaultEventHold BucketDefaultEventHoldPtrInput `pulumi:"defaultEventHold"`
 	// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
 	Mode BucketDefaultRetentionModePtrInput `pulumi:"mode"`
 	// The number of years that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
@@ -2151,6 +2301,10 @@ func (o BucketDefaultRetentionOutput) Days() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BucketDefaultRetention) *int { return v.Days }).(pulumi.IntPtrOutput)
 }
 
+func (o BucketDefaultRetentionOutput) DefaultEventHold() BucketDefaultEventHoldPtrOutput {
+	return o.ApplyT(func(v BucketDefaultRetention) *BucketDefaultEventHold { return v.DefaultEventHold }).(BucketDefaultEventHoldPtrOutput)
+}
+
 // The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify “Mode“ and specify either “Days“ or “Years“.
 func (o BucketDefaultRetentionOutput) Mode() BucketDefaultRetentionModePtrOutput {
 	return o.ApplyT(func(v BucketDefaultRetention) *BucketDefaultRetentionMode { return v.Mode }).(BucketDefaultRetentionModePtrOutput)
@@ -2193,6 +2347,15 @@ func (o BucketDefaultRetentionPtrOutput) Days() pulumi.IntPtrOutput {
 		}
 		return v.Days
 	}).(pulumi.IntPtrOutput)
+}
+
+func (o BucketDefaultRetentionPtrOutput) DefaultEventHold() BucketDefaultEventHoldPtrOutput {
+	return o.ApplyT(func(v *BucketDefaultRetention) *BucketDefaultEventHold {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultEventHold
+	}).(BucketDefaultEventHoldPtrOutput)
 }
 
 // The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify “Mode“ and specify either “Days“ or “Years“.
@@ -16357,6 +16520,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketCorsRuleArrayInput)(nil)).Elem(), BucketCorsRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketDataExportInput)(nil)).Elem(), BucketDataExportArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketDataExportPtrInput)(nil)).Elem(), BucketDataExportArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketDefaultEventHoldInput)(nil)).Elem(), BucketDefaultEventHoldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BucketDefaultEventHoldPtrInput)(nil)).Elem(), BucketDefaultEventHoldArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketDefaultRetentionInput)(nil)).Elem(), BucketDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketDefaultRetentionPtrInput)(nil)).Elem(), BucketDefaultRetentionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BucketDeleteMarkerReplicationInput)(nil)).Elem(), BucketDeleteMarkerReplicationArgs{})
@@ -16557,6 +16722,8 @@ func init() {
 	pulumi.RegisterOutputType(BucketCorsRuleArrayOutput{})
 	pulumi.RegisterOutputType(BucketDataExportOutput{})
 	pulumi.RegisterOutputType(BucketDataExportPtrOutput{})
+	pulumi.RegisterOutputType(BucketDefaultEventHoldOutput{})
+	pulumi.RegisterOutputType(BucketDefaultEventHoldPtrOutput{})
 	pulumi.RegisterOutputType(BucketDefaultRetentionOutput{})
 	pulumi.RegisterOutputType(BucketDefaultRetentionPtrOutput{})
 	pulumi.RegisterOutputType(BucketDeleteMarkerReplicationOutput{})

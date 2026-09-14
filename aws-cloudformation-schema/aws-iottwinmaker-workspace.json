@@ -82,7 +82,7 @@
       "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource", "iottwinmaker:UntagResource", "iottwinmaker:UpdateWorkspace" ]
+      "permissions" : [ "iam:PassRole", "iottwinmaker:GetWorkspace", "iottwinmaker:ListTagsForResource", "iottwinmaker:TagResource", "iottwinmaker:UntagResource", "iottwinmaker:UpdateWorkspace" ]
     },
     "delete" : {
       "permissions" : [ "iottwinmaker:DeleteWorkspace", "iottwinmaker:GetWorkspace" ]

@@ -46,6 +46,7 @@ func NewAcmeEndpoint(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'CertificateAuthority'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"authorizationBehavior",
 		"certificateTags[*]",
 	})
 	opts = append(opts, replaceOnChanges)

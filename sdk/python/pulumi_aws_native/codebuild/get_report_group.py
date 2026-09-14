@@ -15,7 +15,6 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
-from ._enums import *
 
 __all__ = [
     'GetReportGroupResult',
@@ -26,13 +25,19 @@ __all__ = [
 
 @pulumi.output_type
 class GetReportGroupResult:
-    def __init__(__self__, arn=None, export_config=None, tags=None):
+    def __init__(__self__, arn=None, delete_reports=None, export_config=None, id=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if delete_reports and not isinstance(delete_reports, bool):
+            raise TypeError("Expected argument 'delete_reports' to be a bool")
+        pulumi.set(__self__, "delete_reports", delete_reports)
         if export_config and not isinstance(export_config, dict):
             raise TypeError("Expected argument 'export_config' to be a dict")
         pulumi.set(__self__, "export_config", export_config)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
         if tags and not isinstance(tags, list):
             raise TypeError("Expected argument 'tags' to be a list")
         pulumi.set(__self__, "tags", tags)
@@ -46,12 +51,28 @@ class GetReportGroupResult:
         return pulumi.get(self, "arn")
 
     @_builtins.property
+    @pulumi.getter(name="deleteReports")
+    def delete_reports(self) -> Optional[_builtins.bool]:
+        """
+        When deleting a report group, specifies if reports within the report group should be deleted.
+
+        - **true** - Deletes any reports that belong to the report group before deleting the report group.
+        - **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
+        """
+        return pulumi.get(self, "delete_reports")
+
+    @_builtins.property
     @pulumi.getter(name="exportConfig")
     def export_config(self) -> Optional['outputs.ReportGroupReportExportConfig']:
         """
         Information about the destination where the raw data of this `ReportGroup` is exported.
         """
         return pulumi.get(self, "export_config")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter
@@ -71,38 +92,40 @@ class AwaitableGetReportGroupResult(GetReportGroupResult):
             yield self
         return GetReportGroupResult(
             arn=self.arn,
+            delete_reports=self.delete_reports,
             export_config=self.export_config,
+            id=self.id,
             tags=self.tags)
 
 
-def get_report_group(arn: Optional[_builtins.str] = None,
+def get_report_group(id: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetReportGroupResult:
     """
     Resource Type definition for AWS::CodeBuild::ReportGroup
-
-    :param _builtins.str arn: The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
     """
     __args__ = dict()
-    __args__['arn'] = arn
+    __args__['id'] = id
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:codebuild:getReportGroup', __args__, opts=opts, typ=GetReportGroupResult).value
 
     return AwaitableGetReportGroupResult(
         arn=pulumi.get(__ret__, 'arn'),
+        delete_reports=pulumi.get(__ret__, 'delete_reports'),
         export_config=pulumi.get(__ret__, 'export_config'),
+        id=pulumi.get(__ret__, 'id'),
         tags=pulumi.get(__ret__, 'tags'))
-def get_report_group_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
+def get_report_group_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetReportGroupResult]:
     """
     Resource Type definition for AWS::CodeBuild::ReportGroup
-
-    :param _builtins.str arn: The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
     """
     __args__ = dict()
-    __args__['arn'] = arn
+    __args__['id'] = id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:codebuild:getReportGroup', __args__, opts=opts, typ=GetReportGroupResult)
     return __ret__.apply(lambda __response__: GetReportGroupResult(
         arn=pulumi.get(__response__, 'arn'),
+        delete_reports=pulumi.get(__response__, 'delete_reports'),
         export_config=pulumi.get(__response__, 'export_config'),
+        id=pulumi.get(__response__, 'id'),
         tags=pulumi.get(__response__, 'tags')))

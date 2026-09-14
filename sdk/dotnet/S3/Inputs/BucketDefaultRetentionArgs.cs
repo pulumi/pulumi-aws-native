@@ -23,6 +23,9 @@ namespace Pulumi.AwsNative.S3.Inputs
         [Input("days")]
         public Input<int>? Days { get; set; }
 
+        [Input("defaultEventHold")]
+        public Input<Inputs.BucketDefaultEventHoldArgs>? DefaultEventHold { get; set; }
+
         /// <summary>
         /// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         /// </summary>

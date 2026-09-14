@@ -28,15 +28,16 @@ type LookupGatewayRuleArgs struct {
 }
 
 type LookupGatewayRuleResult struct {
-	Actions     []interface{}      `pulumi:"actions"`
-	Conditions  []interface{}      `pulumi:"conditions"`
-	CreatedAt   *string            `pulumi:"createdAt"`
-	Description *string            `pulumi:"description"`
-	GatewayArn  *string            `pulumi:"gatewayArn"`
-	Priority    *float64           `pulumi:"priority"`
-	RuleId      *string            `pulumi:"ruleId"`
-	Status      *GatewayRuleStatus `pulumi:"status"`
-	UpdatedAt   *string            `pulumi:"updatedAt"`
+	Actions     []interface{}                  `pulumi:"actions"`
+	Conditions  []interface{}                  `pulumi:"conditions"`
+	CreatedAt   *string                        `pulumi:"createdAt"`
+	Description *string                        `pulumi:"description"`
+	GatewayArn  *string                        `pulumi:"gatewayArn"`
+	Priority    *float64                       `pulumi:"priority"`
+	RuleId      *string                        `pulumi:"ruleId"`
+	Status      *GatewayRuleStatus             `pulumi:"status"`
+	System      *GatewayRuleSystemManagedBlock `pulumi:"system"`
+	UpdatedAt   *string                        `pulumi:"updatedAt"`
 }
 
 func LookupGatewayRuleOutput(ctx *pulumi.Context, args LookupGatewayRuleOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRuleResultOutput {
@@ -97,6 +98,10 @@ func (o LookupGatewayRuleResultOutput) RuleId() pulumi.StringPtrOutput {
 
 func (o LookupGatewayRuleResultOutput) Status() GatewayRuleStatusPtrOutput {
 	return o.ApplyT(func(v LookupGatewayRuleResult) *GatewayRuleStatus { return v.Status }).(GatewayRuleStatusPtrOutput)
+}
+
+func (o LookupGatewayRuleResultOutput) System() GatewayRuleSystemManagedBlockPtrOutput {
+	return o.ApplyT(func(v LookupGatewayRuleResult) *GatewayRuleSystemManagedBlock { return v.System }).(GatewayRuleSystemManagedBlockPtrOutput)
 }
 
 func (o LookupGatewayRuleResultOutput) UpdatedAt() pulumi.StringPtrOutput {

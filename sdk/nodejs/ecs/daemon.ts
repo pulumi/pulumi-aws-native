@@ -46,6 +46,7 @@ export class Daemon extends pulumi.CustomResource {
      */
     declare public readonly clusterArn: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
+    declare public readonly critical: pulumi.Output<boolean | undefined>;
     declare public /*out*/ readonly daemonArn: pulumi.Output<string>;
     declare public readonly daemonName: pulumi.Output<string | undefined>;
     declare public /*out*/ readonly daemonStatus: pulumi.Output<enums.ecs.DaemonStatus>;
@@ -86,6 +87,7 @@ export class Daemon extends pulumi.CustomResource {
         if (!opts.id) {
             resourceInputs["capacityProviderArns"] = args?.capacityProviderArns;
             resourceInputs["clusterArn"] = args?.clusterArn;
+            resourceInputs["critical"] = args?.critical;
             resourceInputs["daemonName"] = args?.daemonName;
             resourceInputs["daemonTaskDefinitionArn"] = args?.daemonTaskDefinitionArn;
             resourceInputs["deploymentConfiguration"] = args?.deploymentConfiguration;
@@ -102,6 +104,7 @@ export class Daemon extends pulumi.CustomResource {
             resourceInputs["capacityProviderArns"] = undefined /*out*/;
             resourceInputs["clusterArn"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["critical"] = undefined /*out*/;
             resourceInputs["daemonArn"] = undefined /*out*/;
             resourceInputs["daemonName"] = undefined /*out*/;
             resourceInputs["daemonStatus"] = undefined /*out*/;
@@ -133,6 +136,7 @@ export interface DaemonArgs {
      * The Amazon Resource Name (ARN) of the cluster that the daemon is running in.
      */
     clusterArn?: pulumi.Input<string | undefined>;
+    critical?: pulumi.Input<boolean | undefined>;
     daemonName?: pulumi.Input<string | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the daemon task definition used by this revision.

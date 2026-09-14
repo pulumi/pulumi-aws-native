@@ -32,6 +32,7 @@ export interface GetGatewayRuleResult {
     readonly priority?: number;
     readonly ruleId?: string;
     readonly status?: enums.bedrockagentcore.GatewayRuleStatus;
+    readonly system?: outputs.bedrockagentcore.GatewayRuleSystemManagedBlock;
     readonly updatedAt?: string;
 }
 /**

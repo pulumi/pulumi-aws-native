@@ -406,10 +406,10 @@ class ReportGroupReportExportConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 export_config_type: 'ReportGroupReportExportConfigExportConfigType',
+                 export_config_type: _builtins.str,
                  s3_destination: Optional['outputs.ReportGroupS3ReportExportConfig'] = None):
         """
-        :param 'ReportGroupReportExportConfigExportConfigType' export_config_type: The export configuration type. Valid values are:
+        :param _builtins.str export_config_type: The export configuration type. Valid values are:
                
                - `S3` : The report results are exported to an S3 bucket.
                - `NO_EXPORT` : The report results are not exported.
@@ -421,7 +421,7 @@ class ReportGroupReportExportConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="exportConfigType")
-    def export_config_type(self) -> 'ReportGroupReportExportConfigExportConfigType':
+    def export_config_type(self) -> _builtins.str:
         """
         The export configuration type. Valid values are:
 
@@ -467,14 +467,14 @@ class ReportGroupS3ReportExportConfig(dict):
                  bucket_owner: Optional[_builtins.str] = None,
                  encryption_disabled: Optional[_builtins.bool] = None,
                  encryption_key: Optional[_builtins.str] = None,
-                 packaging: Optional['ReportGroupS3ReportExportConfigPackaging'] = None,
+                 packaging: Optional[_builtins.str] = None,
                  path: Optional[_builtins.str] = None):
         """
         :param _builtins.str bucket: The name of the S3 bucket where the raw data of a report are exported.
         :param _builtins.str bucket_owner: The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
         :param _builtins.bool encryption_disabled: A boolean value that specifies if the results of a report are encrypted.
         :param _builtins.str encryption_key: The encryption key for the report's encrypted raw data.
-        :param 'ReportGroupS3ReportExportConfigPackaging' packaging: The type of build output artifact to create. Valid values include:
+        :param _builtins.str packaging: The type of build output artifact to create. Valid values include:
                
                - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
                - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
@@ -526,7 +526,7 @@ class ReportGroupS3ReportExportConfig(dict):
 
     @_builtins.property
     @pulumi.getter
-    def packaging(self) -> Optional['ReportGroupS3ReportExportConfigPackaging']:
+    def packaging(self) -> Optional[_builtins.str]:
         """
         The type of build output artifact to create. Valid values include:
 

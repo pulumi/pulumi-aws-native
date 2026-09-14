@@ -67,6 +67,7 @@ namespace Pulumi.AwsNative.SecurityHub
         /// The Amazon Resource Name of the Security Hub V2 resource.
         /// </summary>
         public readonly string? HubV2Arn;
+        public readonly Outputs.HubV2NetworkScanning? NetworkScanning;
         /// <summary>
         /// The date and time when the service was enabled in the account.
         /// </summary>
@@ -80,11 +81,14 @@ namespace Pulumi.AwsNative.SecurityHub
         private GetHubV2Result(
             string? hubV2Arn,
 
+            Outputs.HubV2NetworkScanning? networkScanning,
+
             string? subscribedAt,
 
             ImmutableDictionary<string, string>? tags)
         {
             HubV2Arn = hubV2Arn;
+            NetworkScanning = networkScanning;
             SubscribedAt = subscribedAt;
             Tags = tags;
         }

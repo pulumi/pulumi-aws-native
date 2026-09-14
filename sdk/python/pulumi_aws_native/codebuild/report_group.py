@@ -16,7 +16,6 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
-from ._enums import *
 from ._inputs import *
 
 __all__ = ['ReportGroupArgs', 'ReportGroup']
@@ -25,7 +24,7 @@ __all__ = ['ReportGroupArgs', 'ReportGroup']
 class ReportGroupArgs:
     def __init__(__self__, *,
                  export_config: pulumi.Input['ReportGroupReportExportConfigArgs'],
-                 type: pulumi.Input['ReportGroupType'],
+                 type: pulumi.Input[_builtins.str],
                  delete_reports: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -33,7 +32,7 @@ class ReportGroupArgs:
         The set of arguments for constructing a ReportGroup resource.
 
         :param pulumi.Input['ReportGroupReportExportConfigArgs'] export_config: Information about the destination where the raw data of this `ReportGroup` is exported.
-        :param pulumi.Input['ReportGroupType'] type: The type of the `ReportGroup` . This can be one of the following values:
+        :param pulumi.Input[_builtins.str] type: The type of the `ReportGroup` . This can be one of the following values:
                
                - **CODE_COVERAGE** - The report group contains code coverage reports.
                - **TEST** - The report group contains test reports.
@@ -69,7 +68,7 @@ class ReportGroupArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Input['ReportGroupType']:
+    def type(self) -> pulumi.Input[_builtins.str]:
         """
         The type of the `ReportGroup` . This can be one of the following values:
 
@@ -79,7 +78,7 @@ class ReportGroupArgs:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input['ReportGroupType']):
+    def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
 
     @_builtins.property
@@ -134,7 +133,7 @@ class ReportGroup(pulumi.CustomResource):
                  export_config: pulumi.Input[Optional[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: pulumi.Input[Optional['ReportGroupType']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeBuild::ReportGroup
@@ -150,7 +149,7 @@ class ReportGroup(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tag key and value pairs associated with this report group.
                
                These tags are available for use by AWS services that support AWS CodeBuild report group tags.
-        :param pulumi.Input['ReportGroupType'] type: The type of the `ReportGroup` . This can be one of the following values:
+        :param pulumi.Input[_builtins.str] type: The type of the `ReportGroup` . This can be one of the following values:
                
                - **CODE_COVERAGE** - The report group contains code coverage reports.
                - **TEST** - The report group contains test reports.
@@ -183,7 +182,7 @@ class ReportGroup(pulumi.CustomResource):
                  export_config: pulumi.Input[Optional[Union['ReportGroupReportExportConfigArgs', 'ReportGroupReportExportConfigArgsDict']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 type: pulumi.Input[Optional['ReportGroupType']] = None,
+                 type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -203,6 +202,7 @@ class ReportGroup(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["arn"] = None
+            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name", "type"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ReportGroup, __self__).__init__(
@@ -228,6 +228,7 @@ class ReportGroup(pulumi.CustomResource):
         __props__ = ReportGroupArgs.__new__(ReportGroupArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["aws_id"] = None
         __props__.__dict__["delete_reports"] = None
         __props__.__dict__["export_config"] = None
         __props__.__dict__["name"] = None
@@ -242,6 +243,11 @@ class ReportGroup(pulumi.CustomResource):
         The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="awsId")
+    def aws_id(self) -> pulumi.Output[_builtins.str]:
+        return pulumi.get(self, "aws_id")
 
     @_builtins.property
     @pulumi.getter(name="deleteReports")
@@ -282,7 +288,7 @@ class ReportGroup(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> pulumi.Output['ReportGroupType']:
+    def type(self) -> pulumi.Output[_builtins.str]:
         """
         The type of the `ReportGroup` . This can be one of the following values:
 

@@ -71,7 +71,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
-        /// The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+        /// The protocol that's used for the port mapping. Valid values are ``tcp`` and ``udp`` (case-sensitive). The default is ``tcp``. Amazon ECS treats any other specified value as ``tcp``. ``protocol`` is immutable in a Service Connect service. To update this field, you must delete and redeploy the service.
         /// </summary>
         public readonly string? Protocol;
 

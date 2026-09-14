@@ -34,6 +34,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore.Inputs
             set => _subnetIds = value;
         }
 
+        [Input("tags")]
+        private InputMap<string>? _tags;
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
+
         [Input("vpcIdentifier", required: true)]
         public Input<string> VpcIdentifier { get; set; } = null!;
 

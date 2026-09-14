@@ -72,7 +72,6 @@ func NewSiteToSiteVpnAttachment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"coreNetworkId",
-		"routingPolicyLabel",
 		"vpnConnectionArn",
 	})
 	opts = append(opts, replaceOnChanges)

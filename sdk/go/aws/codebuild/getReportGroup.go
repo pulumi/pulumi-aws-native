@@ -24,15 +24,20 @@ func LookupReportGroup(ctx *pulumi.Context, args *LookupReportGroupArgs, opts ..
 }
 
 type LookupReportGroupArgs struct {
-	// The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
-	Arn string `pulumi:"arn"`
+	Id string `pulumi:"id"`
 }
 
 type LookupReportGroupResult struct {
 	// The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
 	Arn *string `pulumi:"arn"`
+	// When deleting a report group, specifies if reports within the report group should be deleted.
+	//
+	// - **true** - Deletes any reports that belong to the report group before deleting the report group.
+	// - **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
+	DeleteReports *bool `pulumi:"deleteReports"`
 	// Information about the destination where the raw data of this `ReportGroup` is exported.
 	ExportConfig *ReportGroupReportExportConfig `pulumi:"exportConfig"`
+	Id           *string                        `pulumi:"id"`
 	// A list of tag key and value pairs associated with this report group.
 	//
 	// These tags are available for use by AWS services that support AWS CodeBuild report group tags.
@@ -45,8 +50,7 @@ func LookupReportGroupOutput(ctx *pulumi.Context, args LookupReportGroupOutputAr
 }
 
 type LookupReportGroupOutputArgs struct {
-	// The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
-	Arn pulumi.StringInput `pulumi:"arn"`
+	Id pulumi.StringInput `pulumi:"id"`
 }
 
 func (LookupReportGroupOutputArgs) ElementType() reflect.Type {
@@ -72,9 +76,21 @@ func (o LookupReportGroupResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupReportGroupResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// When deleting a report group, specifies if reports within the report group should be deleted.
+//
+// - **true** - Deletes any reports that belong to the report group before deleting the report group.
+// - **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
+func (o LookupReportGroupResultOutput) DeleteReports() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupReportGroupResult) *bool { return v.DeleteReports }).(pulumi.BoolPtrOutput)
+}
+
 // Information about the destination where the raw data of this `ReportGroup` is exported.
 func (o LookupReportGroupResultOutput) ExportConfig() ReportGroupReportExportConfigPtrOutput {
 	return o.ApplyT(func(v LookupReportGroupResult) *ReportGroupReportExportConfig { return v.ExportConfig }).(ReportGroupReportExportConfigPtrOutput)
+}
+
+func (o LookupReportGroupResultOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupReportGroupResult) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
 // A list of tag key and value pairs associated with this report group.

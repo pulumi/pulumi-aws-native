@@ -25,13 +25,10 @@ __all__ = [
 
 @pulumi.output_type
 class GetAcmeEndpointResult:
-    def __init__(__self__, acme_endpoint_arn=None, authorization_behavior=None, certificate_authority=None, contact=None, endpoint_url=None, tags=None):
+    def __init__(__self__, acme_endpoint_arn=None, certificate_authority=None, contact=None, endpoint_url=None, tags=None):
         if acme_endpoint_arn and not isinstance(acme_endpoint_arn, str):
             raise TypeError("Expected argument 'acme_endpoint_arn' to be a str")
         pulumi.set(__self__, "acme_endpoint_arn", acme_endpoint_arn)
-        if authorization_behavior and not isinstance(authorization_behavior, str):
-            raise TypeError("Expected argument 'authorization_behavior' to be a str")
-        pulumi.set(__self__, "authorization_behavior", authorization_behavior)
         if certificate_authority and not isinstance(certificate_authority, dict):
             raise TypeError("Expected argument 'certificate_authority' to be a dict")
         pulumi.set(__self__, "certificate_authority", certificate_authority)
@@ -52,14 +49,6 @@ class GetAcmeEndpointResult:
         The Amazon Resource Name (ARN) of the ACME endpoint.
         """
         return pulumi.get(self, "acme_endpoint_arn")
-
-    @_builtins.property
-    @pulumi.getter(name="authorizationBehavior")
-    def authorization_behavior(self) -> Optional[_builtins.str]:
-        """
-        The authorization behavior for the ACME endpoint.
-        """
-        return pulumi.get(self, "authorization_behavior")
 
     @_builtins.property
     @pulumi.getter(name="certificateAuthority")
@@ -98,7 +87,6 @@ class AwaitableGetAcmeEndpointResult(GetAcmeEndpointResult):
             yield self
         return GetAcmeEndpointResult(
             acme_endpoint_arn=self.acme_endpoint_arn,
-            authorization_behavior=self.authorization_behavior,
             certificate_authority=self.certificate_authority,
             contact=self.contact,
             endpoint_url=self.endpoint_url,
@@ -119,7 +107,6 @@ def get_acme_endpoint(acme_endpoint_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetAcmeEndpointResult(
         acme_endpoint_arn=pulumi.get(__ret__, 'acme_endpoint_arn'),
-        authorization_behavior=pulumi.get(__ret__, 'authorization_behavior'),
         certificate_authority=pulumi.get(__ret__, 'certificate_authority'),
         contact=pulumi.get(__ret__, 'contact'),
         endpoint_url=pulumi.get(__ret__, 'endpoint_url'),
@@ -137,7 +124,6 @@ def get_acme_endpoint_output(acme_endpoint_arn: pulumi.Input[Optional[_builtins.
     __ret__ = pulumi.runtime.invoke_output('aws-native:certificatemanager:getAcmeEndpoint', __args__, opts=opts, typ=GetAcmeEndpointResult)
     return __ret__.apply(lambda __response__: GetAcmeEndpointResult(
         acme_endpoint_arn=pulumi.get(__response__, 'acme_endpoint_arn'),
-        authorization_behavior=pulumi.get(__response__, 'authorization_behavior'),
         certificate_authority=pulumi.get(__response__, 'certificate_authority'),
         contact=pulumi.get(__response__, 'contact'),
         endpoint_url=pulumi.get(__response__, 'endpoint_url'),

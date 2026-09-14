@@ -41,6 +41,7 @@ export class ReportGroup extends pulumi.CustomResource {
      * The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
      * When deleting a report group, specifies if reports within the report group should be deleted.
      *
@@ -68,7 +69,7 @@ export class ReportGroup extends pulumi.CustomResource {
      * - **CODE_COVERAGE** - The report group contains code coverage reports.
      * - **TEST** - The report group contains test reports.
      */
-    declare public readonly type: pulumi.Output<enums.codebuild.ReportGroupType>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ReportGroup resource with the given unique name, arguments, and options.
@@ -93,8 +94,10 @@ export class ReportGroup extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["type"] = args?.type;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["awsId"] = undefined /*out*/;
             resourceInputs["deleteReports"] = undefined /*out*/;
             resourceInputs["exportConfig"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -139,5 +142,5 @@ export interface ReportGroupArgs {
      * - **CODE_COVERAGE** - The report group contains code coverage reports.
      * - **TEST** - The report group contains test reports.
      */
-    type: pulumi.Input<enums.codebuild.ReportGroupType>;
+    type: pulumi.Input<string>;
 }

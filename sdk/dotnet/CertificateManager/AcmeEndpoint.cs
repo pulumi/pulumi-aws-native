@@ -79,6 +79,7 @@ namespace Pulumi.AwsNative.CertificateManager
                 Version = Utilities.Version,
                 ReplaceOnChanges =
                 {
+                    "authorizationBehavior",
                     "certificateTags[*]",
                 },
             };

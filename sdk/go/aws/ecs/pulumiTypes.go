@@ -21633,7 +21633,7 @@ type TaskDefinitionPortMapping struct {
 	HostPort *int `pulumi:"hostPort"`
 	// The name that's used for the port mapping. This parameter is the name that you use in the ``serviceConnectConfiguration`` and the ``vpcLatticeConfigurations`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 	Name *string `pulumi:"name"`
-	// The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+	// The protocol that's used for the port mapping. Valid values are ``tcp`` and ``udp`` (case-sensitive). The default is ``tcp``. Amazon ECS treats any other specified value as ``tcp``. ``protocol`` is immutable in a Service Connect service. To update this field, you must delete and redeploy the service.
 	Protocol *string `pulumi:"protocol"`
 }
 
@@ -21695,7 +21695,7 @@ type TaskDefinitionPortMappingArgs struct {
 	HostPort pulumi.IntPtrInput `pulumi:"hostPort"`
 	// The name that's used for the port mapping. This parameter is the name that you use in the ``serviceConnectConfiguration`` and the ``vpcLatticeConfigurations`` of a service. The name can include up to 64 characters. The characters can include lowercase letters, numbers, underscores (_), and hyphens (-). The name can't start with a hyphen.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The protocol used for the port mapping. Valid values are ``tcp`` and ``udp``. The default is ``tcp``. ``protocol`` is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+	// The protocol that's used for the port mapping. Valid values are ``tcp`` and ``udp`` (case-sensitive). The default is ``tcp``. Amazon ECS treats any other specified value as ``tcp``. ``protocol`` is immutable in a Service Connect service. To update this field, you must delete and redeploy the service.
 	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
 }
 
@@ -21815,7 +21815,7 @@ func (o TaskDefinitionPortMappingOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The protocol used for the port mapping. Valid values are “tcp“ and “udp“. The default is “tcp“. “protocol“ is immutable in a Service Connect service. Updating this field requires a service deletion and redeployment.
+// The protocol that's used for the port mapping. Valid values are “tcp“ and “udp“ (case-sensitive). The default is “tcp“. Amazon ECS treats any other specified value as “tcp“. “protocol“ is immutable in a Service Connect service. To update this field, you must delete and redeploy the service.
 func (o TaskDefinitionPortMappingOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TaskDefinitionPortMapping) *string { return v.Protocol }).(pulumi.StringPtrOutput)
 }

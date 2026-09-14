@@ -42,9 +42,9 @@ type Metric struct {
 	// The Amazon Resource Name (ARN) for the custom metric.
 	MetricArn pulumi.StringOutput `pulumi:"metricArn"`
 	// The calculation configuration for the metric
-	MetricCalculation MetricCalculationPropertiesPtrOutput `pulumi:"metricCalculation"`
+	MetricCalculation MetricCalculationPropertiesOutput `pulumi:"metricCalculation"`
 	// The name of the custom metric
-	Name pulumi.StringPtrOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates how to classify a positive trend in metric data on the UI
 	PositiveTrendIndicator MetricPositiveTrendIndicatorPtrOutput `pulumi:"positiveTrendIndicator"`
 	// Main provider of the document/row-level data for the metric; should match Data Lake table names
@@ -54,7 +54,7 @@ type Metric struct {
 	// Recommended time to wait between each refresh of data for the metric
 	RefreshRate pulumi.IntOutput `pulumi:"refreshRate"`
 	// The status of the custom metric
-	Status MetricStatusPtrOutput `pulumi:"status"`
+	Status MetricStatusOutput `pulumi:"status"`
 	// List of stat aggregations available for the metric
 	SupportedStats pulumi.StringArrayOutput `pulumi:"supportedStats"`
 	// The metric may be used to compose other (custom) metrics
@@ -66,7 +66,7 @@ type Metric struct {
 	// Whether the metric is provided out-of-the-box or created by each customer
 	Type MetricTypeOutput `pulumi:"type"`
 	// Display unit for the metric data
-	Unit MetricUnitPtrOutput `pulumi:"unit"`
+	Unit MetricUnitOutput `pulumi:"unit"`
 }
 
 // NewMetric registers a new resource with the given unique name, arguments, and options.
@@ -78,6 +78,15 @@ func NewMetric(ctx *pulumi.Context,
 
 	if args.InstanceArn == nil {
 		return nil, errors.New("invalid value for required argument 'InstanceArn'")
+	}
+	if args.MetricCalculation == nil {
+		return nil, errors.New("invalid value for required argument 'MetricCalculation'")
+	}
+	if args.Status == nil {
+		return nil, errors.New("invalid value for required argument 'Status'")
+	}
+	if args.Unit == nil {
+		return nil, errors.New("invalid value for required argument 'Unit'")
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"instanceArn",
@@ -122,17 +131,17 @@ type metricArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn string `pulumi:"instanceArn"`
 	// The calculation configuration for the metric
-	MetricCalculation *MetricCalculationProperties `pulumi:"metricCalculation"`
+	MetricCalculation MetricCalculationProperties `pulumi:"metricCalculation"`
 	// The name of the custom metric
 	Name *string `pulumi:"name"`
 	// Indicates how to classify a positive trend in metric data on the UI
 	PositiveTrendIndicator *MetricPositiveTrendIndicator `pulumi:"positiveTrendIndicator"`
 	// The status of the custom metric
-	Status *MetricStatus `pulumi:"status"`
+	Status MetricStatus `pulumi:"status"`
 	// One or more tags.
 	Tags []aws.Tag `pulumi:"tags"`
 	// Display unit for the metric data
-	Unit *MetricUnit `pulumi:"unit"`
+	Unit MetricUnit `pulumi:"unit"`
 }
 
 // The set of arguments for constructing a Metric resource.
@@ -142,17 +151,17 @@ type MetricArgs struct {
 	// The identifier of the Amazon Connect instance.
 	InstanceArn pulumi.StringInput
 	// The calculation configuration for the metric
-	MetricCalculation MetricCalculationPropertiesPtrInput
+	MetricCalculation MetricCalculationPropertiesInput
 	// The name of the custom metric
 	Name pulumi.StringPtrInput
 	// Indicates how to classify a positive trend in metric data on the UI
 	PositiveTrendIndicator MetricPositiveTrendIndicatorPtrInput
 	// The status of the custom metric
-	Status MetricStatusPtrInput
+	Status MetricStatusInput
 	// One or more tags.
 	Tags aws.TagArrayInput
 	// Display unit for the metric data
-	Unit MetricUnitPtrInput
+	Unit MetricUnitInput
 }
 
 func (MetricArgs) ElementType() reflect.Type {
@@ -256,13 +265,13 @@ func (o MetricOutput) MetricArn() pulumi.StringOutput {
 }
 
 // The calculation configuration for the metric
-func (o MetricOutput) MetricCalculation() MetricCalculationPropertiesPtrOutput {
-	return o.ApplyT(func(v *Metric) MetricCalculationPropertiesPtrOutput { return v.MetricCalculation }).(MetricCalculationPropertiesPtrOutput)
+func (o MetricOutput) MetricCalculation() MetricCalculationPropertiesOutput {
+	return o.ApplyT(func(v *Metric) MetricCalculationPropertiesOutput { return v.MetricCalculation }).(MetricCalculationPropertiesOutput)
 }
 
 // The name of the custom metric
-func (o MetricOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Metric) pulumi.StringPtrOutput { return v.Name }).(pulumi.StringPtrOutput)
+func (o MetricOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v *Metric) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
 // Indicates how to classify a positive trend in metric data on the UI
@@ -286,8 +295,8 @@ func (o MetricOutput) RefreshRate() pulumi.IntOutput {
 }
 
 // The status of the custom metric
-func (o MetricOutput) Status() MetricStatusPtrOutput {
-	return o.ApplyT(func(v *Metric) MetricStatusPtrOutput { return v.Status }).(MetricStatusPtrOutput)
+func (o MetricOutput) Status() MetricStatusOutput {
+	return o.ApplyT(func(v *Metric) MetricStatusOutput { return v.Status }).(MetricStatusOutput)
 }
 
 // List of stat aggregations available for the metric
@@ -316,8 +325,8 @@ func (o MetricOutput) Type() MetricTypeOutput {
 }
 
 // Display unit for the metric data
-func (o MetricOutput) Unit() MetricUnitPtrOutput {
-	return o.ApplyT(func(v *Metric) MetricUnitPtrOutput { return v.Unit }).(MetricUnitPtrOutput)
+func (o MetricOutput) Unit() MetricUnitOutput {
+	return o.ApplyT(func(v *Metric) MetricUnitOutput { return v.Unit }).(MetricUnitOutput)
 }
 
 func init() {

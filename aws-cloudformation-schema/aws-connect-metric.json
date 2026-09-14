@@ -154,7 +154,7 @@
     }
   },
   "additionalProperties" : false,
-  "required" : [ "InstanceArn" ],
+  "required" : [ "InstanceArn", "Name", "MetricCalculation", "Unit", "Status" ],
   "createOnlyProperties" : [ "/properties/InstanceArn", "/properties/Status" ],
   "readOnlyProperties" : [ "/properties/MetricArn", "/properties/CreatedTime", "/properties/CreatedUser", "/properties/LastModifiedTime", "/properties/LastModifiedRegion", "/properties/LastModifiedUser", "/properties/CreationMethod", "/properties/Category", "/properties/Type", "/properties/SupportsPreaggregateCalculation", "/properties/SupportsCustomCalculation", "/properties/Groupings", "/properties/Filters", "/properties/EffectiveTime", "/properties/RefreshRate", "/properties/SupportedStats", "/properties/PrimaryEventSource", "/properties/PrimaryEventSourceEffectiveTimestampType" ],
   "definitions" : {

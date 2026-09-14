@@ -357,6 +357,9 @@
           "type" : "string",
           "maxLength" : 255,
           "minLength" : 3
+        },
+        "Tags" : {
+          "$ref" : "#/definitions/TagsMap"
         }
       },
       "required" : [ "EndpointIpAddressType", "SubnetIds", "VpcIdentifier" ],
@@ -567,6 +570,7 @@
   },
   "required" : [ "AuthorizerType", "Name", "RoleArn" ],
   "readOnlyProperties" : [ "/properties/CreatedAt", "/properties/GatewayArn", "/properties/GatewayIdentifier", "/properties/GatewayUrl", "/properties/Status", "/properties/StatusReasons", "/properties/UpdatedAt", "/properties/WebAclArn", "/properties/WorkloadIdentityDetails" ],
+  "writeOnlyProperties" : [ "/properties/AuthorizerConfiguration/CustomJWTAuthorizer/PrivateEndpoint/ManagedVpcResource/Tags" ],
   "primaryIdentifier" : [ "/properties/GatewayIdentifier" ],
   "handlers" : {
     "create" : {

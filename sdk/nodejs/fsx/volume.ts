@@ -55,18 +55,26 @@ export class Volume extends pulumi.CustomResource {
     declare public readonly openZfsConfiguration: pulumi.Output<outputs.fsx.VolumeOpenZfsConfiguration | undefined>;
     /**
      * Returns the volume's Amazon Resource Name (ARN).
+     *
+     * Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
-     * One or more tags.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
     /**
-     * Returns the volume's ID.
+     * Returns the volume's universally unique identifier (UUID).
+     *
+     * Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
      */
     declare public /*out*/ readonly uuid: pulumi.Output<string>;
     /**
-     * Returns the volume's universally unique identifier (UUID).
+     * Returns the volume's ID.
+     *
+     * Example: `fsvol-0123456789abcdefa`
      */
     declare public /*out*/ readonly volumeId: pulumi.Output<string>;
     /**
@@ -106,7 +114,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["backupId", "ontapConfiguration.aggregateConfiguration", "ontapConfiguration.ontapVolumeType", "ontapConfiguration.snaplockConfiguration.snaplockType", "ontapConfiguration.storageVirtualMachineId", "ontapConfiguration.volumeStyle", "openZfsConfiguration.originSnapshot", "openZfsConfiguration.parentVolumeId", "volumeType"] };
+        const replaceOnChanges = { replaceOnChanges: ["backupId", "volumeType"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }
@@ -133,7 +141,9 @@ export interface VolumeArgs {
      */
     openZfsConfiguration?: pulumi.Input<inputs.fsx.VolumeOpenZfsConfigurationArgs | undefined>;
     /**
-     * One or more tags.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
     /**

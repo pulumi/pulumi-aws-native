@@ -21,6 +21,9 @@ namespace Pulumi.AwsNative.SecurityHub
         [Output("hubV2Arn")]
         public Output<string> HubV2Arn { get; private set; } = null!;
 
+        [Output("networkScanning")]
+        public Output<Outputs.HubV2NetworkScanning?> NetworkScanning { get; private set; } = null!;
+
         /// <summary>
         /// The date and time when the service was enabled in the account.
         /// </summary>
@@ -78,6 +81,9 @@ namespace Pulumi.AwsNative.SecurityHub
 
     public sealed class HubV2Args : global::Pulumi.ResourceArgs
     {
+        [Input("networkScanning")]
+        public Input<Inputs.HubV2NetworkScanningArgs>? NetworkScanning { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 

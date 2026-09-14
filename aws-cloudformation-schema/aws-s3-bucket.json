@@ -78,6 +78,10 @@
           "description" : "The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.",
           "type" : "string",
           "enum" : [ "COMPLIANCE", "GOVERNANCE" ]
+        },
+        "DefaultEventHold" : {
+          "description" : "",
+          "$ref" : "#/definitions/DefaultEventHold"
         }
       }
     },
@@ -869,6 +873,19 @@
       },
       "required" : [ "Event", "Topic" ]
     },
+    "DefaultEventHold" : {
+      "description" : "",
+      "additionalProperties" : false,
+      "type" : "object",
+      "properties" : {
+        "Years" : {
+          "type" : "integer"
+        },
+        "Days" : {
+          "type" : "integer"
+        }
+      }
+    },
     "IntelligentTieringConfiguration" : {
       "description" : "Specifies the S3 Intelligent-Tiering configuration for an Amazon S3 bucket.\n For information about the S3 Intelligent-Tiering storage class, see [Storage class for automatically optimizing frequently and infrequently accessed objects](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html#sc-dynamic-data-access).",
       "additionalProperties" : false,
@@ -1318,7 +1335,7 @@
           "type" : "array",
           "items" : {
             "type" : "string",
-            "enum" : [ "Size", "LastModifiedDate", "StorageClass", "ETag", "IsMultipartUploaded", "ReplicationStatus", "EncryptionStatus", "ObjectLockRetainUntilDate", "ObjectLockMode", "ObjectLockLegalHoldStatus", "IntelligentTieringAccessTier", "BucketKeyStatus", "ChecksumAlgorithm", "ObjectAccessControlList", "ObjectOwner", "LifecycleExpirationDate" ]
+            "enum" : [ "Size", "LastModifiedDate", "StorageClass", "ETag", "IsMultipartUploaded", "ReplicationStatus", "EncryptionStatus", "ObjectLockRetainUntilDate", "ObjectLockMode", "ObjectLockLegalHoldStatus", "ObjectLockEventHoldStatus", "ObjectLockEventHoldDuration", "IntelligentTieringAccessTier", "BucketKeyStatus", "ChecksumAlgorithm", "ObjectAccessControlList", "ObjectOwner", "LifecycleExpirationDate" ]
           }
         },
         "IncludedObjectVersions" : {

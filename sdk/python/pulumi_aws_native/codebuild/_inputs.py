@@ -449,7 +449,7 @@ class FleetVpcConfigArgs:
 
 
 class ReportGroupReportExportConfigArgsDict(TypedDict):
-    export_config_type: pulumi.Input['ReportGroupReportExportConfigExportConfigType']
+    export_config_type: pulumi.Input[_builtins.str]
     """
     The export configuration type. Valid values are:
 
@@ -464,10 +464,10 @@ class ReportGroupReportExportConfigArgsDict(TypedDict):
 @pulumi.input_type
 class ReportGroupReportExportConfigArgs:
     def __init__(__self__, *,
-                 export_config_type: pulumi.Input['ReportGroupReportExportConfigExportConfigType'],
+                 export_config_type: pulumi.Input[_builtins.str],
                  s3_destination: pulumi.Input[Optional['ReportGroupS3ReportExportConfigArgs']] = None):
         """
-        :param pulumi.Input['ReportGroupReportExportConfigExportConfigType'] export_config_type: The export configuration type. Valid values are:
+        :param pulumi.Input[_builtins.str] export_config_type: The export configuration type. Valid values are:
                
                - `S3` : The report results are exported to an S3 bucket.
                - `NO_EXPORT` : The report results are not exported.
@@ -479,7 +479,7 @@ class ReportGroupReportExportConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="exportConfigType")
-    def export_config_type(self) -> pulumi.Input['ReportGroupReportExportConfigExportConfigType']:
+    def export_config_type(self) -> pulumi.Input[_builtins.str]:
         """
         The export configuration type. Valid values are:
 
@@ -489,7 +489,7 @@ class ReportGroupReportExportConfigArgs:
         return pulumi.get(self, "export_config_type")
 
     @export_config_type.setter
-    def export_config_type(self, value: pulumi.Input['ReportGroupReportExportConfigExportConfigType']):
+    def export_config_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "export_config_type", value)
 
     @_builtins.property
@@ -522,7 +522,7 @@ class ReportGroupS3ReportExportConfigArgsDict(TypedDict):
     """
     The encryption key for the report's encrypted raw data.
     """
-    packaging: NotRequired[pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']]]
+    packaging: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The type of build output artifact to create. Valid values include:
 
@@ -541,14 +541,14 @@ class ReportGroupS3ReportExportConfigArgs:
                  bucket_owner: pulumi.Input[Optional[_builtins.str]] = None,
                  encryption_disabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  encryption_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 packaging: pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']] = None,
+                 packaging: pulumi.Input[Optional[_builtins.str]] = None,
                  path: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] bucket: The name of the S3 bucket where the raw data of a report are exported.
         :param pulumi.Input[_builtins.str] bucket_owner: The AWS account identifier of the owner of the Amazon S3 bucket. This allows report data to be exported to an Amazon S3 bucket that is owned by an account other than the account running the build.
         :param pulumi.Input[_builtins.bool] encryption_disabled: A boolean value that specifies if the results of a report are encrypted.
         :param pulumi.Input[_builtins.str] encryption_key: The encryption key for the report's encrypted raw data.
-        :param pulumi.Input['ReportGroupS3ReportExportConfigPackaging'] packaging: The type of build output artifact to create. Valid values include:
+        :param pulumi.Input[_builtins.str] packaging: The type of build output artifact to create. Valid values include:
                
                - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
                - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
@@ -616,7 +616,7 @@ class ReportGroupS3ReportExportConfigArgs:
 
     @_builtins.property
     @pulumi.getter
-    def packaging(self) -> pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']]:
+    def packaging(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The type of build output artifact to create. Valid values include:
 
@@ -626,7 +626,7 @@ class ReportGroupS3ReportExportConfigArgs:
         return pulumi.get(self, "packaging")
 
     @packaging.setter
-    def packaging(self, value: pulumi.Input[Optional['ReportGroupS3ReportExportConfigPackaging']]):
+    def packaging(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "packaging", value)
 
     @_builtins.property

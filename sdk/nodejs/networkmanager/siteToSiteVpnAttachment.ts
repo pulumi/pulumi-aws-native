@@ -172,7 +172,7 @@ export class SiteToSiteVpnAttachment extends pulumi.CustomResource {
             resourceInputs["vpnConnectionArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "routingPolicyLabel", "vpnConnectionArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "vpnConnectionArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(SiteToSiteVpnAttachment.__pulumiType, name, resourceInputs, opts);
     }

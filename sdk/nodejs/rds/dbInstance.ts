@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *   1.  Deactivate any applications that are using the DB instance so that there's no activity on the DB instance.
  *   2.  Create a snapshot of the DB instance. For more information, see [Creating a DB Snapshot](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateSnapshot.html).
  *   3.  If you want to restore your instance using a DB snapshot, modify the updated template with your DB instance changes and add the ``DBSnapshotIdentifier`` property with the ID of the DB snapshot that you want to use.
- *        After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. However, if you don't specify the ``DBSnapshotIdentifier`` property, an empty DB instance is created, and the original DB instance is deleted. If you specify a property that is different from the previous snapshot restore property, a new DB instance is restored from the specified ``DBSnapshotIdentifier`` property, and the original DB instance is deleted.
+ *        After you restore a DB instance with a ``DBSnapshotIdentifier`` property, you can delete the ``DBSnapshotIdentifier`` property. When you specify this property for an update, the DB instance is not restored from the DB snapshot again, and the data in the database is not changed. If you specify a different ``DBSnapshotIdentifier`` value, a new DB instance is restored from the specified snapshot, and the original DB instance is deleted.
  *   4.  Update the stack.
  *
  *   For more information about updating other properties of this resource, see ``ModifyDBInstance``. For more information about updating stacks, see [CloudFormation Stacks Updates](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks.html).
@@ -514,6 +514,8 @@ export class DbInstance extends pulumi.CustomResource {
      *  See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*
      *   *PostgreSQL*
      *  See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
+     *   If you specify a version prefix rather than a full version number, AWS CloudFormation uses prefix matching during drift detection.
+     *  For example, ``"8.0"`` for MySQL or ``"16"`` for PostgreSQL matches any version that starts with that prefix.
      */
     declare public readonly engineVersion: pulumi.Output<string | undefined>;
     /**
@@ -1573,6 +1575,8 @@ export interface DbInstanceArgs {
      *  See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*
      *   *PostgreSQL*
      *  See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*
+     *   If you specify a version prefix rather than a full version number, AWS CloudFormation uses prefix matching during drift detection.
+     *  For example, ``"8.0"`` for MySQL or ``"16"`` for PostgreSQL matches any version that starts with that prefix.
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**

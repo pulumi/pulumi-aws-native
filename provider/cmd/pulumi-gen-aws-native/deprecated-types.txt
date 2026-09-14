@@ -1,7 +1,9 @@
 AWS::AppStream::StackFleetAssociation
-AWS::Config::DeliveryChannel
+AWS::CodeBuild::ReportGroup
 AWS::DAX::SubnetGroup
 AWS::DataSync::StorageSystem
+AWS::DynamoDB::Backup
+AWS::FSx::Volume
 AWS::GameCast::Application
 AWS::GameCast::StreamGroup
 AWS::IoTFleetHub::Application

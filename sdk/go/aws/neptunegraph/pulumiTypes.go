@@ -13,6 +13,635 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+type GraphImportOptions struct {
+	// Options for importing data from a Neptune database.
+	Neptune *GraphNeptuneImportOptions `pulumi:"neptune"`
+}
+
+// GraphImportOptionsInput is an input type that accepts GraphImportOptionsArgs and GraphImportOptionsOutput values.
+// You can construct a concrete instance of `GraphImportOptionsInput` via:
+//
+//	GraphImportOptionsArgs{...}
+type GraphImportOptionsInput interface {
+	pulumi.Input
+
+	ToGraphImportOptionsOutput() GraphImportOptionsOutput
+	ToGraphImportOptionsOutputWithContext(context.Context) GraphImportOptionsOutput
+}
+
+// Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+type GraphImportOptionsArgs struct {
+	// Options for importing data from a Neptune database.
+	Neptune GraphNeptuneImportOptionsPtrInput `pulumi:"neptune"`
+}
+
+func (GraphImportOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportOptions)(nil)).Elem()
+}
+
+func (i GraphImportOptionsArgs) ToGraphImportOptionsOutput() GraphImportOptionsOutput {
+	return i.ToGraphImportOptionsOutputWithContext(context.Background())
+}
+
+func (i GraphImportOptionsArgs) ToGraphImportOptionsOutputWithContext(ctx context.Context) GraphImportOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphImportOptionsOutput)
+}
+
+func (i GraphImportOptionsArgs) ToGraphImportOptionsPtrOutput() GraphImportOptionsPtrOutput {
+	return i.ToGraphImportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GraphImportOptionsArgs) ToGraphImportOptionsPtrOutputWithContext(ctx context.Context) GraphImportOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphImportOptionsOutput).ToGraphImportOptionsPtrOutputWithContext(ctx)
+}
+
+// GraphImportOptionsPtrInput is an input type that accepts GraphImportOptionsArgs, GraphImportOptionsPtr and GraphImportOptionsPtrOutput values.
+// You can construct a concrete instance of `GraphImportOptionsPtrInput` via:
+//
+//	        GraphImportOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GraphImportOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGraphImportOptionsPtrOutput() GraphImportOptionsPtrOutput
+	ToGraphImportOptionsPtrOutputWithContext(context.Context) GraphImportOptionsPtrOutput
+}
+
+type graphImportOptionsPtrType GraphImportOptionsArgs
+
+func GraphImportOptionsPtr(v *GraphImportOptionsArgs) GraphImportOptionsPtrInput {
+	return (*graphImportOptionsPtrType)(v)
+}
+
+func (*graphImportOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphImportOptions)(nil)).Elem()
+}
+
+func (i *graphImportOptionsPtrType) ToGraphImportOptionsPtrOutput() GraphImportOptionsPtrOutput {
+	return i.ToGraphImportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *graphImportOptionsPtrType) ToGraphImportOptionsPtrOutputWithContext(ctx context.Context) GraphImportOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphImportOptionsPtrOutput)
+}
+
+// Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+type GraphImportOptionsOutput struct{ *pulumi.OutputState }
+
+func (GraphImportOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportOptions)(nil)).Elem()
+}
+
+func (o GraphImportOptionsOutput) ToGraphImportOptionsOutput() GraphImportOptionsOutput {
+	return o
+}
+
+func (o GraphImportOptionsOutput) ToGraphImportOptionsOutputWithContext(ctx context.Context) GraphImportOptionsOutput {
+	return o
+}
+
+func (o GraphImportOptionsOutput) ToGraphImportOptionsPtrOutput() GraphImportOptionsPtrOutput {
+	return o.ToGraphImportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportOptionsOutput) ToGraphImportOptionsPtrOutputWithContext(ctx context.Context) GraphImportOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphImportOptions) *GraphImportOptions {
+		return &v
+	}).(GraphImportOptionsPtrOutput)
+}
+
+// Options for importing data from a Neptune database.
+func (o GraphImportOptionsOutput) Neptune() GraphNeptuneImportOptionsPtrOutput {
+	return o.ApplyT(func(v GraphImportOptions) *GraphNeptuneImportOptions { return v.Neptune }).(GraphNeptuneImportOptionsPtrOutput)
+}
+
+type GraphImportOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphImportOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphImportOptions)(nil)).Elem()
+}
+
+func (o GraphImportOptionsPtrOutput) ToGraphImportOptionsPtrOutput() GraphImportOptionsPtrOutput {
+	return o
+}
+
+func (o GraphImportOptionsPtrOutput) ToGraphImportOptionsPtrOutputWithContext(ctx context.Context) GraphImportOptionsPtrOutput {
+	return o
+}
+
+func (o GraphImportOptionsPtrOutput) Elem() GraphImportOptionsOutput {
+	return o.ApplyT(func(v *GraphImportOptions) GraphImportOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GraphImportOptions
+		return ret
+	}).(GraphImportOptionsOutput)
+}
+
+// Options for importing data from a Neptune database.
+func (o GraphImportOptionsPtrOutput) Neptune() GraphNeptuneImportOptionsPtrOutput {
+	return o.ApplyT(func(v *GraphImportOptions) *GraphNeptuneImportOptions {
+		if v == nil {
+			return nil
+		}
+		return v.Neptune
+	}).(GraphNeptuneImportOptionsPtrOutput)
+}
+
+// The import task details to import data into the graph at creation time.
+type GraphImportTask struct {
+	// The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+	BlankNodeHandling *GraphImportTaskBlankNodeHandling `pulumi:"blankNodeHandling"`
+	// If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+	FailOnError *bool `pulumi:"failOnError"`
+	// Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+	Format *GraphImportTaskFormat `pulumi:"format"`
+	// Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+	ImportOptions *GraphImportOptions `pulumi:"importOptions"`
+	// The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+	MaxProvisionedMemory *int `pulumi:"maxProvisionedMemory"`
+	// The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+	MinProvisionedMemory *int `pulumi:"minProvisionedMemory"`
+	// The parquet type of the import task. Required when Format is PARQUET.
+	ParquetType *GraphImportTaskParquetType `pulumi:"parquetType"`
+	// The ARN of the IAM role that will allow access to the data that is to be imported.
+	RoleArn string `pulumi:"roleArn"`
+	// A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+	Source string `pulumi:"source"`
+}
+
+// GraphImportTaskInput is an input type that accepts GraphImportTaskArgs and GraphImportTaskOutput values.
+// You can construct a concrete instance of `GraphImportTaskInput` via:
+//
+//	GraphImportTaskArgs{...}
+type GraphImportTaskInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskOutput() GraphImportTaskOutput
+	ToGraphImportTaskOutputWithContext(context.Context) GraphImportTaskOutput
+}
+
+// The import task details to import data into the graph at creation time.
+type GraphImportTaskArgs struct {
+	// The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+	BlankNodeHandling GraphImportTaskBlankNodeHandlingPtrInput `pulumi:"blankNodeHandling"`
+	// If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+	FailOnError pulumi.BoolPtrInput `pulumi:"failOnError"`
+	// Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+	Format GraphImportTaskFormatPtrInput `pulumi:"format"`
+	// Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+	ImportOptions GraphImportOptionsPtrInput `pulumi:"importOptions"`
+	// The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+	MaxProvisionedMemory pulumi.IntPtrInput `pulumi:"maxProvisionedMemory"`
+	// The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+	MinProvisionedMemory pulumi.IntPtrInput `pulumi:"minProvisionedMemory"`
+	// The parquet type of the import task. Required when Format is PARQUET.
+	ParquetType GraphImportTaskParquetTypePtrInput `pulumi:"parquetType"`
+	// The ARN of the IAM role that will allow access to the data that is to be imported.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+	Source pulumi.StringInput `pulumi:"source"`
+}
+
+func (GraphImportTaskArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTask)(nil)).Elem()
+}
+
+func (i GraphImportTaskArgs) ToGraphImportTaskOutput() GraphImportTaskOutput {
+	return i.ToGraphImportTaskOutputWithContext(context.Background())
+}
+
+func (i GraphImportTaskArgs) ToGraphImportTaskOutputWithContext(ctx context.Context) GraphImportTaskOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphImportTaskOutput)
+}
+
+func (i GraphImportTaskArgs) ToGraphImportTaskPtrOutput() GraphImportTaskPtrOutput {
+	return i.ToGraphImportTaskPtrOutputWithContext(context.Background())
+}
+
+func (i GraphImportTaskArgs) ToGraphImportTaskPtrOutputWithContext(ctx context.Context) GraphImportTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphImportTaskOutput).ToGraphImportTaskPtrOutputWithContext(ctx)
+}
+
+// GraphImportTaskPtrInput is an input type that accepts GraphImportTaskArgs, GraphImportTaskPtr and GraphImportTaskPtrOutput values.
+// You can construct a concrete instance of `GraphImportTaskPtrInput` via:
+//
+//	        GraphImportTaskArgs{...}
+//
+//	or:
+//
+//	        nil
+type GraphImportTaskPtrInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskPtrOutput() GraphImportTaskPtrOutput
+	ToGraphImportTaskPtrOutputWithContext(context.Context) GraphImportTaskPtrOutput
+}
+
+type graphImportTaskPtrType GraphImportTaskArgs
+
+func GraphImportTaskPtr(v *GraphImportTaskArgs) GraphImportTaskPtrInput {
+	return (*graphImportTaskPtrType)(v)
+}
+
+func (*graphImportTaskPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphImportTask)(nil)).Elem()
+}
+
+func (i *graphImportTaskPtrType) ToGraphImportTaskPtrOutput() GraphImportTaskPtrOutput {
+	return i.ToGraphImportTaskPtrOutputWithContext(context.Background())
+}
+
+func (i *graphImportTaskPtrType) ToGraphImportTaskPtrOutputWithContext(ctx context.Context) GraphImportTaskPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphImportTaskPtrOutput)
+}
+
+// The import task details to import data into the graph at creation time.
+type GraphImportTaskOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTask)(nil)).Elem()
+}
+
+func (o GraphImportTaskOutput) ToGraphImportTaskOutput() GraphImportTaskOutput {
+	return o
+}
+
+func (o GraphImportTaskOutput) ToGraphImportTaskOutputWithContext(ctx context.Context) GraphImportTaskOutput {
+	return o
+}
+
+func (o GraphImportTaskOutput) ToGraphImportTaskPtrOutput() GraphImportTaskPtrOutput {
+	return o.ToGraphImportTaskPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskOutput) ToGraphImportTaskPtrOutputWithContext(ctx context.Context) GraphImportTaskPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphImportTask) *GraphImportTask {
+		return &v
+	}).(GraphImportTaskPtrOutput)
+}
+
+// The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+func (o GraphImportTaskOutput) BlankNodeHandling() GraphImportTaskBlankNodeHandlingPtrOutput {
+	return o.ApplyT(func(v GraphImportTask) *GraphImportTaskBlankNodeHandling { return v.BlankNodeHandling }).(GraphImportTaskBlankNodeHandlingPtrOutput)
+}
+
+// If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+func (o GraphImportTaskOutput) FailOnError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GraphImportTask) *bool { return v.FailOnError }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+func (o GraphImportTaskOutput) Format() GraphImportTaskFormatPtrOutput {
+	return o.ApplyT(func(v GraphImportTask) *GraphImportTaskFormat { return v.Format }).(GraphImportTaskFormatPtrOutput)
+}
+
+// Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+func (o GraphImportTaskOutput) ImportOptions() GraphImportOptionsPtrOutput {
+	return o.ApplyT(func(v GraphImportTask) *GraphImportOptions { return v.ImportOptions }).(GraphImportOptionsPtrOutput)
+}
+
+// The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+func (o GraphImportTaskOutput) MaxProvisionedMemory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GraphImportTask) *int { return v.MaxProvisionedMemory }).(pulumi.IntPtrOutput)
+}
+
+// The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+func (o GraphImportTaskOutput) MinProvisionedMemory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GraphImportTask) *int { return v.MinProvisionedMemory }).(pulumi.IntPtrOutput)
+}
+
+// The parquet type of the import task. Required when Format is PARQUET.
+func (o GraphImportTaskOutput) ParquetType() GraphImportTaskParquetTypePtrOutput {
+	return o.ApplyT(func(v GraphImportTask) *GraphImportTaskParquetType { return v.ParquetType }).(GraphImportTaskParquetTypePtrOutput)
+}
+
+// The ARN of the IAM role that will allow access to the data that is to be imported.
+func (o GraphImportTaskOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphImportTask) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+func (o GraphImportTaskOutput) Source() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphImportTask) string { return v.Source }).(pulumi.StringOutput)
+}
+
+type GraphImportTaskPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphImportTask)(nil)).Elem()
+}
+
+func (o GraphImportTaskPtrOutput) ToGraphImportTaskPtrOutput() GraphImportTaskPtrOutput {
+	return o
+}
+
+func (o GraphImportTaskPtrOutput) ToGraphImportTaskPtrOutputWithContext(ctx context.Context) GraphImportTaskPtrOutput {
+	return o
+}
+
+func (o GraphImportTaskPtrOutput) Elem() GraphImportTaskOutput {
+	return o.ApplyT(func(v *GraphImportTask) GraphImportTask {
+		if v != nil {
+			return *v
+		}
+		var ret GraphImportTask
+		return ret
+	}).(GraphImportTaskOutput)
+}
+
+// The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+func (o GraphImportTaskPtrOutput) BlankNodeHandling() GraphImportTaskBlankNodeHandlingPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *GraphImportTaskBlankNodeHandling {
+		if v == nil {
+			return nil
+		}
+		return v.BlankNodeHandling
+	}).(GraphImportTaskBlankNodeHandlingPtrOutput)
+}
+
+// If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+func (o GraphImportTaskPtrOutput) FailOnError() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailOnError
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+func (o GraphImportTaskPtrOutput) Format() GraphImportTaskFormatPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *GraphImportTaskFormat {
+		if v == nil {
+			return nil
+		}
+		return v.Format
+	}).(GraphImportTaskFormatPtrOutput)
+}
+
+// Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+func (o GraphImportTaskPtrOutput) ImportOptions() GraphImportOptionsPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *GraphImportOptions {
+		if v == nil {
+			return nil
+		}
+		return v.ImportOptions
+	}).(GraphImportOptionsPtrOutput)
+}
+
+// The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+func (o GraphImportTaskPtrOutput) MaxProvisionedMemory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxProvisionedMemory
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+func (o GraphImportTaskPtrOutput) MinProvisionedMemory() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinProvisionedMemory
+	}).(pulumi.IntPtrOutput)
+}
+
+// The parquet type of the import task. Required when Format is PARQUET.
+func (o GraphImportTaskPtrOutput) ParquetType() GraphImportTaskParquetTypePtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *GraphImportTaskParquetType {
+		if v == nil {
+			return nil
+		}
+		return v.ParquetType
+	}).(GraphImportTaskParquetTypePtrOutput)
+}
+
+// The ARN of the IAM role that will allow access to the data that is to be imported.
+func (o GraphImportTaskPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+func (o GraphImportTaskPtrOutput) Source() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphImportTask) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Source
+	}).(pulumi.StringPtrOutput)
+}
+
+// Options for importing data from a Neptune database.
+type GraphNeptuneImportOptions struct {
+	// Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+	PreserveDefaultVertexLabels *bool `pulumi:"preserveDefaultVertexLabels"`
+	// Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+	PreserveEdgeIds *bool `pulumi:"preserveEdgeIds"`
+	// The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+	S3ExportKmsKeyId string `pulumi:"s3ExportKmsKeyId"`
+	// The path to an S3 bucket from which to import data.
+	S3ExportPath string `pulumi:"s3ExportPath"`
+}
+
+// GraphNeptuneImportOptionsInput is an input type that accepts GraphNeptuneImportOptionsArgs and GraphNeptuneImportOptionsOutput values.
+// You can construct a concrete instance of `GraphNeptuneImportOptionsInput` via:
+//
+//	GraphNeptuneImportOptionsArgs{...}
+type GraphNeptuneImportOptionsInput interface {
+	pulumi.Input
+
+	ToGraphNeptuneImportOptionsOutput() GraphNeptuneImportOptionsOutput
+	ToGraphNeptuneImportOptionsOutputWithContext(context.Context) GraphNeptuneImportOptionsOutput
+}
+
+// Options for importing data from a Neptune database.
+type GraphNeptuneImportOptionsArgs struct {
+	// Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+	PreserveDefaultVertexLabels pulumi.BoolPtrInput `pulumi:"preserveDefaultVertexLabels"`
+	// Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+	PreserveEdgeIds pulumi.BoolPtrInput `pulumi:"preserveEdgeIds"`
+	// The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+	S3ExportKmsKeyId pulumi.StringInput `pulumi:"s3ExportKmsKeyId"`
+	// The path to an S3 bucket from which to import data.
+	S3ExportPath pulumi.StringInput `pulumi:"s3ExportPath"`
+}
+
+func (GraphNeptuneImportOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNeptuneImportOptions)(nil)).Elem()
+}
+
+func (i GraphNeptuneImportOptionsArgs) ToGraphNeptuneImportOptionsOutput() GraphNeptuneImportOptionsOutput {
+	return i.ToGraphNeptuneImportOptionsOutputWithContext(context.Background())
+}
+
+func (i GraphNeptuneImportOptionsArgs) ToGraphNeptuneImportOptionsOutputWithContext(ctx context.Context) GraphNeptuneImportOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNeptuneImportOptionsOutput)
+}
+
+func (i GraphNeptuneImportOptionsArgs) ToGraphNeptuneImportOptionsPtrOutput() GraphNeptuneImportOptionsPtrOutput {
+	return i.ToGraphNeptuneImportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i GraphNeptuneImportOptionsArgs) ToGraphNeptuneImportOptionsPtrOutputWithContext(ctx context.Context) GraphNeptuneImportOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNeptuneImportOptionsOutput).ToGraphNeptuneImportOptionsPtrOutputWithContext(ctx)
+}
+
+// GraphNeptuneImportOptionsPtrInput is an input type that accepts GraphNeptuneImportOptionsArgs, GraphNeptuneImportOptionsPtr and GraphNeptuneImportOptionsPtrOutput values.
+// You can construct a concrete instance of `GraphNeptuneImportOptionsPtrInput` via:
+//
+//	        GraphNeptuneImportOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GraphNeptuneImportOptionsPtrInput interface {
+	pulumi.Input
+
+	ToGraphNeptuneImportOptionsPtrOutput() GraphNeptuneImportOptionsPtrOutput
+	ToGraphNeptuneImportOptionsPtrOutputWithContext(context.Context) GraphNeptuneImportOptionsPtrOutput
+}
+
+type graphNeptuneImportOptionsPtrType GraphNeptuneImportOptionsArgs
+
+func GraphNeptuneImportOptionsPtr(v *GraphNeptuneImportOptionsArgs) GraphNeptuneImportOptionsPtrInput {
+	return (*graphNeptuneImportOptionsPtrType)(v)
+}
+
+func (*graphNeptuneImportOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphNeptuneImportOptions)(nil)).Elem()
+}
+
+func (i *graphNeptuneImportOptionsPtrType) ToGraphNeptuneImportOptionsPtrOutput() GraphNeptuneImportOptionsPtrOutput {
+	return i.ToGraphNeptuneImportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *graphNeptuneImportOptionsPtrType) ToGraphNeptuneImportOptionsPtrOutputWithContext(ctx context.Context) GraphNeptuneImportOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GraphNeptuneImportOptionsPtrOutput)
+}
+
+// Options for importing data from a Neptune database.
+type GraphNeptuneImportOptionsOutput struct{ *pulumi.OutputState }
+
+func (GraphNeptuneImportOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphNeptuneImportOptions)(nil)).Elem()
+}
+
+func (o GraphNeptuneImportOptionsOutput) ToGraphNeptuneImportOptionsOutput() GraphNeptuneImportOptionsOutput {
+	return o
+}
+
+func (o GraphNeptuneImportOptionsOutput) ToGraphNeptuneImportOptionsOutputWithContext(ctx context.Context) GraphNeptuneImportOptionsOutput {
+	return o
+}
+
+func (o GraphNeptuneImportOptionsOutput) ToGraphNeptuneImportOptionsPtrOutput() GraphNeptuneImportOptionsPtrOutput {
+	return o.ToGraphNeptuneImportOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o GraphNeptuneImportOptionsOutput) ToGraphNeptuneImportOptionsPtrOutputWithContext(ctx context.Context) GraphNeptuneImportOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphNeptuneImportOptions) *GraphNeptuneImportOptions {
+		return &v
+	}).(GraphNeptuneImportOptionsPtrOutput)
+}
+
+// Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+func (o GraphNeptuneImportOptionsOutput) PreserveDefaultVertexLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GraphNeptuneImportOptions) *bool { return v.PreserveDefaultVertexLabels }).(pulumi.BoolPtrOutput)
+}
+
+// Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+func (o GraphNeptuneImportOptionsOutput) PreserveEdgeIds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GraphNeptuneImportOptions) *bool { return v.PreserveEdgeIds }).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+func (o GraphNeptuneImportOptionsOutput) S3ExportKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphNeptuneImportOptions) string { return v.S3ExportKmsKeyId }).(pulumi.StringOutput)
+}
+
+// The path to an S3 bucket from which to import data.
+func (o GraphNeptuneImportOptionsOutput) S3ExportPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GraphNeptuneImportOptions) string { return v.S3ExportPath }).(pulumi.StringOutput)
+}
+
+type GraphNeptuneImportOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphNeptuneImportOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphNeptuneImportOptions)(nil)).Elem()
+}
+
+func (o GraphNeptuneImportOptionsPtrOutput) ToGraphNeptuneImportOptionsPtrOutput() GraphNeptuneImportOptionsPtrOutput {
+	return o
+}
+
+func (o GraphNeptuneImportOptionsPtrOutput) ToGraphNeptuneImportOptionsPtrOutputWithContext(ctx context.Context) GraphNeptuneImportOptionsPtrOutput {
+	return o
+}
+
+func (o GraphNeptuneImportOptionsPtrOutput) Elem() GraphNeptuneImportOptionsOutput {
+	return o.ApplyT(func(v *GraphNeptuneImportOptions) GraphNeptuneImportOptions {
+		if v != nil {
+			return *v
+		}
+		var ret GraphNeptuneImportOptions
+		return ret
+	}).(GraphNeptuneImportOptionsOutput)
+}
+
+// Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+func (o GraphNeptuneImportOptionsPtrOutput) PreserveDefaultVertexLabels() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GraphNeptuneImportOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveDefaultVertexLabels
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+func (o GraphNeptuneImportOptionsPtrOutput) PreserveEdgeIds() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GraphNeptuneImportOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.PreserveEdgeIds
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+func (o GraphNeptuneImportOptionsPtrOutput) S3ExportKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphNeptuneImportOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3ExportKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to an S3 bucket from which to import data.
+func (o GraphNeptuneImportOptionsPtrOutput) S3ExportPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GraphNeptuneImportOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3ExportPath
+	}).(pulumi.StringPtrOutput)
+}
+
 // A key-value pair to associate with a resource.
 type GraphSnapshotTag struct {
 	// The key name of the tag.
@@ -170,8 +799,20 @@ func (o GraphVectorSearchConfigurationPtrOutput) VectorSearchDimension() pulumi.
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportOptionsInput)(nil)).Elem(), GraphImportOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportOptionsPtrInput)(nil)).Elem(), GraphImportOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskInput)(nil)).Elem(), GraphImportTaskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskPtrInput)(nil)).Elem(), GraphImportTaskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphNeptuneImportOptionsInput)(nil)).Elem(), GraphNeptuneImportOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphNeptuneImportOptionsPtrInput)(nil)).Elem(), GraphNeptuneImportOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphVectorSearchConfigurationInput)(nil)).Elem(), GraphVectorSearchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GraphVectorSearchConfigurationPtrInput)(nil)).Elem(), GraphVectorSearchConfigurationArgs{})
+	pulumi.RegisterOutputType(GraphImportOptionsOutput{})
+	pulumi.RegisterOutputType(GraphImportOptionsPtrOutput{})
+	pulumi.RegisterOutputType(GraphImportTaskOutput{})
+	pulumi.RegisterOutputType(GraphImportTaskPtrOutput{})
+	pulumi.RegisterOutputType(GraphNeptuneImportOptionsOutput{})
+	pulumi.RegisterOutputType(GraphNeptuneImportOptionsPtrOutput{})
 	pulumi.RegisterOutputType(GraphVectorSearchConfigurationOutput{})
 	pulumi.RegisterOutputType(GraphVectorSearchConfigurationPtrOutput{})
 }

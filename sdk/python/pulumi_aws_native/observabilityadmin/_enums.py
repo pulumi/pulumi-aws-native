@@ -147,6 +147,9 @@ class OrganizationTelemetryRuleResourceType(_builtins.str, Enum):
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem")
 class OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem(_builtins.str, Enum):
     SECURITY_FINDING_LOGS = "SECURITY_FINDING_LOGS"
+    ALB_ACCESS_LOGS = "ALB_ACCESS_LOGS"
+    ALB_CONNECTION_LOGS = "ALB_CONNECTION_LOGS"
+    ALB_HEALTH_CHECK_LOGS = "ALB_HEALTH_CHECK_LOGS"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:OrganizationTelemetryRuleTelemetrySourceType")
@@ -287,6 +290,9 @@ class TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropert
     APPLICATION_LOGS = "APPLICATION_LOGS"
     USAGE_LOGS = "USAGE_LOGS"
     SECURITY_FINDING_LOGS = "SECURITY_FINDING_LOGS"
+    ALB_ACCESS_LOGS = "ALB_ACCESS_LOGS"
+    ALB_CONNECTION_LOGS = "ALB_CONNECTION_LOGS"
+    ALB_HEALTH_CHECK_LOGS = "ALB_HEALTH_CHECK_LOGS"
 
 
 @pulumi.type_token("aws-native:observabilityadmin:TelemetryRuleTelemetrySourceType")

@@ -365,6 +365,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         }
 
         public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem SecurityFindingLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS");
+        public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbAccessLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_ACCESS_LOGS");
+        public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbConnectionLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_CONNECTION_LOGS");
+        public static OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbHealthCheckLogs { get; } = new OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_HEALTH_CHECK_LOGS");
 
         public static bool operator ==(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => left.Equals(right);
         public static bool operator !=(OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => !left.Equals(right);
@@ -813,6 +816,9 @@ namespace Pulumi.AwsNative.ObservabilityAdmin
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem ApplicationLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("APPLICATION_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem UsageLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("USAGE_LOGS");
         public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem SecurityFindingLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("SECURITY_FINDING_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbAccessLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_ACCESS_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbConnectionLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_CONNECTION_LOGS");
+        public static TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem AlbHealthCheckLogs { get; } = new TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem("ALB_HEALTH_CHECK_LOGS");
 
         public static bool operator ==(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => left.Equals(right);
         public static bool operator !=(TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem left, TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem right) => !left.Equals(right);

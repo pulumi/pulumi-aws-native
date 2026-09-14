@@ -10,6 +10,504 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+type GraphImportTaskBlankNodeHandling string
+
+const (
+	GraphImportTaskBlankNodeHandlingConvertToIri = GraphImportTaskBlankNodeHandling("convertToIri")
+)
+
+func (GraphImportTaskBlankNodeHandling) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTaskBlankNodeHandling)(nil)).Elem()
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToGraphImportTaskBlankNodeHandlingOutput() GraphImportTaskBlankNodeHandlingOutput {
+	return pulumi.ToOutput(e).(GraphImportTaskBlankNodeHandlingOutput)
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToGraphImportTaskBlankNodeHandlingOutputWithContext(ctx context.Context) GraphImportTaskBlankNodeHandlingOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GraphImportTaskBlankNodeHandlingOutput)
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToGraphImportTaskBlankNodeHandlingPtrOutput() GraphImportTaskBlankNodeHandlingPtrOutput {
+	return e.ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(context.Background())
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(ctx context.Context) GraphImportTaskBlankNodeHandlingPtrOutput {
+	return GraphImportTaskBlankNodeHandling(e).ToGraphImportTaskBlankNodeHandlingOutputWithContext(ctx).ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(ctx)
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GraphImportTaskBlankNodeHandling) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GraphImportTaskBlankNodeHandlingOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskBlankNodeHandlingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTaskBlankNodeHandling)(nil)).Elem()
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToGraphImportTaskBlankNodeHandlingOutput() GraphImportTaskBlankNodeHandlingOutput {
+	return o
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToGraphImportTaskBlankNodeHandlingOutputWithContext(ctx context.Context) GraphImportTaskBlankNodeHandlingOutput {
+	return o
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToGraphImportTaskBlankNodeHandlingPtrOutput() GraphImportTaskBlankNodeHandlingPtrOutput {
+	return o.ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(ctx context.Context) GraphImportTaskBlankNodeHandlingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphImportTaskBlankNodeHandling) *GraphImportTaskBlankNodeHandling {
+		return &v
+	}).(GraphImportTaskBlankNodeHandlingPtrOutput)
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GraphImportTaskBlankNodeHandling) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskBlankNodeHandlingOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GraphImportTaskBlankNodeHandling) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GraphImportTaskBlankNodeHandlingPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskBlankNodeHandlingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphImportTaskBlankNodeHandling)(nil)).Elem()
+}
+
+func (o GraphImportTaskBlankNodeHandlingPtrOutput) ToGraphImportTaskBlankNodeHandlingPtrOutput() GraphImportTaskBlankNodeHandlingPtrOutput {
+	return o
+}
+
+func (o GraphImportTaskBlankNodeHandlingPtrOutput) ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(ctx context.Context) GraphImportTaskBlankNodeHandlingPtrOutput {
+	return o
+}
+
+func (o GraphImportTaskBlankNodeHandlingPtrOutput) Elem() GraphImportTaskBlankNodeHandlingOutput {
+	return o.ApplyT(func(v *GraphImportTaskBlankNodeHandling) GraphImportTaskBlankNodeHandling {
+		if v != nil {
+			return *v
+		}
+		var ret GraphImportTaskBlankNodeHandling
+		return ret
+	}).(GraphImportTaskBlankNodeHandlingOutput)
+}
+
+func (o GraphImportTaskBlankNodeHandlingPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskBlankNodeHandlingPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GraphImportTaskBlankNodeHandling) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GraphImportTaskBlankNodeHandlingInput is an input type that accepts values of the GraphImportTaskBlankNodeHandling enum
+// A concrete instance of `GraphImportTaskBlankNodeHandlingInput` can be one of the following:
+//
+//	GraphImportTaskBlankNodeHandlingConvertToIri
+type GraphImportTaskBlankNodeHandlingInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskBlankNodeHandlingOutput() GraphImportTaskBlankNodeHandlingOutput
+	ToGraphImportTaskBlankNodeHandlingOutputWithContext(context.Context) GraphImportTaskBlankNodeHandlingOutput
+}
+
+var graphImportTaskBlankNodeHandlingPtrType = reflect.TypeOf((**GraphImportTaskBlankNodeHandling)(nil)).Elem()
+
+type GraphImportTaskBlankNodeHandlingPtrInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskBlankNodeHandlingPtrOutput() GraphImportTaskBlankNodeHandlingPtrOutput
+	ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(context.Context) GraphImportTaskBlankNodeHandlingPtrOutput
+}
+
+type graphImportTaskBlankNodeHandlingPtr string
+
+func GraphImportTaskBlankNodeHandlingPtr(v string) GraphImportTaskBlankNodeHandlingPtrInput {
+	return (*graphImportTaskBlankNodeHandlingPtr)(&v)
+}
+
+func (*graphImportTaskBlankNodeHandlingPtr) ElementType() reflect.Type {
+	return graphImportTaskBlankNodeHandlingPtrType
+}
+
+func (in *graphImportTaskBlankNodeHandlingPtr) ToGraphImportTaskBlankNodeHandlingPtrOutput() GraphImportTaskBlankNodeHandlingPtrOutput {
+	return pulumi.ToOutput(in).(GraphImportTaskBlankNodeHandlingPtrOutput)
+}
+
+func (in *graphImportTaskBlankNodeHandlingPtr) ToGraphImportTaskBlankNodeHandlingPtrOutputWithContext(ctx context.Context) GraphImportTaskBlankNodeHandlingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GraphImportTaskBlankNodeHandlingPtrOutput)
+}
+
+// Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+type GraphImportTaskFormat string
+
+const (
+	GraphImportTaskFormatCsv        = GraphImportTaskFormat("CSV")
+	GraphImportTaskFormatOpenCypher = GraphImportTaskFormat("OPEN_CYPHER")
+	GraphImportTaskFormatParquet    = GraphImportTaskFormat("PARQUET")
+	GraphImportTaskFormatNtriples   = GraphImportTaskFormat("NTRIPLES")
+)
+
+func (GraphImportTaskFormat) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTaskFormat)(nil)).Elem()
+}
+
+func (e GraphImportTaskFormat) ToGraphImportTaskFormatOutput() GraphImportTaskFormatOutput {
+	return pulumi.ToOutput(e).(GraphImportTaskFormatOutput)
+}
+
+func (e GraphImportTaskFormat) ToGraphImportTaskFormatOutputWithContext(ctx context.Context) GraphImportTaskFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GraphImportTaskFormatOutput)
+}
+
+func (e GraphImportTaskFormat) ToGraphImportTaskFormatPtrOutput() GraphImportTaskFormatPtrOutput {
+	return e.ToGraphImportTaskFormatPtrOutputWithContext(context.Background())
+}
+
+func (e GraphImportTaskFormat) ToGraphImportTaskFormatPtrOutputWithContext(ctx context.Context) GraphImportTaskFormatPtrOutput {
+	return GraphImportTaskFormat(e).ToGraphImportTaskFormatOutputWithContext(ctx).ToGraphImportTaskFormatPtrOutputWithContext(ctx)
+}
+
+func (e GraphImportTaskFormat) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GraphImportTaskFormat) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GraphImportTaskFormat) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GraphImportTaskFormat) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GraphImportTaskFormatOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTaskFormat)(nil)).Elem()
+}
+
+func (o GraphImportTaskFormatOutput) ToGraphImportTaskFormatOutput() GraphImportTaskFormatOutput {
+	return o
+}
+
+func (o GraphImportTaskFormatOutput) ToGraphImportTaskFormatOutputWithContext(ctx context.Context) GraphImportTaskFormatOutput {
+	return o
+}
+
+func (o GraphImportTaskFormatOutput) ToGraphImportTaskFormatPtrOutput() GraphImportTaskFormatPtrOutput {
+	return o.ToGraphImportTaskFormatPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskFormatOutput) ToGraphImportTaskFormatPtrOutputWithContext(ctx context.Context) GraphImportTaskFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphImportTaskFormat) *GraphImportTaskFormat {
+		return &v
+	}).(GraphImportTaskFormatPtrOutput)
+}
+
+func (o GraphImportTaskFormatOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskFormatOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GraphImportTaskFormat) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GraphImportTaskFormatOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskFormatOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GraphImportTaskFormat) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GraphImportTaskFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphImportTaskFormat)(nil)).Elem()
+}
+
+func (o GraphImportTaskFormatPtrOutput) ToGraphImportTaskFormatPtrOutput() GraphImportTaskFormatPtrOutput {
+	return o
+}
+
+func (o GraphImportTaskFormatPtrOutput) ToGraphImportTaskFormatPtrOutputWithContext(ctx context.Context) GraphImportTaskFormatPtrOutput {
+	return o
+}
+
+func (o GraphImportTaskFormatPtrOutput) Elem() GraphImportTaskFormatOutput {
+	return o.ApplyT(func(v *GraphImportTaskFormat) GraphImportTaskFormat {
+		if v != nil {
+			return *v
+		}
+		var ret GraphImportTaskFormat
+		return ret
+	}).(GraphImportTaskFormatOutput)
+}
+
+func (o GraphImportTaskFormatPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GraphImportTaskFormat) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GraphImportTaskFormatInput is an input type that accepts values of the GraphImportTaskFormat enum
+// A concrete instance of `GraphImportTaskFormatInput` can be one of the following:
+//
+//	GraphImportTaskFormatCsv
+//	GraphImportTaskFormatOpenCypher
+//	GraphImportTaskFormatParquet
+//	GraphImportTaskFormatNtriples
+type GraphImportTaskFormatInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskFormatOutput() GraphImportTaskFormatOutput
+	ToGraphImportTaskFormatOutputWithContext(context.Context) GraphImportTaskFormatOutput
+}
+
+var graphImportTaskFormatPtrType = reflect.TypeOf((**GraphImportTaskFormat)(nil)).Elem()
+
+type GraphImportTaskFormatPtrInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskFormatPtrOutput() GraphImportTaskFormatPtrOutput
+	ToGraphImportTaskFormatPtrOutputWithContext(context.Context) GraphImportTaskFormatPtrOutput
+}
+
+type graphImportTaskFormatPtr string
+
+func GraphImportTaskFormatPtr(v string) GraphImportTaskFormatPtrInput {
+	return (*graphImportTaskFormatPtr)(&v)
+}
+
+func (*graphImportTaskFormatPtr) ElementType() reflect.Type {
+	return graphImportTaskFormatPtrType
+}
+
+func (in *graphImportTaskFormatPtr) ToGraphImportTaskFormatPtrOutput() GraphImportTaskFormatPtrOutput {
+	return pulumi.ToOutput(in).(GraphImportTaskFormatPtrOutput)
+}
+
+func (in *graphImportTaskFormatPtr) ToGraphImportTaskFormatPtrOutputWithContext(ctx context.Context) GraphImportTaskFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GraphImportTaskFormatPtrOutput)
+}
+
+// The parquet type of the import task. Required when Format is PARQUET.
+type GraphImportTaskParquetType string
+
+const (
+	GraphImportTaskParquetTypeColumnar = GraphImportTaskParquetType("COLUMNAR")
+)
+
+func (GraphImportTaskParquetType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTaskParquetType)(nil)).Elem()
+}
+
+func (e GraphImportTaskParquetType) ToGraphImportTaskParquetTypeOutput() GraphImportTaskParquetTypeOutput {
+	return pulumi.ToOutput(e).(GraphImportTaskParquetTypeOutput)
+}
+
+func (e GraphImportTaskParquetType) ToGraphImportTaskParquetTypeOutputWithContext(ctx context.Context) GraphImportTaskParquetTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GraphImportTaskParquetTypeOutput)
+}
+
+func (e GraphImportTaskParquetType) ToGraphImportTaskParquetTypePtrOutput() GraphImportTaskParquetTypePtrOutput {
+	return e.ToGraphImportTaskParquetTypePtrOutputWithContext(context.Background())
+}
+
+func (e GraphImportTaskParquetType) ToGraphImportTaskParquetTypePtrOutputWithContext(ctx context.Context) GraphImportTaskParquetTypePtrOutput {
+	return GraphImportTaskParquetType(e).ToGraphImportTaskParquetTypeOutputWithContext(ctx).ToGraphImportTaskParquetTypePtrOutputWithContext(ctx)
+}
+
+func (e GraphImportTaskParquetType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GraphImportTaskParquetType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GraphImportTaskParquetType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GraphImportTaskParquetType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GraphImportTaskParquetTypeOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskParquetTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GraphImportTaskParquetType)(nil)).Elem()
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToGraphImportTaskParquetTypeOutput() GraphImportTaskParquetTypeOutput {
+	return o
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToGraphImportTaskParquetTypeOutputWithContext(ctx context.Context) GraphImportTaskParquetTypeOutput {
+	return o
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToGraphImportTaskParquetTypePtrOutput() GraphImportTaskParquetTypePtrOutput {
+	return o.ToGraphImportTaskParquetTypePtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToGraphImportTaskParquetTypePtrOutputWithContext(ctx context.Context) GraphImportTaskParquetTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GraphImportTaskParquetType) *GraphImportTaskParquetType {
+		return &v
+	}).(GraphImportTaskParquetTypePtrOutput)
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GraphImportTaskParquetType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskParquetTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GraphImportTaskParquetType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GraphImportTaskParquetTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GraphImportTaskParquetTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GraphImportTaskParquetType)(nil)).Elem()
+}
+
+func (o GraphImportTaskParquetTypePtrOutput) ToGraphImportTaskParquetTypePtrOutput() GraphImportTaskParquetTypePtrOutput {
+	return o
+}
+
+func (o GraphImportTaskParquetTypePtrOutput) ToGraphImportTaskParquetTypePtrOutputWithContext(ctx context.Context) GraphImportTaskParquetTypePtrOutput {
+	return o
+}
+
+func (o GraphImportTaskParquetTypePtrOutput) Elem() GraphImportTaskParquetTypeOutput {
+	return o.ApplyT(func(v *GraphImportTaskParquetType) GraphImportTaskParquetType {
+		if v != nil {
+			return *v
+		}
+		var ret GraphImportTaskParquetType
+		return ret
+	}).(GraphImportTaskParquetTypeOutput)
+}
+
+func (o GraphImportTaskParquetTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GraphImportTaskParquetTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GraphImportTaskParquetType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GraphImportTaskParquetTypeInput is an input type that accepts values of the GraphImportTaskParquetType enum
+// A concrete instance of `GraphImportTaskParquetTypeInput` can be one of the following:
+//
+//	GraphImportTaskParquetTypeColumnar
+type GraphImportTaskParquetTypeInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskParquetTypeOutput() GraphImportTaskParquetTypeOutput
+	ToGraphImportTaskParquetTypeOutputWithContext(context.Context) GraphImportTaskParquetTypeOutput
+}
+
+var graphImportTaskParquetTypePtrType = reflect.TypeOf((**GraphImportTaskParquetType)(nil)).Elem()
+
+type GraphImportTaskParquetTypePtrInput interface {
+	pulumi.Input
+
+	ToGraphImportTaskParquetTypePtrOutput() GraphImportTaskParquetTypePtrOutput
+	ToGraphImportTaskParquetTypePtrOutputWithContext(context.Context) GraphImportTaskParquetTypePtrOutput
+}
+
+type graphImportTaskParquetTypePtr string
+
+func GraphImportTaskParquetTypePtr(v string) GraphImportTaskParquetTypePtrInput {
+	return (*graphImportTaskParquetTypePtr)(&v)
+}
+
+func (*graphImportTaskParquetTypePtr) ElementType() reflect.Type {
+	return graphImportTaskParquetTypePtrType
+}
+
+func (in *graphImportTaskParquetTypePtr) ToGraphImportTaskParquetTypePtrOutput() GraphImportTaskParquetTypePtrOutput {
+	return pulumi.ToOutput(in).(GraphImportTaskParquetTypePtrOutput)
+}
+
+func (in *graphImportTaskParquetTypePtr) ToGraphImportTaskParquetTypePtrOutputWithContext(ctx context.Context) GraphImportTaskParquetTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GraphImportTaskParquetTypePtrOutput)
+}
+
 // The current status of the graph snapshot.
 type GraphSnapshotStatus string
 
@@ -104,6 +602,18 @@ func (o GraphSnapshotStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskBlankNodeHandlingInput)(nil)).Elem(), GraphImportTaskBlankNodeHandling("convertToIri"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskBlankNodeHandlingPtrInput)(nil)).Elem(), GraphImportTaskBlankNodeHandling("convertToIri"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskFormatInput)(nil)).Elem(), GraphImportTaskFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskFormatPtrInput)(nil)).Elem(), GraphImportTaskFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskParquetTypeInput)(nil)).Elem(), GraphImportTaskParquetType("COLUMNAR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GraphImportTaskParquetTypePtrInput)(nil)).Elem(), GraphImportTaskParquetType("COLUMNAR"))
+	pulumi.RegisterOutputType(GraphImportTaskBlankNodeHandlingOutput{})
+	pulumi.RegisterOutputType(GraphImportTaskBlankNodeHandlingPtrOutput{})
+	pulumi.RegisterOutputType(GraphImportTaskFormatOutput{})
+	pulumi.RegisterOutputType(GraphImportTaskFormatPtrOutput{})
+	pulumi.RegisterOutputType(GraphImportTaskParquetTypeOutput{})
+	pulumi.RegisterOutputType(GraphImportTaskParquetTypePtrOutput{})
 	pulumi.RegisterOutputType(GraphSnapshotStatusOutput{})
 	pulumi.RegisterOutputType(GraphSnapshotStatusPtrOutput{})
 }

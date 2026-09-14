@@ -7,8 +7,38 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'GraphImportTaskBlankNodeHandling',
+    'GraphImportTaskFormat',
+    'GraphImportTaskParquetType',
     'GraphSnapshotStatus',
 ]
+
+
+@pulumi.type_token("aws-native:neptunegraph:GraphImportTaskBlankNodeHandling")
+class GraphImportTaskBlankNodeHandling(_builtins.str, Enum):
+    """
+    The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+    """
+    CONVERT_TO_IRI = "convertToIri"
+
+
+@pulumi.type_token("aws-native:neptunegraph:GraphImportTaskFormat")
+class GraphImportTaskFormat(_builtins.str, Enum):
+    """
+    Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+    """
+    CSV = "CSV"
+    OPEN_CYPHER = "OPEN_CYPHER"
+    PARQUET = "PARQUET"
+    NTRIPLES = "NTRIPLES"
+
+
+@pulumi.type_token("aws-native:neptunegraph:GraphImportTaskParquetType")
+class GraphImportTaskParquetType(_builtins.str, Enum):
+    """
+    The parquet type of the import task. Required when Format is PARQUET.
+    """
+    COLUMNAR = "COLUMNAR"
 
 
 @pulumi.type_token("aws-native:neptunegraph:GraphSnapshotStatus")

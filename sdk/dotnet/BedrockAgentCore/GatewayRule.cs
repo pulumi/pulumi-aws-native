@@ -42,6 +42,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("status")]
         public Output<Pulumi.AwsNative.BedrockAgentCore.GatewayRuleStatus> Status { get; private set; } = null!;
 
+        [Output("system")]
+        public Output<Outputs.GatewayRuleSystemManagedBlock> System { get; private set; } = null!;
+
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 

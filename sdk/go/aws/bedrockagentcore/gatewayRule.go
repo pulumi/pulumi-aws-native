@@ -16,16 +16,17 @@ import (
 type GatewayRule struct {
 	pulumi.CustomResourceState
 
-	Actions           pulumi.ArrayOutput      `pulumi:"actions"`
-	Conditions        pulumi.ArrayOutput      `pulumi:"conditions"`
-	CreatedAt         pulumi.StringOutput     `pulumi:"createdAt"`
-	Description       pulumi.StringPtrOutput  `pulumi:"description"`
-	GatewayArn        pulumi.StringOutput     `pulumi:"gatewayArn"`
-	GatewayIdentifier pulumi.StringPtrOutput  `pulumi:"gatewayIdentifier"`
-	Priority          pulumi.Float64Output    `pulumi:"priority"`
-	RuleId            pulumi.StringOutput     `pulumi:"ruleId"`
-	Status            GatewayRuleStatusOutput `pulumi:"status"`
-	UpdatedAt         pulumi.StringOutput     `pulumi:"updatedAt"`
+	Actions           pulumi.ArrayOutput                  `pulumi:"actions"`
+	Conditions        pulumi.ArrayOutput                  `pulumi:"conditions"`
+	CreatedAt         pulumi.StringOutput                 `pulumi:"createdAt"`
+	Description       pulumi.StringPtrOutput              `pulumi:"description"`
+	GatewayArn        pulumi.StringOutput                 `pulumi:"gatewayArn"`
+	GatewayIdentifier pulumi.StringPtrOutput              `pulumi:"gatewayIdentifier"`
+	Priority          pulumi.Float64Output                `pulumi:"priority"`
+	RuleId            pulumi.StringOutput                 `pulumi:"ruleId"`
+	Status            GatewayRuleStatusOutput             `pulumi:"status"`
+	System            GatewayRuleSystemManagedBlockOutput `pulumi:"system"`
+	UpdatedAt         pulumi.StringOutput                 `pulumi:"updatedAt"`
 }
 
 // NewGatewayRule registers a new resource with the given unique name, arguments, and options.
@@ -165,6 +166,10 @@ func (o GatewayRuleOutput) RuleId() pulumi.StringOutput {
 
 func (o GatewayRuleOutput) Status() GatewayRuleStatusOutput {
 	return o.ApplyT(func(v *GatewayRule) GatewayRuleStatusOutput { return v.Status }).(GatewayRuleStatusOutput)
+}
+
+func (o GatewayRuleOutput) System() GatewayRuleSystemManagedBlockOutput {
+	return o.ApplyT(func(v *GatewayRule) GatewayRuleSystemManagedBlockOutput { return v.System }).(GatewayRuleSystemManagedBlockOutput)
 }
 
 func (o GatewayRuleOutput) UpdatedAt() pulumi.StringOutput {

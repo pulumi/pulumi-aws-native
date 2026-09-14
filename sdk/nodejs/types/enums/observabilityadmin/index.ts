@@ -120,6 +120,9 @@ export type OrganizationTelemetryRuleResourceType = (typeof OrganizationTelemetr
 
 export const OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = {
     SecurityFindingLogs: "SECURITY_FINDING_LOGS",
+    AlbAccessLogs: "ALB_ACCESS_LOGS",
+    AlbConnectionLogs: "ALB_CONNECTION_LOGS",
+    AlbHealthCheckLogs: "ALB_HEALTH_CHECK_LOGS",
 } as const;
 
 export type OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = (typeof OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem)[keyof typeof OrganizationTelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem];
@@ -274,6 +277,9 @@ export const TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParameters
     ApplicationLogs: "APPLICATION_LOGS",
     UsageLogs: "USAGE_LOGS",
     SecurityFindingLogs: "SECURITY_FINDING_LOGS",
+    AlbAccessLogs: "ALB_ACCESS_LOGS",
+    AlbConnectionLogs: "ALB_CONNECTION_LOGS",
+    AlbHealthCheckLogs: "ALB_HEALTH_CHECK_LOGS",
 } as const;
 
 export type TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem = (typeof TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem)[keyof typeof TelemetryRuleTelemetryDestinationConfigurationLogDeliveryParametersPropertiesLogTypesItem];

@@ -18,7 +18,8 @@ type ReportGroup struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
-	Arn pulumi.StringOutput `pulumi:"arn"`
+	Arn   pulumi.StringOutput `pulumi:"arn"`
+	AwsId pulumi.StringOutput `pulumi:"awsId"`
 	// When deleting a report group, specifies if reports within the report group should be deleted.
 	//
 	// - **true** - Deletes any reports that belong to the report group before deleting the report group.
@@ -36,7 +37,7 @@ type ReportGroup struct {
 	//
 	// - **CODE_COVERAGE** - The report group contains code coverage reports.
 	// - **TEST** - The report group contains test reports.
-	Type ReportGroupTypeOutput `pulumi:"type"`
+	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewReportGroup registers a new resource with the given unique name, arguments, and options.
@@ -107,7 +108,7 @@ type reportGroupArgs struct {
 	//
 	// - **CODE_COVERAGE** - The report group contains code coverage reports.
 	// - **TEST** - The report group contains test reports.
-	Type ReportGroupType `pulumi:"type"`
+	Type string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ReportGroup resource.
@@ -129,7 +130,7 @@ type ReportGroupArgs struct {
 	//
 	// - **CODE_COVERAGE** - The report group contains code coverage reports.
 	// - **TEST** - The report group contains test reports.
-	Type ReportGroupTypeInput
+	Type pulumi.StringInput
 }
 
 func (ReportGroupArgs) ElementType() reflect.Type {
@@ -174,6 +175,10 @@ func (o ReportGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+func (o ReportGroupOutput) AwsId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
+}
+
 // When deleting a report group, specifies if reports within the report group should be deleted.
 //
 // - **true** - Deletes any reports that belong to the report group before deleting the report group.
@@ -203,8 +208,8 @@ func (o ReportGroupOutput) Tags() aws.TagArrayOutput {
 //
 // - **CODE_COVERAGE** - The report group contains code coverage reports.
 // - **TEST** - The report group contains test reports.
-func (o ReportGroupOutput) Type() ReportGroupTypeOutput {
-	return o.ApplyT(func(v *ReportGroup) ReportGroupTypeOutput { return v.Type }).(ReportGroupTypeOutput)
+func (o ReportGroupOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ReportGroup) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {
