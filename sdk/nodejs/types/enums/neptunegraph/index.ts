@@ -2,6 +2,36 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const GraphImportTaskBlankNodeHandling = {
+    ConvertToIri: "convertToIri",
+} as const;
+
+/**
+ * The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+ */
+export type GraphImportTaskBlankNodeHandling = (typeof GraphImportTaskBlankNodeHandling)[keyof typeof GraphImportTaskBlankNodeHandling];
+
+export const GraphImportTaskFormat = {
+    Csv: "CSV",
+    OpenCypher: "OPEN_CYPHER",
+    Parquet: "PARQUET",
+    Ntriples: "NTRIPLES",
+} as const;
+
+/**
+ * Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+ */
+export type GraphImportTaskFormat = (typeof GraphImportTaskFormat)[keyof typeof GraphImportTaskFormat];
+
+export const GraphImportTaskParquetType = {
+    Columnar: "COLUMNAR",
+} as const;
+
+/**
+ * The parquet type of the import task. Required when Format is PARQUET.
+ */
+export type GraphImportTaskParquetType = (typeof GraphImportTaskParquetType)[keyof typeof GraphImportTaskParquetType];
+
 export const GraphSnapshotStatus = {
     Creating: "CREATING",
     Available: "AVAILABLE",

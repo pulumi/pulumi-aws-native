@@ -67,10 +67,6 @@ namespace Pulumi.AwsNative.CertificateManager
         /// The Amazon Resource Name (ARN) of the ACME endpoint.
         /// </summary>
         public readonly string? AcmeEndpointArn;
-        /// <summary>
-        /// The authorization behavior for the ACME endpoint.
-        /// </summary>
-        public readonly string? AuthorizationBehavior;
         public readonly Outputs.AcmeEndpointCertificateAuthority? CertificateAuthority;
         /// <summary>
         /// Whether contact information is required for the ACME endpoint.
@@ -89,8 +85,6 @@ namespace Pulumi.AwsNative.CertificateManager
         private GetAcmeEndpointResult(
             string? acmeEndpointArn,
 
-            string? authorizationBehavior,
-
             Outputs.AcmeEndpointCertificateAuthority? certificateAuthority,
 
             string? contact,
@@ -100,7 +94,6 @@ namespace Pulumi.AwsNative.CertificateManager
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             AcmeEndpointArn = acmeEndpointArn;
-            AuthorizationBehavior = authorizationBehavior;
             CertificateAuthority = certificateAuthority;
             Contact = contact;
             EndpointUrl = endpointUrl;

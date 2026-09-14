@@ -155,7 +155,6 @@ namespace Pulumi.AwsNative.NetworkManager
                 ReplaceOnChanges =
                 {
                     "coreNetworkId",
-                    "routingPolicyLabel",
                     "vpnConnectionArn",
                 },
             };

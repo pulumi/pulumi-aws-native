@@ -154,6 +154,7 @@ class GatewayRule(pulumi.CustomResource):
             __props__.__dict__["gateway_arn"] = None
             __props__.__dict__["rule_id"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["system"] = None
             __props__.__dict__["updated_at"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["gatewayIdentifier"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -188,6 +189,7 @@ class GatewayRule(pulumi.CustomResource):
         __props__.__dict__["priority"] = None
         __props__.__dict__["rule_id"] = None
         __props__.__dict__["status"] = None
+        __props__.__dict__["system"] = None
         __props__.__dict__["updated_at"] = None
         return GatewayRule(resource_name, opts=opts, __props__=__props__)
 
@@ -235,6 +237,11 @@ class GatewayRule(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output['GatewayRuleStatus']:
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def system(self) -> pulumi.Output['outputs.GatewayRuleSystemManagedBlock']:
+        return pulumi.get(self, "system")
 
     @_builtins.property
     @pulumi.getter(name="updatedAt")

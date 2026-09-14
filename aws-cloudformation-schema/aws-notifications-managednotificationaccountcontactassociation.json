@@ -12,6 +12,10 @@
       "description" : "This unique identifier for Contact",
       "type" : "string",
       "enum" : [ "ACCOUNT_PRIMARY", "ACCOUNT_ALTERNATE_SECURITY", "ACCOUNT_ALTERNATE_OPERATIONS", "ACCOUNT_ALTERNATE_BILLING" ]
+    },
+    "IsSensitiveEventsSubscribed" : {
+      "description" : "Whether the account contact association is subscribed to sensitive events. Access to sensitive events is gated by the SubscribeSensitiveEvents virtual IAM action.",
+      "type" : "boolean"
     }
   },
   "required" : [ "ContactIdentifier", "ManagedNotificationConfigurationArn" ],
@@ -24,6 +28,9 @@
     },
     "ContactIdentifier" : {
       "$ref" : "#/definitions/ContactIdentifier"
+    },
+    "IsSensitiveEventsSubscribed" : {
+      "$ref" : "#/definitions/IsSensitiveEventsSubscribed"
     }
   },
   "additionalProperties" : false,
@@ -31,13 +38,13 @@
   "primaryIdentifier" : [ "/properties/ManagedNotificationConfigurationArn", "/properties/ContactIdentifier" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "notifications:AssociateManagedNotificationAccountContact", "notifications:ListManagedNotificationChannelAssociations" ]
+      "permissions" : [ "notifications:AssociateManagedNotificationAccountContact", "notifications:SubscribeSensitiveEvents", "notifications:ListManagedNotificationChannelAssociations" ]
     },
     "read" : {
       "permissions" : [ "notifications:ListManagedNotificationChannelAssociations" ]
     },
     "update" : {
-      "permissions" : [ "notifications:ListManagedNotificationChannelAssociations" ]
+      "permissions" : [ "notifications:UpdateManagedNotificationChannelAssociation", "notifications:SubscribeSensitiveEvents", "notifications:ListManagedNotificationChannelAssociations" ]
     },
     "delete" : {
       "permissions" : [ "notifications:DisassociateManagedNotificationAccountContact", "notifications:ListManagedNotificationChannelAssociations" ]

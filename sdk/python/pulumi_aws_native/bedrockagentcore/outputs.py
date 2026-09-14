@@ -99,6 +99,7 @@ __all__ = [
     'GatewayRuleRouteToTargetAction1Properties',
     'GatewayRuleStaticOverride',
     'GatewayRuleStaticRoute',
+    'GatewayRuleSystemManagedBlock',
     'GatewayRuleTargetTrafficSplitEntry',
     'GatewayRuleTrafficSplitEntry',
     'GatewayRuleWeightedOverride',
@@ -123,8 +124,11 @@ __all__ = [
     'GatewayTargetCredentialProvider2Properties',
     'GatewayTargetCredentialProviderConfiguration',
     'GatewayTargetHttpApiSchemaConfiguration',
+    'GatewayTargetHttpConnectorSource',
+    'GatewayTargetHttpConnectorTargetConfiguration',
     'GatewayTargetHttpTargetConfiguration0Properties',
     'GatewayTargetHttpTargetConfiguration1Properties',
+    'GatewayTargetHttpTargetConfiguration2Properties',
     'GatewayTargetIamCredentialProvider',
     'GatewayTargetInferenceConnectorSource',
     'GatewayTargetInferenceConnectorTargetConfiguration',
@@ -3252,7 +3256,8 @@ class GatewayManagedVpcResource(dict):
                  subnet_ids: Sequence[_builtins.str],
                  vpc_identifier: _builtins.str,
                  routing_domain: Optional[_builtins.str] = None,
-                 security_group_ids: Optional[Sequence[_builtins.str]] = None):
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None):
         pulumi.set(__self__, "endpoint_ip_address_type", endpoint_ip_address_type)
         pulumi.set(__self__, "subnet_ids", subnet_ids)
         pulumi.set(__self__, "vpc_identifier", vpc_identifier)
@@ -3260,6 +3265,8 @@ class GatewayManagedVpcResource(dict):
             pulumi.set(__self__, "routing_domain", routing_domain)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="endpointIpAddressType")
@@ -3285,6 +3292,11 @@ class GatewayManagedVpcResource(dict):
     @pulumi.getter(name="securityGroupIds")
     def security_group_ids(self) -> Optional[Sequence[_builtins.str]]:
         return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -3966,6 +3978,35 @@ class GatewayRuleStaticRoute(dict):
     @pulumi.getter(name="targetName")
     def target_name(self) -> _builtins.str:
         return pulumi.get(self, "target_name")
+
+
+@pulumi.output_type
+class GatewayRuleSystemManagedBlock(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedBy":
+            suggest = "managed_by"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayRuleSystemManagedBlock. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayRuleSystemManagedBlock.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayRuleSystemManagedBlock.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_by: _builtins.str):
+        pulumi.set(__self__, "managed_by", managed_by)
+
+    @_builtins.property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> _builtins.str:
+        return pulumi.get(self, "managed_by")
 
 
 @pulumi.output_type
@@ -4788,6 +4829,55 @@ class GatewayTargetHttpApiSchemaConfiguration(dict):
 
 
 @pulumi.output_type
+class GatewayTargetHttpConnectorSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorId":
+            suggest = "connector_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GatewayTargetHttpConnectorSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GatewayTargetHttpConnectorSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GatewayTargetHttpConnectorSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_id: _builtins.str):
+        pulumi.set(__self__, "connector_id", connector_id)
+
+    @_builtins.property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> _builtins.str:
+        return pulumi.get(self, "connector_id")
+
+
+@pulumi.output_type
+class GatewayTargetHttpConnectorTargetConfiguration(dict):
+    def __init__(__self__, *,
+                 source: 'outputs.GatewayTargetHttpConnectorSource',
+                 parameters: Optional[Mapping[str, _builtins.str]] = None):
+        pulumi.set(__self__, "source", source)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> 'outputs.GatewayTargetHttpConnectorSource':
+        return pulumi.get(self, "source")
+
+    @_builtins.property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, _builtins.str]]:
+        return pulumi.get(self, "parameters")
+
+
+@pulumi.output_type
 class GatewayTargetHttpTargetConfiguration0Properties(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -4826,6 +4916,18 @@ class GatewayTargetHttpTargetConfiguration1Properties(dict):
     @pulumi.getter
     def passthrough(self) -> 'outputs.GatewayTargetPassthroughTargetConfiguration':
         return pulumi.get(self, "passthrough")
+
+
+@pulumi.output_type
+class GatewayTargetHttpTargetConfiguration2Properties(dict):
+    def __init__(__self__, *,
+                 connector: 'outputs.GatewayTargetHttpConnectorTargetConfiguration'):
+        pulumi.set(__self__, "connector", connector)
+
+    @_builtins.property
+    @pulumi.getter
+    def connector(self) -> 'outputs.GatewayTargetHttpConnectorTargetConfiguration':
+        return pulumi.get(self, "connector")
 
 
 @pulumi.output_type

@@ -36,7 +36,9 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.str] name: The name of the volume.
         :param pulumi.Input['VolumeOntapConfigurationArgs'] ontap_configuration: The configuration of an Amazon FSx for NetApp ONTAP volume.
         :param pulumi.Input['VolumeOpenZfsConfigurationArgs'] open_zfs_configuration: The configuration of an Amazon FSx for OpenZFS volume.
-        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input[_builtins.str] volume_type: The type of the volume.
         """
         if backup_id is not None:
@@ -104,7 +106,9 @@ class VolumeArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
-        One or more tags.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -147,7 +151,9 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the volume.
         :param pulumi.Input[Union['VolumeOntapConfigurationArgs', 'VolumeOntapConfigurationArgsDict']] ontap_configuration: The configuration of an Amazon FSx for NetApp ONTAP volume.
         :param pulumi.Input[Union['VolumeOpenZfsConfigurationArgs', 'VolumeOpenZfsConfigurationArgsDict']] open_zfs_configuration: The configuration of an Amazon FSx for OpenZFS volume.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+               
+               For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         :param pulumi.Input[_builtins.str] volume_type: The type of the volume.
         """
         ...
@@ -198,7 +204,7 @@ class Volume(pulumi.CustomResource):
             __props__.__dict__["resource_arn"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["volume_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupId", "ontapConfiguration.aggregateConfiguration", "ontapConfiguration.ontapVolumeType", "ontapConfiguration.snaplockConfiguration.snaplockType", "ontapConfiguration.storageVirtualMachineId", "ontapConfiguration.volumeStyle", "openZfsConfiguration.originSnapshot", "openZfsConfiguration.parentVolumeId", "volumeType"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupId", "volumeType"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Volume, __self__).__init__(
             'aws-native:fsx:Volume',
@@ -270,6 +276,8 @@ class Volume(pulumi.CustomResource):
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
         Returns the volume's Amazon Resource Name (ARN).
+
+        Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
         """
         return pulumi.get(self, "resource_arn")
 
@@ -277,7 +285,9 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
         """
-        One or more tags.
+        An array of key-value pairs to apply to this resource.
+
+        For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
         return pulumi.get(self, "tags")
 
@@ -285,7 +295,9 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter
     def uuid(self) -> pulumi.Output[_builtins.str]:
         """
-        Returns the volume's ID.
+        Returns the volume's universally unique identifier (UUID).
+
+        Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
         """
         return pulumi.get(self, "uuid")
 
@@ -293,7 +305,9 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="volumeId")
     def volume_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Returns the volume's universally unique identifier (UUID).
+        Returns the volume's ID.
+
+        Example: `fsvol-0123456789abcdefa`
         """
         return pulumi.get(self, "volume_id")
 

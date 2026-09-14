@@ -464,7 +464,7 @@
       "permissions" : [ "acm-pca:IssueCertificate", "acm-pca:GetCertificate" ]
     },
     "read" : {
-      "permissions" : [ "acm-pca:GetCertificate" ]
+      "permissions" : [ "acm-pca:GetCertificate", "acm-pca:DescribeCertificateAuthority" ]
     },
     "delete" : {
       "permissions" : [ "acm-pca:GetCertificate" ]

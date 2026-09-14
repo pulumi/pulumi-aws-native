@@ -156,7 +156,6 @@ namespace Pulumi.AwsNative.NetworkManager
                 {
                     "coreNetworkId",
                     "directConnectGatewayArn",
-                    "routingPolicyLabel",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

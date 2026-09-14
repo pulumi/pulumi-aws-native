@@ -4,10 +4,162 @@
 package drs
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
+
+// Configuration of a machine's license.
+type LaunchConfigurationTemplateLicensing struct {
+	// Whether to enable Bring your own license or not.
+	OsByol *bool `pulumi:"osByol"`
+}
+
+// LaunchConfigurationTemplateLicensingInput is an input type that accepts LaunchConfigurationTemplateLicensingArgs and LaunchConfigurationTemplateLicensingOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateLicensingInput` via:
+//
+//	LaunchConfigurationTemplateLicensingArgs{...}
+type LaunchConfigurationTemplateLicensingInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLicensingOutput() LaunchConfigurationTemplateLicensingOutput
+	ToLaunchConfigurationTemplateLicensingOutputWithContext(context.Context) LaunchConfigurationTemplateLicensingOutput
+}
+
+// Configuration of a machine's license.
+type LaunchConfigurationTemplateLicensingArgs struct {
+	// Whether to enable Bring your own license or not.
+	OsByol pulumi.BoolPtrInput `pulumi:"osByol"`
+}
+
+func (LaunchConfigurationTemplateLicensingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingOutput() LaunchConfigurationTemplateLicensingOutput {
+	return i.ToLaunchConfigurationTemplateLicensingOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLicensingOutput)
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return i.ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchConfigurationTemplateLicensingArgs) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLicensingOutput).ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx)
+}
+
+// LaunchConfigurationTemplateLicensingPtrInput is an input type that accepts LaunchConfigurationTemplateLicensingArgs, LaunchConfigurationTemplateLicensingPtr and LaunchConfigurationTemplateLicensingPtrOutput values.
+// You can construct a concrete instance of `LaunchConfigurationTemplateLicensingPtrInput` via:
+//
+//	        LaunchConfigurationTemplateLicensingArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchConfigurationTemplateLicensingPtrInput interface {
+	pulumi.Input
+
+	ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput
+	ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Context) LaunchConfigurationTemplateLicensingPtrOutput
+}
+
+type launchConfigurationTemplateLicensingPtrType LaunchConfigurationTemplateLicensingArgs
+
+func LaunchConfigurationTemplateLicensingPtr(v *LaunchConfigurationTemplateLicensingArgs) LaunchConfigurationTemplateLicensingPtrInput {
+	return (*launchConfigurationTemplateLicensingPtrType)(v)
+}
+
+func (*launchConfigurationTemplateLicensingPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (i *launchConfigurationTemplateLicensingPtrType) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return i.ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Background())
+}
+
+func (i *launchConfigurationTemplateLicensingPtrType) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchConfigurationTemplateLicensingPtrOutput)
+}
+
+// Configuration of a machine's license.
+type LaunchConfigurationTemplateLicensingOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLicensingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingOutput() LaunchConfigurationTemplateLicensingOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return o.ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchConfigurationTemplateLicensingOutput) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchConfigurationTemplateLicensing) *LaunchConfigurationTemplateLicensing {
+		return &v
+	}).(LaunchConfigurationTemplateLicensingPtrOutput)
+}
+
+// Whether to enable Bring your own license or not.
+func (o LaunchConfigurationTemplateLicensingOutput) OsByol() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchConfigurationTemplateLicensing) *bool { return v.OsByol }).(pulumi.BoolPtrOutput)
+}
+
+type LaunchConfigurationTemplateLicensingPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchConfigurationTemplateLicensingPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchConfigurationTemplateLicensing)(nil)).Elem()
+}
+
+func (o LaunchConfigurationTemplateLicensingPtrOutput) ToLaunchConfigurationTemplateLicensingPtrOutput() LaunchConfigurationTemplateLicensingPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingPtrOutput) ToLaunchConfigurationTemplateLicensingPtrOutputWithContext(ctx context.Context) LaunchConfigurationTemplateLicensingPtrOutput {
+	return o
+}
+
+func (o LaunchConfigurationTemplateLicensingPtrOutput) Elem() LaunchConfigurationTemplateLicensingOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLicensing) LaunchConfigurationTemplateLicensing {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchConfigurationTemplateLicensing
+		return ret
+	}).(LaunchConfigurationTemplateLicensingOutput)
+}
+
+// Whether to enable Bring your own license or not.
+func (o LaunchConfigurationTemplateLicensingPtrOutput) OsByol() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LaunchConfigurationTemplateLicensing) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OsByol
+	}).(pulumi.BoolPtrOutput)
+}
+
+// A key-value pair to associate with the Launch Configuration Template.
+type LaunchConfigurationTemplateTag struct {
+	// The key name of the tag.
+	Key string `pulumi:"key"`
+	// The value for the tag.
+	Value string `pulumi:"value"`
+}
 
 type SourceNetworkTag struct {
 	Key   string `pulumi:"key"`
@@ -15,4 +167,8 @@ type SourceNetworkTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLicensingInput)(nil)).Elem(), LaunchConfigurationTemplateLicensingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchConfigurationTemplateLicensingPtrInput)(nil)).Elem(), LaunchConfigurationTemplateLicensingArgs{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLicensingOutput{})
+	pulumi.RegisterOutputType(LaunchConfigurationTemplateLicensingPtrOutput{})
 }

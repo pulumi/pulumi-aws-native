@@ -52,6 +52,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
         public Output<string?> GraphName { get; private set; } = null!;
 
         /// <summary>
+        /// The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+        /// </summary>
+        [Output("importTask")]
+        public Output<Outputs.GraphImportTask?> ImportTask { get; private set; } = null!;
+
+        /// <summary>
         /// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
         /// </summary>
         [Output("kmsKeyIdentifier")]
@@ -123,6 +129,7 @@ namespace Pulumi.AwsNative.NeptuneGraph
                 ReplaceOnChanges =
                 {
                     "graphName",
+                    "importTask",
                     "kmsKeyIdentifier",
                     "replicaCount",
                     "vectorSearchConfiguration",
@@ -166,6 +173,12 @@ namespace Pulumi.AwsNative.NeptuneGraph
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }
+
+        /// <summary>
+        /// The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+        /// </summary>
+        [Input("importTask")]
+        public Input<Inputs.GraphImportTaskArgs>? ImportTask { get; set; }
 
         /// <summary>
         /// The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.

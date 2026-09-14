@@ -1594,7 +1594,7 @@ type ConnectorTag struct {
 
 type DeliveryChannelConfigSnapshotDeliveryProperties struct {
 	// The frequency with which AWS Config delivers configuration snapshots.
-	DeliveryFrequency *string `pulumi:"deliveryFrequency"`
+	DeliveryFrequency *DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency `pulumi:"deliveryFrequency"`
 }
 
 // DeliveryChannelConfigSnapshotDeliveryPropertiesInput is an input type that accepts DeliveryChannelConfigSnapshotDeliveryPropertiesArgs and DeliveryChannelConfigSnapshotDeliveryPropertiesOutput values.
@@ -1610,7 +1610,7 @@ type DeliveryChannelConfigSnapshotDeliveryPropertiesInput interface {
 
 type DeliveryChannelConfigSnapshotDeliveryPropertiesArgs struct {
 	// The frequency with which AWS Config delivers configuration snapshots.
-	DeliveryFrequency pulumi.StringPtrInput `pulumi:"deliveryFrequency"`
+	DeliveryFrequency DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrInput `pulumi:"deliveryFrequency"`
 }
 
 func (DeliveryChannelConfigSnapshotDeliveryPropertiesArgs) ElementType() reflect.Type {
@@ -1691,8 +1691,10 @@ func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) ToDeliveryChannel
 }
 
 // The frequency with which AWS Config delivers configuration snapshots.
-func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) DeliveryFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DeliveryChannelConfigSnapshotDeliveryProperties) *string { return v.DeliveryFrequency }).(pulumi.StringPtrOutput)
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesOutput) DeliveryFrequency() DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput {
+	return o.ApplyT(func(v DeliveryChannelConfigSnapshotDeliveryProperties) *DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency {
+		return v.DeliveryFrequency
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput)
 }
 
 type DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -1720,13 +1722,13 @@ func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) Elem() Deliver
 }
 
 // The frequency with which AWS Config delivers configuration snapshots.
-func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DeliveryChannelConfigSnapshotDeliveryProperties) *string {
+func (o DeliveryChannelConfigSnapshotDeliveryPropertiesPtrOutput) DeliveryFrequency() DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput {
+	return o.ApplyT(func(v *DeliveryChannelConfigSnapshotDeliveryProperties) *DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequency {
 		if v == nil {
 			return nil
 		}
 		return v.DeliveryFrequency
-	}).(pulumi.StringPtrOutput)
+	}).(DeliveryChannelConfigSnapshotDeliveryPropertiesDeliveryFrequencyPtrOutput)
 }
 
 // Input parameters in the form of key-value pairs for the conformance pack.

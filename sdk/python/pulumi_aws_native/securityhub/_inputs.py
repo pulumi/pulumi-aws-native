@@ -102,6 +102,8 @@ __all__ = [
     'ConnectorV2ProviderArgsDict',
     'ConnectorV2ServiceNowProviderConfigurationArgs',
     'ConnectorV2ServiceNowProviderConfigurationArgsDict',
+    'HubV2NetworkScanningArgs',
+    'HubV2NetworkScanningArgsDict',
     'InsightAwsSecurityFindingFiltersArgs',
     'InsightAwsSecurityFindingFiltersArgsDict',
     'InsightBooleanFilterArgs',
@@ -3801,6 +3803,39 @@ class ConnectorV2ServiceNowProviderConfigurationArgs:
     @secret_arn.setter
     def secret_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "secret_arn", value)
+
+
+class HubV2NetworkScanningArgsDict(TypedDict):
+    """
+    Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+    """
+    status: pulumi.Input['HubV2NetworkScanningStatus']
+    """
+    Whether the Network Scanning feature is enabled for this account and Region.
+    """
+
+@pulumi.input_type
+class HubV2NetworkScanningArgs:
+    def __init__(__self__, *,
+                 status: pulumi.Input['HubV2NetworkScanningStatus']):
+        """
+        Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+
+        :param pulumi.Input['HubV2NetworkScanningStatus'] status: Whether the Network Scanning feature is enabled for this account and Region.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['HubV2NetworkScanningStatus']:
+        """
+        Whether the Network Scanning feature is enabled for this account and Region.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['HubV2NetworkScanningStatus']):
+        pulumi.set(self, "status", value)
 
 
 class InsightAwsSecurityFindingFiltersArgsDict(TypedDict):

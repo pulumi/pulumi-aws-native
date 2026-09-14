@@ -4216,6 +4216,172 @@ func (in *findingAggregatorRegionLinkingModePtr) ToFindingAggregatorRegionLinkin
 	return pulumi.ToOutputWithContext(ctx, in).(FindingAggregatorRegionLinkingModePtrOutput)
 }
 
+// Whether the Network Scanning feature is enabled for this account and Region.
+type HubV2NetworkScanningStatus string
+
+const (
+	HubV2NetworkScanningStatusEnabled  = HubV2NetworkScanningStatus("ENABLED")
+	HubV2NetworkScanningStatusDisabled = HubV2NetworkScanningStatus("DISABLED")
+)
+
+func (HubV2NetworkScanningStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubV2NetworkScanningStatus)(nil)).Elem()
+}
+
+func (e HubV2NetworkScanningStatus) ToHubV2NetworkScanningStatusOutput() HubV2NetworkScanningStatusOutput {
+	return pulumi.ToOutput(e).(HubV2NetworkScanningStatusOutput)
+}
+
+func (e HubV2NetworkScanningStatus) ToHubV2NetworkScanningStatusOutputWithContext(ctx context.Context) HubV2NetworkScanningStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(HubV2NetworkScanningStatusOutput)
+}
+
+func (e HubV2NetworkScanningStatus) ToHubV2NetworkScanningStatusPtrOutput() HubV2NetworkScanningStatusPtrOutput {
+	return e.ToHubV2NetworkScanningStatusPtrOutputWithContext(context.Background())
+}
+
+func (e HubV2NetworkScanningStatus) ToHubV2NetworkScanningStatusPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningStatusPtrOutput {
+	return HubV2NetworkScanningStatus(e).ToHubV2NetworkScanningStatusOutputWithContext(ctx).ToHubV2NetworkScanningStatusPtrOutputWithContext(ctx)
+}
+
+func (e HubV2NetworkScanningStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HubV2NetworkScanningStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e HubV2NetworkScanningStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e HubV2NetworkScanningStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type HubV2NetworkScanningStatusOutput struct{ *pulumi.OutputState }
+
+func (HubV2NetworkScanningStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubV2NetworkScanningStatus)(nil)).Elem()
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToHubV2NetworkScanningStatusOutput() HubV2NetworkScanningStatusOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToHubV2NetworkScanningStatusOutputWithContext(ctx context.Context) HubV2NetworkScanningStatusOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToHubV2NetworkScanningStatusPtrOutput() HubV2NetworkScanningStatusPtrOutput {
+	return o.ToHubV2NetworkScanningStatusPtrOutputWithContext(context.Background())
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToHubV2NetworkScanningStatusPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubV2NetworkScanningStatus) *HubV2NetworkScanningStatus {
+		return &v
+	}).(HubV2NetworkScanningStatusPtrOutput)
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HubV2NetworkScanningStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HubV2NetworkScanningStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e HubV2NetworkScanningStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type HubV2NetworkScanningStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (HubV2NetworkScanningStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubV2NetworkScanningStatus)(nil)).Elem()
+}
+
+func (o HubV2NetworkScanningStatusPtrOutput) ToHubV2NetworkScanningStatusPtrOutput() HubV2NetworkScanningStatusPtrOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningStatusPtrOutput) ToHubV2NetworkScanningStatusPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningStatusPtrOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningStatusPtrOutput) Elem() HubV2NetworkScanningStatusOutput {
+	return o.ApplyT(func(v *HubV2NetworkScanningStatus) HubV2NetworkScanningStatus {
+		if v != nil {
+			return *v
+		}
+		var ret HubV2NetworkScanningStatus
+		return ret
+	}).(HubV2NetworkScanningStatusOutput)
+}
+
+func (o HubV2NetworkScanningStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o HubV2NetworkScanningStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *HubV2NetworkScanningStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// HubV2NetworkScanningStatusInput is an input type that accepts values of the HubV2NetworkScanningStatus enum
+// A concrete instance of `HubV2NetworkScanningStatusInput` can be one of the following:
+//
+//	HubV2NetworkScanningStatusEnabled
+//	HubV2NetworkScanningStatusDisabled
+type HubV2NetworkScanningStatusInput interface {
+	pulumi.Input
+
+	ToHubV2NetworkScanningStatusOutput() HubV2NetworkScanningStatusOutput
+	ToHubV2NetworkScanningStatusOutputWithContext(context.Context) HubV2NetworkScanningStatusOutput
+}
+
+var hubV2NetworkScanningStatusPtrType = reflect.TypeOf((**HubV2NetworkScanningStatus)(nil)).Elem()
+
+type HubV2NetworkScanningStatusPtrInput interface {
+	pulumi.Input
+
+	ToHubV2NetworkScanningStatusPtrOutput() HubV2NetworkScanningStatusPtrOutput
+	ToHubV2NetworkScanningStatusPtrOutputWithContext(context.Context) HubV2NetworkScanningStatusPtrOutput
+}
+
+type hubV2NetworkScanningStatusPtr string
+
+func HubV2NetworkScanningStatusPtr(v string) HubV2NetworkScanningStatusPtrInput {
+	return (*hubV2NetworkScanningStatusPtr)(&v)
+}
+
+func (*hubV2NetworkScanningStatusPtr) ElementType() reflect.Type {
+	return hubV2NetworkScanningStatusPtrType
+}
+
+func (in *hubV2NetworkScanningStatusPtr) ToHubV2NetworkScanningStatusPtrOutput() HubV2NetworkScanningStatusPtrOutput {
+	return pulumi.ToOutput(in).(HubV2NetworkScanningStatusPtrOutput)
+}
+
+func (in *hubV2NetworkScanningStatusPtr) ToHubV2NetworkScanningStatusPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(HubV2NetworkScanningStatusPtrOutput)
+}
+
 // A date range unit for the date filter.
 type InsightDateRangeUnit string
 
@@ -5711,6 +5877,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2AzureScopeConfigurationScopeTypePtrInput)(nil)).Elem(), ConnectorV2AzureScopeConfigurationScopeType("TENANT"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModeInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FindingAggregatorRegionLinkingModePtrInput)(nil)).Elem(), FindingAggregatorRegionLinkingMode("ALL_REGIONS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HubV2NetworkScanningStatusInput)(nil)).Elem(), HubV2NetworkScanningStatus("ENABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*HubV2NetworkScanningStatusPtrInput)(nil)).Elem(), HubV2NetworkScanningStatus("ENABLED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeUnitInput)(nil)).Elem(), InsightDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightDateRangeUnitPtrInput)(nil)).Elem(), InsightDateRangeUnit("DAYS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightMapFilterComparisonInput)(nil)).Elem(), InsightMapFilterComparison("EQUALS"))
@@ -5775,6 +5943,8 @@ func init() {
 	pulumi.RegisterOutputType(DelegatedAdminStatusPtrOutput{})
 	pulumi.RegisterOutputType(FindingAggregatorRegionLinkingModeOutput{})
 	pulumi.RegisterOutputType(FindingAggregatorRegionLinkingModePtrOutput{})
+	pulumi.RegisterOutputType(HubV2NetworkScanningStatusOutput{})
+	pulumi.RegisterOutputType(HubV2NetworkScanningStatusPtrOutput{})
 	pulumi.RegisterOutputType(InsightDateRangeUnitOutput{})
 	pulumi.RegisterOutputType(InsightDateRangeUnitPtrOutput{})
 	pulumi.RegisterOutputType(InsightMapFilterComparisonOutput{})

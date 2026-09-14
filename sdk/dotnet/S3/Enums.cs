@@ -501,6 +501,8 @@ namespace Pulumi.AwsNative.S3
         public static BucketInventoryConfigurationOptionalFieldsItem ObjectLockRetainUntilDate { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectLockRetainUntilDate");
         public static BucketInventoryConfigurationOptionalFieldsItem ObjectLockMode { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectLockMode");
         public static BucketInventoryConfigurationOptionalFieldsItem ObjectLockLegalHoldStatus { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectLockLegalHoldStatus");
+        public static BucketInventoryConfigurationOptionalFieldsItem ObjectLockEventHoldStatus { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldStatus");
+        public static BucketInventoryConfigurationOptionalFieldsItem ObjectLockEventHoldDuration { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ObjectLockEventHoldDuration");
         public static BucketInventoryConfigurationOptionalFieldsItem IntelligentTieringAccessTier { get; } = new BucketInventoryConfigurationOptionalFieldsItem("IntelligentTieringAccessTier");
         public static BucketInventoryConfigurationOptionalFieldsItem BucketKeyStatus { get; } = new BucketInventoryConfigurationOptionalFieldsItem("BucketKeyStatus");
         public static BucketInventoryConfigurationOptionalFieldsItem ChecksumAlgorithm { get; } = new BucketInventoryConfigurationOptionalFieldsItem("ChecksumAlgorithm");

@@ -62,6 +62,7 @@ __all__ = [
     'ConnectorV2JiraCloudProviderConfiguration',
     'ConnectorV2Provider',
     'ConnectorV2ServiceNowProviderConfiguration',
+    'HubV2NetworkScanning',
     'InsightAwsSecurityFindingFilters',
     'InsightBooleanFilter',
     'InsightDateFilter',
@@ -3131,6 +3132,29 @@ class ConnectorV2ServiceNowProviderConfiguration(dict):
         The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class HubV2NetworkScanning(dict):
+    """
+    Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+    """
+    def __init__(__self__, *,
+                 status: 'HubV2NetworkScanningStatus'):
+        """
+        Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+
+        :param 'HubV2NetworkScanningStatus' status: Whether the Network Scanning feature is enabled for this account and Region.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'HubV2NetworkScanningStatus':
+        """
+        Whether the Network Scanning feature is enabled for this account and Region.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

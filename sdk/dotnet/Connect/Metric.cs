@@ -91,13 +91,13 @@ namespace Pulumi.AwsNative.Connect
         /// The calculation configuration for the metric
         /// </summary>
         [Output("metricCalculation")]
-        public Output<Outputs.MetricCalculationProperties?> MetricCalculation { get; private set; } = null!;
+        public Output<Outputs.MetricCalculationProperties> MetricCalculation { get; private set; } = null!;
 
         /// <summary>
         /// The name of the custom metric
         /// </summary>
         [Output("name")]
-        public Output<string?> Name { get; private set; } = null!;
+        public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Indicates how to classify a positive trend in metric data on the UI
@@ -127,7 +127,7 @@ namespace Pulumi.AwsNative.Connect
         /// The status of the custom metric
         /// </summary>
         [Output("status")]
-        public Output<Pulumi.AwsNative.Connect.MetricStatus?> Status { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Connect.MetricStatus> Status { get; private set; } = null!;
 
         /// <summary>
         /// List of stat aggregations available for the metric
@@ -163,7 +163,7 @@ namespace Pulumi.AwsNative.Connect
         /// Display unit for the metric data
         /// </summary>
         [Output("unit")]
-        public Output<Pulumi.AwsNative.Connect.MetricUnit?> Unit { get; private set; } = null!;
+        public Output<Pulumi.AwsNative.Connect.MetricUnit> Unit { get; private set; } = null!;
 
 
         /// <summary>
@@ -230,8 +230,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The calculation configuration for the metric
         /// </summary>
-        [Input("metricCalculation")]
-        public Input<Inputs.MetricCalculationPropertiesArgs>? MetricCalculation { get; set; }
+        [Input("metricCalculation", required: true)]
+        public Input<Inputs.MetricCalculationPropertiesArgs> MetricCalculation { get; set; } = null!;
 
         /// <summary>
         /// The name of the custom metric
@@ -248,8 +248,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// The status of the custom metric
         /// </summary>
-        [Input("status")]
-        public Input<Pulumi.AwsNative.Connect.MetricStatus>? Status { get; set; }
+        [Input("status", required: true)]
+        public Input<Pulumi.AwsNative.Connect.MetricStatus> Status { get; set; } = null!;
 
         [Input("tags")]
         private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
@@ -266,8 +266,8 @@ namespace Pulumi.AwsNative.Connect
         /// <summary>
         /// Display unit for the metric data
         /// </summary>
-        [Input("unit")]
-        public Input<Pulumi.AwsNative.Connect.MetricUnit>? Unit { get; set; }
+        [Input("unit", required: true)]
+        public Input<Pulumi.AwsNative.Connect.MetricUnit> Unit { get; set; } = null!;
 
         public MetricArgs()
         {

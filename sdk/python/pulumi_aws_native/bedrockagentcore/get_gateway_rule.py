@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetGatewayRuleResult:
-    def __init__(__self__, actions=None, conditions=None, created_at=None, description=None, gateway_arn=None, priority=None, rule_id=None, status=None, updated_at=None):
+    def __init__(__self__, actions=None, conditions=None, created_at=None, description=None, gateway_arn=None, priority=None, rule_id=None, status=None, system=None, updated_at=None):
         if actions and not isinstance(actions, list):
             raise TypeError("Expected argument 'actions' to be a list")
         pulumi.set(__self__, "actions", actions)
@@ -50,6 +50,9 @@ class GetGatewayRuleResult:
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
+        if system and not isinstance(system, dict):
+            raise TypeError("Expected argument 'system' to be a dict")
+        pulumi.set(__self__, "system", system)
         if updated_at and not isinstance(updated_at, str):
             raise TypeError("Expected argument 'updated_at' to be a str")
         pulumi.set(__self__, "updated_at", updated_at)
@@ -95,6 +98,11 @@ class GetGatewayRuleResult:
         return pulumi.get(self, "status")
 
     @_builtins.property
+    @pulumi.getter
+    def system(self) -> Optional['outputs.GatewayRuleSystemManagedBlock']:
+        return pulumi.get(self, "system")
+
+    @_builtins.property
     @pulumi.getter(name="updatedAt")
     def updated_at(self) -> Optional[_builtins.str]:
         return pulumi.get(self, "updated_at")
@@ -114,6 +122,7 @@ class AwaitableGetGatewayRuleResult(GetGatewayRuleResult):
             priority=self.priority,
             rule_id=self.rule_id,
             status=self.status,
+            system=self.system,
             updated_at=self.updated_at)
 
 
@@ -138,6 +147,7 @@ def get_gateway_rule(gateway_identifier: Optional[_builtins.str] = None,
         priority=pulumi.get(__ret__, 'priority'),
         rule_id=pulumi.get(__ret__, 'rule_id'),
         status=pulumi.get(__ret__, 'status'),
+        system=pulumi.get(__ret__, 'system'),
         updated_at=pulumi.get(__ret__, 'updated_at'))
 def get_gateway_rule_output(gateway_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                             rule_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -159,4 +169,5 @@ def get_gateway_rule_output(gateway_identifier: pulumi.Input[Optional[_builtins.
         priority=pulumi.get(__response__, 'priority'),
         rule_id=pulumi.get(__response__, 'rule_id'),
         status=pulumi.get(__response__, 'status'),
+        system=pulumi.get(__response__, 'system'),
         updated_at=pulumi.get(__response__, 'updated_at')))

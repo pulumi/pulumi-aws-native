@@ -163,7 +163,6 @@ namespace Pulumi.AwsNative.NetworkManager
                     "coreNetworkId",
                     "edgeLocation",
                     "options",
-                    "routingPolicyLabel",
                     "transportAttachmentId",
                 },
             };

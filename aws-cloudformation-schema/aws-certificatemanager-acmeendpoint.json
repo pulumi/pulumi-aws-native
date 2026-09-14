@@ -107,7 +107,7 @@
   "additionalProperties" : false,
   "required" : [ "AuthorizationBehavior", "CertificateAuthority" ],
   "readOnlyProperties" : [ "/properties/AcmeEndpointArn", "/properties/EndpointUrl" ],
-  "createOnlyProperties" : [ "/properties/CertificateTags" ],
+  "createOnlyProperties" : [ "/properties/AuthorizationBehavior", "/properties/CertificateTags" ],
   "primaryIdentifier" : [ "/properties/AcmeEndpointArn" ],
   "tagging" : {
     "taggable" : true,

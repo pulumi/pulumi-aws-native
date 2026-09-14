@@ -29,10 +29,6 @@ export interface GetAcmeEndpointResult {
      * The Amazon Resource Name (ARN) of the ACME endpoint.
      */
     readonly acmeEndpointArn?: string;
-    /**
-     * The authorization behavior for the ACME endpoint.
-     */
-    readonly authorizationBehavior?: string;
     readonly certificateAuthority?: outputs.certificatemanager.AcmeEndpointCertificateAuthority;
     /**
      * Whether contact information is required for the ACME endpoint.

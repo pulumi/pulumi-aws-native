@@ -16,7 +16,7 @@ namespace Pulumi.AwsNative.FSx.Inputs
         private InputList<Inputs.VolumeClientConfigurationsArgs>? _clientConfigurations;
 
         /// <summary>
-        /// The configuration object for mounting a Network File System (NFS) file system.
+        /// A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
         /// </summary>
         public InputList<Inputs.VolumeClientConfigurationsArgs> ClientConfigurations
         {

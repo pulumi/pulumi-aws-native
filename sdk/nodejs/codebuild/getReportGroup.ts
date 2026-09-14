@@ -13,15 +13,12 @@ import * as utilities from "../utilities";
 export function getReportGroup(args: GetReportGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetReportGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:codebuild:getReportGroup", {
-        "arn": args.arn,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetReportGroupArgs {
-    /**
-     * The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
-     */
-    arn: string;
+    id: string;
 }
 
 export interface GetReportGroupResult {
@@ -30,9 +27,17 @@ export interface GetReportGroupResult {
      */
     readonly arn?: string;
     /**
+     * When deleting a report group, specifies if reports within the report group should be deleted.
+     *
+     * - **true** - Deletes any reports that belong to the report group before deleting the report group.
+     * - **false** - You must delete any reports in the report group. This is the default value. If you delete a report group that contains one or more reports, an exception is thrown.
+     */
+    readonly deleteReports?: boolean;
+    /**
      * Information about the destination where the raw data of this `ReportGroup` is exported.
      */
     readonly exportConfig?: outputs.codebuild.ReportGroupReportExportConfig;
+    readonly id?: string;
     /**
      * A list of tag key and value pairs associated with this report group.
      *
@@ -46,13 +51,10 @@ export interface GetReportGroupResult {
 export function getReportGroupOutput(args: GetReportGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetReportGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:codebuild:getReportGroup", {
-        "arn": args.arn,
+        "id": args.id,
     }, opts);
 }
 
 export interface GetReportGroupOutputArgs {
-    /**
-     * The ARN of the AWS CodeBuild report group, such as `arn:aws:codebuild:region:123456789012:report-group/myReportGroupName` .
-     */
-    arn: pulumi.Input<string>;
+    id: pulumi.Input<string>;
 }

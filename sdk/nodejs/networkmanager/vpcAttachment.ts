@@ -187,7 +187,7 @@ export class VpcAttachment extends pulumi.CustomResource {
             resourceInputs["vpcArn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "routingPolicyLabel", "vpcArn"] };
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "vpcArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(VpcAttachment.__pulumiType, name, resourceInputs, opts);
     }

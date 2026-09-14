@@ -25,40 +25,37 @@ __all__ = ['MetricArgs', 'Metric']
 class MetricArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
+                 metric_calculation: pulumi.Input['MetricCalculationPropertiesArgs'],
+                 status: pulumi.Input['MetricStatus'],
+                 unit: pulumi.Input['MetricUnit'],
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 metric_calculation: pulumi.Input[Optional['MetricCalculationPropertiesArgs']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  positive_trend_indicator: pulumi.Input[Optional['MetricPositiveTrendIndicator']] = None,
-                 status: pulumi.Input[Optional['MetricStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
-                 unit: pulumi.Input[Optional['MetricUnit']] = None):
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a Metric resource.
 
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[_builtins.str] description: The description of the custom metric
         :param pulumi.Input['MetricCalculationPropertiesArgs'] metric_calculation: The calculation configuration for the metric
+        :param pulumi.Input['MetricStatus'] status: The status of the custom metric
+        :param pulumi.Input['MetricUnit'] unit: Display unit for the metric data
+        :param pulumi.Input[_builtins.str] description: The description of the custom metric
         :param pulumi.Input[_builtins.str] name: The name of the custom metric
         :param pulumi.Input['MetricPositiveTrendIndicator'] positive_trend_indicator: Indicates how to classify a positive trend in metric data on the UI
-        :param pulumi.Input['MetricStatus'] status: The status of the custom metric
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: One or more tags.
-        :param pulumi.Input['MetricUnit'] unit: Display unit for the metric data
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "metric_calculation", metric_calculation)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "unit", unit)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if metric_calculation is not None:
-            pulumi.set(__self__, "metric_calculation", metric_calculation)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if positive_trend_indicator is not None:
             pulumi.set(__self__, "positive_trend_indicator", positive_trend_indicator)
-        if status is not None:
-            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if unit is not None:
-            pulumi.set(__self__, "unit", unit)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
@@ -73,6 +70,42 @@ class MetricArgs:
         pulumi.set(self, "instance_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="metricCalculation")
+    def metric_calculation(self) -> pulumi.Input['MetricCalculationPropertiesArgs']:
+        """
+        The calculation configuration for the metric
+        """
+        return pulumi.get(self, "metric_calculation")
+
+    @metric_calculation.setter
+    def metric_calculation(self, value: pulumi.Input['MetricCalculationPropertiesArgs']):
+        pulumi.set(self, "metric_calculation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input['MetricStatus']:
+        """
+        The status of the custom metric
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input['MetricStatus']):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input['MetricUnit']:
+        """
+        Display unit for the metric data
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input['MetricUnit']):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -83,18 +116,6 @@ class MetricArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="metricCalculation")
-    def metric_calculation(self) -> pulumi.Input[Optional['MetricCalculationPropertiesArgs']]:
-        """
-        The calculation configuration for the metric
-        """
-        return pulumi.get(self, "metric_calculation")
-
-    @metric_calculation.setter
-    def metric_calculation(self, value: pulumi.Input[Optional['MetricCalculationPropertiesArgs']]):
-        pulumi.set(self, "metric_calculation", value)
 
     @_builtins.property
     @pulumi.getter
@@ -122,18 +143,6 @@ class MetricArgs:
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Input[Optional['MetricStatus']]:
-        """
-        The status of the custom metric
-        """
-        return pulumi.get(self, "status")
-
-    @status.setter
-    def status(self, value: pulumi.Input[Optional['MetricStatus']]):
-        pulumi.set(self, "status", value)
-
-    @_builtins.property
-    @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
         """
         One or more tags.
@@ -143,18 +152,6 @@ class MetricArgs:
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def unit(self) -> pulumi.Input[Optional['MetricUnit']]:
-        """
-        Display unit for the metric data
-        """
-        return pulumi.get(self, "unit")
-
-    @unit.setter
-    def unit(self, value: pulumi.Input[Optional['MetricUnit']]):
-        pulumi.set(self, "unit", value)
 
 
 @pulumi.type_token("aws-native:connect:Metric")
@@ -231,11 +228,17 @@ class Metric(pulumi.CustomResource):
             if instance_arn is None and not opts.urn:
                 raise TypeError("Missing required property 'instance_arn'")
             __props__.__dict__["instance_arn"] = instance_arn
+            if metric_calculation is None and not opts.urn:
+                raise TypeError("Missing required property 'metric_calculation'")
             __props__.__dict__["metric_calculation"] = metric_calculation
             __props__.__dict__["name"] = name
             __props__.__dict__["positive_trend_indicator"] = positive_trend_indicator
+            if status is None and not opts.urn:
+                raise TypeError("Missing required property 'status'")
             __props__.__dict__["status"] = status
             __props__.__dict__["tags"] = tags
+            if unit is None and not opts.urn:
+                raise TypeError("Missing required property 'unit'")
             __props__.__dict__["unit"] = unit
             __props__.__dict__["category"] = None
             __props__.__dict__["created_time"] = None
@@ -407,7 +410,7 @@ class Metric(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="metricCalculation")
-    def metric_calculation(self) -> pulumi.Output[Optional['outputs.MetricCalculationProperties']]:
+    def metric_calculation(self) -> pulumi.Output['outputs.MetricCalculationProperties']:
         """
         The calculation configuration for the metric
         """
@@ -415,7 +418,7 @@ class Metric(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def name(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the custom metric
         """
@@ -455,7 +458,7 @@ class Metric(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def status(self) -> pulumi.Output[Optional['MetricStatus']]:
+    def status(self) -> pulumi.Output['MetricStatus']:
         """
         The status of the custom metric
         """
@@ -503,7 +506,7 @@ class Metric(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def unit(self) -> pulumi.Output[Optional['MetricUnit']]:
+    def unit(self) -> pulumi.Output['MetricUnit']:
         """
         Display unit for the metric data
         """

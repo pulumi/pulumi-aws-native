@@ -79,7 +79,6 @@ func NewVpcAttachment(ctx *pulumi.Context,
 	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"coreNetworkId",
-		"routingPolicyLabel",
 		"vpcArn",
 	})
 	opts = append(opts, replaceOnChanges)

@@ -31,7 +31,7 @@
   "typeName" : "AWS::ECS::Daemon",
   "readOnlyProperties" : [ "/properties/DaemonArn", "/properties/DeploymentArn", "/properties/CreatedAt", "/properties/UpdatedAt", "/properties/DaemonStatus" ],
   "description" : "Information about a daemon resource.",
-  "writeOnlyProperties" : [ "/properties/CapacityProviderArns", "/properties/DaemonName", "/properties/DaemonTaskDefinitionArn", "/properties/DeploymentConfiguration", "/properties/EnableECSManagedTags", "/properties/EnableExecuteCommand", "/properties/PropagateTags" ],
+  "writeOnlyProperties" : [ "/properties/CapacityProviderArns", "/properties/Critical", "/properties/DaemonName", "/properties/DaemonTaskDefinitionArn", "/properties/DeploymentConfiguration", "/properties/EnableECSManagedTags", "/properties/EnableExecuteCommand", "/properties/PropagateTags" ],
   "createOnlyProperties" : [ "/properties/DaemonName", "/properties/ClusterArn" ],
   "additionalProperties" : false,
   "primaryIdentifier" : [ "/properties/DaemonArn" ],
@@ -132,6 +132,10 @@
       "format" : "date-time",
       "description" : "",
       "type" : "string"
+    },
+    "Critical" : {
+      "description" : "",
+      "type" : "boolean"
     },
     "UpdatedAt" : {
       "format" : "date-time",

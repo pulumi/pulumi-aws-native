@@ -14,7 +14,7 @@ namespace Pulumi.AwsNative.FSx.Outputs
     public sealed class VolumeNfsExports
     {
         /// <summary>
-        /// The configuration object for mounting a Network File System (NFS) file system.
+        /// A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
         /// </summary>
         public readonly ImmutableArray<Outputs.VolumeClientConfigurations> ClientConfigurations;
 

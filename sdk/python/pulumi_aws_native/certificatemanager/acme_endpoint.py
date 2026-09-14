@@ -174,7 +174,7 @@ class AcmeEndpoint(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["acme_endpoint_arn"] = None
             __props__.__dict__["endpoint_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["certificateTags[*]"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["authorizationBehavior", "certificateTags[*]"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(AcmeEndpoint, __self__).__init__(
             'aws-native:certificatemanager:AcmeEndpoint',

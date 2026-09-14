@@ -1974,6 +1974,7 @@ _utilities.register(
   "mod": "drs",
   "fqn": "pulumi_aws_native.drs",
   "classes": {
+   "aws-native:drs:LaunchConfigurationTemplate": "LaunchConfigurationTemplate",
    "aws-native:drs:SourceNetwork": "SourceNetwork"
   }
  },
@@ -3967,6 +3968,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.servicediscovery",
   "classes": {
    "aws-native:servicediscovery:HttpNamespace": "HttpNamespace",
+   "aws-native:servicediscovery:Instance": "Instance",
    "aws-native:servicediscovery:PrivateDnsNamespace": "PrivateDnsNamespace",
    "aws-native:servicediscovery:PublicDnsNamespace": "PublicDnsNamespace",
    "aws-native:servicediscovery:Service": "Service"

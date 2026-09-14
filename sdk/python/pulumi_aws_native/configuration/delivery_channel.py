@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['DeliveryChannelArgs', 'DeliveryChannel']
@@ -31,17 +32,11 @@ class DeliveryChannelArgs:
         The set of arguments for constructing a DeliveryChannel resource.
 
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-               
-               If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
         :param pulumi.Input['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs'] config_snapshot_delivery_properties: The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] name: A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-               
-               Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
+        :param pulumi.Input[_builtins.str] name: The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
         :param pulumi.Input[_builtins.str] s3_key_prefix: The prefix for the specified Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] s3_kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
+        :param pulumi.Input[_builtins.str] s3_kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-               
-               If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
         """
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
         if config_snapshot_delivery_properties is not None:
@@ -60,8 +55,6 @@ class DeliveryChannelArgs:
     def s3_bucket_name(self) -> pulumi.Input[_builtins.str]:
         """
         The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-
-        If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -85,9 +78,7 @@ class DeliveryChannelArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-
-        Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
+        The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
         """
         return pulumi.get(self, "name")
 
@@ -111,7 +102,7 @@ class DeliveryChannelArgs:
     @pulumi.getter(name="s3KmsKeyArn")
     def s3_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
+        The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         """
         return pulumi.get(self, "s3_kms_key_arn")
 
@@ -124,8 +115,6 @@ class DeliveryChannelArgs:
     def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-
-        If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -148,22 +137,16 @@ class DeliveryChannel(pulumi.CustomResource):
                  sns_topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource Type definition for AWS::Config::DeliveryChannel
+        Resource type definition for AWS::Config::DeliveryChannel
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DeliveryChannelConfigSnapshotDeliveryPropertiesArgs', 'DeliveryChannelConfigSnapshotDeliveryPropertiesArgsDict']] config_snapshot_delivery_properties: The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] name: A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-               
-               Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
+        :param pulumi.Input[_builtins.str] name: The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
         :param pulumi.Input[_builtins.str] s3_bucket_name: The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-               
-               If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
         :param pulumi.Input[_builtins.str] s3_key_prefix: The prefix for the specified Amazon S3 bucket.
-        :param pulumi.Input[_builtins.str] s3_kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
+        :param pulumi.Input[_builtins.str] s3_kms_key_arn: The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-               
-               If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
         """
         ...
     @overload
@@ -172,7 +155,7 @@ class DeliveryChannel(pulumi.CustomResource):
                  args: DeliveryChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource Type definition for AWS::Config::DeliveryChannel
+        Resource type definition for AWS::Config::DeliveryChannel
 
         :param str resource_name: The name of the resource.
         :param DeliveryChannelArgs args: The arguments to use to populate this resource's properties.
@@ -212,7 +195,6 @@ class DeliveryChannel(pulumi.CustomResource):
             __props__.__dict__["s3_key_prefix"] = s3_key_prefix
             __props__.__dict__["s3_kms_key_arn"] = s3_kms_key_arn
             __props__.__dict__["sns_topic_arn"] = sns_topic_arn
-            __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["name"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DeliveryChannel, __self__).__init__(
@@ -237,7 +219,6 @@ class DeliveryChannel(pulumi.CustomResource):
 
         __props__ = DeliveryChannelArgs.__new__(DeliveryChannelArgs)
 
-        __props__.__dict__["aws_id"] = None
         __props__.__dict__["config_snapshot_delivery_properties"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["s3_bucket_name"] = None
@@ -245,11 +226,6 @@ class DeliveryChannel(pulumi.CustomResource):
         __props__.__dict__["s3_kms_key_arn"] = None
         __props__.__dict__["sns_topic_arn"] = None
         return DeliveryChannel(resource_name, opts=opts, __props__=__props__)
-
-    @_builtins.property
-    @pulumi.getter(name="awsId")
-    def aws_id(self) -> pulumi.Output[_builtins.str]:
-        return pulumi.get(self, "aws_id")
 
     @_builtins.property
     @pulumi.getter(name="configSnapshotDeliveryProperties")
@@ -263,9 +239,7 @@ class DeliveryChannel(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        A name for the delivery channel. If you don't specify a name, CloudFormation generates a unique physical ID and uses that ID for the delivery channel name. For more information, see [Name Type](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-name.html) .
-
-        Updates are not supported. To change the name, you must run two separate updates. In the first update, delete this resource, and then recreate it with a new name in the second update.
+        The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
         """
         return pulumi.get(self, "name")
 
@@ -274,8 +248,6 @@ class DeliveryChannel(pulumi.CustomResource):
     def s3_bucket_name(self) -> pulumi.Output[_builtins.str]:
         """
         The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-
-        If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
         """
         return pulumi.get(self, "s3_bucket_name")
 
@@ -291,7 +263,7 @@ class DeliveryChannel(pulumi.CustomResource):
     @pulumi.getter(name="s3KmsKeyArn")
     def s3_kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
+        The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
         """
         return pulumi.get(self, "s3_kms_key_arn")
 
@@ -300,8 +272,6 @@ class DeliveryChannel(pulumi.CustomResource):
     def sns_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-
-        If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
         """
         return pulumi.get(self, "sns_topic_arn")
 

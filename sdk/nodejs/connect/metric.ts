@@ -86,11 +86,11 @@ export class Metric extends pulumi.CustomResource {
     /**
      * The calculation configuration for the metric
      */
-    declare public readonly metricCalculation: pulumi.Output<outputs.connect.MetricCalculationProperties | undefined>;
+    declare public readonly metricCalculation: pulumi.Output<outputs.connect.MetricCalculationProperties>;
     /**
      * The name of the custom metric
      */
-    declare public readonly name: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Indicates how to classify a positive trend in metric data on the UI
      */
@@ -110,7 +110,7 @@ export class Metric extends pulumi.CustomResource {
     /**
      * The status of the custom metric
      */
-    declare public readonly status: pulumi.Output<enums.connect.MetricStatus | undefined>;
+    declare public readonly status: pulumi.Output<enums.connect.MetricStatus>;
     /**
      * List of stat aggregations available for the metric
      */
@@ -134,7 +134,7 @@ export class Metric extends pulumi.CustomResource {
     /**
      * Display unit for the metric data
      */
-    declare public readonly unit: pulumi.Output<enums.connect.MetricUnit | undefined>;
+    declare public readonly unit: pulumi.Output<enums.connect.MetricUnit>;
 
     /**
      * Create a Metric resource with the given unique name, arguments, and options.
@@ -149,6 +149,15 @@ export class Metric extends pulumi.CustomResource {
         if (!opts.id) {
             if (args?.instanceArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceArn'");
+            }
+            if (args?.metricCalculation === undefined && !opts.urn) {
+                throw new Error("Missing required property 'metricCalculation'");
+            }
+            if (args?.status === undefined && !opts.urn) {
+                throw new Error("Missing required property 'status'");
+            }
+            if (args?.unit === undefined && !opts.urn) {
+                throw new Error("Missing required property 'unit'");
             }
             resourceInputs["description"] = args?.description;
             resourceInputs["instanceArn"] = args?.instanceArn;
@@ -226,7 +235,7 @@ export interface MetricArgs {
     /**
      * The calculation configuration for the metric
      */
-    metricCalculation?: pulumi.Input<inputs.connect.MetricCalculationPropertiesArgs | undefined>;
+    metricCalculation: pulumi.Input<inputs.connect.MetricCalculationPropertiesArgs>;
     /**
      * The name of the custom metric
      */
@@ -238,7 +247,7 @@ export interface MetricArgs {
     /**
      * The status of the custom metric
      */
-    status?: pulumi.Input<enums.connect.MetricStatus | undefined>;
+    status: pulumi.Input<enums.connect.MetricStatus>;
     /**
      * One or more tags.
      */
@@ -246,5 +255,5 @@ export interface MetricArgs {
     /**
      * Display unit for the metric data
      */
-    unit?: pulumi.Input<enums.connect.MetricUnit | undefined>;
+    unit: pulumi.Input<enums.connect.MetricUnit>;
 }

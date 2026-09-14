@@ -46,6 +46,7 @@ export class GatewayRule extends pulumi.CustomResource {
     declare public readonly priority: pulumi.Output<number>;
     declare public /*out*/ readonly ruleId: pulumi.Output<string>;
     declare public /*out*/ readonly status: pulumi.Output<enums.bedrockagentcore.GatewayRuleStatus>;
+    declare public /*out*/ readonly system: pulumi.Output<outputs.bedrockagentcore.GatewayRuleSystemManagedBlock>;
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
@@ -74,6 +75,7 @@ export class GatewayRule extends pulumi.CustomResource {
             resourceInputs["gatewayArn"] = undefined /*out*/;
             resourceInputs["ruleId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["system"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         } else {
             resourceInputs["actions"] = undefined /*out*/;
@@ -85,6 +87,7 @@ export class GatewayRule extends pulumi.CustomResource {
             resourceInputs["priority"] = undefined /*out*/;
             resourceInputs["ruleId"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["system"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

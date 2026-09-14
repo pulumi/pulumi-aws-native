@@ -71,6 +71,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public readonly double? Priority;
         public readonly string? RuleId;
         public readonly Pulumi.AwsNative.BedrockAgentCore.GatewayRuleStatus? Status;
+        public readonly Outputs.GatewayRuleSystemManagedBlock? System;
         public readonly string? UpdatedAt;
 
         [OutputConstructor]
@@ -91,6 +92,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             Pulumi.AwsNative.BedrockAgentCore.GatewayRuleStatus? status,
 
+            Outputs.GatewayRuleSystemManagedBlock? system,
+
             string? updatedAt)
         {
             Actions = actions;
@@ -101,6 +104,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             Priority = priority;
             RuleId = ruleId;
             Status = status;
+            System = system;
             UpdatedAt = updatedAt;
         }
     }

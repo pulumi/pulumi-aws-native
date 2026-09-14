@@ -167,7 +167,6 @@ namespace Pulumi.AwsNative.NetworkManager
                 ReplaceOnChanges =
                 {
                     "coreNetworkId",
-                    "routingPolicyLabel",
                     "vpcArn",
                 },
             };

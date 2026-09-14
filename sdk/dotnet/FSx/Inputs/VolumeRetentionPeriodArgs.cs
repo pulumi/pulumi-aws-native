@@ -13,13 +13,20 @@ namespace Pulumi.AwsNative.FSx.Inputs
     public sealed class VolumeRetentionPeriodArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+        /// Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+        /// Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:
+        /// 
+        /// - `Seconds` : 0 - 65,535
+        /// - `Minutes` : 0 - 65,535
+        /// - `Hours` : 0 - 24
+        /// - `Days` : 0 - 365
+        /// - `Months` : 0 - 12
+        /// - `Years` : 0 - 100
         /// </summary>
         [Input("value")]
         public Input<int>? Value { get; set; }

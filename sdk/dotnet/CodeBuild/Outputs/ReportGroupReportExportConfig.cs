@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
         /// - `S3` : The report results are exported to an S3 bucket.
         /// - `NO_EXPORT` : The report results are not exported.
         /// </summary>
-        public readonly Pulumi.AwsNative.CodeBuild.ReportGroupReportExportConfigExportConfigType ExportConfigType;
+        public readonly string ExportConfigType;
         /// <summary>
         /// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
 
         [OutputConstructor]
         private ReportGroupReportExportConfig(
-            Pulumi.AwsNative.CodeBuild.ReportGroupReportExportConfigExportConfigType exportConfigType,
+            string exportConfigType,
 
             Outputs.ReportGroupS3ReportExportConfig? s3Destination)
         {

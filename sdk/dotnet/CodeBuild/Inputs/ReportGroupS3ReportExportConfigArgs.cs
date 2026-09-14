@@ -43,7 +43,7 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         /// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
         /// </summary>
         [Input("packaging")]
-        public Input<Pulumi.AwsNative.CodeBuild.ReportGroupS3ReportExportConfigPackaging>? Packaging { get; set; }
+        public Input<string>? Packaging { get; set; }
 
         /// <summary>
         /// The path to the exported report's raw data results.

@@ -14,11 +14,17 @@ namespace Pulumi.AwsNative.FSx.Outputs
     public sealed class VolumeAutocommitPeriod
     {
         /// <summary>
-        /// Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+        /// Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` .
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        /// Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:
+        /// 
+        /// - `Minutes` : 5 - 65,535
+        /// - `Hours` : 1 - 65,535
+        /// - `Days` : 1 - 3,650
+        /// - `Months` : 1 - 120
+        /// - `Years` : 1 - 10
         /// </summary>
         public readonly int? Value;
 

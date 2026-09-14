@@ -34,7 +34,9 @@ namespace Pulumi.AwsNative.FSx
     public sealed class GetVolumeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the volume's universally unique identifier (UUID).
+        /// Returns the volume's ID.
+        /// 
+        /// Example: `fsvol-0123456789abcdefa`
         /// </summary>
         [Input("volumeId", required: true)]
         public string VolumeId { get; set; } = null!;
@@ -48,7 +50,9 @@ namespace Pulumi.AwsNative.FSx
     public sealed class GetVolumeInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Returns the volume's universally unique identifier (UUID).
+        /// Returns the volume's ID.
+        /// 
+        /// Example: `fsvol-0123456789abcdefa`
         /// </summary>
         [Input("volumeId", required: true)]
         public Input<string> VolumeId { get; set; } = null!;
@@ -77,18 +81,26 @@ namespace Pulumi.AwsNative.FSx
         public readonly Outputs.VolumeOpenZfsConfiguration? OpenZfsConfiguration;
         /// <summary>
         /// Returns the volume's Amazon Resource Name (ARN).
+        /// 
+        /// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
         /// </summary>
         public readonly string? ResourceArn;
         /// <summary>
-        /// One or more tags.
+        /// An array of key-value pairs to apply to this resource.
+        /// 
+        /// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         /// </summary>
         public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
         /// <summary>
-        /// Returns the volume's ID.
+        /// Returns the volume's universally unique identifier (UUID).
+        /// 
+        /// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
         /// </summary>
         public readonly string? Uuid;
         /// <summary>
-        /// Returns the volume's universally unique identifier (UUID).
+        /// Returns the volume's ID.
+        /// 
+        /// Example: `fsvol-0123456789abcdefa`
         /// </summary>
         public readonly string? VolumeId;
 

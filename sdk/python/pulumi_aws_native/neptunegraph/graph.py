@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 from .. import _inputs as _root_inputs
 from .. import outputs as _root_outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['GraphArgs', 'Graph']
@@ -26,6 +27,7 @@ class GraphArgs:
                  provisioned_memory: pulumi.Input[_builtins.int],
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_task: pulumi.Input[Optional['GraphImportTaskArgs']] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
                  replica_count: pulumi.Input[Optional[_builtins.int]] = None,
@@ -43,6 +45,7 @@ class GraphArgs:
                If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
                
                _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input['GraphImportTaskArgs'] import_task: The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
         :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
                
@@ -64,6 +67,8 @@ class GraphArgs:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if graph_name is not None:
             pulumi.set(__self__, "graph_name", graph_name)
+        if import_task is not None:
+            pulumi.set(__self__, "import_task", import_task)
         if kms_key_identifier is not None:
             pulumi.set(__self__, "kms_key_identifier", kms_key_identifier)
         if public_connectivity is not None:
@@ -116,6 +121,18 @@ class GraphArgs:
     @graph_name.setter
     def graph_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "graph_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="importTask")
+    def import_task(self) -> pulumi.Input[Optional['GraphImportTaskArgs']]:
+        """
+        The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+        """
+        return pulumi.get(self, "import_task")
+
+    @import_task.setter
+    def import_task(self, value: pulumi.Input[Optional['GraphImportTaskArgs']]):
+        pulumi.set(self, "import_task", value)
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")
@@ -196,6 +213,7 @@ class Graph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_task: pulumi.Input[Optional[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
                  public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -216,6 +234,7 @@ class Graph(pulumi.CustomResource):
                If you don't specify a name, we generate a unique Graph Name using a combination of Stack Name and a UUID comprising of 4 characters.
                
                _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
+        :param pulumi.Input[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict']] import_task: The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN of the KMS key used to encrypt data in the Neptune Analytics graph. If not specified, the graph is encrypted with an AWS managed key.
         :param pulumi.Input[_builtins.int] provisioned_memory: Memory for the Graph.
         :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.
@@ -259,6 +278,7 @@ class Graph(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  deletion_protection: pulumi.Input[Optional[_builtins.bool]] = None,
                  graph_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 import_task: pulumi.Input[Optional[Union['GraphImportTaskArgs', 'GraphImportTaskArgsDict']]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
                  public_connectivity: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -276,6 +296,7 @@ class Graph(pulumi.CustomResource):
 
             __props__.__dict__["deletion_protection"] = deletion_protection
             __props__.__dict__["graph_name"] = graph_name
+            __props__.__dict__["import_task"] = import_task
             __props__.__dict__["kms_key_identifier"] = kms_key_identifier
             if provisioned_memory is None and not opts.urn:
                 raise TypeError("Missing required property 'provisioned_memory'")
@@ -287,7 +308,7 @@ class Graph(pulumi.CustomResource):
             __props__.__dict__["endpoint"] = None
             __props__.__dict__["graph_arn"] = None
             __props__.__dict__["graph_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graphName", "kmsKeyIdentifier", "replicaCount", "vectorSearchConfiguration"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["graphName", "importTask", "kmsKeyIdentifier", "replicaCount", "vectorSearchConfiguration"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Graph, __self__).__init__(
             'aws-native:neptunegraph:Graph',
@@ -316,6 +337,7 @@ class Graph(pulumi.CustomResource):
         __props__.__dict__["graph_arn"] = None
         __props__.__dict__["graph_id"] = None
         __props__.__dict__["graph_name"] = None
+        __props__.__dict__["import_task"] = None
         __props__.__dict__["kms_key_identifier"] = None
         __props__.__dict__["provisioned_memory"] = None
         __props__.__dict__["public_connectivity"] = None
@@ -369,6 +391,14 @@ class Graph(pulumi.CustomResource):
         _Important_: If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
         """
         return pulumi.get(self, "graph_name")
+
+    @_builtins.property
+    @pulumi.getter(name="importTask")
+    def import_task(self) -> pulumi.Output[Optional['outputs.GraphImportTask']]:
+        """
+        The details of the import task to use to create the graph. When specified, the graph is created using CreateGraphUsingImportTask and data is imported from the supplied source.
+        """
+        return pulumi.get(self, "import_task")
 
     @_builtins.property
     @pulumi.getter(name="kmsKeyIdentifier")

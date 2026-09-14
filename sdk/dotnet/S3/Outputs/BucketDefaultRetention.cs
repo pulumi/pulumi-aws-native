@@ -22,6 +22,7 @@ namespace Pulumi.AwsNative.S3.Outputs
         /// The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         /// </summary>
         public readonly int? Days;
+        public readonly Outputs.BucketDefaultEventHold? DefaultEventHold;
         /// <summary>
         /// The default Object Lock retention mode you want to apply to new objects placed in the specified bucket. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         /// </summary>
@@ -35,11 +36,14 @@ namespace Pulumi.AwsNative.S3.Outputs
         private BucketDefaultRetention(
             int? days,
 
+            Outputs.BucketDefaultEventHold? defaultEventHold,
+
             Pulumi.AwsNative.S3.BucketDefaultRetentionMode? mode,
 
             int? years)
         {
             Days = days;
+            DefaultEventHold = defaultEventHold;
             Mode = mode;
             Years = years;
         }

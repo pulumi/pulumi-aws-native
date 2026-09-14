@@ -19,7 +19,9 @@ export function getVolume(args: GetVolumeArgs, opts?: pulumi.InvokeOptions): Pro
 
 export interface GetVolumeArgs {
     /**
-     * Returns the volume's universally unique identifier (UUID).
+     * Returns the volume's ID.
+     *
+     * Example: `fsvol-0123456789abcdefa`
      */
     volumeId: string;
 }
@@ -39,18 +41,26 @@ export interface GetVolumeResult {
     readonly openZfsConfiguration?: outputs.fsx.VolumeOpenZfsConfiguration;
     /**
      * Returns the volume's Amazon Resource Name (ARN).
+     *
+     * Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
      */
     readonly resourceArn?: string;
     /**
-     * One or more tags.
+     * An array of key-value pairs to apply to this resource.
+     *
+     * For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
      */
     readonly tags?: outputs.Tag[];
     /**
-     * Returns the volume's ID.
+     * Returns the volume's universally unique identifier (UUID).
+     *
+     * Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
      */
     readonly uuid?: string;
     /**
-     * Returns the volume's universally unique identifier (UUID).
+     * Returns the volume's ID.
+     *
+     * Example: `fsvol-0123456789abcdefa`
      */
     readonly volumeId?: string;
 }
@@ -66,7 +76,9 @@ export function getVolumeOutput(args: GetVolumeOutputArgs, opts?: pulumi.InvokeO
 
 export interface GetVolumeOutputArgs {
     /**
-     * Returns the volume's universally unique identifier (UUID).
+     * Returns the volume's ID.
+     *
+     * Example: `fsvol-0123456789abcdefa`
      */
     volumeId: pulumi.Input<string>;
 }

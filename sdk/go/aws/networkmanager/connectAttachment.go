@@ -82,7 +82,6 @@ func NewConnectAttachment(ctx *pulumi.Context,
 		"coreNetworkId",
 		"edgeLocation",
 		"options",
-		"routingPolicyLabel",
 		"transportAttachmentId",
 	})
 	opts = append(opts, replaceOnChanges)

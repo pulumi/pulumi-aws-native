@@ -10,6 +10,11 @@ export const getHttpNamespace: typeof import("./getHttpNamespace").getHttpNamesp
 export const getHttpNamespaceOutput: typeof import("./getHttpNamespace").getHttpNamespaceOutput = null as any;
 utilities.lazyLoad(exports, ["getHttpNamespace","getHttpNamespaceOutput"], () => require("./getHttpNamespace"));
 
+export { GetInstanceArgs, GetInstanceResult, GetInstanceOutputArgs } from "./getInstance";
+export const getInstance: typeof import("./getInstance").getInstance = null as any;
+export const getInstanceOutput: typeof import("./getInstance").getInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getInstance","getInstanceOutput"], () => require("./getInstance"));
+
 export { GetPrivateDnsNamespaceArgs, GetPrivateDnsNamespaceResult, GetPrivateDnsNamespaceOutputArgs } from "./getPrivateDnsNamespace";
 export const getPrivateDnsNamespace: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespace = null as any;
 export const getPrivateDnsNamespaceOutput: typeof import("./getPrivateDnsNamespace").getPrivateDnsNamespaceOutput = null as any;
@@ -29,6 +34,11 @@ export { HttpNamespaceArgs } from "./httpNamespace";
 export type HttpNamespace = import("./httpNamespace").HttpNamespace;
 export const HttpNamespace: typeof import("./httpNamespace").HttpNamespace = null as any;
 utilities.lazyLoad(exports, ["HttpNamespace"], () => require("./httpNamespace"));
+
+export { InstanceArgs } from "./instance";
+export type Instance = import("./instance").Instance;
+export const Instance: typeof import("./instance").Instance = null as any;
+utilities.lazyLoad(exports, ["Instance"], () => require("./instance"));
 
 export { PrivateDnsNamespaceArgs } from "./privateDnsNamespace";
 export type PrivateDnsNamespace = import("./privateDnsNamespace").PrivateDnsNamespace;
@@ -52,6 +62,8 @@ const _module = {
         switch (type) {
             case "aws-native:servicediscovery:HttpNamespace":
                 return new HttpNamespace(name, <any>undefined, { urn })
+            case "aws-native:servicediscovery:Instance":
+                return new Instance(name, <any>undefined, { urn })
             case "aws-native:servicediscovery:PrivateDnsNamespace":
                 return new PrivateDnsNamespace(name, <any>undefined, { urn })
             case "aws-native:servicediscovery:PublicDnsNamespace":

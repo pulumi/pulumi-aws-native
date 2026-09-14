@@ -30,6 +30,7 @@ __all__ = [
     'BucketCorsConfiguration',
     'BucketCorsRule',
     'BucketDataExport',
+    'BucketDefaultEventHold',
     'BucketDefaultRetention',
     'BucketDeleteMarkerReplication',
     'BucketDestination',
@@ -868,14 +869,53 @@ class BucketDataExport(dict):
 
 
 @pulumi.output_type
+class BucketDefaultEventHold(dict):
+    def __init__(__self__, *,
+                 days: Optional[_builtins.int] = None,
+                 years: Optional[_builtins.int] = None):
+        if days is not None:
+            pulumi.set(__self__, "days", days)
+        if years is not None:
+            pulumi.set(__self__, "years", years)
+
+    @_builtins.property
+    @pulumi.getter
+    def days(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "days")
+
+    @_builtins.property
+    @pulumi.getter
+    def years(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "years")
+
+
+@pulumi.output_type
 class BucketDefaultRetention(dict):
     """
     The container element for optionally specifying the default Object Lock retention settings for new objects placed in the specified bucket.
        +  The ``DefaultRetention`` settings require both a mode and a period.
       +  The ``DefaultRetention`` period can be either ``Days`` or ``Years`` but you must select one. You cannot specify ``Days`` and ``Years`` at the same time.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultEventHold":
+            suggest = "default_event_hold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BucketDefaultRetention. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BucketDefaultRetention.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BucketDefaultRetention.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  days: Optional[_builtins.int] = None,
+                 default_event_hold: Optional['outputs.BucketDefaultEventHold'] = None,
                  mode: Optional['BucketDefaultRetentionMode'] = None,
                  years: Optional[_builtins.int] = None):
         """
@@ -889,6 +929,8 @@ class BucketDefaultRetention(dict):
         """
         if days is not None:
             pulumi.set(__self__, "days", days)
+        if default_event_hold is not None:
+            pulumi.set(__self__, "default_event_hold", default_event_hold)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if years is not None:
@@ -901,6 +943,11 @@ class BucketDefaultRetention(dict):
         The number of days that you want to specify for the default retention period. If Object Lock is turned on, you must specify ``Mode`` and specify either ``Days`` or ``Years``.
         """
         return pulumi.get(self, "days")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultEventHold")
+    def default_event_hold(self) -> Optional['outputs.BucketDefaultEventHold']:
+        return pulumi.get(self, "default_event_hold")
 
     @_builtins.property
     @pulumi.getter

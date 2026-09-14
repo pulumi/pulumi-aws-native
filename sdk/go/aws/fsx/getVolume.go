@@ -24,7 +24,9 @@ func LookupVolume(ctx *pulumi.Context, args *LookupVolumeArgs, opts ...pulumi.In
 }
 
 type LookupVolumeArgs struct {
-	// Returns the volume's universally unique identifier (UUID).
+	// Returns the volume's ID.
+	//
+	// Example: `fsvol-0123456789abcdefa`
 	VolumeId string `pulumi:"volumeId"`
 }
 
@@ -36,12 +38,20 @@ type LookupVolumeResult struct {
 	// The configuration of an Amazon FSx for OpenZFS volume.
 	OpenZfsConfiguration *VolumeOpenZfsConfiguration `pulumi:"openZfsConfiguration"`
 	// Returns the volume's Amazon Resource Name (ARN).
+	//
+	// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
 	ResourceArn *string `pulumi:"resourceArn"`
-	// One or more tags.
+	// An array of key-value pairs to apply to this resource.
+	//
+	// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 	Tags []aws.Tag `pulumi:"tags"`
-	// Returns the volume's ID.
-	Uuid *string `pulumi:"uuid"`
 	// Returns the volume's universally unique identifier (UUID).
+	//
+	// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
+	Uuid *string `pulumi:"uuid"`
+	// Returns the volume's ID.
+	//
+	// Example: `fsvol-0123456789abcdefa`
 	VolumeId *string `pulumi:"volumeId"`
 }
 
@@ -51,7 +61,9 @@ func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts .
 }
 
 type LookupVolumeOutputArgs struct {
-	// Returns the volume's universally unique identifier (UUID).
+	// Returns the volume's ID.
+	//
+	// Example: `fsvol-0123456789abcdefa`
 	VolumeId pulumi.StringInput `pulumi:"volumeId"`
 }
 
@@ -89,21 +101,29 @@ func (o LookupVolumeResultOutput) OpenZfsConfiguration() VolumeOpenZfsConfigurat
 }
 
 // Returns the volume's Amazon Resource Name (ARN).
+//
+// Example: `arn:aws:fsx:us-east-2:111122223333:volume/fs-0123456789abcdef9/fsvol-01234567891112223`
 func (o LookupVolumeResultOutput) ResourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.ResourceArn }).(pulumi.StringPtrOutput)
 }
 
-// One or more tags.
+// An array of key-value pairs to apply to this resource.
+//
+// For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
 func (o LookupVolumeResultOutput) Tags() aws.TagArrayOutput {
 	return o.ApplyT(func(v LookupVolumeResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
-// Returns the volume's ID.
+// Returns the volume's universally unique identifier (UUID).
+//
+// Example: `abcd0123-cd45-ef67-11aa-1111aaaa23bc`
 func (o LookupVolumeResultOutput) Uuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Uuid }).(pulumi.StringPtrOutput)
 }
 
-// Returns the volume's universally unique identifier (UUID).
+// Returns the volume's ID.
+//
+// Example: `fsvol-0123456789abcdefa`
 func (o LookupVolumeResultOutput) VolumeId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupVolumeResult) *string { return v.VolumeId }).(pulumi.StringPtrOutput)
 }

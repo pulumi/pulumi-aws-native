@@ -5590,6 +5590,49 @@
       }
     }
   },
+  "aws-native:drs:LaunchConfigurationTemplate": {
+    "cfTypeName": "AWS::DRS::LaunchConfigurationTemplate",
+    "properties": {
+      "copyPrivateIp": {
+        "type": "boolean",
+        "description": "Copy private IP."
+      },
+      "copyTags": {
+        "type": "boolean",
+        "description": "Copy tags."
+      },
+      "exportBucketArn": {
+        "type": "string",
+        "description": "S3 bucket ARN to export Source Network templates."
+      },
+      "launchDisposition": {
+        "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateLaunchDisposition",
+        "description": "Launch disposition."
+      },
+      "launchIntoSourceInstance": {
+        "type": "boolean",
+        "description": "DRS will set the 'launch into instance ID' of any source server when performing a drill, recovery or failback to the previous region or availability zone, using the instance ID of the source instance."
+      },
+      "licensing": {
+        "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateLicensing"
+      },
+      "postLaunchEnabled": {
+        "type": "boolean",
+        "description": "Whether we want to activate post-launch actions."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:CreateOnlyTag"
+        },
+        "description": "A set of tags associated with the Launch Configuration Template."
+      },
+      "targetInstanceTypeRightSizingMethod": {
+        "$ref": "#/types/aws-native:drs:LaunchConfigurationTemplateTargetInstanceTypeRightSizingMethod",
+        "description": "Target instance type right-sizing method."
+      }
+    }
+  },
   "aws-native:drs:SourceNetwork": {
     "cfTypeName": "AWS::DRS::SourceNetwork",
     "properties": {
@@ -15805,7 +15848,7 @@
       },
       "engineVersion": {
         "type": "string",
-        "description": "The version number of the database engine to use.\n For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.\n The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.\n  *Amazon Aurora* \n Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.\n  *Db2* \n See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *MariaDB* \n See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Microsoft SQL Server* \n See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*\n  *MySQL* \n See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Oracle* \n See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*\n  *PostgreSQL* \n See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*"
+        "description": "The version number of the database engine to use.\n For a list of valid engine versions, use the ``DescribeDBEngineVersions`` action.\n The following are the database engines and links to information about the major and minor versions that are available with Amazon RDS. Not every database engine is available for every AWS Region.\n  *Amazon Aurora* \n Not applicable. The version number of the database engine to be used by the DB instance is managed by the DB cluster.\n  *Db2* \n See [Amazon RDS for Db2](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Db2.html#Db2.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *MariaDB* \n See [MariaDB on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MariaDB.html#MariaDB.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Microsoft SQL Server* \n See [Microsoft SQL Server Versions on Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_SQLServer.html#SQLServer.Concepts.General.VersionSupport) in the *Amazon RDS User Guide.*\n  *MySQL* \n See [MySQL on Amazon RDS Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html#MySQL.Concepts.VersionMgmt) in the *Amazon RDS User Guide.*\n  *Oracle* \n See [Oracle Database Engine Release Notes](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.PatchComposition.html) in the *Amazon RDS User Guide.*\n  *PostgreSQL* \n See [Supported PostgreSQL Database Versions](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_PostgreSQL.html#PostgreSQL.Concepts.General.DBVersions) in the *Amazon RDS User Guide.*\n  If you specify a version prefix rather than a full version number, AWS CloudFormation uses prefix matching during drift detection.\n For example, ``\"8.0\"`` for MySQL or ``\"16\"`` for PostgreSQL matches any version that starts with that prefix."
       },
       "iops": {
         "type": "integer",
@@ -17539,6 +17582,9 @@
   "aws-native:securityhub:HubV2": {
     "cfTypeName": "AWS::SecurityHub::HubV2",
     "properties": {
+      "networkScanning": {
+        "$ref": "#/types/aws-native:securityhub:HubV2NetworkScanning"
+      },
       "tags": {
         "type": "object",
         "additionalProperties": {
@@ -18053,6 +18099,23 @@
       "resourceType": {
         "$ref": "#/types/aws-native:servicecatalogappregistry:ResourceAssociationResourceType",
         "description": "The type of the CFN Resource for now it's enum CFN_STACK."
+      }
+    }
+  },
+  "aws-native:servicediscovery:Instance": {
+    "cfTypeName": "AWS::ServiceDiscovery::Instance",
+    "properties": {
+      "instanceAttributes": {
+        "$ref": "pulumi.json#/Any",
+        "description": "A string map that contains information for the service that is specified in ServiceId.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::ServiceDiscovery::Instance` for more information about the expected schema for this property."
+      },
+      "instanceId": {
+        "type": "string",
+        "description": "An identifier that you want to associate with the instance."
+      },
+      "serviceId": {
+        "type": "string",
+        "description": "The ID or Amazon Resource Name (ARN) of the service that you want to use for settings for the instance."
       }
     }
   },

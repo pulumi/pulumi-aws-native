@@ -863,6 +863,37 @@ namespace Pulumi.AwsNative.SecurityHub
     }
 
     /// <summary>
+    /// Whether the Network Scanning feature is enabled for this account and Region.
+    /// </summary>
+    [EnumType]
+    public readonly struct HubV2NetworkScanningStatus : IEquatable<HubV2NetworkScanningStatus>
+    {
+        private readonly string _value;
+
+        private HubV2NetworkScanningStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HubV2NetworkScanningStatus Enabled { get; } = new HubV2NetworkScanningStatus("ENABLED");
+        public static HubV2NetworkScanningStatus Disabled { get; } = new HubV2NetworkScanningStatus("DISABLED");
+
+        public static bool operator ==(HubV2NetworkScanningStatus left, HubV2NetworkScanningStatus right) => left.Equals(right);
+        public static bool operator !=(HubV2NetworkScanningStatus left, HubV2NetworkScanningStatus right) => !left.Equals(right);
+
+        public static explicit operator string(HubV2NetworkScanningStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HubV2NetworkScanningStatus other && Equals(other);
+        public bool Equals(HubV2NetworkScanningStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// A date range unit for the date filter.
     /// </summary>
     [EnumType]

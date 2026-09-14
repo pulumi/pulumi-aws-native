@@ -332,6 +332,16 @@ export const FindingAggregatorRegionLinkingMode = {
  */
 export type FindingAggregatorRegionLinkingMode = (typeof FindingAggregatorRegionLinkingMode)[keyof typeof FindingAggregatorRegionLinkingMode];
 
+export const HubV2NetworkScanningStatus = {
+    Enabled: "ENABLED",
+    Disabled: "DISABLED",
+} as const;
+
+/**
+ * Whether the Network Scanning feature is enabled for this account and Region.
+ */
+export type HubV2NetworkScanningStatus = (typeof HubV2NetworkScanningStatus)[keyof typeof HubV2NetworkScanningStatus];
+
 export const InsightDateRangeUnit = {
     Days: "DAYS",
 } as const;

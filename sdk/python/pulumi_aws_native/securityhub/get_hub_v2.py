@@ -13,6 +13,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._enums import *
 
 __all__ = [
     'GetHubV2Result',
@@ -23,10 +25,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetHubV2Result:
-    def __init__(__self__, hub_v2_arn=None, subscribed_at=None, tags=None):
+    def __init__(__self__, hub_v2_arn=None, network_scanning=None, subscribed_at=None, tags=None):
         if hub_v2_arn and not isinstance(hub_v2_arn, str):
             raise TypeError("Expected argument 'hub_v2_arn' to be a str")
         pulumi.set(__self__, "hub_v2_arn", hub_v2_arn)
+        if network_scanning and not isinstance(network_scanning, dict):
+            raise TypeError("Expected argument 'network_scanning' to be a dict")
+        pulumi.set(__self__, "network_scanning", network_scanning)
         if subscribed_at and not isinstance(subscribed_at, str):
             raise TypeError("Expected argument 'subscribed_at' to be a str")
         pulumi.set(__self__, "subscribed_at", subscribed_at)
@@ -41,6 +46,11 @@ class GetHubV2Result:
         The Amazon Resource Name of the Security Hub V2 resource.
         """
         return pulumi.get(self, "hub_v2_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="networkScanning")
+    def network_scanning(self) -> Optional['outputs.HubV2NetworkScanning']:
+        return pulumi.get(self, "network_scanning")
 
     @_builtins.property
     @pulumi.getter(name="subscribedAt")
@@ -66,6 +76,7 @@ class AwaitableGetHubV2Result(GetHubV2Result):
             yield self
         return GetHubV2Result(
             hub_v2_arn=self.hub_v2_arn,
+            network_scanning=self.network_scanning,
             subscribed_at=self.subscribed_at,
             tags=self.tags)
 
@@ -84,6 +95,7 @@ def get_hub_v2(hub_v2_arn: Optional[_builtins.str] = None,
 
     return AwaitableGetHubV2Result(
         hub_v2_arn=pulumi.get(__ret__, 'hub_v2_arn'),
+        network_scanning=pulumi.get(__ret__, 'network_scanning'),
         subscribed_at=pulumi.get(__ret__, 'subscribed_at'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_hub_v2_output(hub_v2_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -99,5 +111,6 @@ def get_hub_v2_output(hub_v2_arn: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:securityhub:getHubV2', __args__, opts=opts, typ=GetHubV2Result)
     return __ret__.apply(lambda __response__: GetHubV2Result(
         hub_v2_arn=pulumi.get(__response__, 'hub_v2_arn'),
+        network_scanning=pulumi.get(__response__, 'network_scanning'),
         subscribed_at=pulumi.get(__response__, 'subscribed_at'),
         tags=pulumi.get(__response__, 'tags')))

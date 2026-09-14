@@ -35,7 +35,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
         /// - `NONE` : CodeBuild creates the raw data in the output bucket. This is the default if packaging is not specified.
         /// - `ZIP` : CodeBuild creates a ZIP file with the raw data in the output bucket.
         /// </summary>
-        public readonly Pulumi.AwsNative.CodeBuild.ReportGroupS3ReportExportConfigPackaging? Packaging;
+        public readonly string? Packaging;
         /// <summary>
         /// The path to the exported report's raw data results.
         /// </summary>
@@ -51,7 +51,7 @@ namespace Pulumi.AwsNative.CodeBuild.Outputs
 
             string? encryptionKey,
 
-            Pulumi.AwsNative.CodeBuild.ReportGroupS3ReportExportConfigPackaging? packaging,
+            string? packaging,
 
             string? path)
         {

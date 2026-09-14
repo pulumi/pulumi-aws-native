@@ -19,7 +19,7 @@ namespace Pulumi.AwsNative.CodeBuild.Inputs
         /// - `NO_EXPORT` : The report results are not exported.
         /// </summary>
         [Input("exportConfigType", required: true)]
-        public Input<Pulumi.AwsNative.CodeBuild.ReportGroupReportExportConfigExportConfigType> ExportConfigType { get; set; } = null!;
+        public Input<string> ExportConfigType { get; set; } = null!;
 
         /// <summary>
         /// A `S3ReportExportConfig` object that contains information about the S3 bucket where the run of a report is exported.

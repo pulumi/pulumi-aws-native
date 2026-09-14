@@ -131,6 +131,14 @@
       "permissions" : [ "amplify:GetDomainAssociation", "amplify:DeleteDomainAssociation", "route53:ListHostedZones", "iam:PassRole" ]
     },
     "list" : {
+      "handlerSchema" : {
+        "properties" : {
+          "AppId" : {
+            "$ref" : "resource-schema.json#/properties/AppId"
+          }
+        },
+        "required" : [ "AppId" ]
+      },
       "permissions" : [ "amplify:ListDomainAssociations", "iam:PassRole", "amplify:ListTagsForResource" ]
     },
     "read" : {

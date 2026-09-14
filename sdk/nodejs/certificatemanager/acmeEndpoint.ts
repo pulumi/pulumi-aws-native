@@ -97,7 +97,7 @@ export class AcmeEndpoint extends pulumi.CustomResource {
             resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["certificateTags[*]"] };
+        const replaceOnChanges = { replaceOnChanges: ["authorizationBehavior", "certificateTags[*]"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(AcmeEndpoint.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,20 +13,35 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
+from ._enums import *
+from ._inputs import *
 
 __all__ = ['HubV2Args', 'HubV2']
 
 @pulumi.input_type
 class HubV2Args:
     def __init__(__self__, *,
+                 network_scanning: pulumi.Input[Optional['HubV2NetworkScanningArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a HubV2 resource.
 
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the hub V2 resource when you enable Security Hub CSPM.
         """
+        if network_scanning is not None:
+            pulumi.set(__self__, "network_scanning", network_scanning)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="networkScanning")
+    def network_scanning(self) -> pulumi.Input[Optional['HubV2NetworkScanningArgs']]:
+        return pulumi.get(self, "network_scanning")
+
+    @network_scanning.setter
+    def network_scanning(self, value: pulumi.Input[Optional['HubV2NetworkScanningArgs']]):
+        pulumi.set(self, "network_scanning", value)
 
     @_builtins.property
     @pulumi.getter
@@ -47,6 +62,7 @@ class HubV2(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -80,6 +96,7 @@ class HubV2(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 network_scanning: pulumi.Input[Optional[Union['HubV2NetworkScanningArgs', 'HubV2NetworkScanningArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -90,6 +107,7 @@ class HubV2(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = HubV2Args.__new__(HubV2Args)
 
+            __props__.__dict__["network_scanning"] = network_scanning
             __props__.__dict__["tags"] = tags
             __props__.__dict__["hub_v2_arn"] = None
             __props__.__dict__["subscribed_at"] = None
@@ -116,6 +134,7 @@ class HubV2(pulumi.CustomResource):
         __props__ = HubV2Args.__new__(HubV2Args)
 
         __props__.__dict__["hub_v2_arn"] = None
+        __props__.__dict__["network_scanning"] = None
         __props__.__dict__["subscribed_at"] = None
         __props__.__dict__["tags"] = None
         return HubV2(resource_name, opts=opts, __props__=__props__)
@@ -127,6 +146,11 @@ class HubV2(pulumi.CustomResource):
         The Amazon Resource Name of the Security Hub V2 resource.
         """
         return pulumi.get(self, "hub_v2_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="networkScanning")
+    def network_scanning(self) -> pulumi.Output[Optional['outputs.HubV2NetworkScanning']]:
+        return pulumi.get(self, "network_scanning")
 
     @_builtins.property
     @pulumi.getter(name="subscribedAt")

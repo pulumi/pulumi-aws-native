@@ -29,7 +29,8 @@ type LookupHubV2Args struct {
 
 type LookupHubV2Result struct {
 	// The Amazon Resource Name of the Security Hub V2 resource.
-	HubV2Arn *string `pulumi:"hubV2Arn"`
+	HubV2Arn        *string               `pulumi:"hubV2Arn"`
+	NetworkScanning *HubV2NetworkScanning `pulumi:"networkScanning"`
 	// The date and time when the service was enabled in the account.
 	SubscribedAt *string `pulumi:"subscribedAt"`
 	// The tags to add to the hub V2 resource when you enable Security Hub CSPM.
@@ -67,6 +68,10 @@ func (o LookupHubV2ResultOutput) ToLookupHubV2ResultOutputWithContext(ctx contex
 // The Amazon Resource Name of the Security Hub V2 resource.
 func (o LookupHubV2ResultOutput) HubV2Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupHubV2Result) *string { return v.HubV2Arn }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupHubV2ResultOutput) NetworkScanning() HubV2NetworkScanningPtrOutput {
+	return o.ApplyT(func(v LookupHubV2Result) *HubV2NetworkScanning { return v.NetworkScanning }).(HubV2NetworkScanningPtrOutput)
 }
 
 // The date and time when the service was enabled in the account.

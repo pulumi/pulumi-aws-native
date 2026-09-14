@@ -716,7 +716,13 @@ class S3AccessPointAttachmentS3AccessPointVpcConfigurationArgs:
 class VolumeAggregateConfigurationArgsDict(TypedDict):
     aggregates: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+    The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.
+
+    Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
+
+    - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.
+    - The value of `Aggregates` contains aggregates that are not present.
+    - One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.
     """
     constituents_per_aggregate: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -729,7 +735,13 @@ class VolumeAggregateConfigurationArgs:
                  aggregates: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  constituents_per_aggregate: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aggregates: The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aggregates: The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.
+               
+               Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
+               
+               - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.
+               - The value of `Aggregates` contains aggregates that are not present.
+               - One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.
         :param pulumi.Input[_builtins.int] constituents_per_aggregate: Used to explicitly set the number of constituents within the FlexGroup per storage aggregate. This field is optional when creating a FlexGroup volume. If unspecified, the default value will be 8. This field cannot be provided when creating a FlexVol volume.
         """
         if aggregates is not None:
@@ -741,7 +753,13 @@ class VolumeAggregateConfigurationArgs:
     @pulumi.getter
     def aggregates(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier.
+        The list of aggregates that this volume resides on. Aggregates are storage pools which make up your primary storage tier. Each high-availability (HA) pair has one aggregate. The names of the aggregates map to the names of the aggregates in the ONTAP CLI and REST API. For FlexVols, there will always be a single entry.
+
+        Amazon FSx responds with an HTTP status code 400 (Bad Request) for the following conditions:
+
+        - The strings in the value of `Aggregates` are not are not formatted as `aggrX` , where X is a number between 1 and 12.
+        - The value of `Aggregates` contains aggregates that are not present.
+        - One or more of the aggregates supplied are too close to the volume limit to support adding more volumes.
         """
         return pulumi.get(self, "aggregates")
 
@@ -765,11 +783,17 @@ class VolumeAggregateConfigurationArgs:
 class VolumeAutocommitPeriodArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+    Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` .
     """
     value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+    Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:
+
+    - `Minutes` : 5 - 65,535
+    - `Hours` : 1 - 65,535
+    - `Days` : 1 - 3,650
+    - `Months` : 1 - 120
+    - `Years` : 1 - 10
     """
 
 @pulumi.input_type
@@ -778,8 +802,14 @@ class VolumeAutocommitPeriodArgs:
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
-        :param pulumi.Input[_builtins.int] value: Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input[_builtins.str] type: Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` .
+        :param pulumi.Input[_builtins.int] value: Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:
+               
+               - `Minutes` : 5 - 65,535
+               - `Hours` : 1 - 65,535
+               - `Days` : 1 - 3,650
+               - `Months` : 1 - 120
+               - `Years` : 1 - 10
         """
         pulumi.set(__self__, "type", type)
         if value is not None:
@@ -789,7 +819,7 @@ class VolumeAutocommitPeriodArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to NONE disables autocommit. The default value is NONE.
+        Defines the type of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. Setting this value to `NONE` disables autocommit. The default value is `NONE` .
         """
         return pulumi.get(self, "type")
 
@@ -801,7 +831,13 @@ class VolumeAutocommitPeriodArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume.
+        Defines the amount of time for the autocommit period of a file in an FSx for ONTAP SnapLock volume. The following ranges are valid:
+
+        - `Minutes` : 5 - 65,535
+        - `Hours` : 1 - 65,535
+        - `Days` : 1 - 3,650
+        - `Months` : 1 - 120
+        - `Years` : 1 - 10
         """
         return pulumi.get(self, "value")
 
@@ -813,11 +849,14 @@ class VolumeAutocommitPeriodArgs:
 class VolumeClientConfigurationsArgsDict(TypedDict):
     clients: pulumi.Input[_builtins.str]
     """
-    A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+    A value that specifies who can mount the file system. You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
     """
     options: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    The configuration object for mounting a Network File System (NFS) file system.
+    The options to use when mounting the file system. For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
+
+    - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
+    - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
     """
 
 @pulumi.input_type
@@ -826,8 +865,11 @@ class VolumeClientConfigurationsArgs:
                  clients: pulumi.Input[_builtins.str],
                  options: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        :param pulumi.Input[_builtins.str] clients: A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] options: The configuration object for mounting a Network File System (NFS) file system.
+        :param pulumi.Input[_builtins.str] clients: A value that specifies who can mount the file system. You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] options: The options to use when mounting the file system. For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
+               
+               - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
+               - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
         """
         pulumi.set(__self__, "clients", clients)
         pulumi.set(__self__, "options", options)
@@ -836,7 +878,7 @@ class VolumeClientConfigurationsArgs:
     @pulumi.getter
     def clients(self) -> pulumi.Input[_builtins.str]:
         """
-        A value that specifies who can mount the file system. You can provide a wildcard character (*), an IP address (0.0.0.0), or a CIDR address (192.0.2.0/24). By default, Amazon FSx uses the wildcard character when specifying the client.
+        A value that specifies who can mount the file system. You can provide a wildcard character ( `*` ), an IP address ( `0.0.0.0` ), or a CIDR address ( `192.0.2.0/24` ). By default, Amazon FSx uses the wildcard character when specifying the client.
         """
         return pulumi.get(self, "clients")
 
@@ -848,7 +890,10 @@ class VolumeClientConfigurationsArgs:
     @pulumi.getter
     def options(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The configuration object for mounting a Network File System (NFS) file system.
+        The options to use when mounting the file system. For a list of options that you can use with Network File System (NFS), see the [exports(5) - Linux man page](https://docs.aws.amazon.com/https://linux.die.net/man/5/exports) . When choosing your options, consider the following:
+
+        - `crossmnt` is used by default. If you don't specify `crossmnt` when changing the client configuration, you won't be able to see or access snapshots in your file system's snapshot directory.
+        - `sync` is used by default. If you instead specify `async` , the system acknowledges writes before writing to disk. If the system crashes before the writes are finished, you lose the unwritten data.
         """
         return pulumi.get(self, "options")
 
@@ -860,7 +905,7 @@ class VolumeClientConfigurationsArgs:
 class VolumeNfsExportsArgsDict(TypedDict):
     client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgsDict']]]
     """
-    The configuration object for mounting a Network File System (NFS) file system.
+    A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
     """
 
 @pulumi.input_type
@@ -868,7 +913,7 @@ class VolumeNfsExportsArgs:
     def __init__(__self__, *,
                  client_configurations: pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]] client_configurations: The configuration object for mounting a Network File System (NFS) file system.
+        :param pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]] client_configurations: A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
         """
         pulumi.set(__self__, "client_configurations", client_configurations)
 
@@ -876,7 +921,7 @@ class VolumeNfsExportsArgs:
     @pulumi.getter(name="clientConfigurations")
     def client_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['VolumeClientConfigurationsArgs']]]:
         """
-        The configuration object for mounting a Network File System (NFS) file system.
+        A list of configuration objects that contain the client and options for mounting the OpenZFS file system.
         """
         return pulumi.get(self, "client_configurations")
 
@@ -896,19 +941,30 @@ class VolumeOntapConfigurationArgsDict(TypedDict):
     """
     copy_tags_to_backups: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    A boolean flag indicating whether tags for the volume should be copied to backups.
+    A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
     """
     junction_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+    Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` .
     """
     ontap_volume_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the type of volume you are creating. Valid values are the following: RW or DP
+    Specifies the type of volume you are creating. Valid values are the following:
+
+    - `RW` specifies a read/write volume. `RW` is the default.
+    - `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.
+
+    For more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-types) in the Amazon FSx for NetApp ONTAP User Guide.
     """
     security_style: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+    Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. Specify one of the following values:
+
+    - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
+    - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
+    - `MIXED` This is an advanced setting. For more information, see the topic [What the security styles and their effects are](https://docs.aws.amazon.com/https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html) in the NetApp Documentation Center.
+
+    For more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the FSx for ONTAP User Guide.
     """
     size_in_bytes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -916,7 +972,7 @@ class VolumeOntapConfigurationArgsDict(TypedDict):
     """
     size_in_megabytes: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+    Use `SizeInBytes` instead. Specifies the size of the volume, in megabytes (MB), that you are creating.
     """
     snaplock_configuration: NotRequired[pulumi.Input[Optional['VolumeSnaplockConfigurationArgsDict']]]
     """
@@ -924,19 +980,39 @@ class VolumeOntapConfigurationArgsDict(TypedDict):
     """
     snapshot_policy: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+    Specifies the snapshot policy for the volume. There are three built-in snapshot policies:
+
+    - `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.
+    - `default-1weekly` : This policy is the same as the `default` policy except that it only retains one snapshot from the weekly schedule.
+    - `none` : This policy does not take any snapshots. This policy can be assigned to volumes to prevent automatic snapshots from being taken.
+
+    You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.
+
+    For more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx for NetApp ONTAP User Guide.
     """
     storage_efficiency_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+
+    `StorageEfficiencyEnabled` is required when creating a `RW` volume ( `OntapVolumeType` set to `RW` ).
     """
     tiering_policy: NotRequired[pulumi.Input[Optional['VolumeTieringPolicyArgsDict']]]
     """
-    Describes the data tiering policy for an ONTAP volume.
+    Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+
+    Valid tiering policies are the following:
+
+    - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
+
+    - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+
+    - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+
+    - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
     """
     volume_style: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Use to specify the style of an ONTAP volume.
+    Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes that you can use for different purposes, FlexVol and FlexGroup volumes. For more information, see [Volume styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-styles) in the Amazon FSx for NetApp ONTAP User Guide.
     """
 
 @pulumi.input_type
@@ -958,17 +1034,48 @@ class VolumeOntapConfigurationArgs:
         """
         :param pulumi.Input[_builtins.str] storage_virtual_machine_id: Specifies the ONTAP SVM in which to create the volume.
         :param pulumi.Input['VolumeAggregateConfigurationArgs'] aggregate_configuration: Used to specify the configuration options for an FSx for ONTAP volume's storage aggregate or aggregates.
-        :param pulumi.Input[_builtins.str] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups.
-        :param pulumi.Input[_builtins.str] junction_path: Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
-        :param pulumi.Input[_builtins.str] ontap_volume_type: Specifies the type of volume you are creating. Valid values are the following: RW or DP
-        :param pulumi.Input[_builtins.str] security_style: Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+        :param pulumi.Input[_builtins.str] copy_tags_to_backups: A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
+        :param pulumi.Input[_builtins.str] junction_path: Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` .
+        :param pulumi.Input[_builtins.str] ontap_volume_type: Specifies the type of volume you are creating. Valid values are the following:
+               
+               - `RW` specifies a read/write volume. `RW` is the default.
+               - `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.
+               
+               For more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-types) in the Amazon FSx for NetApp ONTAP User Guide.
+        :param pulumi.Input[_builtins.str] security_style: Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. Specify one of the following values:
+               
+               - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
+               - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
+               - `MIXED` This is an advanced setting. For more information, see the topic [What the security styles and their effects are](https://docs.aws.amazon.com/https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html) in the NetApp Documentation Center.
+               
+               For more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the FSx for ONTAP User Guide.
         :param pulumi.Input[_builtins.str] size_in_bytes: Specifies the configured size of the volume, in bytes.
-        :param pulumi.Input[_builtins.str] size_in_megabytes: Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+        :param pulumi.Input[_builtins.str] size_in_megabytes: Use `SizeInBytes` instead. Specifies the size of the volume, in megabytes (MB), that you are creating.
         :param pulumi.Input['VolumeSnaplockConfigurationArgs'] snaplock_configuration: The SnapLock configuration object for an FSx for ONTAP SnapLock volume.
-        :param pulumi.Input[_builtins.str] snapshot_policy: Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+        :param pulumi.Input[_builtins.str] snapshot_policy: Specifies the snapshot policy for the volume. There are three built-in snapshot policies:
+               
+               - `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.
+               - `default-1weekly` : This policy is the same as the `default` policy except that it only retains one snapshot from the weekly schedule.
+               - `none` : This policy does not take any snapshots. This policy can be assigned to volumes to prevent automatic snapshots from being taken.
+               
+               You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.
+               
+               For more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx for NetApp ONTAP User Guide.
         :param pulumi.Input[_builtins.str] storage_efficiency_enabled: Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
-        :param pulumi.Input['VolumeTieringPolicyArgs'] tiering_policy: Describes the data tiering policy for an ONTAP volume.
-        :param pulumi.Input[_builtins.str] volume_style: Use to specify the style of an ONTAP volume.
+               
+               `StorageEfficiencyEnabled` is required when creating a `RW` volume ( `OntapVolumeType` set to `RW` ).
+        :param pulumi.Input['VolumeTieringPolicyArgs'] tiering_policy: Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+               
+               Valid tiering policies are the following:
+               
+               - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
+               
+               - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+               
+               - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+               
+               - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
+        :param pulumi.Input[_builtins.str] volume_style: Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes that you can use for different purposes, FlexVol and FlexGroup volumes. For more information, see [Volume styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-styles) in the Amazon FSx for NetApp ONTAP User Guide.
         """
         pulumi.set(__self__, "storage_virtual_machine_id", storage_virtual_machine_id)
         if aggregate_configuration is not None:
@@ -1024,7 +1131,7 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="copyTagsToBackups")
     def copy_tags_to_backups(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A boolean flag indicating whether tags for the volume should be copied to backups.
+        A boolean flag indicating whether tags for the volume should be copied to backups. This value defaults to false. If it's set to true, all tags for the volume are copied to all automatic and user-initiated backups where the user doesn't specify tags. If this value is true, and you specify one or more tags, only the specified tags are copied to backups. If you specify one or more tags when creating a user-initiated backup, no tags are copied from the volume, regardless of this value.
         """
         return pulumi.get(self, "copy_tags_to_backups")
 
@@ -1036,7 +1143,7 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="junctionPath")
     def junction_path(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The JunctionPath must have a leading forward slash, such as /vol3.
+        Specifies the location in the SVM's namespace where the volume is mounted. This parameter is required. The `JunctionPath` must have a leading forward slash, such as `/vol3` .
         """
         return pulumi.get(self, "junction_path")
 
@@ -1048,7 +1155,12 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="ontapVolumeType")
     def ontap_volume_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the type of volume you are creating. Valid values are the following: RW or DP
+        Specifies the type of volume you are creating. Valid values are the following:
+
+        - `RW` specifies a read/write volume. `RW` is the default.
+        - `DP` specifies a data-protection volume. A `DP` volume is read-only and can be used as the destination of a NetApp SnapMirror relationship.
+
+        For more information, see [Volume types](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-types) in the Amazon FSx for NetApp ONTAP User Guide.
         """
         return pulumi.get(self, "ontap_volume_type")
 
@@ -1060,7 +1172,13 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="securityStyle")
     def security_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style.
+        Specifies the security style for the volume. If a volume's security style is not specified, it is automatically set to the root volume's security style. The security style determines the type of permissions that FSx for ONTAP uses to control data access. Specify one of the following values:
+
+        - `UNIX` if the file system is managed by a UNIX administrator, the majority of users are NFS clients, and an application accessing the data uses a UNIX user as the service account.
+        - `NTFS` if the file system is managed by a Windows administrator, the majority of users are SMB clients, and an application accessing the data uses a Windows user as the service account.
+        - `MIXED` This is an advanced setting. For more information, see the topic [What the security styles and their effects are](https://docs.aws.amazon.com/https://docs.netapp.com/us-en/ontap/nfs-admin/security-styles-their-effects-concept.html) in the NetApp Documentation Center.
+
+        For more information, see [Volume security style](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-security-style) in the FSx for ONTAP User Guide.
         """
         return pulumi.get(self, "security_style")
 
@@ -1084,7 +1202,7 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="sizeInMegabytes")
     def size_in_megabytes(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use SizeInBytes instead. Specifies the size of the volume, in megabytes (MB), that you are creating
+        Use `SizeInBytes` instead. Specifies the size of the volume, in megabytes (MB), that you are creating.
         """
         return pulumi.get(self, "size_in_megabytes")
 
@@ -1108,7 +1226,15 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="snapshotPolicy")
     def snapshot_policy(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the snapshot policy for the volume. There are three built-in snapshot policies: default, default-1weekly, none.
+        Specifies the snapshot policy for the volume. There are three built-in snapshot policies:
+
+        - `default` : This is the default policy. A maximum of six hourly snapshots taken five minutes past the hour. A maximum of two daily snapshots taken Monday through Saturday at 10 minutes after midnight. A maximum of two weekly snapshots taken every Sunday at 15 minutes after midnight.
+        - `default-1weekly` : This policy is the same as the `default` policy except that it only retains one snapshot from the weekly schedule.
+        - `none` : This policy does not take any snapshots. This policy can be assigned to volumes to prevent automatic snapshots from being taken.
+
+        You can also provide the name of a custom policy that you created with the ONTAP CLI or REST API.
+
+        For more information, see [Snapshot policies](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snapshots-ontap.html#snapshot-policies) in the Amazon FSx for NetApp ONTAP User Guide.
         """
         return pulumi.get(self, "snapshot_policy")
 
@@ -1121,6 +1247,8 @@ class VolumeOntapConfigurationArgs:
     def storage_efficiency_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Set to true to enable deduplication, compression, and compaction storage efficiency features on the volume, or set to false to disable them.
+
+        `StorageEfficiencyEnabled` is required when creating a `RW` volume ( `OntapVolumeType` set to `RW` ).
         """
         return pulumi.get(self, "storage_efficiency_enabled")
 
@@ -1132,7 +1260,17 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="tieringPolicy")
     def tiering_policy(self) -> pulumi.Input[Optional['VolumeTieringPolicyArgs']]:
         """
-        Describes the data tiering policy for an ONTAP volume.
+        Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
+
+        Valid tiering policies are the following:
+
+        - `SNAPSHOT_ONLY` - (Default value) moves cold snapshots to the capacity pool storage tier.
+
+        - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+
+        - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+
+        - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
         """
         return pulumi.get(self, "tiering_policy")
 
@@ -1144,7 +1282,7 @@ class VolumeOntapConfigurationArgs:
     @pulumi.getter(name="volumeStyle")
     def volume_style(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use to specify the style of an ONTAP volume.
+        Use to specify the style of an ONTAP volume. FSx for ONTAP offers two styles of volumes that you can use for different purposes, FlexVol and FlexGroup volumes. For more information, see [Volume styles](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html#volume-styles) in the Amazon FSx for NetApp ONTAP User Guide.
         """
         return pulumi.get(self, "volume_style")
 
@@ -1160,11 +1298,15 @@ class VolumeOpenZfsConfigurationArgsDict(TypedDict):
     """
     copy_tags_to_snapshots: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+    A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to `false` . If this value is set to `true` , and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to `true` , and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
     """
     data_compression_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the method used to compress the data on the volume
+    Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.
+
+    - `NONE` - Doesn't compress the data on the volume. `NONE` is the default.
+    - `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
+    - `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
     """
     nfs_exports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeNfsExportsArgsDict']]]]]
     """
@@ -1172,11 +1314,11 @@ class VolumeOpenZfsConfigurationArgsDict(TypedDict):
     """
     options: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    The configuration object for mounting a Network File System (NFS) file system.
+    To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
     """
     origin_snapshot: NotRequired[pulumi.Input[Optional['VolumeOriginSnapshotArgsDict']]]
     """
-    The configuration of an Amazon FSx for OpenZFS volume.
+    The configuration object that specifies the snapshot to use as the origin of the data for the volume.
     """
     read_only: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -1184,15 +1326,17 @@ class VolumeOpenZfsConfigurationArgsDict(TypedDict):
     """
     record_size_ki_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+    Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB. For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* .
     """
     storage_capacity_quota_gi_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+    Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .
+
+    For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
     """
     storage_capacity_reservation_gi_b: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+    Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
     """
     user_and_group_quotas: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgsDict']]]]]
     """
@@ -1215,15 +1359,21 @@ class VolumeOpenZfsConfigurationArgs:
                  user_and_group_quotas: pulumi.Input[Optional[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] parent_volume_id: The ID of the volume to use as the parent volume of the volume that you are creating.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
-        :param pulumi.Input[_builtins.str] data_compression_type: Specifies the method used to compress the data on the volume
+        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshots: A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to `false` . If this value is set to `true` , and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to `true` , and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+        :param pulumi.Input[_builtins.str] data_compression_type: Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.
+               
+               - `NONE` - Doesn't compress the data on the volume. `NONE` is the default.
+               - `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
+               - `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
         :param pulumi.Input[Sequence[pulumi.Input['VolumeNfsExportsArgs']]] nfs_exports: The configuration object for mounting a Network File System (NFS) file system.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] options: The configuration object for mounting a Network File System (NFS) file system.
-        :param pulumi.Input['VolumeOriginSnapshotArgs'] origin_snapshot: The configuration of an Amazon FSx for OpenZFS volume.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] options: To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
+        :param pulumi.Input['VolumeOriginSnapshotArgs'] origin_snapshot: The configuration object that specifies the snapshot to use as the origin of the data for the volume.
         :param pulumi.Input[_builtins.bool] read_only: A Boolean value indicating whether the volume is read-only.
-        :param pulumi.Input[_builtins.int] record_size_ki_b: Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
-        :param pulumi.Input[_builtins.int] storage_capacity_quota_gi_b: Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
-        :param pulumi.Input[_builtins.int] storage_capacity_reservation_gi_b: Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+        :param pulumi.Input[_builtins.int] record_size_ki_b: Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB. For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* .
+        :param pulumi.Input[_builtins.int] storage_capacity_quota_gi_b: Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .
+               
+               For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
+        :param pulumi.Input[_builtins.int] storage_capacity_reservation_gi_b: Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
         :param pulumi.Input[Sequence[pulumi.Input['VolumeUserAndGroupQuotasArgs']]] user_and_group_quotas: Configures how much storage users and groups can use on the volume.
         """
         pulumi.set(__self__, "parent_volume_id", parent_volume_id)
@@ -1264,7 +1414,7 @@ class VolumeOpenZfsConfigurationArgs:
     @pulumi.getter(name="copyTagsToSnapshots")
     def copy_tags_to_snapshots(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to false. If this value is set to true, and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to true, and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
+        A Boolean value indicating whether tags for the volume should be copied to snapshots. This value defaults to `false` . If this value is set to `true` , and you do not specify any tags, all tags for the original volume are copied over to snapshots. If this value is set to `true` , and you do specify one or more tags, only the specified tags for the original volume are copied over to snapshots. If you specify one or more tags when creating a new snapshot, no tags are copied over from the original volume, regardless of this value.
         """
         return pulumi.get(self, "copy_tags_to_snapshots")
 
@@ -1276,7 +1426,11 @@ class VolumeOpenZfsConfigurationArgs:
     @pulumi.getter(name="dataCompressionType")
     def data_compression_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the method used to compress the data on the volume
+        Specifies the method used to compress the data on the volume. The compression type is `NONE` by default.
+
+        - `NONE` - Doesn't compress the data on the volume. `NONE` is the default.
+        - `ZSTD` - Compresses the data in the volume using the Zstandard (ZSTD) compression algorithm. Compared to LZ4, Z-Standard provides a better compression ratio to minimize on-disk storage utilization.
+        - `LZ4` - Compresses the data in the volume using the LZ4 compression algorithm. Compared to Z-Standard, LZ4 is less compute-intensive and delivers higher write throughput speeds.
         """
         return pulumi.get(self, "data_compression_type")
 
@@ -1300,7 +1454,7 @@ class VolumeOpenZfsConfigurationArgs:
     @pulumi.getter
     def options(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The configuration object for mounting a Network File System (NFS) file system.
+        To delete the volume's child volumes, snapshots, and clones, use the string `DELETE_CHILD_VOLUMES_AND_SNAPSHOTS` .
         """
         return pulumi.get(self, "options")
 
@@ -1312,7 +1466,7 @@ class VolumeOpenZfsConfigurationArgs:
     @pulumi.getter(name="originSnapshot")
     def origin_snapshot(self) -> pulumi.Input[Optional['VolumeOriginSnapshotArgs']]:
         """
-        The configuration of an Amazon FSx for OpenZFS volume.
+        The configuration object that specifies the snapshot to use as the origin of the data for the volume.
         """
         return pulumi.get(self, "origin_snapshot")
 
@@ -1336,7 +1490,7 @@ class VolumeOpenZfsConfigurationArgs:
     @pulumi.getter(name="recordSizeKiB")
     def record_size_ki_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB).
+        Specifies the suggested block size for a volume in a ZFS dataset, in kibibytes (KiB). For file systems using the Intelligent-Tiering storage class, valid values are 128, 256, 512, 1024, 2048, or 4096 KiB, with a default of 1024 KiB. For all other file systems, valid values are 4, 8, 16, 32, 64, 128, 256, 512, or 1024 KiB, with a default of 128 KiB. We recommend using the default setting for the majority of use cases. Generally, workloads that write in fixed small or large record sizes may benefit from setting a custom record size, like database workloads (small record size) or media streaming workloads (large record size). For additional guidance on when to set a custom record size, see [ZFS Record size](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/performance.html#record-size-performance) in the *Amazon FSx for OpenZFS User Guide* .
         """
         return pulumi.get(self, "record_size_ki_b")
 
@@ -1348,7 +1502,9 @@ class VolumeOpenZfsConfigurationArgs:
     @pulumi.getter(name="storageCapacityQuotaGiB")
     def storage_capacity_quota_gi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set StorageCapacityReservationGiB. To not specify a storage capacity quota, set this to -1.
+        Sets the maximum storage size in gibibytes (GiB) for the volume. You can specify a quota that is larger than the storage on the parent volume. A volume quota limits the amount of storage that the volume can consume to the configured amount, but does not guarantee the space will be available on the parent volume. To guarantee quota space, you must also set `StorageCapacityReservationGiB` . To *not* specify a storage capacity quota, set this to `-1` .
+
+        For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
         """
         return pulumi.get(self, "storage_capacity_quota_gi_b")
 
@@ -1360,7 +1516,7 @@ class VolumeOpenZfsConfigurationArgs:
     @pulumi.getter(name="storageCapacityReservationGiB")
     def storage_capacity_reservation_gi_b(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting StorageCapacityReservationGiB guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To not specify a storage capacity reservation, set this to 0 or -1. For more information, see Volume properties in the Amazon FSx for OpenZFS User Guide.
+        Specifies the amount of storage in gibibytes (GiB) to reserve from the parent volume. Setting `StorageCapacityReservationGiB` guarantees that the specified amount of storage space on the parent volume will always be available for the volume. You can't reserve more storage than the parent volume has. To *not* specify a storage capacity reservation, set this to `0` or `-1` . For more information, see [Volume properties](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/managing-volumes.html#volume-properties) in the *Amazon FSx for OpenZFS User Guide* .
         """
         return pulumi.get(self, "storage_capacity_reservation_gi_b")
 
@@ -1384,7 +1540,14 @@ class VolumeOpenZfsConfigurationArgs:
 class VolumeOriginSnapshotArgsDict(TypedDict):
     copy_strategy: pulumi.Input[_builtins.str]
     """
-    The configuration object for mounting a Network File System (NFS) file system.
+    Specifies the strategy used when copying data from the snapshot to the new volume.
+
+    - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
+    - `FULL_COPY` - Copies all data from the snapshot to the new volume.
+
+    Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.
+
+    > The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) .
     """
     snapshot_arn: pulumi.Input[_builtins.str]
     """
@@ -1397,7 +1560,14 @@ class VolumeOriginSnapshotArgs:
                  copy_strategy: pulumi.Input[_builtins.str],
                  snapshot_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] copy_strategy: The configuration object for mounting a Network File System (NFS) file system.
+        :param pulumi.Input[_builtins.str] copy_strategy: Specifies the strategy used when copying data from the snapshot to the new volume.
+               
+               - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
+               - `FULL_COPY` - Copies all data from the snapshot to the new volume.
+               
+               Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.
+               
+               > The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) .
         :param pulumi.Input[_builtins.str] snapshot_arn: Specifies the snapshot to use when creating an OpenZFS volume from a snapshot.
         """
         pulumi.set(__self__, "copy_strategy", copy_strategy)
@@ -1407,7 +1577,14 @@ class VolumeOriginSnapshotArgs:
     @pulumi.getter(name="copyStrategy")
     def copy_strategy(self) -> pulumi.Input[_builtins.str]:
         """
-        The configuration object for mounting a Network File System (NFS) file system.
+        Specifies the strategy used when copying data from the snapshot to the new volume.
+
+        - `CLONE` - The new volume references the data in the origin snapshot. Cloning a snapshot is faster than copying data from the snapshot to a new volume and doesn't consume disk throughput. However, the origin snapshot can't be deleted if there is a volume using its copied data.
+        - `FULL_COPY` - Copies all data from the snapshot to the new volume.
+
+        Specify this option to create the volume from a snapshot on another FSx for OpenZFS file system.
+
+        > The `INCREMENTAL_COPY` option is only for updating an existing volume by using a snapshot from another FSx for OpenZFS file system. For more information, see [CopySnapshotAndUpdateVolume](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CopySnapshotAndUpdateVolume.html) .
         """
         return pulumi.get(self, "copy_strategy")
 
@@ -1431,11 +1608,18 @@ class VolumeOriginSnapshotArgs:
 class VolumeRetentionPeriodArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+    Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period.
     """
     value: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+    Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:
+
+    - `Seconds` : 0 - 65,535
+    - `Minutes` : 0 - 65,535
+    - `Hours` : 0 - 24
+    - `Days` : 0 - 365
+    - `Months` : 0 - 12
+    - `Years` : 0 - 100
     """
 
 @pulumi.input_type
@@ -1444,8 +1628,15 @@ class VolumeRetentionPeriodArgs:
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] type: Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
-        :param pulumi.Input[_builtins.int] value: Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+        :param pulumi.Input[_builtins.str] type: Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period.
+        :param pulumi.Input[_builtins.int] value: Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:
+               
+               - `Seconds` : 0 - 65,535
+               - `Minutes` : 0 - 65,535
+               - `Hours` : 0 - 24
+               - `Days` : 0 - 365
+               - `Months` : 0 - 12
+               - `Years` : 0 - 100
         """
         pulumi.set(__self__, "type", type)
         if value is not None:
@@ -1455,7 +1646,7 @@ class VolumeRetentionPeriodArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to INFINITE, the files are retained forever. If you set it to UNSPECIFIED, the files are retained until you set an explicit retention period.
+        Defines the type of time for the retention period of an FSx for ONTAP SnapLock volume. Set it to one of the valid types. If you set it to `INFINITE` , the files are retained forever. If you set it to `UNSPECIFIED` , the files are retained until you set an explicit retention period.
         """
         return pulumi.get(self, "type")
 
@@ -1467,7 +1658,14 @@ class VolumeRetentionPeriodArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for INFINITE or UNSPECIFIED.
+        Defines the amount of time for the retention period of an FSx for ONTAP SnapLock volume. You can't set a value for `INFINITE` or `UNSPECIFIED` . For all other options, the following ranges are valid:
+
+        - `Seconds` : 0 - 65,535
+        - `Minutes` : 0 - 65,535
+        - `Hours` : 0 - 24
+        - `Days` : 0 - 365
+        - `Months` : 0 - 12
+        - `Years` : 0 - 100
         """
         return pulumi.get(self, "value")
 
@@ -1479,11 +1677,16 @@ class VolumeRetentionPeriodArgs:
 class VolumeSnaplockConfigurationArgsDict(TypedDict):
     snaplock_type: pulumi.Input[_builtins.str]
     """
-    Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+    Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. You can choose one of the following retention modes:
+
+    - `COMPLIANCE` : Files transitioned to write once, read many (WORM) on a Compliance volume can't be deleted until their retention periods expire. This retention mode is used to address government or industry-specific mandates or to protect against ransomware attacks. For more information, see [SnapLock Compliance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html) .
+    - `ENTERPRISE` : Files transitioned to WORM on an Enterprise volume can be deleted by authorized users before their retention periods expire using privileged delete. This retention mode is used to advance an organization's data integrity and internal compliance or to test retention settings before using SnapLock Compliance. For more information, see [SnapLock Enterprise](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html) .
     """
     audit_log_volume: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+    Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false` . If you set `AuditLogVolume` to `true` , the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months.
+
+    For more information, see [SnapLock audit log volumes](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume) .
     """
     autocommit_period: NotRequired[pulumi.Input[Optional['VolumeAutocommitPeriodArgsDict']]]
     """
@@ -1491,7 +1694,9 @@ class VolumeSnaplockConfigurationArgsDict(TypedDict):
     """
     privileged_delete: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+    Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. `PERMANENTLY_DISABLED` is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is `DISABLED` .
+
+    For more information, see [Privileged delete](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete) .
     """
     retention_period: NotRequired[pulumi.Input[Optional['VolumeSnaplockRetentionPeriodArgsDict']]]
     """
@@ -1499,7 +1704,9 @@ class VolumeSnaplockConfigurationArgsDict(TypedDict):
     """
     volume_append_mode_enabled: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+    Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is `false` .
+
+    For more information, see [Volume-append mode](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append) .
     """
 
 @pulumi.input_type
@@ -1512,12 +1719,21 @@ class VolumeSnaplockConfigurationArgs:
                  retention_period: pulumi.Input[Optional['VolumeSnaplockRetentionPeriodArgs']] = None,
                  volume_append_mode_enabled: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
-        :param pulumi.Input[_builtins.str] audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+        :param pulumi.Input[_builtins.str] snaplock_type: Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. You can choose one of the following retention modes:
+               
+               - `COMPLIANCE` : Files transitioned to write once, read many (WORM) on a Compliance volume can't be deleted until their retention periods expire. This retention mode is used to address government or industry-specific mandates or to protect against ransomware attacks. For more information, see [SnapLock Compliance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html) .
+               - `ENTERPRISE` : Files transitioned to WORM on an Enterprise volume can be deleted by authorized users before their retention periods expire using privileged delete. This retention mode is used to advance an organization's data integrity and internal compliance or to test retention settings before using SnapLock Compliance. For more information, see [SnapLock Enterprise](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html) .
+        :param pulumi.Input[_builtins.str] audit_log_volume: Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false` . If you set `AuditLogVolume` to `true` , the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months.
+               
+               For more information, see [SnapLock audit log volumes](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume) .
         :param pulumi.Input['VolumeAutocommitPeriodArgs'] autocommit_period: The configuration object for setting the autocommit period of files in an FSx for ONTAP SnapLock volume.
-        :param pulumi.Input[_builtins.str] privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+        :param pulumi.Input[_builtins.str] privileged_delete: Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. `PERMANENTLY_DISABLED` is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is `DISABLED` .
+               
+               For more information, see [Privileged delete](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete) .
         :param pulumi.Input['VolumeSnaplockRetentionPeriodArgs'] retention_period: Specifies the retention period of an FSx for ONTAP SnapLock volume.
-        :param pulumi.Input[_builtins.str] volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input[_builtins.str] volume_append_mode_enabled: Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is `false` .
+               
+               For more information, see [Volume-append mode](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append) .
         """
         pulumi.set(__self__, "snaplock_type", snaplock_type)
         if audit_log_volume is not None:
@@ -1535,7 +1751,10 @@ class VolumeSnaplockConfigurationArgs:
     @pulumi.getter(name="snaplockType")
     def snaplock_type(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed.
+        Specifies the retention mode of an FSx for ONTAP SnapLock volume. After it is set, it can't be changed. You can choose one of the following retention modes:
+
+        - `COMPLIANCE` : Files transitioned to write once, read many (WORM) on a Compliance volume can't be deleted until their retention periods expire. This retention mode is used to address government or industry-specific mandates or to protect against ransomware attacks. For more information, see [SnapLock Compliance](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-compliance.html) .
+        - `ENTERPRISE` : Files transitioned to WORM on an Enterprise volume can be deleted by authorized users before their retention periods expire using privileged delete. This retention mode is used to advance an organization's data integrity and internal compliance or to test retention settings before using SnapLock Compliance. For more information, see [SnapLock Enterprise](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html) .
         """
         return pulumi.get(self, "snaplock_type")
 
@@ -1547,7 +1766,9 @@ class VolumeSnaplockConfigurationArgs:
     @pulumi.getter(name="auditLogVolume")
     def audit_log_volume(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume
+        Enables or disables the audit log volume for an FSx for ONTAP SnapLock volume. The default value is `false` . If you set `AuditLogVolume` to `true` , the SnapLock volume is created as an audit log volume. The minimum retention period for an audit log volume is six months.
+
+        For more information, see [SnapLock audit log volumes](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/how-snaplock-works.html#snaplock-audit-log-volume) .
         """
         return pulumi.get(self, "audit_log_volume")
 
@@ -1571,7 +1792,9 @@ class VolumeSnaplockConfigurationArgs:
     @pulumi.getter(name="privilegedDelete")
     def privileged_delete(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume.
+        Enables, disables, or permanently disables privileged delete on an FSx for ONTAP SnapLock Enterprise volume. Enabling privileged delete allows SnapLock administrators to delete write once, read many (WORM) files even if they have active retention periods. `PERMANENTLY_DISABLED` is a terminal state. If privileged delete is permanently disabled on a SnapLock volume, you can't re-enable it. The default value is `DISABLED` .
+
+        For more information, see [Privileged delete](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/snaplock-enterprise.html#privileged-delete) .
         """
         return pulumi.get(self, "privileged_delete")
 
@@ -1595,7 +1818,9 @@ class VolumeSnaplockConfigurationArgs:
     @pulumi.getter(name="volumeAppendModeEnabled")
     def volume_append_mode_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume.
+        Enables or disables volume-append mode on an FSx for ONTAP SnapLock volume. Volume-append mode allows you to create WORM-appendable files and write data to them incrementally. The default value is `false` .
+
+        For more information, see [Volume-append mode](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/worm-state.html#worm-state-append) .
         """
         return pulumi.get(self, "volume_append_mode_enabled")
 
@@ -1607,7 +1832,7 @@ class VolumeSnaplockConfigurationArgs:
 class VolumeSnaplockRetentionPeriodArgsDict(TypedDict):
     default_retention: pulumi.Input['VolumeRetentionPeriodArgsDict']
     """
-    The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+    The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period.
     """
     maximum_retention: pulumi.Input['VolumeRetentionPeriodArgsDict']
     """
@@ -1625,7 +1850,7 @@ class VolumeSnaplockRetentionPeriodArgs:
                  maximum_retention: pulumi.Input['VolumeRetentionPeriodArgs'],
                  minimum_retention: pulumi.Input['VolumeRetentionPeriodArgs']):
         """
-        :param pulumi.Input['VolumeRetentionPeriodArgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+        :param pulumi.Input['VolumeRetentionPeriodArgs'] default_retention: The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period.
         :param pulumi.Input['VolumeRetentionPeriodArgs'] maximum_retention: The longest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
         :param pulumi.Input['VolumeRetentionPeriodArgs'] minimum_retention: The shortest retention period that can be assigned to a WORM file on an FSx for ONTAP SnapLock volume.
         """
@@ -1637,7 +1862,7 @@ class VolumeSnaplockRetentionPeriodArgs:
     @pulumi.getter(name="defaultRetention")
     def default_retention(self) -> pulumi.Input['VolumeRetentionPeriodArgs']:
         """
-        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume.
+        The retention period assigned to a write once, read many (WORM) file by default if an explicit retention period is not set for an FSx for ONTAP SnapLock volume. The default retention period must be greater than or equal to the minimum retention period and less than or equal to the maximum retention period.
         """
         return pulumi.get(self, "default_retention")
 
@@ -1671,16 +1896,18 @@ class VolumeSnaplockRetentionPeriodArgs:
 
 
 class VolumeTieringPolicyArgsDict(TypedDict):
-    """
-    Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
-    """
     cooling_period: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+    Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+    Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
+
+    - `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.
+    - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+    - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+    - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
     """
 
 @pulumi.input_type
@@ -1689,10 +1916,13 @@ class VolumeTieringPolicyArgs:
                  cooling_period: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        Describes the data tiering policy for an ONTAP volume. When enabled, Amazon FSx for ONTAP's intelligent tiering automatically transitions a volume's data between the file system's primary storage and capacity pool storage based on your access patterns.
-
-        :param pulumi.Input[_builtins.int] cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
-        :param pulumi.Input[_builtins.str] name: Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+        :param pulumi.Input[_builtins.int] cooling_period: Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
+        :param pulumi.Input[_builtins.str] name: Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
+               
+               - `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.
+               - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+               - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+               - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
         """
         if cooling_period is not None:
             pulumi.set(__self__, "cooling_period", cooling_period)
@@ -1703,7 +1933,7 @@ class VolumeTieringPolicyArgs:
     @pulumi.getter(name="coolingPeriod")
     def cooling_period(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool.
+        Specifies the number of days that user data in a volume must remain inactive before it is considered "cold" and moved to the capacity pool. Used with the `AUTO` and `SNAPSHOT_ONLY` tiering policies. Enter a whole number between 2 and 183. Default values are 31 days for `AUTO` and 2 days for `SNAPSHOT_ONLY` .
         """
         return pulumi.get(self, "cooling_period")
 
@@ -1715,7 +1945,12 @@ class VolumeTieringPolicyArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the tiering policy used to transition data. Default value is SNAPSHOT_ONLY.
+        Specifies the tiering policy used to transition data. Default value is `SNAPSHOT_ONLY` .
+
+        - `SNAPSHOT_ONLY` - moves cold snapshots to the capacity pool storage tier.
+        - `AUTO` - moves cold user data and snapshots to the capacity pool storage tier based on your access patterns.
+        - `ALL` - moves all user data blocks in both the active file system and Snapshot copies to the storage pool tier.
+        - `NONE` - keeps a volume's data in the primary storage tier, preventing it from being moved to the capacity pool tier.
         """
         return pulumi.get(self, "name")
 

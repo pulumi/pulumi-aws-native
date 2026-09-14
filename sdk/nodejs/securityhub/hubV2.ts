@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -38,6 +41,7 @@ export class HubV2 extends pulumi.CustomResource {
      * The Amazon Resource Name of the Security Hub V2 resource.
      */
     declare public /*out*/ readonly hubV2Arn: pulumi.Output<string>;
+    declare public readonly networkScanning: pulumi.Output<outputs.securityhub.HubV2NetworkScanning | undefined>;
     /**
      * The date and time when the service was enabled in the account.
      */
@@ -58,11 +62,13 @@ export class HubV2 extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
+            resourceInputs["networkScanning"] = args?.networkScanning;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["hubV2Arn"] = undefined /*out*/;
             resourceInputs["subscribedAt"] = undefined /*out*/;
         } else {
             resourceInputs["hubV2Arn"] = undefined /*out*/;
+            resourceInputs["networkScanning"] = undefined /*out*/;
             resourceInputs["subscribedAt"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
         }
@@ -75,6 +81,7 @@ export class HubV2 extends pulumi.CustomResource {
  * The set of arguments for constructing a HubV2 resource.
  */
 export interface HubV2Args {
+    networkScanning?: pulumi.Input<inputs.securityhub.HubV2NetworkScanningArgs | undefined>;
     /**
      * The tags to add to the hub V2 resource when you enable Security Hub CSPM.
      */

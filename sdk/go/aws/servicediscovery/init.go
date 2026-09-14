@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:servicediscovery:HttpNamespace":
 		r = &HttpNamespace{}
+	case "aws-native:servicediscovery:Instance":
+		r = &Instance{}
 	case "aws-native:servicediscovery:PrivateDnsNamespace":
 		r = &PrivateDnsNamespace{}
 	case "aws-native:servicediscovery:PublicDnsNamespace":

@@ -16,9 +16,333 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'GraphImportOptionsArgs',
+    'GraphImportOptionsArgsDict',
+    'GraphImportTaskArgs',
+    'GraphImportTaskArgsDict',
+    'GraphNeptuneImportOptionsArgs',
+    'GraphNeptuneImportOptionsArgsDict',
     'GraphVectorSearchConfigurationArgs',
     'GraphVectorSearchConfigurationArgsDict',
 ]
+
+class GraphImportOptionsArgsDict(TypedDict):
+    """
+    Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+    """
+    neptune: NotRequired[pulumi.Input[Optional['GraphNeptuneImportOptionsArgsDict']]]
+    """
+    Options for importing data from a Neptune database.
+    """
+
+@pulumi.input_type
+class GraphImportOptionsArgs:
+    def __init__(__self__, *,
+                 neptune: pulumi.Input[Optional['GraphNeptuneImportOptionsArgs']] = None):
+        """
+        Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+
+        :param pulumi.Input['GraphNeptuneImportOptionsArgs'] neptune: Options for importing data from a Neptune database.
+        """
+        if neptune is not None:
+            pulumi.set(__self__, "neptune", neptune)
+
+    @_builtins.property
+    @pulumi.getter
+    def neptune(self) -> pulumi.Input[Optional['GraphNeptuneImportOptionsArgs']]:
+        """
+        Options for importing data from a Neptune database.
+        """
+        return pulumi.get(self, "neptune")
+
+    @neptune.setter
+    def neptune(self, value: pulumi.Input[Optional['GraphNeptuneImportOptionsArgs']]):
+        pulumi.set(self, "neptune", value)
+
+
+class GraphImportTaskArgsDict(TypedDict):
+    """
+    The import task details to import data into the graph at creation time.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that will allow access to the data that is to be imported.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+    """
+    blank_node_handling: NotRequired[pulumi.Input[Optional['GraphImportTaskBlankNodeHandling']]]
+    """
+    The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+    """
+    fail_on_error: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+    """
+    format: NotRequired[pulumi.Input[Optional['GraphImportTaskFormat']]]
+    """
+    Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+    """
+    import_options: NotRequired[pulumi.Input[Optional['GraphImportOptionsArgsDict']]]
+    """
+    Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+    """
+    max_provisioned_memory: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+    """
+    min_provisioned_memory: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+    """
+    parquet_type: NotRequired[pulumi.Input[Optional['GraphImportTaskParquetType']]]
+    """
+    The parquet type of the import task. Required when Format is PARQUET.
+    """
+
+@pulumi.input_type
+class GraphImportTaskArgs:
+    def __init__(__self__, *,
+                 role_arn: pulumi.Input[_builtins.str],
+                 source: pulumi.Input[_builtins.str],
+                 blank_node_handling: pulumi.Input[Optional['GraphImportTaskBlankNodeHandling']] = None,
+                 fail_on_error: pulumi.Input[Optional[_builtins.bool]] = None,
+                 format: pulumi.Input[Optional['GraphImportTaskFormat']] = None,
+                 import_options: pulumi.Input[Optional['GraphImportOptionsArgs']] = None,
+                 max_provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
+                 min_provisioned_memory: pulumi.Input[Optional[_builtins.int]] = None,
+                 parquet_type: pulumi.Input[Optional['GraphImportTaskParquetType']] = None):
+        """
+        The import task details to import data into the graph at creation time.
+
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role that will allow access to the data that is to be imported.
+        :param pulumi.Input[_builtins.str] source: A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+        :param pulumi.Input['GraphImportTaskBlankNodeHandling'] blank_node_handling: The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+        :param pulumi.Input[_builtins.bool] fail_on_error: If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+        :param pulumi.Input['GraphImportTaskFormat'] format: Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+        :param pulumi.Input['GraphImportOptionsArgs'] import_options: Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+        :param pulumi.Input[_builtins.int] max_provisioned_memory: The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+        :param pulumi.Input[_builtins.int] min_provisioned_memory: The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+        :param pulumi.Input['GraphImportTaskParquetType'] parquet_type: The parquet type of the import task. Required when Format is PARQUET.
+        """
+        pulumi.set(__self__, "role_arn", role_arn)
+        pulumi.set(__self__, "source", source)
+        if blank_node_handling is not None:
+            pulumi.set(__self__, "blank_node_handling", blank_node_handling)
+        if fail_on_error is not None:
+            pulumi.set(__self__, "fail_on_error", fail_on_error)
+        if format is not None:
+            pulumi.set(__self__, "format", format)
+        if import_options is not None:
+            pulumi.set(__self__, "import_options", import_options)
+        if max_provisioned_memory is not None:
+            pulumi.set(__self__, "max_provisioned_memory", max_provisioned_memory)
+        if min_provisioned_memory is not None:
+            pulumi.set(__self__, "min_provisioned_memory", min_provisioned_memory)
+        if parquet_type is not None:
+            pulumi.set(__self__, "parquet_type", parquet_type)
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role that will allow access to the data that is to be imported.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[_builtins.str]:
+        """
+        A URL identifying to the location of the data to be imported. This can be an Amazon S3 path, or can point to a Neptune database endpoint or snapshot.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="blankNodeHandling")
+    def blank_node_handling(self) -> pulumi.Input[Optional['GraphImportTaskBlankNodeHandling']]:
+        """
+        The method to handle blank nodes in the dataset. Currently, only convertToIri is supported, meaning blank nodes are converted to unique IRIs at load time. Must be provided when format is NTRIPLES
+        """
+        return pulumi.get(self, "blank_node_handling")
+
+    @blank_node_handling.setter
+    def blank_node_handling(self, value: pulumi.Input[Optional['GraphImportTaskBlankNodeHandling']]):
+        pulumi.set(self, "blank_node_handling", value)
+
+    @_builtins.property
+    @pulumi.getter(name="failOnError")
+    def fail_on_error(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        If set to true, the task halts when an import error is encountered. If set to false, the task skips the data that caused the error and continues if possible.
+        """
+        return pulumi.get(self, "fail_on_error")
+
+    @fail_on_error.setter
+    def fail_on_error(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "fail_on_error", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def format(self) -> pulumi.Input[Optional['GraphImportTaskFormat']]:
+        """
+        Specifies the format of S3 data to be imported. Valid values are CSV, which identifies the Gremlin CSV format, OPEN_CYPHER, which identifies the openCypher load format, or NTRIPLES, which identifies the RDF n-triples format.
+        """
+        return pulumi.get(self, "format")
+
+    @format.setter
+    def format(self, value: pulumi.Input[Optional['GraphImportTaskFormat']]):
+        pulumi.set(self, "format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="importOptions")
+    def import_options(self) -> pulumi.Input[Optional['GraphImportOptionsArgs']]:
+        """
+        Contains options for controlling the import process. For example, if the failOnError key is set to false, the import skips the data that caused the error and continues if possible (whereas if set to true, the default, or if omitted, the import operation halts immediately when an error is encountered).
+        """
+        return pulumi.get(self, "import_options")
+
+    @import_options.setter
+    def import_options(self, value: pulumi.Input[Optional['GraphImportOptionsArgs']]):
+        pulumi.set(self, "import_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxProvisionedMemory")
+    def max_provisioned_memory(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The maximum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 1024, or the approved upper limit for your account. If both the minimum and maximum values are specified, the final provisioned-memory will be chosen per the actual size of your imported data. If neither value is specified, 128 m-NCUs are used.
+        """
+        return pulumi.get(self, "max_provisioned_memory")
+
+    @max_provisioned_memory.setter
+    def max_provisioned_memory(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_provisioned_memory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minProvisionedMemory")
+    def min_provisioned_memory(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph. Default: 16
+        """
+        return pulumi.get(self, "min_provisioned_memory")
+
+    @min_provisioned_memory.setter
+    def min_provisioned_memory(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "min_provisioned_memory", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parquetType")
+    def parquet_type(self) -> pulumi.Input[Optional['GraphImportTaskParquetType']]:
+        """
+        The parquet type of the import task. Required when Format is PARQUET.
+        """
+        return pulumi.get(self, "parquet_type")
+
+    @parquet_type.setter
+    def parquet_type(self, value: pulumi.Input[Optional['GraphImportTaskParquetType']]):
+        pulumi.set(self, "parquet_type", value)
+
+
+class GraphNeptuneImportOptionsArgsDict(TypedDict):
+    """
+    Options for importing data from a Neptune database.
+    """
+    s3_export_kms_key_id: pulumi.Input[_builtins.str]
+    """
+    The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+    """
+    s3_export_path: pulumi.Input[_builtins.str]
+    """
+    The path to an S3 bucket from which to import data.
+    """
+    preserve_default_vertex_labels: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+    """
+    preserve_edge_ids: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+    """
+
+@pulumi.input_type
+class GraphNeptuneImportOptionsArgs:
+    def __init__(__self__, *,
+                 s3_export_kms_key_id: pulumi.Input[_builtins.str],
+                 s3_export_path: pulumi.Input[_builtins.str],
+                 preserve_default_vertex_labels: pulumi.Input[Optional[_builtins.bool]] = None,
+                 preserve_edge_ids: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Options for importing data from a Neptune database.
+
+        :param pulumi.Input[_builtins.str] s3_export_kms_key_id: The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+        :param pulumi.Input[_builtins.str] s3_export_path: The path to an S3 bucket from which to import data.
+        :param pulumi.Input[_builtins.bool] preserve_default_vertex_labels: Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+        :param pulumi.Input[_builtins.bool] preserve_edge_ids: Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+        """
+        pulumi.set(__self__, "s3_export_kms_key_id", s3_export_kms_key_id)
+        pulumi.set(__self__, "s3_export_path", s3_export_path)
+        if preserve_default_vertex_labels is not None:
+            pulumi.set(__self__, "preserve_default_vertex_labels", preserve_default_vertex_labels)
+        if preserve_edge_ids is not None:
+            pulumi.set(__self__, "preserve_edge_ids", preserve_edge_ids)
+
+    @_builtins.property
+    @pulumi.getter(name="s3ExportKmsKeyId")
+    def s3_export_kms_key_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The KMS key to use to encrypt data in the S3 bucket where the graph data is exported.
+        """
+        return pulumi.get(self, "s3_export_kms_key_id")
+
+    @s3_export_kms_key_id.setter
+    def s3_export_kms_key_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_export_kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3ExportPath")
+    def s3_export_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The path to an S3 bucket from which to import data.
+        """
+        return pulumi.get(self, "s3_export_path")
+
+    @s3_export_path.setter
+    def s3_export_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_export_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preserveDefaultVertexLabels")
+    def preserve_default_vertex_labels(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Neptune Analytics supports label-less vertices and no labels are assigned unless one is explicitly provided. Neptune assigns default labels when none is explicitly provided. When importing the data into Neptune Analytics, the default vertex labels can be omitted by setting preserveDefaultVertexLabels to false. Note that if the vertex only has default labels, and has no other properties or edges, then the vertex will effectively not get imported into Neptune Analytics when preserveDefaultVertexLabels is set to false.
+        """
+        return pulumi.get(self, "preserve_default_vertex_labels")
+
+    @preserve_default_vertex_labels.setter
+    def preserve_default_vertex_labels(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "preserve_default_vertex_labels", value)
+
+    @_builtins.property
+    @pulumi.getter(name="preserveEdgeIds")
+    def preserve_edge_ids(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Neptune Analytics currently does not support user defined edge ids. The edge ids are not imported by default. They are imported if preserveEdgeIds is set to true, and ids are stored as properties on the relationships with the property name neptuneEdgeId.
+        """
+        return pulumi.get(self, "preserve_edge_ids")
+
+    @preserve_edge_ids.setter
+    def preserve_edge_ids(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "preserve_edge_ids", value)
+
 
 class GraphVectorSearchConfigurationArgsDict(TypedDict):
     """

@@ -191,7 +191,7 @@ class DirectConnectGatewayAttachment(pulumi.CustomResource):
             __props__.__dict__["segment_name"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["updated_at"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["coreNetworkId", "directConnectGatewayArn", "routingPolicyLabel"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["coreNetworkId", "directConnectGatewayArn"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(DirectConnectGatewayAttachment, __self__).__init__(
             'aws-native:networkmanager:DirectConnectGatewayAttachment',

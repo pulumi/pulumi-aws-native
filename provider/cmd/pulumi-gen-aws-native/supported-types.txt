@@ -397,6 +397,7 @@ AWS::DMS::MigrationProject
 AWS::DMS::ReplicationConfig
 AWS::DMS::ReplicationSubnetGroup
 AWS::DMS::ReplicationTask
+AWS::DRS::LaunchConfigurationTemplate
 AWS::DRS::SourceNetwork
 AWS::DSQL::Cluster
 AWS::DataBrew::Dataset
@@ -1455,6 +1456,7 @@ AWS::ServiceCatalogAppRegistry::AttributeGroup
 AWS::ServiceCatalogAppRegistry::AttributeGroupAssociation
 AWS::ServiceCatalogAppRegistry::ResourceAssociation
 AWS::ServiceDiscovery::HttpNamespace
+AWS::ServiceDiscovery::Instance
 AWS::ServiceDiscovery::PrivateDnsNamespace
 AWS::ServiceDiscovery::PublicDnsNamespace
 AWS::ServiceDiscovery::Service

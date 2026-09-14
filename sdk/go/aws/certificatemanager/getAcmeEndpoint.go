@@ -30,10 +30,8 @@ type LookupAcmeEndpointArgs struct {
 
 type LookupAcmeEndpointResult struct {
 	// The Amazon Resource Name (ARN) of the ACME endpoint.
-	AcmeEndpointArn *string `pulumi:"acmeEndpointArn"`
-	// The authorization behavior for the ACME endpoint.
-	AuthorizationBehavior *string                           `pulumi:"authorizationBehavior"`
-	CertificateAuthority  *AcmeEndpointCertificateAuthority `pulumi:"certificateAuthority"`
+	AcmeEndpointArn      *string                           `pulumi:"acmeEndpointArn"`
+	CertificateAuthority *AcmeEndpointCertificateAuthority `pulumi:"certificateAuthority"`
 	// Whether contact information is required for the ACME endpoint.
 	Contact *string `pulumi:"contact"`
 	// The ACME directory URL for the endpoint.
@@ -73,11 +71,6 @@ func (o LookupAcmeEndpointResultOutput) ToLookupAcmeEndpointResultOutputWithCont
 // The Amazon Resource Name (ARN) of the ACME endpoint.
 func (o LookupAcmeEndpointResultOutput) AcmeEndpointArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAcmeEndpointResult) *string { return v.AcmeEndpointArn }).(pulumi.StringPtrOutput)
-}
-
-// The authorization behavior for the ACME endpoint.
-func (o LookupAcmeEndpointResultOutput) AuthorizationBehavior() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupAcmeEndpointResult) *string { return v.AuthorizationBehavior }).(pulumi.StringPtrOutput)
 }
 
 func (o LookupAcmeEndpointResultOutput) CertificateAuthority() AcmeEndpointCertificateAuthorityPtrOutput {

@@ -175,7 +175,7 @@ export class DirectConnectGatewayAttachment extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "directConnectGatewayArn", "routingPolicyLabel"] };
+        const replaceOnChanges = { replaceOnChanges: ["coreNetworkId", "directConnectGatewayArn"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(DirectConnectGatewayAttachment.__pulumiType, name, resourceInputs, opts);
     }

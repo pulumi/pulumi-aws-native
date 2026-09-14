@@ -6652,6 +6652,146 @@ func (o ConnectorV2ServiceNowProviderConfigurationPtrOutput) SecretArn() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
+// Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+type HubV2NetworkScanning struct {
+	// Whether the Network Scanning feature is enabled for this account and Region.
+	Status HubV2NetworkScanningStatus `pulumi:"status"`
+}
+
+// HubV2NetworkScanningInput is an input type that accepts HubV2NetworkScanningArgs and HubV2NetworkScanningOutput values.
+// You can construct a concrete instance of `HubV2NetworkScanningInput` via:
+//
+//	HubV2NetworkScanningArgs{...}
+type HubV2NetworkScanningInput interface {
+	pulumi.Input
+
+	ToHubV2NetworkScanningOutput() HubV2NetworkScanningOutput
+	ToHubV2NetworkScanningOutputWithContext(context.Context) HubV2NetworkScanningOutput
+}
+
+// Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+type HubV2NetworkScanningArgs struct {
+	// Whether the Network Scanning feature is enabled for this account and Region.
+	Status HubV2NetworkScanningStatusInput `pulumi:"status"`
+}
+
+func (HubV2NetworkScanningArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubV2NetworkScanning)(nil)).Elem()
+}
+
+func (i HubV2NetworkScanningArgs) ToHubV2NetworkScanningOutput() HubV2NetworkScanningOutput {
+	return i.ToHubV2NetworkScanningOutputWithContext(context.Background())
+}
+
+func (i HubV2NetworkScanningArgs) ToHubV2NetworkScanningOutputWithContext(ctx context.Context) HubV2NetworkScanningOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubV2NetworkScanningOutput)
+}
+
+func (i HubV2NetworkScanningArgs) ToHubV2NetworkScanningPtrOutput() HubV2NetworkScanningPtrOutput {
+	return i.ToHubV2NetworkScanningPtrOutputWithContext(context.Background())
+}
+
+func (i HubV2NetworkScanningArgs) ToHubV2NetworkScanningPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubV2NetworkScanningOutput).ToHubV2NetworkScanningPtrOutputWithContext(ctx)
+}
+
+// HubV2NetworkScanningPtrInput is an input type that accepts HubV2NetworkScanningArgs, HubV2NetworkScanningPtr and HubV2NetworkScanningPtrOutput values.
+// You can construct a concrete instance of `HubV2NetworkScanningPtrInput` via:
+//
+//	        HubV2NetworkScanningArgs{...}
+//
+//	or:
+//
+//	        nil
+type HubV2NetworkScanningPtrInput interface {
+	pulumi.Input
+
+	ToHubV2NetworkScanningPtrOutput() HubV2NetworkScanningPtrOutput
+	ToHubV2NetworkScanningPtrOutputWithContext(context.Context) HubV2NetworkScanningPtrOutput
+}
+
+type hubV2NetworkScanningPtrType HubV2NetworkScanningArgs
+
+func HubV2NetworkScanningPtr(v *HubV2NetworkScanningArgs) HubV2NetworkScanningPtrInput {
+	return (*hubV2NetworkScanningPtrType)(v)
+}
+
+func (*hubV2NetworkScanningPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubV2NetworkScanning)(nil)).Elem()
+}
+
+func (i *hubV2NetworkScanningPtrType) ToHubV2NetworkScanningPtrOutput() HubV2NetworkScanningPtrOutput {
+	return i.ToHubV2NetworkScanningPtrOutputWithContext(context.Background())
+}
+
+func (i *hubV2NetworkScanningPtrType) ToHubV2NetworkScanningPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HubV2NetworkScanningPtrOutput)
+}
+
+// Configuration for the Network Scanning opt-in feature of Security Hub V2. Network Scanning is available in the AWS commercial partition only; specifying this property in another partition, such as AWS GovCloud (US) or China, fails. This property is desired state: if you remove it from a stack that previously set it, the feature is disabled. If a stack has never set it, the feature is left as-is, so a stack that does not manage Network Scanning will not disable it. Network Scanning requires Security Hub V2 to be enabled in the same account and Region.
+type HubV2NetworkScanningOutput struct{ *pulumi.OutputState }
+
+func (HubV2NetworkScanningOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HubV2NetworkScanning)(nil)).Elem()
+}
+
+func (o HubV2NetworkScanningOutput) ToHubV2NetworkScanningOutput() HubV2NetworkScanningOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningOutput) ToHubV2NetworkScanningOutputWithContext(ctx context.Context) HubV2NetworkScanningOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningOutput) ToHubV2NetworkScanningPtrOutput() HubV2NetworkScanningPtrOutput {
+	return o.ToHubV2NetworkScanningPtrOutputWithContext(context.Background())
+}
+
+func (o HubV2NetworkScanningOutput) ToHubV2NetworkScanningPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v HubV2NetworkScanning) *HubV2NetworkScanning {
+		return &v
+	}).(HubV2NetworkScanningPtrOutput)
+}
+
+// Whether the Network Scanning feature is enabled for this account and Region.
+func (o HubV2NetworkScanningOutput) Status() HubV2NetworkScanningStatusOutput {
+	return o.ApplyT(func(v HubV2NetworkScanning) HubV2NetworkScanningStatus { return v.Status }).(HubV2NetworkScanningStatusOutput)
+}
+
+type HubV2NetworkScanningPtrOutput struct{ *pulumi.OutputState }
+
+func (HubV2NetworkScanningPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**HubV2NetworkScanning)(nil)).Elem()
+}
+
+func (o HubV2NetworkScanningPtrOutput) ToHubV2NetworkScanningPtrOutput() HubV2NetworkScanningPtrOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningPtrOutput) ToHubV2NetworkScanningPtrOutputWithContext(ctx context.Context) HubV2NetworkScanningPtrOutput {
+	return o
+}
+
+func (o HubV2NetworkScanningPtrOutput) Elem() HubV2NetworkScanningOutput {
+	return o.ApplyT(func(v *HubV2NetworkScanning) HubV2NetworkScanning {
+		if v != nil {
+			return *v
+		}
+		var ret HubV2NetworkScanning
+		return ret
+	}).(HubV2NetworkScanningOutput)
+}
+
+// Whether the Network Scanning feature is enabled for this account and Region.
+func (o HubV2NetworkScanningPtrOutput) Status() HubV2NetworkScanningStatusPtrOutput {
+	return o.ApplyT(func(v *HubV2NetworkScanning) *HubV2NetworkScanningStatus {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(HubV2NetworkScanningStatusPtrOutput)
+}
+
 // A collection of filters that are applied to all active findings aggregated by AWS Security Hub.
 type InsightAwsSecurityFindingFilters struct {
 	// The AWS account ID in which a finding is generated.
@@ -10330,6 +10470,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ProviderInput)(nil)).Elem(), ConnectorV2ProviderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ServiceNowProviderConfigurationInput)(nil)).Elem(), ConnectorV2ServiceNowProviderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectorV2ServiceNowProviderConfigurationPtrInput)(nil)).Elem(), ConnectorV2ServiceNowProviderConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubV2NetworkScanningInput)(nil)).Elem(), HubV2NetworkScanningArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*HubV2NetworkScanningPtrInput)(nil)).Elem(), HubV2NetworkScanningArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightAwsSecurityFindingFiltersInput)(nil)).Elem(), InsightAwsSecurityFindingFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterInput)(nil)).Elem(), InsightBooleanFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightBooleanFilterArrayInput)(nil)).Elem(), InsightBooleanFilterArray{})
@@ -10437,6 +10579,8 @@ func init() {
 	pulumi.RegisterOutputType(ConnectorV2ProviderPtrOutput{})
 	pulumi.RegisterOutputType(ConnectorV2ServiceNowProviderConfigurationOutput{})
 	pulumi.RegisterOutputType(ConnectorV2ServiceNowProviderConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(HubV2NetworkScanningOutput{})
+	pulumi.RegisterOutputType(HubV2NetworkScanningPtrOutput{})
 	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersOutput{})
 	pulumi.RegisterOutputType(InsightAwsSecurityFindingFiltersPtrOutput{})
 	pulumi.RegisterOutputType(InsightBooleanFilterOutput{})

@@ -76,7 +76,6 @@ func NewDirectConnectGatewayAttachment(ctx *pulumi.Context,
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"coreNetworkId",
 		"directConnectGatewayArn",
-		"routingPolicyLabel",
 	})
 	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)

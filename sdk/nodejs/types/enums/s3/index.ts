@@ -172,6 +172,8 @@ export const BucketInventoryConfigurationOptionalFieldsItem = {
     ObjectLockRetainUntilDate: "ObjectLockRetainUntilDate",
     ObjectLockMode: "ObjectLockMode",
     ObjectLockLegalHoldStatus: "ObjectLockLegalHoldStatus",
+    ObjectLockEventHoldStatus: "ObjectLockEventHoldStatus",
+    ObjectLockEventHoldDuration: "ObjectLockEventHoldDuration",
     IntelligentTieringAccessTier: "IntelligentTieringAccessTier",
     BucketKeyStatus: "BucketKeyStatus",
     ChecksumAlgorithm: "ChecksumAlgorithm",

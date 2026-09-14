@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Ecs
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        [Output("critical")]
+        public Output<bool?> Critical { get; private set; } = null!;
+
         [Output("daemonArn")]
         public Output<string> DaemonArn { get; private set; } = null!;
 
@@ -145,6 +148,9 @@ namespace Pulumi.AwsNative.Ecs
         /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }
+
+        [Input("critical")]
+        public Input<bool>? Critical { get; set; }
 
         [Input("daemonName")]
         public Input<string>? DaemonName { get; set; }

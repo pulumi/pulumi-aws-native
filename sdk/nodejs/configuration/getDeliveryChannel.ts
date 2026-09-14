@@ -8,17 +8,20 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource Type definition for AWS::Config::DeliveryChannel
+ * Resource type definition for AWS::Config::DeliveryChannel
  */
 export function getDeliveryChannel(args: GetDeliveryChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetDeliveryChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:configuration:getDeliveryChannel", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetDeliveryChannelArgs {
-    id: string;
+    /**
+     * The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+     */
+    name: string;
 }
 
 export interface GetDeliveryChannelResult {
@@ -26,11 +29,8 @@ export interface GetDeliveryChannelResult {
      * The options for how often AWS Config delivers configuration snapshots to the Amazon S3 bucket.
      */
     readonly configSnapshotDeliveryProperties?: outputs.configuration.DeliveryChannelConfigSnapshotDeliveryProperties;
-    readonly id?: string;
     /**
      * The name of the Amazon S3 bucket to which AWS Config delivers configuration snapshots and configuration history files.
-     *
-     * If you specify a bucket that belongs to another AWS account , that bucket must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon S3 Bucket](https://docs.aws.amazon.com/config/latest/developerguide/s3-bucket-policy.html) in the *AWS Config Developer Guide* .
      */
     readonly s3BucketName?: string;
     /**
@@ -38,26 +38,27 @@ export interface GetDeliveryChannelResult {
      */
     readonly s3KeyPrefix?: string;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Key Management Service ( AWS  ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config . Must belong to the same Region as the destination S3 bucket.
+     * The Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS ) AWS KMS key (KMS key) used to encrypt objects delivered by AWS Config. Must belong to the same Region as the destination S3 bucket.
      */
     readonly s3KmsKeyArn?: string;
     /**
      * The Amazon Resource Name (ARN) of the Amazon SNS topic to which AWS Config sends notifications about configuration changes.
-     *
-     * If you choose a topic from another account, the topic must have policies that grant access permissions to AWS Config . For more information, see [Permissions for the Amazon SNS Topic](https://docs.aws.amazon.com/config/latest/developerguide/sns-topic-policy.html) in the *AWS Config Developer Guide* .
      */
     readonly snsTopicArn?: string;
 }
 /**
- * Resource Type definition for AWS::Config::DeliveryChannel
+ * Resource type definition for AWS::Config::DeliveryChannel
  */
 export function getDeliveryChannelOutput(args: GetDeliveryChannelOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDeliveryChannelResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:configuration:getDeliveryChannel", {
-        "id": args.id,
+        "name": args.name,
     }, opts);
 }
 
 export interface GetDeliveryChannelOutputArgs {
-    id: pulumi.Input<string>;
+    /**
+     * The name of the delivery channel. By default, AWS Config assigns the name "default" when creating the delivery channel. To change the delivery channel name, you must use the DeleteDeliveryChannel action to delete your current delivery channel, and then you must use the PutDeliveryChannel command to create a delivery channel that has the desired name.
+     */
+    name: pulumi.Input<string>;
 }
