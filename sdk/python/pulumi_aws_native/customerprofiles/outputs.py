@@ -3395,7 +3395,7 @@ class SegmentDefinitionGroup(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 dimensions: Optional[Sequence[Any]] = None,
+                 dimensions: Optional[Sequence[Union['outputs.SegmentDefinitionDimension0Properties', 'outputs.SegmentDefinitionDimension1Properties']]] = None,
                  source_segments: Optional[Sequence['outputs.SegmentDefinitionSourceSegment']] = None,
                  source_type: Optional['SegmentDefinitionIncludeOptions'] = None,
                  type: Optional['SegmentDefinitionIncludeOptions'] = None):
@@ -3418,7 +3418,7 @@ class SegmentDefinitionGroup(dict):
 
     @_builtins.property
     @pulumi.getter
-    def dimensions(self) -> Optional[Sequence[Any]]:
+    def dimensions(self) -> Optional[Sequence[Union['outputs.SegmentDefinitionDimension0Properties', 'outputs.SegmentDefinitionDimension1Properties']]]:
         """
         Defines the attributes to segment on.
         """

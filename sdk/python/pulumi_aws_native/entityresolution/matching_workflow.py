@@ -165,12 +165,12 @@ class MatchingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 incremental_run_config: pulumi.Input[Optional[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
-                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
-                 output_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
-                 resolution_techniques: pulumi.Input[Optional[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
+                 incremental_run_config: pulumi.Input[Optional[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict', 'outputs.MatchingWorkflowIncrementalRunConfig']]] = None,
+                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict', 'outputs.MatchingWorkflowInputSource']]]]] = None,
+                 output_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict', 'outputs.MatchingWorkflowOutputSource']]]]] = None,
+                 resolution_techniques: pulumi.Input[Optional[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict', 'outputs.MatchingWorkflowResolutionTechniques']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -179,14 +179,14 @@ class MatchingWorkflow(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the MatchingWorkflow
-        :param pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']] incremental_run_config: Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
+        :param pulumi.Input[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict', 'outputs.MatchingWorkflowIncrementalRunConfig']] incremental_run_config: Optional. An object that defines the incremental run type. This object contains only the `incrementalRunType` field, which appears as "Automatic" in the console.
                
                > For workflows where `resolutionType` is `ML_MATCHING` or `PROVIDER` , incremental processing is not supported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]] output_source_config: A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
-        :param pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict', 'outputs.MatchingWorkflowInputSource']]]] input_source_config: A list of `InputSource` objects, which have the fields `InputSourceARN` and `SchemaName` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict', 'outputs.MatchingWorkflowOutputSource']]]] output_source_config: A list of `OutputSource` objects, each of which contains fields `outputS3Path` , `applyNormalization` , `KMSArn` , and `output` .
+        :param pulumi.Input[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict', 'outputs.MatchingWorkflowResolutionTechniques']] resolution_techniques: An object which defines the `resolutionType` and the `ruleBasedProperties` .
         :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM role. AWS Entity Resolution assumes this role to create resources on your behalf as part of workflow execution.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for this resource.
         :param pulumi.Input[_builtins.str] workflow_name: The name of the MatchingWorkflow
         """
         ...
@@ -214,12 +214,12 @@ class MatchingWorkflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 incremental_run_config: pulumi.Input[Optional[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict']]] = None,
-                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict']]]]] = None,
-                 output_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict']]]]] = None,
-                 resolution_techniques: pulumi.Input[Optional[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict']]] = None,
+                 incremental_run_config: pulumi.Input[Optional[Union['MatchingWorkflowIncrementalRunConfigArgs', 'MatchingWorkflowIncrementalRunConfigArgsDict', 'outputs.MatchingWorkflowIncrementalRunConfig']]] = None,
+                 input_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowInputSourceArgs', 'MatchingWorkflowInputSourceArgsDict', 'outputs.MatchingWorkflowInputSource']]]]] = None,
+                 output_source_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MatchingWorkflowOutputSourceArgs', 'MatchingWorkflowOutputSourceArgsDict', 'outputs.MatchingWorkflowOutputSource']]]]] = None,
+                 resolution_techniques: pulumi.Input[Optional[Union['MatchingWorkflowResolutionTechniquesArgs', 'MatchingWorkflowResolutionTechniquesArgsDict', 'outputs.MatchingWorkflowResolutionTechniques']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workflow_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

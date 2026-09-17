@@ -98,9 +98,9 @@ class AssistantAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 association: pulumi.Input[Optional[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict']]]] = None,
+                 association: pulumi.Input[Optional[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict', 'outputs.AssistantAssociationAssociationData0Properties'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict', 'outputs.AssistantAssociationAssociationData1Properties']]]] = None,
                  association_type: pulumi.Input[Optional['AssistantAssociationAssociationType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Wisdom::AssistantAssociation Resource Type
@@ -108,9 +108,9 @@ class AssistantAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] assistant_id: The identifier of the Wisdom assistant.
-        :param pulumi.Input[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict']]] association: The identifier of the associated resource.
+        :param pulumi.Input[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict', 'outputs.AssistantAssociationAssociationData0Properties'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict', 'outputs.AssistantAssociationAssociationData1Properties']]] association: The identifier of the associated resource.
         :param pulumi.Input['AssistantAssociationAssociationType'] association_type: The type of association.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The tags used to organize, track, or control access for this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The tags used to organize, track, or control access for this resource.
         """
         ...
     @overload
@@ -137,9 +137,9 @@ class AssistantAssociation(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  assistant_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 association: pulumi.Input[Optional[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict']]]] = None,
+                 association: pulumi.Input[Optional[Union[Union['AssistantAssociationAssociationData0PropertiesArgs', 'AssistantAssociationAssociationData0PropertiesArgsDict', 'outputs.AssistantAssociationAssociationData0Properties'], Union['AssistantAssociationAssociationData1PropertiesArgs', 'AssistantAssociationAssociationData1PropertiesArgsDict', 'outputs.AssistantAssociationAssociationData1Properties']]]] = None,
                  association_type: pulumi.Input[Optional['AssistantAssociationAssociationType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,7 +229,7 @@ class AssistantAssociation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def association(self) -> pulumi.Output[Any]:
+    def association(self) -> pulumi.Output[Union['outputs.AssistantAssociationAssociationData0Properties', 'outputs.AssistantAssociationAssociationData1Properties']]:
         """
         The identifier of the associated resource.
         """

@@ -225,14 +225,14 @@ class ExperimentDefinition(pulumi.CustomResource):
                  audience_description: pulumi.Input[Optional[_builtins.str]] = None,
                  audience_rule: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 control: pulumi.Input[Optional[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict']]] = None,
+                 control: pulumi.Input[Optional[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict', 'outputs.ExperimentDefinitionTreatment']]] = None,
                  environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  flag_key: pulumi.Input[Optional[_builtins.str]] = None,
                  hypothesis: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_criteria: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict', 'outputs.ExperimentDefinitionTreatment']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::ExperimentDefinition
@@ -243,14 +243,14 @@ class ExperimentDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] audience_description: Human-readable description of the audience.
         :param pulumi.Input[_builtins.str] audience_rule: Rule expression defining the experiment audience.
         :param pulumi.Input[_builtins.str] configuration_profile_identifier: The configuration profile ID, name, or ARN.
-        :param pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict']] control: The control (baseline) variant.
+        :param pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict', 'outputs.ExperimentDefinitionTreatment']] control: The control (baseline) variant.
         :param pulumi.Input[_builtins.str] environment_identifier: The environment ID, name, or ARN.
         :param pulumi.Input[_builtins.str] flag_key: The key of the existing flag in the configuration profile to experiment on.
         :param pulumi.Input[_builtins.str] hypothesis: The hypothesis of the experiment.
         :param pulumi.Input[_builtins.str] launch_criteria: Criteria for launching the experiment.
         :param pulumi.Input[_builtins.str] name: A name for the experiment definition.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to associate with the experiment definition.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict']]]] treatments: Treatment variants (1-5).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to associate with the experiment definition.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict', 'outputs.ExperimentDefinitionTreatment']]]] treatments: Treatment variants (1-5).
         """
         ...
     @overload
@@ -280,14 +280,14 @@ class ExperimentDefinition(pulumi.CustomResource):
                  audience_description: pulumi.Input[Optional[_builtins.str]] = None,
                  audience_rule: pulumi.Input[Optional[_builtins.str]] = None,
                  configuration_profile_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 control: pulumi.Input[Optional[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict']]] = None,
+                 control: pulumi.Input[Optional[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict', 'outputs.ExperimentDefinitionTreatment']]] = None,
                  environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  flag_key: pulumi.Input[Optional[_builtins.str]] = None,
                  hypothesis: pulumi.Input[Optional[_builtins.str]] = None,
                  launch_criteria: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 treatments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ExperimentDefinitionTreatmentArgs', 'ExperimentDefinitionTreatmentArgsDict', 'outputs.ExperimentDefinitionTreatment']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

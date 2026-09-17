@@ -80,7 +80,7 @@ class GetPolicyStoreResult:
 
     @_builtins.property
     @pulumi.getter(name="encryptionState")
-    def encryption_state(self) -> Optional[Any]:
+    def encryption_state(self) -> Optional[Union['outputs.EncryptionState0Properties', 'outputs.EncryptionState1Properties']]:
         return pulumi.get(self, "encryption_state")
 
     @_builtins.property

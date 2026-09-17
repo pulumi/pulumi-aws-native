@@ -347,15 +347,15 @@ class InfluxDbCluster(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
                  deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
-                 log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
-                 maintenance_schedule: pulumi.Input[Optional[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict']]] = None,
+                 log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict', 'outputs.LogDeliveryConfigurationProperties']]] = None,
+                 maintenance_schedule: pulumi.Input[Optional[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict', 'outputs.InfluxDbClusterMaintenanceSchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional['InfluxDbClusterNetworkType']] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -372,15 +372,15 @@ class InfluxDbCluster(pulumi.CustomResource):
         :param pulumi.Input['InfluxDbClusterDbStorageType'] db_storage_type: The storage type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterDeploymentType'] deployment_type: Deployment type of the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterFailoverMode'] failover_mode: Failover mode of the InfluxDB cluster.
-        :param pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB cluster.
-        :param pulumi.Input[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict']] maintenance_schedule: The maintenance schedule for the InfluxDB cluster.
+        :param pulumi.Input[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict', 'outputs.LogDeliveryConfigurationProperties']] log_delivery_configuration: Configuration for sending logs to customer account from the InfluxDB cluster.
+        :param pulumi.Input[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict', 'outputs.InfluxDbClusterMaintenanceSchedule']] maintenance_schedule: The maintenance schedule for the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] name: The unique name that is associated with the InfluxDB cluster.
         :param pulumi.Input['InfluxDbClusterNetworkType'] network_type: Network type of the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] organization: The organization for the InfluxDB cluster.
         :param pulumi.Input[_builtins.str] password: The password for the InfluxDB cluster.
         :param pulumi.Input[_builtins.int] port: The port number on which InfluxDB accepts connections.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Attach a public IP to the customer ENI.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this DB cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this DB cluster.
         :param pulumi.Input[_builtins.str] username: The username for the InfluxDB cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of Amazon EC2 VPC security groups to associate with this InfluxDB cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_subnet_ids: A list of EC2 subnet IDs for this InfluxDB cluster.
@@ -416,15 +416,15 @@ class InfluxDbCluster(pulumi.CustomResource):
                  db_storage_type: pulumi.Input[Optional['InfluxDbClusterDbStorageType']] = None,
                  deployment_type: pulumi.Input[Optional['InfluxDbClusterDeploymentType']] = None,
                  failover_mode: pulumi.Input[Optional['InfluxDbClusterFailoverMode']] = None,
-                 log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict']]] = None,
-                 maintenance_schedule: pulumi.Input[Optional[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict']]] = None,
+                 log_delivery_configuration: pulumi.Input[Optional[Union['LogDeliveryConfigurationPropertiesArgs', 'LogDeliveryConfigurationPropertiesArgsDict', 'outputs.LogDeliveryConfigurationProperties']]] = None,
+                 maintenance_schedule: pulumi.Input[Optional[Union['InfluxDbClusterMaintenanceScheduleArgs', 'InfluxDbClusterMaintenanceScheduleArgsDict', 'outputs.InfluxDbClusterMaintenanceSchedule']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_type: pulumi.Input[Optional['InfluxDbClusterNetworkType']] = None,
                  organization: pulumi.Input[Optional[_builtins.str]] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  vpc_subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,

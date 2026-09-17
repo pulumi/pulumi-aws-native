@@ -241,16 +241,16 @@ class PartnerApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 application_config: pulumi.Input[Optional[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict']]] = None,
+                 application_config: pulumi.Input[Optional[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict', 'outputs.PartnerAppConfig']]] = None,
                  auth_type: pulumi.Input[Optional['PartnerAppAuthType']] = None,
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_iam_session_based_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_config: pulumi.Input[Optional[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict']]] = None,
+                 maintenance_config: pulumi.Input[Optional[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict', 'outputs.PartnerAppMaintenanceConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['PartnerAppType']] = None,
                  __props__=None):
@@ -260,16 +260,16 @@ class PartnerApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_version: The version of the PartnerApp.
-        :param pulumi.Input[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict']] application_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
+        :param pulumi.Input[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict', 'outputs.PartnerAppConfig']] application_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
         :param pulumi.Input['PartnerAppAuthType'] auth_type: The Auth type of PartnerApp.
         :param pulumi.Input[_builtins.str] client_token: The client token for the PartnerApp.
         :param pulumi.Input[_builtins.bool] enable_auto_minor_version_upgrade: Enables automatic minor version upgrades for the PartnerApp.
         :param pulumi.Input[_builtins.bool] enable_iam_session_based_identity: Enables IAM Session based Identity for PartnerApp.
         :param pulumi.Input[_builtins.str] execution_role_arn: The execution role for the user.
         :param pulumi.Input[_builtins.str] kms_key_id: The AWS KMS customer managed key used to encrypt the data associated with the PartnerApp.
-        :param pulumi.Input[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict']] maintenance_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
+        :param pulumi.Input[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict', 'outputs.PartnerAppMaintenanceConfig']] maintenance_config: A collection of settings that specify the maintenance schedule for the PartnerApp.
         :param pulumi.Input[_builtins.str] name: A name for the PartnerApp.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the PartnerApp.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to apply to the PartnerApp.
         :param pulumi.Input[_builtins.str] tier: The tier of the PartnerApp.
         :param pulumi.Input['PartnerAppType'] type: The type of PartnerApp.
         """
@@ -298,16 +298,16 @@ class PartnerApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 application_config: pulumi.Input[Optional[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict']]] = None,
+                 application_config: pulumi.Input[Optional[Union['PartnerAppConfigArgs', 'PartnerAppConfigArgsDict', 'outputs.PartnerAppConfig']]] = None,
                  auth_type: pulumi.Input[Optional['PartnerAppAuthType']] = None,
                  client_token: pulumi.Input[Optional[_builtins.str]] = None,
                  enable_auto_minor_version_upgrade: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_iam_session_based_identity: pulumi.Input[Optional[_builtins.bool]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 maintenance_config: pulumi.Input[Optional[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict']]] = None,
+                 maintenance_config: pulumi.Input[Optional[Union['PartnerAppMaintenanceConfigArgs', 'PartnerAppMaintenanceConfigArgsDict', 'outputs.PartnerAppMaintenanceConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  tier: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['PartnerAppType']] = None,
                  __props__=None):

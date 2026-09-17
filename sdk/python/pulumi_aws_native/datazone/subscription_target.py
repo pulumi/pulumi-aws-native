@@ -178,7 +178,7 @@ class SubscriptionTarget(pulumi.CustomResource):
                  manage_access_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription_target_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
+                 subscription_target_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict', 'outputs.SubscriptionTargetForm']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -193,7 +193,7 @@ class SubscriptionTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] manage_access_role: The manage access role that is used to create the subscription target.
         :param pulumi.Input[_builtins.str] name: The name of the subscription target.
         :param pulumi.Input[_builtins.str] provider: The provider of the subscription target.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]] subscription_target_config: The configuration of the subscription target.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict', 'outputs.SubscriptionTargetForm']]]] subscription_target_config: The configuration of the subscription target.
         :param pulumi.Input[_builtins.str] type: The type of the subscription target.
         """
         ...
@@ -227,7 +227,7 @@ class SubscriptionTarget(pulumi.CustomResource):
                  manage_access_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  provider: pulumi.Input[Optional[_builtins.str]] = None,
-                 subscription_target_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict']]]]] = None,
+                 subscription_target_config: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SubscriptionTargetFormArgs', 'SubscriptionTargetFormArgsDict', 'outputs.SubscriptionTargetForm']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

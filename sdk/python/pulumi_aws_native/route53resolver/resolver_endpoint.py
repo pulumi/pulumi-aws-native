@@ -249,7 +249,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direction: pulumi.Input[Optional[_builtins.str]] = None,
                  dns64_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict', 'outputs.ResolverEndpointIpAddressRequest']]]]] = None,
                  ipv6_internet_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -258,7 +258,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resolver_endpoint_type: pulumi.Input[Optional['ResolverEndpointType']] = None,
                  rni_enhanced_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_name_server_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -271,7 +271,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                - OUTBOUND: allows DNS queries from your VPC to your network
                - INBOUND_DELEGATION: allows DNS queries to your VPC from your network with authoritative answers from private hosted zones
         :param pulumi.Input[_builtins.bool] dns64_enabled: Specifies whether DNS64 is enabled for the Inbound Resolver Endpoint. When set to true, if a DNS AAAA query is made for a domain that has only an A (IPv4) record, the resolver automatically synthesizes an AAAA (IPv6) response by embedding the IPv4 address into the well-known prefix 64:ff9b::/96. Default is false.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict', 'outputs.ResolverEndpointIpAddressRequest']]]] ip_addresses: The subnets and IP addresses in your VPC that DNS queries originate from (for outbound endpoints) or that you forward DNS queries to (for inbound endpoints). The subnet ID uniquely identifies a VPC.
         :param pulumi.Input[_builtins.bool] ipv6_internet_access_enabled: Specifies whether IPv6 Internet Gateway access is enabled through the Outbound Resolver Endpoint. When set to true, this property allows your Endpoint ENIs to reach public IPv6 target nameservers through an internet gateway. Default is false.
         :param pulumi.Input[_builtins.str] name: A friendly name that lets you easily find a configuration in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[_builtins.str] outpost_arn: The ARN (Amazon Resource Name) for the Outpost.
@@ -280,7 +280,7 @@ class ResolverEndpoint(pulumi.CustomResource):
         :param pulumi.Input['ResolverEndpointType'] resolver_endpoint_type: The Resolver endpoint IP address type.
         :param pulumi.Input[_builtins.bool] rni_enhanced_metrics_enabled: Specifies whether RNI enhanced metrics are enabled for the Resolver Endpoints. When set to true, one-minute granular metrics are published in CloudWatch for each RNI associated with this endpoint. When set to false, metrics are not published. Default is false.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: The ID of one or more security groups that control access to this VPC. The security group must include one or more inbound rules (for inbound endpoints) or outbound rules (for outbound endpoints). Inbound and outbound rules must allow TCP and UDP access. For inbound access, open port 53. For outbound access, open the port that you're using for DNS queries on your network.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.bool] target_name_server_metrics_enabled: Specifies whether target name server metrics are enabled for the Outbound Resolver Endpoint. When set to true, one-minute granular metrics are published in CloudWatch for each target name server associated with this endpoint. When set to false, metrics are not published. Default is false.
         """
         ...
@@ -309,7 +309,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  direction: pulumi.Input[Optional[_builtins.str]] = None,
                  dns64_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict']]]]] = None,
+                 ip_addresses: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ResolverEndpointIpAddressRequestArgs', 'ResolverEndpointIpAddressRequestArgsDict', 'outputs.ResolverEndpointIpAddressRequest']]]]] = None,
                  ipv6_internet_access_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  outpost_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -318,7 +318,7 @@ class ResolverEndpoint(pulumi.CustomResource):
                  resolver_endpoint_type: pulumi.Input[Optional['ResolverEndpointType']] = None,
                  rni_enhanced_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_name_server_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

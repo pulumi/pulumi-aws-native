@@ -180,10 +180,10 @@ class Deployment(pulumi.CustomResource):
                  configuration_version: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dynamic_extension_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict']]]]] = None,
+                 dynamic_extension_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict', 'outputs.DeploymentDynamicExtensionParameters']]]]] = None,
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::AppConfig::Deployment
@@ -195,10 +195,10 @@ class Deployment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] configuration_version: The configuration version to deploy. If deploying an AWS AppConfig hosted configuration version, you can specify either the version number or version label. For all other configurations, you must specify the version number.
         :param pulumi.Input[_builtins.str] deployment_strategy_id: The deployment strategy ID.
         :param pulumi.Input[_builtins.str] description: A description of the deployment.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict']]]] dynamic_extension_parameters: A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict', 'outputs.DeploymentDynamicExtensionParameters']]]] dynamic_extension_parameters: A map of dynamic extension parameter names to values to pass to associated extensions with `PRE_START_DEPLOYMENT` actions.
         :param pulumi.Input[_builtins.str] environment_id: The environment ID.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The AWS Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -229,10 +229,10 @@ class Deployment(pulumi.CustomResource):
                  configuration_version: pulumi.Input[Optional[_builtins.str]] = None,
                  deployment_strategy_id: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 dynamic_extension_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict']]]]] = None,
+                 dynamic_extension_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DeploymentDynamicExtensionParametersArgs', 'DeploymentDynamicExtensionParametersArgsDict', 'outputs.DeploymentDynamicExtensionParameters']]]]] = None,
                  environment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

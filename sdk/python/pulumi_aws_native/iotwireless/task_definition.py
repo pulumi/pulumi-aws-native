@@ -132,11 +132,11 @@ class TaskDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_create_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
-                 lo_ra_wan_update_gateway_task_entry: pulumi.Input[Optional[Union['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs', 'TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict']]] = None,
+                 lo_ra_wan_update_gateway_task_entry: pulumi.Input[Optional[Union['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs', 'TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict', 'outputs.TaskDefinitionLoRaWanUpdateGatewayTaskEntry']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  task_definition_type: pulumi.Input[Optional['TaskDefinitionType']] = None,
-                 update: pulumi.Input[Optional[Union['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs', 'TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict']]] = None,
+                 update: pulumi.Input[Optional[Union['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs', 'TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict', 'outputs.TaskDefinitionUpdateWirelessGatewayTaskCreate']]] = None,
                  __props__=None):
         """
         Creates a gateway task definition.
@@ -144,11 +144,11 @@ class TaskDefinition(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_create_tasks: Whether to automatically create tasks using this task definition for all gateways with the specified current version. If false, the task must me created by calling CreateWirelessGatewayTask.
-        :param pulumi.Input[Union['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs', 'TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict']] lo_ra_wan_update_gateway_task_entry: The list of task definitions.
+        :param pulumi.Input[Union['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs', 'TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict', 'outputs.TaskDefinitionLoRaWanUpdateGatewayTaskEntry']] lo_ra_wan_update_gateway_task_entry: The list of task definitions.
         :param pulumi.Input[_builtins.str] name: The name of the new resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the destination.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that contain metadata for the destination.
         :param pulumi.Input['TaskDefinitionType'] task_definition_type: A filter to list only the wireless gateway task definitions that use this task definition type
-        :param pulumi.Input[Union['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs', 'TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict']] update: Information about the gateways to update.
+        :param pulumi.Input[Union['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs', 'TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict', 'outputs.TaskDefinitionUpdateWirelessGatewayTaskCreate']] update: Information about the gateways to update.
         """
         ...
     @overload
@@ -175,11 +175,11 @@ class TaskDefinition(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_create_tasks: pulumi.Input[Optional[_builtins.bool]] = None,
-                 lo_ra_wan_update_gateway_task_entry: pulumi.Input[Optional[Union['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs', 'TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict']]] = None,
+                 lo_ra_wan_update_gateway_task_entry: pulumi.Input[Optional[Union['TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgs', 'TaskDefinitionLoRaWanUpdateGatewayTaskEntryArgsDict', 'outputs.TaskDefinitionLoRaWanUpdateGatewayTaskEntry']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  task_definition_type: pulumi.Input[Optional['TaskDefinitionType']] = None,
-                 update: pulumi.Input[Optional[Union['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs', 'TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict']]] = None,
+                 update: pulumi.Input[Optional[Union['TaskDefinitionUpdateWirelessGatewayTaskCreateArgs', 'TaskDefinitionUpdateWirelessGatewayTaskCreateArgsDict', 'outputs.TaskDefinitionUpdateWirelessGatewayTaskCreate']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

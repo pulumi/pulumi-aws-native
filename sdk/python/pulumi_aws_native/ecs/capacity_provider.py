@@ -140,11 +140,11 @@ class CapacityProvider(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
+                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']]] = None,
+                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::ECS::CapacityProvider.
@@ -288,13 +288,13 @@ class CapacityProvider(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']] auto_scaling_group_provider: The Auto Scaling group settings for the capacity provider.
         :param pulumi.Input[_builtins.str] cluster_name: The cluster that this capacity provider is associated with. Managed instances capacity providers are cluster-scoped, meaning they can only be used within their associated cluster.
                
                This is required for Managed instances.
-        :param pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']] managed_instances_provider: The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
+        :param pulumi.Input[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']] managed_instances_provider: The configuration for the Amazon ECS Managed Instances provider. This includes the infrastructure role, the launch template configuration, and tag propagation settings.
         :param pulumi.Input[_builtins.str] name: The name of the capacity provider. If a name is specified, it cannot start with `aws` , `ecs` , or `fargate` . If no name is specified, a default name in the `CFNStackName-CFNResourceName-RandomString` format is used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The metadata that you apply to the capacity provider to help you categorize and organize it. Each tag consists of a key and an optional value. You define both.
                
                The following basic restrictions apply to tags:
                
@@ -467,11 +467,11 @@ class CapacityProvider(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict']]] = None,
+                 auto_scaling_group_provider: pulumi.Input[Optional[Union['CapacityProviderAutoScalingGroupProviderArgs', 'CapacityProviderAutoScalingGroupProviderArgsDict', 'outputs.CapacityProviderAutoScalingGroupProvider']]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict']]] = None,
+                 managed_instances_provider: pulumi.Input[Optional[Union['CapacityProviderManagedInstancesProviderArgs', 'CapacityProviderManagedInstancesProviderArgsDict', 'outputs.CapacityProviderManagedInstancesProvider']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

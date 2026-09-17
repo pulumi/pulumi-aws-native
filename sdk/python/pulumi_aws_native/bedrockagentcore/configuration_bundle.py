@@ -161,11 +161,11 @@ class ConfigurationBundle(pulumi.CustomResource):
                  branch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  bundle_name: pulumi.Input[Optional[_builtins.str]] = None,
                  commit_message: pulumi.Input[Optional[_builtins.str]] = None,
-                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
-                 created_by: pulumi.Input[Optional[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict', 'outputs.ConfigurationBundleComponentConfiguration']]]]] = None,
+                 created_by: pulumi.Input[Optional[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict', 'outputs.ConfigurationBundleVersionCreatedBySource']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::BedrockAgentCore::ConfigurationBundle Resource Type
@@ -175,10 +175,10 @@ class ConfigurationBundle(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] branch_name: The branch name for version tracking.
         :param pulumi.Input[_builtins.str] bundle_name: The name for the configuration bundle. Names must be unique within your account.
         :param pulumi.Input[_builtins.str] commit_message: A commit message describing the version of the configuration bundle.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]] components: A map of component identifiers to their configurations.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict', 'outputs.ConfigurationBundleComponentConfiguration']]]] components: A map of component identifiers to their configurations.
         :param pulumi.Input[_builtins.str] description: The description for the configuration bundle.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt component configurations.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the configuration bundle.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the configuration bundle.
         """
         ...
     @overload
@@ -207,11 +207,11 @@ class ConfigurationBundle(pulumi.CustomResource):
                  branch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  bundle_name: pulumi.Input[Optional[_builtins.str]] = None,
                  commit_message: pulumi.Input[Optional[_builtins.str]] = None,
-                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict']]]]] = None,
-                 created_by: pulumi.Input[Optional[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict']]] = None,
+                 components: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['ConfigurationBundleComponentConfigurationArgs', 'ConfigurationBundleComponentConfigurationArgsDict', 'outputs.ConfigurationBundleComponentConfiguration']]]]] = None,
+                 created_by: pulumi.Input[Optional[Union['ConfigurationBundleVersionCreatedBySourceArgs', 'ConfigurationBundleVersionCreatedBySourceArgsDict', 'outputs.ConfigurationBundleVersionCreatedBySource']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

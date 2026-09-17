@@ -143,11 +143,11 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  http_responder_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
-                 link_attributes: pulumi.Input[Optional[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']]] = None,
-                 link_log_settings: pulumi.Input[Optional[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']]] = None,
-                 module_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict']]]]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['LinkAttributesArgs', 'LinkAttributesArgsDict', 'outputs.LinkAttributes']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict', 'outputs.LinkLogSettings']]] = None,
+                 module_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict', 'outputs.LinkModuleConfiguration']]]]] = None,
                  peer_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::RTBFabric::Link Resource Type
@@ -156,10 +156,10 @@ class Link(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] gateway_id: The unique identifier of the gateway.
         :param pulumi.Input[_builtins.bool] http_responder_allowed: Boolean to specify if an HTTP responder is allowed.
-        :param pulumi.Input[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']] link_attributes: Attributes of the link.
-        :param pulumi.Input[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']] link_log_settings: Settings for the application logs.
+        :param pulumi.Input[Union['LinkAttributesArgs', 'LinkAttributesArgsDict', 'outputs.LinkAttributes']] link_attributes: Attributes of the link.
+        :param pulumi.Input[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict', 'outputs.LinkLogSettings']] link_log_settings: Settings for the application logs.
         :param pulumi.Input[_builtins.str] peer_gateway_id: The unique identifier of the peer gateway.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A map of the key-value pairs of the tag or tags to assign to the resource.
         """
         ...
     @overload
@@ -187,11 +187,11 @@ class Link(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  http_responder_allowed: pulumi.Input[Optional[_builtins.bool]] = None,
-                 link_attributes: pulumi.Input[Optional[Union['LinkAttributesArgs', 'LinkAttributesArgsDict']]] = None,
-                 link_log_settings: pulumi.Input[Optional[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict']]] = None,
-                 module_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict']]]]] = None,
+                 link_attributes: pulumi.Input[Optional[Union['LinkAttributesArgs', 'LinkAttributesArgsDict', 'outputs.LinkAttributes']]] = None,
+                 link_log_settings: pulumi.Input[Optional[Union['LinkLogSettingsArgs', 'LinkLogSettingsArgsDict', 'outputs.LinkLogSettings']]] = None,
+                 module_configuration_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LinkModuleConfigurationArgs', 'LinkModuleConfigurationArgsDict', 'outputs.LinkModuleConfiguration']]]]] = None,
                  peer_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

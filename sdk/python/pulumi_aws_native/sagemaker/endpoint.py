@@ -146,26 +146,26 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_config: pulumi.Input[Optional[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']]] = None,
+                 deployment_config: pulumi.Input[Optional[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict', 'outputs.EndpointDeploymentConfig']]] = None,
                  endpoint_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 exclude_retained_variant_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointVariantPropertyArgs', 'EndpointVariantPropertyArgsDict']]]]] = None,
+                 exclude_retained_variant_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointVariantPropertyArgs', 'EndpointVariantPropertyArgsDict', 'outputs.EndpointVariantProperty']]]]] = None,
                  retain_all_variant_properties: pulumi.Input[Optional[_builtins.bool]] = None,
                  retain_deployment_config: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Endpoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']] deployment_config: Specifies deployment configuration for updating the SageMaker endpoint. Includes rollback and update policies.
+        :param pulumi.Input[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict', 'outputs.EndpointDeploymentConfig']] deployment_config: Specifies deployment configuration for updating the SageMaker endpoint. Includes rollback and update policies.
         :param pulumi.Input[_builtins.str] endpoint_config_name: The name of the endpoint configuration for the SageMaker endpoint. This is a required property.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the SageMaker endpoint. This name must be unique within an AWS Region.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointVariantPropertyArgs', 'EndpointVariantPropertyArgsDict']]]] exclude_retained_variant_properties: Specifies a list of variant properties that you want to exclude when updating an endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointVariantPropertyArgs', 'EndpointVariantPropertyArgsDict', 'outputs.EndpointVariantProperty']]]] exclude_retained_variant_properties: Specifies a list of variant properties that you want to exclude when updating an endpoint.
         :param pulumi.Input[_builtins.bool] retain_all_variant_properties: When set to true, retains all variant properties for an endpoint when it is updated.
         :param pulumi.Input[_builtins.bool] retain_deployment_config: When set to true, retains the deployment configuration during endpoint updates.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -191,13 +191,13 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 deployment_config: pulumi.Input[Optional[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict']]] = None,
+                 deployment_config: pulumi.Input[Optional[Union['EndpointDeploymentConfigArgs', 'EndpointDeploymentConfigArgsDict', 'outputs.EndpointDeploymentConfig']]] = None,
                  endpoint_config_name: pulumi.Input[Optional[_builtins.str]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 exclude_retained_variant_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointVariantPropertyArgs', 'EndpointVariantPropertyArgsDict']]]]] = None,
+                 exclude_retained_variant_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EndpointVariantPropertyArgs', 'EndpointVariantPropertyArgsDict', 'outputs.EndpointVariantProperty']]]]] = None,
                  retain_all_variant_properties: pulumi.Input[Optional[_builtins.bool]] = None,
                  retain_deployment_config: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

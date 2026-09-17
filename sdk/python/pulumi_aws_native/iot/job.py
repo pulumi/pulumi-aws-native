@@ -266,22 +266,22 @@ class Job(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abort_config: pulumi.Input[Optional[Union['JobAbortConfigArgs', 'JobAbortConfigArgsDict']]] = None,
+                 abort_config: pulumi.Input[Optional[Union['JobAbortConfigArgs', 'JobAbortConfigArgsDict', 'outputs.JobAbortConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_package_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  document: pulumi.Input[Optional[_builtins.str]] = None,
                  document_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  document_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigArgs', 'JobExecutionsRetryConfigArgsDict']]] = None,
-                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigArgs', 'JobExecutionsRolloutConfigArgsDict']]] = None,
+                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigArgs', 'JobExecutionsRetryConfigArgsDict', 'outputs.JobExecutionsRetryConfig']]] = None,
+                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigArgs', 'JobExecutionsRolloutConfigArgsDict', 'outputs.JobExecutionsRolloutConfig']]] = None,
                  job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  job_template_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 presigned_url_config: pulumi.Input[Optional[Union['JobPresignedUrlConfigArgs', 'JobPresignedUrlConfigArgsDict']]] = None,
-                 scheduling_config: pulumi.Input[Optional[Union['JobSchedulingConfigArgs', 'JobSchedulingConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 presigned_url_config: pulumi.Input[Optional[Union['JobPresignedUrlConfigArgs', 'JobPresignedUrlConfigArgsDict', 'outputs.JobPresignedUrlConfig']]] = None,
+                 scheduling_config: pulumi.Input[Optional[Union['JobSchedulingConfigArgs', 'JobSchedulingConfigArgsDict', 'outputs.JobSchedulingConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_selection: pulumi.Input[Optional['JobTargetSelection']] = None,
                  targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeout_config: pulumi.Input[Optional[Union['JobTimeoutConfigArgs', 'JobTimeoutConfigArgsDict']]] = None,
+                 timeout_config: pulumi.Input[Optional[Union['JobTimeoutConfigArgs', 'JobTimeoutConfigArgsDict', 'outputs.JobTimeoutConfig']]] = None,
                  __props__=None):
         """
         Use the AWS::IoT::Job resource to declare an AWS IoT job. A job can be used to define a set of remote operations that are sent to and run on one or more devices (things or thing groups) connected to AWS IoT.
@@ -295,7 +295,7 @@ class Job(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] document_source: An S3 link, or S3 object URL, to the job document. The link is an Amazon S3 object URL and is required if you don't specify a value for document.
         :param pulumi.Input[_builtins.str] job_id: A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, '-' and '_' are valid for use here.
         :param pulumi.Input[_builtins.str] job_template_arn: The ARN of the job template used to create the job.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata which can be used to manage the job.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata which can be used to manage the job.
         :param pulumi.Input['JobTargetSelection'] target_selection: Specifies whether the job will continue to run (CONTINUOUS), or will be complete after all those things specified as targets have completed the job (SNAPSHOT).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] targets: A list of things and thing groups to which the job should be sent.
         """
@@ -323,22 +323,22 @@ class Job(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 abort_config: pulumi.Input[Optional[Union['JobAbortConfigArgs', 'JobAbortConfigArgsDict']]] = None,
+                 abort_config: pulumi.Input[Optional[Union['JobAbortConfigArgs', 'JobAbortConfigArgsDict', 'outputs.JobAbortConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_package_versions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  document: pulumi.Input[Optional[_builtins.str]] = None,
                  document_parameters: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  document_source: pulumi.Input[Optional[_builtins.str]] = None,
-                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigArgs', 'JobExecutionsRetryConfigArgsDict']]] = None,
-                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigArgs', 'JobExecutionsRolloutConfigArgsDict']]] = None,
+                 job_executions_retry_config: pulumi.Input[Optional[Union['JobExecutionsRetryConfigArgs', 'JobExecutionsRetryConfigArgsDict', 'outputs.JobExecutionsRetryConfig']]] = None,
+                 job_executions_rollout_config: pulumi.Input[Optional[Union['JobExecutionsRolloutConfigArgs', 'JobExecutionsRolloutConfigArgsDict', 'outputs.JobExecutionsRolloutConfig']]] = None,
                  job_id: pulumi.Input[Optional[_builtins.str]] = None,
                  job_template_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 presigned_url_config: pulumi.Input[Optional[Union['JobPresignedUrlConfigArgs', 'JobPresignedUrlConfigArgsDict']]] = None,
-                 scheduling_config: pulumi.Input[Optional[Union['JobSchedulingConfigArgs', 'JobSchedulingConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 presigned_url_config: pulumi.Input[Optional[Union['JobPresignedUrlConfigArgs', 'JobPresignedUrlConfigArgsDict', 'outputs.JobPresignedUrlConfig']]] = None,
+                 scheduling_config: pulumi.Input[Optional[Union['JobSchedulingConfigArgs', 'JobSchedulingConfigArgsDict', 'outputs.JobSchedulingConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_selection: pulumi.Input[Optional['JobTargetSelection']] = None,
                  targets: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 timeout_config: pulumi.Input[Optional[Union['JobTimeoutConfigArgs', 'JobTimeoutConfigArgsDict']]] = None,
+                 timeout_config: pulumi.Input[Optional[Union['JobTimeoutConfigArgs', 'JobTimeoutConfigArgsDict', 'outputs.JobTimeoutConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -116,7 +116,7 @@ class ConnectorV2(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider: pulumi.Input[Optional[Union['ConnectorV2ProviderArgs', 'ConnectorV2ProviderArgsDict']]] = None,
+                 provider: pulumi.Input[Optional[Union['ConnectorV2ProviderArgs', 'ConnectorV2ProviderArgsDict', 'outputs.ConnectorV2Provider']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -127,7 +127,7 @@ class ConnectorV2(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the connector
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of KMS key used for the connector
         :param pulumi.Input[_builtins.str] name: The name of the connector
-        :param pulumi.Input[Union['ConnectorV2ProviderArgs', 'ConnectorV2ProviderArgsDict']] provider: The third-party provider detail for a service configuration.
+        :param pulumi.Input[Union['ConnectorV2ProviderArgs', 'ConnectorV2ProviderArgsDict', 'outputs.ConnectorV2Provider']] provider: The third-party provider detail for a service configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to add to the connectorV2 when you create.
         """
         ...
@@ -157,7 +157,7 @@ class ConnectorV2(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 provider: pulumi.Input[Optional[Union['ConnectorV2ProviderArgs', 'ConnectorV2ProviderArgsDict']]] = None,
+                 provider: pulumi.Input[Optional[Union['ConnectorV2ProviderArgs', 'ConnectorV2ProviderArgsDict', 'outputs.ConnectorV2Provider']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

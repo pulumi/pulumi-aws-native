@@ -297,11 +297,11 @@ class LogAlarm(pulumi.CustomResource):
                  ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query_results_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
                  query_results_to_evaluate: pulumi.Input[Optional[_builtins.int]] = None,
-                 scheduled_query_configuration: pulumi.Input[Optional[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scheduled_query_configuration: pulumi.Input[Optional[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict', 'outputs.LogAlarmScheduledQueryConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
-                 warm_up_configuration: pulumi.Input[Optional[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict']]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict', 'outputs.LogAlarmWarmUpConfiguration']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CloudWatch::LogAlarm. A LogAlarm evaluates scheduled query results from CloudWatch Logs and triggers actions when thresholds are breached.
@@ -319,11 +319,11 @@ class LogAlarm(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ok_actions: The actions to execute when this alarm transitions to the OK state from any other state.
         :param pulumi.Input[_builtins.int] query_results_to_alarm: The number of query results that must be breaching to trigger the alarm.
         :param pulumi.Input[_builtins.int] query_results_to_evaluate: The number of query results over which data is compared to the specified threshold.
-        :param pulumi.Input[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict']] scheduled_query_configuration: The scheduled query configuration for the log alarm.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs to associate with the log alarm.
+        :param pulumi.Input[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict', 'outputs.LogAlarmScheduledQueryConfiguration']] scheduled_query_configuration: The scheduled query configuration for the log alarm.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs to associate with the log alarm.
         :param pulumi.Input[_builtins.float] threshold: The value to compare against the results of the scheduled query evaluation.
         :param pulumi.Input[_builtins.str] treat_missing_data: Sets how this alarm is to handle missing data points. Valid values are breaching, notBreaching, ignore, and missing.
-        :param pulumi.Input[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict']] warm_up_configuration: The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
+        :param pulumi.Input[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict', 'outputs.LogAlarmWarmUpConfiguration']] warm_up_configuration: The warm-up configuration for the alarm. During the warm-up period, the alarm stays in INSUFFICIENT_DATA and doesn't perform alarm actions. For more information, see Alarm warm-up periods in the Amazon CloudWatch User Guide.
         """
         ...
     @overload
@@ -360,11 +360,11 @@ class LogAlarm(pulumi.CustomResource):
                  ok_actions: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  query_results_to_alarm: pulumi.Input[Optional[_builtins.int]] = None,
                  query_results_to_evaluate: pulumi.Input[Optional[_builtins.int]] = None,
-                 scheduled_query_configuration: pulumi.Input[Optional[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scheduled_query_configuration: pulumi.Input[Optional[Union['LogAlarmScheduledQueryConfigurationArgs', 'LogAlarmScheduledQueryConfigurationArgsDict', 'outputs.LogAlarmScheduledQueryConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  threshold: pulumi.Input[Optional[_builtins.float]] = None,
                  treat_missing_data: pulumi.Input[Optional[_builtins.str]] = None,
-                 warm_up_configuration: pulumi.Input[Optional[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict']]] = None,
+                 warm_up_configuration: pulumi.Input[Optional[Union['LogAlarmWarmUpConfigurationArgs', 'LogAlarmWarmUpConfigurationArgsDict', 'outputs.LogAlarmWarmUpConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

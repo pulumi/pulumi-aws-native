@@ -290,16 +290,16 @@ class Collaboration(pulumi.CustomResource):
                  auto_approved_change_types: pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  creator_member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
-                 creator_ml_member_abilities: pulumi.Input[Optional[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict']]] = None,
-                 creator_payment_configuration: pulumi.Input[Optional[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
-                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
+                 creator_ml_member_abilities: pulumi.Input[Optional[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict', 'outputs.CollaborationMlMemberAbilities']]] = None,
+                 creator_payment_configuration: pulumi.Input[Optional[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict', 'outputs.CollaborationPaymentConfiguration']]] = None,
+                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  job_log_status: pulumi.Input[Optional['CollaborationJobLogStatus']] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict', 'outputs.CollaborationMemberSpecification']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_log_status: pulumi.Input[Optional['CollaborationQueryLogStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents a collaboration between AWS accounts that allows for secure data collaboration
@@ -315,19 +315,19 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberAbility']]] creator_member_abilities: The abilities granted to the collaboration creator.
                
                *Allowed values* `CAN_QUERY` | `CAN_RECEIVE_RESULTS` | `CAN_RUN_JOB`
-        :param pulumi.Input[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict']] creator_ml_member_abilities: The ML member abilities for a collaboration member.
-        :param pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
-        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
+        :param pulumi.Input[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict', 'outputs.CollaborationMlMemberAbilities']] creator_ml_member_abilities: The ML member abilities for a collaboration member.
+        :param pulumi.Input[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict', 'outputs.CollaborationPaymentConfiguration']] creator_payment_configuration: An object representing the collaboration member's payment responsibilities set by the collaboration creator.
+        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']] data_encryption_metadata: The settings for client-side encryption for cryptographic computing.
         :param pulumi.Input[_builtins.str] description: A description of the collaboration provided by the collaboration owner.
         :param pulumi.Input['CollaborationJobLogStatus'] job_log_status: An indicator as to whether job logging has been enabled or disabled for the collaboration.
                
                When `ENABLED` , AWS Clean Rooms logs details about jobs run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]] members: A list of initial members, not including the creator. This list is immutable.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict', 'outputs.CollaborationMemberSpecification']]]] members: A list of initial members, not including the creator. This list is immutable.
         :param pulumi.Input[_builtins.str] name: A human-readable identifier provided by the collaboration owner. Display names are not unique.
         :param pulumi.Input['CollaborationQueryLogStatus'] query_log_status: An indicator as to whether query logging has been enabled or disabled for the collaboration.
                
                When `ENABLED` , AWS Clean Rooms logs details about queries run within this collaboration and those logs can be viewed in Amazon CloudWatch Logs. The default value is `DISABLED` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An arbitrary set of tags (key-value pairs) for this cleanrooms collaboration.
         """
         ...
     @overload
@@ -358,16 +358,16 @@ class Collaboration(pulumi.CustomResource):
                  auto_approved_change_types: pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationAutoApprovedChangeType']]]] = None,
                  creator_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  creator_member_abilities: pulumi.Input[Optional[Sequence[pulumi.Input['CollaborationMemberAbility']]]] = None,
-                 creator_ml_member_abilities: pulumi.Input[Optional[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict']]] = None,
-                 creator_payment_configuration: pulumi.Input[Optional[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict']]] = None,
-                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']]] = None,
+                 creator_ml_member_abilities: pulumi.Input[Optional[Union['CollaborationMlMemberAbilitiesArgs', 'CollaborationMlMemberAbilitiesArgsDict', 'outputs.CollaborationMlMemberAbilities']]] = None,
+                 creator_payment_configuration: pulumi.Input[Optional[Union['CollaborationPaymentConfigurationArgs', 'CollaborationPaymentConfigurationArgsDict', 'outputs.CollaborationPaymentConfiguration']]] = None,
+                 data_encryption_metadata: pulumi.Input[Optional[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict', 'outputs.CollaborationDataEncryptionMetadata']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_metrics_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  job_log_status: pulumi.Input[Optional['CollaborationJobLogStatus']] = None,
-                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict']]]]] = None,
+                 members: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CollaborationMemberSpecificationArgs', 'CollaborationMemberSpecificationArgsDict', 'outputs.CollaborationMemberSpecification']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  query_log_status: pulumi.Input[Optional['CollaborationQueryLogStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

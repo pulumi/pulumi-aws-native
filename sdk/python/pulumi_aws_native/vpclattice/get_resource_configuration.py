@@ -91,7 +91,7 @@ class GetResourceConfigurationResult:
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationDefinition")
-    def resource_configuration_definition(self) -> Optional[Any]:
+    def resource_configuration_definition(self) -> Optional[Union['outputs.ResourceConfigurationDefinition0Properties', 'outputs.ResourceConfigurationDefinition1Properties', 'outputs.ResourceConfigurationDefinition2Properties']]:
         """
         Identifies the resource configuration in one of the following ways:
 

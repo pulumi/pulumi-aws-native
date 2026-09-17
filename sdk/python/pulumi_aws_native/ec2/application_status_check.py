@@ -277,7 +277,7 @@ class ApplicationStatusCheck(pulumi.CustomResource):
                  aggregation: pulumi.Input[Optional['ApplicationStatusCheckAggregation']] = None,
                  device_index: pulumi.Input[Optional[_builtins.int]] = None,
                  failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
-                 health_check_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationStatusCheckHealthCheckPathArgs', 'ApplicationStatusCheckHealthCheckPathArgsDict']]]]] = None,
+                 health_check_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationStatusCheckHealthCheckPathArgs', 'ApplicationStatusCheckHealthCheckPathArgsDict', 'outputs.ApplicationStatusCheckHealthCheckPath']]]]] = None,
                  initialization_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  interval: pulumi.Input[Optional[_builtins.int]] = None,
                  ip_scope: pulumi.Input[Optional['ApplicationStatusCheckIpScope']] = None,
@@ -287,7 +287,7 @@ class ApplicationStatusCheck(pulumi.CustomResource):
                  protocol: pulumi.Input[Optional['ApplicationStatusCheckProtocol']] = None,
                  status_code_matcher: pulumi.Input[Optional[_builtins.str]] = None,
                  success_threshold: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         """
@@ -298,7 +298,7 @@ class ApplicationStatusCheck(pulumi.CustomResource):
         :param pulumi.Input['ApplicationStatusCheckAggregation'] aggregation: Whether this check is included in the rolled-up application status.
         :param pulumi.Input[_builtins.int] device_index: The network interface device index used for the health check.
         :param pulumi.Input[_builtins.int] failure_threshold: The number of consecutive failed probes required to mark the instance unhealthy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStatusCheckHealthCheckPathArgs', 'ApplicationStatusCheckHealthCheckPathArgsDict']]]] health_check_paths: The source/destination network paths used for the health check.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationStatusCheckHealthCheckPathArgs', 'ApplicationStatusCheckHealthCheckPathArgsDict', 'outputs.ApplicationStatusCheckHealthCheckPath']]]] health_check_paths: The source/destination network paths used for the health check.
         :param pulumi.Input[_builtins.int] initialization_grace_period_seconds: Seconds to wait after instance launch before beginning health checks.
         :param pulumi.Input[_builtins.int] interval: The interval, in seconds, between health check probes.
         :param pulumi.Input['ApplicationStatusCheckIpScope'] ip_scope: The IP scope used for the health check.
@@ -308,7 +308,7 @@ class ApplicationStatusCheck(pulumi.CustomResource):
         :param pulumi.Input['ApplicationStatusCheckProtocol'] protocol: The network protocol used for the health check.
         :param pulumi.Input[_builtins.str] status_code_matcher: The HTTP status codes considered successful (e.g., "200-299").
         :param pulumi.Input[_builtins.int] success_threshold: The number of consecutive successful probes required to mark the instance healthy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to apply to the application status check.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to apply to the application status check.
         :param pulumi.Input[_builtins.int] timeout: The timeout, in seconds, for each health check probe.
         """
         ...
@@ -338,7 +338,7 @@ class ApplicationStatusCheck(pulumi.CustomResource):
                  aggregation: pulumi.Input[Optional['ApplicationStatusCheckAggregation']] = None,
                  device_index: pulumi.Input[Optional[_builtins.int]] = None,
                  failure_threshold: pulumi.Input[Optional[_builtins.int]] = None,
-                 health_check_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationStatusCheckHealthCheckPathArgs', 'ApplicationStatusCheckHealthCheckPathArgsDict']]]]] = None,
+                 health_check_paths: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationStatusCheckHealthCheckPathArgs', 'ApplicationStatusCheckHealthCheckPathArgsDict', 'outputs.ApplicationStatusCheckHealthCheckPath']]]]] = None,
                  initialization_grace_period_seconds: pulumi.Input[Optional[_builtins.int]] = None,
                  interval: pulumi.Input[Optional[_builtins.int]] = None,
                  ip_scope: pulumi.Input[Optional['ApplicationStatusCheckIpScope']] = None,
@@ -348,7 +348,7 @@ class ApplicationStatusCheck(pulumi.CustomResource):
                  protocol: pulumi.Input[Optional['ApplicationStatusCheckProtocol']] = None,
                  status_code_matcher: pulumi.Input[Optional[_builtins.str]] = None,
                  success_threshold: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

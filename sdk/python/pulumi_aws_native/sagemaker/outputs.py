@@ -13156,7 +13156,7 @@ class ModelCardMetricGroup(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 metric_data: Sequence[Any],
+                 metric_data: Sequence[Union['outputs.ModelCardSimpleMetric', 'outputs.ModelCardLinearGraphMetric', 'outputs.ModelCardBarChartMetric', 'outputs.ModelCardMatrixMetric']],
                  name: _builtins.str):
         """
         item in metric groups
@@ -13166,7 +13166,7 @@ class ModelCardMetricGroup(dict):
 
     @_builtins.property
     @pulumi.getter(name="metricData")
-    def metric_data(self) -> Sequence[Any]:
+    def metric_data(self) -> Sequence[Union['outputs.ModelCardSimpleMetric', 'outputs.ModelCardLinearGraphMetric', 'outputs.ModelCardBarChartMetric', 'outputs.ModelCardMatrixMetric']]:
         return pulumi.get(self, "metric_data")
 
     @_builtins.property
@@ -13764,7 +13764,7 @@ class ModelCardSimpleMetric(dict):
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: 'ModelCardSimpleMetricType',
-                 value: Any,
+                 value: Union[_builtins.float, _builtins.str, _builtins.bool],
                  notes: Optional[_builtins.str] = None,
                  x_axis_name: Optional[_builtins.str] = None,
                  y_axis_name: Optional[_builtins.str] = None):
@@ -13793,7 +13793,7 @@ class ModelCardSimpleMetric(dict):
 
     @_builtins.property
     @pulumi.getter
-    def value(self) -> Any:
+    def value(self) -> Union[_builtins.float, _builtins.str, _builtins.bool]:
         return pulumi.get(self, "value")
 
     @_builtins.property

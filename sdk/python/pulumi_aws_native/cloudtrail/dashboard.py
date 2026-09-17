@@ -117,10 +117,10 @@ class Dashboard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 refresh_schedule: pulumi.Input[Optional[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 refresh_schedule: pulumi.Input[Optional[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict', 'outputs.DashboardRefreshSchedule']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]]] = None,
                  __props__=None):
         """
         The Amazon CloudTrail dashboard resource allows customers to manage managed dashboards and create custom dashboards. You can manually refresh custom and managed dashboards. For custom dashboards, you can also set up an automatic refresh schedule and modify dashboard widgets.
@@ -128,10 +128,10 @@ class Dashboard(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the dashboard.
-        :param pulumi.Input[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']] refresh_schedule: Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags.
+        :param pulumi.Input[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict', 'outputs.DashboardRefreshSchedule']] refresh_schedule: Configures the automatic refresh schedule for the dashboard. Includes the frequency unit (DAYS or HOURS) and value, as well as the status (ENABLED or DISABLED) of the refresh schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags.
         :param pulumi.Input[_builtins.bool] termination_protection_enabled: Indicates whether the dashboard is protected from termination.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]] widgets: List of widgets on the dashboard
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]] widgets: List of widgets on the dashboard
         """
         ...
     @overload
@@ -158,10 +158,10 @@ class Dashboard(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 refresh_schedule: pulumi.Input[Optional[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 refresh_schedule: pulumi.Input[Optional[Union['DashboardRefreshScheduleArgs', 'DashboardRefreshScheduleArgsDict', 'outputs.DashboardRefreshSchedule']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict']]]]] = None,
+                 widgets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DashboardWidgetArgs', 'DashboardWidgetArgsDict', 'outputs.DashboardWidget']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

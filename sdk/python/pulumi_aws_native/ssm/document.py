@@ -199,13 +199,13 @@ class Document(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict', 'outputs.DocumentAttachmentsSource']]]]] = None,
                  content: Optional[Any] = None,
                  document_format: pulumi.Input[Optional['DocumentFormat']] = None,
                  document_type: pulumi.Input[Optional['DocumentType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict', 'outputs.DocumentRequires']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_type: pulumi.Input[Optional[_builtins.str]] = None,
                  update_method: pulumi.Input[Optional['DocumentUpdateMethod']] = None,
                  version_name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -361,15 +361,15 @@ class Document(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict', 'outputs.DocumentAttachmentsSource']]]] attachments: A list of key and value pairs that describe attachments to a version of a document.
         :param Any content: The content for the Systems Manager document in JSON, YAML or String format.
                
                Search the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::SSM::Document` for more information about the expected schema for this property.
         :param pulumi.Input['DocumentFormat'] document_format: Specify the document format for the request. The document format can be either JSON or YAML. JSON is the default format.
         :param pulumi.Input['DocumentType'] document_type: The type of document to create.
         :param pulumi.Input[_builtins.str] name: A name for the Systems Manager document.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict', 'outputs.DocumentRequires']]]] requires: A list of SSM documents required by a document. For example, an ApplicationConfiguration document requires an ApplicationConfigurationSchema document.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Optional metadata that you assign to a resource. Tags enable you to categorize a resource in different ways, such as by purpose, owner, or environment.
         :param pulumi.Input[_builtins.str] target_type: Specify a target type to define the kinds of resources the document can run on.
         :param pulumi.Input['DocumentUpdateMethod'] update_method: Update method - when set to 'Replace', the update will replace the existing document; when set to 'NewVersion', the update will create a new version.
         :param pulumi.Input[_builtins.str] version_name: An optional field specifying the version of the artifact you are creating with the document. This value is unique across all versions of a document, and cannot be changed.
@@ -544,13 +544,13 @@ class Document(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]]] = None,
+                 attachments: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict', 'outputs.DocumentAttachmentsSource']]]]] = None,
                  content: Optional[Any] = None,
                  document_format: pulumi.Input[Optional['DocumentFormat']] = None,
                  document_type: pulumi.Input[Optional['DocumentType']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 requires: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DocumentRequiresArgs', 'DocumentRequiresArgsDict', 'outputs.DocumentRequires']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_type: pulumi.Input[Optional[_builtins.str]] = None,
                  update_method: pulumi.Input[Optional['DocumentUpdateMethod']] = None,
                  version_name: pulumi.Input[Optional[_builtins.str]] = None,

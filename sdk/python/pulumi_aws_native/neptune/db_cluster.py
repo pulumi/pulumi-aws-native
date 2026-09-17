@@ -532,7 +532,7 @@ class DbCluster(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict', 'outputs.DbClusterDbClusterRole']]]]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -552,11 +552,11 @@ class DbCluster(pulumi.CustomResource):
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 serverless_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessScalingConfigurationArgs', 'DbClusterServerlessScalingConfigurationArgsDict']]] = None,
+                 serverless_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessScalingConfigurationArgs', 'DbClusterServerlessScalingConfigurationArgsDict', 'outputs.DbClusterServerlessScalingConfiguration']]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -565,7 +565,7 @@ class DbCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict', 'outputs.DbClusterDbClusterRole']]]] associated_roles: Provides a list of the AWS Identity and Access Management (IAM) roles that are associated with the DB cluster. IAM roles that are associated with a DB cluster grant permission for the DB cluster to access other AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: Provides the list of EC2 Availability Zones that instances in the DB cluster can be created in.
         :param pulumi.Input[_builtins.int] backup_retention_period: Specifies the number of days for which automatic DB snapshots are retained.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: A value that indicates whether to copy all tags from the DB cluster to snapshots of the DB cluster. The default behaviour is not to copy them.
@@ -597,7 +597,7 @@ class DbCluster(pulumi.CustomResource):
                If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
                
                If a DB cluster snapshot is specified, the target DB cluster is created from the source DB cluster restore point with the same configuration as the original source DB cluster, except that the new DB cluster is created with the default security group.
-        :param pulumi.Input[Union['DbClusterServerlessScalingConfigurationArgs', 'DbClusterServerlessScalingConfigurationArgsDict']] serverless_scaling_configuration: Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
+        :param pulumi.Input[Union['DbClusterServerlessScalingConfigurationArgs', 'DbClusterServerlessScalingConfigurationArgsDict', 'outputs.DbClusterServerlessScalingConfiguration']] serverless_scaling_configuration: Contains the scaling configuration used by the Neptune Serverless Instances within this DB cluster.
         :param pulumi.Input[_builtins.str] snapshot_identifier: Specifies the identifier for a DB cluster snapshot. Must match the identifier of an existing snapshot.
                
                After you restore a DB cluster using a SnapshotIdentifier, you must specify the same SnapshotIdentifier for any future updates to the DB cluster. When you specify this property for an update, the DB cluster is not restored from the snapshot again, and the data in the database is not changed.
@@ -617,7 +617,7 @@ class DbCluster(pulumi.CustomResource):
                If you specify the SourceDBClusterIdentifier property and don't specify this property or disable it. The value is inherited from the source DB cluster, and if the DB cluster is encrypted, the KmsKeyId property from the source cluster is used.
                
                If you specify the DBSnapshotIdentifier and don't specify this property or disable it. The value is inherited from the snapshot, and the specified KmsKeyId property from the snapshot is used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to this cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to this cluster.
         :param pulumi.Input[_builtins.bool] use_latest_restorable_time: Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
                
                If a DB snapshot is specified, the target DB cluster is created from the source DB snapshot with a default configuration and default security group.
@@ -649,7 +649,7 @@ class DbCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict']]]]] = None,
+                 associated_roles: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DbClusterDbClusterRoleArgs', 'DbClusterDbClusterRoleArgsDict', 'outputs.DbClusterDbClusterRole']]]]] = None,
                  availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  backup_retention_period: pulumi.Input[Optional[_builtins.int]] = None,
                  copy_tags_to_snapshot: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -669,11 +669,11 @@ class DbCluster(pulumi.CustomResource):
                  preferred_maintenance_window: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_to_time: pulumi.Input[Optional[_builtins.str]] = None,
                  restore_type: pulumi.Input[Optional[_builtins.str]] = None,
-                 serverless_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessScalingConfigurationArgs', 'DbClusterServerlessScalingConfigurationArgsDict']]] = None,
+                 serverless_scaling_configuration: pulumi.Input[Optional[Union['DbClusterServerlessScalingConfigurationArgs', 'DbClusterServerlessScalingConfigurationArgsDict', 'outputs.DbClusterServerlessScalingConfiguration']]] = None,
                  snapshot_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  source_db_cluster_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):

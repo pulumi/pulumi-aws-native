@@ -141,7 +141,7 @@ class Prompt(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict', 'outputs.PromptVariant']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::Prompt Resource Type
@@ -156,7 +156,7 @@ class Prompt(pulumi.CustomResource):
                
                - [Tag naming limits and requirements](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-conventions)
                - [Tagging best practices](https://docs.aws.amazon.com/tag-editor/latest/userguide/tagging.html#tag-best-practices)
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]] variants: List of prompt variants
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict', 'outputs.PromptVariant']]]] variants: List of prompt variants
         """
         ...
     @overload
@@ -187,7 +187,7 @@ class Prompt(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict']]]]] = None,
+                 variants: pulumi.Input[Optional[Sequence[pulumi.Input[Union['PromptVariantArgs', 'PromptVariantArgsDict', 'outputs.PromptVariant']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

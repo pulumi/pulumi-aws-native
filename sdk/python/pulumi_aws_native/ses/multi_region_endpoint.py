@@ -82,18 +82,18 @@ class MultiRegionEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']]] = None,
+                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SES::MultiRegionEndpoint
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']] details: Contains details of a multi-region endpoint (global-endpoint) being created.
+        :param pulumi.Input[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']] details: Contains details of a multi-region endpoint (global-endpoint) being created.
         :param pulumi.Input[_builtins.str] endpoint_name: The name of the multi-region endpoint (global-endpoint).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of objects that define the tags (keys and values) to associate with the multi-region endpoint (global-endpoint).
         """
         ...
     @overload
@@ -119,9 +119,9 @@ class MultiRegionEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict']]] = None,
+                 details: pulumi.Input[Optional[Union['MultiRegionEndpointDetailsArgs', 'MultiRegionEndpointDetailsArgsDict', 'outputs.MultiRegionEndpointDetails']]] = None,
                  endpoint_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

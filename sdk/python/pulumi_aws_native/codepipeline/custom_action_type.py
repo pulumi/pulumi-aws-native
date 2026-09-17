@@ -159,12 +159,12 @@ class CustomActionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
-                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
-                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict', 'outputs.CustomActionTypeConfigurationProperties']]]]] = None,
+                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict', 'outputs.CustomActionTypeArtifactDetails']]] = None,
+                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict', 'outputs.CustomActionTypeArtifactDetails']]] = None,
                  provider: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict', 'outputs.CustomActionTypeSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -173,12 +173,12 @@ class CustomActionType(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] category: The category of the custom action, such as a build action or a test action.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]] configuration_properties: The configuration properties for the custom action.
-        :param pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']] input_artifact_details: The details of the input artifact for the action, such as its commit ID.
-        :param pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict', 'outputs.CustomActionTypeConfigurationProperties']]]] configuration_properties: The configuration properties for the custom action.
+        :param pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict', 'outputs.CustomActionTypeArtifactDetails']] input_artifact_details: The details of the input artifact for the action, such as its commit ID.
+        :param pulumi.Input[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict', 'outputs.CustomActionTypeArtifactDetails']] output_artifact_details: The details of the output artifact of the action, such as its commit ID.
         :param pulumi.Input[_builtins.str] provider: The provider of the service used in the custom action, such as AWS CodeDeploy.
-        :param pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']] settings: URLs that provide users information about this custom action.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the custom action.
+        :param pulumi.Input[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict', 'outputs.CustomActionTypeSettings']] settings: URLs that provide users information about this custom action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Any tags assigned to the custom action.
         :param pulumi.Input[_builtins.str] version: The version identifier of the custom action.
         """
         ...
@@ -206,12 +206,12 @@ class CustomActionType(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  category: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict']]]]] = None,
-                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
-                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict']]] = None,
+                 configuration_properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CustomActionTypeConfigurationPropertiesArgs', 'CustomActionTypeConfigurationPropertiesArgsDict', 'outputs.CustomActionTypeConfigurationProperties']]]]] = None,
+                 input_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict', 'outputs.CustomActionTypeArtifactDetails']]] = None,
+                 output_artifact_details: pulumi.Input[Optional[Union['CustomActionTypeArtifactDetailsArgs', 'CustomActionTypeArtifactDetailsArgsDict', 'outputs.CustomActionTypeArtifactDetails']]] = None,
                  provider: pulumi.Input[Optional[_builtins.str]] = None,
-                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 settings: pulumi.Input[Optional[Union['CustomActionTypeSettingsArgs', 'CustomActionTypeSettingsArgsDict', 'outputs.CustomActionTypeSettings']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  version: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

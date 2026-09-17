@@ -145,13 +145,13 @@ class Pipeline(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: pulumi.Input[Optional[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
-                 pipeline_definition: pulumi.Input[Optional[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
+                 parallelism_configuration: pulumi.Input[Optional[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict', 'outputs.ParallelismConfigurationProperties']]] = None,
+                 pipeline_definition: pulumi.Input[Optional[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict', 'outputs.PipelineDefinition0Properties'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict', 'outputs.PipelineDefinition1Properties']]]] = None,
                  pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SageMaker::Pipeline
@@ -196,13 +196,13 @@ class Pipeline(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']] parallelism_configuration: The parallelism configuration applied to the pipeline.
-        :param pulumi.Input[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]] pipeline_definition: The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
+        :param pulumi.Input[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict', 'outputs.ParallelismConfigurationProperties']] parallelism_configuration: The parallelism configuration applied to the pipeline.
+        :param pulumi.Input[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict', 'outputs.PipelineDefinition0Properties'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict', 'outputs.PipelineDefinition1Properties']]] pipeline_definition: The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
         :param pulumi.Input[_builtins.str] pipeline_description: The description of the Pipeline.
         :param pulumi.Input[_builtins.str] pipeline_display_name: The display name of the Pipeline.
         :param pulumi.Input[_builtins.str] pipeline_name: The name of the Pipeline.
         :param pulumi.Input[_builtins.str] role_arn: Role Arn
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags of the pipeline.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags of the pipeline.
         """
         ...
     @overload
@@ -266,13 +266,13 @@ class Pipeline(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 parallelism_configuration: pulumi.Input[Optional[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict']]] = None,
-                 pipeline_definition: pulumi.Input[Optional[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict']]]] = None,
+                 parallelism_configuration: pulumi.Input[Optional[Union['ParallelismConfigurationPropertiesArgs', 'ParallelismConfigurationPropertiesArgsDict', 'outputs.ParallelismConfigurationProperties']]] = None,
+                 pipeline_definition: pulumi.Input[Optional[Union[Union['PipelineDefinition0PropertiesArgs', 'PipelineDefinition0PropertiesArgsDict', 'outputs.PipelineDefinition0Properties'], Union['PipelineDefinition1PropertiesArgs', 'PipelineDefinition1PropertiesArgsDict', 'outputs.PipelineDefinition1Properties']]]] = None,
                  pipeline_description: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipeline_name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -336,7 +336,7 @@ class Pipeline(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="pipelineDefinition")
-    def pipeline_definition(self) -> pulumi.Output[Any]:
+    def pipeline_definition(self) -> pulumi.Output[Union['outputs.PipelineDefinition0Properties', 'outputs.PipelineDefinition1Properties']]:
         """
         The definition of the pipeline. This can be either a JSON string or an Amazon S3 location.
         """

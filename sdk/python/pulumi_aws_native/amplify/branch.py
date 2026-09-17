@@ -324,8 +324,8 @@ class Branch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 backend: pulumi.Input[Optional[Union['BranchBackendArgs', 'BranchBackendArgsDict']]] = None,
-                 basic_auth_config: pulumi.Input[Optional[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
+                 backend: pulumi.Input[Optional[Union['BranchBackendArgs', 'BranchBackendArgsDict', 'outputs.BranchBackend']]] = None,
+                 basic_auth_config: pulumi.Input[Optional[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict', 'outputs.BranchBasicAuthConfig']]] = None,
                  branch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  build_spec: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -334,11 +334,11 @@ class Branch(pulumi.CustomResource):
                  enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
-                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict', 'outputs.BranchEnvironmentVariable']]]]] = None,
                  framework: pulumi.Input[Optional[_builtins.str]] = None,
                  pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stage: pulumi.Input[Optional['BranchStage']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::Amplify::Branch resource creates a new branch within an app.
@@ -346,10 +346,10 @@ class Branch(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_id: The unique ID for an Amplify app.
-        :param pulumi.Input[Union['BranchBackendArgs', 'BranchBackendArgsDict']] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
+        :param pulumi.Input[Union['BranchBackendArgs', 'BranchBackendArgsDict', 'outputs.BranchBackend']] backend: The backend for a `Branch` of an Amplify app. Use for a backend created from an CloudFormation stack.
                
                This field is available to Amplify Gen 2 apps only. When you deploy an application with Amplify Gen 2, you provision the app's backend infrastructure using Typescript code.
-        :param pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
+        :param pulumi.Input[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict', 'outputs.BranchBasicAuthConfig']] basic_auth_config: The basic authorization credentials for a branch of an Amplify app. You must base64-encode the authorization credentials and provide them in the format `user:password` .
         :param pulumi.Input[_builtins.str] branch_name: The name for the branch.
         :param pulumi.Input[_builtins.str] build_spec: The build specification (build spec) for the branch.
         :param pulumi.Input[_builtins.str] compute_role_arn: The Amazon Resource Name (ARN) of the IAM role to assign to a branch of an SSR app. The SSR Compute role allows the Amplify Hosting compute service to securely access specific AWS resources based on the role's permissions. For more information about the SSR Compute role, see [Adding an SSR Compute role](https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html) in the *Amplify User Guide* .
@@ -366,7 +366,7 @@ class Branch(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_skew_protection: Specifies whether the skew protection feature is enabled for the branch.
                
                Deployment skew protection is available to Amplify applications to eliminate version skew issues between client and servers in web applications. When you apply skew protection to a branch, you can ensure that your clients always interact with the correct version of server-side assets, regardless of when a deployment occurs. For more information about skew protection, see [Skew protection for Amplify deployments](https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html) in the *Amplify User Guide* .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]] environment_variables: The environment variables for the branch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict', 'outputs.BranchEnvironmentVariable']]]] environment_variables: The environment variables for the branch.
         :param pulumi.Input[_builtins.str] framework: The framework for the branch.
         :param pulumi.Input[_builtins.str] pull_request_environment_name: If pull request previews are enabled for this branch, you can use this property to specify a dedicated backend environment for your previews. For example, you could specify an environment named `prod` , `test` , or `dev` that you initialized with the Amplify CLI and mapped to this branch.
                
@@ -376,7 +376,7 @@ class Branch(pulumi.CustomResource):
                
                For more information about creating backend environments, see [Feature Branch Deployments and Team Workflows](https://docs.aws.amazon.com/amplify/latest/userguide/multi-environments.html) in the *AWS Amplify Hosting User Guide* .
         :param pulumi.Input['BranchStage'] stage: Describes the current stage for the branch.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tag for the branch.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tag for the branch.
         """
         ...
     @overload
@@ -403,8 +403,8 @@ class Branch(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  app_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 backend: pulumi.Input[Optional[Union['BranchBackendArgs', 'BranchBackendArgsDict']]] = None,
-                 basic_auth_config: pulumi.Input[Optional[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict']]] = None,
+                 backend: pulumi.Input[Optional[Union['BranchBackendArgs', 'BranchBackendArgsDict', 'outputs.BranchBackend']]] = None,
+                 basic_auth_config: pulumi.Input[Optional[Union['BranchBasicAuthConfigArgs', 'BranchBasicAuthConfigArgsDict', 'outputs.BranchBasicAuthConfig']]] = None,
                  branch_name: pulumi.Input[Optional[_builtins.str]] = None,
                  build_spec: pulumi.Input[Optional[_builtins.str]] = None,
                  compute_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -413,11 +413,11 @@ class Branch(pulumi.CustomResource):
                  enable_performance_mode: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_pull_request_preview: pulumi.Input[Optional[_builtins.bool]] = None,
                  enable_skew_protection: pulumi.Input[Optional[_builtins.bool]] = None,
-                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict']]]]] = None,
+                 environment_variables: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BranchEnvironmentVariableArgs', 'BranchEnvironmentVariableArgsDict', 'outputs.BranchEnvironmentVariable']]]]] = None,
                  framework: pulumi.Input[Optional[_builtins.str]] = None,
                  pull_request_environment_name: pulumi.Input[Optional[_builtins.str]] = None,
                  stage: pulumi.Input[Optional['BranchStage']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -134,7 +134,7 @@ class DataQualityRuleset(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  ruleset: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetDataQualityTargetTableArgs', 'DataQualityRulesetDataQualityTargetTableArgsDict']]] = None,
+                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetDataQualityTargetTableArgs', 'DataQualityRulesetDataQualityTargetTableArgsDict', 'outputs.DataQualityRulesetDataQualityTargetTable']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Glue::DataQualityRuleset
@@ -146,7 +146,7 @@ class DataQualityRuleset(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: A unique name for the data quality ruleset.
         :param pulumi.Input[_builtins.str] ruleset: A Data Quality Definition Language (DQDL) ruleset.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of key-value pairs to apply to this resource.
-        :param pulumi.Input[Union['DataQualityRulesetDataQualityTargetTableArgs', 'DataQualityRulesetDataQualityTargetTableArgsDict']] target_table: An object representing an AWS Glue table.
+        :param pulumi.Input[Union['DataQualityRulesetDataQualityTargetTableArgs', 'DataQualityRulesetDataQualityTargetTableArgsDict', 'outputs.DataQualityRulesetDataQualityTargetTable']] target_table: An object representing an AWS Glue table.
         """
         ...
     @overload
@@ -177,7 +177,7 @@ class DataQualityRuleset(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  ruleset: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetDataQualityTargetTableArgs', 'DataQualityRulesetDataQualityTargetTableArgsDict']]] = None,
+                 target_table: pulumi.Input[Optional[Union['DataQualityRulesetDataQualityTargetTableArgs', 'DataQualityRulesetDataQualityTargetTableArgsDict', 'outputs.DataQualityRulesetDataQualityTargetTable']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

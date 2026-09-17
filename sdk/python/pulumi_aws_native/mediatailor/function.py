@@ -134,13 +134,13 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict']]] = None,
+                 custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict', 'outputs.FunctionCustomOutputConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  function_id: pulumi.Input[Optional[_builtins.str]] = None,
                  function_type: pulumi.Input[Optional['FunctionType']] = None,
-                 http_request_configuration: pulumi.Input[Optional[Union['FunctionHttpRequestConfigurationArgs', 'FunctionHttpRequestConfigurationArgsDict']]] = None,
-                 sequential_executor_configuration: pulumi.Input[Optional[Union['FunctionSequentialExecutorConfigurationArgs', 'FunctionSequentialExecutorConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 http_request_configuration: pulumi.Input[Optional[Union['FunctionHttpRequestConfigurationArgs', 'FunctionHttpRequestConfigurationArgsDict', 'outputs.FunctionHttpRequestConfiguration']]] = None,
+                 sequential_executor_configuration: pulumi.Input[Optional[Union['FunctionSequentialExecutorConfigurationArgs', 'FunctionSequentialExecutorConfigurationArgsDict', 'outputs.FunctionSequentialExecutorConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::MediaTailor::Function
@@ -150,7 +150,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the function.
         :param pulumi.Input[_builtins.str] function_id: The unique identifier for the function.
         :param pulumi.Input['FunctionType'] function_type: The type of the function. Determines which configuration object is used.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to assign to the function resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to assign to the function resource.
         """
         ...
     @overload
@@ -176,13 +176,13 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict']]] = None,
+                 custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict', 'outputs.FunctionCustomOutputConfiguration']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  function_id: pulumi.Input[Optional[_builtins.str]] = None,
                  function_type: pulumi.Input[Optional['FunctionType']] = None,
-                 http_request_configuration: pulumi.Input[Optional[Union['FunctionHttpRequestConfigurationArgs', 'FunctionHttpRequestConfigurationArgsDict']]] = None,
-                 sequential_executor_configuration: pulumi.Input[Optional[Union['FunctionSequentialExecutorConfigurationArgs', 'FunctionSequentialExecutorConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 http_request_configuration: pulumi.Input[Optional[Union['FunctionHttpRequestConfigurationArgs', 'FunctionHttpRequestConfigurationArgsDict', 'outputs.FunctionHttpRequestConfiguration']]] = None,
+                 sequential_executor_configuration: pulumi.Input[Optional[Union['FunctionSequentialExecutorConfigurationArgs', 'FunctionSequentialExecutorConfigurationArgsDict', 'outputs.FunctionSequentialExecutorConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

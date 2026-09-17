@@ -147,7 +147,7 @@ class DataTable(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['DataTableStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  value_lock_level: pulumi.Input[Optional['DataTableValueLockLevel']] = None,
                  __props__=None):
@@ -160,7 +160,7 @@ class DataTable(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
         :param pulumi.Input[_builtins.str] name: The name of the Data Table
         :param pulumi.Input['DataTableStatus'] status: The status of the Data Table
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         :param pulumi.Input[_builtins.str] time_zone: The time zone of the Data Table
         :param pulumi.Input['DataTableValueLockLevel'] value_lock_level: The value lock level of the Data Table
         """
@@ -192,7 +192,7 @@ class DataTable(pulumi.CustomResource):
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['DataTableStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  time_zone: pulumi.Input[Optional[_builtins.str]] = None,
                  value_lock_level: pulumi.Input[Optional['DataTableValueLockLevel']] = None,
                  __props__=None):

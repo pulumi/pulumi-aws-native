@@ -245,11 +245,11 @@ class ExpressGatewayService(pulumi.CustomResource):
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]] = None,
-                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict']]] = None,
-                 scaling_target: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict', 'outputs.ExpressGatewayServiceExpressGatewayContainer']]] = None,
+                 scaling_target: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict', 'outputs.ExpressGatewayServiceExpressGatewayScalingTarget']]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -264,11 +264,11 @@ class ExpressGatewayService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] health_check_path: The health check path for this service revision.
         :param pulumi.Input[_builtins.str] infrastructure_role_arn: The ARN of the infrastructure role that manages AWS resources for the Express service.
         :param pulumi.Input[_builtins.str] memory: The memory allocation for tasks in this service revision.
-        :param pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']] network_configuration: The network configuration for tasks in this service revision.
-        :param pulumi.Input[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict']] primary_container: The primary container configuration for this service revision.
-        :param pulumi.Input[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict']] scaling_target: The auto-scaling configuration for this service revision.
+        :param pulumi.Input[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']] network_configuration: The network configuration for tasks in this service revision.
+        :param pulumi.Input[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict', 'outputs.ExpressGatewayServiceExpressGatewayContainer']] primary_container: The primary container configuration for this service revision.
+        :param pulumi.Input[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict', 'outputs.ExpressGatewayServiceExpressGatewayScalingTarget']] scaling_target: The auto-scaling configuration for this service revision.
         :param pulumi.Input[_builtins.str] service_name: The name of the Express service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: The metadata applied to the Express service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: The metadata applied to the Express service.
         :param pulumi.Input[_builtins.str] task_role_arn: The ARN of the task role for the service revision.
         """
         ...
@@ -301,11 +301,11 @@ class ExpressGatewayService(pulumi.CustomResource):
                  health_check_path: pulumi.Input[Optional[_builtins.str]] = None,
                  infrastructure_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict']]] = None,
-                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict']]] = None,
-                 scaling_target: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['ExpressGatewayServiceNetworkConfigurationArgs', 'ExpressGatewayServiceNetworkConfigurationArgsDict', 'outputs.ExpressGatewayServiceNetworkConfiguration']]] = None,
+                 primary_container: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayContainerArgs', 'ExpressGatewayServiceExpressGatewayContainerArgsDict', 'outputs.ExpressGatewayServiceExpressGatewayContainer']]] = None,
+                 scaling_target: pulumi.Input[Optional[Union['ExpressGatewayServiceExpressGatewayScalingTargetArgs', 'ExpressGatewayServiceExpressGatewayScalingTargetArgsDict', 'outputs.ExpressGatewayServiceExpressGatewayScalingTarget']]] = None,
                  service_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  task_definition_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  task_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
