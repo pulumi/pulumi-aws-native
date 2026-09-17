@@ -84,8 +84,8 @@ class MailManagerRuleSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict', 'outputs.MailManagerRuleSetRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::SES::MailManagerRuleSet Resource Type
@@ -93,8 +93,8 @@ class MailManagerRuleSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] rule_set_name: A user-friendly name for the rule set.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict']]]] rules: Conditional rules that are evaluated for determining actions on email.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict', 'outputs.MailManagerRuleSetRule']]]] rules: Conditional rules that are evaluated for determining actions on email.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         ...
     @overload
@@ -121,8 +121,8 @@ class MailManagerRuleSet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  rule_set_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MailManagerRuleSetRuleArgs', 'MailManagerRuleSetRuleArgsDict', 'outputs.MailManagerRuleSetRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

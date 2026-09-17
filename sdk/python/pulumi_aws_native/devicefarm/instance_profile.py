@@ -142,7 +142,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  package_cleanup: pulumi.Input[Optional[_builtins.bool]] = None,
                  reboot_after_use: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for a Device Farm Instance Profile
@@ -156,7 +156,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the instance profile.
         :param pulumi.Input[_builtins.bool] package_cleanup: When set to `true` , Device Farm removes app packages after a test run. The default value is `false` for private devices.
         :param pulumi.Input[_builtins.bool] reboot_after_use: When set to `true` , Device Farm reboots the instance after a test run. The default value is `true` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) in the *guide* .
         """
@@ -189,7 +189,7 @@ class InstanceProfile(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  package_cleanup: pulumi.Input[Optional[_builtins.bool]] = None,
                  reboot_after_use: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

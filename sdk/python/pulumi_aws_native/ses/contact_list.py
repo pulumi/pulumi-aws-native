@@ -101,8 +101,8 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::SES::ContactList.
@@ -111,8 +111,8 @@ class ContactList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] contact_list_name: The name of the contact list.
         :param pulumi.Input[_builtins.str] description: The description of the contact list.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags (keys and values) associated with the contact list.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]] topics: The topics associated with the contact list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags (keys and values) associated with the contact list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]] topics: The topics associated with the contact list.
         """
         ...
     @overload
@@ -140,8 +140,8 @@ class ContactList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 topics: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ContactListTopicArgs', 'ContactListTopicArgsDict', 'outputs.ContactListTopic']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

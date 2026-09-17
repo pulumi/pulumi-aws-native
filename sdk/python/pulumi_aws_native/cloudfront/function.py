@@ -131,10 +131,10 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  function_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 function_config: pulumi.Input[Optional[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']]] = None,
-                 function_metadata: pulumi.Input[Optional[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']]] = None,
+                 function_config: pulumi.Input[Optional[Union['FunctionConfigArgs', 'FunctionConfigArgsDict', 'outputs.FunctionConfig']]] = None,
+                 function_metadata: pulumi.Input[Optional[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict', 'outputs.FunctionMetadata']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates a CF function.
@@ -147,10 +147,10 @@ class Function(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] auto_publish: A flag that determines whether to automatically publish the function to the ``LIVE`` stage when it’s created. To automatically publish to the ``LIVE`` stage, set this property to ``true``.
         :param pulumi.Input[_builtins.str] function_code: The function code. For more information about writing a CloudFront function, see [Writing function code for CloudFront Functions](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/writing-function-code.html) in the *Amazon CloudFront Developer Guide*.
-        :param pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']] function_config: Contains configuration information about a CloudFront function.
-        :param pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']] function_metadata: Contains metadata about a CloudFront function.
+        :param pulumi.Input[Union['FunctionConfigArgs', 'FunctionConfigArgsDict', 'outputs.FunctionConfig']] function_config: Contains configuration information about a CloudFront function.
+        :param pulumi.Input[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict', 'outputs.FunctionMetadata']] function_metadata: Contains metadata about a CloudFront function.
         :param pulumi.Input[_builtins.str] name: A name to identify the function.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A complex type that contains zero or more ``Tag`` elements.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A complex type that contains zero or more ``Tag`` elements.
         """
         ...
     @overload
@@ -182,10 +182,10 @@ class Function(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_publish: pulumi.Input[Optional[_builtins.bool]] = None,
                  function_code: pulumi.Input[Optional[_builtins.str]] = None,
-                 function_config: pulumi.Input[Optional[Union['FunctionConfigArgs', 'FunctionConfigArgsDict']]] = None,
-                 function_metadata: pulumi.Input[Optional[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict']]] = None,
+                 function_config: pulumi.Input[Optional[Union['FunctionConfigArgs', 'FunctionConfigArgsDict', 'outputs.FunctionConfig']]] = None,
+                 function_metadata: pulumi.Input[Optional[Union['FunctionMetadataArgs', 'FunctionMetadataArgsDict', 'outputs.FunctionMetadata']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

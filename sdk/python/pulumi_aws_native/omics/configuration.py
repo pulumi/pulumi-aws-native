@@ -99,7 +99,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 run_configurations: pulumi.Input[Optional[Union['ConfigurationRunConfigurationsArgs', 'ConfigurationRunConfigurationsArgsDict']]] = None,
+                 run_configurations: pulumi.Input[Optional[Union['ConfigurationRunConfigurationsArgs', 'ConfigurationRunConfigurationsArgsDict', 'outputs.ConfigurationRunConfigurations']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -109,7 +109,7 @@ class Configuration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Optional description for the configuration.
         :param pulumi.Input[_builtins.str] name: User-friendly name for the configuration.
-        :param pulumi.Input[Union['ConfigurationRunConfigurationsArgs', 'ConfigurationRunConfigurationsArgsDict']] run_configurations: Required run-specific configurations.
+        :param pulumi.Input[Union['ConfigurationRunConfigurationsArgs', 'ConfigurationRunConfigurationsArgsDict', 'outputs.ConfigurationRunConfigurations']] run_configurations: Required run-specific configurations.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags for the configuration.
         """
         ...
@@ -138,7 +138,7 @@ class Configuration(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 run_configurations: pulumi.Input[Optional[Union['ConfigurationRunConfigurationsArgs', 'ConfigurationRunConfigurationsArgsDict']]] = None,
+                 run_configurations: pulumi.Input[Optional[Union['ConfigurationRunConfigurationsArgs', 'ConfigurationRunConfigurationsArgsDict', 'outputs.ConfigurationRunConfigurations']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

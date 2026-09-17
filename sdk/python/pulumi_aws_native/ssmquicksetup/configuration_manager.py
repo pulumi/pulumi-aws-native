@@ -97,7 +97,7 @@ class ConfigurationManager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict']]]]] = None,
+                 configuration_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.ConfigurationManagerConfigurationDefinition']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -107,7 +107,7 @@ class ConfigurationManager(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict']]]] configuration_definitions: The definition of the Quick Setup configuration that the configuration manager deploys.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.ConfigurationManagerConfigurationDefinition']]]] configuration_definitions: The definition of the Quick Setup configuration that the configuration manager deploys.
         :param pulumi.Input[_builtins.str] description: The description of the configuration.
         :param pulumi.Input[_builtins.str] name: The name of the configuration
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of metadata to assign to the configuration manager.
@@ -136,7 +136,7 @@ class ConfigurationManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict']]]]] = None,
+                 configuration_definitions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ConfigurationManagerConfigurationDefinitionArgs', 'ConfigurationManagerConfigurationDefinitionArgsDict', 'outputs.ConfigurationManagerConfigurationDefinition']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,

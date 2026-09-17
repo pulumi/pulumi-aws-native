@@ -292,13 +292,13 @@ class EventDataStore(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict', 'outputs.EventDataStoreAdvancedEventSelector']]]]] = None,
                  billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 context_key_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict']]]]] = None,
+                 context_key_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict', 'outputs.EventDataStoreContextKeySelector']]]]] = None,
                  federation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  federation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict']]]]] = None,
+                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict', 'outputs.EventDataStoreInsightSelector']]]]] = None,
                  insights_destination: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  max_event_size: pulumi.Input[Optional['EventDataStoreMaxEventSize']] = None,
@@ -306,7 +306,7 @@ class EventDataStore(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  retention_period: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -314,13 +314,13 @@ class EventDataStore(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict', 'outputs.EventDataStoreAdvancedEventSelector']]]] advanced_event_selectors: The advanced event selectors that were used to select events for the data store.
         :param pulumi.Input[_builtins.str] billing_mode: The mode that the event data store will use to charge for event storage.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict']]]] context_key_selectors: An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict', 'outputs.EventDataStoreContextKeySelector']]]] context_key_selectors: An array that enriches event records in an existing event data store by including additional information specified in individual ContexKeySelector entries. If you add ContextKeySelectors, you must set MaxEventSize to Large.
         :param pulumi.Input[_builtins.bool] federation_enabled: Indicates whether federation is enabled on an event data store.
         :param pulumi.Input[_builtins.str] federation_role_arn: The ARN of the role used for event data store federation.
         :param pulumi.Input[_builtins.bool] ingestion_enabled: Indicates whether the event data store is ingesting events.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict']]]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict', 'outputs.EventDataStoreInsightSelector']]]] insight_selectors: Lets you enable Insights event logging by specifying the Insights selectors that you want to enable on an existing event data store. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store.
         :param pulumi.Input[_builtins.str] insights_destination: Specifies the ARN of the event data store that will collect Insights events. Both InsightSelectors and InsightsDestination need to have a value in order to enable Insights events on an event data store
         :param pulumi.Input[_builtins.str] kms_key_id: Specifies the KMS key ID to use to encrypt the events delivered by CloudTrail. The value can be an alias name prefixed by 'alias/', a fully specified ARN to an alias, a fully specified ARN to a key, or a globally unique identifier.
         :param pulumi.Input['EventDataStoreMaxEventSize'] max_event_size: Specifies the maximum size allowed for the event. Valid values are Standard and Large. If you add ContextKeySelectors, this value must be set to Large.
@@ -328,7 +328,7 @@ class EventDataStore(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the event data store.
         :param pulumi.Input[_builtins.bool] organization_enabled: Indicates that an event data store is collecting logged events for an organization.
         :param pulumi.Input[_builtins.int] retention_period: The retention period, in days.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags.
         :param pulumi.Input[_builtins.bool] termination_protection_enabled: Indicates whether the event data store is protected from termination.
         """
         ...
@@ -355,13 +355,13 @@ class EventDataStore(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict']]]]] = None,
+                 advanced_event_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreAdvancedEventSelectorArgs', 'EventDataStoreAdvancedEventSelectorArgsDict', 'outputs.EventDataStoreAdvancedEventSelector']]]]] = None,
                  billing_mode: pulumi.Input[Optional[_builtins.str]] = None,
-                 context_key_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict']]]]] = None,
+                 context_key_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreContextKeySelectorArgs', 'EventDataStoreContextKeySelectorArgsDict', 'outputs.EventDataStoreContextKeySelector']]]]] = None,
                  federation_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  federation_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  ingestion_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict']]]]] = None,
+                 insight_selectors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EventDataStoreInsightSelectorArgs', 'EventDataStoreInsightSelectorArgsDict', 'outputs.EventDataStoreInsightSelector']]]]] = None,
                  insights_destination: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  max_event_size: pulumi.Input[Optional['EventDataStoreMaxEventSize']] = None,
@@ -369,7 +369,7 @@ class EventDataStore(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  organization_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  retention_period: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  termination_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

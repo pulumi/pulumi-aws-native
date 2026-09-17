@@ -101,9 +101,9 @@ class Tunnel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_config: pulumi.Input[Optional[Union['TunnelDestinationConfigArgs', 'TunnelDestinationConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 timeout_config: pulumi.Input[Optional[Union['TunnelTimeoutConfigArgs', 'TunnelTimeoutConfigArgsDict']]] = None,
+                 destination_config: pulumi.Input[Optional[Union['TunnelDestinationConfigArgs', 'TunnelDestinationConfigArgsDict', 'outputs.TunnelDestinationConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 timeout_config: pulumi.Input[Optional[Union['TunnelTimeoutConfigArgs', 'TunnelTimeoutConfigArgsDict', 'outputs.TunnelTimeoutConfig']]] = None,
                  __props__=None):
         """
         A connection between a source computer and a destination device using AWS IoT Secure Tunneling.
@@ -111,9 +111,9 @@ class Tunnel(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A short text description of the tunnel.
-        :param pulumi.Input[Union['TunnelDestinationConfigArgs', 'TunnelDestinationConfigArgsDict']] destination_config: The destination configuration for the tunnel.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tag metadata.
-        :param pulumi.Input[Union['TunnelTimeoutConfigArgs', 'TunnelTimeoutConfigArgsDict']] timeout_config: Timeout configuration for the tunnel.
+        :param pulumi.Input[Union['TunnelDestinationConfigArgs', 'TunnelDestinationConfigArgsDict', 'outputs.TunnelDestinationConfig']] destination_config: The destination configuration for the tunnel.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of tag metadata.
+        :param pulumi.Input[Union['TunnelTimeoutConfigArgs', 'TunnelTimeoutConfigArgsDict', 'outputs.TunnelTimeoutConfig']] timeout_config: Timeout configuration for the tunnel.
         """
         ...
     @overload
@@ -140,9 +140,9 @@ class Tunnel(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 destination_config: pulumi.Input[Optional[Union['TunnelDestinationConfigArgs', 'TunnelDestinationConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 timeout_config: pulumi.Input[Optional[Union['TunnelTimeoutConfigArgs', 'TunnelTimeoutConfigArgsDict']]] = None,
+                 destination_config: pulumi.Input[Optional[Union['TunnelDestinationConfigArgs', 'TunnelDestinationConfigArgsDict', 'outputs.TunnelDestinationConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 timeout_config: pulumi.Input[Optional[Union['TunnelTimeoutConfigArgs', 'TunnelTimeoutConfigArgsDict', 'outputs.TunnelTimeoutConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -98,20 +98,20 @@ class LiveSource(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_package_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LiveSourceHttpPackageConfigurationArgs', 'LiveSourceHttpPackageConfigurationArgsDict']]]]] = None,
+                 http_package_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LiveSourceHttpPackageConfigurationArgs', 'LiveSourceHttpPackageConfigurationArgsDict', 'outputs.LiveSourceHttpPackageConfiguration']]]]] = None,
                  live_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaTailor::LiveSource Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LiveSourceHttpPackageConfigurationArgs', 'LiveSourceHttpPackageConfigurationArgsDict']]]] http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LiveSourceHttpPackageConfigurationArgs', 'LiveSourceHttpPackageConfigurationArgsDict', 'outputs.LiveSourceHttpPackageConfiguration']]]] http_package_configurations: <p>A list of HTTP package configuration parameters for this live source.</p>
         :param pulumi.Input[_builtins.str] live_source_name: The name that's used to refer to a live source.
         :param pulumi.Input[_builtins.str] source_location_name: The name of the source location.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to assign to the live source.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to assign to the live source.
         """
         ...
     @overload
@@ -137,10 +137,10 @@ class LiveSource(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 http_package_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LiveSourceHttpPackageConfigurationArgs', 'LiveSourceHttpPackageConfigurationArgsDict']]]]] = None,
+                 http_package_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LiveSourceHttpPackageConfigurationArgs', 'LiveSourceHttpPackageConfigurationArgsDict', 'outputs.LiveSourceHttpPackageConfiguration']]]]] = None,
                  live_source_name: pulumi.Input[Optional[_builtins.str]] = None,
                  source_location_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

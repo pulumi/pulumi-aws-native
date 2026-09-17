@@ -100,8 +100,8 @@ class LicenseAssetRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetRuleSetLicenseAssetRuleArgs', 'LicenseAssetRuleSetLicenseAssetRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetRuleSetLicenseAssetRuleArgs', 'LicenseAssetRuleSetLicenseAssetRuleArgsDict', 'outputs.LicenseAssetRuleSetLicenseAssetRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::LicenseManager::LicenseAssetRuleSet.
@@ -110,8 +110,8 @@ class LicenseAssetRuleSet(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: License asset ruleset description.
         :param pulumi.Input[_builtins.str] name: License asset ruleset name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseAssetRuleSetLicenseAssetRuleArgs', 'LicenseAssetRuleSetLicenseAssetRuleArgsDict']]]] rules: License asset rules.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to add to the license asset ruleset.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseAssetRuleSetLicenseAssetRuleArgs', 'LicenseAssetRuleSetLicenseAssetRuleArgsDict', 'outputs.LicenseAssetRuleSetLicenseAssetRule']]]] rules: License asset rules.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to add to the license asset ruleset.
         """
         ...
     @overload
@@ -139,8 +139,8 @@ class LicenseAssetRuleSet(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetRuleSetLicenseAssetRuleArgs', 'LicenseAssetRuleSetLicenseAssetRuleArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetRuleSetLicenseAssetRuleArgs', 'LicenseAssetRuleSetLicenseAssetRuleArgsDict', 'outputs.LicenseAssetRuleSetLicenseAssetRule']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

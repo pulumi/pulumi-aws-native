@@ -84,18 +84,18 @@ class ProtectConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 country_rule_set: pulumi.Input[Optional[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']]] = None,
+                 country_rule_set: pulumi.Input[Optional[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict', 'outputs.ProtectConfigurationCountryRuleSet']]] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::SMSVOICE::ProtectConfiguration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']] country_rule_set: An array of CountryRule containing the rules for the NumberCapability.
+        :param pulumi.Input[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict', 'outputs.ProtectConfigurationCountryRuleSet']] country_rule_set: An array of CountryRule containing the rules for the NumberCapability.
         :param pulumi.Input[_builtins.bool] deletion_protection_enabled: When set to true deletion protection is enabled and protect configuration cannot be deleted. By default this is set to false.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -121,9 +121,9 @@ class ProtectConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 country_rule_set: pulumi.Input[Optional[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict']]] = None,
+                 country_rule_set: pulumi.Input[Optional[Union['ProtectConfigurationCountryRuleSetArgs', 'ProtectConfigurationCountryRuleSetArgsDict', 'outputs.ProtectConfigurationCountryRuleSet']]] = None,
                  deletion_protection_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

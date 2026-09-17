@@ -151,7 +151,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict', 'outputs.ManagedLoginBrandingAssetType']]]]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  return_merged_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: Optional[Any] = None,
@@ -163,7 +163,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict', 'outputs.ManagedLoginBrandingAssetType']]]] assets: An array of image files that you want to apply to roles like backgrounds, logos, and icons. Each object must also indicate whether it is for dark mode, light mode, or browser-adaptive mode.
         :param pulumi.Input[_builtins.str] client_id: The app client that you want to assign the branding style to. Each style is linked to an app client until you delete it.
         :param pulumi.Input[_builtins.bool] return_merged_resources: When `true` , returns values for branding options that are unchanged from Amazon Cognito defaults. When `false` or when you omit this parameter, returns only values that you customized in your branding style.
         :param Any settings: A JSON file, encoded as a `Document` type, with the the settings that you want to apply to your style.
@@ -205,7 +205,7 @@ class ManagedLoginBranding(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict']]]]] = None,
+                 assets: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ManagedLoginBrandingAssetTypeArgs', 'ManagedLoginBrandingAssetTypeArgsDict', 'outputs.ManagedLoginBrandingAssetType']]]]] = None,
                  client_id: pulumi.Input[Optional[_builtins.str]] = None,
                  return_merged_resources: pulumi.Input[Optional[_builtins.bool]] = None,
                  settings: Optional[Any] = None,

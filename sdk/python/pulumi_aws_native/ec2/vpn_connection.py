@@ -355,7 +355,7 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  static_routes_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transport_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tunnel_bandwidth: pulumi.Input[Optional['VpnConnectionTunnelBandwidth']] = None,
@@ -363,7 +363,7 @@ class VpnConnection(pulumi.CustomResource):
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  vpn_concentrator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpn_tunnel_options_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
+                 vpn_tunnel_options_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict', 'outputs.VpnConnectionVpnTunnelOptionsSpecification']]]]] = None,
                  __props__=None):
         """
         Specifies a VPN connection between a virtual private gateway and a VPN customer gateway or a transit gateway and a VPN customer gateway.
@@ -390,7 +390,7 @@ class VpnConnection(pulumi.CustomResource):
                 Default: ``::/0``
         :param pulumi.Input[_builtins.bool] static_routes_only: Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.
                 If you are creating a VPN connection for a device that does not support Border Gateway Protocol (BGP), you must specify ``true``.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Any tags assigned to the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Any tags assigned to the VPN connection.
         :param pulumi.Input[_builtins.str] transit_gateway_id: The ID of the transit gateway associated with the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
         :param pulumi.Input[_builtins.str] transport_transit_gateway_attachment_id: The transit gateway attachment ID to use for the VPN tunnel.
@@ -402,7 +402,7 @@ class VpnConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] vpn_concentrator_id: The ID of the VPN concentrator to associate with the VPN connection.
         :param pulumi.Input[_builtins.str] vpn_gateway_id: The ID of the virtual private gateway at the AWS side of the VPN connection.
                 You must specify either ``TransitGatewayId`` or ``VpnGatewayId``, but not both.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict', 'outputs.VpnConnectionVpnTunnelOptionsSpecification']]]] vpn_tunnel_options_specifications: The tunnel options for the VPN connection.
         """
         ...
     @overload
@@ -440,7 +440,7 @@ class VpnConnection(pulumi.CustomResource):
                  remote_ipv4_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  remote_ipv6_network_cidr: pulumi.Input[Optional[_builtins.str]] = None,
                  static_routes_only: pulumi.Input[Optional[_builtins.bool]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  transit_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  transport_transit_gateway_attachment_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tunnel_bandwidth: pulumi.Input[Optional['VpnConnectionTunnelBandwidth']] = None,
@@ -448,7 +448,7 @@ class VpnConnection(pulumi.CustomResource):
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  vpn_concentrator_id: pulumi.Input[Optional[_builtins.str]] = None,
                  vpn_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 vpn_tunnel_options_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict']]]]] = None,
+                 vpn_tunnel_options_specifications: pulumi.Input[Optional[Sequence[pulumi.Input[Union['VpnConnectionVpnTunnelOptionsSpecificationArgs', 'VpnConnectionVpnTunnelOptionsSpecificationArgsDict', 'outputs.VpnConnectionVpnTunnelOptionsSpecification']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

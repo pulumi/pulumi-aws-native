@@ -311,15 +311,15 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerators: pulumi.Input[Optional['WorkflowAccelerators']] = None,
-                 container_registry_map: pulumi.Input[Optional[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict']]] = None,
+                 container_registry_map: pulumi.Input[Optional[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict', 'outputs.WorkflowContainerRegistryMap']]] = None,
                  container_registry_map_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition_repository: pulumi.Input[Optional[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict']]] = None,
+                 definition_repository: pulumi.Input[Optional[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict', 'outputs.WorkflowDefinitionRepository']]] = None,
                  definition_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine: pulumi.Input[Optional['WorkflowEngine']] = None,
                  main: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameter_template: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
+                 parameter_template: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict', 'outputs.WorkflowParameter']]]]] = None,
                  parameter_template_path: pulumi.Input[Optional[_builtins.str]] = None,
                  readme_markdown: pulumi.Input[Optional[_builtins.str]] = None,
                  readme_path: pulumi.Input[Optional[_builtins.str]] = None,
@@ -334,14 +334,14 @@ class Workflow(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict']] container_registry_map: Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
-        :param pulumi.Input[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict']] definition_repository: Contains information about a source code repository that hosts the workflow definition files.
+        :param pulumi.Input[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict', 'outputs.WorkflowContainerRegistryMap']] container_registry_map: Use a container registry map to specify mappings between the ECR private repository and one or more upstream registries. For more information, see [Container images](https://docs.aws.amazon.com/omics/latest/dev/workflows-ecr.html) in the *AWS HealthOmics User Guide* .
+        :param pulumi.Input[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict', 'outputs.WorkflowDefinitionRepository']] definition_repository: Contains information about a source code repository that hosts the workflow definition files.
         :param pulumi.Input[_builtins.str] definition_uri: The URI of a definition for the workflow.
         :param pulumi.Input[_builtins.str] description: The parameter's description.
         :param pulumi.Input['WorkflowEngine'] engine: An engine for the workflow.
         :param pulumi.Input[_builtins.str] main: The path of the main definition file for the workflow.
         :param pulumi.Input[_builtins.str] name: The workflow's name.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]] parameter_template: The workflow's parameter template.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict', 'outputs.WorkflowParameter']]]] parameter_template: The workflow's parameter template.
         :param pulumi.Input[_builtins.str] parameter_template_path: Path to the primary workflow parameter template JSON file inside the repository
         :param pulumi.Input[_builtins.str] readme_markdown: The markdown content for the workflow's README file. This provides documentation and usage information for users of the workflow.
         :param pulumi.Input[_builtins.str] readme_path: The path to the workflow README markdown file within the repository. This file provides documentation and usage information for the workflow. If not specified, the README.md file from the root directory of the repository will be used.
@@ -375,15 +375,15 @@ class Workflow(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerators: pulumi.Input[Optional['WorkflowAccelerators']] = None,
-                 container_registry_map: pulumi.Input[Optional[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict']]] = None,
+                 container_registry_map: pulumi.Input[Optional[Union['WorkflowContainerRegistryMapArgs', 'WorkflowContainerRegistryMapArgsDict', 'outputs.WorkflowContainerRegistryMap']]] = None,
                  container_registry_map_uri: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition_repository: pulumi.Input[Optional[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict']]] = None,
+                 definition_repository: pulumi.Input[Optional[Union['WorkflowDefinitionRepositoryArgs', 'WorkflowDefinitionRepositoryArgsDict', 'outputs.WorkflowDefinitionRepository']]] = None,
                  definition_uri: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  engine: pulumi.Input[Optional['WorkflowEngine']] = None,
                  main: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameter_template: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict']]]]] = None,
+                 parameter_template: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['WorkflowParameterArgs', 'WorkflowParameterArgsDict', 'outputs.WorkflowParameter']]]]] = None,
                  parameter_template_path: pulumi.Input[Optional[_builtins.str]] = None,
                  readme_markdown: pulumi.Input[Optional[_builtins.str]] = None,
                  readme_path: pulumi.Input[Optional[_builtins.str]] = None,

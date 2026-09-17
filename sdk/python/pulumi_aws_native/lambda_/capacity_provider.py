@@ -175,28 +175,28 @@ class CapacityProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 capacity_provider_scaling_config: pulumi.Input[Optional[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']]] = None,
-                 instance_requirements: pulumi.Input[Optional[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
+                 capacity_provider_scaling_config: pulumi.Input[Optional[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderScalingConfig']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict', 'outputs.CapacityProviderInstanceRequirements']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
-                 propagate_tags: pulumi.Input[Optional[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 telemetry_config: pulumi.Input[Optional[Union['CapacityProviderTelemetryConfigArgs', 'CapacityProviderTelemetryConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
+                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']]] = None,
+                 propagate_tags: pulumi.Input[Optional[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict', 'outputs.CapacityProviderPropagateTagsConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 telemetry_config: pulumi.Input[Optional[Union['CapacityProviderTelemetryConfigArgs', 'CapacityProviderTelemetryConfigArgsDict', 'outputs.CapacityProviderTelemetryConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']]] = None,
                  __props__=None):
         """
         Creates a capacity provider that manages compute resources for Lambda functions
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']] capacity_provider_scaling_config: The scaling configuration for the capacity provider.
-        :param pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']] instance_requirements: The instance requirements for compute resources managed by the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderScalingConfig']] capacity_provider_scaling_config: The scaling configuration for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict', 'outputs.CapacityProviderInstanceRequirements']] instance_requirements: The instance requirements for compute resources managed by the capacity provider.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMS key used to encrypt the capacity provider's resources.
-        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']] permissions_config: The permissions configuration for the capacity provider.
-        :param pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']] propagate_tags: Configuration for tag propagation to managed resources launched by the capacity provider.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A key-value pair that provides metadata for the capacity provider.
-        :param pulumi.Input[Union['CapacityProviderTelemetryConfigArgs', 'CapacityProviderTelemetryConfigArgsDict']] telemetry_config: The telemetry configuration for the capacity provider, including logging settings.
-        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']] vpc_config: The VPC configuration for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']] permissions_config: The permissions configuration for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict', 'outputs.CapacityProviderPropagateTagsConfig']] propagate_tags: Configuration for tag propagation to managed resources launched by the capacity provider.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A key-value pair that provides metadata for the capacity provider.
+        :param pulumi.Input[Union['CapacityProviderTelemetryConfigArgs', 'CapacityProviderTelemetryConfigArgsDict', 'outputs.CapacityProviderTelemetryConfig']] telemetry_config: The telemetry configuration for the capacity provider, including logging settings.
+        :param pulumi.Input[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']] vpc_config: The VPC configuration for the capacity provider.
         """
         ...
     @overload
@@ -223,14 +223,14 @@ class CapacityProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  capacity_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 capacity_provider_scaling_config: pulumi.Input[Optional[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict']]] = None,
-                 instance_requirements: pulumi.Input[Optional[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict']]] = None,
+                 capacity_provider_scaling_config: pulumi.Input[Optional[Union['CapacityProviderScalingConfigArgs', 'CapacityProviderScalingConfigArgsDict', 'outputs.CapacityProviderScalingConfig']]] = None,
+                 instance_requirements: pulumi.Input[Optional[Union['CapacityProviderInstanceRequirementsArgs', 'CapacityProviderInstanceRequirementsArgsDict', 'outputs.CapacityProviderInstanceRequirements']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict']]] = None,
-                 propagate_tags: pulumi.Input[Optional[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 telemetry_config: pulumi.Input[Optional[Union['CapacityProviderTelemetryConfigArgs', 'CapacityProviderTelemetryConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict']]] = None,
+                 permissions_config: pulumi.Input[Optional[Union['CapacityProviderPermissionsConfigArgs', 'CapacityProviderPermissionsConfigArgsDict', 'outputs.CapacityProviderPermissionsConfig']]] = None,
+                 propagate_tags: pulumi.Input[Optional[Union['CapacityProviderPropagateTagsConfigArgs', 'CapacityProviderPropagateTagsConfigArgsDict', 'outputs.CapacityProviderPropagateTagsConfig']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 telemetry_config: pulumi.Input[Optional[Union['CapacityProviderTelemetryConfigArgs', 'CapacityProviderTelemetryConfigArgsDict', 'outputs.CapacityProviderTelemetryConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['CapacityProviderVpcConfigArgs', 'CapacityProviderVpcConfigArgsDict', 'outputs.CapacityProviderVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

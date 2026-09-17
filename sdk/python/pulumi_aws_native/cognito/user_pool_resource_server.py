@@ -101,7 +101,7 @@ class UserPoolResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict', 'outputs.UserPoolResourceServerResourceServerScopeType']]]]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -113,7 +113,7 @@ class UserPoolResourceServer(pulumi.CustomResource):
                
                Amazon Cognito represents scopes in the access token in the format `$resource-server-identifier/$scope` . Longer scope-identifier strings increase the size of your access tokens.
         :param pulumi.Input[_builtins.str] name: A friendly name for the resource server.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict', 'outputs.UserPoolResourceServerResourceServerScopeType']]]] scopes: A list of scopes. Each scope is a map with keys `ScopeName` and `ScopeDescription` .
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool where you want to create a resource server.
         """
         ...
@@ -142,7 +142,7 @@ class UserPoolResourceServer(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict']]]]] = None,
+                 scopes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolResourceServerResourceServerScopeTypeArgs', 'UserPoolResourceServerResourceServerScopeTypeArgsDict', 'outputs.UserPoolResourceServerResourceServerScopeType']]]]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

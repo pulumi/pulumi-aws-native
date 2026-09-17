@@ -183,12 +183,12 @@ class Collection(pulumi.CustomResource):
                  collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deletion_protection: pulumi.Input[Optional['CollectionDeletionProtection']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_config: pulumi.Input[Optional[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict', 'outputs.CollectionEncryptionConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  standby_replicas: pulumi.Input[Optional['CollectionStandbyReplicas']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  type: pulumi.Input[Optional['CollectionType']] = None,
-                 vector_options: pulumi.Input[Optional[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
+                 vector_options: pulumi.Input[Optional[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict', 'outputs.CollectionVectorOptions']]] = None,
                  __props__=None):
         """
         Amazon OpenSearchServerless collection resource
@@ -244,7 +244,7 @@ class Collection(pulumi.CustomResource):
                Contains only lowercase letters a-z, the numbers 0-9 and the hyphen (-)
                Contains between 3 and 64 characters
         :param pulumi.Input['CollectionStandbyReplicas'] standby_replicas: Indicates whether to use standby replicas for the collection. You can't update this property after the collection is already created. If you attempt to modify this property, the collection continues to use the original value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]] tags: List of tags to be added to the resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]] tags: List of tags to be added to the resource
         :param pulumi.Input['CollectionType'] type: The type of collection. Possible values are `SEARCH` , `TIMESERIES` , and `VECTORSEARCH` . For more information, see [Choosing a collection type](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-overview.html#serverless-usecase) .
         """
         ...
@@ -313,12 +313,12 @@ class Collection(pulumi.CustomResource):
                  collection_group_name: pulumi.Input[Optional[_builtins.str]] = None,
                  deletion_protection: pulumi.Input[Optional['CollectionDeletionProtection']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption_config: pulumi.Input[Optional[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict']]] = None,
+                 encryption_config: pulumi.Input[Optional[Union['CollectionEncryptionConfigArgs', 'CollectionEncryptionConfigArgsDict', 'outputs.CollectionEncryptionConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  standby_replicas: pulumi.Input[Optional['CollectionStandbyReplicas']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.CreateOnlyTagArgs', '_root_inputs.CreateOnlyTagArgsDict', '_root_outputs.CreateOnlyTag']]]]] = None,
                  type: pulumi.Input[Optional['CollectionType']] = None,
-                 vector_options: pulumi.Input[Optional[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict']]] = None,
+                 vector_options: pulumi.Input[Optional[Union['CollectionVectorOptionsArgs', 'CollectionVectorOptionsArgsDict', 'outputs.CollectionVectorOptions']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

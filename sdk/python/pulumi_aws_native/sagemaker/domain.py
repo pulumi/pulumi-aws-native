@@ -245,15 +245,15 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: pulumi.Input[Optional['DomainAppNetworkAccessType']] = None,
                  app_security_group_management: pulumi.Input[Optional['DomainAppSecurityGroupManagement']] = None,
                  auth_mode: pulumi.Input[Optional['DomainAuthMode']] = None,
-                 default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
-                 default_user_settings: pulumi.Input[Optional[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict']]] = None,
+                 default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict', 'outputs.DomainDefaultSpaceSettings']]] = None,
+                 default_user_settings: pulumi.Input[Optional[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict', 'outputs.DomainUserSettings']]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_settings: pulumi.Input[Optional[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']]] = None,
+                 domain_settings: pulumi.Input[Optional[Union['DomainSettingsArgs', 'DomainSettingsArgsDict', 'outputs.DomainSettings']]] = None,
                  home_efs_file_system_creation: pulumi.Input[Optional['DomainHomeEfsFileSystemCreation']] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_propagation: pulumi.Input[Optional['DomainTagPropagation']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -264,15 +264,15 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input['DomainAppNetworkAccessType'] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is PublicInternetOnly.
         :param pulumi.Input['DomainAppSecurityGroupManagement'] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in VPCOnly mode. Required when CreateDomain.AppNetworkAccessType is VPCOnly and DomainSettings.RStudioServerProDomainSettings.DomainExecutionRoleArn is provided.
         :param pulumi.Input['DomainAuthMode'] auth_mode: The mode of authentication that members use to access the domain.
-        :param pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']] default_space_settings: The default space settings.
-        :param pulumi.Input[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict']] default_user_settings: The default user settings.
+        :param pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict', 'outputs.DomainDefaultSpaceSettings']] default_space_settings: The default space settings.
+        :param pulumi.Input[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict', 'outputs.DomainUserSettings']] default_user_settings: The default user settings.
         :param pulumi.Input[_builtins.str] domain_name: A name for the domain.
-        :param pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
+        :param pulumi.Input[Union['DomainSettingsArgs', 'DomainSettingsArgsDict', 'outputs.DomainSettings']] domain_settings: A collection of settings that apply to the `SageMaker Domain` . These settings are specified through the `CreateDomain` API call.
         :param pulumi.Input['DomainHomeEfsFileSystemCreation'] home_efs_file_system_creation: Indicates whether a home EFS file system is created for the domain. Set to Disabled to skip EFS creation and reduce domain creation time.
         :param pulumi.Input[_builtins.str] kms_key_id: SageMaker uses AWS KMS to encrypt the EFS volume attached to the domain with an AWS managed customer master key (CMK) by default.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input['DomainTagPropagation'] tag_propagation: Indicates whether the tags added to Domain, User Profile and Space entity is propagated to all SageMaker resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the user profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to apply to the user profile.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
         """
         ...
@@ -302,15 +302,15 @@ class Domain(pulumi.CustomResource):
                  app_network_access_type: pulumi.Input[Optional['DomainAppNetworkAccessType']] = None,
                  app_security_group_management: pulumi.Input[Optional['DomainAppSecurityGroupManagement']] = None,
                  auth_mode: pulumi.Input[Optional['DomainAuthMode']] = None,
-                 default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']]] = None,
-                 default_user_settings: pulumi.Input[Optional[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict']]] = None,
+                 default_space_settings: pulumi.Input[Optional[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict', 'outputs.DomainDefaultSpaceSettings']]] = None,
+                 default_user_settings: pulumi.Input[Optional[Union['DomainUserSettingsArgs', 'DomainUserSettingsArgsDict', 'outputs.DomainUserSettings']]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain_settings: pulumi.Input[Optional[Union['DomainSettingsArgs', 'DomainSettingsArgsDict']]] = None,
+                 domain_settings: pulumi.Input[Optional[Union['DomainSettingsArgs', 'DomainSettingsArgsDict', 'outputs.DomainSettings']]] = None,
                  home_efs_file_system_creation: pulumi.Input[Optional['DomainHomeEfsFileSystemCreation']] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tag_propagation: pulumi.Input[Optional['DomainTagPropagation']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

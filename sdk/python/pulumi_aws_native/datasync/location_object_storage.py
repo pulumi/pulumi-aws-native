@@ -247,15 +247,15 @@ class LocationObjectStorage(pulumi.CustomResource):
                  access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict', 'outputs.LocationObjectStorageCmkSecretConfig']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict', 'outputs.LocationObjectStorageCustomSecretConfig']]] = None,
                  secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  server_port: pulumi.Input[Optional[_builtins.int]] = None,
                  server_protocol: pulumi.Input[Optional['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::DataSync::LocationObjectStorage.
@@ -282,14 +282,14 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_key: Optional. The access key is used if credentials are required to access the self-managed object storage server.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: Specifies the Amazon Resource Names (ARNs) of the DataSync agents that can connect with your object storage system. If you are setting up an agentless cross-cloud transfer, you do not need to specify a value for this parameter.
         :param pulumi.Input[_builtins.str] bucket_name: The name of the bucket on the self-managed object storage server.
-        :param pulumi.Input[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
+        :param pulumi.Input[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict', 'outputs.LocationObjectStorageCmkSecretConfig']] cmk_secret_config: Specifies configuration information for a DataSync-managed secret, which includes the `SecretKey` that DataSync uses to access a specific object storage location, with a customer-managed AWS KMS key .
                
                When you include this parameter as part of a `CreateLocationObjectStorage` request, you provide only the KMS key ARN. DataSync uses this KMS key together with the value you specify for the `SecretKey` parameter to create a DataSync-managed secret to store the location access credentials.
                
                Make sure that DataSync has permission to access the KMS key that you specify.
                
                > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
-        :param pulumi.Input[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
+        :param pulumi.Input[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict', 'outputs.LocationObjectStorageCustomSecretConfig']] custom_secret_config: Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
                
                > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
         :param pulumi.Input[_builtins.str] secret_key: Optional. The secret key is used if credentials are required to access the self-managed object storage server.
@@ -298,7 +298,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] server_port: The port that your self-managed server accepts inbound network traffic on.
         :param pulumi.Input['LocationObjectStorageServerProtocol'] server_protocol: The protocol that the object storage server uses to communicate.
         :param pulumi.Input[_builtins.str] subdirectory: The subdirectory in the self-managed object storage server that is used to read data from.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -344,15 +344,15 @@ class LocationObjectStorage(pulumi.CustomResource):
                  access_key: pulumi.Input[Optional[_builtins.str]] = None,
                  agent_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
-                 custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
+                 cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict', 'outputs.LocationObjectStorageCmkSecretConfig']]] = None,
+                 custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict', 'outputs.LocationObjectStorageCustomSecretConfig']]] = None,
                  secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
                  server_port: pulumi.Input[Optional[_builtins.int]] = None,
                  server_protocol: pulumi.Input[Optional['LocationObjectStorageServerProtocol']] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

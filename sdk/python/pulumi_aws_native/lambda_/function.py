@@ -559,22 +559,22 @@ class Function(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architectures: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
-                 capacity_provider_config: pulumi.Input[Optional[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']]] = None,
-                 code: pulumi.Input[Optional[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']]] = None,
+                 capacity_provider_config: pulumi.Input[Optional[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict', 'outputs.FunctionCapacityProviderConfig']]] = None,
+                 code: pulumi.Input[Optional[Union['FunctionCodeArgs', 'FunctionCodeArgsDict', 'outputs.FunctionCode']]] = None,
                  code_signing_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 dead_letter_config: pulumi.Input[Optional[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
+                 dead_letter_config: pulumi.Input[Optional[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict', 'outputs.FunctionDeadLetterConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 durable_config: pulumi.Input[Optional[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']]] = None,
-                 ephemeral_storage: pulumi.Input[Optional[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
-                 file_system_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
+                 durable_config: pulumi.Input[Optional[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict', 'outputs.FunctionDurableConfig']]] = None,
+                 environment: pulumi.Input[Optional[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict', 'outputs.FunctionEnvironment']]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict', 'outputs.FunctionEphemeralStorage']]] = None,
+                 file_system_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict', 'outputs.FunctionFileSystemConfig']]]]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict']]] = None,
+                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfig']]] = None,
                  handler: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_config: pulumi.Input[Optional[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']]] = None,
+                 image_config: pulumi.Input[Optional[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict', 'outputs.FunctionImageConfig']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  layers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_config: pulumi.Input[Optional[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
+                 logging_config: pulumi.Input[Optional[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict', 'outputs.FunctionLoggingConfig']]] = None,
                  memory_size: pulumi.Input[Optional[_builtins.int]] = None,
                  package_type: pulumi.Input[Optional['FunctionPackageType']] = None,
                  publish_to_latest_published: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -582,13 +582,13 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime_management_config: pulumi.Input[Optional[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']]] = None,
-                 snap_start: pulumi.Input[Optional[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tenancy_config: pulumi.Input[Optional[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']]] = None,
+                 runtime_management_config: pulumi.Input[Optional[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict', 'outputs.FunctionRuntimeManagementConfig']]] = None,
+                 snap_start: pulumi.Input[Optional[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict', 'outputs.FunctionSnapStart']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 tenancy_config: pulumi.Input[Optional[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict', 'outputs.FunctionTenancyConfig']]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 tracing_config: pulumi.Input[Optional[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
+                 tracing_config: pulumi.Input[Optional[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict', 'outputs.FunctionTracingConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict', 'outputs.FunctionVpcConfig']]] = None,
                  __props__=None):
         """
         The ``AWS::Lambda::Function`` resource creates a Lambda function. To create a function, you need a [deployment package](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html) and an [execution role](https://docs.aws.amazon.com/lambda/latest/dg/lambda-intro-execution-role.html). The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.
@@ -806,24 +806,24 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionArchitecturesItem']]] architectures: The instruction set architecture that the function supports. Enter a string array with one of the valid values (arm64 or x86_64). The default value is ``x86_64``.
-        :param pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']] capacity_provider_config: Configuration for the capacity provider that manages compute resources for Lambda functions.
-        :param pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']] code: The code for the function. You can define your function code in multiple ways:
+        :param pulumi.Input[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict', 'outputs.FunctionCapacityProviderConfig']] capacity_provider_config: Configuration for the capacity provider that manages compute resources for Lambda functions.
+        :param pulumi.Input[Union['FunctionCodeArgs', 'FunctionCodeArgsDict', 'outputs.FunctionCode']] code: The code for the function. You can define your function code in multiple ways:
                  +  For .zip deployment packages, you can specify the S3 location of the .zip file in the ``S3Bucket``, ``S3Key``, and ``S3ObjectVersion`` properties.
                  +  For .zip deployment packages, you can alternatively define the function code inline in the ``ZipFile`` property. This method works only for Node.js and Python functions.
                  +  For container images, specify the URI of your container image in the ECR registry in the ``ImageUri`` property.
         :param pulumi.Input[_builtins.str] code_signing_config_arn: To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.
-        :param pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
+        :param pulumi.Input[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict', 'outputs.FunctionDeadLetterConfig']] dead_letter_config: A dead-letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see [Dead-letter queues](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-dlq).
         :param pulumi.Input[_builtins.str] description: A description of the function.
-        :param pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
-        :param pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']] environment: Environment variables that are accessible from function code during execution.
-        :param pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]] file_system_configs: Connection settings for an Amazon EFS or Amazon S3 Files file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) or [AWS::S3Files::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3files-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
+        :param pulumi.Input[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict', 'outputs.FunctionDurableConfig']] durable_config: Configuration settings for [durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), including execution timeout, retention period for execution history, and an optional ARN of the KMSlong (KMS) customer managed key that is used to encrypt your durable execution's payload data, including input, output, and error payloads.
+        :param pulumi.Input[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict', 'outputs.FunctionEnvironment']] environment: Environment variables that are accessible from function code during execution.
+        :param pulumi.Input[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict', 'outputs.FunctionEphemeralStorage']] ephemeral_storage: The size of the function's ``/tmp`` directory in MB. The default value is 512, but it can be any whole number between 512 and 10,240 MB.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict', 'outputs.FunctionFileSystemConfig']]]] file_system_configs: Connection settings for an Amazon EFS or Amazon S3 Files file system. To connect a function to a file system, a mount target must be available in every Availability Zone that your function connects to. If your template contains an [AWS::EFS::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-efs-mounttarget.html) or [AWS::S3Files::MountTarget](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-s3files-mounttarget.html) resource, you must also specify a ``DependsOn`` attribute to ensure that the mount target is created or updated before the function.
                 For more information about using the ``DependsOn`` attribute, see [DependsOn Attribute](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-dependson.html).
         :param pulumi.Input[_builtins.str] function_name: The name of the Lambda function, up to 64 characters in length. If you don't specify a name, CFN generates one.
                 If you specify a name, you cannot perform updates that require replacement of this resource. You can perform updates that require no or some interruption. If you must replace the resource, specify a new name.
-        :param pulumi.Input[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict']] function_scaling_config: Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
+        :param pulumi.Input[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfig']] function_scaling_config: Configuration that defines the scaling behavior for a Lambda Managed Instances function, including the minimum and maximum number of execution environments that can be provisioned.
         :param pulumi.Input[_builtins.str] handler: The name of the method within your code that Lambda calls to run your function. Handler is required if the deployment package is a .zip file archive. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see [Lambda programming model](https://docs.aws.amazon.com/lambda/latest/dg/foundation-progmodel.html).
-        :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
+        :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict', 'outputs.FunctionImageConfig']] image_config: Configuration values that override the container image Dockerfile settings. For more information, see [Container image settings](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms).
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN of the KMSlong (KMS) customer managed key that's used to encrypt the following resources:
                  +  The function's [environment variables](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-encryption).
                  +  The function's [Lambda SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-security.html) snapshots.
@@ -832,7 +832,7 @@ class Function(pulumi.CustomResource):
                
                 If you don't provide a customer managed key, Lambda uses an [owned key](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk) or an [](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: A list of [function layers](https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html) to add to the function's execution environment. Specify each layer by its ARN, including the version.
-        :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
+        :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict', 'outputs.FunctionLoggingConfig']] logging_config: The function's Amazon CloudWatch Logs configuration settings.
         :param pulumi.Input[_builtins.int] memory_size: The amount of [memory available to the function](https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-memory-console) at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB. Note that new AWS accounts have reduced concurrency and memory quotas. AWS raises these quotas automatically based on your usage. You can also request a quota increase.
         :param pulumi.Input['FunctionPackageType'] package_type: The type of deployment package. Set to ``Image`` for container image and set ``Zip`` for .zip file archive.
         :param pulumi.Input['FunctionRecursiveLoop'] recursive_loop: The status of your function's recursive loop detection configuration.
@@ -843,14 +843,14 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] runtime: The identifier of the function's [runtime](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html). Runtime is required if the deployment package is a .zip file archive. Specifying a runtime results in an error if you're deploying a function using a container image.
                 The following list includes deprecated runtimes. Lambda blocks creating new functions and updating existing functions shortly after each runtime is deprecated. For more information, see [Runtime use after deprecation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-deprecation-levels).
                 For a list of all currently supported runtimes, see [Supported runtimes](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtimes-supported).
-        :param pulumi.Input[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']] runtime_management_config: Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
-        :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
+        :param pulumi.Input[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict', 'outputs.FunctionRuntimeManagementConfig']] runtime_management_config: Sets the runtime management configuration for a function's version. For more information, see [Runtime updates](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html).
+        :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict', 'outputs.FunctionSnapStart']] snap_start: The function's [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html) setting.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of [tags](https://docs.aws.amazon.com/lambda/latest/dg/tagging.html) to apply to the function.
                  You must have the ``lambda:TagResource``, ``lambda:UntagResource``, and ``lambda:ListTags`` permissions for your [principal](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html) to manage the CFN stack. If you don't have these permissions, there might be unexpected behavior with stack-level tags propagating to the resource during resource creation and update.
-        :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
+        :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict', 'outputs.FunctionTenancyConfig']] tenancy_config: The function's tenant isolation configuration settings. Determines whether the Lambda function runs on a shared or dedicated infrastructure per unique tenant.
         :param pulumi.Input[_builtins.int] timeout: The amount of time (in seconds) that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For more information, see [Lambda execution environment](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html).
-        :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
-        :param pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
+        :param pulumi.Input[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict', 'outputs.FunctionTracingConfig']] tracing_config: Set ``Mode`` to ``Active`` to sample and trace a subset of incoming requests with [X-Ray](https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html).
+        :param pulumi.Input[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict', 'outputs.FunctionVpcConfig']] vpc_config: For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can access resources and the internet only through that VPC. For more information, see [Configuring a Lambda function to access resources in a VPC](https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html).
         """
         ...
     @overload
@@ -1087,22 +1087,22 @@ class Function(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  architectures: pulumi.Input[Optional[Sequence[pulumi.Input['FunctionArchitecturesItem']]]] = None,
-                 capacity_provider_config: pulumi.Input[Optional[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict']]] = None,
-                 code: pulumi.Input[Optional[Union['FunctionCodeArgs', 'FunctionCodeArgsDict']]] = None,
+                 capacity_provider_config: pulumi.Input[Optional[Union['FunctionCapacityProviderConfigArgs', 'FunctionCapacityProviderConfigArgsDict', 'outputs.FunctionCapacityProviderConfig']]] = None,
+                 code: pulumi.Input[Optional[Union['FunctionCodeArgs', 'FunctionCodeArgsDict', 'outputs.FunctionCode']]] = None,
                  code_signing_config_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 dead_letter_config: pulumi.Input[Optional[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict']]] = None,
+                 dead_letter_config: pulumi.Input[Optional[Union['FunctionDeadLetterConfigArgs', 'FunctionDeadLetterConfigArgsDict', 'outputs.FunctionDeadLetterConfig']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 durable_config: pulumi.Input[Optional[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict']]] = None,
-                 ephemeral_storage: pulumi.Input[Optional[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict']]] = None,
-                 file_system_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict']]]]] = None,
+                 durable_config: pulumi.Input[Optional[Union['FunctionDurableConfigArgs', 'FunctionDurableConfigArgsDict', 'outputs.FunctionDurableConfig']]] = None,
+                 environment: pulumi.Input[Optional[Union['FunctionEnvironmentArgs', 'FunctionEnvironmentArgsDict', 'outputs.FunctionEnvironment']]] = None,
+                 ephemeral_storage: pulumi.Input[Optional[Union['FunctionEphemeralStorageArgs', 'FunctionEphemeralStorageArgsDict', 'outputs.FunctionEphemeralStorage']]] = None,
+                 file_system_configs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FunctionFileSystemConfigArgs', 'FunctionFileSystemConfigArgsDict', 'outputs.FunctionFileSystemConfig']]]]] = None,
                  function_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict']]] = None,
+                 function_scaling_config: pulumi.Input[Optional[Union['FunctionScalingConfigArgs', 'FunctionScalingConfigArgsDict', 'outputs.FunctionScalingConfig']]] = None,
                  handler: pulumi.Input[Optional[_builtins.str]] = None,
-                 image_config: pulumi.Input[Optional[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']]] = None,
+                 image_config: pulumi.Input[Optional[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict', 'outputs.FunctionImageConfig']]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  layers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 logging_config: pulumi.Input[Optional[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']]] = None,
+                 logging_config: pulumi.Input[Optional[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict', 'outputs.FunctionLoggingConfig']]] = None,
                  memory_size: pulumi.Input[Optional[_builtins.int]] = None,
                  package_type: pulumi.Input[Optional['FunctionPackageType']] = None,
                  publish_to_latest_published: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -1110,13 +1110,13 @@ class Function(pulumi.CustomResource):
                  reserved_concurrent_executions: pulumi.Input[Optional[_builtins.int]] = None,
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  runtime: pulumi.Input[Optional[_builtins.str]] = None,
-                 runtime_management_config: pulumi.Input[Optional[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict']]] = None,
-                 snap_start: pulumi.Input[Optional[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 tenancy_config: pulumi.Input[Optional[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']]] = None,
+                 runtime_management_config: pulumi.Input[Optional[Union['FunctionRuntimeManagementConfigArgs', 'FunctionRuntimeManagementConfigArgsDict', 'outputs.FunctionRuntimeManagementConfig']]] = None,
+                 snap_start: pulumi.Input[Optional[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict', 'outputs.FunctionSnapStart']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 tenancy_config: pulumi.Input[Optional[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict', 'outputs.FunctionTenancyConfig']]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 tracing_config: pulumi.Input[Optional[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict']]] = None,
-                 vpc_config: pulumi.Input[Optional[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict']]] = None,
+                 tracing_config: pulumi.Input[Optional[Union['FunctionTracingConfigArgs', 'FunctionTracingConfigArgsDict', 'outputs.FunctionTracingConfig']]] = None,
+                 vpc_config: pulumi.Input[Optional[Union['FunctionVpcConfigArgs', 'FunctionVpcConfigArgsDict', 'outputs.FunctionVpcConfig']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

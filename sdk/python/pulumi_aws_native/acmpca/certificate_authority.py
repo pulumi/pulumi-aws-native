@@ -175,13 +175,13 @@ class CertificateAuthority(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 csr_extensions: pulumi.Input[Optional[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict']]] = None,
+                 csr_extensions: pulumi.Input[Optional[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict', 'outputs.CertificateAuthorityCsrExtensions']]] = None,
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  key_storage_security_standard: pulumi.Input[Optional[_builtins.str]] = None,
-                 revocation_configuration: pulumi.Input[Optional[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']]] = None,
+                 revocation_configuration: pulumi.Input[Optional[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict', 'outputs.CertificateAuthorityRevocationConfiguration']]] = None,
                  signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-                 subject: pulumi.Input[Optional[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subject: pulumi.Input[Optional[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict', 'outputs.CertificateAuthoritySubject']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  usage_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -370,13 +370,13 @@ class CertificateAuthority(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict']] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
+        :param pulumi.Input[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict', 'outputs.CertificateAuthorityCsrExtensions']] csr_extensions: Structure that contains CSR pass through extension information used by the CreateCertificateAuthority action.
         :param pulumi.Input[_builtins.str] key_algorithm: Public key algorithm and size, in bits, of the key pair that your CA creates when it issues a certificate.
         :param pulumi.Input[_builtins.str] key_storage_security_standard: KeyStorageSecurityStadard defines a cryptographic key management compliance standard used for handling CA keys.
-        :param pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
+        :param pulumi.Input[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict', 'outputs.CertificateAuthorityRevocationConfiguration']] revocation_configuration: Certificate revocation information used by the CreateCertificateAuthority and UpdateCertificateAuthority actions.
         :param pulumi.Input[_builtins.str] signing_algorithm: Algorithm your CA uses to sign certificate requests.
-        :param pulumi.Input[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict']] subject: Structure that contains X.500 distinguished name information for your CA.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
+        :param pulumi.Input[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict', 'outputs.CertificateAuthoritySubject']] subject: Structure that contains X.500 distinguished name information for your CA.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that will be attached to the new private CA. You can associate up to 50 tags with a private CA. For information using tags with IAM to manage permissions, see [Controlling Access Using IAM Tags](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_iam-tags.html) .
         :param pulumi.Input[_builtins.str] type: The type of the certificate authority.
         :param pulumi.Input[_builtins.str] usage_mode: Usage mode of the ceritificate authority.
         """
@@ -584,13 +584,13 @@ class CertificateAuthority(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 csr_extensions: pulumi.Input[Optional[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict']]] = None,
+                 csr_extensions: pulumi.Input[Optional[Union['CertificateAuthorityCsrExtensionsArgs', 'CertificateAuthorityCsrExtensionsArgsDict', 'outputs.CertificateAuthorityCsrExtensions']]] = None,
                  key_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
                  key_storage_security_standard: pulumi.Input[Optional[_builtins.str]] = None,
-                 revocation_configuration: pulumi.Input[Optional[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict']]] = None,
+                 revocation_configuration: pulumi.Input[Optional[Union['CertificateAuthorityRevocationConfigurationArgs', 'CertificateAuthorityRevocationConfigurationArgsDict', 'outputs.CertificateAuthorityRevocationConfiguration']]] = None,
                  signing_algorithm: pulumi.Input[Optional[_builtins.str]] = None,
-                 subject: pulumi.Input[Optional[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 subject: pulumi.Input[Optional[Union['CertificateAuthoritySubjectArgs', 'CertificateAuthoritySubjectArgsDict', 'outputs.CertificateAuthoritySubject']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  usage_mode: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

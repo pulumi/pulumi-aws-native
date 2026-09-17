@@ -161,8 +161,8 @@ class LifecyclePolicy(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
-                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
+                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]]] = None,
+                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']]] = None,
                  resource_type: pulumi.Input[Optional['LifecyclePolicyResourceType']] = None,
                  status: pulumi.Input[Optional['LifecyclePolicyStatus']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -175,8 +175,8 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: The description of the lifecycle policy.
         :param pulumi.Input[_builtins.str] execution_role: The execution role of the lifecycle policy.
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: The policy details of the lifecycle policy.
-        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']] resource_selection: The resource selection of the lifecycle policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]] policy_details: The policy details of the lifecycle policy.
+        :param pulumi.Input[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']] resource_selection: The resource selection of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyResourceType'] resource_type: The resource type of the lifecycle policy.
         :param pulumi.Input['LifecyclePolicyStatus'] status: The status of the lifecycle policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags associated with the lifecycle policy.
@@ -208,8 +208,8 @@ class LifecyclePolicy(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  execution_role: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]]] = None,
-                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict']]] = None,
+                 policy_details: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict', 'outputs.LifecyclePolicyPolicyDetail']]]]] = None,
+                 resource_selection: pulumi.Input[Optional[Union['LifecyclePolicyResourceSelectionArgs', 'LifecyclePolicyResourceSelectionArgsDict', 'outputs.LifecyclePolicyResourceSelection']]] = None,
                  resource_type: pulumi.Input[Optional['LifecyclePolicyResourceType']] = None,
                  status: pulumi.Input[Optional['LifecyclePolicyStatus']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,

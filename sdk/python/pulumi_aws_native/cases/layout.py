@@ -98,20 +98,20 @@ class Layout(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict', 'outputs.LayoutContentProperties']]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A layout in the Cases domain. Layouts define the following configuration in the top section and More Info tab of the Cases user interface: Fields to display to the users and Field ordering.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict']] content: Object to store union of different versions of layout content.
+        :param pulumi.Input[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict', 'outputs.LayoutContentProperties']] content: Object to store union of different versions of layout content.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
         :param pulumi.Input[_builtins.str] name: A descriptive name for the layout. Must be unique within the Cases domain and should clearly indicate the layout's purpose and field organization.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -137,10 +137,10 @@ class Layout(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 content: pulumi.Input[Optional[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['LayoutContentPropertiesArgs', 'LayoutContentPropertiesArgsDict', 'outputs.LayoutContentProperties']]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

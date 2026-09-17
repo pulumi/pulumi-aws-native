@@ -133,10 +133,10 @@ class FindingsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional['FindingsFilterFindingFilterAction']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Macie FindingsFilter resource schema.
@@ -145,10 +145,10 @@ class FindingsFilter(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['FindingsFilterFindingFilterAction'] action: Findings filter action.
         :param pulumi.Input[_builtins.str] description: Findings filter description
-        :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']] finding_criteria: Findings filter criteria.
+        :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']] finding_criteria: Findings filter criteria.
         :param pulumi.Input[_builtins.str] name: Findings filter name
         :param pulumi.Input[_builtins.int] position: Findings filter position.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A collection of tags associated with a resource
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A collection of tags associated with a resource
         """
         ...
     @overload
@@ -176,10 +176,10 @@ class FindingsFilter(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: pulumi.Input[Optional['FindingsFilterFindingFilterAction']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']]] = None,
+                 finding_criteria: pulumi.Input[Optional[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict', 'outputs.FindingsFilterFindingCriteria']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  position: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

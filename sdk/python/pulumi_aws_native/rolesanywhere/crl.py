@@ -115,7 +115,7 @@ class Crl(pulumi.CustomResource):
                  crl_data: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trust_anchor_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -126,7 +126,7 @@ class Crl(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] crl_data: The x509 v3 specified certificate revocation list (CRL).
         :param pulumi.Input[_builtins.bool] enabled: Specifies whether the certificate revocation list (CRL) is enabled.
         :param pulumi.Input[_builtins.str] name: The name of the certificate revocation list (CRL).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to attach to the certificate revocation list (CRL).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to attach to the certificate revocation list (CRL).
         :param pulumi.Input[_builtins.str] trust_anchor_arn: The ARN of the TrustAnchor the certificate revocation list (CRL) will provide revocation for.
         """
         ...
@@ -156,7 +156,7 @@ class Crl(pulumi.CustomResource):
                  crl_data: pulumi.Input[Optional[_builtins.str]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  trust_anchor_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

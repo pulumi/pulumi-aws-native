@@ -94,7 +94,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 practice_run_configuration: pulumi.Input[Optional[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']]] = None,
+                 practice_run_configuration: pulumi.Input[Optional[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict', 'outputs.ZonalAutoshiftConfigurationPracticeRunConfiguration']]] = None,
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  zonal_autoshift_status: pulumi.Input[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None,
                  __props__=None):
@@ -103,7 +103,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']] practice_run_configuration: A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, ARC shifts traffic for the resource weekly for practice runs.
+        :param pulumi.Input[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict', 'outputs.ZonalAutoshiftConfigurationPracticeRunConfiguration']] practice_run_configuration: A practice run configuration for a resource includes the Amazon CloudWatch alarms that you've specified for a practice run, as well as any blocked dates or blocked windows for the practice run. When a resource has a practice run configuration, ARC shifts traffic for the resource weekly for practice runs.
                
                Practice runs are required for zonal autoshift. The zonal shifts that ARC starts for practice runs help you to ensure that shifting away traffic from an Availability Zone during an autoshift is safe for your application.
                
@@ -137,7 +137,7 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 practice_run_configuration: pulumi.Input[Optional[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict']]] = None,
+                 practice_run_configuration: pulumi.Input[Optional[Union['ZonalAutoshiftConfigurationPracticeRunConfigurationArgs', 'ZonalAutoshiftConfigurationPracticeRunConfigurationArgsDict', 'outputs.ZonalAutoshiftConfigurationPracticeRunConfiguration']]] = None,
                  resource_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  zonal_autoshift_status: pulumi.Input[Optional['ZonalAutoshiftConfigurationZonalAutoshiftStatus']] = None,
                  __props__=None):

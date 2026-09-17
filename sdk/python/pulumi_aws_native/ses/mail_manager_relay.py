@@ -112,22 +112,22 @@ class MailManagerRelay(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
+                 authentication: pulumi.Input[Optional[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict', 'outputs.MailManagerRelayRelayAuthentication0Properties'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict', 'outputs.MailManagerRelayRelayAuthentication1Properties']]]] = None,
                  relay_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_port: pulumi.Input[Optional[_builtins.float]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::SES::MailManagerRelay Resource Type
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]] authentication: Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
+        :param pulumi.Input[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict', 'outputs.MailManagerRelayRelayAuthentication0Properties'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict', 'outputs.MailManagerRelayRelayAuthentication1Properties']]] authentication: Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
         :param pulumi.Input[_builtins.str] relay_name: The unique relay name.
         :param pulumi.Input[_builtins.str] server_name: The destination relay server address.
         :param pulumi.Input[_builtins.float] server_port: The destination relay server port.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags used to organize, track, or control access for the resource. For example, { "tags": {"key1":"value1", "key2":"value2"} }.
         """
         ...
     @overload
@@ -153,11 +153,11 @@ class MailManagerRelay(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authentication: pulumi.Input[Optional[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict']]]] = None,
+                 authentication: pulumi.Input[Optional[Union[Union['MailManagerRelayRelayAuthentication0PropertiesArgs', 'MailManagerRelayRelayAuthentication0PropertiesArgsDict', 'outputs.MailManagerRelayRelayAuthentication0Properties'], Union['MailManagerRelayRelayAuthentication1PropertiesArgs', 'MailManagerRelayRelayAuthentication1PropertiesArgsDict', 'outputs.MailManagerRelayRelayAuthentication1Properties']]]] = None,
                  relay_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_name: pulumi.Input[Optional[_builtins.str]] = None,
                  server_port: pulumi.Input[Optional[_builtins.float]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -213,7 +213,7 @@ class MailManagerRelay(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def authentication(self) -> pulumi.Output[Any]:
+    def authentication(self) -> pulumi.Output[Union['outputs.MailManagerRelayRelayAuthentication0Properties', 'outputs.MailManagerRelayRelayAuthentication1Properties']]:
         """
         Authentication for the relay destination server—specify the secretARN where the SMTP credentials are stored.
         """

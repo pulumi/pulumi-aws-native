@@ -122,12 +122,12 @@ class PaymentManager(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationArgs', 'PaymentManagerAuthorizerConfigurationArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationArgs', 'PaymentManagerAuthorizerConfigurationArgsDict', 'outputs.PaymentManagerAuthorizerConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional['PaymentManagerPaymentsAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::PaymentManager
@@ -137,7 +137,7 @@ class PaymentManager(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: A description of the payment manager
         :param pulumi.Input[_builtins.str] name: The name of the payment manager
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role for the payment manager
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the payment manager
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the payment manager
         """
         ...
     @overload
@@ -163,12 +163,12 @@ class PaymentManager(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationArgs', 'PaymentManagerAuthorizerConfigurationArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['PaymentManagerAuthorizerConfigurationArgs', 'PaymentManagerAuthorizerConfigurationArgsDict', 'outputs.PaymentManagerAuthorizerConfiguration']]] = None,
                  authorizer_type: pulumi.Input[Optional['PaymentManagerPaymentsAuthorizerType']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

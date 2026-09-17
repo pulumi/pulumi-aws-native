@@ -323,17 +323,17 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']]] = None,
                  compute_type: pulumi.Input[Optional['FleetComputeType']] = None,
                  environment_type: pulumi.Input[Optional['FleetEnvironmentType']] = None,
-                 fleet_proxy_configuration: pulumi.Input[Optional[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']]] = None,
+                 fleet_proxy_configuration: pulumi.Input[Optional[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict', 'outputs.FleetProxyConfiguration']]] = None,
                  fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 fleet_vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 fleet_vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None,
                  image_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overflow_behavior: pulumi.Input[Optional['FleetOverflowBehavior']] = None,
-                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict', 'outputs.FleetScalingConfigurationInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CodeBuild::Fleet
@@ -341,7 +341,7 @@ class Fleet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] base_capacity: The initial number of machines allocated to the compute ﬂeet, which deﬁnes the number of builds that can run in parallel.
-        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
+        :param pulumi.Input[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']] compute_configuration: The compute configuration of the compute fleet. This is only required if `computeType` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE` .
         :param pulumi.Input['FleetComputeType'] compute_type: Information about the compute resources the compute fleet uses. Available values include:
                
                - `ATTRIBUTE_BASED_COMPUTE` : Specify the amount of vCPUs, memory, disk space, and the type of machine.
@@ -384,9 +384,9 @@ class Fleet(pulumi.CustomResource):
                - The environment type `WINDOWS_SERVER_2022_CONTAINER` is available only in regions US East (N. Virginia), US East (Ohio), US West (Oregon), EU (Ireland), EU (Frankfurt), Asia Pacific (Sydney), Asia Pacific (Singapore), Asia Pacific (Tokyo), South America (São Paulo) and Asia Pacific (Mumbai).
                
                For more information, see [Build environment compute types](https://docs.aws.amazon.com//codebuild/latest/userguide/build-env-ref-compute-types.html) in the *AWS CodeBuild user guide* .
-        :param pulumi.Input[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']] fleet_proxy_configuration: Information about the proxy configurations that apply network access control to your reserved capacity instances.
+        :param pulumi.Input[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict', 'outputs.FleetProxyConfiguration']] fleet_proxy_configuration: Information about the proxy configurations that apply network access control to your reserved capacity instances.
         :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet. For more information, see [Allow a user to add a permission policy for a fleet service role](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-permission-policy-fleet-service-role.html) in the *AWS CodeBuild User Guide* .
-        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
+        :param pulumi.Input[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']] fleet_vpc_config: Information about the VPC configuration that AWS CodeBuild accesses.
         :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
         :param pulumi.Input[_builtins.str] name: The name of the compute fleet.
         :param pulumi.Input['FleetOverflowBehavior'] overflow_behavior: The compute fleet overflow behavior.
@@ -395,8 +395,8 @@ class Fleet(pulumi.CustomResource):
                - For overflow behavior `ON_DEMAND` , your overflow builds run on CodeBuild on-demand.
                
                > If you choose to set your overflow behavior to on-demand while creating a VPC-connected fleet, make sure that you add the required VPC permissions to your project service role. For more information, see [Example policy statement to allow CodeBuild access to AWS services required to create a VPC network interface](https://docs.aws.amazon.com/codebuild/latest/userguide/auth-and-access-control-iam-identity-based-access-control.html#customer-managed-policies-example-create-vpc-network-interface) .
-        :param pulumi.Input[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']] scaling_configuration: The scaling configuration of the compute fleet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tag key and value pairs associated with this compute fleet.
+        :param pulumi.Input[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict', 'outputs.FleetScalingConfigurationInput']] scaling_configuration: The scaling configuration of the compute fleet.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tag key and value pairs associated with this compute fleet.
                
                These tags are available for use by AWS services that support AWS CodeBuild compute fleet tags.
         """
@@ -425,17 +425,17 @@ class Fleet(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  base_capacity: pulumi.Input[Optional[_builtins.int]] = None,
-                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict']]] = None,
+                 compute_configuration: pulumi.Input[Optional[Union['FleetComputeConfigurationArgs', 'FleetComputeConfigurationArgsDict', 'outputs.FleetComputeConfiguration']]] = None,
                  compute_type: pulumi.Input[Optional['FleetComputeType']] = None,
                  environment_type: pulumi.Input[Optional['FleetEnvironmentType']] = None,
-                 fleet_proxy_configuration: pulumi.Input[Optional[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict']]] = None,
+                 fleet_proxy_configuration: pulumi.Input[Optional[Union['FleetProxyConfigurationArgs', 'FleetProxyConfigurationArgsDict', 'outputs.FleetProxyConfiguration']]] = None,
                  fleet_service_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 fleet_vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict']]] = None,
+                 fleet_vpc_config: pulumi.Input[Optional[Union['FleetVpcConfigArgs', 'FleetVpcConfigArgsDict', 'outputs.FleetVpcConfig']]] = None,
                  image_id: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  overflow_behavior: pulumi.Input[Optional['FleetOverflowBehavior']] = None,
-                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 scaling_configuration: pulumi.Input[Optional[Union['FleetScalingConfigurationInputArgs', 'FleetScalingConfigurationInputArgsDict', 'outputs.FleetScalingConfigurationInput']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

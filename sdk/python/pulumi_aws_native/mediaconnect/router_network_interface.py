@@ -95,10 +95,10 @@ class RouterNetworkInterface(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RouterNetworkInterfaceConfiguration0PropertiesArgs', 'RouterNetworkInterfaceConfiguration0PropertiesArgsDict'], Union['RouterNetworkInterfaceConfiguration1PropertiesArgs', 'RouterNetworkInterfaceConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterNetworkInterfaceConfiguration0PropertiesArgs', 'RouterNetworkInterfaceConfiguration0PropertiesArgsDict', 'outputs.RouterNetworkInterfaceConfiguration0Properties'], Union['RouterNetworkInterfaceConfiguration1PropertiesArgs', 'RouterNetworkInterfaceConfiguration1PropertiesArgsDict', 'outputs.RouterNetworkInterfaceConfiguration1Properties']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Represents a router network interface in AWS Elemental MediaConnect that is used to define a network boundary for router resources
@@ -107,7 +107,7 @@ class RouterNetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: The name of the router network interface.
         :param pulumi.Input[_builtins.str] region_name: The AWS Region for the router network interface. Defaults to the current region if not specified.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this router network interface.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to tag and organize this router network interface.
         """
         ...
     @overload
@@ -133,10 +133,10 @@ class RouterNetworkInterface(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union[Union['RouterNetworkInterfaceConfiguration0PropertiesArgs', 'RouterNetworkInterfaceConfiguration0PropertiesArgsDict'], Union['RouterNetworkInterfaceConfiguration1PropertiesArgs', 'RouterNetworkInterfaceConfiguration1PropertiesArgsDict']]]] = None,
+                 configuration: pulumi.Input[Optional[Union[Union['RouterNetworkInterfaceConfiguration0PropertiesArgs', 'RouterNetworkInterfaceConfiguration0PropertiesArgsDict', 'outputs.RouterNetworkInterfaceConfiguration0Properties'], Union['RouterNetworkInterfaceConfiguration1PropertiesArgs', 'RouterNetworkInterfaceConfiguration1PropertiesArgsDict', 'outputs.RouterNetworkInterfaceConfiguration1Properties']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  region_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -232,7 +232,7 @@ class RouterNetworkInterface(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Any]:
+    def configuration(self) -> pulumi.Output[Union['outputs.RouterNetworkInterfaceConfiguration0Properties', 'outputs.RouterNetworkInterfaceConfiguration1Properties']]:
         return pulumi.get(self, "configuration")
 
     @_builtins.property

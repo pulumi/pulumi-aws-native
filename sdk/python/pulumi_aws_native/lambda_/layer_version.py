@@ -131,7 +131,7 @@ class LayerVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content: pulumi.Input[Optional[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict', 'outputs.LayerVersionContent']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  layer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  license_info: pulumi.Input[Optional[_builtins.str]] = None,
@@ -143,7 +143,7 @@ class LayerVersion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compatible_architectures: A list of compatible instruction set architectures.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] compatible_runtimes: A list of compatible function runtimes. Used for filtering with ListLayers and ListLayerVersions.
-        :param pulumi.Input[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']] content: The function layer archive.
+        :param pulumi.Input[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict', 'outputs.LayerVersionContent']] content: The function layer archive.
         :param pulumi.Input[_builtins.str] description: The description of the version.
         :param pulumi.Input[_builtins.str] layer_name: The name or Amazon Resource Name (ARN) of the layer.
         :param pulumi.Input[_builtins.str] license_info: The layer's software license.
@@ -174,7 +174,7 @@ class LayerVersion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  compatible_architectures: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  compatible_runtimes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 content: pulumi.Input[Optional[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict']]] = None,
+                 content: pulumi.Input[Optional[Union['LayerVersionContentArgs', 'LayerVersionContentArgsDict', 'outputs.LayerVersionContent']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  layer_name: pulumi.Input[Optional[_builtins.str]] = None,
                  license_info: pulumi.Input[Optional[_builtins.str]] = None,
