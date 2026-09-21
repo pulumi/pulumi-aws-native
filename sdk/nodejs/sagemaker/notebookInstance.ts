@@ -9,6 +9,50 @@ import * as utilities from "../utilities";
 
 /**
  * Resource Type definition for AWS::SageMaker::NotebookInstance
+ *
+ * ## Example Usage
+ * ### Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws_native from "@pulumi/aws-native";
+ *
+ * const basicNotebookInstanceLifecycleConfig = new aws_native.sagemaker.NotebookInstanceLifecycleConfig("basicNotebookInstanceLifecycleConfig", {onStart: [{
+ *     content: Buffer.from("echo 'hello'").toString("base64"),
+ * }]});
+ * const executionRole = new aws_native.iam.Role("executionRole", {
+ *     assumeRolePolicyDocument: {
+ *         version: "2012-10-17",
+ *         statement: [{
+ *             effect: "Allow",
+ *             principal: {
+ *                 service: ["sagemaker.amazonaws.com"],
+ *             },
+ *             action: ["sts:AssumeRole"],
+ *         }],
+ *     },
+ *     path: "/",
+ *     policies: [{
+ *         policyName: "root",
+ *         policyDocument: {
+ *             version: "2012-10-17",
+ *             statement: [{
+ *                 effect: "Allow",
+ *                 action: "*",
+ *                 resource: "*",
+ *             }],
+ *         },
+ *     }],
+ * });
+ * const basicNotebookInstance = new aws_native.sagemaker.NotebookInstance("basicNotebookInstance", {
+ *     instanceType: "ml.t2.medium",
+ *     roleArn: executionRole.arn,
+ *     lifecycleConfigName: basicNotebookInstanceLifecycleConfig.notebookInstanceLifecycleConfigName,
+ * });
+ * export const basicNotebookInstanceId = basicNotebookInstance.id;
+ * export const basicNotebookInstanceLifecycleConfigId = basicNotebookInstanceLifecycleConfig.id;
+ *
+ * ```
  */
 export class NotebookInstance extends pulumi.CustomResource {
     /**

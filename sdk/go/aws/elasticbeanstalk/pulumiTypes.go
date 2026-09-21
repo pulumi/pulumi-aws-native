@@ -521,6 +521,773 @@ func (o ApplicationResourceLifecycleConfigPtrOutput) VersionLifecycleConfig() Ap
 	}).(ApplicationVersionLifecycleConfigPtrOutput)
 }
 
+type ApplicationVersionBuildConfiguration struct {
+	// The name of the build artifact.
+	ArtifactName *string `pulumi:"artifactName"`
+	// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+	CodeBuildServiceRole string `pulumi:"codeBuildServiceRole"`
+	// The compute type for the CodeBuild build environment.
+	ComputeType *ApplicationVersionBuildConfigurationComputeType `pulumi:"computeType"`
+	// The CodeBuild image used for the build environment.
+	Image string `pulumi:"image"`
+	// The timeout for the CodeBuild build, in minutes.
+	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+}
+
+// ApplicationVersionBuildConfigurationInput is an input type that accepts ApplicationVersionBuildConfigurationArgs and ApplicationVersionBuildConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationVersionBuildConfigurationInput` via:
+//
+//	ApplicationVersionBuildConfigurationArgs{...}
+type ApplicationVersionBuildConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationVersionBuildConfigurationOutput() ApplicationVersionBuildConfigurationOutput
+	ToApplicationVersionBuildConfigurationOutputWithContext(context.Context) ApplicationVersionBuildConfigurationOutput
+}
+
+type ApplicationVersionBuildConfigurationArgs struct {
+	// The name of the build artifact.
+	ArtifactName pulumi.StringPtrInput `pulumi:"artifactName"`
+	// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+	CodeBuildServiceRole pulumi.StringInput `pulumi:"codeBuildServiceRole"`
+	// The compute type for the CodeBuild build environment.
+	ComputeType ApplicationVersionBuildConfigurationComputeTypePtrInput `pulumi:"computeType"`
+	// The CodeBuild image used for the build environment.
+	Image pulumi.StringInput `pulumi:"image"`
+	// The timeout for the CodeBuild build, in minutes.
+	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+}
+
+func (ApplicationVersionBuildConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionBuildConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationVersionBuildConfigurationArgs) ToApplicationVersionBuildConfigurationOutput() ApplicationVersionBuildConfigurationOutput {
+	return i.ToApplicationVersionBuildConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionBuildConfigurationArgs) ToApplicationVersionBuildConfigurationOutputWithContext(ctx context.Context) ApplicationVersionBuildConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionBuildConfigurationOutput)
+}
+
+func (i ApplicationVersionBuildConfigurationArgs) ToApplicationVersionBuildConfigurationPtrOutput() ApplicationVersionBuildConfigurationPtrOutput {
+	return i.ToApplicationVersionBuildConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionBuildConfigurationArgs) ToApplicationVersionBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionBuildConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionBuildConfigurationOutput).ToApplicationVersionBuildConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationVersionBuildConfigurationPtrInput is an input type that accepts ApplicationVersionBuildConfigurationArgs, ApplicationVersionBuildConfigurationPtr and ApplicationVersionBuildConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationVersionBuildConfigurationPtrInput` via:
+//
+//	        ApplicationVersionBuildConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationVersionBuildConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationVersionBuildConfigurationPtrOutput() ApplicationVersionBuildConfigurationPtrOutput
+	ToApplicationVersionBuildConfigurationPtrOutputWithContext(context.Context) ApplicationVersionBuildConfigurationPtrOutput
+}
+
+type applicationVersionBuildConfigurationPtrType ApplicationVersionBuildConfigurationArgs
+
+func ApplicationVersionBuildConfigurationPtr(v *ApplicationVersionBuildConfigurationArgs) ApplicationVersionBuildConfigurationPtrInput {
+	return (*applicationVersionBuildConfigurationPtrType)(v)
+}
+
+func (*applicationVersionBuildConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionBuildConfiguration)(nil)).Elem()
+}
+
+func (i *applicationVersionBuildConfigurationPtrType) ToApplicationVersionBuildConfigurationPtrOutput() ApplicationVersionBuildConfigurationPtrOutput {
+	return i.ToApplicationVersionBuildConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationVersionBuildConfigurationPtrType) ToApplicationVersionBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionBuildConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionBuildConfigurationPtrOutput)
+}
+
+type ApplicationVersionBuildConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionBuildConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionBuildConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVersionBuildConfigurationOutput) ToApplicationVersionBuildConfigurationOutput() ApplicationVersionBuildConfigurationOutput {
+	return o
+}
+
+func (o ApplicationVersionBuildConfigurationOutput) ToApplicationVersionBuildConfigurationOutputWithContext(ctx context.Context) ApplicationVersionBuildConfigurationOutput {
+	return o
+}
+
+func (o ApplicationVersionBuildConfigurationOutput) ToApplicationVersionBuildConfigurationPtrOutput() ApplicationVersionBuildConfigurationPtrOutput {
+	return o.ToApplicationVersionBuildConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationVersionBuildConfigurationOutput) ToApplicationVersionBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionBuildConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersionBuildConfiguration) *ApplicationVersionBuildConfiguration {
+		return &v
+	}).(ApplicationVersionBuildConfigurationPtrOutput)
+}
+
+// The name of the build artifact.
+func (o ApplicationVersionBuildConfigurationOutput) ArtifactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationVersionBuildConfiguration) *string { return v.ArtifactName }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+func (o ApplicationVersionBuildConfigurationOutput) CodeBuildServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationVersionBuildConfiguration) string { return v.CodeBuildServiceRole }).(pulumi.StringOutput)
+}
+
+// The compute type for the CodeBuild build environment.
+func (o ApplicationVersionBuildConfigurationOutput) ComputeType() ApplicationVersionBuildConfigurationComputeTypePtrOutput {
+	return o.ApplyT(func(v ApplicationVersionBuildConfiguration) *ApplicationVersionBuildConfigurationComputeType {
+		return v.ComputeType
+	}).(ApplicationVersionBuildConfigurationComputeTypePtrOutput)
+}
+
+// The CodeBuild image used for the build environment.
+func (o ApplicationVersionBuildConfigurationOutput) Image() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationVersionBuildConfiguration) string { return v.Image }).(pulumi.StringOutput)
+}
+
+// The timeout for the CodeBuild build, in minutes.
+func (o ApplicationVersionBuildConfigurationOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationVersionBuildConfiguration) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+type ApplicationVersionBuildConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionBuildConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionBuildConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVersionBuildConfigurationPtrOutput) ToApplicationVersionBuildConfigurationPtrOutput() ApplicationVersionBuildConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionBuildConfigurationPtrOutput) ToApplicationVersionBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionBuildConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionBuildConfigurationPtrOutput) Elem() ApplicationVersionBuildConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationVersionBuildConfiguration) ApplicationVersionBuildConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationVersionBuildConfiguration
+		return ret
+	}).(ApplicationVersionBuildConfigurationOutput)
+}
+
+// The name of the build artifact.
+func (o ApplicationVersionBuildConfigurationPtrOutput) ArtifactName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionBuildConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ArtifactName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+func (o ApplicationVersionBuildConfigurationPtrOutput) CodeBuildServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionBuildConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CodeBuildServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compute type for the CodeBuild build environment.
+func (o ApplicationVersionBuildConfigurationPtrOutput) ComputeType() ApplicationVersionBuildConfigurationComputeTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionBuildConfiguration) *ApplicationVersionBuildConfigurationComputeType {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeType
+	}).(ApplicationVersionBuildConfigurationComputeTypePtrOutput)
+}
+
+// The CodeBuild image used for the build environment.
+func (o ApplicationVersionBuildConfigurationPtrOutput) Image() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionBuildConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Image
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timeout for the CodeBuild build, in minutes.
+func (o ApplicationVersionBuildConfigurationPtrOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionBuildConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+type ApplicationVersionImageBuildConfiguration struct {
+	// The target architecture for the built container image.
+	Architecture *ApplicationVersionImageBuildConfigurationArchitecture `pulumi:"architecture"`
+	// The buildpack to use for building the image.
+	Buildpack *string `pulumi:"buildpack"`
+	// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+	CodeBuildServiceRole string `pulumi:"codeBuildServiceRole"`
+	// The compute type for the CodeBuild build environment.
+	ComputeType *ApplicationVersionImageBuildConfigurationComputeType `pulumi:"computeType"`
+	// The path to the Dockerfile, relative to the source root.
+	DockerfileLocation *string `pulumi:"dockerfileLocation"`
+	// The timeout for the CodeBuild build, in minutes.
+	TimeoutInMinutes *int `pulumi:"timeoutInMinutes"`
+	// The type of image build: docker or buildpack.
+	Type ApplicationVersionImageBuildConfigurationType `pulumi:"type"`
+}
+
+// ApplicationVersionImageBuildConfigurationInput is an input type that accepts ApplicationVersionImageBuildConfigurationArgs and ApplicationVersionImageBuildConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationVersionImageBuildConfigurationInput` via:
+//
+//	ApplicationVersionImageBuildConfigurationArgs{...}
+type ApplicationVersionImageBuildConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationVersionImageBuildConfigurationOutput() ApplicationVersionImageBuildConfigurationOutput
+	ToApplicationVersionImageBuildConfigurationOutputWithContext(context.Context) ApplicationVersionImageBuildConfigurationOutput
+}
+
+type ApplicationVersionImageBuildConfigurationArgs struct {
+	// The target architecture for the built container image.
+	Architecture ApplicationVersionImageBuildConfigurationArchitecturePtrInput `pulumi:"architecture"`
+	// The buildpack to use for building the image.
+	Buildpack pulumi.StringPtrInput `pulumi:"buildpack"`
+	// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+	CodeBuildServiceRole pulumi.StringInput `pulumi:"codeBuildServiceRole"`
+	// The compute type for the CodeBuild build environment.
+	ComputeType ApplicationVersionImageBuildConfigurationComputeTypePtrInput `pulumi:"computeType"`
+	// The path to the Dockerfile, relative to the source root.
+	DockerfileLocation pulumi.StringPtrInput `pulumi:"dockerfileLocation"`
+	// The timeout for the CodeBuild build, in minutes.
+	TimeoutInMinutes pulumi.IntPtrInput `pulumi:"timeoutInMinutes"`
+	// The type of image build: docker or buildpack.
+	Type ApplicationVersionImageBuildConfigurationTypeInput `pulumi:"type"`
+}
+
+func (ApplicationVersionImageBuildConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionImageBuildConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationVersionImageBuildConfigurationArgs) ToApplicationVersionImageBuildConfigurationOutput() ApplicationVersionImageBuildConfigurationOutput {
+	return i.ToApplicationVersionImageBuildConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionImageBuildConfigurationArgs) ToApplicationVersionImageBuildConfigurationOutputWithContext(ctx context.Context) ApplicationVersionImageBuildConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageBuildConfigurationOutput)
+}
+
+func (i ApplicationVersionImageBuildConfigurationArgs) ToApplicationVersionImageBuildConfigurationPtrOutput() ApplicationVersionImageBuildConfigurationPtrOutput {
+	return i.ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionImageBuildConfigurationArgs) ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageBuildConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageBuildConfigurationOutput).ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationVersionImageBuildConfigurationPtrInput is an input type that accepts ApplicationVersionImageBuildConfigurationArgs, ApplicationVersionImageBuildConfigurationPtr and ApplicationVersionImageBuildConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationVersionImageBuildConfigurationPtrInput` via:
+//
+//	        ApplicationVersionImageBuildConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationVersionImageBuildConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationVersionImageBuildConfigurationPtrOutput() ApplicationVersionImageBuildConfigurationPtrOutput
+	ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(context.Context) ApplicationVersionImageBuildConfigurationPtrOutput
+}
+
+type applicationVersionImageBuildConfigurationPtrType ApplicationVersionImageBuildConfigurationArgs
+
+func ApplicationVersionImageBuildConfigurationPtr(v *ApplicationVersionImageBuildConfigurationArgs) ApplicationVersionImageBuildConfigurationPtrInput {
+	return (*applicationVersionImageBuildConfigurationPtrType)(v)
+}
+
+func (*applicationVersionImageBuildConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionImageBuildConfiguration)(nil)).Elem()
+}
+
+func (i *applicationVersionImageBuildConfigurationPtrType) ToApplicationVersionImageBuildConfigurationPtrOutput() ApplicationVersionImageBuildConfigurationPtrOutput {
+	return i.ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationVersionImageBuildConfigurationPtrType) ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageBuildConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageBuildConfigurationPtrOutput)
+}
+
+type ApplicationVersionImageBuildConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionImageBuildConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionImageBuildConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVersionImageBuildConfigurationOutput) ToApplicationVersionImageBuildConfigurationOutput() ApplicationVersionImageBuildConfigurationOutput {
+	return o
+}
+
+func (o ApplicationVersionImageBuildConfigurationOutput) ToApplicationVersionImageBuildConfigurationOutputWithContext(ctx context.Context) ApplicationVersionImageBuildConfigurationOutput {
+	return o
+}
+
+func (o ApplicationVersionImageBuildConfigurationOutput) ToApplicationVersionImageBuildConfigurationPtrOutput() ApplicationVersionImageBuildConfigurationPtrOutput {
+	return o.ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationVersionImageBuildConfigurationOutput) ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageBuildConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersionImageBuildConfiguration) *ApplicationVersionImageBuildConfiguration {
+		return &v
+	}).(ApplicationVersionImageBuildConfigurationPtrOutput)
+}
+
+// The target architecture for the built container image.
+func (o ApplicationVersionImageBuildConfigurationOutput) Architecture() ApplicationVersionImageBuildConfigurationArchitecturePtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageBuildConfiguration) *ApplicationVersionImageBuildConfigurationArchitecture {
+		return v.Architecture
+	}).(ApplicationVersionImageBuildConfigurationArchitecturePtrOutput)
+}
+
+// The buildpack to use for building the image.
+func (o ApplicationVersionImageBuildConfigurationOutput) Buildpack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageBuildConfiguration) *string { return v.Buildpack }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+func (o ApplicationVersionImageBuildConfigurationOutput) CodeBuildServiceRole() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationVersionImageBuildConfiguration) string { return v.CodeBuildServiceRole }).(pulumi.StringOutput)
+}
+
+// The compute type for the CodeBuild build environment.
+func (o ApplicationVersionImageBuildConfigurationOutput) ComputeType() ApplicationVersionImageBuildConfigurationComputeTypePtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageBuildConfiguration) *ApplicationVersionImageBuildConfigurationComputeType {
+		return v.ComputeType
+	}).(ApplicationVersionImageBuildConfigurationComputeTypePtrOutput)
+}
+
+// The path to the Dockerfile, relative to the source root.
+func (o ApplicationVersionImageBuildConfigurationOutput) DockerfileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageBuildConfiguration) *string { return v.DockerfileLocation }).(pulumi.StringPtrOutput)
+}
+
+// The timeout for the CodeBuild build, in minutes.
+func (o ApplicationVersionImageBuildConfigurationOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageBuildConfiguration) *int { return v.TimeoutInMinutes }).(pulumi.IntPtrOutput)
+}
+
+// The type of image build: docker or buildpack.
+func (o ApplicationVersionImageBuildConfigurationOutput) Type() ApplicationVersionImageBuildConfigurationTypeOutput {
+	return o.ApplyT(func(v ApplicationVersionImageBuildConfiguration) ApplicationVersionImageBuildConfigurationType {
+		return v.Type
+	}).(ApplicationVersionImageBuildConfigurationTypeOutput)
+}
+
+type ApplicationVersionImageBuildConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionImageBuildConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionImageBuildConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) ToApplicationVersionImageBuildConfigurationPtrOutput() ApplicationVersionImageBuildConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) ToApplicationVersionImageBuildConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageBuildConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) Elem() ApplicationVersionImageBuildConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) ApplicationVersionImageBuildConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationVersionImageBuildConfiguration
+		return ret
+	}).(ApplicationVersionImageBuildConfigurationOutput)
+}
+
+// The target architecture for the built container image.
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) Architecture() ApplicationVersionImageBuildConfigurationArchitecturePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) *ApplicationVersionImageBuildConfigurationArchitecture {
+		if v == nil {
+			return nil
+		}
+		return v.Architecture
+	}).(ApplicationVersionImageBuildConfigurationArchitecturePtrOutput)
+}
+
+// The buildpack to use for building the image.
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) Buildpack() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Buildpack
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) CodeBuildServiceRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CodeBuildServiceRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compute type for the CodeBuild build environment.
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) ComputeType() ApplicationVersionImageBuildConfigurationComputeTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) *ApplicationVersionImageBuildConfigurationComputeType {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeType
+	}).(ApplicationVersionImageBuildConfigurationComputeTypePtrOutput)
+}
+
+// The path to the Dockerfile, relative to the source root.
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) DockerfileLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DockerfileLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The timeout for the CodeBuild build, in minutes.
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) TimeoutInMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TimeoutInMinutes
+	}).(pulumi.IntPtrOutput)
+}
+
+// The type of image build: docker or buildpack.
+func (o ApplicationVersionImageBuildConfigurationPtrOutput) Type() ApplicationVersionImageBuildConfigurationTypePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageBuildConfiguration) *ApplicationVersionImageBuildConfigurationType {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(ApplicationVersionImageBuildConfigurationTypePtrOutput)
+}
+
+type ApplicationVersionImageConfiguration struct {
+	// Configuration for building a container image from source code.
+	Build *ApplicationVersionImageBuildConfiguration `pulumi:"build"`
+	// The container image source for this version, as an ECR image URI.
+	Source *ApplicationVersionImageSource `pulumi:"source"`
+}
+
+// ApplicationVersionImageConfigurationInput is an input type that accepts ApplicationVersionImageConfigurationArgs and ApplicationVersionImageConfigurationOutput values.
+// You can construct a concrete instance of `ApplicationVersionImageConfigurationInput` via:
+//
+//	ApplicationVersionImageConfigurationArgs{...}
+type ApplicationVersionImageConfigurationInput interface {
+	pulumi.Input
+
+	ToApplicationVersionImageConfigurationOutput() ApplicationVersionImageConfigurationOutput
+	ToApplicationVersionImageConfigurationOutputWithContext(context.Context) ApplicationVersionImageConfigurationOutput
+}
+
+type ApplicationVersionImageConfigurationArgs struct {
+	// Configuration for building a container image from source code.
+	Build ApplicationVersionImageBuildConfigurationPtrInput `pulumi:"build"`
+	// The container image source for this version, as an ECR image URI.
+	Source ApplicationVersionImageSourcePtrInput `pulumi:"source"`
+}
+
+func (ApplicationVersionImageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionImageConfiguration)(nil)).Elem()
+}
+
+func (i ApplicationVersionImageConfigurationArgs) ToApplicationVersionImageConfigurationOutput() ApplicationVersionImageConfigurationOutput {
+	return i.ToApplicationVersionImageConfigurationOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionImageConfigurationArgs) ToApplicationVersionImageConfigurationOutputWithContext(ctx context.Context) ApplicationVersionImageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageConfigurationOutput)
+}
+
+func (i ApplicationVersionImageConfigurationArgs) ToApplicationVersionImageConfigurationPtrOutput() ApplicationVersionImageConfigurationPtrOutput {
+	return i.ToApplicationVersionImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionImageConfigurationArgs) ToApplicationVersionImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageConfigurationOutput).ToApplicationVersionImageConfigurationPtrOutputWithContext(ctx)
+}
+
+// ApplicationVersionImageConfigurationPtrInput is an input type that accepts ApplicationVersionImageConfigurationArgs, ApplicationVersionImageConfigurationPtr and ApplicationVersionImageConfigurationPtrOutput values.
+// You can construct a concrete instance of `ApplicationVersionImageConfigurationPtrInput` via:
+//
+//	        ApplicationVersionImageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationVersionImageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToApplicationVersionImageConfigurationPtrOutput() ApplicationVersionImageConfigurationPtrOutput
+	ToApplicationVersionImageConfigurationPtrOutputWithContext(context.Context) ApplicationVersionImageConfigurationPtrOutput
+}
+
+type applicationVersionImageConfigurationPtrType ApplicationVersionImageConfigurationArgs
+
+func ApplicationVersionImageConfigurationPtr(v *ApplicationVersionImageConfigurationArgs) ApplicationVersionImageConfigurationPtrInput {
+	return (*applicationVersionImageConfigurationPtrType)(v)
+}
+
+func (*applicationVersionImageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionImageConfiguration)(nil)).Elem()
+}
+
+func (i *applicationVersionImageConfigurationPtrType) ToApplicationVersionImageConfigurationPtrOutput() ApplicationVersionImageConfigurationPtrOutput {
+	return i.ToApplicationVersionImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationVersionImageConfigurationPtrType) ToApplicationVersionImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageConfigurationPtrOutput)
+}
+
+type ApplicationVersionImageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionImageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionImageConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVersionImageConfigurationOutput) ToApplicationVersionImageConfigurationOutput() ApplicationVersionImageConfigurationOutput {
+	return o
+}
+
+func (o ApplicationVersionImageConfigurationOutput) ToApplicationVersionImageConfigurationOutputWithContext(ctx context.Context) ApplicationVersionImageConfigurationOutput {
+	return o
+}
+
+func (o ApplicationVersionImageConfigurationOutput) ToApplicationVersionImageConfigurationPtrOutput() ApplicationVersionImageConfigurationPtrOutput {
+	return o.ToApplicationVersionImageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationVersionImageConfigurationOutput) ToApplicationVersionImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersionImageConfiguration) *ApplicationVersionImageConfiguration {
+		return &v
+	}).(ApplicationVersionImageConfigurationPtrOutput)
+}
+
+// Configuration for building a container image from source code.
+func (o ApplicationVersionImageConfigurationOutput) Build() ApplicationVersionImageBuildConfigurationPtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageConfiguration) *ApplicationVersionImageBuildConfiguration {
+		return v.Build
+	}).(ApplicationVersionImageBuildConfigurationPtrOutput)
+}
+
+// The container image source for this version, as an ECR image URI.
+func (o ApplicationVersionImageConfigurationOutput) Source() ApplicationVersionImageSourcePtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageConfiguration) *ApplicationVersionImageSource { return v.Source }).(ApplicationVersionImageSourcePtrOutput)
+}
+
+type ApplicationVersionImageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionImageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionImageConfiguration)(nil)).Elem()
+}
+
+func (o ApplicationVersionImageConfigurationPtrOutput) ToApplicationVersionImageConfigurationPtrOutput() ApplicationVersionImageConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionImageConfigurationPtrOutput) ToApplicationVersionImageConfigurationPtrOutputWithContext(ctx context.Context) ApplicationVersionImageConfigurationPtrOutput {
+	return o
+}
+
+func (o ApplicationVersionImageConfigurationPtrOutput) Elem() ApplicationVersionImageConfigurationOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageConfiguration) ApplicationVersionImageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationVersionImageConfiguration
+		return ret
+	}).(ApplicationVersionImageConfigurationOutput)
+}
+
+// Configuration for building a container image from source code.
+func (o ApplicationVersionImageConfigurationPtrOutput) Build() ApplicationVersionImageBuildConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageConfiguration) *ApplicationVersionImageBuildConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.Build
+	}).(ApplicationVersionImageBuildConfigurationPtrOutput)
+}
+
+// The container image source for this version, as an ECR image URI.
+func (o ApplicationVersionImageConfigurationPtrOutput) Source() ApplicationVersionImageSourcePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageConfiguration) *ApplicationVersionImageSource {
+		if v == nil {
+			return nil
+		}
+		return v.Source
+	}).(ApplicationVersionImageSourcePtrOutput)
+}
+
+type ApplicationVersionImageSource struct {
+	// The URI of the container image, e.g. an ECR image URI.
+	Uri *string `pulumi:"uri"`
+}
+
+// ApplicationVersionImageSourceInput is an input type that accepts ApplicationVersionImageSourceArgs and ApplicationVersionImageSourceOutput values.
+// You can construct a concrete instance of `ApplicationVersionImageSourceInput` via:
+//
+//	ApplicationVersionImageSourceArgs{...}
+type ApplicationVersionImageSourceInput interface {
+	pulumi.Input
+
+	ToApplicationVersionImageSourceOutput() ApplicationVersionImageSourceOutput
+	ToApplicationVersionImageSourceOutputWithContext(context.Context) ApplicationVersionImageSourceOutput
+}
+
+type ApplicationVersionImageSourceArgs struct {
+	// The URI of the container image, e.g. an ECR image URI.
+	Uri pulumi.StringPtrInput `pulumi:"uri"`
+}
+
+func (ApplicationVersionImageSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionImageSource)(nil)).Elem()
+}
+
+func (i ApplicationVersionImageSourceArgs) ToApplicationVersionImageSourceOutput() ApplicationVersionImageSourceOutput {
+	return i.ToApplicationVersionImageSourceOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionImageSourceArgs) ToApplicationVersionImageSourceOutputWithContext(ctx context.Context) ApplicationVersionImageSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageSourceOutput)
+}
+
+func (i ApplicationVersionImageSourceArgs) ToApplicationVersionImageSourcePtrOutput() ApplicationVersionImageSourcePtrOutput {
+	return i.ToApplicationVersionImageSourcePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionImageSourceArgs) ToApplicationVersionImageSourcePtrOutputWithContext(ctx context.Context) ApplicationVersionImageSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageSourceOutput).ToApplicationVersionImageSourcePtrOutputWithContext(ctx)
+}
+
+// ApplicationVersionImageSourcePtrInput is an input type that accepts ApplicationVersionImageSourceArgs, ApplicationVersionImageSourcePtr and ApplicationVersionImageSourcePtrOutput values.
+// You can construct a concrete instance of `ApplicationVersionImageSourcePtrInput` via:
+//
+//	        ApplicationVersionImageSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationVersionImageSourcePtrInput interface {
+	pulumi.Input
+
+	ToApplicationVersionImageSourcePtrOutput() ApplicationVersionImageSourcePtrOutput
+	ToApplicationVersionImageSourcePtrOutputWithContext(context.Context) ApplicationVersionImageSourcePtrOutput
+}
+
+type applicationVersionImageSourcePtrType ApplicationVersionImageSourceArgs
+
+func ApplicationVersionImageSourcePtr(v *ApplicationVersionImageSourceArgs) ApplicationVersionImageSourcePtrInput {
+	return (*applicationVersionImageSourcePtrType)(v)
+}
+
+func (*applicationVersionImageSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionImageSource)(nil)).Elem()
+}
+
+func (i *applicationVersionImageSourcePtrType) ToApplicationVersionImageSourcePtrOutput() ApplicationVersionImageSourcePtrOutput {
+	return i.ToApplicationVersionImageSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationVersionImageSourcePtrType) ToApplicationVersionImageSourcePtrOutputWithContext(ctx context.Context) ApplicationVersionImageSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionImageSourcePtrOutput)
+}
+
+type ApplicationVersionImageSourceOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionImageSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationVersionImageSource)(nil)).Elem()
+}
+
+func (o ApplicationVersionImageSourceOutput) ToApplicationVersionImageSourceOutput() ApplicationVersionImageSourceOutput {
+	return o
+}
+
+func (o ApplicationVersionImageSourceOutput) ToApplicationVersionImageSourceOutputWithContext(ctx context.Context) ApplicationVersionImageSourceOutput {
+	return o
+}
+
+func (o ApplicationVersionImageSourceOutput) ToApplicationVersionImageSourcePtrOutput() ApplicationVersionImageSourcePtrOutput {
+	return o.ToApplicationVersionImageSourcePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationVersionImageSourceOutput) ToApplicationVersionImageSourcePtrOutputWithContext(ctx context.Context) ApplicationVersionImageSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersionImageSource) *ApplicationVersionImageSource {
+		return &v
+	}).(ApplicationVersionImageSourcePtrOutput)
+}
+
+// The URI of the container image, e.g. an ECR image URI.
+func (o ApplicationVersionImageSourceOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationVersionImageSource) *string { return v.Uri }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationVersionImageSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionImageSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionImageSource)(nil)).Elem()
+}
+
+func (o ApplicationVersionImageSourcePtrOutput) ToApplicationVersionImageSourcePtrOutput() ApplicationVersionImageSourcePtrOutput {
+	return o
+}
+
+func (o ApplicationVersionImageSourcePtrOutput) ToApplicationVersionImageSourcePtrOutputWithContext(ctx context.Context) ApplicationVersionImageSourcePtrOutput {
+	return o
+}
+
+func (o ApplicationVersionImageSourcePtrOutput) Elem() ApplicationVersionImageSourceOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageSource) ApplicationVersionImageSource {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationVersionImageSource
+		return ret
+	}).(ApplicationVersionImageSourceOutput)
+}
+
+// The URI of the container image, e.g. an ECR image URI.
+func (o ApplicationVersionImageSourcePtrOutput) Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionImageSource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Uri
+	}).(pulumi.StringPtrOutput)
+}
+
 type ApplicationVersionLifecycleConfig struct {
 	// Specify a max age rule to restrict the length of time that application versions are retained for an application.
 	MaxAgeRule *ApplicationMaxAgeRule `pulumi:"maxAgeRule"`
@@ -714,6 +1481,47 @@ func (i ApplicationVersionSourceBundleArgs) ToApplicationVersionSourceBundleOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionSourceBundleOutput)
 }
 
+func (i ApplicationVersionSourceBundleArgs) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
+	return i.ToApplicationVersionSourceBundlePtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationVersionSourceBundleArgs) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionSourceBundleOutput).ToApplicationVersionSourceBundlePtrOutputWithContext(ctx)
+}
+
+// ApplicationVersionSourceBundlePtrInput is an input type that accepts ApplicationVersionSourceBundleArgs, ApplicationVersionSourceBundlePtr and ApplicationVersionSourceBundlePtrOutput values.
+// You can construct a concrete instance of `ApplicationVersionSourceBundlePtrInput` via:
+//
+//	        ApplicationVersionSourceBundleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationVersionSourceBundlePtrInput interface {
+	pulumi.Input
+
+	ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput
+	ToApplicationVersionSourceBundlePtrOutputWithContext(context.Context) ApplicationVersionSourceBundlePtrOutput
+}
+
+type applicationVersionSourceBundlePtrType ApplicationVersionSourceBundleArgs
+
+func ApplicationVersionSourceBundlePtr(v *ApplicationVersionSourceBundleArgs) ApplicationVersionSourceBundlePtrInput {
+	return (*applicationVersionSourceBundlePtrType)(v)
+}
+
+func (*applicationVersionSourceBundlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionSourceBundle)(nil)).Elem()
+}
+
+func (i *applicationVersionSourceBundlePtrType) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
+	return i.ToApplicationVersionSourceBundlePtrOutputWithContext(context.Background())
+}
+
+func (i *applicationVersionSourceBundlePtrType) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationVersionSourceBundlePtrOutput)
+}
+
 type ApplicationVersionSourceBundleOutput struct{ *pulumi.OutputState }
 
 func (ApplicationVersionSourceBundleOutput) ElementType() reflect.Type {
@@ -728,6 +1536,16 @@ func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundleOu
 	return o
 }
 
+func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
+	return o.ToApplicationVersionSourceBundlePtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationVersionSourceBundleOutput) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationVersionSourceBundle) *ApplicationVersionSourceBundle {
+		return &v
+	}).(ApplicationVersionSourceBundlePtrOutput)
+}
+
 // The Amazon S3 bucket where the data is located.
 func (o ApplicationVersionSourceBundleOutput) S3Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationVersionSourceBundle) string { return v.S3Bucket }).(pulumi.StringOutput)
@@ -736,6 +1554,50 @@ func (o ApplicationVersionSourceBundleOutput) S3Bucket() pulumi.StringOutput {
 // The Amazon S3 key where the data is located.
 func (o ApplicationVersionSourceBundleOutput) S3Key() pulumi.StringOutput {
 	return o.ApplyT(func(v ApplicationVersionSourceBundle) string { return v.S3Key }).(pulumi.StringOutput)
+}
+
+type ApplicationVersionSourceBundlePtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationVersionSourceBundlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationVersionSourceBundle)(nil)).Elem()
+}
+
+func (o ApplicationVersionSourceBundlePtrOutput) ToApplicationVersionSourceBundlePtrOutput() ApplicationVersionSourceBundlePtrOutput {
+	return o
+}
+
+func (o ApplicationVersionSourceBundlePtrOutput) ToApplicationVersionSourceBundlePtrOutputWithContext(ctx context.Context) ApplicationVersionSourceBundlePtrOutput {
+	return o
+}
+
+func (o ApplicationVersionSourceBundlePtrOutput) Elem() ApplicationVersionSourceBundleOutput {
+	return o.ApplyT(func(v *ApplicationVersionSourceBundle) ApplicationVersionSourceBundle {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationVersionSourceBundle
+		return ret
+	}).(ApplicationVersionSourceBundleOutput)
+}
+
+// The Amazon S3 bucket where the data is located.
+func (o ApplicationVersionSourceBundlePtrOutput) S3Bucket() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionSourceBundle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Bucket
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon S3 key where the data is located.
+func (o ApplicationVersionSourceBundlePtrOutput) S3Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersionSourceBundle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Key
+	}).(pulumi.StringPtrOutput)
 }
 
 type ConfigurationTemplateConfigurationOptionSetting struct {
@@ -1331,9 +2193,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationMaxCountRulePtrInput)(nil)).Elem(), ApplicationMaxCountRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationResourceLifecycleConfigInput)(nil)).Elem(), ApplicationResourceLifecycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationResourceLifecycleConfigPtrInput)(nil)).Elem(), ApplicationResourceLifecycleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionBuildConfigurationInput)(nil)).Elem(), ApplicationVersionBuildConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionBuildConfigurationPtrInput)(nil)).Elem(), ApplicationVersionBuildConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionImageBuildConfigurationInput)(nil)).Elem(), ApplicationVersionImageBuildConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionImageBuildConfigurationPtrInput)(nil)).Elem(), ApplicationVersionImageBuildConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionImageConfigurationInput)(nil)).Elem(), ApplicationVersionImageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionImageConfigurationPtrInput)(nil)).Elem(), ApplicationVersionImageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionImageSourceInput)(nil)).Elem(), ApplicationVersionImageSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionImageSourcePtrInput)(nil)).Elem(), ApplicationVersionImageSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionLifecycleConfigInput)(nil)).Elem(), ApplicationVersionLifecycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionLifecycleConfigPtrInput)(nil)).Elem(), ApplicationVersionLifecycleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionSourceBundleInput)(nil)).Elem(), ApplicationVersionSourceBundleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationVersionSourceBundlePtrInput)(nil)).Elem(), ApplicationVersionSourceBundleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateConfigurationOptionSettingInput)(nil)).Elem(), ConfigurationTemplateConfigurationOptionSettingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateConfigurationOptionSettingArrayInput)(nil)).Elem(), ConfigurationTemplateConfigurationOptionSettingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationTemplateSourceConfigurationInput)(nil)).Elem(), ConfigurationTemplateSourceConfigurationArgs{})
@@ -1348,9 +2219,18 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationMaxCountRulePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationResourceLifecycleConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationResourceLifecycleConfigPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionBuildConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionBuildConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionImageBuildConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionImageBuildConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionImageConfigurationOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionImageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionImageSourceOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionImageSourcePtrOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionLifecycleConfigOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionLifecycleConfigPtrOutput{})
 	pulumi.RegisterOutputType(ApplicationVersionSourceBundleOutput{})
+	pulumi.RegisterOutputType(ApplicationVersionSourceBundlePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateConfigurationOptionSettingOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateConfigurationOptionSettingArrayOutput{})
 	pulumi.RegisterOutputType(ConfigurationTemplateSourceConfigurationOutput{})

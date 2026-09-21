@@ -55,3 +55,47 @@ export const ScheduledActionState = {
  * The state of the scheduled action.
  */
 export type ScheduledActionState = (typeof ScheduledActionState)[keyof typeof ScheduledActionState];
+
+export const UsageLimitBreachAction = {
+    Log: "log",
+    EmitMetric: "emit-metric",
+    Disable: "disable",
+} as const;
+
+/**
+ * The action that Amazon Redshift takes when the limit is reached. The default is log.
+ */
+export type UsageLimitBreachAction = (typeof UsageLimitBreachAction)[keyof typeof UsageLimitBreachAction];
+
+export const UsageLimitFeatureType = {
+    Spectrum: "spectrum",
+    ConcurrencyScaling: "concurrency-scaling",
+    CrossRegionDatasharing: "cross-region-datasharing",
+    ExtraComputeForAutomaticOptimization: "extra-compute-for-automatic-optimization",
+} as const;
+
+/**
+ * The Amazon Redshift feature that you want to limit.
+ */
+export type UsageLimitFeatureType = (typeof UsageLimitFeatureType)[keyof typeof UsageLimitFeatureType];
+
+export const UsageLimitLimitType = {
+    Time: "time",
+    DataScanned: "data-scanned",
+} as const;
+
+/**
+ * The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned.
+ */
+export type UsageLimitLimitType = (typeof UsageLimitLimitType)[keyof typeof UsageLimitLimitType];
+
+export const UsageLimitPeriod = {
+    Daily: "daily",
+    Weekly: "weekly",
+    Monthly: "monthly",
+} as const;
+
+/**
+ * The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.
+ */
+export type UsageLimitPeriod = (typeof UsageLimitPeriod)[keyof typeof UsageLimitPeriod];

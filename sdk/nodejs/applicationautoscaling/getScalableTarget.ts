@@ -102,6 +102,7 @@ export interface GetScalableTargetResult {
      *   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
      */
     readonly suspendedState?: outputs.applicationautoscaling.ScalableTargetSuspendedState;
+    readonly tags?: outputs.Tag[];
 }
 /**
  * The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.

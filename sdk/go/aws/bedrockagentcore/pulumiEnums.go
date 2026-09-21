@@ -16220,6 +16220,7 @@ const (
 	RuntimeAgentStatusUpdateFailed = RuntimeAgentStatus("UPDATE_FAILED")
 	RuntimeAgentStatusReady        = RuntimeAgentStatus("READY")
 	RuntimeAgentStatusDeleting     = RuntimeAgentStatus("DELETING")
+	RuntimeAgentStatusDeleteFailed = RuntimeAgentStatus("DELETE_FAILED")
 )
 
 type RuntimeAgentStatusOutput struct{ *pulumi.OutputState }
@@ -16482,6 +16483,7 @@ const (
 	RuntimeEndpointAgentRuntimeEndpointStatusUpdateFailed = RuntimeEndpointAgentRuntimeEndpointStatus("UPDATE_FAILED")
 	RuntimeEndpointAgentRuntimeEndpointStatusReady        = RuntimeEndpointAgentRuntimeEndpointStatus("READY")
 	RuntimeEndpointAgentRuntimeEndpointStatusDeleting     = RuntimeEndpointAgentRuntimeEndpointStatus("DELETING")
+	RuntimeEndpointAgentRuntimeEndpointStatusDeleteFailed = RuntimeEndpointAgentRuntimeEndpointStatus("DELETE_FAILED")
 )
 
 type RuntimeEndpointAgentRuntimeEndpointStatusOutput struct{ *pulumi.OutputState }

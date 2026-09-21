@@ -569,6 +569,37 @@ namespace Pulumi.AwsNative.Kendra
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The current status of the set of featured results. When the value is ACTIVE, featured results are ready for use.
+    /// </summary>
+    [EnumType]
+    public readonly struct FeaturedResultsSetStatus : IEquatable<FeaturedResultsSetStatus>
+    {
+        private readonly string _value;
+
+        private FeaturedResultsSetStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FeaturedResultsSetStatus Active { get; } = new FeaturedResultsSetStatus("ACTIVE");
+        public static FeaturedResultsSetStatus Inactive { get; } = new FeaturedResultsSetStatus("INACTIVE");
+
+        public static bool operator ==(FeaturedResultsSetStatus left, FeaturedResultsSetStatus right) => left.Equals(right);
+        public static bool operator !=(FeaturedResultsSetStatus left, FeaturedResultsSetStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FeaturedResultsSetStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FeaturedResultsSetStatus other && Equals(other);
+        public bool Equals(FeaturedResultsSetStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct IndexDocumentAttributeValueType : IEquatable<IndexDocumentAttributeValueType>
     {

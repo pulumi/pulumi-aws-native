@@ -207,6 +207,16 @@ export const FaqFileFormat = {
  */
 export type FaqFileFormat = (typeof FaqFileFormat)[keyof typeof FaqFileFormat];
 
+export const FeaturedResultsSetStatus = {
+    Active: "ACTIVE",
+    Inactive: "INACTIVE",
+} as const;
+
+/**
+ * The current status of the set of featured results. When the value is ACTIVE, featured results are ready for use.
+ */
+export type FeaturedResultsSetStatus = (typeof FeaturedResultsSetStatus)[keyof typeof FeaturedResultsSetStatus];
+
 export const IndexDocumentAttributeValueType = {
     StringValue: "STRING_VALUE",
     StringListValue: "STRING_LIST_VALUE",

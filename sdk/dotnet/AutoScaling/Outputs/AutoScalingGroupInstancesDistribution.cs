@@ -18,6 +18,10 @@ namespace Pulumi.AwsNative.AutoScaling.Outputs
     [OutputType]
     public sealed class AutoScalingGroupInstancesDistribution
     {
+        /// <summary>
+        /// The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+        ///  For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        /// </summary>
         public readonly ImmutableArray<Outputs.AutoScalingGroupDistributionSegment> DistributionSegments;
         /// <summary>
         /// The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.

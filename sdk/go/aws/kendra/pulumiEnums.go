@@ -3051,6 +3051,172 @@ func (in *faqFileFormatPtr) ToFaqFileFormatPtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(FaqFileFormatPtrOutput)
 }
 
+// The current status of the set of featured results. When the value is ACTIVE, featured results are ready for use.
+type FeaturedResultsSetStatus string
+
+const (
+	FeaturedResultsSetStatusActive   = FeaturedResultsSetStatus("ACTIVE")
+	FeaturedResultsSetStatusInactive = FeaturedResultsSetStatus("INACTIVE")
+)
+
+func (FeaturedResultsSetStatus) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturedResultsSetStatus)(nil)).Elem()
+}
+
+func (e FeaturedResultsSetStatus) ToFeaturedResultsSetStatusOutput() FeaturedResultsSetStatusOutput {
+	return pulumi.ToOutput(e).(FeaturedResultsSetStatusOutput)
+}
+
+func (e FeaturedResultsSetStatus) ToFeaturedResultsSetStatusOutputWithContext(ctx context.Context) FeaturedResultsSetStatusOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FeaturedResultsSetStatusOutput)
+}
+
+func (e FeaturedResultsSetStatus) ToFeaturedResultsSetStatusPtrOutput() FeaturedResultsSetStatusPtrOutput {
+	return e.ToFeaturedResultsSetStatusPtrOutputWithContext(context.Background())
+}
+
+func (e FeaturedResultsSetStatus) ToFeaturedResultsSetStatusPtrOutputWithContext(ctx context.Context) FeaturedResultsSetStatusPtrOutput {
+	return FeaturedResultsSetStatus(e).ToFeaturedResultsSetStatusOutputWithContext(ctx).ToFeaturedResultsSetStatusPtrOutputWithContext(ctx)
+}
+
+func (e FeaturedResultsSetStatus) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeaturedResultsSetStatus) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FeaturedResultsSetStatus) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FeaturedResultsSetStatus) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FeaturedResultsSetStatusOutput struct{ *pulumi.OutputState }
+
+func (FeaturedResultsSetStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturedResultsSetStatus)(nil)).Elem()
+}
+
+func (o FeaturedResultsSetStatusOutput) ToFeaturedResultsSetStatusOutput() FeaturedResultsSetStatusOutput {
+	return o
+}
+
+func (o FeaturedResultsSetStatusOutput) ToFeaturedResultsSetStatusOutputWithContext(ctx context.Context) FeaturedResultsSetStatusOutput {
+	return o
+}
+
+func (o FeaturedResultsSetStatusOutput) ToFeaturedResultsSetStatusPtrOutput() FeaturedResultsSetStatusPtrOutput {
+	return o.ToFeaturedResultsSetStatusPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturedResultsSetStatusOutput) ToFeaturedResultsSetStatusPtrOutputWithContext(ctx context.Context) FeaturedResultsSetStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturedResultsSetStatus) *FeaturedResultsSetStatus {
+		return &v
+	}).(FeaturedResultsSetStatusPtrOutput)
+}
+
+func (o FeaturedResultsSetStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FeaturedResultsSetStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeaturedResultsSetStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FeaturedResultsSetStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturedResultsSetStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FeaturedResultsSetStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FeaturedResultsSetStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturedResultsSetStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturedResultsSetStatus)(nil)).Elem()
+}
+
+func (o FeaturedResultsSetStatusPtrOutput) ToFeaturedResultsSetStatusPtrOutput() FeaturedResultsSetStatusPtrOutput {
+	return o
+}
+
+func (o FeaturedResultsSetStatusPtrOutput) ToFeaturedResultsSetStatusPtrOutputWithContext(ctx context.Context) FeaturedResultsSetStatusPtrOutput {
+	return o
+}
+
+func (o FeaturedResultsSetStatusPtrOutput) Elem() FeaturedResultsSetStatusOutput {
+	return o.ApplyT(func(v *FeaturedResultsSetStatus) FeaturedResultsSetStatus {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturedResultsSetStatus
+		return ret
+	}).(FeaturedResultsSetStatusOutput)
+}
+
+func (o FeaturedResultsSetStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturedResultsSetStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FeaturedResultsSetStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FeaturedResultsSetStatusInput is an input type that accepts values of the FeaturedResultsSetStatus enum
+// A concrete instance of `FeaturedResultsSetStatusInput` can be one of the following:
+//
+//	FeaturedResultsSetStatusActive
+//	FeaturedResultsSetStatusInactive
+type FeaturedResultsSetStatusInput interface {
+	pulumi.Input
+
+	ToFeaturedResultsSetStatusOutput() FeaturedResultsSetStatusOutput
+	ToFeaturedResultsSetStatusOutputWithContext(context.Context) FeaturedResultsSetStatusOutput
+}
+
+var featuredResultsSetStatusPtrType = reflect.TypeOf((**FeaturedResultsSetStatus)(nil)).Elem()
+
+type FeaturedResultsSetStatusPtrInput interface {
+	pulumi.Input
+
+	ToFeaturedResultsSetStatusPtrOutput() FeaturedResultsSetStatusPtrOutput
+	ToFeaturedResultsSetStatusPtrOutputWithContext(context.Context) FeaturedResultsSetStatusPtrOutput
+}
+
+type featuredResultsSetStatusPtr string
+
+func FeaturedResultsSetStatusPtr(v string) FeaturedResultsSetStatusPtrInput {
+	return (*featuredResultsSetStatusPtr)(&v)
+}
+
+func (*featuredResultsSetStatusPtr) ElementType() reflect.Type {
+	return featuredResultsSetStatusPtrType
+}
+
+func (in *featuredResultsSetStatusPtr) ToFeaturedResultsSetStatusPtrOutput() FeaturedResultsSetStatusPtrOutput {
+	return pulumi.ToOutput(in).(FeaturedResultsSetStatusPtrOutput)
+}
+
+func (in *featuredResultsSetStatusPtr) ToFeaturedResultsSetStatusPtrOutputWithContext(ctx context.Context) FeaturedResultsSetStatusPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FeaturedResultsSetStatusPtrOutput)
+}
+
 type IndexDocumentAttributeValueType string
 
 const (
@@ -3920,6 +4086,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrInput)(nil)).Elem(), DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode("HOST_ONLY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqFileFormatInput)(nil)).Elem(), FaqFileFormat("CSV"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqFileFormatPtrInput)(nil)).Elem(), FaqFileFormat("CSV"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturedResultsSetStatusInput)(nil)).Elem(), FeaturedResultsSetStatus("ACTIVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturedResultsSetStatusPtrInput)(nil)).Elem(), FeaturedResultsSetStatus("ACTIVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentAttributeValueTypeInput)(nil)).Elem(), IndexDocumentAttributeValueType("STRING_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentAttributeValueTypePtrInput)(nil)).Elem(), IndexDocumentAttributeValueType("STRING_VALUE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexEditionInput)(nil)).Elem(), IndexEdition("DEVELOPER_EDITION"))
@@ -3966,6 +4134,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerModePtrOutput{})
 	pulumi.RegisterOutputType(FaqFileFormatOutput{})
 	pulumi.RegisterOutputType(FaqFileFormatPtrOutput{})
+	pulumi.RegisterOutputType(FeaturedResultsSetStatusOutput{})
+	pulumi.RegisterOutputType(FeaturedResultsSetStatusPtrOutput{})
 	pulumi.RegisterOutputType(IndexDocumentAttributeValueTypeOutput{})
 	pulumi.RegisterOutputType(IndexDocumentAttributeValueTypePtrOutput{})
 	pulumi.RegisterOutputType(IndexEditionOutput{})

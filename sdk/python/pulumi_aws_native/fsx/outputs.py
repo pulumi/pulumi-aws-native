@@ -20,6 +20,10 @@ __all__ = [
     'DataRepositoryAssociationAutoExportPolicy',
     'DataRepositoryAssociationAutoImportPolicy',
     'DataRepositoryAssociationS3',
+    'FileCacheDataRepositoryAssociation',
+    'FileCacheLogConfiguration',
+    'FileCacheLustreConfiguration',
+    'FileCacheMetadataConfiguration',
     'S3AccessPointAttachmentFileSystemGid',
     'S3AccessPointAttachmentOntapFileSystemIdentity',
     'S3AccessPointAttachmentOntapUnixFileSystemUser',
@@ -175,6 +179,170 @@ class DataRepositoryAssociationS3(dict):
         The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
         """
         return pulumi.get(self, "auto_import_policy")
+
+
+@pulumi.output_type
+class FileCacheDataRepositoryAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataRepositoryPath":
+            suggest = "data_repository_path"
+        elif key == "fileCachePath":
+            suggest = "file_cache_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileCacheDataRepositoryAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileCacheDataRepositoryAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileCacheDataRepositoryAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_repository_path: _builtins.str,
+                 file_cache_path: _builtins.str):
+        pulumi.set(__self__, "data_repository_path", data_repository_path)
+        pulumi.set(__self__, "file_cache_path", file_cache_path)
+
+    @_builtins.property
+    @pulumi.getter(name="dataRepositoryPath")
+    def data_repository_path(self) -> _builtins.str:
+        return pulumi.get(self, "data_repository_path")
+
+    @_builtins.property
+    @pulumi.getter(name="fileCachePath")
+    def file_cache_path(self) -> _builtins.str:
+        return pulumi.get(self, "file_cache_path")
+
+
+@pulumi.output_type
+class FileCacheLogConfiguration(dict):
+    def __init__(__self__, *,
+                 level: 'FileCacheLogConfigurationLevel',
+                 destination: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "level", level)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> 'FileCacheLogConfigurationLevel':
+        return pulumi.get(self, "level")
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "destination")
+
+
+@pulumi.output_type
+class FileCacheLustreConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deploymentType":
+            suggest = "deployment_type"
+        elif key == "metadataConfiguration":
+            suggest = "metadata_configuration"
+        elif key == "perUnitStorageThroughput":
+            suggest = "per_unit_storage_throughput"
+        elif key == "logConfiguration":
+            suggest = "log_configuration"
+        elif key == "mountName":
+            suggest = "mount_name"
+        elif key == "weeklyMaintenanceStartTime":
+            suggest = "weekly_maintenance_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileCacheLustreConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileCacheLustreConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileCacheLustreConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deployment_type: 'FileCacheLustreConfigurationDeploymentType',
+                 metadata_configuration: 'outputs.FileCacheMetadataConfiguration',
+                 per_unit_storage_throughput: _builtins.int,
+                 log_configuration: Optional['outputs.FileCacheLogConfiguration'] = None,
+                 mount_name: Optional[_builtins.str] = None,
+                 weekly_maintenance_start_time: Optional[_builtins.str] = None):
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        pulumi.set(__self__, "metadata_configuration", metadata_configuration)
+        pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if mount_name is not None:
+            pulumi.set(__self__, "mount_name", mount_name)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> 'FileCacheLustreConfigurationDeploymentType':
+        return pulumi.get(self, "deployment_type")
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> 'outputs.FileCacheMetadataConfiguration':
+        return pulumi.get(self, "metadata_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="perUnitStorageThroughput")
+    def per_unit_storage_throughput(self) -> _builtins.int:
+        return pulumi.get(self, "per_unit_storage_throughput")
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> Optional['outputs.FileCacheLogConfiguration']:
+        return pulumi.get(self, "log_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "mount_name")
+
+    @_builtins.property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+
+@pulumi.output_type
+class FileCacheMetadataConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageCapacity":
+            suggest = "storage_capacity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileCacheMetadataConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileCacheMetadataConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileCacheMetadataConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_capacity: _builtins.int):
+        pulumi.set(__self__, "storage_capacity", storage_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> _builtins.int:
+        return pulumi.get(self, "storage_capacity")
 
 
 @pulumi.output_type

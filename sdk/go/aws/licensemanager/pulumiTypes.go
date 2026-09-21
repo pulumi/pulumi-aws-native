@@ -21,6 +21,205 @@ type GrantTag struct {
 	Value string `pulumi:"value"`
 }
 
+type LicenseAssetGroupConfiguration struct {
+	UsageDimension *string `pulumi:"usageDimension"`
+}
+
+// LicenseAssetGroupConfigurationInput is an input type that accepts LicenseAssetGroupConfigurationArgs and LicenseAssetGroupConfigurationOutput values.
+// You can construct a concrete instance of `LicenseAssetGroupConfigurationInput` via:
+//
+//	LicenseAssetGroupConfigurationArgs{...}
+type LicenseAssetGroupConfigurationInput interface {
+	pulumi.Input
+
+	ToLicenseAssetGroupConfigurationOutput() LicenseAssetGroupConfigurationOutput
+	ToLicenseAssetGroupConfigurationOutputWithContext(context.Context) LicenseAssetGroupConfigurationOutput
+}
+
+type LicenseAssetGroupConfigurationArgs struct {
+	UsageDimension pulumi.StringPtrInput `pulumi:"usageDimension"`
+}
+
+func (LicenseAssetGroupConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetGroupConfiguration)(nil)).Elem()
+}
+
+func (i LicenseAssetGroupConfigurationArgs) ToLicenseAssetGroupConfigurationOutput() LicenseAssetGroupConfigurationOutput {
+	return i.ToLicenseAssetGroupConfigurationOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetGroupConfigurationArgs) ToLicenseAssetGroupConfigurationOutputWithContext(ctx context.Context) LicenseAssetGroupConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetGroupConfigurationOutput)
+}
+
+// LicenseAssetGroupConfigurationArrayInput is an input type that accepts LicenseAssetGroupConfigurationArray and LicenseAssetGroupConfigurationArrayOutput values.
+// You can construct a concrete instance of `LicenseAssetGroupConfigurationArrayInput` via:
+//
+//	LicenseAssetGroupConfigurationArray{ LicenseAssetGroupConfigurationArgs{...} }
+type LicenseAssetGroupConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToLicenseAssetGroupConfigurationArrayOutput() LicenseAssetGroupConfigurationArrayOutput
+	ToLicenseAssetGroupConfigurationArrayOutputWithContext(context.Context) LicenseAssetGroupConfigurationArrayOutput
+}
+
+type LicenseAssetGroupConfigurationArray []LicenseAssetGroupConfigurationInput
+
+func (LicenseAssetGroupConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetGroupConfiguration)(nil)).Elem()
+}
+
+func (i LicenseAssetGroupConfigurationArray) ToLicenseAssetGroupConfigurationArrayOutput() LicenseAssetGroupConfigurationArrayOutput {
+	return i.ToLicenseAssetGroupConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetGroupConfigurationArray) ToLicenseAssetGroupConfigurationArrayOutputWithContext(ctx context.Context) LicenseAssetGroupConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetGroupConfigurationArrayOutput)
+}
+
+type LicenseAssetGroupConfigurationOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetGroupConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetGroupConfiguration)(nil)).Elem()
+}
+
+func (o LicenseAssetGroupConfigurationOutput) ToLicenseAssetGroupConfigurationOutput() LicenseAssetGroupConfigurationOutput {
+	return o
+}
+
+func (o LicenseAssetGroupConfigurationOutput) ToLicenseAssetGroupConfigurationOutputWithContext(ctx context.Context) LicenseAssetGroupConfigurationOutput {
+	return o
+}
+
+func (o LicenseAssetGroupConfigurationOutput) UsageDimension() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LicenseAssetGroupConfiguration) *string { return v.UsageDimension }).(pulumi.StringPtrOutput)
+}
+
+type LicenseAssetGroupConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetGroupConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetGroupConfiguration)(nil)).Elem()
+}
+
+func (o LicenseAssetGroupConfigurationArrayOutput) ToLicenseAssetGroupConfigurationArrayOutput() LicenseAssetGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o LicenseAssetGroupConfigurationArrayOutput) ToLicenseAssetGroupConfigurationArrayOutputWithContext(ctx context.Context) LicenseAssetGroupConfigurationArrayOutput {
+	return o
+}
+
+func (o LicenseAssetGroupConfigurationArrayOutput) Index(i pulumi.IntInput) LicenseAssetGroupConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LicenseAssetGroupConfiguration {
+		return vs[0].([]LicenseAssetGroupConfiguration)[vs[1].(int)]
+	}).(LicenseAssetGroupConfigurationOutput)
+}
+
+type LicenseAssetGroupProperty struct {
+	Key   *string `pulumi:"key"`
+	Value *string `pulumi:"value"`
+}
+
+// LicenseAssetGroupPropertyInput is an input type that accepts LicenseAssetGroupPropertyArgs and LicenseAssetGroupPropertyOutput values.
+// You can construct a concrete instance of `LicenseAssetGroupPropertyInput` via:
+//
+//	LicenseAssetGroupPropertyArgs{...}
+type LicenseAssetGroupPropertyInput interface {
+	pulumi.Input
+
+	ToLicenseAssetGroupPropertyOutput() LicenseAssetGroupPropertyOutput
+	ToLicenseAssetGroupPropertyOutputWithContext(context.Context) LicenseAssetGroupPropertyOutput
+}
+
+type LicenseAssetGroupPropertyArgs struct {
+	Key   pulumi.StringPtrInput `pulumi:"key"`
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (LicenseAssetGroupPropertyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetGroupProperty)(nil)).Elem()
+}
+
+func (i LicenseAssetGroupPropertyArgs) ToLicenseAssetGroupPropertyOutput() LicenseAssetGroupPropertyOutput {
+	return i.ToLicenseAssetGroupPropertyOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetGroupPropertyArgs) ToLicenseAssetGroupPropertyOutputWithContext(ctx context.Context) LicenseAssetGroupPropertyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetGroupPropertyOutput)
+}
+
+// LicenseAssetGroupPropertyArrayInput is an input type that accepts LicenseAssetGroupPropertyArray and LicenseAssetGroupPropertyArrayOutput values.
+// You can construct a concrete instance of `LicenseAssetGroupPropertyArrayInput` via:
+//
+//	LicenseAssetGroupPropertyArray{ LicenseAssetGroupPropertyArgs{...} }
+type LicenseAssetGroupPropertyArrayInput interface {
+	pulumi.Input
+
+	ToLicenseAssetGroupPropertyArrayOutput() LicenseAssetGroupPropertyArrayOutput
+	ToLicenseAssetGroupPropertyArrayOutputWithContext(context.Context) LicenseAssetGroupPropertyArrayOutput
+}
+
+type LicenseAssetGroupPropertyArray []LicenseAssetGroupPropertyInput
+
+func (LicenseAssetGroupPropertyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetGroupProperty)(nil)).Elem()
+}
+
+func (i LicenseAssetGroupPropertyArray) ToLicenseAssetGroupPropertyArrayOutput() LicenseAssetGroupPropertyArrayOutput {
+	return i.ToLicenseAssetGroupPropertyArrayOutputWithContext(context.Background())
+}
+
+func (i LicenseAssetGroupPropertyArray) ToLicenseAssetGroupPropertyArrayOutputWithContext(ctx context.Context) LicenseAssetGroupPropertyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LicenseAssetGroupPropertyArrayOutput)
+}
+
+type LicenseAssetGroupPropertyOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetGroupPropertyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LicenseAssetGroupProperty)(nil)).Elem()
+}
+
+func (o LicenseAssetGroupPropertyOutput) ToLicenseAssetGroupPropertyOutput() LicenseAssetGroupPropertyOutput {
+	return o
+}
+
+func (o LicenseAssetGroupPropertyOutput) ToLicenseAssetGroupPropertyOutputWithContext(ctx context.Context) LicenseAssetGroupPropertyOutput {
+	return o
+}
+
+func (o LicenseAssetGroupPropertyOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LicenseAssetGroupProperty) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o LicenseAssetGroupPropertyOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LicenseAssetGroupProperty) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type LicenseAssetGroupPropertyArrayOutput struct{ *pulumi.OutputState }
+
+func (LicenseAssetGroupPropertyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LicenseAssetGroupProperty)(nil)).Elem()
+}
+
+func (o LicenseAssetGroupPropertyArrayOutput) ToLicenseAssetGroupPropertyArrayOutput() LicenseAssetGroupPropertyArrayOutput {
+	return o
+}
+
+func (o LicenseAssetGroupPropertyArrayOutput) ToLicenseAssetGroupPropertyArrayOutputWithContext(ctx context.Context) LicenseAssetGroupPropertyArrayOutput {
+	return o
+}
+
+func (o LicenseAssetGroupPropertyArrayOutput) Index(i pulumi.IntInput) LicenseAssetGroupPropertyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LicenseAssetGroupProperty {
+		return vs[0].([]LicenseAssetGroupProperty)[vs[1].(int)]
+	}).(LicenseAssetGroupPropertyOutput)
+}
+
+type LicenseAssetGroupTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // AND rule statement.
 type LicenseAssetRuleSetAndRuleStatement struct {
 	MatchingRuleStatements []LicenseAssetRuleSetMatchingRuleStatement `pulumi:"matchingRuleStatements"`
@@ -2094,6 +2293,10 @@ func (o LicenseValidityDateFormatPtrOutput) End() pulumi.StringPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetGroupConfigurationInput)(nil)).Elem(), LicenseAssetGroupConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetGroupConfigurationArrayInput)(nil)).Elem(), LicenseAssetGroupConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetGroupPropertyInput)(nil)).Elem(), LicenseAssetGroupPropertyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetGroupPropertyArrayInput)(nil)).Elem(), LicenseAssetGroupPropertyArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetAndRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetAndRuleStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetAndRuleStatementPtrInput)(nil)).Elem(), LicenseAssetRuleSetAndRuleStatementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseAssetRuleSetInstanceRuleStatementInput)(nil)).Elem(), LicenseAssetRuleSetInstanceRuleStatementArgs{})
@@ -2121,6 +2324,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseProvisionalConfigurationPtrInput)(nil)).Elem(), LicenseProvisionalConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LicenseValidityDateFormatInput)(nil)).Elem(), LicenseValidityDateFormatArgs{})
+	pulumi.RegisterOutputType(LicenseAssetGroupConfigurationOutput{})
+	pulumi.RegisterOutputType(LicenseAssetGroupConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(LicenseAssetGroupPropertyOutput{})
+	pulumi.RegisterOutputType(LicenseAssetGroupPropertyArrayOutput{})
 	pulumi.RegisterOutputType(LicenseAssetRuleSetAndRuleStatementOutput{})
 	pulumi.RegisterOutputType(LicenseAssetRuleSetAndRuleStatementPtrOutput{})
 	pulumi.RegisterOutputType(LicenseAssetRuleSetInstanceRuleStatementOutput{})

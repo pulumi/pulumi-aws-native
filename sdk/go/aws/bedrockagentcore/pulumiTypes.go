@@ -27246,6 +27246,264 @@ func (o MemoryMetadataSchemaEntryArrayOutput) Index(i pulumi.IntInput) MemoryMet
 	}).(MemoryMetadataSchemaEntryOutput)
 }
 
+// A namespace variable key definition with optional validation rules
+type MemoryNamespaceKeyEntry struct {
+	Key        string                        `pulumi:"key"`
+	Validation *MemoryNamespaceKeyValidation `pulumi:"validation"`
+}
+
+// MemoryNamespaceKeyEntryInput is an input type that accepts MemoryNamespaceKeyEntryArgs and MemoryNamespaceKeyEntryOutput values.
+// You can construct a concrete instance of `MemoryNamespaceKeyEntryInput` via:
+//
+//	MemoryNamespaceKeyEntryArgs{...}
+type MemoryNamespaceKeyEntryInput interface {
+	pulumi.Input
+
+	ToMemoryNamespaceKeyEntryOutput() MemoryNamespaceKeyEntryOutput
+	ToMemoryNamespaceKeyEntryOutputWithContext(context.Context) MemoryNamespaceKeyEntryOutput
+}
+
+// A namespace variable key definition with optional validation rules
+type MemoryNamespaceKeyEntryArgs struct {
+	Key        pulumi.StringInput                   `pulumi:"key"`
+	Validation MemoryNamespaceKeyValidationPtrInput `pulumi:"validation"`
+}
+
+func (MemoryNamespaceKeyEntryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryNamespaceKeyEntry)(nil)).Elem()
+}
+
+func (i MemoryNamespaceKeyEntryArgs) ToMemoryNamespaceKeyEntryOutput() MemoryNamespaceKeyEntryOutput {
+	return i.ToMemoryNamespaceKeyEntryOutputWithContext(context.Background())
+}
+
+func (i MemoryNamespaceKeyEntryArgs) ToMemoryNamespaceKeyEntryOutputWithContext(ctx context.Context) MemoryNamespaceKeyEntryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNamespaceKeyEntryOutput)
+}
+
+// MemoryNamespaceKeyEntryArrayInput is an input type that accepts MemoryNamespaceKeyEntryArray and MemoryNamespaceKeyEntryArrayOutput values.
+// You can construct a concrete instance of `MemoryNamespaceKeyEntryArrayInput` via:
+//
+//	MemoryNamespaceKeyEntryArray{ MemoryNamespaceKeyEntryArgs{...} }
+type MemoryNamespaceKeyEntryArrayInput interface {
+	pulumi.Input
+
+	ToMemoryNamespaceKeyEntryArrayOutput() MemoryNamespaceKeyEntryArrayOutput
+	ToMemoryNamespaceKeyEntryArrayOutputWithContext(context.Context) MemoryNamespaceKeyEntryArrayOutput
+}
+
+type MemoryNamespaceKeyEntryArray []MemoryNamespaceKeyEntryInput
+
+func (MemoryNamespaceKeyEntryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryNamespaceKeyEntry)(nil)).Elem()
+}
+
+func (i MemoryNamespaceKeyEntryArray) ToMemoryNamespaceKeyEntryArrayOutput() MemoryNamespaceKeyEntryArrayOutput {
+	return i.ToMemoryNamespaceKeyEntryArrayOutputWithContext(context.Background())
+}
+
+func (i MemoryNamespaceKeyEntryArray) ToMemoryNamespaceKeyEntryArrayOutputWithContext(ctx context.Context) MemoryNamespaceKeyEntryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNamespaceKeyEntryArrayOutput)
+}
+
+// A namespace variable key definition with optional validation rules
+type MemoryNamespaceKeyEntryOutput struct{ *pulumi.OutputState }
+
+func (MemoryNamespaceKeyEntryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryNamespaceKeyEntry)(nil)).Elem()
+}
+
+func (o MemoryNamespaceKeyEntryOutput) ToMemoryNamespaceKeyEntryOutput() MemoryNamespaceKeyEntryOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyEntryOutput) ToMemoryNamespaceKeyEntryOutputWithContext(ctx context.Context) MemoryNamespaceKeyEntryOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyEntryOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v MemoryNamespaceKeyEntry) string { return v.Key }).(pulumi.StringOutput)
+}
+
+func (o MemoryNamespaceKeyEntryOutput) Validation() MemoryNamespaceKeyValidationPtrOutput {
+	return o.ApplyT(func(v MemoryNamespaceKeyEntry) *MemoryNamespaceKeyValidation { return v.Validation }).(MemoryNamespaceKeyValidationPtrOutput)
+}
+
+type MemoryNamespaceKeyEntryArrayOutput struct{ *pulumi.OutputState }
+
+func (MemoryNamespaceKeyEntryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MemoryNamespaceKeyEntry)(nil)).Elem()
+}
+
+func (o MemoryNamespaceKeyEntryArrayOutput) ToMemoryNamespaceKeyEntryArrayOutput() MemoryNamespaceKeyEntryArrayOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyEntryArrayOutput) ToMemoryNamespaceKeyEntryArrayOutputWithContext(ctx context.Context) MemoryNamespaceKeyEntryArrayOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyEntryArrayOutput) Index(i pulumi.IntInput) MemoryNamespaceKeyEntryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MemoryNamespaceKeyEntry {
+		return vs[0].([]MemoryNamespaceKeyEntry)[vs[1].(int)]
+	}).(MemoryNamespaceKeyEntryOutput)
+}
+
+// Validation rules for namespace variable values. Multiple rules can be specified and all must pass.
+type MemoryNamespaceKeyValidation struct {
+	// List of allowed values for this namespace variable
+	AllowedValues []string `pulumi:"allowedValues"`
+	RegexPattern  *string  `pulumi:"regexPattern"`
+}
+
+// MemoryNamespaceKeyValidationInput is an input type that accepts MemoryNamespaceKeyValidationArgs and MemoryNamespaceKeyValidationOutput values.
+// You can construct a concrete instance of `MemoryNamespaceKeyValidationInput` via:
+//
+//	MemoryNamespaceKeyValidationArgs{...}
+type MemoryNamespaceKeyValidationInput interface {
+	pulumi.Input
+
+	ToMemoryNamespaceKeyValidationOutput() MemoryNamespaceKeyValidationOutput
+	ToMemoryNamespaceKeyValidationOutputWithContext(context.Context) MemoryNamespaceKeyValidationOutput
+}
+
+// Validation rules for namespace variable values. Multiple rules can be specified and all must pass.
+type MemoryNamespaceKeyValidationArgs struct {
+	// List of allowed values for this namespace variable
+	AllowedValues pulumi.StringArrayInput `pulumi:"allowedValues"`
+	RegexPattern  pulumi.StringPtrInput   `pulumi:"regexPattern"`
+}
+
+func (MemoryNamespaceKeyValidationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryNamespaceKeyValidation)(nil)).Elem()
+}
+
+func (i MemoryNamespaceKeyValidationArgs) ToMemoryNamespaceKeyValidationOutput() MemoryNamespaceKeyValidationOutput {
+	return i.ToMemoryNamespaceKeyValidationOutputWithContext(context.Background())
+}
+
+func (i MemoryNamespaceKeyValidationArgs) ToMemoryNamespaceKeyValidationOutputWithContext(ctx context.Context) MemoryNamespaceKeyValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNamespaceKeyValidationOutput)
+}
+
+func (i MemoryNamespaceKeyValidationArgs) ToMemoryNamespaceKeyValidationPtrOutput() MemoryNamespaceKeyValidationPtrOutput {
+	return i.ToMemoryNamespaceKeyValidationPtrOutputWithContext(context.Background())
+}
+
+func (i MemoryNamespaceKeyValidationArgs) ToMemoryNamespaceKeyValidationPtrOutputWithContext(ctx context.Context) MemoryNamespaceKeyValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNamespaceKeyValidationOutput).ToMemoryNamespaceKeyValidationPtrOutputWithContext(ctx)
+}
+
+// MemoryNamespaceKeyValidationPtrInput is an input type that accepts MemoryNamespaceKeyValidationArgs, MemoryNamespaceKeyValidationPtr and MemoryNamespaceKeyValidationPtrOutput values.
+// You can construct a concrete instance of `MemoryNamespaceKeyValidationPtrInput` via:
+//
+//	        MemoryNamespaceKeyValidationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MemoryNamespaceKeyValidationPtrInput interface {
+	pulumi.Input
+
+	ToMemoryNamespaceKeyValidationPtrOutput() MemoryNamespaceKeyValidationPtrOutput
+	ToMemoryNamespaceKeyValidationPtrOutputWithContext(context.Context) MemoryNamespaceKeyValidationPtrOutput
+}
+
+type memoryNamespaceKeyValidationPtrType MemoryNamespaceKeyValidationArgs
+
+func MemoryNamespaceKeyValidationPtr(v *MemoryNamespaceKeyValidationArgs) MemoryNamespaceKeyValidationPtrInput {
+	return (*memoryNamespaceKeyValidationPtrType)(v)
+}
+
+func (*memoryNamespaceKeyValidationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryNamespaceKeyValidation)(nil)).Elem()
+}
+
+func (i *memoryNamespaceKeyValidationPtrType) ToMemoryNamespaceKeyValidationPtrOutput() MemoryNamespaceKeyValidationPtrOutput {
+	return i.ToMemoryNamespaceKeyValidationPtrOutputWithContext(context.Background())
+}
+
+func (i *memoryNamespaceKeyValidationPtrType) ToMemoryNamespaceKeyValidationPtrOutputWithContext(ctx context.Context) MemoryNamespaceKeyValidationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MemoryNamespaceKeyValidationPtrOutput)
+}
+
+// Validation rules for namespace variable values. Multiple rules can be specified and all must pass.
+type MemoryNamespaceKeyValidationOutput struct{ *pulumi.OutputState }
+
+func (MemoryNamespaceKeyValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemoryNamespaceKeyValidation)(nil)).Elem()
+}
+
+func (o MemoryNamespaceKeyValidationOutput) ToMemoryNamespaceKeyValidationOutput() MemoryNamespaceKeyValidationOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyValidationOutput) ToMemoryNamespaceKeyValidationOutputWithContext(ctx context.Context) MemoryNamespaceKeyValidationOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyValidationOutput) ToMemoryNamespaceKeyValidationPtrOutput() MemoryNamespaceKeyValidationPtrOutput {
+	return o.ToMemoryNamespaceKeyValidationPtrOutputWithContext(context.Background())
+}
+
+func (o MemoryNamespaceKeyValidationOutput) ToMemoryNamespaceKeyValidationPtrOutputWithContext(ctx context.Context) MemoryNamespaceKeyValidationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemoryNamespaceKeyValidation) *MemoryNamespaceKeyValidation {
+		return &v
+	}).(MemoryNamespaceKeyValidationPtrOutput)
+}
+
+// List of allowed values for this namespace variable
+func (o MemoryNamespaceKeyValidationOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MemoryNamespaceKeyValidation) []string { return v.AllowedValues }).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryNamespaceKeyValidationOutput) RegexPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MemoryNamespaceKeyValidation) *string { return v.RegexPattern }).(pulumi.StringPtrOutput)
+}
+
+type MemoryNamespaceKeyValidationPtrOutput struct{ *pulumi.OutputState }
+
+func (MemoryNamespaceKeyValidationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemoryNamespaceKeyValidation)(nil)).Elem()
+}
+
+func (o MemoryNamespaceKeyValidationPtrOutput) ToMemoryNamespaceKeyValidationPtrOutput() MemoryNamespaceKeyValidationPtrOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyValidationPtrOutput) ToMemoryNamespaceKeyValidationPtrOutputWithContext(ctx context.Context) MemoryNamespaceKeyValidationPtrOutput {
+	return o
+}
+
+func (o MemoryNamespaceKeyValidationPtrOutput) Elem() MemoryNamespaceKeyValidationOutput {
+	return o.ApplyT(func(v *MemoryNamespaceKeyValidation) MemoryNamespaceKeyValidation {
+		if v != nil {
+			return *v
+		}
+		var ret MemoryNamespaceKeyValidation
+		return ret
+	}).(MemoryNamespaceKeyValidationOutput)
+}
+
+// List of allowed values for this namespace variable
+func (o MemoryNamespaceKeyValidationPtrOutput) AllowedValues() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MemoryNamespaceKeyValidation) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedValues
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o MemoryNamespaceKeyValidationPtrOutput) RegexPattern() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MemoryNamespaceKeyValidation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegexPattern
+	}).(pulumi.StringPtrOutput)
+}
+
 type MemoryNumberValidation struct {
 	MaxValue *float64 `pulumi:"maxValue"`
 	MinValue *float64 `pulumi:"minValue"`
@@ -43046,6 +43304,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMessageBasedTriggerInputPtrInput)(nil)).Elem(), MemoryMessageBasedTriggerInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataSchemaEntryInput)(nil)).Elem(), MemoryMetadataSchemaEntryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryMetadataSchemaEntryArrayInput)(nil)).Elem(), MemoryMetadataSchemaEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNamespaceKeyEntryInput)(nil)).Elem(), MemoryNamespaceKeyEntryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNamespaceKeyEntryArrayInput)(nil)).Elem(), MemoryNamespaceKeyEntryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNamespaceKeyValidationInput)(nil)).Elem(), MemoryNamespaceKeyValidationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNamespaceKeyValidationPtrInput)(nil)).Elem(), MemoryNamespaceKeyValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNumberValidationInput)(nil)).Elem(), MemoryNumberValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryNumberValidationPtrInput)(nil)).Elem(), MemoryNumberValidationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MemoryRecordSchemaInput)(nil)).Elem(), MemoryRecordSchemaArgs{})
@@ -43629,6 +43891,10 @@ func init() {
 	pulumi.RegisterOutputType(MemoryMessageBasedTriggerInputPtrOutput{})
 	pulumi.RegisterOutputType(MemoryMetadataSchemaEntryOutput{})
 	pulumi.RegisterOutputType(MemoryMetadataSchemaEntryArrayOutput{})
+	pulumi.RegisterOutputType(MemoryNamespaceKeyEntryOutput{})
+	pulumi.RegisterOutputType(MemoryNamespaceKeyEntryArrayOutput{})
+	pulumi.RegisterOutputType(MemoryNamespaceKeyValidationOutput{})
+	pulumi.RegisterOutputType(MemoryNamespaceKeyValidationPtrOutput{})
 	pulumi.RegisterOutputType(MemoryNumberValidationOutput{})
 	pulumi.RegisterOutputType(MemoryNumberValidationPtrOutput{})
 	pulumi.RegisterOutputType(MemoryRecordSchemaOutput{})

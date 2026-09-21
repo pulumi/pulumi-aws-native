@@ -24,8 +24,8 @@ func LookupGraphQlApi(ctx *pulumi.Context, args *LookupGraphQlApiArgs, opts ...p
 }
 
 type LookupGraphQlApiArgs struct {
-	// Unique AWS AppSync GraphQL API identifier.
-	ApiId string `pulumi:"apiId"`
+	// The Amazon Resource Name (ARN) of the API key
+	Arn string `pulumi:"arn"`
 }
 
 type LookupGraphQlApiResult struct {
@@ -87,8 +87,8 @@ func LookupGraphQlApiOutput(ctx *pulumi.Context, args LookupGraphQlApiOutputArgs
 }
 
 type LookupGraphQlApiOutputArgs struct {
-	// Unique AWS AppSync GraphQL API identifier.
-	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// The Amazon Resource Name (ARN) of the API key
+	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
 func (LookupGraphQlApiOutputArgs) ElementType() reflect.Type {

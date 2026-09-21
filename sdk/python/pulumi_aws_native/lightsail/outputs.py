@@ -41,6 +41,7 @@ __all__ = [
     'InstancePort',
     'InstanceSnapshotLocation',
     'InstanceState',
+    'KeyPairResourceLocation',
     'LocationProperties',
 ]
 
@@ -1650,6 +1651,56 @@ class InstanceState(dict):
         Status code of the Instance.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class KeyPairResourceLocation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "regionName":
+            suggest = "region_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KeyPairResourceLocation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KeyPairResourceLocation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KeyPairResourceLocation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: Optional[_builtins.str] = None,
+                 region_name: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str availability_zone: The Availability Zone. Follows the format us-east-2a (case-sensitive).
+        :param _builtins.str region_name: The AWS Region name.
+        """
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if region_name is not None:
+            pulumi.set(__self__, "region_name", region_name)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[_builtins.str]:
+        """
+        The Availability Zone. Follows the format us-east-2a (case-sensitive).
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="regionName")
+    def region_name(self) -> Optional[_builtins.str]:
+        """
+        The AWS Region name.
+        """
+        return pulumi.get(self, "region_name")
 
 
 @pulumi.output_type

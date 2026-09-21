@@ -19,6 +19,7 @@ from ._enums import *
 __all__ = [
     'ChannelIngestEndpoint',
     'ChannelInputSwitchConfiguration',
+    'ChannelMultiviewConfiguration',
     'ChannelOutputHeaderConfiguration',
     'OriginEndpointDashAvailabilityStartTimeConfigurationProperties',
     'OriginEndpointDashBaseUrl',
@@ -136,6 +137,59 @@ class ChannelInputSwitchConfiguration(dict):
         <p>For CMAF inputs, indicates which input MediaPackage should prefer when both inputs have equal MQCS scores. Select <code>1</code> to prefer the first ingest endpoint, or <code>2</code> to prefer the second ingest endpoint. If you don't specify a preferred input, MediaPackage uses its default switching behavior when MQCS scores are equal.</p>
         """
         return pulumi.get(self, "preferred_input")
+
+
+@pulumi.output_type
+class ChannelMultiviewConfiguration(dict):
+    """
+    <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availableLayouts":
+            suggest = "available_layouts"
+        elif key == "availableSources":
+            suggest = "available_sources"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelMultiviewConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelMultiviewConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelMultiviewConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 available_layouts: Sequence['ChannelMultiviewLayoutType'],
+                 available_sources: Sequence[_builtins.str]):
+        """
+        <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+
+        :param Sequence['ChannelMultiviewLayoutType'] available_layouts: <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+        :param Sequence[_builtins.str] available_sources: <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+        """
+        pulumi.set(__self__, "available_layouts", available_layouts)
+        pulumi.set(__self__, "available_sources", available_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="availableLayouts")
+    def available_layouts(self) -> Sequence['ChannelMultiviewLayoutType']:
+        """
+        <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+        """
+        return pulumi.get(self, "available_layouts")
+
+    @_builtins.property
+    @pulumi.getter(name="availableSources")
+    def available_sources(self) -> Sequence[_builtins.str]:
+        """
+        <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+        """
+        return pulumi.get(self, "available_sources")
 
 
 @pulumi.output_type

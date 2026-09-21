@@ -271,6 +271,8 @@ if typing.TYPE_CHECKING:
     groundstation = __groundstation
     import pulumi_aws_native.guardduty as __guardduty
     guardduty = __guardduty
+    import pulumi_aws_native.healthagent as __healthagent
+    healthagent = __healthagent
     import pulumi_aws_native.healthimaging as __healthimaging
     healthimaging = __healthimaging
     import pulumi_aws_native.healthlake as __healthlake
@@ -708,6 +710,7 @@ else:
     greengrassv2 = _utilities.lazy_import('pulumi_aws_native.greengrassv2')
     groundstation = _utilities.lazy_import('pulumi_aws_native.groundstation')
     guardduty = _utilities.lazy_import('pulumi_aws_native.guardduty')
+    healthagent = _utilities.lazy_import('pulumi_aws_native.healthagent')
     healthimaging = _utilities.lazy_import('pulumi_aws_native.healthimaging')
     healthlake = _utilities.lazy_import('pulumi_aws_native.healthlake')
     iam = _utilities.lazy_import('pulumi_aws_native.iam')
@@ -1096,6 +1099,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.appsync",
   "classes": {
    "aws-native:appsync:Api": "Api",
+   "aws-native:appsync:ApiKey": "ApiKey",
    "aws-native:appsync:ChannelNamespace": "ChannelNamespace",
    "aws-native:appsync:DataSource": "DataSource",
    "aws-native:appsync:DomainName": "DomainName",
@@ -1404,6 +1408,7 @@ _utilities.register(
   "mod": "chime",
   "fqn": "pulumi_aws_native.chime",
   "classes": {
+   "aws-native:chime:MediaInsightsPipelineConfiguration": "MediaInsightsPipelineConfiguration",
    "aws-native:chime:MediaPipelineKinesisVideoStreamPool": "MediaPipelineKinesisVideoStreamPool"
   }
  },
@@ -1639,6 +1644,7 @@ _utilities.register(
   "fqn": "pulumi_aws_native.comprehend",
   "classes": {
    "aws-native:comprehend:DocumentClassifier": "DocumentClassifier",
+   "aws-native:comprehend:DocumentClassifierEndpoint": "DocumentClassifierEndpoint",
    "aws-native:comprehend:Flywheel": "Flywheel"
   }
  },
@@ -1966,7 +1972,8 @@ _utilities.register(
   "mod": "docdbelastic",
   "fqn": "pulumi_aws_native.docdbelastic",
   "classes": {
-   "aws-native:docdbelastic:Cluster": "Cluster"
+   "aws-native:docdbelastic:Cluster": "Cluster",
+   "aws-native:docdbelastic:ClusterSnapshot": "ClusterSnapshot"
   }
  },
  {
@@ -2339,8 +2346,10 @@ _utilities.register(
   "mod": "fms",
   "fqn": "pulumi_aws_native.fms",
   "classes": {
+   "aws-native:fms:ApplicationsList": "ApplicationsList",
    "aws-native:fms:NotificationChannel": "NotificationChannel",
    "aws-native:fms:Policy": "Policy",
+   "aws-native:fms:ProtocolsList": "ProtocolsList",
    "aws-native:fms:ResourceSet": "ResourceSet"
   }
  },
@@ -2372,7 +2381,9 @@ _utilities.register(
   "mod": "fsx",
   "fqn": "pulumi_aws_native.fsx",
   "classes": {
+   "aws-native:fsx:Backup": "Backup",
    "aws-native:fsx:DataRepositoryAssociation": "DataRepositoryAssociation",
+   "aws-native:fsx:FileCache": "FileCache",
    "aws-native:fsx:S3AccessPointAttachment": "S3AccessPointAttachment",
    "aws-native:fsx:Volume": "Volume"
   }
@@ -2424,6 +2435,7 @@ _utilities.register(
    "aws-native:glue:Catalog": "Catalog",
    "aws-native:glue:Classifier": "Classifier",
    "aws-native:glue:Connection": "Connection",
+   "aws-native:glue:ConnectionType": "ConnectionType",
    "aws-native:glue:Crawler": "Crawler",
    "aws-native:glue:CustomEntityType": "CustomEntityType",
    "aws-native:glue:DataCatalogEncryptionSettings": "DataCatalogEncryptionSettings",
@@ -2491,6 +2503,14 @@ _utilities.register(
    "aws-native:guardduty:ThreatEntitySet": "ThreatEntitySet",
    "aws-native:guardduty:ThreatIntelSet": "ThreatIntelSet",
    "aws-native:guardduty:TrustedEntitySet": "TrustedEntitySet"
+  }
+ },
+ {
+  "pkg": "aws-native",
+  "mod": "healthagent",
+  "fqn": "pulumi_aws_native.healthagent",
+  "classes": {
+   "aws-native:healthagent:Domain": "Domain"
   }
  },
  {
@@ -2778,6 +2798,7 @@ _utilities.register(
   "classes": {
    "aws-native:kendra:DataSource": "DataSource",
    "aws-native:kendra:Faq": "Faq",
+   "aws-native:kendra:FeaturedResultsSet": "FeaturedResultsSet",
    "aws-native:kendra:Index": "Index",
    "aws-native:kendra:QuerySuggestionsBlockList": "QuerySuggestionsBlockList",
    "aws-native:kendra:Thesaurus": "Thesaurus"
@@ -2796,6 +2817,7 @@ _utilities.register(
   "mod": "kinesis",
   "fqn": "pulumi_aws_native.kinesis",
   "classes": {
+   "aws-native:kinesis:Channel": "Channel",
    "aws-native:kinesis:ResourcePolicy": "ResourcePolicy",
    "aws-native:kinesis:Stream": "Stream",
    "aws-native:kinesis:StreamConsumer": "StreamConsumer"
@@ -2894,6 +2916,7 @@ _utilities.register(
   "classes": {
    "aws-native:licensemanager:Grant": "Grant",
    "aws-native:licensemanager:License": "License",
+   "aws-native:licensemanager:LicenseAssetGroup": "LicenseAssetGroup",
    "aws-native:licensemanager:LicenseAssetRuleSet": "LicenseAssetRuleSet"
   }
  },
@@ -2913,6 +2936,7 @@ _utilities.register(
    "aws-native:lightsail:DiskSnapshot": "DiskSnapshot",
    "aws-native:lightsail:Instance": "Instance",
    "aws-native:lightsail:InstanceSnapshot": "InstanceSnapshot",
+   "aws-native:lightsail:KeyPair": "KeyPair",
    "aws-native:lightsail:LoadBalancer": "LoadBalancer",
    "aws-native:lightsail:LoadBalancerTlsCertificate": "LoadBalancerTlsCertificate",
    "aws-native:lightsail:StaticIp": "StaticIp"
@@ -2981,6 +3005,7 @@ _utilities.register(
    "aws-native:macie:AllowList": "AllowList",
    "aws-native:macie:CustomDataIdentifier": "CustomDataIdentifier",
    "aws-native:macie:FindingsFilter": "FindingsFilter",
+   "aws-native:macie:Member": "Member",
    "aws-native:macie:Session": "Session"
   }
  },
@@ -3008,7 +3033,8 @@ _utilities.register(
   "mod": "mediaconvert",
   "fqn": "pulumi_aws_native.mediaconvert",
   "classes": {
-   "aws-native:mediaconvert:Preset": "Preset"
+   "aws-native:mediaconvert:Preset": "Preset",
+   "aws-native:mediaconvert:Queue": "Queue"
   }
  },
  {
@@ -3078,6 +3104,7 @@ _utilities.register(
    "aws-native:memorydb:Cluster": "Cluster",
    "aws-native:memorydb:MultiRegionCluster": "MultiRegionCluster",
    "aws-native:memorydb:ParameterGroup": "ParameterGroup",
+   "aws-native:memorydb:Snapshot": "Snapshot",
    "aws-native:memorydb:SubnetGroup": "SubnetGroup",
    "aws-native:memorydb:User": "User"
   }
@@ -3151,6 +3178,7 @@ _utilities.register(
   "mod": "networkfirewall",
   "fqn": "pulumi_aws_native.networkfirewall",
   "classes": {
+   "aws-native:networkfirewall:ContainerAssociation": "ContainerAssociation",
    "aws-native:networkfirewall:Firewall": "Firewall",
    "aws-native:networkfirewall:FirewallPolicy": "FirewallPolicy",
    "aws-native:networkfirewall:LoggingConfiguration": "LoggingConfiguration",
@@ -3317,6 +3345,7 @@ _utilities.register(
   "mod": "outposts",
   "fqn": "pulumi_aws_native.outposts",
   "classes": {
+   "aws-native:outposts:Outpost": "Outpost",
    "aws-native:outposts:Site": "Site"
   }
  },
@@ -3521,7 +3550,10 @@ _utilities.register(
    "aws-native:redshift:EventSubscription": "EventSubscription",
    "aws-native:redshift:Integration": "Integration",
    "aws-native:redshift:ScheduledAction": "ScheduledAction",
-   "aws-native:redshift:SnapshotSchedule": "SnapshotSchedule"
+   "aws-native:redshift:Snapshot": "Snapshot",
+   "aws-native:redshift:SnapshotCopyGrant": "SnapshotCopyGrant",
+   "aws-native:redshift:SnapshotSchedule": "SnapshotSchedule",
+   "aws-native:redshift:UsageLimit": "UsageLimit"
   }
  },
  {
@@ -3629,7 +3661,8 @@ _utilities.register(
    "aws-native:route53:HealthCheck": "HealthCheck",
    "aws-native:route53:HostedZone": "HostedZone",
    "aws-native:route53:KeySigningKey": "KeySigningKey",
-   "aws-native:route53:RecordSet": "RecordSet"
+   "aws-native:route53:RecordSet": "RecordSet",
+   "aws-native:route53:TrafficPolicy": "TrafficPolicy"
   }
  },
  {
@@ -3803,11 +3836,13 @@ _utilities.register(
   "fqn": "pulumi_aws_native.sagemaker",
   "classes": {
    "aws-native:sagemaker:Action": "Action",
+   "aws-native:sagemaker:AiWorkloadConfig": "AiWorkloadConfig",
    "aws-native:sagemaker:Algorithm": "Algorithm",
    "aws-native:sagemaker:App": "App",
    "aws-native:sagemaker:AppImageConfig": "AppImageConfig",
    "aws-native:sagemaker:Artifact": "Artifact",
    "aws-native:sagemaker:Cluster": "Cluster",
+   "aws-native:sagemaker:CodeRepository": "CodeRepository",
    "aws-native:sagemaker:Context": "Context",
    "aws-native:sagemaker:DataQualityJobDefinition": "DataQualityJobDefinition",
    "aws-native:sagemaker:Device": "Device",
@@ -3835,6 +3870,7 @@ _utilities.register(
    "aws-native:sagemaker:ModelQualityJobDefinition": "ModelQualityJobDefinition",
    "aws-native:sagemaker:MonitoringSchedule": "MonitoringSchedule",
    "aws-native:sagemaker:NotebookInstance": "NotebookInstance",
+   "aws-native:sagemaker:NotebookInstanceLifecycleConfig": "NotebookInstanceLifecycleConfig",
    "aws-native:sagemaker:PartnerApp": "PartnerApp",
    "aws-native:sagemaker:Pipeline": "Pipeline",
    "aws-native:sagemaker:ProcessingJob": "ProcessingJob",
@@ -4150,6 +4186,7 @@ _utilities.register(
   "mod": "storagegateway",
   "fqn": "pulumi_aws_native.storagegateway",
   "classes": {
+   "aws-native:storagegateway:Tape": "Tape",
    "aws-native:storagegateway:TapePool": "TapePool"
   }
  },
@@ -4213,6 +4250,8 @@ _utilities.register(
   "mod": "transcribe",
   "fqn": "pulumi_aws_native.transcribe",
   "classes": {
+   "aws-native:transcribe:CallAnalyticsCategory": "CallAnalyticsCategory",
+   "aws-native:transcribe:Vocabulary": "Vocabulary",
    "aws-native:transcribe:VocabularyFilter": "VocabularyFilter"
   }
  },

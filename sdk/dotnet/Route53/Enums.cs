@@ -160,4 +160,50 @@ namespace Pulumi.AwsNative.Route53
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The DNS type of the resource record sets that Amazon Route 53 creates when the traffic policy is used to create a traffic policy instance.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrafficPolicyType : IEquatable<TrafficPolicyType>
+    {
+        private readonly string _value;
+
+        private TrafficPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TrafficPolicyType Soa { get; } = new TrafficPolicyType("SOA");
+        public static TrafficPolicyType A { get; } = new TrafficPolicyType("A");
+        public static TrafficPolicyType Txt { get; } = new TrafficPolicyType("TXT");
+        public static TrafficPolicyType Ns { get; } = new TrafficPolicyType("NS");
+        public static TrafficPolicyType Cname { get; } = new TrafficPolicyType("CNAME");
+        public static TrafficPolicyType Mx { get; } = new TrafficPolicyType("MX");
+        public static TrafficPolicyType Naptr { get; } = new TrafficPolicyType("NAPTR");
+        public static TrafficPolicyType Ptr { get; } = new TrafficPolicyType("PTR");
+        public static TrafficPolicyType Srv { get; } = new TrafficPolicyType("SRV");
+        public static TrafficPolicyType Spf { get; } = new TrafficPolicyType("SPF");
+        public static TrafficPolicyType Aaaa { get; } = new TrafficPolicyType("AAAA");
+        public static TrafficPolicyType Caa { get; } = new TrafficPolicyType("CAA");
+        public static TrafficPolicyType Ds { get; } = new TrafficPolicyType("DS");
+        public static TrafficPolicyType Tlsa { get; } = new TrafficPolicyType("TLSA");
+        public static TrafficPolicyType Sshfp { get; } = new TrafficPolicyType("SSHFP");
+        public static TrafficPolicyType Svcb { get; } = new TrafficPolicyType("SVCB");
+        public static TrafficPolicyType Https { get; } = new TrafficPolicyType("HTTPS");
+
+        public static bool operator ==(TrafficPolicyType left, TrafficPolicyType right) => left.Equals(right);
+        public static bool operator !=(TrafficPolicyType left, TrafficPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(TrafficPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrafficPolicyType other && Equals(other);
+        public bool Equals(TrafficPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

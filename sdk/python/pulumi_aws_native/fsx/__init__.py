@@ -7,8 +7,12 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .backup import *
 from .data_repository_association import *
+from .file_cache import *
+from .get_backup import *
 from .get_data_repository_association import *
+from .get_file_cache import *
 from .get_s3_access_point_attachment import *
 from .get_volume import *
 from .s3_access_point_attachment import *

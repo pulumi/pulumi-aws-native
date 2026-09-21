@@ -37,6 +37,7 @@ __all__ = [
     'ServiceConnectAccessLogConfigurationIncludeQueryParameters',
     'ServiceDeploymentConfigurationStrategy',
     'ServiceDeploymentControllerType',
+    'ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup',
     'ServiceDeploymentLifecycleHookLifecycleStagesItem',
     'ServiceDeploymentLifecycleHookTargetType',
     'ServiceEbsTagSpecificationPropagateTags',
@@ -378,6 +379,12 @@ class ServiceDeploymentControllerType(_builtins.str, Enum):
     CODE_DEPLOY = "CODE_DEPLOY"
     ECS = "ECS"
     EXTERNAL = "EXTERNAL"
+
+
+@pulumi.type_token("aws-native:ecs:ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup")
+class ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup(_builtins.str, Enum):
+    BLOCKING = "BLOCKING"
+    DEFERRED = "DEFERRED"
 
 
 @pulumi.type_token("aws-native:ecs:ServiceDeploymentLifecycleHookLifecycleStagesItem")

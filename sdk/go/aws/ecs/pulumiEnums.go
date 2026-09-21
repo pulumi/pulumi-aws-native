@@ -4990,6 +4990,171 @@ func (in *serviceDeploymentControllerTypePtr) ToServiceDeploymentControllerTypeP
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentControllerTypePtrOutput)
 }
 
+type ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup string
+
+const (
+	ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupBlocking = ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup("BLOCKING")
+	ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupDeferred = ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup("DEFERRED")
+)
+
+func (ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup)(nil)).Elem()
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput {
+	return pulumi.ToOutput(e).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput)
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput)
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return e.ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup(e).ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutputWithContext(ctx).ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(ctx)
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup)(nil)).Elem()
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return o.ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
+		return &v
+	}).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup)(nil)).Elem()
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput) Elem() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput {
+	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup
+		return ret
+	}).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupInput is an input type that accepts values of the ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup enum
+// A concrete instance of `ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupInput` can be one of the following:
+//
+//	ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupBlocking
+//	ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupDeferred
+type ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput
+	ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutputWithContext(context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput
+}
+
+var serviceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrType = reflect.TypeOf((**ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup)(nil)).Elem()
+
+type ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput
+	ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput
+}
+
+type serviceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtr string
+
+func ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtr(v string) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrInput {
+	return (*serviceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtr)(&v)
+}
+
+func (*serviceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtr) ElementType() reflect.Type {
+	return serviceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrType
+}
+
+func (in *serviceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtr) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return pulumi.ToOutput(in).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput)
+}
+
+func (in *serviceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtr) ToServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput)
+}
+
 type ServiceDeploymentLifecycleHookLifecycleStagesItem string
 
 const (
@@ -8162,6 +8327,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationStrategyPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationStrategy("ROLLING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypeInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerTypePtrInput)(nil)).Elem(), ServiceDeploymentControllerType("CODE_DEPLOY"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupInput)(nil)).Elem(), ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup("BLOCKING"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrInput)(nil)).Elem(), ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup("BLOCKING"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemPtrInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItem("RECONCILE_SERVICE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookLifecycleStagesItemArrayInput)(nil)).Elem(), ServiceDeploymentLifecycleHookLifecycleStagesItemArray{})
@@ -8264,6 +8431,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationStrategyPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypeOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerTypePtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookLifecycleStagesItemArrayOutput{})

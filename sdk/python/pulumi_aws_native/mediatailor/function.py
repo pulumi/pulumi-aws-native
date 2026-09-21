@@ -26,6 +26,7 @@ class FunctionArgs:
     def __init__(__self__, *,
                  function_id: pulumi.Input[_builtins.str],
                  function_type: pulumi.Input['FunctionType'],
+                 concurrent_executor_configuration: pulumi.Input[Optional['FunctionConcurrentExecutorConfigurationArgs']] = None,
                  custom_output_configuration: pulumi.Input[Optional['FunctionCustomOutputConfigurationArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  http_request_configuration: pulumi.Input[Optional['FunctionHttpRequestConfigurationArgs']] = None,
@@ -36,11 +37,14 @@ class FunctionArgs:
 
         :param pulumi.Input[_builtins.str] function_id: The unique identifier for the function.
         :param pulumi.Input['FunctionType'] function_type: The type of the function. Determines which configuration object is used.
+        :param pulumi.Input['FunctionConcurrentExecutorConfigurationArgs'] concurrent_executor_configuration: The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
         :param pulumi.Input[_builtins.str] description: A description of the function.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: The tags to assign to the function resource.
         """
         pulumi.set(__self__, "function_id", function_id)
         pulumi.set(__self__, "function_type", function_type)
+        if concurrent_executor_configuration is not None:
+            pulumi.set(__self__, "concurrent_executor_configuration", concurrent_executor_configuration)
         if custom_output_configuration is not None:
             pulumi.set(__self__, "custom_output_configuration", custom_output_configuration)
         if description is not None:
@@ -75,6 +79,18 @@ class FunctionArgs:
     @function_type.setter
     def function_type(self, value: pulumi.Input['FunctionType']):
         pulumi.set(self, "function_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="concurrentExecutorConfiguration")
+    def concurrent_executor_configuration(self) -> pulumi.Input[Optional['FunctionConcurrentExecutorConfigurationArgs']]:
+        """
+        The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+        """
+        return pulumi.get(self, "concurrent_executor_configuration")
+
+    @concurrent_executor_configuration.setter
+    def concurrent_executor_configuration(self, value: pulumi.Input[Optional['FunctionConcurrentExecutorConfigurationArgs']]):
+        pulumi.set(self, "concurrent_executor_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="customOutputConfiguration")
@@ -134,6 +150,7 @@ class Function(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 concurrent_executor_configuration: pulumi.Input[Optional[Union['FunctionConcurrentExecutorConfigurationArgs', 'FunctionConcurrentExecutorConfigurationArgsDict']]] = None,
                  custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  function_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -147,6 +164,7 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['FunctionConcurrentExecutorConfigurationArgs', 'FunctionConcurrentExecutorConfigurationArgsDict']] concurrent_executor_configuration: The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
         :param pulumi.Input[_builtins.str] description: A description of the function.
         :param pulumi.Input[_builtins.str] function_id: The unique identifier for the function.
         :param pulumi.Input['FunctionType'] function_type: The type of the function. Determines which configuration object is used.
@@ -176,6 +194,7 @@ class Function(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 concurrent_executor_configuration: pulumi.Input[Optional[Union['FunctionConcurrentExecutorConfigurationArgs', 'FunctionConcurrentExecutorConfigurationArgsDict']]] = None,
                  custom_output_configuration: pulumi.Input[Optional[Union['FunctionCustomOutputConfigurationArgs', 'FunctionCustomOutputConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  function_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -192,6 +211,7 @@ class Function(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = FunctionArgs.__new__(FunctionArgs)
 
+            __props__.__dict__["concurrent_executor_configuration"] = concurrent_executor_configuration
             __props__.__dict__["custom_output_configuration"] = custom_output_configuration
             __props__.__dict__["description"] = description
             if function_id is None and not opts.urn:
@@ -229,6 +249,7 @@ class Function(pulumi.CustomResource):
         __props__ = FunctionArgs.__new__(FunctionArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["concurrent_executor_configuration"] = None
         __props__.__dict__["custom_output_configuration"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["function_id"] = None
@@ -245,6 +266,14 @@ class Function(pulumi.CustomResource):
         The ARN of the function.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="concurrentExecutorConfiguration")
+    def concurrent_executor_configuration(self) -> pulumi.Output[Optional['outputs.FunctionConcurrentExecutorConfiguration']]:
+        """
+        The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+        """
+        return pulumi.get(self, "concurrent_executor_configuration")
 
     @_builtins.property
     @pulumi.getter(name="customOutputConfiguration")

@@ -2,6 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const OutpostSupportedHardwareType = {
+    Rack: "RACK",
+    Server: "SERVER",
+} as const;
+
+export type OutpostSupportedHardwareType = (typeof OutpostSupportedHardwareType)[keyof typeof OutpostSupportedHardwareType];
+
 export const SiteRackPhysicalPropertiesFiberOpticCableType = {
     SingleMode: "SINGLE_MODE",
     MultiMode: "MULTI_MODE",

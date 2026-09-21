@@ -10,6 +10,171 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type OutpostSupportedHardwareType string
+
+const (
+	OutpostSupportedHardwareTypeRack   = OutpostSupportedHardwareType("RACK")
+	OutpostSupportedHardwareTypeServer = OutpostSupportedHardwareType("SERVER")
+)
+
+func (OutpostSupportedHardwareType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutpostSupportedHardwareType)(nil)).Elem()
+}
+
+func (e OutpostSupportedHardwareType) ToOutpostSupportedHardwareTypeOutput() OutpostSupportedHardwareTypeOutput {
+	return pulumi.ToOutput(e).(OutpostSupportedHardwareTypeOutput)
+}
+
+func (e OutpostSupportedHardwareType) ToOutpostSupportedHardwareTypeOutputWithContext(ctx context.Context) OutpostSupportedHardwareTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OutpostSupportedHardwareTypeOutput)
+}
+
+func (e OutpostSupportedHardwareType) ToOutpostSupportedHardwareTypePtrOutput() OutpostSupportedHardwareTypePtrOutput {
+	return e.ToOutpostSupportedHardwareTypePtrOutputWithContext(context.Background())
+}
+
+func (e OutpostSupportedHardwareType) ToOutpostSupportedHardwareTypePtrOutputWithContext(ctx context.Context) OutpostSupportedHardwareTypePtrOutput {
+	return OutpostSupportedHardwareType(e).ToOutpostSupportedHardwareTypeOutputWithContext(ctx).ToOutpostSupportedHardwareTypePtrOutputWithContext(ctx)
+}
+
+func (e OutpostSupportedHardwareType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OutpostSupportedHardwareType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OutpostSupportedHardwareType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OutpostSupportedHardwareType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OutpostSupportedHardwareTypeOutput struct{ *pulumi.OutputState }
+
+func (OutpostSupportedHardwareTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OutpostSupportedHardwareType)(nil)).Elem()
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToOutpostSupportedHardwareTypeOutput() OutpostSupportedHardwareTypeOutput {
+	return o
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToOutpostSupportedHardwareTypeOutputWithContext(ctx context.Context) OutpostSupportedHardwareTypeOutput {
+	return o
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToOutpostSupportedHardwareTypePtrOutput() OutpostSupportedHardwareTypePtrOutput {
+	return o.ToOutpostSupportedHardwareTypePtrOutputWithContext(context.Background())
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToOutpostSupportedHardwareTypePtrOutputWithContext(ctx context.Context) OutpostSupportedHardwareTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OutpostSupportedHardwareType) *OutpostSupportedHardwareType {
+		return &v
+	}).(OutpostSupportedHardwareTypePtrOutput)
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutpostSupportedHardwareType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutpostSupportedHardwareTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OutpostSupportedHardwareType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OutpostSupportedHardwareTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OutpostSupportedHardwareTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OutpostSupportedHardwareType)(nil)).Elem()
+}
+
+func (o OutpostSupportedHardwareTypePtrOutput) ToOutpostSupportedHardwareTypePtrOutput() OutpostSupportedHardwareTypePtrOutput {
+	return o
+}
+
+func (o OutpostSupportedHardwareTypePtrOutput) ToOutpostSupportedHardwareTypePtrOutputWithContext(ctx context.Context) OutpostSupportedHardwareTypePtrOutput {
+	return o
+}
+
+func (o OutpostSupportedHardwareTypePtrOutput) Elem() OutpostSupportedHardwareTypeOutput {
+	return o.ApplyT(func(v *OutpostSupportedHardwareType) OutpostSupportedHardwareType {
+		if v != nil {
+			return *v
+		}
+		var ret OutpostSupportedHardwareType
+		return ret
+	}).(OutpostSupportedHardwareTypeOutput)
+}
+
+func (o OutpostSupportedHardwareTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OutpostSupportedHardwareTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OutpostSupportedHardwareType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OutpostSupportedHardwareTypeInput is an input type that accepts values of the OutpostSupportedHardwareType enum
+// A concrete instance of `OutpostSupportedHardwareTypeInput` can be one of the following:
+//
+//	OutpostSupportedHardwareTypeRack
+//	OutpostSupportedHardwareTypeServer
+type OutpostSupportedHardwareTypeInput interface {
+	pulumi.Input
+
+	ToOutpostSupportedHardwareTypeOutput() OutpostSupportedHardwareTypeOutput
+	ToOutpostSupportedHardwareTypeOutputWithContext(context.Context) OutpostSupportedHardwareTypeOutput
+}
+
+var outpostSupportedHardwareTypePtrType = reflect.TypeOf((**OutpostSupportedHardwareType)(nil)).Elem()
+
+type OutpostSupportedHardwareTypePtrInput interface {
+	pulumi.Input
+
+	ToOutpostSupportedHardwareTypePtrOutput() OutpostSupportedHardwareTypePtrOutput
+	ToOutpostSupportedHardwareTypePtrOutputWithContext(context.Context) OutpostSupportedHardwareTypePtrOutput
+}
+
+type outpostSupportedHardwareTypePtr string
+
+func OutpostSupportedHardwareTypePtr(v string) OutpostSupportedHardwareTypePtrInput {
+	return (*outpostSupportedHardwareTypePtr)(&v)
+}
+
+func (*outpostSupportedHardwareTypePtr) ElementType() reflect.Type {
+	return outpostSupportedHardwareTypePtrType
+}
+
+func (in *outpostSupportedHardwareTypePtr) ToOutpostSupportedHardwareTypePtrOutput() OutpostSupportedHardwareTypePtrOutput {
+	return pulumi.ToOutput(in).(OutpostSupportedHardwareTypePtrOutput)
+}
+
+func (in *outpostSupportedHardwareTypePtr) ToOutpostSupportedHardwareTypePtrOutputWithContext(ctx context.Context) OutpostSupportedHardwareTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OutpostSupportedHardwareTypePtrOutput)
+}
+
 type SiteRackPhysicalPropertiesFiberOpticCableType string
 
 const (
@@ -1554,6 +1719,8 @@ func (in *siteRackPhysicalPropertiesUplinkGbpsPtr) ToSiteRackPhysicalPropertiesU
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*OutpostSupportedHardwareTypeInput)(nil)).Elem(), OutpostSupportedHardwareType("RACK"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OutpostSupportedHardwareTypePtrInput)(nil)).Elem(), OutpostSupportedHardwareType("RACK"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteRackPhysicalPropertiesFiberOpticCableTypeInput)(nil)).Elem(), SiteRackPhysicalPropertiesFiberOpticCableType("SINGLE_MODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteRackPhysicalPropertiesFiberOpticCableTypePtrInput)(nil)).Elem(), SiteRackPhysicalPropertiesFiberOpticCableType("SINGLE_MODE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteRackPhysicalPropertiesMaximumSupportedWeightLbsInput)(nil)).Elem(), SiteRackPhysicalPropertiesMaximumSupportedWeightLbs("NO_LIMIT"))
@@ -1572,6 +1739,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteRackPhysicalPropertiesUplinkCountPtrInput)(nil)).Elem(), SiteRackPhysicalPropertiesUplinkCount("UPLINK_COUNT_1"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteRackPhysicalPropertiesUplinkGbpsInput)(nil)).Elem(), SiteRackPhysicalPropertiesUplinkGbps("UPLINK_1G"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SiteRackPhysicalPropertiesUplinkGbpsPtrInput)(nil)).Elem(), SiteRackPhysicalPropertiesUplinkGbps("UPLINK_1G"))
+	pulumi.RegisterOutputType(OutpostSupportedHardwareTypeOutput{})
+	pulumi.RegisterOutputType(OutpostSupportedHardwareTypePtrOutput{})
 	pulumi.RegisterOutputType(SiteRackPhysicalPropertiesFiberOpticCableTypeOutput{})
 	pulumi.RegisterOutputType(SiteRackPhysicalPropertiesFiberOpticCableTypePtrOutput{})
 	pulumi.RegisterOutputType(SiteRackPhysicalPropertiesMaximumSupportedWeightLbsOutput{})

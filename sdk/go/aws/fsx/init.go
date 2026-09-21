@@ -21,8 +21,12 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:fsx:Backup":
+		r = &Backup{}
 	case "aws-native:fsx:DataRepositoryAssociation":
 		r = &DataRepositoryAssociation{}
+	case "aws-native:fsx:FileCache":
+		r = &FileCache{}
 	case "aws-native:fsx:S3AccessPointAttachment":
 		r = &S3AccessPointAttachment{}
 	case "aws-native:fsx:Volume":

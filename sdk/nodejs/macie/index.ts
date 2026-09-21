@@ -35,10 +35,20 @@ export const getFindingsFilter: typeof import("./getFindingsFilter").getFindings
 export const getFindingsFilterOutput: typeof import("./getFindingsFilter").getFindingsFilterOutput = null as any;
 utilities.lazyLoad(exports, ["getFindingsFilter","getFindingsFilterOutput"], () => require("./getFindingsFilter"));
 
+export { GetMemberArgs, GetMemberResult, GetMemberOutputArgs } from "./getMember";
+export const getMember: typeof import("./getMember").getMember = null as any;
+export const getMemberOutput: typeof import("./getMember").getMemberOutput = null as any;
+utilities.lazyLoad(exports, ["getMember","getMemberOutput"], () => require("./getMember"));
+
 export { GetSessionArgs, GetSessionResult, GetSessionOutputArgs } from "./getSession";
 export const getSession: typeof import("./getSession").getSession = null as any;
 export const getSessionOutput: typeof import("./getSession").getSessionOutput = null as any;
 utilities.lazyLoad(exports, ["getSession","getSessionOutput"], () => require("./getSession"));
+
+export { MemberArgs } from "./member";
+export type Member = import("./member").Member;
+export const Member: typeof import("./member").Member = null as any;
+utilities.lazyLoad(exports, ["Member"], () => require("./member"));
 
 export { SessionArgs } from "./session";
 export type Session = import("./session").Session;
@@ -59,6 +69,8 @@ const _module = {
                 return new CustomDataIdentifier(name, <any>undefined, { urn })
             case "aws-native:macie:FindingsFilter":
                 return new FindingsFilter(name, <any>undefined, { urn })
+            case "aws-native:macie:Member":
+                return new Member(name, <any>undefined, { urn })
             case "aws-native:macie:Session":
                 return new Session(name, <any>undefined, { urn })
             default:

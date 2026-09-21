@@ -1288,7 +1288,29 @@ func (o ScheduledActionTypePtrOutput) ResumeCluster() ScheduledActionResumeClust
 	}).(ScheduledActionResumeClusterMessagePtrOutput)
 }
 
+type SnapshotCopyGrantTag struct {
+	// The key, or name, for the resource tag.
+	Key string `pulumi:"key"`
+	// The value for the resource tag.
+	Value string `pulumi:"value"`
+}
+
 type SnapshotScheduleTag struct {
+	// The key, or name, for the resource tag.
+	Key string `pulumi:"key"`
+	// The value for the resource tag.
+	Value string `pulumi:"value"`
+}
+
+// A key-value pair to associate with a resource.
+type SnapshotTag struct {
+	// The key, or name, for the resource tag.
+	Key string `pulumi:"key"`
+	// The value for the resource tag.
+	Value string `pulumi:"value"`
+}
+
+type UsageLimitTag struct {
 	// The key, or name, for the resource tag.
 	Key string `pulumi:"key"`
 	// The value for the resource tag.

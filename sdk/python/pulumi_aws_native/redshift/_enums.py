@@ -12,6 +12,10 @@ __all__ = [
     'EventSubscriptionSourceType',
     'EventSubscriptionStatus',
     'ScheduledActionState',
+    'UsageLimitBreachAction',
+    'UsageLimitFeatureType',
+    'UsageLimitLimitType',
+    'UsageLimitPeriod',
 ]
 
 
@@ -62,3 +66,43 @@ class ScheduledActionState(_builtins.str, Enum):
     """
     ACTIVE = "ACTIVE"
     DISABLED = "DISABLED"
+
+
+@pulumi.type_token("aws-native:redshift:UsageLimitBreachAction")
+class UsageLimitBreachAction(_builtins.str, Enum):
+    """
+    The action that Amazon Redshift takes when the limit is reached. The default is log.
+    """
+    LOG = "log"
+    EMIT_METRIC = "emit-metric"
+    DISABLE = "disable"
+
+
+@pulumi.type_token("aws-native:redshift:UsageLimitFeatureType")
+class UsageLimitFeatureType(_builtins.str, Enum):
+    """
+    The Amazon Redshift feature that you want to limit.
+    """
+    SPECTRUM = "spectrum"
+    CONCURRENCY_SCALING = "concurrency-scaling"
+    CROSS_REGION_DATASHARING = "cross-region-datasharing"
+    EXTRA_COMPUTE_FOR_AUTOMATIC_OPTIMIZATION = "extra-compute-for-automatic-optimization"
+
+
+@pulumi.type_token("aws-native:redshift:UsageLimitLimitType")
+class UsageLimitLimitType(_builtins.str, Enum):
+    """
+    The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned.
+    """
+    TIME = "time"
+    DATA_SCANNED = "data-scanned"
+
+
+@pulumi.type_token("aws-native:redshift:UsageLimitPeriod")
+class UsageLimitPeriod(_builtins.str, Enum):
+    """
+    The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.
+    """
+    DAILY = "daily"
+    WEEKLY = "weekly"
+    MONTHLY = "monthly"

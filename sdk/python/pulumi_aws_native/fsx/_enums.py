@@ -7,7 +7,13 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'BackupLifecycle',
+    'BackupType',
     'DataRepositoryAssociationEventType',
+    'FileCacheLifecycle',
+    'FileCacheLogConfigurationLevel',
+    'FileCacheLustreConfigurationDeploymentType',
+    'FileCacheType',
     'S3AccessPointAttachmentLifecycle',
     'S3AccessPointAttachmentOntapFileSystemIdentityType',
     'S3AccessPointAttachmentOpenZfsFileSystemIdentityType',
@@ -15,11 +21,68 @@ __all__ = [
 ]
 
 
+@pulumi.type_token("aws-native:fsx:BackupLifecycle")
+class BackupLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the backup.
+    """
+    AVAILABLE = "AVAILABLE"
+    CREATING = "CREATING"
+    TRANSFERRING = "TRANSFERRING"
+    DELETED = "DELETED"
+    FAILED = "FAILED"
+    PENDING = "PENDING"
+    COPYING = "COPYING"
+
+
+@pulumi.type_token("aws-native:fsx:BackupType")
+class BackupType(_builtins.str, Enum):
+    """
+    The type of the backup.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    USER_INITIATED = "USER_INITIATED"
+    AWS_BACKUP = "AWS_BACKUP"
+
+
 @pulumi.type_token("aws-native:fsx:DataRepositoryAssociationEventType")
 class DataRepositoryAssociationEventType(_builtins.str, Enum):
     NEW = "NEW"
     CHANGED = "CHANGED"
     DELETED = "DELETED"
+
+
+@pulumi.type_token("aws-native:fsx:FileCacheLifecycle")
+class FileCacheLifecycle(_builtins.str, Enum):
+    """
+    The lifecycle status of the cache
+    """
+    AVAILABLE = "AVAILABLE"
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+    FAILED = "FAILED"
+
+
+@pulumi.type_token("aws-native:fsx:FileCacheLogConfigurationLevel")
+class FileCacheLogConfigurationLevel(_builtins.str, Enum):
+    DISABLED = "DISABLED"
+    WARN_ONLY = "WARN_ONLY"
+    ERROR_ONLY = "ERROR_ONLY"
+    WARN_ERROR = "WARN_ERROR"
+
+
+@pulumi.type_token("aws-native:fsx:FileCacheLustreConfigurationDeploymentType")
+class FileCacheLustreConfigurationDeploymentType(_builtins.str, Enum):
+    CACHE1 = "CACHE_1"
+
+
+@pulumi.type_token("aws-native:fsx:FileCacheType")
+class FileCacheType(_builtins.str, Enum):
+    """
+    The type of cache, which must be LUSTRE
+    """
+    LUSTRE = "LUSTRE"
 
 
 @pulumi.type_token("aws-native:fsx:S3AccessPointAttachmentLifecycle")

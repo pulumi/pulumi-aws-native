@@ -86,6 +86,7 @@ namespace Pulumi.AwsNative.DataSync
 
         public static LocationAzureBlobAzureBlobAuthenticationType Sas { get; } = new LocationAzureBlobAzureBlobAuthenticationType("SAS");
         public static LocationAzureBlobAzureBlobAuthenticationType None { get; } = new LocationAzureBlobAzureBlobAuthenticationType("NONE");
+        public static LocationAzureBlobAzureBlobAuthenticationType Oidc { get; } = new LocationAzureBlobAzureBlobAuthenticationType("OIDC");
 
         public static bool operator ==(LocationAzureBlobAzureBlobAuthenticationType left, LocationAzureBlobAzureBlobAuthenticationType right) => left.Equals(right);
         public static bool operator !=(LocationAzureBlobAzureBlobAuthenticationType left, LocationAzureBlobAzureBlobAuthenticationType right) => !left.Equals(right);
@@ -245,6 +246,7 @@ namespace Pulumi.AwsNative.DataSync
         public static LocationFSxOpenZfsMountOptionsVersion Nfs3 { get; } = new LocationFSxOpenZfsMountOptionsVersion("NFS3");
         public static LocationFSxOpenZfsMountOptionsVersion Nfs40 { get; } = new LocationFSxOpenZfsMountOptionsVersion("NFS4_0");
         public static LocationFSxOpenZfsMountOptionsVersion Nfs41 { get; } = new LocationFSxOpenZfsMountOptionsVersion("NFS4_1");
+        public static LocationFSxOpenZfsMountOptionsVersion Nfs42 { get; } = new LocationFSxOpenZfsMountOptionsVersion("NFS4_2");
 
         public static bool operator ==(LocationFSxOpenZfsMountOptionsVersion left, LocationFSxOpenZfsMountOptionsVersion right) => left.Equals(right);
         public static bool operator !=(LocationFSxOpenZfsMountOptionsVersion left, LocationFSxOpenZfsMountOptionsVersion right) => !left.Equals(right);
@@ -375,6 +377,7 @@ namespace Pulumi.AwsNative.DataSync
         public static LocationNfsMountOptionsVersion Nfs3 { get; } = new LocationNfsMountOptionsVersion("NFS3");
         public static LocationNfsMountOptionsVersion Nfs40 { get; } = new LocationNfsMountOptionsVersion("NFS4_0");
         public static LocationNfsMountOptionsVersion Nfs41 { get; } = new LocationNfsMountOptionsVersion("NFS4_1");
+        public static LocationNfsMountOptionsVersion Nfs42 { get; } = new LocationNfsMountOptionsVersion("NFS4_2");
 
         public static bool operator ==(LocationNfsMountOptionsVersion left, LocationNfsMountOptionsVersion right) => left.Equals(right);
         public static bool operator !=(LocationNfsMountOptionsVersion left, LocationNfsMountOptionsVersion right) => !left.Equals(right);
@@ -826,6 +829,37 @@ namespace Pulumi.AwsNative.DataSync
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TaskOptionsMtime other && Equals(other);
         public bool Equals(TaskOptionsMtime other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+    /// </summary>
+    [EnumType]
+    public readonly struct TaskOptionsObjectMetadata : IEquatable<TaskOptionsObjectMetadata>
+    {
+        private readonly string _value;
+
+        private TaskOptionsObjectMetadata(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static TaskOptionsObjectMetadata Preserve { get; } = new TaskOptionsObjectMetadata("PRESERVE");
+        public static TaskOptionsObjectMetadata None { get; } = new TaskOptionsObjectMetadata("NONE");
+
+        public static bool operator ==(TaskOptionsObjectMetadata left, TaskOptionsObjectMetadata right) => left.Equals(right);
+        public static bool operator !=(TaskOptionsObjectMetadata left, TaskOptionsObjectMetadata right) => !left.Equals(right);
+
+        public static explicit operator string(TaskOptionsObjectMetadata value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TaskOptionsObjectMetadata other && Equals(other);
+        public bool Equals(TaskOptionsObjectMetadata other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

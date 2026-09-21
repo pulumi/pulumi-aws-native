@@ -80,6 +80,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("customSecretConfig")]
         public Output<Outputs.LocationObjectStorageCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
 
+        [Output("federatedIdentity")]
+        public Output<Outputs.LocationObjectStorageObjectStorageFederatedIdentityConfig?> FederatedIdentity { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
         /// </summary>
@@ -229,6 +232,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("customSecretConfig")]
         public Input<Inputs.LocationObjectStorageCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
+
+        [Input("federatedIdentity")]
+        public Input<Inputs.LocationObjectStorageObjectStorageFederatedIdentityConfigArgs>? FederatedIdentity { get; set; }
 
         /// <summary>
         /// Optional. The secret key is used if credentials are required to access the self-managed object storage server.

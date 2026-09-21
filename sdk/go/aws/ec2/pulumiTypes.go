@@ -3084,7 +3084,8 @@ type Ec2FleetEbsBlockDevice struct {
 	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
 	//
 	// This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
-	KmsKeyId *string `pulumi:"kmsKeyId"`
+	KmsKeyId                           *string                                     `pulumi:"kmsKeyId"`
+	MultiAvailabilityZoneConfiguration *Ec2FleetMultiAvailabilityZoneConfiguration `pulumi:"multiAvailabilityZoneConfiguration"`
 	// The ID of the snapshot.
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
@@ -3142,7 +3143,8 @@ type Ec2FleetEbsBlockDeviceArgs struct {
 	// Identifier (key ID, key alias, key ARN, or alias ARN) of the customer managed KMS key to use for EBS encryption.
 	//
 	// This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
-	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	KmsKeyId                           pulumi.StringPtrInput                              `pulumi:"kmsKeyId"`
+	MultiAvailabilityZoneConfiguration Ec2FleetMultiAvailabilityZoneConfigurationPtrInput `pulumi:"multiAvailabilityZoneConfiguration"`
 	// The ID of the snapshot.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
 	// The size of the volume, in GiBs. You must specify either a snapshot ID or a volume size. If you specify a snapshot, the default is the snapshot size. You can specify a volume size that is equal to or larger than the snapshot size.
@@ -3278,6 +3280,12 @@ func (o Ec2FleetEbsBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
+func (o Ec2FleetEbsBlockDeviceOutput) MultiAvailabilityZoneConfiguration() Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *Ec2FleetMultiAvailabilityZoneConfiguration {
+		return v.MultiAvailabilityZoneConfiguration
+	}).(Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput)
+}
+
 // The ID of the snapshot.
 func (o Ec2FleetEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Ec2FleetEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
@@ -3385,6 +3393,15 @@ func (o Ec2FleetEbsBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 		}
 		return v.KmsKeyId
 	}).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetEbsBlockDevicePtrOutput) MultiAvailabilityZoneConfiguration() Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetEbsBlockDevice) *Ec2FleetMultiAvailabilityZoneConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.MultiAvailabilityZoneConfiguration
+	}).(Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput)
 }
 
 // The ID of the snapshot.
@@ -6124,6 +6141,156 @@ func (o Ec2FleetMemoryMiBRequestPtrOutput) Min() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type Ec2FleetMultiAvailabilityZoneConfiguration struct {
+	ConfigurationType        *string                           `pulumi:"configurationType"`
+	StandbyAvailabilityZones []Ec2FleetStandbyAvailabilityZone `pulumi:"standbyAvailabilityZones"`
+}
+
+// Ec2FleetMultiAvailabilityZoneConfigurationInput is an input type that accepts Ec2FleetMultiAvailabilityZoneConfigurationArgs and Ec2FleetMultiAvailabilityZoneConfigurationOutput values.
+// You can construct a concrete instance of `Ec2FleetMultiAvailabilityZoneConfigurationInput` via:
+//
+//	Ec2FleetMultiAvailabilityZoneConfigurationArgs{...}
+type Ec2FleetMultiAvailabilityZoneConfigurationInput interface {
+	pulumi.Input
+
+	ToEc2FleetMultiAvailabilityZoneConfigurationOutput() Ec2FleetMultiAvailabilityZoneConfigurationOutput
+	ToEc2FleetMultiAvailabilityZoneConfigurationOutputWithContext(context.Context) Ec2FleetMultiAvailabilityZoneConfigurationOutput
+}
+
+type Ec2FleetMultiAvailabilityZoneConfigurationArgs struct {
+	ConfigurationType        pulumi.StringPtrInput                     `pulumi:"configurationType"`
+	StandbyAvailabilityZones Ec2FleetStandbyAvailabilityZoneArrayInput `pulumi:"standbyAvailabilityZones"`
+}
+
+func (Ec2FleetMultiAvailabilityZoneConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMultiAvailabilityZoneConfiguration)(nil)).Elem()
+}
+
+func (i Ec2FleetMultiAvailabilityZoneConfigurationArgs) ToEc2FleetMultiAvailabilityZoneConfigurationOutput() Ec2FleetMultiAvailabilityZoneConfigurationOutput {
+	return i.ToEc2FleetMultiAvailabilityZoneConfigurationOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetMultiAvailabilityZoneConfigurationArgs) ToEc2FleetMultiAvailabilityZoneConfigurationOutputWithContext(ctx context.Context) Ec2FleetMultiAvailabilityZoneConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMultiAvailabilityZoneConfigurationOutput)
+}
+
+func (i Ec2FleetMultiAvailabilityZoneConfigurationArgs) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutput() Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return i.ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetMultiAvailabilityZoneConfigurationArgs) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(ctx context.Context) Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMultiAvailabilityZoneConfigurationOutput).ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(ctx)
+}
+
+// Ec2FleetMultiAvailabilityZoneConfigurationPtrInput is an input type that accepts Ec2FleetMultiAvailabilityZoneConfigurationArgs, Ec2FleetMultiAvailabilityZoneConfigurationPtr and Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput values.
+// You can construct a concrete instance of `Ec2FleetMultiAvailabilityZoneConfigurationPtrInput` via:
+//
+//	        Ec2FleetMultiAvailabilityZoneConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type Ec2FleetMultiAvailabilityZoneConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutput() Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput
+	ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(context.Context) Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput
+}
+
+type ec2FleetMultiAvailabilityZoneConfigurationPtrType Ec2FleetMultiAvailabilityZoneConfigurationArgs
+
+func Ec2FleetMultiAvailabilityZoneConfigurationPtr(v *Ec2FleetMultiAvailabilityZoneConfigurationArgs) Ec2FleetMultiAvailabilityZoneConfigurationPtrInput {
+	return (*ec2FleetMultiAvailabilityZoneConfigurationPtrType)(v)
+}
+
+func (*ec2FleetMultiAvailabilityZoneConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMultiAvailabilityZoneConfiguration)(nil)).Elem()
+}
+
+func (i *ec2FleetMultiAvailabilityZoneConfigurationPtrType) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutput() Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return i.ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *ec2FleetMultiAvailabilityZoneConfigurationPtrType) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(ctx context.Context) Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput)
+}
+
+type Ec2FleetMultiAvailabilityZoneConfigurationOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetMultiAvailabilityZoneConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetMultiAvailabilityZoneConfiguration)(nil)).Elem()
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationOutput) ToEc2FleetMultiAvailabilityZoneConfigurationOutput() Ec2FleetMultiAvailabilityZoneConfigurationOutput {
+	return o
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationOutput) ToEc2FleetMultiAvailabilityZoneConfigurationOutputWithContext(ctx context.Context) Ec2FleetMultiAvailabilityZoneConfigurationOutput {
+	return o
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationOutput) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutput() Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return o.ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationOutput) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(ctx context.Context) Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Ec2FleetMultiAvailabilityZoneConfiguration) *Ec2FleetMultiAvailabilityZoneConfiguration {
+		return &v
+	}).(Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput)
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetMultiAvailabilityZoneConfiguration) *string { return v.ConfigurationType }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationOutput) StandbyAvailabilityZones() Ec2FleetStandbyAvailabilityZoneArrayOutput {
+	return o.ApplyT(func(v Ec2FleetMultiAvailabilityZoneConfiguration) []Ec2FleetStandbyAvailabilityZone {
+		return v.StandbyAvailabilityZones
+	}).(Ec2FleetStandbyAvailabilityZoneArrayOutput)
+}
+
+type Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Ec2FleetMultiAvailabilityZoneConfiguration)(nil)).Elem()
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutput() Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return o
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput) ToEc2FleetMultiAvailabilityZoneConfigurationPtrOutputWithContext(ctx context.Context) Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput {
+	return o
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput) Elem() Ec2FleetMultiAvailabilityZoneConfigurationOutput {
+	return o.ApplyT(func(v *Ec2FleetMultiAvailabilityZoneConfiguration) Ec2FleetMultiAvailabilityZoneConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret Ec2FleetMultiAvailabilityZoneConfiguration
+		return ret
+	}).(Ec2FleetMultiAvailabilityZoneConfigurationOutput)
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Ec2FleetMultiAvailabilityZoneConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput) StandbyAvailabilityZones() Ec2FleetStandbyAvailabilityZoneArrayOutput {
+	return o.ApplyT(func(v *Ec2FleetMultiAvailabilityZoneConfiguration) []Ec2FleetStandbyAvailabilityZone {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyAvailabilityZones
+	}).(Ec2FleetStandbyAvailabilityZoneArrayOutput)
+}
+
 type Ec2FleetNetworkBandwidthGbpsRequest struct {
 	// The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
 	Max *float64 `pulumi:"max"`
@@ -8189,6 +8356,106 @@ func (o Ec2FleetSpotOptionsRequestPtrOutput) SingleInstanceType() pulumi.BoolPtr
 		}
 		return v.SingleInstanceType
 	}).(pulumi.BoolPtrOutput)
+}
+
+type Ec2FleetStandbyAvailabilityZone struct {
+	AvailabilityZone   *string `pulumi:"availabilityZone"`
+	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
+}
+
+// Ec2FleetStandbyAvailabilityZoneInput is an input type that accepts Ec2FleetStandbyAvailabilityZoneArgs and Ec2FleetStandbyAvailabilityZoneOutput values.
+// You can construct a concrete instance of `Ec2FleetStandbyAvailabilityZoneInput` via:
+//
+//	Ec2FleetStandbyAvailabilityZoneArgs{...}
+type Ec2FleetStandbyAvailabilityZoneInput interface {
+	pulumi.Input
+
+	ToEc2FleetStandbyAvailabilityZoneOutput() Ec2FleetStandbyAvailabilityZoneOutput
+	ToEc2FleetStandbyAvailabilityZoneOutputWithContext(context.Context) Ec2FleetStandbyAvailabilityZoneOutput
+}
+
+type Ec2FleetStandbyAvailabilityZoneArgs struct {
+	AvailabilityZone   pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	AvailabilityZoneId pulumi.StringPtrInput `pulumi:"availabilityZoneId"`
+}
+
+func (Ec2FleetStandbyAvailabilityZoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetStandbyAvailabilityZone)(nil)).Elem()
+}
+
+func (i Ec2FleetStandbyAvailabilityZoneArgs) ToEc2FleetStandbyAvailabilityZoneOutput() Ec2FleetStandbyAvailabilityZoneOutput {
+	return i.ToEc2FleetStandbyAvailabilityZoneOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetStandbyAvailabilityZoneArgs) ToEc2FleetStandbyAvailabilityZoneOutputWithContext(ctx context.Context) Ec2FleetStandbyAvailabilityZoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetStandbyAvailabilityZoneOutput)
+}
+
+// Ec2FleetStandbyAvailabilityZoneArrayInput is an input type that accepts Ec2FleetStandbyAvailabilityZoneArray and Ec2FleetStandbyAvailabilityZoneArrayOutput values.
+// You can construct a concrete instance of `Ec2FleetStandbyAvailabilityZoneArrayInput` via:
+//
+//	Ec2FleetStandbyAvailabilityZoneArray{ Ec2FleetStandbyAvailabilityZoneArgs{...} }
+type Ec2FleetStandbyAvailabilityZoneArrayInput interface {
+	pulumi.Input
+
+	ToEc2FleetStandbyAvailabilityZoneArrayOutput() Ec2FleetStandbyAvailabilityZoneArrayOutput
+	ToEc2FleetStandbyAvailabilityZoneArrayOutputWithContext(context.Context) Ec2FleetStandbyAvailabilityZoneArrayOutput
+}
+
+type Ec2FleetStandbyAvailabilityZoneArray []Ec2FleetStandbyAvailabilityZoneInput
+
+func (Ec2FleetStandbyAvailabilityZoneArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetStandbyAvailabilityZone)(nil)).Elem()
+}
+
+func (i Ec2FleetStandbyAvailabilityZoneArray) ToEc2FleetStandbyAvailabilityZoneArrayOutput() Ec2FleetStandbyAvailabilityZoneArrayOutput {
+	return i.ToEc2FleetStandbyAvailabilityZoneArrayOutputWithContext(context.Background())
+}
+
+func (i Ec2FleetStandbyAvailabilityZoneArray) ToEc2FleetStandbyAvailabilityZoneArrayOutputWithContext(ctx context.Context) Ec2FleetStandbyAvailabilityZoneArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(Ec2FleetStandbyAvailabilityZoneArrayOutput)
+}
+
+type Ec2FleetStandbyAvailabilityZoneOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetStandbyAvailabilityZoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Ec2FleetStandbyAvailabilityZone)(nil)).Elem()
+}
+
+func (o Ec2FleetStandbyAvailabilityZoneOutput) ToEc2FleetStandbyAvailabilityZoneOutput() Ec2FleetStandbyAvailabilityZoneOutput {
+	return o
+}
+
+func (o Ec2FleetStandbyAvailabilityZoneOutput) ToEc2FleetStandbyAvailabilityZoneOutputWithContext(ctx context.Context) Ec2FleetStandbyAvailabilityZoneOutput {
+	return o
+}
+
+func (o Ec2FleetStandbyAvailabilityZoneOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetStandbyAvailabilityZone) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+func (o Ec2FleetStandbyAvailabilityZoneOutput) AvailabilityZoneId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Ec2FleetStandbyAvailabilityZone) *string { return v.AvailabilityZoneId }).(pulumi.StringPtrOutput)
+}
+
+type Ec2FleetStandbyAvailabilityZoneArrayOutput struct{ *pulumi.OutputState }
+
+func (Ec2FleetStandbyAvailabilityZoneArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]Ec2FleetStandbyAvailabilityZone)(nil)).Elem()
+}
+
+func (o Ec2FleetStandbyAvailabilityZoneArrayOutput) ToEc2FleetStandbyAvailabilityZoneArrayOutput() Ec2FleetStandbyAvailabilityZoneArrayOutput {
+	return o
+}
+
+func (o Ec2FleetStandbyAvailabilityZoneArrayOutput) ToEc2FleetStandbyAvailabilityZoneArrayOutputWithContext(ctx context.Context) Ec2FleetStandbyAvailabilityZoneArrayOutput {
+	return o
+}
+
+func (o Ec2FleetStandbyAvailabilityZoneArrayOutput) Index(i pulumi.IntInput) Ec2FleetStandbyAvailabilityZoneOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Ec2FleetStandbyAvailabilityZone {
+		return vs[0].([]Ec2FleetStandbyAvailabilityZone)[vs[1].(int)]
+	}).(Ec2FleetStandbyAvailabilityZoneOutput)
 }
 
 type Ec2FleetTag struct {
@@ -41297,6 +41564,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryGiBPerVCpuRequestPtrInput)(nil)).Elem(), Ec2FleetMemoryGiBPerVCpuRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryMiBRequestInput)(nil)).Elem(), Ec2FleetMemoryMiBRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMemoryMiBRequestPtrInput)(nil)).Elem(), Ec2FleetMemoryMiBRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMultiAvailabilityZoneConfigurationInput)(nil)).Elem(), Ec2FleetMultiAvailabilityZoneConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetMultiAvailabilityZoneConfigurationPtrInput)(nil)).Elem(), Ec2FleetMultiAvailabilityZoneConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkBandwidthGbpsRequestInput)(nil)).Elem(), Ec2FleetNetworkBandwidthGbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkBandwidthGbpsRequestPtrInput)(nil)).Elem(), Ec2FleetNetworkBandwidthGbpsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetNetworkInterfaceCountRequestInput)(nil)).Elem(), Ec2FleetNetworkInterfaceCountRequestArgs{})
@@ -41317,6 +41586,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetReservedCapacityOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetReservedCapacityOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetSpotOptionsRequestPtrInput)(nil)).Elem(), Ec2FleetSpotOptionsRequestArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetStandbyAvailabilityZoneInput)(nil)).Elem(), Ec2FleetStandbyAvailabilityZoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetStandbyAvailabilityZoneArrayInput)(nil)).Elem(), Ec2FleetStandbyAvailabilityZoneArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTagInput)(nil)).Elem(), Ec2FleetTagArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTagArrayInput)(nil)).Elem(), Ec2FleetTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Ec2FleetTagSpecificationInput)(nil)).Elem(), Ec2FleetTagSpecificationArgs{})
@@ -41722,6 +41993,8 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetMemoryGiBPerVCpuRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetMemoryMiBRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetMemoryMiBRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMultiAvailabilityZoneConfigurationOutput{})
+	pulumi.RegisterOutputType(Ec2FleetMultiAvailabilityZoneConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetNetworkBandwidthGbpsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetNetworkBandwidthGbpsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetNetworkInterfaceCountRequestOutput{})
@@ -41742,6 +42015,8 @@ func init() {
 	pulumi.RegisterOutputType(Ec2FleetReservedCapacityOptionsRequestPtrOutput{})
 	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestOutput{})
 	pulumi.RegisterOutputType(Ec2FleetSpotOptionsRequestPtrOutput{})
+	pulumi.RegisterOutputType(Ec2FleetStandbyAvailabilityZoneOutput{})
+	pulumi.RegisterOutputType(Ec2FleetStandbyAvailabilityZoneArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetTagOutput{})
 	pulumi.RegisterOutputType(Ec2FleetTagArrayOutput{})
 	pulumi.RegisterOutputType(Ec2FleetTagSpecificationOutput{})

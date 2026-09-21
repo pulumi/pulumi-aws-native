@@ -523,6 +523,14 @@ type FindingsFilterTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with the Amazon Macie member account.
+type MemberTag struct {
+	// The key of the tag. The maximum length of a tag key is 128 characters.
+	Key string `pulumi:"key"`
+	// The value of the tag. The maximum length of a tag value is 256 characters.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListCriteriaInput)(nil)).Elem(), AllowListCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AllowListS3WordsListInput)(nil)).Elem(), AllowListS3WordsListArgs{})

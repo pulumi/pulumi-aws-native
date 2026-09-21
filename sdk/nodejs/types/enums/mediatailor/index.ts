@@ -40,11 +40,15 @@ export const FunctionRuntimeType = {
     Jsonata: "JSONATA",
 } as const;
 
+/**
+ * The expression language used to evaluate expressions in the function configuration. Set this to JSONATA.
+ */
 export type FunctionRuntimeType = (typeof FunctionRuntimeType)[keyof typeof FunctionRuntimeType];
 
 export const FunctionType = {
     HttpRequest: "HTTP_REQUEST",
     CustomOutput: "CUSTOM_OUTPUT",
+    ConcurrentExecutor: "CONCURRENT_EXECUTOR",
     SequentialExecutor: "SEQUENTIAL_EXECUTOR",
 } as const;
 

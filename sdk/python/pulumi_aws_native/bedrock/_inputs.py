@@ -11613,6 +11613,10 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgsDict(TypedDict):
     """
     The data type for the vectors when using a model to convert text into vector embeddings.
     """
+    model_configuration: NotRequired[Any]
+    """
+    Model-specific configuration for the embedding model.
+    """
     video: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgsDict']]]]]
     """
     Configuration settings for processing video content in multimodal knowledge bases.
@@ -11624,6 +11628,7 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
                  audio: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]]] = None,
                  dimensions: pulumi.Input[Optional[_builtins.int]] = None,
                  embedding_data_type: pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']] = None,
+                 model_configuration: Optional[Any] = None,
                  video: pulumi.Input[Optional[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]]] = None):
         """
         The vector configuration details for the Bedrock embeddings model.
@@ -11631,6 +11636,7 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseAudioConfigurationArgs']]] audio: Configuration settings for processing audio content in multimodal knowledge bases.
         :param pulumi.Input[_builtins.int] dimensions: The dimensions details for the vector configuration used on the Bedrock embeddings model.
         :param pulumi.Input['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType'] embedding_data_type: The data type for the vectors when using a model to convert text into vector embeddings.
+        :param Any model_configuration: Model-specific configuration for the embedding model.
         :param pulumi.Input[Sequence[pulumi.Input['KnowledgeBaseVideoConfigurationArgs']]] video: Configuration settings for processing video content in multimodal knowledge bases.
         """
         if audio is not None:
@@ -11639,6 +11645,8 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
             pulumi.set(__self__, "dimensions", dimensions)
         if embedding_data_type is not None:
             pulumi.set(__self__, "embedding_data_type", embedding_data_type)
+        if model_configuration is not None:
+            pulumi.set(__self__, "model_configuration", model_configuration)
         if video is not None:
             pulumi.set(__self__, "video", video)
 
@@ -11677,6 +11685,18 @@ class KnowledgeBaseBedrockEmbeddingModelConfigurationArgs:
     @embedding_data_type.setter
     def embedding_data_type(self, value: pulumi.Input[Optional['KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType']]):
         pulumi.set(self, "embedding_data_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="modelConfiguration")
+    def model_configuration(self) -> Optional[Any]:
+        """
+        Model-specific configuration for the embedding model.
+        """
+        return pulumi.get(self, "model_configuration")
+
+    @model_configuration.setter
+    def model_configuration(self, value: Optional[Any]):
+        pulumi.set(self, "model_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11912,6 +11932,7 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgsDict(TypedDict):
     embedding_model_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgsDict']]]
     embedding_model_type: NotRequired[pulumi.Input[Optional['KnowledgeBaseEmbeddingModelType']]]
     server_side_encryption_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict']]]
+    supplemental_data_storage_configuration: NotRequired[pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgsDict']]]
 
 @pulumi.input_type
 class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
@@ -11919,7 +11940,8 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
                  embedding_model_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  embedding_model_configuration: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelConfigurationArgs']] = None,
                  embedding_model_type: pulumi.Input[Optional['KnowledgeBaseEmbeddingModelType']] = None,
-                 server_side_encryption_configuration: pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']] = None):
+                 server_side_encryption_configuration: pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']] = None,
+                 supplemental_data_storage_configuration: pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgs']] = None):
         """
         Contains details about the model used to create vector embeddings for a managed knowledge base.
 
@@ -11933,6 +11955,8 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
             pulumi.set(__self__, "embedding_model_type", embedding_model_type)
         if server_side_encryption_configuration is not None:
             pulumi.set(__self__, "server_side_encryption_configuration", server_side_encryption_configuration)
+        if supplemental_data_storage_configuration is not None:
+            pulumi.set(__self__, "supplemental_data_storage_configuration", supplemental_data_storage_configuration)
 
     @_builtins.property
     @pulumi.getter(name="embeddingModelArn")
@@ -11972,6 +11996,15 @@ class KnowledgeBaseManagedKnowledgeBaseConfigurationArgs:
     @server_side_encryption_configuration.setter
     def server_side_encryption_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs']]):
         pulumi.set(self, "server_side_encryption_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supplementalDataStorageConfiguration")
+    def supplemental_data_storage_configuration(self) -> pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgs']]:
+        return pulumi.get(self, "supplemental_data_storage_configuration")
+
+    @supplemental_data_storage_configuration.setter
+    def supplemental_data_storage_configuration(self, value: pulumi.Input[Optional['KnowledgeBaseSupplementalDataStorageConfigurationArgs']]):
+        pulumi.set(self, "supplemental_data_storage_configuration", value)
 
 
 class KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgsDict(TypedDict):

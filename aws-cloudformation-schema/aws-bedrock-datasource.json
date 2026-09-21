@@ -282,7 +282,7 @@
     "ParsingStrategy" : {
       "type" : "string",
       "description" : "The parsing strategy for the data source.",
-      "enum" : [ "BEDROCK_FOUNDATION_MODEL", "BEDROCK_DATA_AUTOMATION", "SMART_PARSING" ]
+      "enum" : [ "BEDROCK_FOUNDATION_MODEL", "BEDROCK_DATA_AUTOMATION", "SMART_PARSING", "MULTI_MODAL_EMBEDDINGS" ]
     },
     "EnabledOrDisabledState" : {
       "type" : "string",

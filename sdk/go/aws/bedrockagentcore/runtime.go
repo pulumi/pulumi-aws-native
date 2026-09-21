@@ -46,6 +46,8 @@ type Runtime struct {
 	LifecycleConfiguration RuntimeLifecycleConfigurationPtrOutput `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
 	NetworkConfiguration RuntimeNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
+	// The version of the runtime platform
+	PlatformVersion pulumi.StringPtrOutput `pulumi:"platformVersion"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
@@ -131,6 +133,8 @@ type runtimeArgs struct {
 	LifecycleConfiguration *RuntimeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
 	NetworkConfiguration *RuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The version of the runtime platform
+	PlatformVersion *string `pulumi:"platformVersion"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
@@ -161,6 +165,8 @@ type RuntimeArgs struct {
 	LifecycleConfiguration RuntimeLifecycleConfigurationPtrInput
 	// Network access configuration for the Agent
 	NetworkConfiguration RuntimeNetworkConfigurationPtrInput
+	// The version of the runtime platform
+	PlatformVersion pulumi.StringPtrInput
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration RuntimeProtocolConfigurationPtrInput
 	// Configuration for HTTP request headers
@@ -281,6 +287,11 @@ func (o RuntimeOutput) LifecycleConfiguration() RuntimeLifecycleConfigurationPtr
 // Network access configuration for the Agent
 func (o RuntimeOutput) NetworkConfiguration() RuntimeNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v *Runtime) RuntimeNetworkConfigurationPtrOutput { return v.NetworkConfiguration }).(RuntimeNetworkConfigurationPtrOutput)
+}
+
+// The version of the runtime platform
+func (o RuntimeOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Runtime) pulumi.StringPtrOutput { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
 // Protocol configuration for the agent runtime

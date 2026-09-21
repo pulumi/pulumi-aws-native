@@ -70,7 +70,7 @@ namespace Pulumi.AwsNative.Connect
         public Output<Outputs.QueueOutboundCallerConfig?> OutboundCallerConfig { get; private set; } = null!;
 
         /// <summary>
-        /// The outbound email address ID.
+        /// The outbound email configuration for a specified queue.
         /// </summary>
         [Output("outboundEmailConfig")]
         public Output<Outputs.QueueOutboundEmailConfig?> OutboundEmailConfig { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.AwsNative.Connect
         public Input<Inputs.QueueOutboundCallerConfigArgs>? OutboundCallerConfig { get; set; }
 
         /// <summary>
-        /// The outbound email address ID.
+        /// The outbound email configuration for a specified queue.
         /// </summary>
         [Input("outboundEmailConfig")]
         public Input<Inputs.QueueOutboundEmailConfigArgs>? OutboundEmailConfig { get; set; }

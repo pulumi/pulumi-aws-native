@@ -17,6 +17,8 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ContainerAssociationContainerAttribute',
+    'ContainerAssociationContainerMonitoringConfiguration',
     'FirewallAvailabilityZoneMapping',
     'FirewallPolicy',
     'FirewallPolicyActionDefinition',
@@ -66,6 +68,94 @@ __all__ = [
     'TlsInspectionConfigurationTlsInspectionConfiguration',
     'VpcEndpointAssociationSubnetMapping',
 ]
+
+@pulumi.output_type
+class ContainerAssociationContainerAttribute(dict):
+    """
+    A key-value filter pair used in container association monitoring configurations to narrow which containers are tracked.
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        A key-value filter pair used in container association monitoring configurations to narrow which containers are tracked.
+
+        :param _builtins.str key: The attribute key to filter on.
+        :param _builtins.str value: The attribute value to match.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The attribute key to filter on.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The attribute value to match.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ContainerAssociationContainerMonitoringConfiguration(dict):
+    """
+    Contains the monitoring configuration for a single cluster in a container association. Specifies the cluster ARN and optional attribute filters to narrow which containers are tracked.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterArn":
+            suggest = "cluster_arn"
+        elif key == "attributeFilters":
+            suggest = "attribute_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerAssociationContainerMonitoringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerAssociationContainerMonitoringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerAssociationContainerMonitoringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_arn: _builtins.str,
+                 attribute_filters: Optional[Sequence['outputs.ContainerAssociationContainerAttribute']] = None):
+        """
+        Contains the monitoring configuration for a single cluster in a container association. Specifies the cluster ARN and optional attribute filters to narrow which containers are tracked.
+
+        :param _builtins.str cluster_arn: The ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+        :param Sequence['ContainerAssociationContainerAttribute'] attribute_filters: Key-value pairs that filter which containers are tracked. For Amazon EKS, you can filter by namespace and Kubernetes labels. For Amazon ECS, you can filter by container instance attributes (EC2 launch type only).
+        """
+        pulumi.set(__self__, "cluster_arn", cluster_arn)
+        if attribute_filters is not None:
+            pulumi.set(__self__, "attribute_filters", attribute_filters)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterArn")
+    def cluster_arn(self) -> _builtins.str:
+        """
+        The ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+        """
+        return pulumi.get(self, "cluster_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="attributeFilters")
+    def attribute_filters(self) -> Optional[Sequence['outputs.ContainerAssociationContainerAttribute']]:
+        """
+        Key-value pairs that filter which containers are tracked. For Amazon EKS, you can filter by namespace and Kubernetes labels. For Amazon ECS, you can filter by container instance attributes (EC2 launch type only).
+        """
+        return pulumi.get(self, "attribute_filters")
+
 
 @pulumi.output_type
 class FirewallAvailabilityZoneMapping(dict):

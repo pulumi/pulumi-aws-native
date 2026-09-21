@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AwsNative.AutoScaling.Inputs
 {
 
+    /// <summary>
+    /// Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it launches instances.
+    /// </summary>
     public sealed class AutoScalingGroupDistributionSegmentArgs : global::Pulumi.ResourceArgs
     {
         [Input("targetCapacityTypes", required: true)]
         private InputList<Pulumi.AwsNative.AutoScaling.AutoScalingGroupDistributionSegmentTargetCapacityTypesItem>? _targetCapacityTypes;
+
+        /// <summary>
+        /// The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in the priority order of the capacity types, and within each capacity type, in the order of instance types listed in your launch template ``Overrides``.
+        ///  The following lists the valid values:
+        ///   + on-demand-capacity-reservation On-Demand Capacity Reservations. + capacity-block Capacity Blocks. + interruptible-capacity-reservation Interruptible Capacity Reservations. + on-demand On-Demand capacity. Include this value to allow the group to fall back to On-Demand capacity when the preceding capacity types are unavailable.
+        /// </summary>
         public InputList<Pulumi.AwsNative.AutoScaling.AutoScalingGroupDistributionSegmentTargetCapacityTypesItem> TargetCapacityTypes
         {
             get => _targetCapacityTypes ?? (_targetCapacityTypes = new InputList<Pulumi.AwsNative.AutoScaling.AutoScalingGroupDistributionSegmentTargetCapacityTypesItem>());

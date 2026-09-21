@@ -7,7 +7,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_media_insights_pipeline_configuration import *
 from .get_media_pipeline_kinesis_video_stream_pool import *
+from .media_insights_pipeline_configuration import *
 from .media_pipeline_kinesis_video_stream_pool import *
 from ._inputs import *
 from . import outputs

@@ -34,10 +34,10 @@ namespace Pulumi.AwsNative.AppSync
     public sealed class GetGraphQlApiArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Unique AWS AppSync GraphQL API identifier.
+        /// The Amazon Resource Name (ARN) of the API key
         /// </summary>
-        [Input("apiId", required: true)]
-        public string ApiId { get; set; } = null!;
+        [Input("arn", required: true)]
+        public string Arn { get; set; } = null!;
 
         public GetGraphQlApiArgs()
         {
@@ -48,10 +48,10 @@ namespace Pulumi.AwsNative.AppSync
     public sealed class GetGraphQlApiInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Unique AWS AppSync GraphQL API identifier.
+        /// The Amazon Resource Name (ARN) of the API key
         /// </summary>
-        [Input("apiId", required: true)]
-        public Input<string> ApiId { get; set; } = null!;
+        [Input("arn", required: true)]
+        public Input<string> Arn { get; set; } = null!;
 
         public GetGraphQlApiInvokeArgs()
         {

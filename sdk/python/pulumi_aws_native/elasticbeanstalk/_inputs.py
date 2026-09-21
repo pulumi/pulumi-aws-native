@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'ApplicationMaxAgeRuleArgs',
@@ -21,6 +22,14 @@ __all__ = [
     'ApplicationMaxCountRuleArgsDict',
     'ApplicationResourceLifecycleConfigArgs',
     'ApplicationResourceLifecycleConfigArgsDict',
+    'ApplicationVersionBuildConfigurationArgs',
+    'ApplicationVersionBuildConfigurationArgsDict',
+    'ApplicationVersionImageBuildConfigurationArgs',
+    'ApplicationVersionImageBuildConfigurationArgsDict',
+    'ApplicationVersionImageConfigurationArgs',
+    'ApplicationVersionImageConfigurationArgsDict',
+    'ApplicationVersionImageSourceArgs',
+    'ApplicationVersionImageSourceArgsDict',
     'ApplicationVersionLifecycleConfigArgs',
     'ApplicationVersionLifecycleConfigArgsDict',
     'ApplicationVersionSourceBundleArgs',
@@ -220,6 +229,338 @@ class ApplicationResourceLifecycleConfigArgs:
     @version_lifecycle_config.setter
     def version_lifecycle_config(self, value: pulumi.Input[Optional['ApplicationVersionLifecycleConfigArgs']]):
         pulumi.set(self, "version_lifecycle_config", value)
+
+
+class ApplicationVersionBuildConfigurationArgsDict(TypedDict):
+    code_build_service_role: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+    """
+    image: pulumi.Input[_builtins.str]
+    """
+    The CodeBuild image used for the build environment.
+    """
+    artifact_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of the build artifact.
+    """
+    compute_type: NotRequired[pulumi.Input[Optional['ApplicationVersionBuildConfigurationComputeType']]]
+    """
+    The compute type for the CodeBuild build environment.
+    """
+    timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The timeout for the CodeBuild build, in minutes.
+    """
+
+@pulumi.input_type
+class ApplicationVersionBuildConfigurationArgs:
+    def __init__(__self__, *,
+                 code_build_service_role: pulumi.Input[_builtins.str],
+                 image: pulumi.Input[_builtins.str],
+                 artifact_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_type: pulumi.Input[Optional['ApplicationVersionBuildConfigurationComputeType']] = None,
+                 timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] code_build_service_role: The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+        :param pulumi.Input[_builtins.str] image: The CodeBuild image used for the build environment.
+        :param pulumi.Input[_builtins.str] artifact_name: The name of the build artifact.
+        :param pulumi.Input['ApplicationVersionBuildConfigurationComputeType'] compute_type: The compute type for the CodeBuild build environment.
+        :param pulumi.Input[_builtins.int] timeout_in_minutes: The timeout for the CodeBuild build, in minutes.
+        """
+        pulumi.set(__self__, "code_build_service_role", code_build_service_role)
+        pulumi.set(__self__, "image", image)
+        if artifact_name is not None:
+            pulumi.set(__self__, "artifact_name", artifact_name)
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="codeBuildServiceRole")
+    def code_build_service_role(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+        """
+        return pulumi.get(self, "code_build_service_role")
+
+    @code_build_service_role.setter
+    def code_build_service_role(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "code_build_service_role", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def image(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CodeBuild image used for the build environment.
+        """
+        return pulumi.get(self, "image")
+
+    @image.setter
+    def image(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "image", value)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactName")
+    def artifact_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of the build artifact.
+        """
+        return pulumi.get(self, "artifact_name")
+
+    @artifact_name.setter
+    def artifact_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "artifact_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[Optional['ApplicationVersionBuildConfigurationComputeType']]:
+        """
+        The compute type for the CodeBuild build environment.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[Optional['ApplicationVersionBuildConfigurationComputeType']]):
+        pulumi.set(self, "compute_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The timeout for the CodeBuild build, in minutes.
+        """
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_in_minutes", value)
+
+
+class ApplicationVersionImageBuildConfigurationArgsDict(TypedDict):
+    code_build_service_role: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+    """
+    type: pulumi.Input['ApplicationVersionImageBuildConfigurationType']
+    """
+    The type of image build: docker or buildpack.
+    """
+    architecture: NotRequired[pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArchitecture']]]
+    """
+    The target architecture for the built container image.
+    """
+    buildpack: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The buildpack to use for building the image.
+    """
+    compute_type: NotRequired[pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationComputeType']]]
+    """
+    The compute type for the CodeBuild build environment.
+    """
+    dockerfile_location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The path to the Dockerfile, relative to the source root.
+    """
+    timeout_in_minutes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The timeout for the CodeBuild build, in minutes.
+    """
+
+@pulumi.input_type
+class ApplicationVersionImageBuildConfigurationArgs:
+    def __init__(__self__, *,
+                 code_build_service_role: pulumi.Input[_builtins.str],
+                 type: pulumi.Input['ApplicationVersionImageBuildConfigurationType'],
+                 architecture: pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArchitecture']] = None,
+                 buildpack: pulumi.Input[Optional[_builtins.str]] = None,
+                 compute_type: pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationComputeType']] = None,
+                 dockerfile_location: pulumi.Input[Optional[_builtins.str]] = None,
+                 timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] code_build_service_role: The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+        :param pulumi.Input['ApplicationVersionImageBuildConfigurationType'] type: The type of image build: docker or buildpack.
+        :param pulumi.Input['ApplicationVersionImageBuildConfigurationArchitecture'] architecture: The target architecture for the built container image.
+        :param pulumi.Input[_builtins.str] buildpack: The buildpack to use for building the image.
+        :param pulumi.Input['ApplicationVersionImageBuildConfigurationComputeType'] compute_type: The compute type for the CodeBuild build environment.
+        :param pulumi.Input[_builtins.str] dockerfile_location: The path to the Dockerfile, relative to the source root.
+        :param pulumi.Input[_builtins.int] timeout_in_minutes: The timeout for the CodeBuild build, in minutes.
+        """
+        pulumi.set(__self__, "code_build_service_role", code_build_service_role)
+        pulumi.set(__self__, "type", type)
+        if architecture is not None:
+            pulumi.set(__self__, "architecture", architecture)
+        if buildpack is not None:
+            pulumi.set(__self__, "buildpack", buildpack)
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
+        if dockerfile_location is not None:
+            pulumi.set(__self__, "dockerfile_location", dockerfile_location)
+        if timeout_in_minutes is not None:
+            pulumi.set(__self__, "timeout_in_minutes", timeout_in_minutes)
+
+    @_builtins.property
+    @pulumi.getter(name="codeBuildServiceRole")
+    def code_build_service_role(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+        """
+        return pulumi.get(self, "code_build_service_role")
+
+    @code_build_service_role.setter
+    def code_build_service_role(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "code_build_service_role", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input['ApplicationVersionImageBuildConfigurationType']:
+        """
+        The type of image build: docker or buildpack.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input['ApplicationVersionImageBuildConfigurationType']):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def architecture(self) -> pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArchitecture']]:
+        """
+        The target architecture for the built container image.
+        """
+        return pulumi.get(self, "architecture")
+
+    @architecture.setter
+    def architecture(self, value: pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArchitecture']]):
+        pulumi.set(self, "architecture", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def buildpack(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The buildpack to use for building the image.
+        """
+        return pulumi.get(self, "buildpack")
+
+    @buildpack.setter
+    def buildpack(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "buildpack", value)
+
+    @_builtins.property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationComputeType']]:
+        """
+        The compute type for the CodeBuild build environment.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationComputeType']]):
+        pulumi.set(self, "compute_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dockerfileLocation")
+    def dockerfile_location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The path to the Dockerfile, relative to the source root.
+        """
+        return pulumi.get(self, "dockerfile_location")
+
+    @dockerfile_location.setter
+    def dockerfile_location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "dockerfile_location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutInMinutes")
+    def timeout_in_minutes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The timeout for the CodeBuild build, in minutes.
+        """
+        return pulumi.get(self, "timeout_in_minutes")
+
+    @timeout_in_minutes.setter
+    def timeout_in_minutes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "timeout_in_minutes", value)
+
+
+class ApplicationVersionImageConfigurationArgsDict(TypedDict):
+    build: NotRequired[pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArgsDict']]]
+    """
+    Configuration for building a container image from source code.
+    """
+    source: NotRequired[pulumi.Input[Optional['ApplicationVersionImageSourceArgsDict']]]
+    """
+    The container image source for this version, as an ECR image URI.
+    """
+
+@pulumi.input_type
+class ApplicationVersionImageConfigurationArgs:
+    def __init__(__self__, *,
+                 build: pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArgs']] = None,
+                 source: pulumi.Input[Optional['ApplicationVersionImageSourceArgs']] = None):
+        """
+        :param pulumi.Input['ApplicationVersionImageBuildConfigurationArgs'] build: Configuration for building a container image from source code.
+        :param pulumi.Input['ApplicationVersionImageSourceArgs'] source: The container image source for this version, as an ECR image URI.
+        """
+        if build is not None:
+            pulumi.set(__self__, "build", build)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @_builtins.property
+    @pulumi.getter
+    def build(self) -> pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArgs']]:
+        """
+        Configuration for building a container image from source code.
+        """
+        return pulumi.get(self, "build")
+
+    @build.setter
+    def build(self, value: pulumi.Input[Optional['ApplicationVersionImageBuildConfigurationArgs']]):
+        pulumi.set(self, "build", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def source(self) -> pulumi.Input[Optional['ApplicationVersionImageSourceArgs']]:
+        """
+        The container image source for this version, as an ECR image URI.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: pulumi.Input[Optional['ApplicationVersionImageSourceArgs']]):
+        pulumi.set(self, "source", value)
+
+
+class ApplicationVersionImageSourceArgsDict(TypedDict):
+    uri: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URI of the container image, e.g. an ECR image URI.
+    """
+
+@pulumi.input_type
+class ApplicationVersionImageSourceArgs:
+    def __init__(__self__, *,
+                 uri: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] uri: The URI of the container image, e.g. an ECR image URI.
+        """
+        if uri is not None:
+            pulumi.set(__self__, "uri", uri)
+
+    @_builtins.property
+    @pulumi.getter
+    def uri(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URI of the container image, e.g. an ECR image URI.
+        """
+        return pulumi.get(self, "uri")
+
+    @uri.setter
+    def uri(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "uri", value)
 
 
 class ApplicationVersionLifecycleConfigArgsDict(TypedDict):

@@ -18,6 +18,10 @@ from ._enums import *
 __all__ = [
     'LocationAzureBlobAzureBlobSasConfigurationArgs',
     'LocationAzureBlobAzureBlobSasConfigurationArgsDict',
+    'LocationAzureBlobAzureFederatedIdentityConfigArgs',
+    'LocationAzureBlobAzureFederatedIdentityConfigArgsDict',
+    'LocationAzureBlobAzureOidcConfigArgs',
+    'LocationAzureBlobAzureOidcConfigArgsDict',
     'LocationAzureBlobCmkSecretConfigArgs',
     'LocationAzureBlobCmkSecretConfigArgsDict',
     'LocationAzureBlobCustomSecretConfigArgs',
@@ -66,6 +70,12 @@ __all__ = [
     'LocationObjectStorageCmkSecretConfigArgsDict',
     'LocationObjectStorageCustomSecretConfigArgs',
     'LocationObjectStorageCustomSecretConfigArgsDict',
+    'LocationObjectStorageGoogleOidcConfigArgs',
+    'LocationObjectStorageGoogleOidcConfigArgsDict',
+    'LocationObjectStorageObjectStorageExternalIdentityConfigArgs',
+    'LocationObjectStorageObjectStorageExternalIdentityConfigArgsDict',
+    'LocationObjectStorageObjectStorageFederatedIdentityConfigArgs',
+    'LocationObjectStorageObjectStorageFederatedIdentityConfigArgsDict',
     'LocationS3s3ConfigArgs',
     'LocationS3s3ConfigArgsDict',
     'LocationSmbCmkSecretConfigArgs',
@@ -139,6 +149,105 @@ class LocationAzureBlobAzureBlobSasConfigurationArgs:
     @azure_blob_sas_token.setter
     def azure_blob_sas_token(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "azure_blob_sas_token", value)
+
+
+class LocationAzureBlobAzureFederatedIdentityConfigArgsDict(TypedDict):
+    """
+    Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+    """
+    aws_iam_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+    """
+    azure_oidc: NotRequired[pulumi.Input[Optional['LocationAzureBlobAzureOidcConfigArgsDict']]]
+
+@pulumi.input_type
+class LocationAzureBlobAzureFederatedIdentityConfigArgs:
+    def __init__(__self__, *,
+                 aws_iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 azure_oidc: pulumi.Input[Optional['LocationAzureBlobAzureOidcConfigArgs']] = None):
+        """
+        Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+
+        :param pulumi.Input[_builtins.str] aws_iam_role: Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        if aws_iam_role is not None:
+            pulumi.set(__self__, "aws_iam_role", aws_iam_role)
+        if azure_oidc is not None:
+            pulumi.set(__self__, "azure_oidc", azure_oidc)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIamRole")
+    def aws_iam_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        return pulumi.get(self, "aws_iam_role")
+
+    @aws_iam_role.setter
+    def aws_iam_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_iam_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="azureOidc")
+    def azure_oidc(self) -> pulumi.Input[Optional['LocationAzureBlobAzureOidcConfigArgs']]:
+        return pulumi.get(self, "azure_oidc")
+
+    @azure_oidc.setter
+    def azure_oidc(self, value: pulumi.Input[Optional['LocationAzureBlobAzureOidcConfigArgs']]):
+        pulumi.set(self, "azure_oidc", value)
+
+
+class LocationAzureBlobAzureOidcConfigArgsDict(TypedDict):
+    """
+    Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+    """
+    client_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+    """
+    tenant_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+    """
+
+@pulumi.input_type
+class LocationAzureBlobAzureOidcConfigArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[_builtins.str],
+                 tenant_id: pulumi.Input[_builtins.str]):
+        """
+        Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+
+        :param pulumi.Input[_builtins.str] client_id: Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+        :param pulumi.Input[_builtins.str] tenant_id: Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
 
 
 class LocationAzureBlobCmkSecretConfigArgsDict(TypedDict):
@@ -1316,6 +1425,169 @@ class LocationObjectStorageCustomSecretConfigArgs:
         pulumi.set(self, "secret_arn", value)
 
 
+class LocationObjectStorageGoogleOidcConfigArgsDict(TypedDict):
+    """
+    Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+    """
+    identity_pool_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Google Cloud workload identity pool that DataSync federates with.
+    """
+    identity_provider_name: pulumi.Input[_builtins.str]
+    """
+    The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+    """
+    project_name: pulumi.Input[_builtins.str]
+    """
+    The human-readable Google Cloud project name.
+    """
+    project_number: pulumi.Input[_builtins.str]
+    """
+    The numeric Google Cloud project ID, as a string.
+    """
+
+@pulumi.input_type
+class LocationObjectStorageGoogleOidcConfigArgs:
+    def __init__(__self__, *,
+                 identity_pool_name: pulumi.Input[_builtins.str],
+                 identity_provider_name: pulumi.Input[_builtins.str],
+                 project_name: pulumi.Input[_builtins.str],
+                 project_number: pulumi.Input[_builtins.str]):
+        """
+        Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+
+        :param pulumi.Input[_builtins.str] identity_pool_name: The name of the Google Cloud workload identity pool that DataSync federates with.
+        :param pulumi.Input[_builtins.str] identity_provider_name: The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+        :param pulumi.Input[_builtins.str] project_name: The human-readable Google Cloud project name.
+        :param pulumi.Input[_builtins.str] project_number: The numeric Google Cloud project ID, as a string.
+        """
+        pulumi.set(__self__, "identity_pool_name", identity_pool_name)
+        pulumi.set(__self__, "identity_provider_name", identity_provider_name)
+        pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "project_number", project_number)
+
+    @_builtins.property
+    @pulumi.getter(name="identityPoolName")
+    def identity_pool_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the Google Cloud workload identity pool that DataSync federates with.
+        """
+        return pulumi.get(self, "identity_pool_name")
+
+    @identity_pool_name.setter
+    def identity_pool_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identity_pool_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="identityProviderName")
+    def identity_provider_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+        """
+        return pulumi.get(self, "identity_provider_name")
+
+    @identity_provider_name.setter
+    def identity_provider_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "identity_provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The human-readable Google Cloud project name.
+        """
+        return pulumi.get(self, "project_name")
+
+    @project_name.setter
+    def project_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectNumber")
+    def project_number(self) -> pulumi.Input[_builtins.str]:
+        """
+        The numeric Google Cloud project ID, as a string.
+        """
+        return pulumi.get(self, "project_number")
+
+    @project_number.setter
+    def project_number(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "project_number", value)
+
+
+class LocationObjectStorageObjectStorageExternalIdentityConfigArgsDict(TypedDict):
+    """
+    Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+    """
+    google_oidc: NotRequired[pulumi.Input[Optional['LocationObjectStorageGoogleOidcConfigArgsDict']]]
+
+@pulumi.input_type
+class LocationObjectStorageObjectStorageExternalIdentityConfigArgs:
+    def __init__(__self__, *,
+                 google_oidc: pulumi.Input[Optional['LocationObjectStorageGoogleOidcConfigArgs']] = None):
+        """
+        Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+        """
+        if google_oidc is not None:
+            pulumi.set(__self__, "google_oidc", google_oidc)
+
+    @_builtins.property
+    @pulumi.getter(name="googleOidc")
+    def google_oidc(self) -> pulumi.Input[Optional['LocationObjectStorageGoogleOidcConfigArgs']]:
+        return pulumi.get(self, "google_oidc")
+
+    @google_oidc.setter
+    def google_oidc(self, value: pulumi.Input[Optional['LocationObjectStorageGoogleOidcConfigArgs']]):
+        pulumi.set(self, "google_oidc", value)
+
+
+class LocationObjectStorageObjectStorageFederatedIdentityConfigArgsDict(TypedDict):
+    """
+    Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+    """
+    aws_iam_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+    """
+    external_identity: NotRequired[pulumi.Input[Optional['LocationObjectStorageObjectStorageExternalIdentityConfigArgsDict']]]
+
+@pulumi.input_type
+class LocationObjectStorageObjectStorageFederatedIdentityConfigArgs:
+    def __init__(__self__, *,
+                 aws_iam_role: pulumi.Input[Optional[_builtins.str]] = None,
+                 external_identity: pulumi.Input[Optional['LocationObjectStorageObjectStorageExternalIdentityConfigArgs']] = None):
+        """
+        Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+
+        :param pulumi.Input[_builtins.str] aws_iam_role: Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        if aws_iam_role is not None:
+            pulumi.set(__self__, "aws_iam_role", aws_iam_role)
+        if external_identity is not None:
+            pulumi.set(__self__, "external_identity", external_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIamRole")
+    def aws_iam_role(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        return pulumi.get(self, "aws_iam_role")
+
+    @aws_iam_role.setter
+    def aws_iam_role(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "aws_iam_role", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalIdentity")
+    def external_identity(self) -> pulumi.Input[Optional['LocationObjectStorageObjectStorageExternalIdentityConfigArgs']]:
+        return pulumi.get(self, "external_identity")
+
+    @external_identity.setter
+    def external_identity(self, value: pulumi.Input[Optional['LocationObjectStorageObjectStorageExternalIdentityConfigArgs']]):
+        pulumi.set(self, "external_identity", value)
+
+
 class LocationS3s3ConfigArgsDict(TypedDict):
     """
     The Amazon Resource Name (ARN) of the AWS IAM role that is used to access an Amazon S3 bucket.
@@ -1865,6 +2137,10 @@ class TaskOptionsArgsDict(TypedDict):
     """
     A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
     """
+    object_metadata: NotRequired[pulumi.Input[Optional['TaskOptionsObjectMetadata']]]
+    """
+    A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+    """
     object_tags: NotRequired[pulumi.Input[Optional['TaskOptionsObjectTags']]]
     """
     A value that determines whether object tags should be read from the source object store and written to the destination object store.
@@ -1914,6 +2190,7 @@ class TaskOptionsArgs:
                  gid: pulumi.Input[Optional['TaskOptionsGid']] = None,
                  log_level: pulumi.Input[Optional['TaskOptionsLogLevel']] = None,
                  mtime: pulumi.Input[Optional['TaskOptionsMtime']] = None,
+                 object_metadata: pulumi.Input[Optional['TaskOptionsObjectMetadata']] = None,
                  object_tags: pulumi.Input[Optional['TaskOptionsObjectTags']] = None,
                  overwrite_mode: pulumi.Input[Optional['TaskOptionsOverwriteMode']] = None,
                  posix_permissions: pulumi.Input[Optional['TaskOptionsPosixPermissions']] = None,
@@ -1932,6 +2209,7 @@ class TaskOptionsArgs:
         :param pulumi.Input['TaskOptionsGid'] gid: The group ID (GID) of the file's owners.
         :param pulumi.Input['TaskOptionsLogLevel'] log_level: A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         :param pulumi.Input['TaskOptionsMtime'] mtime: A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
+        :param pulumi.Input['TaskOptionsObjectMetadata'] object_metadata: A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
         :param pulumi.Input['TaskOptionsObjectTags'] object_tags: A value that determines whether object tags should be read from the source object store and written to the destination object store.
         :param pulumi.Input['TaskOptionsOverwriteMode'] overwrite_mode: A value that determines whether files at the destination should be overwritten or preserved when copying files.
         :param pulumi.Input['TaskOptionsPosixPermissions'] posix_permissions: A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
@@ -1953,6 +2231,8 @@ class TaskOptionsArgs:
             pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
+        if object_metadata is not None:
+            pulumi.set(__self__, "object_metadata", object_metadata)
         if object_tags is not None:
             pulumi.set(__self__, "object_tags", object_tags)
         if overwrite_mode is not None:
@@ -2033,6 +2313,18 @@ class TaskOptionsArgs:
     @mtime.setter
     def mtime(self, value: pulumi.Input[Optional['TaskOptionsMtime']]):
         pulumi.set(self, "mtime", value)
+
+    @_builtins.property
+    @pulumi.getter(name="objectMetadata")
+    def object_metadata(self) -> pulumi.Input[Optional['TaskOptionsObjectMetadata']]:
+        """
+        A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+        """
+        return pulumi.get(self, "object_metadata")
+
+    @object_metadata.setter
+    def object_metadata(self, value: pulumi.Input[Optional['TaskOptionsObjectMetadata']]):
+        pulumi.set(self, "object_metadata", value)
 
     @_builtins.property
     @pulumi.getter(name="objectTags")

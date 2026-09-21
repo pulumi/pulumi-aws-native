@@ -13398,7 +13398,8 @@ type ServiceDeploymentConfiguration struct {
 	CanaryConfiguration *ServiceCanaryConfiguration `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker `pulumi:"deploymentCircuitBreaker"`
+	DeploymentCircuitBreaker *ServiceDeploymentCircuitBreaker       `pulumi:"deploymentCircuitBreaker"`
+	EarlySuccessCriteria     *ServiceDeploymentEarlySuccessCriteria `pulumi:"earlySuccessCriteria"`
 	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks []ServiceDeploymentLifecycleHook `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
@@ -13461,7 +13462,8 @@ type ServiceDeploymentConfigurationArgs struct {
 	CanaryConfiguration ServiceCanaryConfigurationPtrInput `pulumi:"canaryConfiguration"`
 	// The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
 	//   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
-	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput `pulumi:"deploymentCircuitBreaker"`
+	DeploymentCircuitBreaker ServiceDeploymentCircuitBreakerPtrInput       `pulumi:"deploymentCircuitBreaker"`
+	EarlySuccessCriteria     ServiceDeploymentEarlySuccessCriteriaPtrInput `pulumi:"earlySuccessCriteria"`
 	// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 	LifecycleHooks ServiceDeploymentLifecycleHookArrayInput `pulumi:"lifecycleHooks"`
 	// Configuration for linear deployment strategy. Only valid when the deployment strategy is ``LINEAR``. This configuration enables progressive traffic shifting in equal percentage increments with configurable bake times between each step.
@@ -13606,6 +13608,12 @@ func (o ServiceDeploymentConfigurationOutput) DeploymentCircuitBreaker() Service
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
 }
 
+func (o ServiceDeploymentConfigurationOutput) EarlySuccessCriteria() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentConfiguration) *ServiceDeploymentEarlySuccessCriteria {
+		return v.EarlySuccessCriteria
+	}).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
+}
+
 // An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
 func (o ServiceDeploymentConfigurationOutput) LifecycleHooks() ServiceDeploymentLifecycleHookArrayOutput {
 	return o.ApplyT(func(v ServiceDeploymentConfiguration) []ServiceDeploymentLifecycleHook { return v.LifecycleHooks }).(ServiceDeploymentLifecycleHookArrayOutput)
@@ -13727,6 +13735,15 @@ func (o ServiceDeploymentConfigurationPtrOutput) DeploymentCircuitBreaker() Serv
 		}
 		return v.DeploymentCircuitBreaker
 	}).(ServiceDeploymentCircuitBreakerPtrOutput)
+}
+
+func (o ServiceDeploymentConfigurationPtrOutput) EarlySuccessCriteria() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentConfiguration) *ServiceDeploymentEarlySuccessCriteria {
+		if v == nil {
+			return nil
+		}
+		return v.EarlySuccessCriteria
+	}).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
 }
 
 // An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
@@ -14072,6 +14089,171 @@ func (o ServiceDeploymentControllerPtrOutput) Type() ServiceDeploymentController
 		}
 		return v.Type
 	}).(ServiceDeploymentControllerTypePtrOutput)
+}
+
+type ServiceDeploymentEarlySuccessCriteria struct {
+	Enable                       *bool                                                              `pulumi:"enable"`
+	HealthyPercent               *int                                                               `pulumi:"healthyPercent"`
+	SourceServiceRevisionCleanup *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup `pulumi:"sourceServiceRevisionCleanup"`
+}
+
+// ServiceDeploymentEarlySuccessCriteriaInput is an input type that accepts ServiceDeploymentEarlySuccessCriteriaArgs and ServiceDeploymentEarlySuccessCriteriaOutput values.
+// You can construct a concrete instance of `ServiceDeploymentEarlySuccessCriteriaInput` via:
+//
+//	ServiceDeploymentEarlySuccessCriteriaArgs{...}
+type ServiceDeploymentEarlySuccessCriteriaInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentEarlySuccessCriteriaOutput() ServiceDeploymentEarlySuccessCriteriaOutput
+	ToServiceDeploymentEarlySuccessCriteriaOutputWithContext(context.Context) ServiceDeploymentEarlySuccessCriteriaOutput
+}
+
+type ServiceDeploymentEarlySuccessCriteriaArgs struct {
+	Enable                       pulumi.BoolPtrInput                                                       `pulumi:"enable"`
+	HealthyPercent               pulumi.IntPtrInput                                                        `pulumi:"healthyPercent"`
+	SourceServiceRevisionCleanup ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrInput `pulumi:"sourceServiceRevisionCleanup"`
+}
+
+func (ServiceDeploymentEarlySuccessCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteria)(nil)).Elem()
+}
+
+func (i ServiceDeploymentEarlySuccessCriteriaArgs) ToServiceDeploymentEarlySuccessCriteriaOutput() ServiceDeploymentEarlySuccessCriteriaOutput {
+	return i.ToServiceDeploymentEarlySuccessCriteriaOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentEarlySuccessCriteriaArgs) ToServiceDeploymentEarlySuccessCriteriaOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentEarlySuccessCriteriaOutput)
+}
+
+func (i ServiceDeploymentEarlySuccessCriteriaArgs) ToServiceDeploymentEarlySuccessCriteriaPtrOutput() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return i.ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceDeploymentEarlySuccessCriteriaArgs) ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentEarlySuccessCriteriaOutput).ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(ctx)
+}
+
+// ServiceDeploymentEarlySuccessCriteriaPtrInput is an input type that accepts ServiceDeploymentEarlySuccessCriteriaArgs, ServiceDeploymentEarlySuccessCriteriaPtr and ServiceDeploymentEarlySuccessCriteriaPtrOutput values.
+// You can construct a concrete instance of `ServiceDeploymentEarlySuccessCriteriaPtrInput` via:
+//
+//	        ServiceDeploymentEarlySuccessCriteriaArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceDeploymentEarlySuccessCriteriaPtrInput interface {
+	pulumi.Input
+
+	ToServiceDeploymentEarlySuccessCriteriaPtrOutput() ServiceDeploymentEarlySuccessCriteriaPtrOutput
+	ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(context.Context) ServiceDeploymentEarlySuccessCriteriaPtrOutput
+}
+
+type serviceDeploymentEarlySuccessCriteriaPtrType ServiceDeploymentEarlySuccessCriteriaArgs
+
+func ServiceDeploymentEarlySuccessCriteriaPtr(v *ServiceDeploymentEarlySuccessCriteriaArgs) ServiceDeploymentEarlySuccessCriteriaPtrInput {
+	return (*serviceDeploymentEarlySuccessCriteriaPtrType)(v)
+}
+
+func (*serviceDeploymentEarlySuccessCriteriaPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentEarlySuccessCriteria)(nil)).Elem()
+}
+
+func (i *serviceDeploymentEarlySuccessCriteriaPtrType) ToServiceDeploymentEarlySuccessCriteriaPtrOutput() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return i.ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceDeploymentEarlySuccessCriteriaPtrType) ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
+}
+
+type ServiceDeploymentEarlySuccessCriteriaOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentEarlySuccessCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteria)(nil)).Elem()
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaOutput) ToServiceDeploymentEarlySuccessCriteriaOutput() ServiceDeploymentEarlySuccessCriteriaOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaOutput) ToServiceDeploymentEarlySuccessCriteriaOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaOutput) ToServiceDeploymentEarlySuccessCriteriaPtrOutput() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return o.ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaOutput) ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceDeploymentEarlySuccessCriteria) *ServiceDeploymentEarlySuccessCriteria {
+		return &v
+	}).(ServiceDeploymentEarlySuccessCriteriaPtrOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *bool { return v.Enable }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaOutput) HealthyPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *int { return v.HealthyPercent }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaOutput) SourceServiceRevisionCleanup() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return o.ApplyT(func(v ServiceDeploymentEarlySuccessCriteria) *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
+		return v.SourceServiceRevisionCleanup
+	}).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput)
+}
+
+type ServiceDeploymentEarlySuccessCriteriaPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceDeploymentEarlySuccessCriteriaPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceDeploymentEarlySuccessCriteria)(nil)).Elem()
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) ToServiceDeploymentEarlySuccessCriteriaPtrOutput() ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) ToServiceDeploymentEarlySuccessCriteriaPtrOutputWithContext(ctx context.Context) ServiceDeploymentEarlySuccessCriteriaPtrOutput {
+	return o
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Elem() ServiceDeploymentEarlySuccessCriteriaOutput {
+	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) ServiceDeploymentEarlySuccessCriteria {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceDeploymentEarlySuccessCriteria
+		return ret
+	}).(ServiceDeploymentEarlySuccessCriteriaOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) Enable() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enable
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) HealthyPercent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *int {
+		if v == nil {
+			return nil
+		}
+		return v.HealthyPercent
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDeploymentEarlySuccessCriteriaPtrOutput) SourceServiceRevisionCleanup() ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput {
+	return o.ApplyT(func(v *ServiceDeploymentEarlySuccessCriteria) *ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup {
+		if v == nil {
+			return nil
+		}
+		return v.SourceServiceRevisionCleanup
+	}).(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanupPtrOutput)
 }
 
 // A deployment lifecycle hook runs custom logic or pauses the deployment at specific stages of the deployment process. You can use Lambda functions or pause hooks as hook targets.
@@ -24803,6 +24985,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentConfigurationPtrInput)(nil)).Elem(), ServiceDeploymentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentControllerPtrInput)(nil)).Elem(), ServiceDeploymentControllerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteriaInput)(nil)).Elem(), ServiceDeploymentEarlySuccessCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentEarlySuccessCriteriaPtrInput)(nil)).Elem(), ServiceDeploymentEarlySuccessCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookInput)(nil)).Elem(), ServiceDeploymentLifecycleHookArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDeploymentLifecycleHookArrayInput)(nil)).Elem(), ServiceDeploymentLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEbsTagSpecificationInput)(nil)).Elem(), ServiceEbsTagSpecificationArgs{})
@@ -25081,6 +25265,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceDeploymentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentControllerPtrOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentEarlySuccessCriteriaOutput{})
+	pulumi.RegisterOutputType(ServiceDeploymentEarlySuccessCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookOutput{})
 	pulumi.RegisterOutputType(ServiceDeploymentLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEbsTagSpecificationOutput{})

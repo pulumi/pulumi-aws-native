@@ -146,6 +146,9 @@ namespace Pulumi.AwsNative.MediaTailor
         public override string ToString() => _value;
     }
 
+    /// <summary>
+    /// The expression language used to evaluate expressions in the function configuration. Set this to JSONATA.
+    /// </summary>
     [EnumType]
     public readonly struct FunctionRuntimeType : IEquatable<FunctionRuntimeType>
     {
@@ -185,6 +188,7 @@ namespace Pulumi.AwsNative.MediaTailor
 
         public static FunctionType HttpRequest { get; } = new FunctionType("HTTP_REQUEST");
         public static FunctionType CustomOutput { get; } = new FunctionType("CUSTOM_OUTPUT");
+        public static FunctionType ConcurrentExecutor { get; } = new FunctionType("CONCURRENT_EXECUTOR");
         public static FunctionType SequentialExecutor { get; } = new FunctionType("SEQUENTIAL_EXECUTOR");
 
         public static bool operator ==(FunctionType left, FunctionType right) => left.Equals(right);

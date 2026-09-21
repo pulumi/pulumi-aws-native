@@ -21,6 +21,12 @@ namespace Pulumi.AwsNative.MediaTailor
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+        /// </summary>
+        [Output("concurrentExecutorConfiguration")]
+        public Output<Outputs.FunctionConcurrentExecutorConfiguration?> ConcurrentExecutorConfiguration { get; private set; } = null!;
+
         [Output("customOutputConfiguration")]
         public Output<Outputs.FunctionCustomOutputConfiguration?> CustomOutputConfiguration { get; private set; } = null!;
 
@@ -103,6 +109,12 @@ namespace Pulumi.AwsNative.MediaTailor
 
     public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+        /// </summary>
+        [Input("concurrentExecutorConfiguration")]
+        public Input<Inputs.FunctionConcurrentExecutorConfigurationArgs>? ConcurrentExecutorConfiguration { get; set; }
+
         [Input("customOutputConfiguration")]
         public Input<Inputs.FunctionCustomOutputConfigurationArgs>? CustomOutputConfiguration { get; set; }
 

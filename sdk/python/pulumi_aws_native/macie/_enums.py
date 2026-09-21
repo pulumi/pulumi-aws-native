@@ -9,6 +9,7 @@ from enum import Enum
 __all__ = [
     'AllowListStatus',
     'FindingsFilterFindingFilterAction',
+    'MemberRelationshipStatus',
     'SessionAutomatedDiscoveryStatus',
     'SessionFindingPublishingFrequency',
     'SessionStatus',
@@ -34,6 +35,23 @@ class AllowListStatus(_builtins.str, Enum):
 class FindingsFilterFindingFilterAction(_builtins.str, Enum):
     ARCHIVE = "ARCHIVE"
     NOOP = "NOOP"
+
+
+@pulumi.type_token("aws-native:macie:MemberRelationshipStatus")
+class MemberRelationshipStatus(_builtins.str, Enum):
+    """
+    The current status of the relationship between the account and the Amazon Macie administrator account.
+    """
+    ENABLED = "Enabled"
+    PAUSED = "Paused"
+    INVITED = "Invited"
+    CREATED = "Created"
+    REMOVED = "Removed"
+    RESIGNED = "Resigned"
+    EMAIL_VERIFICATION_IN_PROGRESS = "EmailVerificationInProgress"
+    EMAIL_VERIFICATION_FAILED = "EmailVerificationFailed"
+    REGION_DISABLED = "RegionDisabled"
+    ACCOUNT_SUSPENDED = "AccountSuspended"
 
 
 @pulumi.type_token("aws-native:macie:SessionAutomatedDiscoveryStatus")

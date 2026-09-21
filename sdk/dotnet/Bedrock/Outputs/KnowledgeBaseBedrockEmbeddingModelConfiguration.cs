@@ -29,6 +29,10 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         /// </summary>
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType? EmbeddingDataType;
         /// <summary>
+        /// Model-specific configuration for the embedding model.
+        /// </summary>
+        public readonly object? ModelConfiguration;
+        /// <summary>
         /// Configuration settings for processing video content in multimodal knowledge bases.
         /// </summary>
         public readonly ImmutableArray<Outputs.KnowledgeBaseVideoConfiguration> Video;
@@ -41,11 +45,14 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType? embeddingDataType,
 
+            object? modelConfiguration,
+
             ImmutableArray<Outputs.KnowledgeBaseVideoConfiguration> video)
         {
             Audio = audio;
             Dimensions = dimensions;
             EmbeddingDataType = embeddingDataType;
+            ModelConfiguration = modelConfiguration;
             Video = video;
         }
     }

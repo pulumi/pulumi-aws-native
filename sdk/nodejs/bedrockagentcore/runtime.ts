@@ -98,6 +98,10 @@ export class Runtime extends pulumi.CustomResource {
      */
     declare public readonly networkConfiguration: pulumi.Output<outputs.bedrockagentcore.RuntimeNetworkConfiguration | undefined>;
     /**
+     * The version of the runtime platform
+     */
+    declare public readonly platformVersion: pulumi.Output<string | undefined>;
+    /**
      * Protocol configuration for the agent runtime
      */
     declare public readonly protocolConfiguration: pulumi.Output<enums.bedrockagentcore.RuntimeProtocolConfiguration | undefined>;
@@ -151,6 +155,7 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["filesystemConfigurations"] = args?.filesystemConfigurations;
             resourceInputs["lifecycleConfiguration"] = args?.lifecycleConfiguration;
             resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["platformVersion"] = args?.platformVersion;
             resourceInputs["protocolConfiguration"] = args?.protocolConfiguration;
             resourceInputs["requestHeaderConfiguration"] = args?.requestHeaderConfiguration;
             resourceInputs["roleArn"] = args?.roleArn;
@@ -179,6 +184,7 @@ export class Runtime extends pulumi.CustomResource {
             resourceInputs["lastUpdatedAt"] = undefined /*out*/;
             resourceInputs["lifecycleConfiguration"] = undefined /*out*/;
             resourceInputs["networkConfiguration"] = undefined /*out*/;
+            resourceInputs["platformVersion"] = undefined /*out*/;
             resourceInputs["protocolConfiguration"] = undefined /*out*/;
             resourceInputs["requestHeaderConfiguration"] = undefined /*out*/;
             resourceInputs["roleArn"] = undefined /*out*/;
@@ -233,6 +239,10 @@ export interface RuntimeArgs {
      * Network access configuration for the Agent
      */
     networkConfiguration?: pulumi.Input<inputs.bedrockagentcore.RuntimeNetworkConfigurationArgs | undefined>;
+    /**
+     * The version of the runtime platform
+     */
+    platformVersion?: pulumi.Input<string | undefined>;
     /**
      * Protocol configuration for the agent runtime
      */

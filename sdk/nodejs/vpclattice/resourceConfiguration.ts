@@ -84,7 +84,7 @@ export class ResourceConfiguration extends pulumi.CustomResource {
      * - *Domain name* - Any domain name that is publicly resolvable.
      * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
      */
-    declare public readonly resourceConfigurationDefinition: pulumi.Output<outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties | undefined>;
+    declare public readonly resourceConfigurationDefinition: pulumi.Output<outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties | outputs.vpclattice.ResourceConfigurationDefinition3Properties | undefined>;
     /**
      * The ID of the group resource configuration.
      */
@@ -203,7 +203,7 @@ export interface ResourceConfigurationArgs {
      * - *Domain name* - Any domain name that is publicly resolvable.
      * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
      */
-    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationDefinition0PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition1PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition2PropertiesArgs | undefined>;
+    resourceConfigurationDefinition?: pulumi.Input<inputs.vpclattice.ResourceConfigurationDefinition0PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition1PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition2PropertiesArgs | inputs.vpclattice.ResourceConfigurationDefinition3PropertiesArgs | undefined>;
     /**
      * The ID of the group resource configuration.
      */

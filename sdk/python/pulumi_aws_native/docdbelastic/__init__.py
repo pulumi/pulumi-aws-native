@@ -6,5 +6,8 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .cluster import *
+from .cluster_snapshot import *
 from .get_cluster import *
+from .get_cluster_snapshot import *

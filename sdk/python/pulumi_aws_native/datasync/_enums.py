@@ -33,6 +33,7 @@ __all__ = [
     'TaskOptionsGid',
     'TaskOptionsLogLevel',
     'TaskOptionsMtime',
+    'TaskOptionsObjectMetadata',
     'TaskOptionsObjectTags',
     'TaskOptionsOverwriteMode',
     'TaskOptionsPosixPermissions',
@@ -82,6 +83,7 @@ class LocationAzureBlobAzureBlobAuthenticationType(_builtins.str, Enum):
     """
     SAS = "SAS"
     NONE = "NONE"
+    OIDC = "OIDC"
 
 
 @pulumi.type_token("aws-native:datasync:LocationAzureBlobAzureBlobType")
@@ -131,6 +133,7 @@ class LocationFSxOpenZfsMountOptionsVersion(_builtins.str, Enum):
     NFS3 = "NFS3"
     NFS40 = "NFS4_0"
     NFS41 = "NFS4_1"
+    NFS42 = "NFS4_2"
 
 
 @pulumi.type_token("aws-native:datasync:LocationHdfsAuthenticationType")
@@ -173,6 +176,7 @@ class LocationNfsMountOptionsVersion(_builtins.str, Enum):
     NFS3 = "NFS3"
     NFS40 = "NFS4_0"
     NFS41 = "NFS4_1"
+    NFS42 = "NFS4_2"
 
 
 @pulumi.type_token("aws-native:datasync:LocationObjectStorageServerProtocol")
@@ -307,6 +311,15 @@ class TaskOptionsMtime(_builtins.str, Enum):
     """
     NONE = "NONE"
     PRESERVE = "PRESERVE"
+
+
+@pulumi.type_token("aws-native:datasync:TaskOptionsObjectMetadata")
+class TaskOptionsObjectMetadata(_builtins.str, Enum):
+    """
+    A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+    """
+    PRESERVE = "PRESERVE"
+    NONE = "NONE"
 
 
 @pulumi.type_token("aws-native:datasync:TaskOptionsObjectTags")

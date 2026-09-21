@@ -8,6 +8,34 @@ using Pulumi;
 namespace Pulumi.AwsNative.Outposts
 {
     [EnumType]
+    public readonly struct OutpostSupportedHardwareType : IEquatable<OutpostSupportedHardwareType>
+    {
+        private readonly string _value;
+
+        private OutpostSupportedHardwareType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OutpostSupportedHardwareType Rack { get; } = new OutpostSupportedHardwareType("RACK");
+        public static OutpostSupportedHardwareType Server { get; } = new OutpostSupportedHardwareType("SERVER");
+
+        public static bool operator ==(OutpostSupportedHardwareType left, OutpostSupportedHardwareType right) => left.Equals(right);
+        public static bool operator !=(OutpostSupportedHardwareType left, OutpostSupportedHardwareType right) => !left.Equals(right);
+
+        public static explicit operator string(OutpostSupportedHardwareType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OutpostSupportedHardwareType other && Equals(other);
+        public bool Equals(OutpostSupportedHardwareType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct SiteRackPhysicalPropertiesFiberOpticCableType : IEquatable<SiteRackPhysicalPropertiesFiberOpticCableType>
     {
         private readonly string _value;

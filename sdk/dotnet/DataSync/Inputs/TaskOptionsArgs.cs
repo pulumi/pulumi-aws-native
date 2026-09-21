@@ -46,6 +46,12 @@ namespace Pulumi.AwsNative.DataSync.Inputs
         public Input<Pulumi.AwsNative.DataSync.TaskOptionsMtime>? Mtime { get; set; }
 
         /// <summary>
+        /// A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+        /// </summary>
+        [Input("objectMetadata")]
+        public Input<Pulumi.AwsNative.DataSync.TaskOptionsObjectMetadata>? ObjectMetadata { get; set; }
+
+        /// <summary>
         /// A value that determines whether object tags should be read from the source object store and written to the destination object store.
         /// </summary>
         [Input("objectTags")]

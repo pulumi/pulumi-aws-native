@@ -3305,6 +3305,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static RuntimeAgentStatus UpdateFailed { get; } = new RuntimeAgentStatus("UPDATE_FAILED");
         public static RuntimeAgentStatus Ready { get; } = new RuntimeAgentStatus("READY");
         public static RuntimeAgentStatus Deleting { get; } = new RuntimeAgentStatus("DELETING");
+        public static RuntimeAgentStatus DeleteFailed { get; } = new RuntimeAgentStatus("DELETE_FAILED");
 
         public static bool operator ==(RuntimeAgentStatus left, RuntimeAgentStatus right) => left.Equals(right);
         public static bool operator !=(RuntimeAgentStatus left, RuntimeAgentStatus right) => !left.Equals(right);
@@ -3369,6 +3370,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public static RuntimeEndpointAgentRuntimeEndpointStatus UpdateFailed { get; } = new RuntimeEndpointAgentRuntimeEndpointStatus("UPDATE_FAILED");
         public static RuntimeEndpointAgentRuntimeEndpointStatus Ready { get; } = new RuntimeEndpointAgentRuntimeEndpointStatus("READY");
         public static RuntimeEndpointAgentRuntimeEndpointStatus Deleting { get; } = new RuntimeEndpointAgentRuntimeEndpointStatus("DELETING");
+        public static RuntimeEndpointAgentRuntimeEndpointStatus DeleteFailed { get; } = new RuntimeEndpointAgentRuntimeEndpointStatus("DELETE_FAILED");
 
         public static bool operator ==(RuntimeEndpointAgentRuntimeEndpointStatus left, RuntimeEndpointAgentRuntimeEndpointStatus right) => left.Equals(right);
         public static bool operator !=(RuntimeEndpointAgentRuntimeEndpointStatus left, RuntimeEndpointAgentRuntimeEndpointStatus right) => !left.Equals(right);

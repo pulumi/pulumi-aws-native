@@ -7,8 +7,191 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod',
+    'MediaInsightsPipelineConfigurationElementType',
+    'MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput',
+    'MediaInsightsPipelineConfigurationRealTimeAlertRuleType',
+    'MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat',
+    'MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType',
     'MediaPipelineKinesisVideoStreamPoolPoolStatus',
 ]
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType")
+class MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType(_builtins.str, Enum):
+    """
+    Labels all PII identified in the transcript.
+    """
+    PII = "PII"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType")
+class MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType(_builtins.str, Enum):
+    """
+    Redacts all PII identified in the transcript.
+    """
+    PII = "PII"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode")
+class MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode(_builtins.str, Enum):
+    """
+    The language code in the configuration.
+    """
+    EN_US = "en-US"
+    EN_GB = "en-GB"
+    ES_US = "es-US"
+    FR_CA = "fr-CA"
+    FR_FR = "fr-FR"
+    EN_AU = "en-AU"
+    IT_IT = "it-IT"
+    DE_DE = "de-DE"
+    PT_BR = "pt-BR"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability")
+class MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability(_builtins.str, Enum):
+    """
+    The level of stability for partial results.
+    """
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod")
+class MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod(_builtins.str, Enum):
+    """
+    The vocabulary filtering method.
+    """
+    REMOVE = "remove"
+    MASK = "mask"
+    TAG = "tag"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType")
+class MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType(_builtins.str, Enum):
+    """
+    Labels all PII identified in the transcript.
+    """
+    PII = "PII"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType")
+class MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType(_builtins.str, Enum):
+    """
+    Redacts all PII identified in the transcript.
+    """
+    PII = "PII"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode")
+class MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode(_builtins.str, Enum):
+    """
+    The language code.
+    """
+    EN_US = "en-US"
+    EN_GB = "en-GB"
+    ES_US = "es-US"
+    FR_CA = "fr-CA"
+    FR_FR = "fr-FR"
+    EN_AU = "en-AU"
+    IT_IT = "it-IT"
+    DE_DE = "de-DE"
+    PT_BR = "pt-BR"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability")
+class MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability(_builtins.str, Enum):
+    """
+    The level of stability for partial results.
+    """
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage")
+class MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage(_builtins.str, Enum):
+    """
+    The preferred language for transcription.
+    """
+    EN_US = "en-US"
+    EN_GB = "en-GB"
+    ES_US = "es-US"
+    FR_CA = "fr-CA"
+    FR_FR = "fr-FR"
+    EN_AU = "en-AU"
+    IT_IT = "it-IT"
+    DE_DE = "de-DE"
+    PT_BR = "pt-BR"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod")
+class MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod(_builtins.str, Enum):
+    """
+    The vocabulary filtering method.
+    """
+    REMOVE = "remove"
+    MASK = "mask"
+    TAG = "tag"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationElementType")
+class MediaInsightsPipelineConfigurationElementType(_builtins.str, Enum):
+    """
+    The element type.
+    """
+    AMAZON_TRANSCRIBE_CALL_ANALYTICS_PROCESSOR = "AmazonTranscribeCallAnalyticsProcessor"
+    AMAZON_TRANSCRIBE_PROCESSOR = "AmazonTranscribeProcessor"
+    KINESIS_DATA_STREAM_SINK = "KinesisDataStreamSink"
+    S3_RECORDING_SINK = "S3RecordingSink"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput")
+class MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput(_builtins.str, Enum):
+    """
+    The content redaction output settings.
+    """
+    REDACTED = "redacted"
+    REDACTED_AND_UNREDACTED = "redacted_and_unredacted"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationRealTimeAlertRuleType")
+class MediaInsightsPipelineConfigurationRealTimeAlertRuleType(_builtins.str, Enum):
+    """
+    The type of alert rule.
+    """
+    KEYWORD_MATCH = "KeywordMatch"
+    SENTIMENT = "Sentiment"
+    ISSUE_DETECTION = "IssueDetection"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat")
+class MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat(_builtins.str, Enum):
+    """
+    The recording file format.
+    """
+    WAV = "Wav"
+    OPUS = "Opus"
+
+
+@pulumi.type_token("aws-native:chime:MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType")
+class MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType(_builtins.str, Enum):
+    """
+    The type of sentiment.
+    """
+    NEGATIVE = "NEGATIVE"
 
 
 @pulumi.type_token("aws-native:chime:MediaPipelineKinesisVideoStreamPoolPoolStatus")

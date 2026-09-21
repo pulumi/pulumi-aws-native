@@ -10,10 +10,20 @@ export const getPreset: typeof import("./getPreset").getPreset = null as any;
 export const getPresetOutput: typeof import("./getPreset").getPresetOutput = null as any;
 utilities.lazyLoad(exports, ["getPreset","getPresetOutput"], () => require("./getPreset"));
 
+export { GetQueueArgs, GetQueueResult, GetQueueOutputArgs } from "./getQueue";
+export const getQueue: typeof import("./getQueue").getQueue = null as any;
+export const getQueueOutput: typeof import("./getQueue").getQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getQueue","getQueueOutput"], () => require("./getQueue"));
+
 export { PresetArgs } from "./preset";
 export type Preset = import("./preset").Preset;
 export const Preset: typeof import("./preset").Preset = null as any;
 utilities.lazyLoad(exports, ["Preset"], () => require("./preset"));
+
+export { QueueArgs } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
 
 
 const _module = {
@@ -22,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws-native:mediaconvert:Preset":
                 return new Preset(name, <any>undefined, { urn })
+            case "aws-native:mediaconvert:Queue":
+                return new Queue(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

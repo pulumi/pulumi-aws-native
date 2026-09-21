@@ -9,6 +9,14 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value pair to associate with a resource.
+type ClusterSnapshotTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 type ClusterTag struct {
 	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`

@@ -12,6 +12,24 @@ __all__ = [
     'CatalogDataLakeAccessPropertiesAllowFullTableExternalDataAccess',
     'CatalogOverwriteChildResourcePermissionsWithDefault',
     'CatalogPrincipalPermissionsPermissionsItem',
+    'ConnectionTypeClientCredentialsPropertiesContentType',
+    'ConnectionTypeClientCredentialsPropertiesRequestMethod',
+    'ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem',
+    'ConnectionTypeConnectorAuthorizationCodePropertiesContentType',
+    'ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod',
+    'ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType',
+    'ConnectionTypeConnectorPropertyPropertyLocation',
+    'ConnectionTypeConnectorPropertyPropertyType',
+    'ConnectionTypeExtractedParameterPropertyLocation',
+    'ConnectionTypeFieldDefinitionFieldDataType',
+    'ConnectionTypeFilterConfigurationFilterMode',
+    'ConnectionTypeIntegrationType',
+    'ConnectionTypeJwtBearerPropertiesContentType',
+    'ConnectionTypeJwtBearerPropertiesRequestMethod',
+    'ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod',
+    'ConnectionTypeSecretConnectorPropertyPropertyLocation',
+    'ConnectionTypeSecretConnectorPropertyPropertyType',
+    'ConnectionTypeSourceConfigurationRequestMethod',
     'JobWorkerType',
     'SchemaCompatibility',
     'SchemaDataFormat',
@@ -72,6 +90,173 @@ class CatalogPrincipalPermissionsPermissionsItem(_builtins.str, Enum):
     CREATE_DATABASE = "CREATE_DATABASE"
     CREATE_TABLE = "CREATE_TABLE"
     DATA_LOCATION_ACCESS = "DATA_LOCATION_ACCESS"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeClientCredentialsPropertiesContentType")
+class ConnectionTypeClientCredentialsPropertiesContentType(_builtins.str, Enum):
+    APPLICATION_JSON = "APPLICATION_JSON"
+    URL_ENCODED = "URL_ENCODED"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeClientCredentialsPropertiesRequestMethod")
+class ConnectionTypeClientCredentialsPropertiesRequestMethod(_builtins.str, Enum):
+    GET = "GET"
+    POST = "POST"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem")
+class ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem(_builtins.str, Enum):
+    BASIC = "BASIC"
+    OAUTH2 = "OAUTH2"
+    CUSTOM = "CUSTOM"
+    IAM = "IAM"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeConnectorAuthorizationCodePropertiesContentType")
+class ConnectionTypeConnectorAuthorizationCodePropertiesContentType(_builtins.str, Enum):
+    APPLICATION_JSON = "APPLICATION_JSON"
+    URL_ENCODED = "URL_ENCODED"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod")
+class ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod(_builtins.str, Enum):
+    GET = "GET"
+    POST = "POST"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType")
+class ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType(_builtins.str, Enum):
+    """
+    The OAuth2 grant type to use.
+    """
+    CLIENT_CREDENTIALS = "CLIENT_CREDENTIALS"
+    JWT_BEARER = "JWT_BEARER"
+    AUTHORIZATION_CODE = "AUTHORIZATION_CODE"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeConnectorPropertyPropertyLocation")
+class ConnectionTypeConnectorPropertyPropertyLocation(_builtins.str, Enum):
+    """
+    Specifies where this property should be included in REST requests.
+    """
+    HEADER = "HEADER"
+    BODY = "BODY"
+    QUERY_PARAM = "QUERY_PARAM"
+    PATH = "PATH"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeConnectorPropertyPropertyType")
+class ConnectionTypeConnectorPropertyPropertyType(_builtins.str, Enum):
+    """
+    The data type of this property.
+    """
+    USER_INPUT = "USER_INPUT"
+    SECRET = "SECRET"
+    READ_ONLY = "READ_ONLY"
+    UNUSED = "UNUSED"
+    SECRET_OR_USER_INPUT = "SECRET_OR_USER_INPUT"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeExtractedParameterPropertyLocation")
+class ConnectionTypeExtractedParameterPropertyLocation(_builtins.str, Enum):
+    """
+    Specifies where to place the parameter in requests.
+    """
+    HEADER = "HEADER"
+    BODY = "BODY"
+    QUERY_PARAM = "QUERY_PARAM"
+    PATH = "PATH"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeFieldDefinitionFieldDataType")
+class ConnectionTypeFieldDefinitionFieldDataType(_builtins.str, Enum):
+    """
+    The data type of the field.
+    """
+    INT = "INT"
+    SMALLINT = "SMALLINT"
+    BIGINT = "BIGINT"
+    FLOAT = "FLOAT"
+    LONG = "LONG"
+    DATE = "DATE"
+    BOOLEAN = "BOOLEAN"
+    MAP = "MAP"
+    ARRAY = "ARRAY"
+    STRING = "STRING"
+    TIMESTAMP = "TIMESTAMP"
+    DECIMAL = "DECIMAL"
+    BYTE = "BYTE"
+    SHORT = "SHORT"
+    DOUBLE = "DOUBLE"
+    STRUCT = "STRUCT"
+    BINARY = "BINARY"
+    UNION = "UNION"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeFilterConfigurationFilterMode")
+class ConnectionTypeFilterConfigurationFilterMode(_builtins.str, Enum):
+    """
+    The strategy for applying filters to requests.
+    """
+    QUERY_PARAMS = "QUERY_PARAMS"
+    FILTER_STRING = "FILTER_STRING"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeIntegrationType")
+class ConnectionTypeIntegrationType(_builtins.str, Enum):
+    """
+    The integration type for the connection. Currently only REST is supported.
+    """
+    REST = "REST"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeJwtBearerPropertiesContentType")
+class ConnectionTypeJwtBearerPropertiesContentType(_builtins.str, Enum):
+    APPLICATION_JSON = "APPLICATION_JSON"
+    URL_ENCODED = "URL_ENCODED"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeJwtBearerPropertiesRequestMethod")
+class ConnectionTypeJwtBearerPropertiesRequestMethod(_builtins.str, Enum):
+    GET = "GET"
+    POST = "POST"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod")
+class ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod(_builtins.str, Enum):
+    """
+    The HTTP method to use.
+    """
+    GET = "GET"
+    POST = "POST"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeSecretConnectorPropertyPropertyLocation")
+class ConnectionTypeSecretConnectorPropertyPropertyLocation(_builtins.str, Enum):
+    """
+    Specifies where this property should be included in REST requests.
+    """
+    HEADER = "HEADER"
+    BODY = "BODY"
+    QUERY_PARAM = "QUERY_PARAM"
+    PATH = "PATH"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeSecretConnectorPropertyPropertyType")
+class ConnectionTypeSecretConnectorPropertyPropertyType(_builtins.str, Enum):
+    """
+    The data type of this property. Must be SECRET for secret properties.
+    """
+    SECRET = "SECRET"
+
+
+@pulumi.type_token("aws-native:glue:ConnectionTypeSourceConfigurationRequestMethod")
+class ConnectionTypeSourceConfigurationRequestMethod(_builtins.str, Enum):
+    """
+    The HTTP method to use.
+    """
+    GET = "GET"
+    POST = "POST"
 
 
 @pulumi.type_token("aws-native:glue:JobWorkerType")

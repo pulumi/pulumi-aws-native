@@ -44,7 +44,8 @@ type LookupLocationObjectStorageResult struct {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 	//
 	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
-	CustomSecretConfig *LocationObjectStorageCustomSecretConfig `pulumi:"customSecretConfig"`
+	CustomSecretConfig *LocationObjectStorageCustomSecretConfig                   `pulumi:"customSecretConfig"`
+	FederatedIdentity  *LocationObjectStorageObjectStorageFederatedIdentityConfig `pulumi:"federatedIdentity"`
 	// The Amazon Resource Name (ARN) of the location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the object storage location that was described.
@@ -118,6 +119,12 @@ func (o LookupLocationObjectStorageResultOutput) CustomSecretConfig() LocationOb
 	return o.ApplyT(func(v LookupLocationObjectStorageResult) *LocationObjectStorageCustomSecretConfig {
 		return v.CustomSecretConfig
 	}).(LocationObjectStorageCustomSecretConfigPtrOutput)
+}
+
+func (o LookupLocationObjectStorageResultOutput) FederatedIdentity() LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationObjectStorageResult) *LocationObjectStorageObjectStorageFederatedIdentityConfig {
+		return v.FederatedIdentity
+	}).(LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the location that is created.

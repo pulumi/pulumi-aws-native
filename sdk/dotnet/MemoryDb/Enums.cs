@@ -124,6 +124,37 @@ namespace Pulumi.AwsNative.MemoryDb
     }
 
     /// <summary>
+    /// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
+    /// </summary>
+    [EnumType]
+    public readonly struct SnapshotDataTiering : IEquatable<SnapshotDataTiering>
+    {
+        private readonly string _value;
+
+        private SnapshotDataTiering(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SnapshotDataTiering True { get; } = new SnapshotDataTiering("true");
+        public static SnapshotDataTiering False { get; } = new SnapshotDataTiering("false");
+
+        public static bool operator ==(SnapshotDataTiering left, SnapshotDataTiering right) => left.Equals(right);
+        public static bool operator !=(SnapshotDataTiering left, SnapshotDataTiering right) => !left.Equals(right);
+
+        public static explicit operator string(SnapshotDataTiering value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SnapshotDataTiering other && Equals(other);
+        public bool Equals(SnapshotDataTiering other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of authentication strategy for this user.
     /// </summary>
     [EnumType]

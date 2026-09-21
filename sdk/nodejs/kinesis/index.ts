@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ChannelArgs } from "./channel";
+export type Channel = import("./channel").Channel;
+export const Channel: typeof import("./channel").Channel = null as any;
+utilities.lazyLoad(exports, ["Channel"], () => require("./channel"));
+
+export { GetChannelArgs, GetChannelResult, GetChannelOutputArgs } from "./getChannel";
+export const getChannel: typeof import("./getChannel").getChannel = null as any;
+export const getChannelOutput: typeof import("./getChannel").getChannelOutput = null as any;
+utilities.lazyLoad(exports, ["getChannel","getChannelOutput"], () => require("./getChannel"));
+
 export { GetResourcePolicyArgs, GetResourcePolicyResult, GetResourcePolicyOutputArgs } from "./getResourcePolicy";
 export const getResourcePolicy: typeof import("./getResourcePolicy").getResourcePolicy = null as any;
 export const getResourcePolicyOutput: typeof import("./getResourcePolicy").getResourcePolicyOutput = null as any;
@@ -43,6 +53,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:kinesis:Channel":
+                return new Channel(name, <any>undefined, { urn })
             case "aws-native:kinesis:ResourcePolicy":
                 return new ResourcePolicy(name, <any>undefined, { urn })
             case "aws-native:kinesis:Stream":

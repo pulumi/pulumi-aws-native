@@ -41,6 +41,10 @@ export class Function extends pulumi.CustomResource {
      * The ARN of the function.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+     */
+    declare public readonly concurrentExecutorConfiguration: pulumi.Output<outputs.mediatailor.FunctionConcurrentExecutorConfiguration | undefined>;
     declare public readonly customOutputConfiguration: pulumi.Output<outputs.mediatailor.FunctionCustomOutputConfiguration | undefined>;
     /**
      * A description of the function.
@@ -78,6 +82,7 @@ export class Function extends pulumi.CustomResource {
             if (args?.functionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'functionType'");
             }
+            resourceInputs["concurrentExecutorConfiguration"] = args?.concurrentExecutorConfiguration;
             resourceInputs["customOutputConfiguration"] = args?.customOutputConfiguration;
             resourceInputs["description"] = args?.description;
             resourceInputs["functionId"] = args?.functionId;
@@ -88,6 +93,7 @@ export class Function extends pulumi.CustomResource {
             resourceInputs["arn"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["concurrentExecutorConfiguration"] = undefined /*out*/;
             resourceInputs["customOutputConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["functionId"] = undefined /*out*/;
@@ -107,6 +113,10 @@ export class Function extends pulumi.CustomResource {
  * The set of arguments for constructing a Function resource.
  */
 export interface FunctionArgs {
+    /**
+     * The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+     */
+    concurrentExecutorConfiguration?: pulumi.Input<inputs.mediatailor.FunctionConcurrentExecutorConfigurationArgs | undefined>;
     customOutputConfiguration?: pulumi.Input<inputs.mediatailor.FunctionCustomOutputConfigurationArgs | undefined>;
     /**
      * A description of the function.

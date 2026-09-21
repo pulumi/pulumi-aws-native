@@ -54,7 +54,7 @@
         "Version" : {
           "description" : "The specific NFS version that you want DataSync to use to mount your NFS share.",
           "type" : "string",
-          "enum" : [ "AUTOMATIC", "NFS3", "NFS4_0", "NFS4_1" ]
+          "enum" : [ "AUTOMATIC", "NFS3", "NFS4_0", "NFS4_1", "NFS4_2" ]
         }
       }
     }

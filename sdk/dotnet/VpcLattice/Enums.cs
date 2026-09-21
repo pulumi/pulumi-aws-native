@@ -245,6 +245,7 @@ namespace Pulumi.AwsNative.VpcLattice
         public static ResourceConfigurationType Child { get; } = new ResourceConfigurationType("CHILD");
         public static ResourceConfigurationType Single { get; } = new ResourceConfigurationType("SINGLE");
         public static ResourceConfigurationType Arn { get; } = new ResourceConfigurationType("ARN");
+        public static ResourceConfigurationType Cidr { get; } = new ResourceConfigurationType("CIDR");
 
         public static bool operator ==(ResourceConfigurationType left, ResourceConfigurationType right) => left.Equals(right);
         public static bool operator !=(ResourceConfigurationType left, ResourceConfigurationType right) => !left.Equals(right);

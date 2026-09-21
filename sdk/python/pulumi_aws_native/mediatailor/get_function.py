@@ -26,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetFunctionResult:
-    def __init__(__self__, arn=None, custom_output_configuration=None, description=None, function_type=None, http_request_configuration=None, sequential_executor_configuration=None, tags=None):
+    def __init__(__self__, arn=None, concurrent_executor_configuration=None, custom_output_configuration=None, description=None, function_type=None, http_request_configuration=None, sequential_executor_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if concurrent_executor_configuration and not isinstance(concurrent_executor_configuration, dict):
+            raise TypeError("Expected argument 'concurrent_executor_configuration' to be a dict")
+        pulumi.set(__self__, "concurrent_executor_configuration", concurrent_executor_configuration)
         if custom_output_configuration and not isinstance(custom_output_configuration, dict):
             raise TypeError("Expected argument 'custom_output_configuration' to be a dict")
         pulumi.set(__self__, "custom_output_configuration", custom_output_configuration)
@@ -56,6 +59,14 @@ class GetFunctionResult:
         The ARN of the function.
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="concurrentExecutorConfiguration")
+    def concurrent_executor_configuration(self) -> Optional['outputs.FunctionConcurrentExecutorConfiguration']:
+        """
+        The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+        """
+        return pulumi.get(self, "concurrent_executor_configuration")
 
     @_builtins.property
     @pulumi.getter(name="customOutputConfiguration")
@@ -104,6 +115,7 @@ class AwaitableGetFunctionResult(GetFunctionResult):
             yield self
         return GetFunctionResult(
             arn=self.arn,
+            concurrent_executor_configuration=self.concurrent_executor_configuration,
             custom_output_configuration=self.custom_output_configuration,
             description=self.description,
             function_type=self.function_type,
@@ -126,6 +138,7 @@ def get_function(function_id: Optional[_builtins.str] = None,
 
     return AwaitableGetFunctionResult(
         arn=pulumi.get(__ret__, 'arn'),
+        concurrent_executor_configuration=pulumi.get(__ret__, 'concurrent_executor_configuration'),
         custom_output_configuration=pulumi.get(__ret__, 'custom_output_configuration'),
         description=pulumi.get(__ret__, 'description'),
         function_type=pulumi.get(__ret__, 'function_type'),
@@ -145,6 +158,7 @@ def get_function_output(function_id: pulumi.Input[Optional[_builtins.str]] = Non
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediatailor:getFunction', __args__, opts=opts, typ=GetFunctionResult)
     return __ret__.apply(lambda __response__: GetFunctionResult(
         arn=pulumi.get(__response__, 'arn'),
+        concurrent_executor_configuration=pulumi.get(__response__, 'concurrent_executor_configuration'),
         custom_output_configuration=pulumi.get(__response__, 'custom_output_configuration'),
         description=pulumi.get(__response__, 'description'),
         function_type=pulumi.get(__response__, 'function_type'),

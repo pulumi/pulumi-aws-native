@@ -527,6 +527,13 @@ func (o DocumentClassifierDocumentsPtrOutput) TestS3Uri() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type DocumentClassifierEndpointTag struct {
+	// The initial part of a key-value pair that forms a tag associated with a given resource.
+	Key string `pulumi:"key"`
+	// The second part of a key-value pair that forms a tag associated with a given resource.
+	Value string `pulumi:"value"`
+}
+
 type DocumentClassifierInputDataConfig struct {
 	// A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.
 	//

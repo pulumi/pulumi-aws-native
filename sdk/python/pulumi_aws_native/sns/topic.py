@@ -32,6 +32,7 @@ class TopicArgs:
                  fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  signature_version: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription: pulumi.Input[Optional[Sequence[pulumi.Input['TopicSubscriptionArgs']]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None,
@@ -89,6 +90,8 @@ class TopicArgs:
             pulumi.set(__self__, "fifo_topic", fifo_topic)
         if kms_master_key_id is not None:
             pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+        if maximum_message_size is not None:
+            pulumi.set(__self__, "maximum_message_size", maximum_message_size)
         if signature_version is not None:
             pulumi.set(__self__, "signature_version", signature_version)
         if subscription is not None:
@@ -212,6 +215,15 @@ class TopicArgs:
         pulumi.set(self, "kms_master_key_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="maximumMessageSize")
+    def maximum_message_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "maximum_message_size")
+
+    @maximum_message_size.setter
+    def maximum_message_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "maximum_message_size", value)
+
+    @_builtins.property
     @pulumi.getter(name="signatureVersion")
     def signature_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -290,6 +302,7 @@ class Topic(pulumi.CustomResource):
                  fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  signature_version: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -540,6 +553,7 @@ class Topic(pulumi.CustomResource):
                  fifo_throughput_scope: pulumi.Input[Optional[_builtins.str]] = None,
                  fifo_topic: pulumi.Input[Optional[_builtins.bool]] = None,
                  kms_master_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 maximum_message_size: pulumi.Input[Optional[_builtins.int]] = None,
                  signature_version: pulumi.Input[Optional[_builtins.str]] = None,
                  subscription: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TopicSubscriptionArgs', 'TopicSubscriptionArgsDict']]]]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -562,6 +576,7 @@ class Topic(pulumi.CustomResource):
             __props__.__dict__["fifo_throughput_scope"] = fifo_throughput_scope
             __props__.__dict__["fifo_topic"] = fifo_topic
             __props__.__dict__["kms_master_key_id"] = kms_master_key_id
+            __props__.__dict__["maximum_message_size"] = maximum_message_size
             __props__.__dict__["signature_version"] = signature_version
             __props__.__dict__["subscription"] = subscription
             __props__.__dict__["tags"] = tags
@@ -600,6 +615,7 @@ class Topic(pulumi.CustomResource):
         __props__.__dict__["fifo_throughput_scope"] = None
         __props__.__dict__["fifo_topic"] = None
         __props__.__dict__["kms_master_key_id"] = None
+        __props__.__dict__["maximum_message_size"] = None
         __props__.__dict__["signature_version"] = None
         __props__.__dict__["subscription"] = None
         __props__.__dict__["tags"] = None
@@ -686,6 +702,11 @@ class Topic(pulumi.CustomResource):
          This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
         """
         return pulumi.get(self, "kms_master_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="maximumMessageSize")
+    def maximum_message_size(self) -> pulumi.Output[Optional[_builtins.int]]:
+        return pulumi.get(self, "maximum_message_size")
 
     @_builtins.property
     @pulumi.getter(name="signatureVersion")

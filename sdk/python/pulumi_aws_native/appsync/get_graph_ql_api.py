@@ -336,15 +336,15 @@ class AwaitableGetGraphQlApiResult(GetGraphQlApiResult):
             xray_enabled=self.xray_enabled)
 
 
-def get_graph_ql_api(api_id: Optional[_builtins.str] = None,
+def get_graph_ql_api(arn: Optional[_builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGraphQlApiResult:
     """
     Resource Type definition for AWS::AppSync::GraphQLApi
 
-    :param _builtins.str api_id: Unique AWS AppSync GraphQL API identifier.
+    :param _builtins.str arn: The Amazon Resource Name (ARN) of the API key
     """
     __args__ = dict()
-    __args__['apiId'] = api_id
+    __args__['arn'] = arn
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws-native:appsync:getGraphQlApi', __args__, opts=opts, typ=GetGraphQlApiResult).value
 
@@ -374,15 +374,15 @@ def get_graph_ql_api(api_id: Optional[_builtins.str] = None,
         user_pool_config=pulumi.get(__ret__, 'user_pool_config'),
         visibility=pulumi.get(__ret__, 'visibility'),
         xray_enabled=pulumi.get(__ret__, 'xray_enabled'))
-def get_graph_ql_api_output(api_id: pulumi.Input[Optional[_builtins.str]] = None,
+def get_graph_ql_api_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGraphQlApiResult]:
     """
     Resource Type definition for AWS::AppSync::GraphQLApi
 
-    :param _builtins.str api_id: Unique AWS AppSync GraphQL API identifier.
+    :param _builtins.str arn: The Amazon Resource Name (ARN) of the API key
     """
     __args__ = dict()
-    __args__['apiId'] = api_id
+    __args__['arn'] = arn
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws-native:appsync:getGraphQlApi', __args__, opts=opts, typ=GetGraphQlApiResult)
     return __ret__.apply(lambda __response__: GetGraphQlApiResult(

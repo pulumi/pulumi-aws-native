@@ -117,6 +117,9 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         [Output("suspendedState")]
         public Output<Outputs.ScalableTargetSuspendedState?> SuspendedState { get; private set; } = null!;
 
+        [Output("tags")]
+        public Output<ImmutableArray<Pulumi.AwsNative.Outputs.Tag>> Tags { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a ScalableTarget resource with the given unique name, arguments, and options.
@@ -270,6 +273,14 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         /// </summary>
         [Input("suspendedState")]
         public Input<Inputs.ScalableTargetSuspendedStateArgs>? SuspendedState { get; set; }
+
+        [Input("tags")]
+        private InputList<Pulumi.AwsNative.Inputs.TagArgs>? _tags;
+        public InputList<Pulumi.AwsNative.Inputs.TagArgs> Tags
+        {
+            get => _tags ?? (_tags = new InputList<Pulumi.AwsNative.Inputs.TagArgs>());
+            set => _tags = value;
+        }
 
         public ScalableTargetArgs()
         {

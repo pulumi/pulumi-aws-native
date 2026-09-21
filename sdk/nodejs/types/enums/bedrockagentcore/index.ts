@@ -1086,6 +1086,7 @@ export const RuntimeAgentStatus = {
     UpdateFailed: "UPDATE_FAILED",
     Ready: "READY",
     Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
 } as const;
 
 export type RuntimeAgentStatus = (typeof RuntimeAgentStatus)[keyof typeof RuntimeAgentStatus];
@@ -1108,6 +1109,7 @@ export const RuntimeEndpointAgentRuntimeEndpointStatus = {
     UpdateFailed: "UPDATE_FAILED",
     Ready: "READY",
     Deleting: "DELETING",
+    DeleteFailed: "DELETE_FAILED",
 } as const;
 
 export type RuntimeEndpointAgentRuntimeEndpointStatus = (typeof RuntimeEndpointAgentRuntimeEndpointStatus)[keyof typeof RuntimeEndpointAgentRuntimeEndpointStatus];

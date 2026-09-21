@@ -87,8 +87,6 @@ type LookupFleetResult struct {
 	FleetVpcConfig *FleetVpcConfig `pulumi:"fleetVpcConfig"`
 	// The Amazon Machine Image (AMI) of the compute fleet.
 	ImageId *string `pulumi:"imageId"`
-	// The name of the compute fleet.
-	Name *string `pulumi:"name"`
 	// The compute fleet overflow behavior.
 	//
 	// - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
@@ -215,11 +213,6 @@ func (o LookupFleetResultOutput) FleetVpcConfig() FleetVpcConfigPtrOutput {
 // The Amazon Machine Image (AMI) of the compute fleet.
 func (o LookupFleetResultOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFleetResult) *string { return v.ImageId }).(pulumi.StringPtrOutput)
-}
-
-// The name of the compute fleet.
-func (o LookupFleetResultOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupFleetResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The compute fleet overflow behavior.

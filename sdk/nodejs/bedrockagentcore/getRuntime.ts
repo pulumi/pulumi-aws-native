@@ -82,6 +82,10 @@ export interface GetRuntimeResult {
      */
     readonly networkConfiguration?: outputs.bedrockagentcore.RuntimeNetworkConfiguration;
     /**
+     * The version of the runtime platform
+     */
+    readonly platformVersion?: string;
+    /**
      * Protocol configuration for the agent runtime
      */
     readonly protocolConfiguration?: enums.bedrockagentcore.RuntimeProtocolConfiguration;

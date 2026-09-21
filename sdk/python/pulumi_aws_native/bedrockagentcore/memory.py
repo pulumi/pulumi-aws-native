@@ -29,6 +29,7 @@ class MemoryArgs:
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryStrategyArgs']]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_keys: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryNamespaceKeyEntryArgs']]]] = None,
                  stream_delivery_resources: pulumi.Input[Optional['MemoryStreamDeliveryResourcesArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -54,6 +55,8 @@ class MemoryArgs:
             pulumi.set(__self__, "memory_strategies", memory_strategies)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if namespace_keys is not None:
+            pulumi.set(__self__, "namespace_keys", namespace_keys)
         if stream_delivery_resources is not None:
             pulumi.set(__self__, "stream_delivery_resources", stream_delivery_resources)
         if tags is not None:
@@ -138,6 +141,15 @@ class MemoryArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="namespaceKeys")
+    def namespace_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MemoryNamespaceKeyEntryArgs']]]]:
+        return pulumi.get(self, "namespace_keys")
+
+    @namespace_keys.setter
+    def namespace_keys(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MemoryNamespaceKeyEntryArgs']]]]):
+        pulumi.set(self, "namespace_keys", value)
+
+    @_builtins.property
     @pulumi.getter(name="streamDeliveryResources")
     def stream_delivery_resources(self) -> pulumi.Input[Optional['MemoryStreamDeliveryResourcesArgs']]:
         return pulumi.get(self, "stream_delivery_resources")
@@ -172,6 +184,7 @@ class Memory(pulumi.CustomResource):
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryNamespaceKeyEntryArgs', 'MemoryNamespaceKeyEntryArgsDict']]]]] = None,
                  stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -218,6 +231,7 @@ class Memory(pulumi.CustomResource):
                  memory_execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  memory_strategies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryStrategyArgs', 'MemoryStrategyArgsDict']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 namespace_keys: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MemoryNamespaceKeyEntryArgs', 'MemoryNamespaceKeyEntryArgsDict']]]]] = None,
                  stream_delivery_resources: pulumi.Input[Optional[Union['MemoryStreamDeliveryResourcesArgs', 'MemoryStreamDeliveryResourcesArgsDict']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -238,6 +252,7 @@ class Memory(pulumi.CustomResource):
             __props__.__dict__["memory_execution_role_arn"] = memory_execution_role_arn
             __props__.__dict__["memory_strategies"] = memory_strategies
             __props__.__dict__["name"] = name
+            __props__.__dict__["namespace_keys"] = namespace_keys
             __props__.__dict__["stream_delivery_resources"] = stream_delivery_resources
             __props__.__dict__["tags"] = tags
             __props__.__dict__["created_at"] = None
@@ -281,6 +296,7 @@ class Memory(pulumi.CustomResource):
         __props__.__dict__["memory_id"] = None
         __props__.__dict__["memory_strategies"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["namespace_keys"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["stream_delivery_resources"] = None
         __props__.__dict__["tags"] = None
@@ -362,6 +378,11 @@ class Memory(pulumi.CustomResource):
         The memory name.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="namespaceKeys")
+    def namespace_keys(self) -> pulumi.Output[Optional[Sequence['outputs.MemoryNamespaceKeyEntry']]]:
+        return pulumi.get(self, "namespace_keys")
 
     @_builtins.property
     @pulumi.getter

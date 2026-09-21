@@ -75,6 +75,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
     declare public readonly customSecretConfig: pulumi.Output<outputs.datasync.LocationAzureBlobCustomSecretConfig | undefined>;
+    declare public readonly federatedIdentity: pulumi.Output<outputs.datasync.LocationAzureBlobAzureFederatedIdentityConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
      */
@@ -115,6 +116,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["azureBlobType"] = args?.azureBlobType;
             resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
             resourceInputs["customSecretConfig"] = args?.customSecretConfig;
+            resourceInputs["federatedIdentity"] = args?.federatedIdentity;
             resourceInputs["subdirectory"] = args?.subdirectory;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["locationArn"] = undefined /*out*/;
@@ -129,6 +131,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
             resourceInputs["azureBlobType"] = undefined /*out*/;
             resourceInputs["cmkSecretConfig"] = undefined /*out*/;
             resourceInputs["customSecretConfig"] = undefined /*out*/;
+            resourceInputs["federatedIdentity"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["managedSecretConfig"] = undefined /*out*/;
@@ -184,6 +187,7 @@ export interface LocationAzureBlobArgs {
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
     customSecretConfig?: pulumi.Input<inputs.datasync.LocationAzureBlobCustomSecretConfigArgs | undefined>;
+    federatedIdentity?: pulumi.Input<inputs.datasync.LocationAzureBlobAzureFederatedIdentityConfigArgs | undefined>;
     /**
      * The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
      */

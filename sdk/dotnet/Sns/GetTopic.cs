@@ -112,6 +112,7 @@ namespace Pulumi.AwsNative.Sns
         ///  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
         /// </summary>
         public readonly string? KmsMasterKeyId;
+        public readonly int? MaximumMessageSize;
         /// <summary>
         /// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
         /// </summary>
@@ -151,6 +152,8 @@ namespace Pulumi.AwsNative.Sns
 
             string? kmsMasterKeyId,
 
+            int? maximumMessageSize,
+
             string? signatureVersion,
 
             ImmutableArray<Outputs.TopicSubscription> subscription,
@@ -168,6 +171,7 @@ namespace Pulumi.AwsNative.Sns
             DisplayName = displayName;
             FifoThroughputScope = fifoThroughputScope;
             KmsMasterKeyId = kmsMasterKeyId;
+            MaximumMessageSize = maximumMessageSize;
             SignatureVersion = signatureVersion;
             Subscription = subscription;
             Tags = tags;

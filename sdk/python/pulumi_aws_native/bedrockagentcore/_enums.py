@@ -1102,6 +1102,7 @@ class RuntimeAgentStatus(_builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
     READY = "READY"
     DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeClaimMatchOperator")
@@ -1122,6 +1123,7 @@ class RuntimeEndpointAgentRuntimeEndpointStatus(_builtins.str, Enum):
     UPDATE_FAILED = "UPDATE_FAILED"
     READY = "READY"
     DELETING = "DELETING"
+    DELETE_FAILED = "DELETE_FAILED"
 
 
 @pulumi.type_token("aws-native:bedrockagentcore:RuntimeInboundTokenClaimValueType")

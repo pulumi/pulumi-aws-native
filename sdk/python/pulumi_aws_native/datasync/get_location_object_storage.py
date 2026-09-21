@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationObjectStorageResult:
-    def __init__(__self__, access_key=None, agent_arns=None, cmk_secret_config=None, custom_secret_config=None, location_arn=None, location_uri=None, managed_secret_config=None, server_certificate=None, server_port=None, server_protocol=None, tags=None):
+    def __init__(__self__, access_key=None, agent_arns=None, cmk_secret_config=None, custom_secret_config=None, federated_identity=None, location_arn=None, location_uri=None, managed_secret_config=None, server_certificate=None, server_port=None, server_protocol=None, tags=None):
         if access_key and not isinstance(access_key, str):
             raise TypeError("Expected argument 'access_key' to be a str")
         pulumi.set(__self__, "access_key", access_key)
@@ -39,6 +39,9 @@ class GetLocationObjectStorageResult:
         if custom_secret_config and not isinstance(custom_secret_config, dict):
             raise TypeError("Expected argument 'custom_secret_config' to be a dict")
         pulumi.set(__self__, "custom_secret_config", custom_secret_config)
+        if federated_identity and not isinstance(federated_identity, dict):
+            raise TypeError("Expected argument 'federated_identity' to be a dict")
+        pulumi.set(__self__, "federated_identity", federated_identity)
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
         pulumi.set(__self__, "location_arn", location_arn)
@@ -100,6 +103,11 @@ class GetLocationObjectStorageResult:
         > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
         """
         return pulumi.get(self, "custom_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="federatedIdentity")
+    def federated_identity(self) -> Optional['outputs.LocationObjectStorageObjectStorageFederatedIdentityConfig']:
+        return pulumi.get(self, "federated_identity")
 
     @_builtins.property
     @pulumi.getter(name="locationArn")
@@ -165,6 +173,7 @@ class AwaitableGetLocationObjectStorageResult(GetLocationObjectStorageResult):
             agent_arns=self.agent_arns,
             cmk_secret_config=self.cmk_secret_config,
             custom_secret_config=self.custom_secret_config,
+            federated_identity=self.federated_identity,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
             managed_secret_config=self.managed_secret_config,
@@ -191,6 +200,7 @@ def get_location_object_storage(location_arn: Optional[_builtins.str] = None,
         agent_arns=pulumi.get(__ret__, 'agent_arns'),
         cmk_secret_config=pulumi.get(__ret__, 'cmk_secret_config'),
         custom_secret_config=pulumi.get(__ret__, 'custom_secret_config'),
+        federated_identity=pulumi.get(__ret__, 'federated_identity'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         managed_secret_config=pulumi.get(__ret__, 'managed_secret_config'),
@@ -214,6 +224,7 @@ def get_location_object_storage_output(location_arn: pulumi.Input[Optional[_buil
         agent_arns=pulumi.get(__response__, 'agent_arns'),
         cmk_secret_config=pulumi.get(__response__, 'cmk_secret_config'),
         custom_secret_config=pulumi.get(__response__, 'custom_secret_config'),
+        federated_identity=pulumi.get(__response__, 'federated_identity'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
         managed_secret_config=pulumi.get(__response__, 'managed_secret_config'),

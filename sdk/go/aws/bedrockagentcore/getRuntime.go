@@ -56,6 +56,8 @@ type LookupRuntimeResult struct {
 	LifecycleConfiguration *RuntimeLifecycleConfiguration `pulumi:"lifecycleConfiguration"`
 	// Network access configuration for the Agent
 	NetworkConfiguration *RuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
+	// The version of the runtime platform
+	PlatformVersion *string `pulumi:"platformVersion"`
 	// Protocol configuration for the agent runtime
 	ProtocolConfiguration *RuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Configuration for HTTP request headers
@@ -168,6 +170,11 @@ func (o LookupRuntimeResultOutput) LifecycleConfiguration() RuntimeLifecycleConf
 // Network access configuration for the Agent
 func (o LookupRuntimeResultOutput) NetworkConfiguration() RuntimeNetworkConfigurationPtrOutput {
 	return o.ApplyT(func(v LookupRuntimeResult) *RuntimeNetworkConfiguration { return v.NetworkConfiguration }).(RuntimeNetworkConfigurationPtrOutput)
+}
+
+// The version of the runtime platform
+func (o LookupRuntimeResultOutput) PlatformVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupRuntimeResult) *string { return v.PlatformVersion }).(pulumi.StringPtrOutput)
 }
 
 // Protocol configuration for the agent runtime

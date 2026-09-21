@@ -16,6 +16,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApplicationsListAppArgs',
+    'ApplicationsListAppArgsDict',
     'PolicyIeMapArgs',
     'PolicyIeMapArgsDict',
     'PolicyNetworkAclCommonPolicyArgs',
@@ -39,6 +41,77 @@ __all__ = [
     'PolicyThirdPartyFirewallPolicyArgs',
     'PolicyThirdPartyFirewallPolicyArgsDict',
 ]
+
+class ApplicationsListAppArgsDict(TypedDict):
+    """
+    An individual Firewall Manager application.
+    """
+    app_name: pulumi.Input[_builtins.str]
+    """
+    The application's name.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The application's port number, for example 80.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+    """
+
+@pulumi.input_type
+class ApplicationsListAppArgs:
+    def __init__(__self__, *,
+                 app_name: pulumi.Input[_builtins.str],
+                 port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[_builtins.str]):
+        """
+        An individual Firewall Manager application.
+
+        :param pulumi.Input[_builtins.str] app_name: The application's name.
+        :param pulumi.Input[_builtins.int] port: The application's port number, for example 80.
+        :param pulumi.Input[_builtins.str] protocol: The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        """
+        pulumi.set(__self__, "app_name", app_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The application's name.
+        """
+        return pulumi.get(self, "app_name")
+
+    @app_name.setter
+    def app_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "app_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        The application's port number, for example 80.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[_builtins.str]:
+        """
+        The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "protocol", value)
+
 
 class PolicyIeMapArgsDict(TypedDict):
     """

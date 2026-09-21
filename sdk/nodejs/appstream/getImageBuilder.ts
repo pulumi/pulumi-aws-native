@@ -37,6 +37,7 @@ export interface GetImageBuilderResult {
      * The description to display.
      */
     readonly description?: string;
+    readonly disableImdsv1?: boolean;
     /**
      * The image builder name to display.
      */

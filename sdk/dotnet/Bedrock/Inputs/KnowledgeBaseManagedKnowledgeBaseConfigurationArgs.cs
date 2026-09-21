@@ -30,6 +30,9 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("serverSideEncryptionConfiguration")]
         public Input<Inputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationArgs>? ServerSideEncryptionConfiguration { get; set; }
 
+        [Input("supplementalDataStorageConfiguration")]
+        public Input<Inputs.KnowledgeBaseSupplementalDataStorageConfigurationArgs>? SupplementalDataStorageConfiguration { get; set; }
+
         public KnowledgeBaseManagedKnowledgeBaseConfigurationArgs()
         {
         }

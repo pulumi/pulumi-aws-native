@@ -19,6 +19,11 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
     {
         [Input("distributionSegments")]
         private InputList<Inputs.AutoScalingGroupDistributionSegmentArgs>? _distributionSegments;
+
+        /// <summary>
+        /// The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+        ///  For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        /// </summary>
         public InputList<Inputs.AutoScalingGroupDistributionSegmentArgs> DistributionSegments
         {
             get => _distributionSegments ?? (_distributionSegments = new InputList<Inputs.AutoScalingGroupDistributionSegmentArgs>());

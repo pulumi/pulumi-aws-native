@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -92,6 +93,7 @@ type LookupScalableTargetResult struct {
 	//   +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
 	//   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
 	SuspendedState *ScalableTargetSuspendedState `pulumi:"suspendedState"`
+	Tags           []aws.Tag                     `pulumi:"tags"`
 }
 
 func LookupScalableTargetOutput(ctx *pulumi.Context, args LookupScalableTargetOutputArgs, opts ...pulumi.InvokeOption) LookupScalableTargetResultOutput {
@@ -197,6 +199,10 @@ func (o LookupScalableTargetResultOutput) ScheduledActions() ScalableTargetSched
 //	+  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
 func (o LookupScalableTargetResultOutput) SuspendedState() ScalableTargetSuspendedStatePtrOutput {
 	return o.ApplyT(func(v LookupScalableTargetResult) *ScalableTargetSuspendedState { return v.SuspendedState }).(ScalableTargetSuspendedStatePtrOutput)
+}
+
+func (o LookupScalableTargetResultOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v LookupScalableTargetResult) []aws.Tag { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

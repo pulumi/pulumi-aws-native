@@ -1420,6 +1420,7 @@ export const VpcEndpointType = {
     GatewayLoadBalancer: "GatewayLoadBalancer",
     ServiceNetwork: "ServiceNetwork",
     Resource: "Resource",
+    Tunnel: "Tunnel",
 } as const;
 
 /**

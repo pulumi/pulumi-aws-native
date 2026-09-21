@@ -7,11 +7,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .applications_list import *
+from .get_applications_list import *
 from .get_notification_channel import *
 from .get_policy import *
+from .get_protocols_list import *
 from .get_resource_set import *
 from .notification_channel import *
 from .policy import *
+from .protocols_list import *
 from .resource_set import *
 from ._inputs import *
 from . import outputs

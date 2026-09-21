@@ -52,7 +52,7 @@ export interface GetResourceConfigurationResult {
      * - *Domain name* - Any domain name that is publicly resolvable.
      * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
      */
-    readonly resourceConfigurationDefinition?: outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties;
+    readonly resourceConfigurationDefinition?: outputs.vpclattice.ResourceConfigurationDefinition0Properties | outputs.vpclattice.ResourceConfigurationDefinition1Properties | outputs.vpclattice.ResourceConfigurationDefinition2Properties | outputs.vpclattice.ResourceConfigurationDefinition3Properties;
     /**
      * The tags for the resource configuration.
      */

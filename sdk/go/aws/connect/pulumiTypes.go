@@ -10850,7 +10850,7 @@ func (o QueueOutboundCallerConfigPtrOutput) OutboundFlowArn() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The outbound email address ID.
+// The outbound email configuration for a specified queue.
 type QueueOutboundEmailConfig struct {
 	// The identifier of the email address.
 	OutboundEmailAddressId *string `pulumi:"outboundEmailAddressId"`
@@ -10867,7 +10867,7 @@ type QueueOutboundEmailConfigInput interface {
 	ToQueueOutboundEmailConfigOutputWithContext(context.Context) QueueOutboundEmailConfigOutput
 }
 
-// The outbound email address ID.
+// The outbound email configuration for a specified queue.
 type QueueOutboundEmailConfigArgs struct {
 	// The identifier of the email address.
 	OutboundEmailAddressId pulumi.StringPtrInput `pulumi:"outboundEmailAddressId"`
@@ -10926,7 +10926,7 @@ func (i *queueOutboundEmailConfigPtrType) ToQueueOutboundEmailConfigPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(QueueOutboundEmailConfigPtrOutput)
 }
 
-// The outbound email address ID.
+// The outbound email configuration for a specified queue.
 type QueueOutboundEmailConfigOutput struct{ *pulumi.OutputState }
 
 func (QueueOutboundEmailConfigOutput) ElementType() reflect.Type {

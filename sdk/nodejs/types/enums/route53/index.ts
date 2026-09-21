@@ -70,3 +70,28 @@ export const RecordSetFailover = {
 } as const;
 
 export type RecordSetFailover = (typeof RecordSetFailover)[keyof typeof RecordSetFailover];
+
+export const TrafficPolicyType = {
+    Soa: "SOA",
+    A: "A",
+    Txt: "TXT",
+    Ns: "NS",
+    Cname: "CNAME",
+    Mx: "MX",
+    Naptr: "NAPTR",
+    Ptr: "PTR",
+    Srv: "SRV",
+    Spf: "SPF",
+    Aaaa: "AAAA",
+    Caa: "CAA",
+    Ds: "DS",
+    Tlsa: "TLSA",
+    Sshfp: "SSHFP",
+    Svcb: "SVCB",
+    Https: "HTTPS",
+} as const;
+
+/**
+ * The DNS type of the resource record sets that Amazon Route 53 creates when the traffic policy is used to create a traffic policy instance.
+ */
+export type TrafficPolicyType = (typeof TrafficPolicyType)[keyof typeof TrafficPolicyType];

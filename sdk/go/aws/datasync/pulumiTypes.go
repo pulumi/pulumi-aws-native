@@ -161,6 +161,322 @@ func (o LocationAzureBlobAzureBlobSasConfigurationPtrOutput) AzureBlobSasToken()
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+type LocationAzureBlobAzureFederatedIdentityConfig struct {
+	// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+	AwsIamRole *string                           `pulumi:"awsIamRole"`
+	AzureOidc  *LocationAzureBlobAzureOidcConfig `pulumi:"azureOidc"`
+}
+
+// LocationAzureBlobAzureFederatedIdentityConfigInput is an input type that accepts LocationAzureBlobAzureFederatedIdentityConfigArgs and LocationAzureBlobAzureFederatedIdentityConfigOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureFederatedIdentityConfigInput` via:
+//
+//	LocationAzureBlobAzureFederatedIdentityConfigArgs{...}
+type LocationAzureBlobAzureFederatedIdentityConfigInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureFederatedIdentityConfigOutput() LocationAzureBlobAzureFederatedIdentityConfigOutput
+	ToLocationAzureBlobAzureFederatedIdentityConfigOutputWithContext(context.Context) LocationAzureBlobAzureFederatedIdentityConfigOutput
+}
+
+// Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+type LocationAzureBlobAzureFederatedIdentityConfigArgs struct {
+	// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+	AwsIamRole pulumi.StringPtrInput                    `pulumi:"awsIamRole"`
+	AzureOidc  LocationAzureBlobAzureOidcConfigPtrInput `pulumi:"azureOidc"`
+}
+
+func (LocationAzureBlobAzureFederatedIdentityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (i LocationAzureBlobAzureFederatedIdentityConfigArgs) ToLocationAzureBlobAzureFederatedIdentityConfigOutput() LocationAzureBlobAzureFederatedIdentityConfigOutput {
+	return i.ToLocationAzureBlobAzureFederatedIdentityConfigOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobAzureFederatedIdentityConfigArgs) ToLocationAzureBlobAzureFederatedIdentityConfigOutputWithContext(ctx context.Context) LocationAzureBlobAzureFederatedIdentityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureFederatedIdentityConfigOutput)
+}
+
+func (i LocationAzureBlobAzureFederatedIdentityConfigArgs) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutput() LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return i.ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobAzureFederatedIdentityConfigArgs) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureFederatedIdentityConfigOutput).ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(ctx)
+}
+
+// LocationAzureBlobAzureFederatedIdentityConfigPtrInput is an input type that accepts LocationAzureBlobAzureFederatedIdentityConfigArgs, LocationAzureBlobAzureFederatedIdentityConfigPtr and LocationAzureBlobAzureFederatedIdentityConfigPtrOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureFederatedIdentityConfigPtrInput` via:
+//
+//	        LocationAzureBlobAzureFederatedIdentityConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationAzureBlobAzureFederatedIdentityConfigPtrInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutput() LocationAzureBlobAzureFederatedIdentityConfigPtrOutput
+	ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(context.Context) LocationAzureBlobAzureFederatedIdentityConfigPtrOutput
+}
+
+type locationAzureBlobAzureFederatedIdentityConfigPtrType LocationAzureBlobAzureFederatedIdentityConfigArgs
+
+func LocationAzureBlobAzureFederatedIdentityConfigPtr(v *LocationAzureBlobAzureFederatedIdentityConfigArgs) LocationAzureBlobAzureFederatedIdentityConfigPtrInput {
+	return (*locationAzureBlobAzureFederatedIdentityConfigPtrType)(v)
+}
+
+func (*locationAzureBlobAzureFederatedIdentityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (i *locationAzureBlobAzureFederatedIdentityConfigPtrType) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutput() LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return i.ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *locationAzureBlobAzureFederatedIdentityConfigPtrType) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureFederatedIdentityConfigPtrOutput)
+}
+
+// Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+type LocationAzureBlobAzureFederatedIdentityConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureFederatedIdentityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigOutput) ToLocationAzureBlobAzureFederatedIdentityConfigOutput() LocationAzureBlobAzureFederatedIdentityConfigOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigOutput) ToLocationAzureBlobAzureFederatedIdentityConfigOutputWithContext(ctx context.Context) LocationAzureBlobAzureFederatedIdentityConfigOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigOutput) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutput() LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return o.ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigOutput) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationAzureBlobAzureFederatedIdentityConfig) *LocationAzureBlobAzureFederatedIdentityConfig {
+		return &v
+	}).(LocationAzureBlobAzureFederatedIdentityConfigPtrOutput)
+}
+
+// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+func (o LocationAzureBlobAzureFederatedIdentityConfigOutput) AwsIamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationAzureBlobAzureFederatedIdentityConfig) *string { return v.AwsIamRole }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigOutput) AzureOidc() LocationAzureBlobAzureOidcConfigPtrOutput {
+	return o.ApplyT(func(v LocationAzureBlobAzureFederatedIdentityConfig) *LocationAzureBlobAzureOidcConfig {
+		return v.AzureOidc
+	}).(LocationAzureBlobAzureOidcConfigPtrOutput)
+}
+
+type LocationAzureBlobAzureFederatedIdentityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureFederatedIdentityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigPtrOutput) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutput() LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigPtrOutput) ToLocationAzureBlobAzureFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigPtrOutput) Elem() LocationAzureBlobAzureFederatedIdentityConfigOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureFederatedIdentityConfig) LocationAzureBlobAzureFederatedIdentityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationAzureBlobAzureFederatedIdentityConfig
+		return ret
+	}).(LocationAzureBlobAzureFederatedIdentityConfigOutput)
+}
+
+// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+func (o LocationAzureBlobAzureFederatedIdentityConfigPtrOutput) AwsIamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureFederatedIdentityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsIamRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationAzureBlobAzureFederatedIdentityConfigPtrOutput) AzureOidc() LocationAzureBlobAzureOidcConfigPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureFederatedIdentityConfig) *LocationAzureBlobAzureOidcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AzureOidc
+	}).(LocationAzureBlobAzureOidcConfigPtrOutput)
+}
+
+// Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+type LocationAzureBlobAzureOidcConfig struct {
+	// Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+	ClientId string `pulumi:"clientId"`
+	// Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+	TenantId string `pulumi:"tenantId"`
+}
+
+// LocationAzureBlobAzureOidcConfigInput is an input type that accepts LocationAzureBlobAzureOidcConfigArgs and LocationAzureBlobAzureOidcConfigOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureOidcConfigInput` via:
+//
+//	LocationAzureBlobAzureOidcConfigArgs{...}
+type LocationAzureBlobAzureOidcConfigInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureOidcConfigOutput() LocationAzureBlobAzureOidcConfigOutput
+	ToLocationAzureBlobAzureOidcConfigOutputWithContext(context.Context) LocationAzureBlobAzureOidcConfigOutput
+}
+
+// Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+type LocationAzureBlobAzureOidcConfigArgs struct {
+	// Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+	ClientId pulumi.StringInput `pulumi:"clientId"`
+	// Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+}
+
+func (LocationAzureBlobAzureOidcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureOidcConfig)(nil)).Elem()
+}
+
+func (i LocationAzureBlobAzureOidcConfigArgs) ToLocationAzureBlobAzureOidcConfigOutput() LocationAzureBlobAzureOidcConfigOutput {
+	return i.ToLocationAzureBlobAzureOidcConfigOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobAzureOidcConfigArgs) ToLocationAzureBlobAzureOidcConfigOutputWithContext(ctx context.Context) LocationAzureBlobAzureOidcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureOidcConfigOutput)
+}
+
+func (i LocationAzureBlobAzureOidcConfigArgs) ToLocationAzureBlobAzureOidcConfigPtrOutput() LocationAzureBlobAzureOidcConfigPtrOutput {
+	return i.ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LocationAzureBlobAzureOidcConfigArgs) ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureOidcConfigOutput).ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(ctx)
+}
+
+// LocationAzureBlobAzureOidcConfigPtrInput is an input type that accepts LocationAzureBlobAzureOidcConfigArgs, LocationAzureBlobAzureOidcConfigPtr and LocationAzureBlobAzureOidcConfigPtrOutput values.
+// You can construct a concrete instance of `LocationAzureBlobAzureOidcConfigPtrInput` via:
+//
+//	        LocationAzureBlobAzureOidcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationAzureBlobAzureOidcConfigPtrInput interface {
+	pulumi.Input
+
+	ToLocationAzureBlobAzureOidcConfigPtrOutput() LocationAzureBlobAzureOidcConfigPtrOutput
+	ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(context.Context) LocationAzureBlobAzureOidcConfigPtrOutput
+}
+
+type locationAzureBlobAzureOidcConfigPtrType LocationAzureBlobAzureOidcConfigArgs
+
+func LocationAzureBlobAzureOidcConfigPtr(v *LocationAzureBlobAzureOidcConfigArgs) LocationAzureBlobAzureOidcConfigPtrInput {
+	return (*locationAzureBlobAzureOidcConfigPtrType)(v)
+}
+
+func (*locationAzureBlobAzureOidcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureOidcConfig)(nil)).Elem()
+}
+
+func (i *locationAzureBlobAzureOidcConfigPtrType) ToLocationAzureBlobAzureOidcConfigPtrOutput() LocationAzureBlobAzureOidcConfigPtrOutput {
+	return i.ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *locationAzureBlobAzureOidcConfigPtrType) ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationAzureBlobAzureOidcConfigPtrOutput)
+}
+
+// Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+type LocationAzureBlobAzureOidcConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureOidcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationAzureBlobAzureOidcConfig)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureOidcConfigOutput) ToLocationAzureBlobAzureOidcConfigOutput() LocationAzureBlobAzureOidcConfigOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureOidcConfigOutput) ToLocationAzureBlobAzureOidcConfigOutputWithContext(ctx context.Context) LocationAzureBlobAzureOidcConfigOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureOidcConfigOutput) ToLocationAzureBlobAzureOidcConfigPtrOutput() LocationAzureBlobAzureOidcConfigPtrOutput {
+	return o.ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LocationAzureBlobAzureOidcConfigOutput) ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureOidcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationAzureBlobAzureOidcConfig) *LocationAzureBlobAzureOidcConfig {
+		return &v
+	}).(LocationAzureBlobAzureOidcConfigPtrOutput)
+}
+
+// Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+func (o LocationAzureBlobAzureOidcConfigOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationAzureBlobAzureOidcConfig) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+func (o LocationAzureBlobAzureOidcConfigOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationAzureBlobAzureOidcConfig) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+type LocationAzureBlobAzureOidcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationAzureBlobAzureOidcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationAzureBlobAzureOidcConfig)(nil)).Elem()
+}
+
+func (o LocationAzureBlobAzureOidcConfigPtrOutput) ToLocationAzureBlobAzureOidcConfigPtrOutput() LocationAzureBlobAzureOidcConfigPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureOidcConfigPtrOutput) ToLocationAzureBlobAzureOidcConfigPtrOutputWithContext(ctx context.Context) LocationAzureBlobAzureOidcConfigPtrOutput {
+	return o
+}
+
+func (o LocationAzureBlobAzureOidcConfigPtrOutput) Elem() LocationAzureBlobAzureOidcConfigOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureOidcConfig) LocationAzureBlobAzureOidcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationAzureBlobAzureOidcConfig
+		return ret
+	}).(LocationAzureBlobAzureOidcConfigOutput)
+}
+
+// Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+func (o LocationAzureBlobAzureOidcConfigPtrOutput) ClientId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+func (o LocationAzureBlobAzureOidcConfigPtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlobAzureOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
 type LocationAzureBlobCmkSecretConfig struct {
 	// Specifies the ARN for the customer-managed AWS KMS key used to encrypt the secret specified for SecretArn. DataSync provides this key to AWS Secrets Manager.
@@ -3890,6 +4206,203 @@ func (o LocationObjectStorageCustomSecretConfigPtrOutput) SecretArn() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+type LocationObjectStorageGoogleOidcConfig struct {
+	// The name of the Google Cloud workload identity pool that DataSync federates with.
+	IdentityPoolName string `pulumi:"identityPoolName"`
+	// The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+	IdentityProviderName string `pulumi:"identityProviderName"`
+	// The human-readable Google Cloud project name.
+	ProjectName string `pulumi:"projectName"`
+	// The numeric Google Cloud project ID, as a string.
+	ProjectNumber string `pulumi:"projectNumber"`
+}
+
+// LocationObjectStorageGoogleOidcConfigInput is an input type that accepts LocationObjectStorageGoogleOidcConfigArgs and LocationObjectStorageGoogleOidcConfigOutput values.
+// You can construct a concrete instance of `LocationObjectStorageGoogleOidcConfigInput` via:
+//
+//	LocationObjectStorageGoogleOidcConfigArgs{...}
+type LocationObjectStorageGoogleOidcConfigInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageGoogleOidcConfigOutput() LocationObjectStorageGoogleOidcConfigOutput
+	ToLocationObjectStorageGoogleOidcConfigOutputWithContext(context.Context) LocationObjectStorageGoogleOidcConfigOutput
+}
+
+// Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+type LocationObjectStorageGoogleOidcConfigArgs struct {
+	// The name of the Google Cloud workload identity pool that DataSync federates with.
+	IdentityPoolName pulumi.StringInput `pulumi:"identityPoolName"`
+	// The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+	IdentityProviderName pulumi.StringInput `pulumi:"identityProviderName"`
+	// The human-readable Google Cloud project name.
+	ProjectName pulumi.StringInput `pulumi:"projectName"`
+	// The numeric Google Cloud project ID, as a string.
+	ProjectNumber pulumi.StringInput `pulumi:"projectNumber"`
+}
+
+func (LocationObjectStorageGoogleOidcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageGoogleOidcConfig)(nil)).Elem()
+}
+
+func (i LocationObjectStorageGoogleOidcConfigArgs) ToLocationObjectStorageGoogleOidcConfigOutput() LocationObjectStorageGoogleOidcConfigOutput {
+	return i.ToLocationObjectStorageGoogleOidcConfigOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageGoogleOidcConfigArgs) ToLocationObjectStorageGoogleOidcConfigOutputWithContext(ctx context.Context) LocationObjectStorageGoogleOidcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageGoogleOidcConfigOutput)
+}
+
+func (i LocationObjectStorageGoogleOidcConfigArgs) ToLocationObjectStorageGoogleOidcConfigPtrOutput() LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return i.ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageGoogleOidcConfigArgs) ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageGoogleOidcConfigOutput).ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(ctx)
+}
+
+// LocationObjectStorageGoogleOidcConfigPtrInput is an input type that accepts LocationObjectStorageGoogleOidcConfigArgs, LocationObjectStorageGoogleOidcConfigPtr and LocationObjectStorageGoogleOidcConfigPtrOutput values.
+// You can construct a concrete instance of `LocationObjectStorageGoogleOidcConfigPtrInput` via:
+//
+//	        LocationObjectStorageGoogleOidcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationObjectStorageGoogleOidcConfigPtrInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageGoogleOidcConfigPtrOutput() LocationObjectStorageGoogleOidcConfigPtrOutput
+	ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(context.Context) LocationObjectStorageGoogleOidcConfigPtrOutput
+}
+
+type locationObjectStorageGoogleOidcConfigPtrType LocationObjectStorageGoogleOidcConfigArgs
+
+func LocationObjectStorageGoogleOidcConfigPtr(v *LocationObjectStorageGoogleOidcConfigArgs) LocationObjectStorageGoogleOidcConfigPtrInput {
+	return (*locationObjectStorageGoogleOidcConfigPtrType)(v)
+}
+
+func (*locationObjectStorageGoogleOidcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationObjectStorageGoogleOidcConfig)(nil)).Elem()
+}
+
+func (i *locationObjectStorageGoogleOidcConfigPtrType) ToLocationObjectStorageGoogleOidcConfigPtrOutput() LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return i.ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *locationObjectStorageGoogleOidcConfigPtrType) ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageGoogleOidcConfigPtrOutput)
+}
+
+// Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+type LocationObjectStorageGoogleOidcConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageGoogleOidcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageGoogleOidcConfig)(nil)).Elem()
+}
+
+func (o LocationObjectStorageGoogleOidcConfigOutput) ToLocationObjectStorageGoogleOidcConfigOutput() LocationObjectStorageGoogleOidcConfigOutput {
+	return o
+}
+
+func (o LocationObjectStorageGoogleOidcConfigOutput) ToLocationObjectStorageGoogleOidcConfigOutputWithContext(ctx context.Context) LocationObjectStorageGoogleOidcConfigOutput {
+	return o
+}
+
+func (o LocationObjectStorageGoogleOidcConfigOutput) ToLocationObjectStorageGoogleOidcConfigPtrOutput() LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return o.ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LocationObjectStorageGoogleOidcConfigOutput) ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationObjectStorageGoogleOidcConfig) *LocationObjectStorageGoogleOidcConfig {
+		return &v
+	}).(LocationObjectStorageGoogleOidcConfigPtrOutput)
+}
+
+// The name of the Google Cloud workload identity pool that DataSync federates with.
+func (o LocationObjectStorageGoogleOidcConfigOutput) IdentityPoolName() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationObjectStorageGoogleOidcConfig) string { return v.IdentityPoolName }).(pulumi.StringOutput)
+}
+
+// The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+func (o LocationObjectStorageGoogleOidcConfigOutput) IdentityProviderName() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationObjectStorageGoogleOidcConfig) string { return v.IdentityProviderName }).(pulumi.StringOutput)
+}
+
+// The human-readable Google Cloud project name.
+func (o LocationObjectStorageGoogleOidcConfigOutput) ProjectName() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationObjectStorageGoogleOidcConfig) string { return v.ProjectName }).(pulumi.StringOutput)
+}
+
+// The numeric Google Cloud project ID, as a string.
+func (o LocationObjectStorageGoogleOidcConfigOutput) ProjectNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v LocationObjectStorageGoogleOidcConfig) string { return v.ProjectNumber }).(pulumi.StringOutput)
+}
+
+type LocationObjectStorageGoogleOidcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageGoogleOidcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationObjectStorageGoogleOidcConfig)(nil)).Elem()
+}
+
+func (o LocationObjectStorageGoogleOidcConfigPtrOutput) ToLocationObjectStorageGoogleOidcConfigPtrOutput() LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return o
+}
+
+func (o LocationObjectStorageGoogleOidcConfigPtrOutput) ToLocationObjectStorageGoogleOidcConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return o
+}
+
+func (o LocationObjectStorageGoogleOidcConfigPtrOutput) Elem() LocationObjectStorageGoogleOidcConfigOutput {
+	return o.ApplyT(func(v *LocationObjectStorageGoogleOidcConfig) LocationObjectStorageGoogleOidcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationObjectStorageGoogleOidcConfig
+		return ret
+	}).(LocationObjectStorageGoogleOidcConfigOutput)
+}
+
+// The name of the Google Cloud workload identity pool that DataSync federates with.
+func (o LocationObjectStorageGoogleOidcConfigPtrOutput) IdentityPoolName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorageGoogleOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityPoolName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+func (o LocationObjectStorageGoogleOidcConfigPtrOutput) IdentityProviderName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorageGoogleOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.IdentityProviderName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The human-readable Google Cloud project name.
+func (o LocationObjectStorageGoogleOidcConfigPtrOutput) ProjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorageGoogleOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The numeric Google Cloud project ID, as a string.
+func (o LocationObjectStorageGoogleOidcConfigPtrOutput) ProjectNumber() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorageGoogleOidcConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ProjectNumber
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
 type LocationObjectStorageManagedSecretConfig struct {
 	// Specifies the ARN for an AWS Secrets Manager secret.
@@ -3948,6 +4461,301 @@ func (o LocationObjectStorageManagedSecretConfigPtrOutput) SecretArn() pulumi.St
 		}
 		return &v.SecretArn
 	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+type LocationObjectStorageObjectStorageExternalIdentityConfig struct {
+	GoogleOidc *LocationObjectStorageGoogleOidcConfig `pulumi:"googleOidc"`
+}
+
+// LocationObjectStorageObjectStorageExternalIdentityConfigInput is an input type that accepts LocationObjectStorageObjectStorageExternalIdentityConfigArgs and LocationObjectStorageObjectStorageExternalIdentityConfigOutput values.
+// You can construct a concrete instance of `LocationObjectStorageObjectStorageExternalIdentityConfigInput` via:
+//
+//	LocationObjectStorageObjectStorageExternalIdentityConfigArgs{...}
+type LocationObjectStorageObjectStorageExternalIdentityConfigInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageObjectStorageExternalIdentityConfigOutput() LocationObjectStorageObjectStorageExternalIdentityConfigOutput
+	ToLocationObjectStorageObjectStorageExternalIdentityConfigOutputWithContext(context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigOutput
+}
+
+// Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+type LocationObjectStorageObjectStorageExternalIdentityConfigArgs struct {
+	GoogleOidc LocationObjectStorageGoogleOidcConfigPtrInput `pulumi:"googleOidc"`
+}
+
+func (LocationObjectStorageObjectStorageExternalIdentityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageObjectStorageExternalIdentityConfig)(nil)).Elem()
+}
+
+func (i LocationObjectStorageObjectStorageExternalIdentityConfigArgs) ToLocationObjectStorageObjectStorageExternalIdentityConfigOutput() LocationObjectStorageObjectStorageExternalIdentityConfigOutput {
+	return i.ToLocationObjectStorageObjectStorageExternalIdentityConfigOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageObjectStorageExternalIdentityConfigArgs) ToLocationObjectStorageObjectStorageExternalIdentityConfigOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageObjectStorageExternalIdentityConfigOutput)
+}
+
+func (i LocationObjectStorageObjectStorageExternalIdentityConfigArgs) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput() LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return i.ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageObjectStorageExternalIdentityConfigArgs) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageObjectStorageExternalIdentityConfigOutput).ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(ctx)
+}
+
+// LocationObjectStorageObjectStorageExternalIdentityConfigPtrInput is an input type that accepts LocationObjectStorageObjectStorageExternalIdentityConfigArgs, LocationObjectStorageObjectStorageExternalIdentityConfigPtr and LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput values.
+// You can construct a concrete instance of `LocationObjectStorageObjectStorageExternalIdentityConfigPtrInput` via:
+//
+//	        LocationObjectStorageObjectStorageExternalIdentityConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationObjectStorageObjectStorageExternalIdentityConfigPtrInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput() LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput
+	ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput
+}
+
+type locationObjectStorageObjectStorageExternalIdentityConfigPtrType LocationObjectStorageObjectStorageExternalIdentityConfigArgs
+
+func LocationObjectStorageObjectStorageExternalIdentityConfigPtr(v *LocationObjectStorageObjectStorageExternalIdentityConfigArgs) LocationObjectStorageObjectStorageExternalIdentityConfigPtrInput {
+	return (*locationObjectStorageObjectStorageExternalIdentityConfigPtrType)(v)
+}
+
+func (*locationObjectStorageObjectStorageExternalIdentityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationObjectStorageObjectStorageExternalIdentityConfig)(nil)).Elem()
+}
+
+func (i *locationObjectStorageObjectStorageExternalIdentityConfigPtrType) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput() LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return i.ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *locationObjectStorageObjectStorageExternalIdentityConfigPtrType) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput)
+}
+
+// Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+type LocationObjectStorageObjectStorageExternalIdentityConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageObjectStorageExternalIdentityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageObjectStorageExternalIdentityConfig)(nil)).Elem()
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigOutput) ToLocationObjectStorageObjectStorageExternalIdentityConfigOutput() LocationObjectStorageObjectStorageExternalIdentityConfigOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigOutput) ToLocationObjectStorageObjectStorageExternalIdentityConfigOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigOutput) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput() LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return o.ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigOutput) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationObjectStorageObjectStorageExternalIdentityConfig) *LocationObjectStorageObjectStorageExternalIdentityConfig {
+		return &v
+	}).(LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput)
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigOutput) GoogleOidc() LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return o.ApplyT(func(v LocationObjectStorageObjectStorageExternalIdentityConfig) *LocationObjectStorageGoogleOidcConfig {
+		return v.GoogleOidc
+	}).(LocationObjectStorageGoogleOidcConfigPtrOutput)
+}
+
+type LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationObjectStorageObjectStorageExternalIdentityConfig)(nil)).Elem()
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput() LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput) ToLocationObjectStorageObjectStorageExternalIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput) Elem() LocationObjectStorageObjectStorageExternalIdentityConfigOutput {
+	return o.ApplyT(func(v *LocationObjectStorageObjectStorageExternalIdentityConfig) LocationObjectStorageObjectStorageExternalIdentityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationObjectStorageObjectStorageExternalIdentityConfig
+		return ret
+	}).(LocationObjectStorageObjectStorageExternalIdentityConfigOutput)
+}
+
+func (o LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput) GoogleOidc() LocationObjectStorageGoogleOidcConfigPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorageObjectStorageExternalIdentityConfig) *LocationObjectStorageGoogleOidcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.GoogleOidc
+	}).(LocationObjectStorageGoogleOidcConfigPtrOutput)
+}
+
+// Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+type LocationObjectStorageObjectStorageFederatedIdentityConfig struct {
+	// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+	AwsIamRole       *string                                                   `pulumi:"awsIamRole"`
+	ExternalIdentity *LocationObjectStorageObjectStorageExternalIdentityConfig `pulumi:"externalIdentity"`
+}
+
+// LocationObjectStorageObjectStorageFederatedIdentityConfigInput is an input type that accepts LocationObjectStorageObjectStorageFederatedIdentityConfigArgs and LocationObjectStorageObjectStorageFederatedIdentityConfigOutput values.
+// You can construct a concrete instance of `LocationObjectStorageObjectStorageFederatedIdentityConfigInput` via:
+//
+//	LocationObjectStorageObjectStorageFederatedIdentityConfigArgs{...}
+type LocationObjectStorageObjectStorageFederatedIdentityConfigInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageObjectStorageFederatedIdentityConfigOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigOutput
+	ToLocationObjectStorageObjectStorageFederatedIdentityConfigOutputWithContext(context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigOutput
+}
+
+// Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+type LocationObjectStorageObjectStorageFederatedIdentityConfigArgs struct {
+	// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+	AwsIamRole       pulumi.StringPtrInput                                            `pulumi:"awsIamRole"`
+	ExternalIdentity LocationObjectStorageObjectStorageExternalIdentityConfigPtrInput `pulumi:"externalIdentity"`
+}
+
+func (LocationObjectStorageObjectStorageFederatedIdentityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageObjectStorageFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (i LocationObjectStorageObjectStorageFederatedIdentityConfigArgs) ToLocationObjectStorageObjectStorageFederatedIdentityConfigOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigOutput {
+	return i.ToLocationObjectStorageObjectStorageFederatedIdentityConfigOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageObjectStorageFederatedIdentityConfigArgs) ToLocationObjectStorageObjectStorageFederatedIdentityConfigOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageObjectStorageFederatedIdentityConfigOutput)
+}
+
+func (i LocationObjectStorageObjectStorageFederatedIdentityConfigArgs) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return i.ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LocationObjectStorageObjectStorageFederatedIdentityConfigArgs) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageObjectStorageFederatedIdentityConfigOutput).ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(ctx)
+}
+
+// LocationObjectStorageObjectStorageFederatedIdentityConfigPtrInput is an input type that accepts LocationObjectStorageObjectStorageFederatedIdentityConfigArgs, LocationObjectStorageObjectStorageFederatedIdentityConfigPtr and LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput values.
+// You can construct a concrete instance of `LocationObjectStorageObjectStorageFederatedIdentityConfigPtrInput` via:
+//
+//	        LocationObjectStorageObjectStorageFederatedIdentityConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LocationObjectStorageObjectStorageFederatedIdentityConfigPtrInput interface {
+	pulumi.Input
+
+	ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput
+	ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput
+}
+
+type locationObjectStorageObjectStorageFederatedIdentityConfigPtrType LocationObjectStorageObjectStorageFederatedIdentityConfigArgs
+
+func LocationObjectStorageObjectStorageFederatedIdentityConfigPtr(v *LocationObjectStorageObjectStorageFederatedIdentityConfigArgs) LocationObjectStorageObjectStorageFederatedIdentityConfigPtrInput {
+	return (*locationObjectStorageObjectStorageFederatedIdentityConfigPtrType)(v)
+}
+
+func (*locationObjectStorageObjectStorageFederatedIdentityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationObjectStorageObjectStorageFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (i *locationObjectStorageObjectStorageFederatedIdentityConfigPtrType) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return i.ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *locationObjectStorageObjectStorageFederatedIdentityConfigPtrType) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput)
+}
+
+// Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+type LocationObjectStorageObjectStorageFederatedIdentityConfigOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageObjectStorageFederatedIdentityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LocationObjectStorageObjectStorageFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigOutput) ToLocationObjectStorageObjectStorageFederatedIdentityConfigOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigOutput) ToLocationObjectStorageObjectStorageFederatedIdentityConfigOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigOutput) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return o.ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigOutput) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LocationObjectStorageObjectStorageFederatedIdentityConfig) *LocationObjectStorageObjectStorageFederatedIdentityConfig {
+		return &v
+	}).(LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput)
+}
+
+// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigOutput) AwsIamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LocationObjectStorageObjectStorageFederatedIdentityConfig) *string { return v.AwsIamRole }).(pulumi.StringPtrOutput)
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigOutput) ExternalIdentity() LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return o.ApplyT(func(v LocationObjectStorageObjectStorageFederatedIdentityConfig) *LocationObjectStorageObjectStorageExternalIdentityConfig {
+		return v.ExternalIdentity
+	}).(LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput)
+}
+
+type LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LocationObjectStorageObjectStorageFederatedIdentityConfig)(nil)).Elem()
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput() LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput) ToLocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutputWithContext(ctx context.Context) LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return o
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput) Elem() LocationObjectStorageObjectStorageFederatedIdentityConfigOutput {
+	return o.ApplyT(func(v *LocationObjectStorageObjectStorageFederatedIdentityConfig) LocationObjectStorageObjectStorageFederatedIdentityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LocationObjectStorageObjectStorageFederatedIdentityConfig
+		return ret
+	}).(LocationObjectStorageObjectStorageFederatedIdentityConfigOutput)
+}
+
+// Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput) AwsIamRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorageObjectStorageFederatedIdentityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AwsIamRole
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput) ExternalIdentity() LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorageObjectStorageFederatedIdentityConfig) *LocationObjectStorageObjectStorageExternalIdentityConfig {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalIdentity
+	}).(LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput)
 }
 
 // A key-value pair to associate with a resource.
@@ -5488,6 +6296,8 @@ type TaskOptions struct {
 	LogLevel *TaskOptionsLogLevel `pulumi:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	Mtime *TaskOptionsMtime `pulumi:"mtime"`
+	// A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+	ObjectMetadata *TaskOptionsObjectMetadata `pulumi:"objectMetadata"`
 	// A value that determines whether object tags should be read from the source object store and written to the destination object store.
 	ObjectTags *TaskOptionsObjectTags `pulumi:"objectTags"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
@@ -5533,6 +6343,8 @@ type TaskOptionsArgs struct {
 	LogLevel TaskOptionsLogLevelPtrInput `pulumi:"logLevel"`
 	// A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
 	Mtime TaskOptionsMtimePtrInput `pulumi:"mtime"`
+	// A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+	ObjectMetadata TaskOptionsObjectMetadataPtrInput `pulumi:"objectMetadata"`
 	// A value that determines whether object tags should be read from the source object store and written to the destination object store.
 	ObjectTags TaskOptionsObjectTagsPtrInput `pulumi:"objectTags"`
 	// A value that determines whether files at the destination should be overwritten or preserved when copying files.
@@ -5658,6 +6470,11 @@ func (o TaskOptionsOutput) Mtime() TaskOptionsMtimePtrOutput {
 	return o.ApplyT(func(v TaskOptions) *TaskOptionsMtime { return v.Mtime }).(TaskOptionsMtimePtrOutput)
 }
 
+// A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+func (o TaskOptionsOutput) ObjectMetadata() TaskOptionsObjectMetadataPtrOutput {
+	return o.ApplyT(func(v TaskOptions) *TaskOptionsObjectMetadata { return v.ObjectMetadata }).(TaskOptionsObjectMetadataPtrOutput)
+}
+
 // A value that determines whether object tags should be read from the source object store and written to the destination object store.
 func (o TaskOptionsOutput) ObjectTags() TaskOptionsObjectTagsPtrOutput {
 	return o.ApplyT(func(v TaskOptions) *TaskOptionsObjectTags { return v.ObjectTags }).(TaskOptionsObjectTagsPtrOutput)
@@ -5780,6 +6597,16 @@ func (o TaskOptionsPtrOutput) Mtime() TaskOptionsMtimePtrOutput {
 		}
 		return v.Mtime
 	}).(TaskOptionsMtimePtrOutput)
+}
+
+// A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+func (o TaskOptionsPtrOutput) ObjectMetadata() TaskOptionsObjectMetadataPtrOutput {
+	return o.ApplyT(func(v *TaskOptions) *TaskOptionsObjectMetadata {
+		if v == nil {
+			return nil
+		}
+		return v.ObjectMetadata
+	}).(TaskOptionsObjectMetadataPtrOutput)
 }
 
 // A value that determines whether object tags should be read from the source object store and written to the destination object store.
@@ -7355,6 +8182,10 @@ type TaskTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfigurationInput)(nil)).Elem(), LocationAzureBlobAzureBlobSasConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureBlobSasConfigurationPtrInput)(nil)).Elem(), LocationAzureBlobAzureBlobSasConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureFederatedIdentityConfigInput)(nil)).Elem(), LocationAzureBlobAzureFederatedIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureFederatedIdentityConfigPtrInput)(nil)).Elem(), LocationAzureBlobAzureFederatedIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureOidcConfigInput)(nil)).Elem(), LocationAzureBlobAzureOidcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobAzureOidcConfigPtrInput)(nil)).Elem(), LocationAzureBlobAzureOidcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobCmkSecretConfigInput)(nil)).Elem(), LocationAzureBlobCmkSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobCmkSecretConfigPtrInput)(nil)).Elem(), LocationAzureBlobCmkSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationAzureBlobCustomSecretConfigInput)(nil)).Elem(), LocationAzureBlobCustomSecretConfigArgs{})
@@ -7400,6 +8231,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageCmkSecretConfigPtrInput)(nil)).Elem(), LocationObjectStorageCmkSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageCustomSecretConfigInput)(nil)).Elem(), LocationObjectStorageCustomSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageCustomSecretConfigPtrInput)(nil)).Elem(), LocationObjectStorageCustomSecretConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageGoogleOidcConfigInput)(nil)).Elem(), LocationObjectStorageGoogleOidcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageGoogleOidcConfigPtrInput)(nil)).Elem(), LocationObjectStorageGoogleOidcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageObjectStorageExternalIdentityConfigInput)(nil)).Elem(), LocationObjectStorageObjectStorageExternalIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageObjectStorageExternalIdentityConfigPtrInput)(nil)).Elem(), LocationObjectStorageObjectStorageExternalIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageObjectStorageFederatedIdentityConfigInput)(nil)).Elem(), LocationObjectStorageObjectStorageFederatedIdentityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LocationObjectStorageObjectStorageFederatedIdentityConfigPtrInput)(nil)).Elem(), LocationObjectStorageObjectStorageFederatedIdentityConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationS3s3ConfigInput)(nil)).Elem(), LocationS3s3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbCmkSecretConfigInput)(nil)).Elem(), LocationSmbCmkSecretConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LocationSmbCmkSecretConfigPtrInput)(nil)).Elem(), LocationSmbCmkSecretConfigArgs{})
@@ -7440,6 +8277,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobSasConfigurationOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobAzureBlobSasConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureFederatedIdentityConfigOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureFederatedIdentityConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureOidcConfigOutput{})
+	pulumi.RegisterOutputType(LocationAzureBlobAzureOidcConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobCmkSecretConfigOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobCmkSecretConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationAzureBlobCustomSecretConfigOutput{})
@@ -7493,8 +8334,14 @@ func init() {
 	pulumi.RegisterOutputType(LocationObjectStorageCmkSecretConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageCustomSecretConfigOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageCustomSecretConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageGoogleOidcConfigOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageGoogleOidcConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageManagedSecretConfigOutput{})
 	pulumi.RegisterOutputType(LocationObjectStorageManagedSecretConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageObjectStorageExternalIdentityConfigOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageObjectStorageExternalIdentityConfigPtrOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageObjectStorageFederatedIdentityConfigOutput{})
+	pulumi.RegisterOutputType(LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationS3s3ConfigOutput{})
 	pulumi.RegisterOutputType(LocationS3s3ConfigPtrOutput{})
 	pulumi.RegisterOutputType(LocationSmbCmkSecretConfigOutput{})

@@ -236,6 +236,8 @@ __all__ = [
     'MemoryLlmExtractionConfig',
     'MemoryMessageBasedTriggerInput',
     'MemoryMetadataSchemaEntry',
+    'MemoryNamespaceKeyEntry',
+    'MemoryNamespaceKeyValidation',
     'MemoryNumberValidation',
     'MemoryRecordSchema',
     'MemorySelfManagedConfiguration',
@@ -9390,6 +9392,83 @@ class MemoryMetadataSchemaEntry(dict):
     @pulumi.getter
     def type(self) -> Optional['MemoryMetadataValueType']:
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MemoryNamespaceKeyEntry(dict):
+    """
+    A namespace variable key definition with optional validation rules
+    """
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 validation: Optional['outputs.MemoryNamespaceKeyValidation'] = None):
+        """
+        A namespace variable key definition with optional validation rules
+        """
+        pulumi.set(__self__, "key", key)
+        if validation is not None:
+            pulumi.set(__self__, "validation", validation)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def validation(self) -> Optional['outputs.MemoryNamespaceKeyValidation']:
+        return pulumi.get(self, "validation")
+
+
+@pulumi.output_type
+class MemoryNamespaceKeyValidation(dict):
+    """
+    Validation rules for namespace variable values. Multiple rules can be specified and all must pass.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "regexPattern":
+            suggest = "regex_pattern"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MemoryNamespaceKeyValidation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MemoryNamespaceKeyValidation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MemoryNamespaceKeyValidation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allowed_values: Optional[Sequence[_builtins.str]] = None,
+                 regex_pattern: Optional[_builtins.str] = None):
+        """
+        Validation rules for namespace variable values. Multiple rules can be specified and all must pass.
+
+        :param Sequence[_builtins.str] allowed_values: List of allowed values for this namespace variable
+        """
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if regex_pattern is not None:
+            pulumi.set(__self__, "regex_pattern", regex_pattern)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of allowed values for this namespace variable
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @_builtins.property
+    @pulumi.getter(name="regexPattern")
+    def regex_pattern(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "regex_pattern")
 
 
 @pulumi.output_type

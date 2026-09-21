@@ -33,6 +33,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KeySigningKey{}
 	case "aws-native:route53:RecordSet":
 		r = &RecordSet{}
+	case "aws-native:route53:TrafficPolicy":
+		r = &TrafficPolicy{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

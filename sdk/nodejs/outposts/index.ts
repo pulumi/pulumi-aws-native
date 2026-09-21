@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetOutpostArgs, GetOutpostResult, GetOutpostOutputArgs } from "./getOutpost";
+export const getOutpost: typeof import("./getOutpost").getOutpost = null as any;
+export const getOutpostOutput: typeof import("./getOutpost").getOutpostOutput = null as any;
+utilities.lazyLoad(exports, ["getOutpost","getOutpostOutput"], () => require("./getOutpost"));
+
 export { GetSiteArgs, GetSiteResult, GetSiteOutputArgs } from "./getSite";
 export const getSite: typeof import("./getSite").getSite = null as any;
 export const getSiteOutput: typeof import("./getSite").getSiteOutput = null as any;
 utilities.lazyLoad(exports, ["getSite","getSiteOutput"], () => require("./getSite"));
+
+export { OutpostArgs } from "./outpost";
+export type Outpost = import("./outpost").Outpost;
+export const Outpost: typeof import("./outpost").Outpost = null as any;
+utilities.lazyLoad(exports, ["Outpost"], () => require("./outpost"));
 
 export { SiteArgs } from "./site";
 export type Site = import("./site").Site;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:outposts:Outpost":
+                return new Outpost(name, <any>undefined, { urn })
             case "aws-native:outposts:Site":
                 return new Site(name, <any>undefined, { urn })
             default:

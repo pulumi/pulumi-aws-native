@@ -40,7 +40,8 @@ type LookupMemoryResult struct {
 	// The memory ID.
 	MemoryId *string `pulumi:"memoryId"`
 	// The memory strategies.
-	MemoryStrategies []MemoryStrategy `pulumi:"memoryStrategies"`
+	MemoryStrategies []MemoryStrategy          `pulumi:"memoryStrategies"`
+	NamespaceKeys    []MemoryNamespaceKeyEntry `pulumi:"namespaceKeys"`
 	// The memory status.
 	Status                  *MemoryStatus                  `pulumi:"status"`
 	StreamDeliveryResources *MemoryStreamDeliveryResources `pulumi:"streamDeliveryResources"`
@@ -115,6 +116,10 @@ func (o LookupMemoryResultOutput) MemoryId() pulumi.StringPtrOutput {
 // The memory strategies.
 func (o LookupMemoryResultOutput) MemoryStrategies() MemoryStrategyArrayOutput {
 	return o.ApplyT(func(v LookupMemoryResult) []MemoryStrategy { return v.MemoryStrategies }).(MemoryStrategyArrayOutput)
+}
+
+func (o LookupMemoryResultOutput) NamespaceKeys() MemoryNamespaceKeyEntryArrayOutput {
+	return o.ApplyT(func(v LookupMemoryResult) []MemoryNamespaceKeyEntry { return v.NamespaceKeys }).(MemoryNamespaceKeyEntryArrayOutput)
 }
 
 // The memory status.

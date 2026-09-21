@@ -27,6 +27,7 @@ class ImageBuilderArgs:
                  access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input['ImageBuilderAccessEndpointArgs']]]] = None,
                  appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_join_info: pulumi.Input[Optional['ImageBuilderDomainJoinInfoArgs']] = None,
                  enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -116,6 +117,8 @@ class ImageBuilderArgs:
             pulumi.set(__self__, "appstream_agent_version", appstream_agent_version)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if disable_imdsv1 is not None:
+            pulumi.set(__self__, "disable_imdsv1", disable_imdsv1)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
         if domain_join_info is not None:
@@ -239,6 +242,15 @@ class ImageBuilderArgs:
     @description.setter
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="disableImdsv1")
+    def disable_imdsv1(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "disable_imdsv1")
+
+    @disable_imdsv1.setter
+    def disable_imdsv1(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "disable_imdsv1", value)
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -387,6 +399,7 @@ class ImageBuilder(pulumi.CustomResource):
                  access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
                  appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_join_info: pulumi.Input[Optional[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
                  enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -500,6 +513,7 @@ class ImageBuilder(pulumi.CustomResource):
                  access_endpoints: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ImageBuilderAccessEndpointArgs', 'ImageBuilderAccessEndpointArgsDict']]]]] = None,
                  appstream_agent_version: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 disable_imdsv1: pulumi.Input[Optional[_builtins.bool]] = None,
                  display_name: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_join_info: pulumi.Input[Optional[Union['ImageBuilderDomainJoinInfoArgs', 'ImageBuilderDomainJoinInfoArgsDict']]] = None,
                  enable_default_internet_access: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -525,6 +539,7 @@ class ImageBuilder(pulumi.CustomResource):
             __props__.__dict__["access_endpoints"] = access_endpoints
             __props__.__dict__["appstream_agent_version"] = appstream_agent_version
             __props__.__dict__["description"] = description
+            __props__.__dict__["disable_imdsv1"] = disable_imdsv1
             __props__.__dict__["display_name"] = display_name
             __props__.__dict__["domain_join_info"] = domain_join_info
             __props__.__dict__["enable_default_internet_access"] = enable_default_internet_access
@@ -568,6 +583,7 @@ class ImageBuilder(pulumi.CustomResource):
         __props__.__dict__["access_endpoints"] = None
         __props__.__dict__["appstream_agent_version"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["disable_imdsv1"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["domain_join_info"] = None
         __props__.__dict__["enable_default_internet_access"] = None
@@ -607,6 +623,11 @@ class ImageBuilder(pulumi.CustomResource):
         The description to display.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="disableImdsv1")
+    def disable_imdsv1(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        return pulumi.get(self, "disable_imdsv1")
 
     @_builtins.property
     @pulumi.getter(name="displayName")

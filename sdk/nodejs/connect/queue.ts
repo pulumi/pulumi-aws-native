@@ -74,7 +74,7 @@ export class Queue extends pulumi.CustomResource {
      */
     declare public readonly outboundCallerConfig: pulumi.Output<outputs.connect.QueueOutboundCallerConfig | undefined>;
     /**
-     * The outbound email address ID.
+     * The outbound email configuration for a specified queue.
      */
     declare public readonly outboundEmailConfig: pulumi.Output<outputs.connect.QueueOutboundEmailConfig | undefined>;
     /**
@@ -185,7 +185,7 @@ export interface QueueArgs {
      */
     outboundCallerConfig?: pulumi.Input<inputs.connect.QueueOutboundCallerConfigArgs | undefined>;
     /**
-     * The outbound email address ID.
+     * The outbound email configuration for a specified queue.
      */
     outboundEmailConfig?: pulumi.Input<inputs.connect.QueueOutboundEmailConfigArgs | undefined>;
     /**

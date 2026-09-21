@@ -70,6 +70,7 @@ export interface GetTopicResult {
      *  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
      */
     readonly kmsMasterKeyId?: string;
+    readonly maximumMessageSize?: number;
     /**
      * The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
      */

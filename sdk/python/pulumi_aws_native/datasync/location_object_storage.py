@@ -29,6 +29,7 @@ class LocationObjectStorageArgs:
                  bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cmk_secret_config: pulumi.Input[Optional['LocationObjectStorageCmkSecretConfigArgs']] = None,
                  custom_secret_config: pulumi.Input[Optional['LocationObjectStorageCustomSecretConfigArgs']] = None,
+                 federated_identity: pulumi.Input[Optional['LocationObjectStorageObjectStorageFederatedIdentityConfigArgs']] = None,
                  secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
@@ -70,6 +71,8 @@ class LocationObjectStorageArgs:
             pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
         if custom_secret_config is not None:
             pulumi.set(__self__, "custom_secret_config", custom_secret_config)
+        if federated_identity is not None:
+            pulumi.set(__self__, "federated_identity", federated_identity)
         if secret_key is not None:
             pulumi.set(__self__, "secret_key", secret_key)
         if server_certificate is not None:
@@ -152,6 +155,15 @@ class LocationObjectStorageArgs:
     @custom_secret_config.setter
     def custom_secret_config(self, value: pulumi.Input[Optional['LocationObjectStorageCustomSecretConfigArgs']]):
         pulumi.set(self, "custom_secret_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="federatedIdentity")
+    def federated_identity(self) -> pulumi.Input[Optional['LocationObjectStorageObjectStorageFederatedIdentityConfigArgs']]:
+        return pulumi.get(self, "federated_identity")
+
+    @federated_identity.setter
+    def federated_identity(self, value: pulumi.Input[Optional['LocationObjectStorageObjectStorageFederatedIdentityConfigArgs']]):
+        pulumi.set(self, "federated_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="secretKey")
@@ -249,6 +261,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
                  custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
+                 federated_identity: pulumi.Input[Optional[Union['LocationObjectStorageObjectStorageFederatedIdentityConfigArgs', 'LocationObjectStorageObjectStorageFederatedIdentityConfigArgsDict']]] = None,
                  secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
@@ -346,6 +359,7 @@ class LocationObjectStorage(pulumi.CustomResource):
                  bucket_name: pulumi.Input[Optional[_builtins.str]] = None,
                  cmk_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCmkSecretConfigArgs', 'LocationObjectStorageCmkSecretConfigArgsDict']]] = None,
                  custom_secret_config: pulumi.Input[Optional[Union['LocationObjectStorageCustomSecretConfigArgs', 'LocationObjectStorageCustomSecretConfigArgsDict']]] = None,
+                 federated_identity: pulumi.Input[Optional[Union['LocationObjectStorageObjectStorageFederatedIdentityConfigArgs', 'LocationObjectStorageObjectStorageFederatedIdentityConfigArgsDict']]] = None,
                  secret_key: pulumi.Input[Optional[_builtins.str]] = None,
                  server_certificate: pulumi.Input[Optional[_builtins.str]] = None,
                  server_hostname: pulumi.Input[Optional[_builtins.str]] = None,
@@ -367,6 +381,7 @@ class LocationObjectStorage(pulumi.CustomResource):
             __props__.__dict__["bucket_name"] = bucket_name
             __props__.__dict__["cmk_secret_config"] = cmk_secret_config
             __props__.__dict__["custom_secret_config"] = custom_secret_config
+            __props__.__dict__["federated_identity"] = federated_identity
             __props__.__dict__["secret_key"] = secret_key
             __props__.__dict__["server_certificate"] = server_certificate
             __props__.__dict__["server_hostname"] = server_hostname
@@ -406,6 +421,7 @@ class LocationObjectStorage(pulumi.CustomResource):
         __props__.__dict__["bucket_name"] = None
         __props__.__dict__["cmk_secret_config"] = None
         __props__.__dict__["custom_secret_config"] = None
+        __props__.__dict__["federated_identity"] = None
         __props__.__dict__["location_arn"] = None
         __props__.__dict__["location_uri"] = None
         __props__.__dict__["managed_secret_config"] = None
@@ -465,6 +481,11 @@ class LocationObjectStorage(pulumi.CustomResource):
         > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
         """
         return pulumi.get(self, "custom_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="federatedIdentity")
+    def federated_identity(self) -> pulumi.Output[Optional['outputs.LocationObjectStorageObjectStorageFederatedIdentityConfig']]:
+        return pulumi.get(self, "federated_identity")
 
     @_builtins.property
     @pulumi.getter(name="locationArn")

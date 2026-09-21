@@ -22,7 +22,8 @@ type ImageBuilder struct {
 	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrOutput `pulumi:"appstreamAgentVersion"`
 	// The description to display.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description   pulumi.StringPtrOutput `pulumi:"description"`
+	DisableImdsv1 pulumi.BoolPtrOutput   `pulumi:"disableImdsv1"`
 	// The image builder name to display.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -155,7 +156,8 @@ type imageBuilderArgs struct {
 	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
 	// The description to display.
-	Description *string `pulumi:"description"`
+	Description   *string `pulumi:"description"`
+	DisableImdsv1 *bool   `pulumi:"disableImdsv1"`
 	// The image builder name to display.
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -241,7 +243,8 @@ type ImageBuilderArgs struct {
 	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion pulumi.StringPtrInput
 	// The description to display.
-	Description pulumi.StringPtrInput
+	Description   pulumi.StringPtrInput
+	DisableImdsv1 pulumi.BoolPtrInput
 	// The image builder name to display.
 	DisplayName pulumi.StringPtrInput
 	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -370,6 +373,10 @@ func (o ImageBuilderOutput) AppstreamAgentVersion() pulumi.StringPtrOutput {
 // The description to display.
 func (o ImageBuilderOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ImageBuilder) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageBuilderOutput) DisableImdsv1() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ImageBuilder) pulumi.BoolPtrOutput { return v.DisableImdsv1 }).(pulumi.BoolPtrOutput)
 }
 
 // The image builder name to display.

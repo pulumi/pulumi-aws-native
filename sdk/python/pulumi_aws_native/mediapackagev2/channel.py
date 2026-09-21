@@ -29,6 +29,7 @@ class ChannelArgs:
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  input_switch_configuration: pulumi.Input[Optional['ChannelInputSwitchConfigurationArgs']] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
+                 multiview_configuration: pulumi.Input[Optional['ChannelMultiviewConfigurationArgs']] = None,
                  output_header_configuration: pulumi.Input[Optional['ChannelOutputHeaderConfigurationArgs']] = None,
                  output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -56,6 +57,8 @@ class ChannelArgs:
             pulumi.set(__self__, "input_switch_configuration", input_switch_configuration)
         if input_type is not None:
             pulumi.set(__self__, "input_type", input_type)
+        if multiview_configuration is not None:
+            pulumi.set(__self__, "multiview_configuration", multiview_configuration)
         if output_header_configuration is not None:
             pulumi.set(__self__, "output_header_configuration", output_header_configuration)
         if output_locking_mode is not None:
@@ -129,6 +132,15 @@ class ChannelArgs:
         pulumi.set(self, "input_type", value)
 
     @_builtins.property
+    @pulumi.getter(name="multiviewConfiguration")
+    def multiview_configuration(self) -> pulumi.Input[Optional['ChannelMultiviewConfigurationArgs']]:
+        return pulumi.get(self, "multiview_configuration")
+
+    @multiview_configuration.setter
+    def multiview_configuration(self, value: pulumi.Input[Optional['ChannelMultiviewConfigurationArgs']]):
+        pulumi.set(self, "multiview_configuration", value)
+
+    @_builtins.property
     @pulumi.getter(name="outputHeaderConfiguration")
     def output_header_configuration(self) -> pulumi.Input[Optional['ChannelOutputHeaderConfigurationArgs']]:
         """
@@ -170,6 +182,7 @@ class Channel(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
+                 multiview_configuration: pulumi.Input[Optional[Union['ChannelMultiviewConfigurationArgs', 'ChannelMultiviewConfigurationArgsDict']]] = None,
                  output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
                  output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -220,6 +233,7 @@ class Channel(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  input_switch_configuration: pulumi.Input[Optional[Union['ChannelInputSwitchConfigurationArgs', 'ChannelInputSwitchConfigurationArgsDict']]] = None,
                  input_type: pulumi.Input[Optional['ChannelInputType']] = None,
+                 multiview_configuration: pulumi.Input[Optional[Union['ChannelMultiviewConfigurationArgs', 'ChannelMultiviewConfigurationArgsDict']]] = None,
                  output_header_configuration: pulumi.Input[Optional[Union['ChannelOutputHeaderConfigurationArgs', 'ChannelOutputHeaderConfigurationArgsDict']]] = None,
                  output_locking_mode: pulumi.Input[Optional['ChannelOutputLockingMode']] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
@@ -239,10 +253,12 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["input_switch_configuration"] = input_switch_configuration
             __props__.__dict__["input_type"] = input_type
+            __props__.__dict__["multiview_configuration"] = multiview_configuration
             __props__.__dict__["output_header_configuration"] = output_header_configuration
             __props__.__dict__["output_locking_mode"] = output_locking_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
+            __props__.__dict__["attached_multiview_channels"] = None
             __props__.__dict__["created_at"] = None
             __props__.__dict__["ingest_endpoint_urls"] = None
             __props__.__dict__["ingest_endpoints"] = None
@@ -272,6 +288,7 @@ class Channel(pulumi.CustomResource):
         __props__ = ChannelArgs.__new__(ChannelArgs)
 
         __props__.__dict__["arn"] = None
+        __props__.__dict__["attached_multiview_channels"] = None
         __props__.__dict__["channel_group_name"] = None
         __props__.__dict__["channel_name"] = None
         __props__.__dict__["created_at"] = None
@@ -281,6 +298,7 @@ class Channel(pulumi.CustomResource):
         __props__.__dict__["input_switch_configuration"] = None
         __props__.__dict__["input_type"] = None
         __props__.__dict__["modified_at"] = None
+        __props__.__dict__["multiview_configuration"] = None
         __props__.__dict__["output_header_configuration"] = None
         __props__.__dict__["output_locking_mode"] = None
         __props__.__dict__["tags"] = None
@@ -293,6 +311,14 @@ class Channel(pulumi.CustomResource):
         <p>The Amazon Resource Name (ARN) associated with the resource.</p>
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="attachedMultiviewChannels")
+    def attached_multiview_channels(self) -> pulumi.Output[Sequence[_builtins.str]]:
+        """
+        <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+        """
+        return pulumi.get(self, "attached_multiview_channels")
 
     @_builtins.property
     @pulumi.getter(name="channelGroupName")
@@ -370,6 +396,11 @@ class Channel(pulumi.CustomResource):
         <p>The date and time the channel was modified.</p>
         """
         return pulumi.get(self, "modified_at")
+
+    @_builtins.property
+    @pulumi.getter(name="multiviewConfiguration")
+    def multiview_configuration(self) -> pulumi.Output[Optional['outputs.ChannelMultiviewConfiguration']]:
+        return pulumi.get(self, "multiview_configuration")
 
     @_builtins.property
     @pulumi.getter(name="outputHeaderConfiguration")

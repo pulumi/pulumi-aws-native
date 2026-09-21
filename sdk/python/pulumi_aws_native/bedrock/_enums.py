@@ -599,6 +599,7 @@ class DataSourceParsingStrategy(_builtins.str, Enum):
     BEDROCK_FOUNDATION_MODEL = "BEDROCK_FOUNDATION_MODEL"
     BEDROCK_DATA_AUTOMATION = "BEDROCK_DATA_AUTOMATION"
     SMART_PARSING = "SMART_PARSING"
+    MULTI_MODAL_EMBEDDINGS = "MULTI_MODAL_EMBEDDINGS"
 
 
 @pulumi.type_token("aws-native:bedrock:DataSourceSalesforceSourceConfigurationAuthType")

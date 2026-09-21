@@ -3979,6 +3979,7 @@ namespace Pulumi.AwsNative.Ec2
         public static VpcEndpointType GatewayLoadBalancer { get; } = new VpcEndpointType("GatewayLoadBalancer");
         public static VpcEndpointType ServiceNetwork { get; } = new VpcEndpointType("ServiceNetwork");
         public static VpcEndpointType Resource { get; } = new VpcEndpointType("Resource");
+        public static VpcEndpointType Tunnel { get; } = new VpcEndpointType("Tunnel");
 
         public static bool operator ==(VpcEndpointType left, VpcEndpointType right) => left.Equals(right);
         public static bool operator !=(VpcEndpointType left, VpcEndpointType right) => !left.Equals(right);

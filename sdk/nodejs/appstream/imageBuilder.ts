@@ -49,6 +49,7 @@ export class ImageBuilder extends pulumi.CustomResource {
      * The description to display.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly disableImdsv1: pulumi.Output<boolean | undefined>;
     /**
      * The image builder name to display.
      */
@@ -167,6 +168,7 @@ export class ImageBuilder extends pulumi.CustomResource {
             resourceInputs["accessEndpoints"] = args?.accessEndpoints;
             resourceInputs["appstreamAgentVersion"] = args?.appstreamAgentVersion;
             resourceInputs["description"] = args?.description;
+            resourceInputs["disableImdsv1"] = args?.disableImdsv1;
             resourceInputs["displayName"] = args?.displayName;
             resourceInputs["domainJoinInfo"] = args?.domainJoinInfo;
             resourceInputs["enableDefaultInternetAccess"] = args?.enableDefaultInternetAccess;
@@ -185,6 +187,7 @@ export class ImageBuilder extends pulumi.CustomResource {
             resourceInputs["accessEndpoints"] = undefined /*out*/;
             resourceInputs["appstreamAgentVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["disableImdsv1"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["domainJoinInfo"] = undefined /*out*/;
             resourceInputs["enableDefaultInternetAccess"] = undefined /*out*/;
@@ -223,6 +226,7 @@ export interface ImageBuilderArgs {
      * The description to display.
      */
     description?: pulumi.Input<string | undefined>;
+    disableImdsv1?: pulumi.Input<boolean | undefined>;
     /**
      * The image builder name to display.
      */

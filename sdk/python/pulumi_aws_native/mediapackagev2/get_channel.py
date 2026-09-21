@@ -15,6 +15,7 @@ else:
 from .. import _utilities
 from . import outputs
 from .. import outputs as _root_outputs
+from ._enums import *
 
 __all__ = [
     'GetChannelResult',
@@ -25,10 +26,13 @@ __all__ = [
 
 @pulumi.output_type
 class GetChannelResult:
-    def __init__(__self__, arn=None, created_at=None, description=None, ingest_endpoint_urls=None, ingest_endpoints=None, input_switch_configuration=None, modified_at=None, output_header_configuration=None, tags=None):
+    def __init__(__self__, arn=None, attached_multiview_channels=None, created_at=None, description=None, ingest_endpoint_urls=None, ingest_endpoints=None, input_switch_configuration=None, modified_at=None, multiview_configuration=None, output_header_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
+        if attached_multiview_channels and not isinstance(attached_multiview_channels, list):
+            raise TypeError("Expected argument 'attached_multiview_channels' to be a list")
+        pulumi.set(__self__, "attached_multiview_channels", attached_multiview_channels)
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -47,6 +51,9 @@ class GetChannelResult:
         if modified_at and not isinstance(modified_at, str):
             raise TypeError("Expected argument 'modified_at' to be a str")
         pulumi.set(__self__, "modified_at", modified_at)
+        if multiview_configuration and not isinstance(multiview_configuration, dict):
+            raise TypeError("Expected argument 'multiview_configuration' to be a dict")
+        pulumi.set(__self__, "multiview_configuration", multiview_configuration)
         if output_header_configuration and not isinstance(output_header_configuration, dict):
             raise TypeError("Expected argument 'output_header_configuration' to be a dict")
         pulumi.set(__self__, "output_header_configuration", output_header_configuration)
@@ -61,6 +68,14 @@ class GetChannelResult:
         <p>The Amazon Resource Name (ARN) associated with the resource.</p>
         """
         return pulumi.get(self, "arn")
+
+    @_builtins.property
+    @pulumi.getter(name="attachedMultiviewChannels")
+    def attached_multiview_channels(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+        """
+        return pulumi.get(self, "attached_multiview_channels")
 
     @_builtins.property
     @pulumi.getter(name="createdAt")
@@ -111,6 +126,11 @@ class GetChannelResult:
         return pulumi.get(self, "modified_at")
 
     @_builtins.property
+    @pulumi.getter(name="multiviewConfiguration")
+    def multiview_configuration(self) -> Optional['outputs.ChannelMultiviewConfiguration']:
+        return pulumi.get(self, "multiview_configuration")
+
+    @_builtins.property
     @pulumi.getter(name="outputHeaderConfiguration")
     def output_header_configuration(self) -> Optional['outputs.ChannelOutputHeaderConfiguration']:
         """
@@ -131,12 +151,14 @@ class AwaitableGetChannelResult(GetChannelResult):
             yield self
         return GetChannelResult(
             arn=self.arn,
+            attached_multiview_channels=self.attached_multiview_channels,
             created_at=self.created_at,
             description=self.description,
             ingest_endpoint_urls=self.ingest_endpoint_urls,
             ingest_endpoints=self.ingest_endpoints,
             input_switch_configuration=self.input_switch_configuration,
             modified_at=self.modified_at,
+            multiview_configuration=self.multiview_configuration,
             output_header_configuration=self.output_header_configuration,
             tags=self.tags)
 
@@ -155,12 +177,14 @@ def get_channel(arn: Optional[_builtins.str] = None,
 
     return AwaitableGetChannelResult(
         arn=pulumi.get(__ret__, 'arn'),
+        attached_multiview_channels=pulumi.get(__ret__, 'attached_multiview_channels'),
         created_at=pulumi.get(__ret__, 'created_at'),
         description=pulumi.get(__ret__, 'description'),
         ingest_endpoint_urls=pulumi.get(__ret__, 'ingest_endpoint_urls'),
         ingest_endpoints=pulumi.get(__ret__, 'ingest_endpoints'),
         input_switch_configuration=pulumi.get(__ret__, 'input_switch_configuration'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
+        multiview_configuration=pulumi.get(__ret__, 'multiview_configuration'),
         output_header_configuration=pulumi.get(__ret__, 'output_header_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_channel_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -176,11 +200,13 @@ def get_channel_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
     __ret__ = pulumi.runtime.invoke_output('aws-native:mediapackagev2:getChannel', __args__, opts=opts, typ=GetChannelResult)
     return __ret__.apply(lambda __response__: GetChannelResult(
         arn=pulumi.get(__response__, 'arn'),
+        attached_multiview_channels=pulumi.get(__response__, 'attached_multiview_channels'),
         created_at=pulumi.get(__response__, 'created_at'),
         description=pulumi.get(__response__, 'description'),
         ingest_endpoint_urls=pulumi.get(__response__, 'ingest_endpoint_urls'),
         ingest_endpoints=pulumi.get(__response__, 'ingest_endpoints'),
         input_switch_configuration=pulumi.get(__response__, 'input_switch_configuration'),
         modified_at=pulumi.get(__response__, 'modified_at'),
+        multiview_configuration=pulumi.get(__response__, 'multiview_configuration'),
         output_header_configuration=pulumi.get(__response__, 'output_header_configuration'),
         tags=pulumi.get(__response__, 'tags')))

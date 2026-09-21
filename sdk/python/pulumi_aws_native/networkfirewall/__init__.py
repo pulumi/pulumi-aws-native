@@ -7,8 +7,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .container_association import *
 from .firewall import *
 from .firewall_policy import *
+from .get_container_association import *
 from .get_firewall import *
 from .get_firewall_policy import *
 from .get_logging_configuration import *

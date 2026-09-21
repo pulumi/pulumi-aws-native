@@ -13,13 +13,770 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ChannelCloudWatchLogsConfiguration',
+    'ChannelDeadLetterQueueS3Configuration',
+    'ChannelEncryptionConfiguration',
+    'ChannelLoggingConfiguration',
+    'ChannelPartitionField',
+    'ChannelPartitionSpec',
+    'ChannelRecordConfiguration',
+    'ChannelS3DestinationConfiguration',
+    'ChannelS3StorageConfiguration',
+    'ChannelS3TableConfiguration',
+    'ChannelS3TablesDestinationConfiguration',
+    'ChannelStreamConfiguration',
     'StreamEncryption',
     'StreamModeDetails',
     'StreamWarmThroughputObject',
 ]
+
+@pulumi.output_type
+class ChannelCloudWatchLogsConfiguration(dict):
+    """
+    CloudWatch Logs configuration for the channel. When Enabled is true and LogGroupName is omitted, the service uses a default group derived from the channel name and id; LogStreamName defaults to the literal string 'DestinationDelivery'.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "logGroupName":
+            suggest = "log_group_name"
+        elif key == "logStreamName":
+            suggest = "log_stream_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelCloudWatchLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelCloudWatchLogsConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelCloudWatchLogsConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: _builtins.bool,
+                 log_group_name: Optional[_builtins.str] = None,
+                 log_stream_name: Optional[_builtins.str] = None):
+        """
+        CloudWatch Logs configuration for the channel. When Enabled is true and LogGroupName is omitted, the service uses a default group derived from the channel name and id; LogStreamName defaults to the literal string 'DestinationDelivery'.
+
+        :param _builtins.bool enabled: Whether CloudWatch Logs delivery is enabled.
+        :param _builtins.str log_group_name: The CloudWatch log group name. When Enabled is true and LogGroupName is omitted, the service uses the default '/aws/kinesis/<channelName>/<channelId>'.
+        :param _builtins.str log_stream_name: The CloudWatch log stream name. Defaults to the literal string 'DestinationDelivery' when omitted.
+        """
+        pulumi.set(__self__, "enabled", enabled)
+        if log_group_name is not None:
+            pulumi.set(__self__, "log_group_name", log_group_name)
+        if log_stream_name is not None:
+            pulumi.set(__self__, "log_stream_name", log_stream_name)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> _builtins.bool:
+        """
+        Whether CloudWatch Logs delivery is enabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="logGroupName")
+    def log_group_name(self) -> Optional[_builtins.str]:
+        """
+        The CloudWatch log group name. When Enabled is true and LogGroupName is omitted, the service uses the default '/aws/kinesis/<channelName>/<channelId>'.
+        """
+        return pulumi.get(self, "log_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="logStreamName")
+    def log_stream_name(self) -> Optional[_builtins.str]:
+        """
+        The CloudWatch log stream name. Defaults to the literal string 'DestinationDelivery' when omitted.
+        """
+        return pulumi.get(self, "log_stream_name")
+
+
+@pulumi.output_type
+class ChannelDeadLetterQueueS3Configuration(dict):
+    """
+    Configuration of the S3 bucket used to capture records that cannot be delivered to the primary destination.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "expectedBucketOwner":
+            suggest = "expected_bucket_owner"
+        elif key == "errorOutputPrefix":
+            suggest = "error_output_prefix"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelDeadLetterQueueS3Configuration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelDeadLetterQueueS3Configuration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelDeadLetterQueueS3Configuration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 expected_bucket_owner: _builtins.str,
+                 error_output_prefix: Optional[_builtins.str] = None):
+        """
+        Configuration of the S3 bucket used to capture records that cannot be delivered to the primary destination.
+
+        :param _builtins.str bucket_arn: The ARN of the S3 bucket for storing failed records.
+        :param _builtins.str expected_bucket_owner: The AWS account ID of the expected owner of the dead-letter queue S3 bucket. Used to verify bucket ownership before delivery.
+        :param _builtins.str error_output_prefix: Optional S3 key prefix under which error records are organized. When omitted, the service uses the default 'kinesis-channel/errors/<channelName>/<channelId>/'.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if error_output_prefix is not None:
+            pulumi.set(__self__, "error_output_prefix", error_output_prefix)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        The ARN of the S3 bucket for storing failed records.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> _builtins.str:
+        """
+        The AWS account ID of the expected owner of the dead-letter queue S3 bucket. Used to verify bucket ownership before delivery.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="errorOutputPrefix")
+    def error_output_prefix(self) -> Optional[_builtins.str]:
+        """
+        Optional S3 key prefix under which error records are organized. When omitted, the service uses the default 'kinesis-channel/errors/<channelName>/<channelId>/'.
+        """
+        return pulumi.get(self, "error_output_prefix")
+
+
+@pulumi.output_type
+class ChannelEncryptionConfiguration(dict):
+    """
+    Server-side encryption configuration for data at rest in the destination. Data delivered to S3 / S3 Tables is encrypted with the same key.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "encryptionType":
+            suggest = "encryption_type"
+        elif key == "keyId":
+            suggest = "key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelEncryptionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelEncryptionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelEncryptionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 encryption_type: 'ChannelEncryptionConfigurationEncryptionType',
+                 key_id: _builtins.str):
+        """
+        Server-side encryption configuration for data at rest in the destination. Data delivered to S3 / S3 Tables is encrypted with the same key.
+
+        :param 'ChannelEncryptionConfigurationEncryptionType' encryption_type: The encryption type. KMS is the only supported value.
+        :param _builtins.str key_id: The customer-managed AWS KMS key. Accepts a key GUID, key ARN, alias ARN, or alias name prefixed by 'alias/'. The Kinesis Data Streams managed alias 'aws/kinesis' is not accepted - the key must be customer-owned so it can also be used by readers of the destination.
+        """
+        pulumi.set(__self__, "encryption_type", encryption_type)
+        pulumi.set(__self__, "key_id", key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionType")
+    def encryption_type(self) -> 'ChannelEncryptionConfigurationEncryptionType':
+        """
+        The encryption type. KMS is the only supported value.
+        """
+        return pulumi.get(self, "encryption_type")
+
+    @_builtins.property
+    @pulumi.getter(name="keyId")
+    def key_id(self) -> _builtins.str:
+        """
+        The customer-managed AWS KMS key. Accepts a key GUID, key ARN, alias ARN, or alias name prefixed by 'alias/'. The Kinesis Data Streams managed alias 'aws/kinesis' is not accepted - the key must be customer-owned so it can also be used by readers of the destination.
+        """
+        return pulumi.get(self, "key_id")
+
+
+@pulumi.output_type
+class ChannelLoggingConfiguration(dict):
+    """
+    Configuration for delivering channel operational logs.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cloudWatchLogs":
+            suggest = "cloud_watch_logs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelLoggingConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelLoggingConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelLoggingConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cloud_watch_logs: 'outputs.ChannelCloudWatchLogsConfiguration'):
+        """
+        Configuration for delivering channel operational logs.
+
+        :param 'ChannelCloudWatchLogsConfiguration' cloud_watch_logs: CloudWatch Logs configuration block. When provided, controls whether and where the channel writes operational logs.
+        """
+        pulumi.set(__self__, "cloud_watch_logs", cloud_watch_logs)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudWatchLogs")
+    def cloud_watch_logs(self) -> 'outputs.ChannelCloudWatchLogsConfiguration':
+        """
+        CloudWatch Logs configuration block. When provided, controls whether and where the channel writes operational logs.
+        """
+        return pulumi.get(self, "cloud_watch_logs")
+
+
+@pulumi.output_type
+class ChannelPartitionField(dict):
+    """
+    A single partition field consisting of a transform applied to a source column.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceName":
+            suggest = "source_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelPartitionField. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelPartitionField.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelPartitionField.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_name: _builtins.str,
+                 transform: 'ChannelPartitionFieldTransform'):
+        """
+        A single partition field consisting of a transform applied to a source column.
+
+        :param _builtins.str source_name: The name of the source column on which the transform is applied.
+        :param 'ChannelPartitionFieldTransform' transform: The partitioning transform applied to the SourceName column.
+        """
+        pulumi.set(__self__, "source_name", source_name)
+        pulumi.set(__self__, "transform", transform)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> _builtins.str:
+        """
+        The name of the source column on which the transform is applied.
+        """
+        return pulumi.get(self, "source_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def transform(self) -> 'ChannelPartitionFieldTransform':
+        """
+        The partitioning transform applied to the SourceName column.
+        """
+        return pulumi.get(self, "transform")
+
+
+@pulumi.output_type
+class ChannelPartitionSpec(dict):
+    """
+    Partitioning specification for the destination Iceberg table. Follows the S3 Tables / Iceberg PartitionSpec format.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "partitionFields":
+            suggest = "partition_fields"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelPartitionSpec. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelPartitionSpec.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelPartitionSpec.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 partition_fields: Sequence['outputs.ChannelPartitionField']):
+        """
+        Partitioning specification for the destination Iceberg table. Follows the S3 Tables / Iceberg PartitionSpec format.
+
+        :param Sequence['ChannelPartitionField'] partition_fields: List of partition fields that define how records are partitioned when written to the destination table.
+        """
+        pulumi.set(__self__, "partition_fields", partition_fields)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionFields")
+    def partition_fields(self) -> Sequence['outputs.ChannelPartitionField']:
+        """
+        List of partition fields that define how records are partitioned when written to the destination table.
+        """
+        return pulumi.get(self, "partition_fields")
+
+
+@pulumi.output_type
+class ChannelRecordConfiguration(dict):
+    """
+    The configuration that describes how records on the source stream are encoded.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordFormatType":
+            suggest = "record_format_type"
+        elif key == "gsrSchemaArn":
+            suggest = "gsr_schema_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelRecordConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelRecordConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelRecordConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 record_format_type: 'ChannelRecordConfigurationRecordFormatType',
+                 gsr_schema_arn: Optional[_builtins.str] = None):
+        """
+        The configuration that describes how records on the source stream are encoded.
+
+        :param 'ChannelRecordConfigurationRecordFormatType' record_format_type: The format used to interpret records read from the source stream.
+        :param _builtins.str gsr_schema_arn: The ARN of the AWS Glue Schema Registry (GSR) schema. Required for the S3 Tables destination, where it is used to create the S3 Table and to validate that the record format matches the table schema. Also used when RecordFormatType is GSR_JSON to interpret records read from the source stream. Vanilla S3 delivery writes records as S3 objects and does not need a schema. The schema must be in the same account and region as the channel.
+        """
+        pulumi.set(__self__, "record_format_type", record_format_type)
+        if gsr_schema_arn is not None:
+            pulumi.set(__self__, "gsr_schema_arn", gsr_schema_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="recordFormatType")
+    def record_format_type(self) -> 'ChannelRecordConfigurationRecordFormatType':
+        """
+        The format used to interpret records read from the source stream.
+        """
+        return pulumi.get(self, "record_format_type")
+
+    @_builtins.property
+    @pulumi.getter(name="gsrSchemaArn")
+    def gsr_schema_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the AWS Glue Schema Registry (GSR) schema. Required for the S3 Tables destination, where it is used to create the S3 Table and to validate that the record format matches the table schema. Also used when RecordFormatType is GSR_JSON to interpret records read from the source stream. Vanilla S3 delivery writes records as S3 objects and does not need a schema. The schema must be in the same account and region as the channel.
+        """
+        return pulumi.get(self, "gsr_schema_arn")
+
+
+@pulumi.output_type
+class ChannelS3DestinationConfiguration(dict):
+    """
+    Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "storageConfiguration":
+            suggest = "storage_configuration"
+        elif key == "dataFreshnessInSeconds":
+            suggest = "data_freshness_in_seconds"
+        elif key == "deadLetterQueueS3Configuration":
+            suggest = "dead_letter_queue_s3_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelS3DestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelS3DestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelS3DestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 storage_configuration: 'outputs.ChannelS3StorageConfiguration',
+                 data_freshness_in_seconds: Optional[_builtins.int] = None,
+                 dead_letter_queue_s3_configuration: Optional['outputs.ChannelDeadLetterQueueS3Configuration'] = None):
+        """
+        Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+
+        :param 'ChannelS3StorageConfiguration' storage_configuration: S3 storage configuration including the destination bucket, output key template, storage class, and compression type.
+        :param _builtins.int data_freshness_in_seconds: The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+        :param 'ChannelDeadLetterQueueS3Configuration' dead_letter_queue_s3_configuration: Optional dead-letter queue (DLQ) configuration for records that cannot be delivered to the destination. When omitted, the service auto-fills using the storage BucketARN with an error prefix.
+        """
+        pulumi.set(__self__, "storage_configuration", storage_configuration)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+        if dead_letter_queue_s3_configuration is not None:
+            pulumi.set(__self__, "dead_letter_queue_s3_configuration", dead_letter_queue_s3_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> 'outputs.ChannelS3StorageConfiguration':
+        """
+        S3 storage configuration including the destination bucket, output key template, storage class, and compression type.
+        """
+        return pulumi.get(self, "storage_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3Configuration")
+    def dead_letter_queue_s3_configuration(self) -> Optional['outputs.ChannelDeadLetterQueueS3Configuration']:
+        """
+        Optional dead-letter queue (DLQ) configuration for records that cannot be delivered to the destination. When omitted, the service auto-fills using the storage BucketARN with an error prefix.
+        """
+        return pulumi.get(self, "dead_letter_queue_s3_configuration")
+
+
+@pulumi.output_type
+class ChannelS3StorageConfiguration(dict):
+    """
+    S3 storage configuration that describes the destination bucket and how delivered objects are stored.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bucketArn":
+            suggest = "bucket_arn"
+        elif key == "compressionType":
+            suggest = "compression_type"
+        elif key == "expectedBucketOwner":
+            suggest = "expected_bucket_owner"
+        elif key == "outputKeyTemplate":
+            suggest = "output_key_template"
+        elif key == "storageClass":
+            suggest = "storage_class"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelS3StorageConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelS3StorageConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelS3StorageConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bucket_arn: _builtins.str,
+                 compression_type: 'ChannelS3StorageConfigurationCompressionType',
+                 expected_bucket_owner: _builtins.str,
+                 output_key_template: Optional[_builtins.str] = None,
+                 storage_class: Optional['ChannelS3StorageConfigurationStorageClass'] = None):
+        """
+        S3 storage configuration that describes the destination bucket and how delivered objects are stored.
+
+        :param _builtins.str bucket_arn: The ARN of the S3 bucket for record delivery. Different channels can deliver to the same bucket. Buckets can be cross-account but must be in the same region as the channel.
+        :param 'ChannelS3StorageConfigurationCompressionType' compression_type: The compression algorithm applied to delivered objects.
+        :param _builtins.str expected_bucket_owner: The AWS account ID of the expected owner of the destination S3 bucket. Used to verify bucket ownership before delivery.
+        :param _builtins.str output_key_template: Optional template for the S3 object key path. Supports placeholders in the form !{name}: !{channel-name}, !{channel-id}, !{stream-name}, !{yyyy}, !{yy}, !{MM}, !{dd}, !{HH}, !{mm}, and !{extension} (a literal file extension can be supplied as !{extension:.json.gz}). When omitted, the service uses the default 'kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}'.
+        :param 'ChannelS3StorageConfigurationStorageClass' storage_class: The S3 storage class for delivered objects.
+        """
+        pulumi.set(__self__, "bucket_arn", bucket_arn)
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
+        if output_key_template is not None:
+            pulumi.set(__self__, "output_key_template", output_key_template)
+        if storage_class is not None:
+            pulumi.set(__self__, "storage_class", storage_class)
+
+    @_builtins.property
+    @pulumi.getter(name="bucketArn")
+    def bucket_arn(self) -> _builtins.str:
+        """
+        The ARN of the S3 bucket for record delivery. Different channels can deliver to the same bucket. Buckets can be cross-account but must be in the same region as the channel.
+        """
+        return pulumi.get(self, "bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> 'ChannelS3StorageConfigurationCompressionType':
+        """
+        The compression algorithm applied to delivered objects.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter(name="expectedBucketOwner")
+    def expected_bucket_owner(self) -> _builtins.str:
+        """
+        The AWS account ID of the expected owner of the destination S3 bucket. Used to verify bucket ownership before delivery.
+        """
+        return pulumi.get(self, "expected_bucket_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="outputKeyTemplate")
+    def output_key_template(self) -> Optional[_builtins.str]:
+        """
+        Optional template for the S3 object key path. Supports placeholders in the form !{name}: !{channel-name}, !{channel-id}, !{stream-name}, !{yyyy}, !{yy}, !{MM}, !{dd}, !{HH}, !{mm}, and !{extension} (a literal file extension can be supplied as !{extension:.json.gz}). When omitted, the service uses the default 'kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}'.
+        """
+        return pulumi.get(self, "output_key_template")
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> Optional['ChannelS3StorageConfigurationStorageClass']:
+        """
+        The S3 storage class for delivered objects.
+        """
+        return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class ChannelS3TableConfiguration(dict):
+    """
+    An S3 Tables destination including its table bucket, namespace, table name, and partition spec.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "compressionType":
+            suggest = "compression_type"
+        elif key == "tableBucketArn":
+            suggest = "table_bucket_arn"
+        elif key == "tableName":
+            suggest = "table_name"
+        elif key == "partitionSpec":
+            suggest = "partition_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelS3TableConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelS3TableConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelS3TableConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compression_type: 'ChannelS3TableConfigurationCompressionType',
+                 namespace: _builtins.str,
+                 table_bucket_arn: _builtins.str,
+                 table_name: _builtins.str,
+                 partition_spec: Optional['outputs.ChannelPartitionSpec'] = None):
+        """
+        An S3 Tables destination including its table bucket, namespace, table name, and partition spec.
+
+        :param 'ChannelS3TableConfigurationCompressionType' compression_type: The compression algorithm applied to objects delivered to the S3 Tables destination.
+        :param _builtins.str namespace: The name of the S3 Tables namespace that contains the destination table.
+        :param _builtins.str table_bucket_arn: The ARN of the S3 Tables table bucket for record delivery. Buckets can be cross-account but must be in the same region as the channel.
+        :param _builtins.str table_name: The name of the destination S3 Tables table. The table is created for the customer if it does not yet exist.
+        :param 'ChannelPartitionSpec' partition_spec: The partition specification used by the destination Iceberg table.
+        """
+        pulumi.set(__self__, "compression_type", compression_type)
+        pulumi.set(__self__, "namespace", namespace)
+        pulumi.set(__self__, "table_bucket_arn", table_bucket_arn)
+        pulumi.set(__self__, "table_name", table_name)
+        if partition_spec is not None:
+            pulumi.set(__self__, "partition_spec", partition_spec)
+
+    @_builtins.property
+    @pulumi.getter(name="compressionType")
+    def compression_type(self) -> 'ChannelS3TableConfigurationCompressionType':
+        """
+        The compression algorithm applied to objects delivered to the S3 Tables destination.
+        """
+        return pulumi.get(self, "compression_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def namespace(self) -> _builtins.str:
+        """
+        The name of the S3 Tables namespace that contains the destination table.
+        """
+        return pulumi.get(self, "namespace")
+
+    @_builtins.property
+    @pulumi.getter(name="tableBucketArn")
+    def table_bucket_arn(self) -> _builtins.str:
+        """
+        The ARN of the S3 Tables table bucket for record delivery. Buckets can be cross-account but must be in the same region as the channel.
+        """
+        return pulumi.get(self, "table_bucket_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> _builtins.str:
+        """
+        The name of the destination S3 Tables table. The table is created for the customer if it does not yet exist.
+        """
+        return pulumi.get(self, "table_name")
+
+    @_builtins.property
+    @pulumi.getter(name="partitionSpec")
+    def partition_spec(self) -> Optional['outputs.ChannelPartitionSpec']:
+        """
+        The partition specification used by the destination Iceberg table.
+        """
+        return pulumi.get(self, "partition_spec")
+
+
+@pulumi.output_type
+class ChannelS3TablesDestinationConfiguration(dict):
+    """
+    Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deadLetterQueueS3Configuration":
+            suggest = "dead_letter_queue_s3_configuration"
+        elif key == "s3TablesConfigurationList":
+            suggest = "s3_tables_configuration_list"
+        elif key == "dataFreshnessInSeconds":
+            suggest = "data_freshness_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelS3TablesDestinationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelS3TablesDestinationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelS3TablesDestinationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dead_letter_queue_s3_configuration: 'outputs.ChannelDeadLetterQueueS3Configuration',
+                 s3_tables_configuration_list: Sequence['outputs.ChannelS3TableConfiguration'],
+                 data_freshness_in_seconds: Optional[_builtins.int] = None):
+        """
+        Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+
+        :param 'ChannelDeadLetterQueueS3Configuration' dead_letter_queue_s3_configuration: The dead-letter queue (DLQ) configuration for records that cannot be delivered to the S3 Tables destination. Required for S3 Tables: there is no safe fallback because S3 Tables metadata writes are critical-path.
+        :param Sequence['ChannelS3TableConfiguration'] s3_tables_configuration_list: The list of S3 Tables destinations. v1 supports a single element; the list shape allows future extensibility to fan out to multiple tables.
+        :param _builtins.int data_freshness_in_seconds: The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+        """
+        pulumi.set(__self__, "dead_letter_queue_s3_configuration", dead_letter_queue_s3_configuration)
+        pulumi.set(__self__, "s3_tables_configuration_list", s3_tables_configuration_list)
+        if data_freshness_in_seconds is not None:
+            pulumi.set(__self__, "data_freshness_in_seconds", data_freshness_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="deadLetterQueueS3Configuration")
+    def dead_letter_queue_s3_configuration(self) -> 'outputs.ChannelDeadLetterQueueS3Configuration':
+        """
+        The dead-letter queue (DLQ) configuration for records that cannot be delivered to the S3 Tables destination. Required for S3 Tables: there is no safe fallback because S3 Tables metadata writes are critical-path.
+        """
+        return pulumi.get(self, "dead_letter_queue_s3_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="s3TablesConfigurationList")
+    def s3_tables_configuration_list(self) -> Sequence['outputs.ChannelS3TableConfiguration']:
+        """
+        The list of S3 Tables destinations. v1 supports a single element; the list shape allows future extensibility to fan out to multiple tables.
+        """
+        return pulumi.get(self, "s3_tables_configuration_list")
+
+    @_builtins.property
+    @pulumi.getter(name="dataFreshnessInSeconds")
+    def data_freshness_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+        """
+        return pulumi.get(self, "data_freshness_in_seconds")
+
+
+@pulumi.output_type
+class ChannelStreamConfiguration(dict):
+    """
+    The configuration of a Kinesis stream that the channel reads from.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordConfiguration":
+            suggest = "record_configuration"
+        elif key == "streamArn":
+            suggest = "stream_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ChannelStreamConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ChannelStreamConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ChannelStreamConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 record_configuration: 'outputs.ChannelRecordConfiguration',
+                 stream_arn: _builtins.str):
+        """
+        The configuration of a Kinesis stream that the channel reads from.
+
+        :param 'ChannelRecordConfiguration' record_configuration: The configuration that describes how records on the source stream are encoded.
+        :param _builtins.str stream_arn: The Amazon resource name (ARN) of the Kinesis data stream that the channel reads from.
+        """
+        pulumi.set(__self__, "record_configuration", record_configuration)
+        pulumi.set(__self__, "stream_arn", stream_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="recordConfiguration")
+    def record_configuration(self) -> 'outputs.ChannelRecordConfiguration':
+        """
+        The configuration that describes how records on the source stream are encoded.
+        """
+        return pulumi.get(self, "record_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="streamArn")
+    def stream_arn(self) -> _builtins.str:
+        """
+        The Amazon resource name (ARN) of the Kinesis data stream that the channel reads from.
+        """
+        return pulumi.get(self, "stream_arn")
+
 
 @pulumi.output_type
 class StreamEncryption(dict):

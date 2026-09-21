@@ -75,6 +75,7 @@ namespace Pulumi.AwsNative.AppStream
         /// The description to display.
         /// </summary>
         public readonly string? Description;
+        public readonly bool? DisableImdsv1;
         /// <summary>
         /// The image builder name to display.
         /// </summary>
@@ -174,6 +175,8 @@ namespace Pulumi.AwsNative.AppStream
 
             string? description,
 
+            bool? disableImdsv1,
+
             string? displayName,
 
             Outputs.ImageBuilderDomainJoinInfo? domainJoinInfo,
@@ -197,6 +200,7 @@ namespace Pulumi.AwsNative.AppStream
             AccessEndpoints = accessEndpoints;
             AppstreamAgentVersion = appstreamAgentVersion;
             Description = description;
+            DisableImdsv1 = disableImdsv1;
             DisplayName = displayName;
             DomainJoinInfo = domainJoinInfo;
             EnableDefaultInternetAccess = enableDefaultInternetAccess;

@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ContainerAssociationArgs } from "./containerAssociation";
+export type ContainerAssociation = import("./containerAssociation").ContainerAssociation;
+export const ContainerAssociation: typeof import("./containerAssociation").ContainerAssociation = null as any;
+utilities.lazyLoad(exports, ["ContainerAssociation"], () => require("./containerAssociation"));
+
 export { FirewallArgs } from "./firewall";
 export type Firewall = import("./firewall").Firewall;
 export const Firewall: typeof import("./firewall").Firewall = null as any;
@@ -14,6 +19,11 @@ export { FirewallPolicyArgs } from "./firewallPolicy";
 export type FirewallPolicy = import("./firewallPolicy").FirewallPolicy;
 export const FirewallPolicy: typeof import("./firewallPolicy").FirewallPolicy = null as any;
 utilities.lazyLoad(exports, ["FirewallPolicy"], () => require("./firewallPolicy"));
+
+export { GetContainerAssociationArgs, GetContainerAssociationResult, GetContainerAssociationOutputArgs } from "./getContainerAssociation";
+export const getContainerAssociation: typeof import("./getContainerAssociation").getContainerAssociation = null as any;
+export const getContainerAssociationOutput: typeof import("./getContainerAssociation").getContainerAssociationOutput = null as any;
+utilities.lazyLoad(exports, ["getContainerAssociation","getContainerAssociationOutput"], () => require("./getContainerAssociation"));
 
 export { GetFirewallArgs, GetFirewallResult, GetFirewallOutputArgs } from "./getFirewall";
 export const getFirewall: typeof import("./getFirewall").getFirewall = null as any;
@@ -73,6 +83,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:networkfirewall:ContainerAssociation":
+                return new ContainerAssociation(name, <any>undefined, { urn })
             case "aws-native:networkfirewall:Firewall":
                 return new Firewall(name, <any>undefined, { urn })
             case "aws-native:networkfirewall:FirewallPolicy":

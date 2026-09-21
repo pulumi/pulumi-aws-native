@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Connect.Inputs
 {
 
     /// <summary>
-    /// The outbound email address ID.
+    /// The outbound email configuration for a specified queue.
     /// </summary>
     public sealed class QueueOutboundEmailConfigArgs : global::Pulumi.ResourceArgs
     {

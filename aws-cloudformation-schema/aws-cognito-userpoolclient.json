@@ -185,7 +185,7 @@
       "timeoutInMinutes" : 2
     },
     "read" : {
-      "permissions" : [ "cognito-idp:DescribeUserPoolClient" ]
+      "permissions" : [ "cognito-idp:DescribeUserPoolClient", "cognito-idp:ListUserPoolClientSecrets" ]
     },
     "update" : {
       "permissions" : [ "cognito-idp:UpdateUserPoolClient", "iam:PassRole", "iam:PutRolePolicy" ],

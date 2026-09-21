@@ -42,6 +42,10 @@ export class Channel extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
+     * <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+     */
+    declare public /*out*/ readonly attachedMultiviewChannels: pulumi.Output<string[]>;
+    /**
      * The name of the channel group associated with the channel configuration.
      */
     declare public readonly channelGroupName: pulumi.Output<string>;
@@ -82,6 +86,7 @@ export class Channel extends pulumi.CustomResource {
      * <p>The date and time the channel was modified.</p>
      */
     declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
+    declare public readonly multiviewConfiguration: pulumi.Output<outputs.mediapackagev2.ChannelMultiviewConfiguration | undefined>;
     /**
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */
@@ -108,16 +113,19 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["inputSwitchConfiguration"] = args?.inputSwitchConfiguration;
             resourceInputs["inputType"] = args?.inputType;
+            resourceInputs["multiviewConfiguration"] = args?.multiviewConfiguration;
             resourceInputs["outputHeaderConfiguration"] = args?.outputHeaderConfiguration;
             resourceInputs["outputLockingMode"] = args?.outputLockingMode;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["attachedMultiviewChannels"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["ingestEndpointUrls"] = undefined /*out*/;
             resourceInputs["ingestEndpoints"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
         } else {
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["attachedMultiviewChannels"] = undefined /*out*/;
             resourceInputs["channelGroupName"] = undefined /*out*/;
             resourceInputs["channelName"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
@@ -127,6 +135,7 @@ export class Channel extends pulumi.CustomResource {
             resourceInputs["inputSwitchConfiguration"] = undefined /*out*/;
             resourceInputs["inputType"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;
+            resourceInputs["multiviewConfiguration"] = undefined /*out*/;
             resourceInputs["outputHeaderConfiguration"] = undefined /*out*/;
             resourceInputs["outputLockingMode"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -167,6 +176,7 @@ export interface ChannelArgs {
      * - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
      */
     inputType?: pulumi.Input<enums.mediapackagev2.ChannelInputType | undefined>;
+    multiviewConfiguration?: pulumi.Input<inputs.mediapackagev2.ChannelMultiviewConfigurationArgs | undefined>;
     /**
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */

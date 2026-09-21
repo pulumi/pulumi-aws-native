@@ -32,6 +32,7 @@ class RuntimeArgs:
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]]] = None,
                  lifecycle_configuration: pulumi.Input[Optional['RuntimeLifecycleConfigurationArgs']] = None,
                  network_configuration: pulumi.Input[Optional['RuntimeNetworkConfigurationArgs']] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: pulumi.Input[Optional['RuntimeRequestHeaderConfigurationArgs']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -48,6 +49,7 @@ class RuntimeArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RuntimeFilesystemConfigurationArgs']]] filesystem_configurations: Filesystem configurations for the agent runtime
         :param pulumi.Input['RuntimeLifecycleConfigurationArgs'] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input['RuntimeNetworkConfigurationArgs'] network_configuration: Network access configuration for the Agent
+        :param pulumi.Input[_builtins.str] platform_version: The version of the runtime platform
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
         :param pulumi.Input['RuntimeRequestHeaderConfigurationArgs'] request_header_configuration: Configuration for HTTP request headers
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the agent.
@@ -69,6 +71,8 @@ class RuntimeArgs:
             pulumi.set(__self__, "lifecycle_configuration", lifecycle_configuration)
         if network_configuration is not None:
             pulumi.set(__self__, "network_configuration", network_configuration)
+        if platform_version is not None:
+            pulumi.set(__self__, "platform_version", platform_version)
         if protocol_configuration is not None:
             pulumi.set(__self__, "protocol_configuration", protocol_configuration)
         if request_header_configuration is not None:
@@ -197,6 +201,18 @@ class RuntimeArgs:
         pulumi.set(self, "network_configuration", value)
 
     @_builtins.property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The version of the runtime platform
+        """
+        return pulumi.get(self, "platform_version")
+
+    @platform_version.setter
+    def platform_version(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "platform_version", value)
+
+    @_builtins.property
     @pulumi.getter(name="protocolConfiguration")
     def protocol_configuration(self) -> pulumi.Input[Optional['RuntimeProtocolConfiguration']]:
         """
@@ -248,6 +264,7 @@ class Runtime(pulumi.CustomResource):
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
                  network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -267,6 +284,7 @@ class Runtime(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]] filesystem_configurations: Filesystem configurations for the agent runtime
         :param pulumi.Input[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']] lifecycle_configuration: Lifecycle configuration for managing runtime sessions
         :param pulumi.Input[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']] network_configuration: Network access configuration for the Agent
+        :param pulumi.Input[_builtins.str] platform_version: The version of the runtime platform
         :param pulumi.Input['RuntimeProtocolConfiguration'] protocol_configuration: Protocol configuration for the agent runtime
         :param pulumi.Input[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']] request_header_configuration: Configuration for HTTP request headers
         :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of an IAM role
@@ -305,6 +323,7 @@ class Runtime(pulumi.CustomResource):
                  filesystem_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['RuntimeFilesystemConfigurationArgs', 'RuntimeFilesystemConfigurationArgsDict']]]]] = None,
                  lifecycle_configuration: pulumi.Input[Optional[Union['RuntimeLifecycleConfigurationArgs', 'RuntimeLifecycleConfigurationArgsDict']]] = None,
                  network_configuration: pulumi.Input[Optional[Union['RuntimeNetworkConfigurationArgs', 'RuntimeNetworkConfigurationArgsDict']]] = None,
+                 platform_version: pulumi.Input[Optional[_builtins.str]] = None,
                  protocol_configuration: pulumi.Input[Optional['RuntimeProtocolConfiguration']] = None,
                  request_header_configuration: pulumi.Input[Optional[Union['RuntimeRequestHeaderConfigurationArgs', 'RuntimeRequestHeaderConfigurationArgsDict']]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
@@ -331,6 +350,7 @@ class Runtime(pulumi.CustomResource):
             __props__.__dict__["filesystem_configurations"] = filesystem_configurations
             __props__.__dict__["lifecycle_configuration"] = lifecycle_configuration
             __props__.__dict__["network_configuration"] = network_configuration
+            __props__.__dict__["platform_version"] = platform_version
             __props__.__dict__["protocol_configuration"] = protocol_configuration
             __props__.__dict__["request_header_configuration"] = request_header_configuration
             if role_arn is None and not opts.urn:
@@ -384,6 +404,7 @@ class Runtime(pulumi.CustomResource):
         __props__.__dict__["last_updated_at"] = None
         __props__.__dict__["lifecycle_configuration"] = None
         __props__.__dict__["network_configuration"] = None
+        __props__.__dict__["platform_version"] = None
         __props__.__dict__["protocol_configuration"] = None
         __props__.__dict__["request_header_configuration"] = None
         __props__.__dict__["role_arn"] = None
@@ -511,6 +532,14 @@ class Runtime(pulumi.CustomResource):
         Network access configuration for the Agent
         """
         return pulumi.get(self, "network_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="platformVersion")
+    def platform_version(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The version of the runtime platform
+        """
+        return pulumi.get(self, "platform_version")
 
     @_builtins.property
     @pulumi.getter(name="protocolConfiguration")

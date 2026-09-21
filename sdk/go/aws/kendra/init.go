@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DataSource{}
 	case "aws-native:kendra:Faq":
 		r = &Faq{}
+	case "aws-native:kendra:FeaturedResultsSet":
+		r = &FeaturedResultsSet{}
 	case "aws-native:kendra:Index":
 		r = &Index{}
 	case "aws-native:kendra:QuerySuggestionsBlockList":

@@ -118,6 +118,8 @@ __all__ = [
     'DataSourceWorkDocsConfigurationArgsDict',
     'FaqS3PathArgs',
     'FaqS3PathArgsDict',
+    'FeaturedResultsSetFeaturedDocumentArgs',
+    'FeaturedResultsSetFeaturedDocumentArgsDict',
     'IndexCapacityUnitsConfigurationArgs',
     'IndexCapacityUnitsConfigurationArgsDict',
     'IndexDocumentMetadataConfigurationArgs',
@@ -4746,6 +4748,40 @@ class FaqS3PathArgs:
     @key.setter
     def key(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "key", value)
+
+
+class FeaturedResultsSetFeaturedDocumentArgsDict(TypedDict):
+    """
+    A featured document. This document is displayed at the top of the search results page.
+    """
+    id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The identifier of the document to feature in the search results.
+    """
+
+@pulumi.input_type
+class FeaturedResultsSetFeaturedDocumentArgs:
+    def __init__(__self__, *,
+                 id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        A featured document. This document is displayed at the top of the search results page.
+
+        :param pulumi.Input[_builtins.str] id: The identifier of the document to feature in the search results.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The identifier of the document to feature in the search results.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "id", value)
 
 
 class IndexCapacityUnitsConfigurationArgsDict(TypedDict):

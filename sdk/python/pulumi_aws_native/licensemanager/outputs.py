@@ -16,6 +16,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'LicenseAssetGroupConfiguration',
+    'LicenseAssetGroupProperty',
     'LicenseAssetRuleSetAndRuleStatement',
     'LicenseAssetRuleSetInstanceRuleStatement',
     'LicenseAssetRuleSetLicenseAssetRule',
@@ -32,6 +34,57 @@ __all__ = [
     'LicenseProvisionalConfiguration',
     'LicenseValidityDateFormat',
 ]
+
+@pulumi.output_type
+class LicenseAssetGroupConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "usageDimension":
+            suggest = "usage_dimension"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LicenseAssetGroupConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LicenseAssetGroupConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LicenseAssetGroupConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 usage_dimension: Optional[_builtins.str] = None):
+        if usage_dimension is not None:
+            pulumi.set(__self__, "usage_dimension", usage_dimension)
+
+    @_builtins.property
+    @pulumi.getter(name="usageDimension")
+    def usage_dimension(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "usage_dimension")
+
+
+@pulumi.output_type
+class LicenseAssetGroupProperty(dict):
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "value")
+
 
 @pulumi.output_type
 class LicenseAssetRuleSetAndRuleStatement(dict):

@@ -50,6 +50,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
         /// This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
         /// </summary>
         public readonly string? KmsKeyId;
+        public readonly Outputs.Ec2FleetMultiAvailabilityZoneConfiguration? MultiAvailabilityZoneConfiguration;
         /// <summary>
         /// The ID of the snapshot.
         /// </summary>
@@ -82,6 +83,8 @@ namespace Pulumi.AwsNative.Ec2.Outputs
 
             string? kmsKeyId,
 
+            Outputs.Ec2FleetMultiAvailabilityZoneConfiguration? multiAvailabilityZoneConfiguration,
+
             string? snapshotId,
 
             int? volumeSize,
@@ -92,6 +95,7 @@ namespace Pulumi.AwsNative.Ec2.Outputs
             Encrypted = encrypted;
             Iops = iops;
             KmsKeyId = kmsKeyId;
+            MultiAvailabilityZoneConfiguration = multiAvailabilityZoneConfiguration;
             SnapshotId = snapshotId;
             VolumeSize = volumeSize;
             VolumeType = volumeType;

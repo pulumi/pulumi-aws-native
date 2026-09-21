@@ -34,7 +34,8 @@ type LookupImageBuilderResult struct {
 	// The version of the WorkSpaces Applications agent to use for this image builder. To use the latest version of the WorkSpaces Applications agent, specify [LATEST].
 	AppstreamAgentVersion *string `pulumi:"appstreamAgentVersion"`
 	// The description to display.
-	Description *string `pulumi:"description"`
+	Description   *string `pulumi:"description"`
+	DisableImdsv1 *bool   `pulumi:"disableImdsv1"`
 	// The image builder name to display.
 	DisplayName *string `pulumi:"displayName"`
 	// The name of the directory and organizational unit (OU) to use to join the image builder to a Microsoft Active Directory domain.
@@ -150,6 +151,10 @@ func (o LookupImageBuilderResultOutput) AppstreamAgentVersion() pulumi.StringPtr
 // The description to display.
 func (o LookupImageBuilderResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupImageBuilderResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupImageBuilderResultOutput) DisableImdsv1() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupImageBuilderResult) *bool { return v.DisableImdsv1 }).(pulumi.BoolPtrOutput)
 }
 
 // The image builder name to display.

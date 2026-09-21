@@ -4854,7 +4854,7 @@ class QueueOutboundCallerConfigArgs:
 
 class QueueOutboundEmailConfigArgsDict(TypedDict):
     """
-    The outbound email address ID.
+    The outbound email configuration for a specified queue.
     """
     outbound_email_address_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -4866,7 +4866,7 @@ class QueueOutboundEmailConfigArgs:
     def __init__(__self__, *,
                  outbound_email_address_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        The outbound email address ID.
+        The outbound email configuration for a specified queue.
 
         :param pulumi.Input[_builtins.str] outbound_email_address_id: The identifier of the email address.
         """

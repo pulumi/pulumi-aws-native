@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'ChannelInputType',
+    'ChannelMultiviewLayoutType',
     'ChannelOutputLockingMode',
     'OriginEndpointAdMarkerDash',
     'OriginEndpointAdMarkerHls',
@@ -43,6 +44,20 @@ __all__ = [
 class ChannelInputType(_builtins.str, Enum):
     HLS = "HLS"
     CMAF = "CMAF"
+    MULTIVIEW = "MULTIVIEW"
+
+
+@pulumi.type_token("aws-native:mediapackagev2:ChannelMultiviewLayoutType")
+class ChannelMultiviewLayoutType(_builtins.str, Enum):
+    """
+    <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_SINGLE</code> – One tile at full resolution. Use this to serve a single source as a standard stream.</p> </li> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EB</code> – Three tiles of equal size, with two on top and one below.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+    """
+    LAYOUT2EH = "LAYOUT_2EH"
+    LAYOUT2PL = "LAYOUT_2PL"
+    LAYOUT3EL = "LAYOUT_3EL"
+    LAYOUT3PL = "LAYOUT_3PL"
+    LAYOUT4E = "LAYOUT_4E"
+    LAYOUT4PL = "LAYOUT_4PL"
 
 
 @pulumi.type_token("aws-native:mediapackagev2:ChannelOutputLockingMode")

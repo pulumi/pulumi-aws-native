@@ -13,6 +13,11 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type OutpostTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 type SiteAddress struct {
 	AddressLine1       string  `pulumi:"addressLine1"`
 	AddressLine2       *string `pulumi:"addressLine2"`

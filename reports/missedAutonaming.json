@@ -1120,6 +1120,12 @@
       "suspendedState": {
         "$ref": "#/types/aws-native:applicationautoscaling:ScalableTargetSuspendedState",
         "description": "An embedded object that contains attributes and attribute values that are used to suspend and resume automatic scaling. Setting the value of an attribute to ``true`` suspends the specified scaling activities. Setting it to ``false`` (default) resumes the specified scaling activities. \n  *Suspension Outcomes* \n  +  For ``DynamicScalingInSuspended``, while a suspension is in effect, all scale-in activities that are triggered by a scaling policy are suspended.\n  +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.\n  +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        }
       }
     }
   },
@@ -1289,6 +1295,23 @@
       "userName": {
         "type": "string",
         "description": "The name of the user who is associated with the stack."
+      }
+    }
+  },
+  "aws-native:appsync:ApiKey": {
+    "cfTypeName": "AWS::AppSync::ApiKey",
+    "properties": {
+      "apiId": {
+        "type": "string",
+        "description": "Unique AWS AppSync GraphQL API ID for this API key."
+      },
+      "description": {
+        "type": "string",
+        "description": "Unique description of your API key."
+      },
+      "expires": {
+        "type": "number",
+        "description": "The time after which the API key expires. The date is represented as seconds since the epoch, rounded down to the nearest hour."
       }
     }
   },
@@ -2039,6 +2062,10 @@
       "networkConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeNetworkConfiguration",
         "description": "Network access configuration for the Agent"
+      },
+      "platformVersion": {
+        "type": "string",
+        "description": "The version of the runtime platform"
       },
       "protocolConfiguration": {
         "$ref": "#/types/aws-native:bedrockagentcore:RuntimeProtocolConfiguration",
@@ -3938,6 +3965,9 @@
         "$ref": "#/types/aws-native:datasync:LocationAzureBlobCustomSecretConfig",
         "description": "Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request."
       },
+      "federatedIdentity": {
+        "$ref": "#/types/aws-native:datasync:LocationAzureBlobAzureFederatedIdentityConfig"
+      },
       "subdirectory": {
         "type": "string",
         "description": "The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location."
@@ -4246,6 +4276,9 @@
       "customSecretConfig": {
         "$ref": "#/types/aws-native:datasync:LocationObjectStorageCustomSecretConfig",
         "description": "Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.\n\n\u003e You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request."
+      },
+      "federatedIdentity": {
+        "$ref": "#/types/aws-native:datasync:LocationObjectStorageObjectStorageFederatedIdentityConfig"
       },
       "secretKey": {
         "type": "string",
@@ -10228,9 +10261,21 @@
         "type": "string",
         "description": "The name of the Elastic Beanstalk application that is associated with this application version. "
       },
+      "buildConfiguration": {
+        "$ref": "#/types/aws-native:elasticbeanstalk:ApplicationVersionBuildConfiguration",
+        "description": "Settings for an AWS CodeBuild build that packages and builds an application version from source code."
+      },
       "description": {
         "type": "string",
         "description": "A description of this application version."
+      },
+      "imageConfiguration": {
+        "$ref": "#/types/aws-native:elasticbeanstalk:ApplicationVersionImageConfiguration",
+        "description": "Configuration for image-based application versions."
+      },
+      "process": {
+        "type": "boolean",
+        "description": "Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default."
       },
       "sourceBundle": {
         "$ref": "#/types/aws-native:elasticbeanstalk:ApplicationVersionSourceBundle",
@@ -10673,6 +10718,22 @@
       }
     }
   },
+  "aws-native:fsx:Backup": {
+    "cfTypeName": "AWS::FSx::Backup",
+    "properties": {
+      "fileSystemId": {
+        "type": "string",
+        "description": "The ID of the file system to back up."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to apply to the backup at backup creation."
+      }
+    }
+  },
   "aws-native:fsx:DataRepositoryAssociation": {
     "cfTypeName": "AWS::FSx::DataRepositoryAssociation",
     "properties": {
@@ -10706,6 +10767,63 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "A list of Tag values, with a maximum of 50 elements."
+      }
+    }
+  },
+  "aws-native:fsx:FileCache": {
+    "cfTypeName": "AWS::FSx::FileCache",
+    "properties": {
+      "copyTagsToDataRepositoryAssociations": {
+        "type": "boolean",
+        "description": "Whether tags should be copied to data repository associations"
+      },
+      "dataRepositoryAssociations": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:fsx:FileCacheDataRepositoryAssociation"
+        },
+        "description": "Data repository associations for the cache"
+      },
+      "fileCacheType": {
+        "$ref": "#/types/aws-native:fsx:FileCacheType",
+        "description": "The type of cache, which must be LUSTRE"
+      },
+      "fileCacheTypeVersion": {
+        "type": "string",
+        "description": "The Lustre version of the cache, which must be 2.12"
+      },
+      "kmsKeyId": {
+        "type": "string",
+        "description": "The KMS key ID for encrypting data"
+      },
+      "lustreConfiguration": {
+        "$ref": "#/types/aws-native:fsx:FileCacheLustreConfiguration",
+        "description": "The Lustre configuration for the file cache"
+      },
+      "securityGroupIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of security group IDs for the cache"
+      },
+      "storageCapacity": {
+        "type": "integer",
+        "description": "The storage capacity of the cache in gibibytes (GiB)"
+      },
+      "subnetIds": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "A list of subnet IDs for the cache"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to associate with the file cache"
       }
     }
   },
@@ -10980,6 +11098,44 @@
       "tags": {
         "$ref": "pulumi.json#/Any",
         "description": "The collection of tags. Each tag element is associated with a given resource.\n\nSearch the [CloudFormation User Guide](https://docs.aws.amazon.com/cloudformation/) for `AWS::Glue::Connection` for more information about the expected schema for this property."
+      }
+    }
+  },
+  "aws-native:glue:ConnectionType": {
+    "cfTypeName": "AWS::Glue::ConnectionType",
+    "properties": {
+      "connectionProperties": {
+        "$ref": "#/types/aws-native:glue:ConnectionTypeConnectionPropertiesConfiguration"
+      },
+      "connectionType": {
+        "type": "string",
+        "description": "The name of the connection type. Must be prefixed with REST-.",
+        "language": {
+          "csharp": {
+            "name": "ConnectionTypeValue"
+          }
+        }
+      },
+      "connectorAuthenticationConfiguration": {
+        "$ref": "#/types/aws-native:glue:ConnectionTypeConnectorAuthenticationConfiguration"
+      },
+      "description": {
+        "type": "string",
+        "description": "A description of the connection type."
+      },
+      "integrationType": {
+        "$ref": "#/types/aws-native:glue:ConnectionTypeIntegrationType",
+        "description": "The integration type for the connection. Currently only REST is supported."
+      },
+      "restConfiguration": {
+        "$ref": "#/types/aws-native:glue:ConnectionTypeRestConfiguration"
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "Tags to assign to the connection type."
       }
     }
   },
@@ -13131,6 +13287,26 @@
       }
     }
   },
+  "aws-native:macie:Member": {
+    "cfTypeName": "AWS::Macie::Member",
+    "properties": {
+      "accountId": {
+        "type": "string",
+        "description": "The AWS account ID for the account to associate with the Amazon Macie administrator account."
+      },
+      "email": {
+        "type": "string",
+        "description": "The email address for the account to associate with the Amazon Macie administrator account. Required by the Amazon Macie CreateMember API at creation time; it is write-only because the service does not return it (it is null when the account is associated through AWS Organizations)."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "The tags to associate with the member account in Amazon Macie."
+      }
+    }
+  },
   "aws-native:macie:Session": {
     "cfTypeName": "AWS::Macie::Session",
     "properties": {
@@ -13400,6 +13576,10 @@
   "aws-native:mediatailor:Function": {
     "cfTypeName": "AWS::MediaTailor::Function",
     "properties": {
+      "concurrentExecutorConfiguration": {
+        "$ref": "#/types/aws-native:mediatailor:FunctionConcurrentExecutorConfiguration",
+        "description": "The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR."
+      },
       "customOutputConfiguration": {
         "$ref": "#/types/aws-native:mediatailor:FunctionCustomOutputConfiguration"
       },
@@ -16446,6 +16626,30 @@
       }
     }
   },
+  "aws-native:redshift:Snapshot": {
+    "cfTypeName": "AWS::Redshift::Snapshot",
+    "properties": {
+      "clusterIdentifier": {
+        "type": "string",
+        "description": "The cluster identifier for which you want a snapshot."
+      },
+      "manualSnapshotRetentionPeriod": {
+        "type": "integer",
+        "description": "The number of days that a manual snapshot is retained. If the value is -1, the manual snapshot is retained indefinitely. The value must be either -1 or an integer between 1 and 3653."
+      },
+      "snapshotIdentifier": {
+        "type": "string",
+        "description": "A unique identifier for the snapshot that you are requesting. This identifier must be unique for all snapshots within the Amazon Web Services account."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tag instances."
+      }
+    }
+  },
   "aws-native:redshift:SnapshotSchedule": {
     "cfTypeName": "AWS::Redshift::SnapshotSchedule",
     "properties": {
@@ -16470,6 +16674,42 @@
           "$ref": "#/types/aws-native:index:Tag"
         },
         "description": "An optional set of tags for the snapshot schedule."
+      }
+    }
+  },
+  "aws-native:redshift:UsageLimit": {
+    "cfTypeName": "AWS::Redshift::UsageLimit",
+    "properties": {
+      "amount": {
+        "type": "number",
+        "description": "The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number."
+      },
+      "breachAction": {
+        "$ref": "#/types/aws-native:redshift:UsageLimitBreachAction",
+        "description": "The action that Amazon Redshift takes when the limit is reached. The default is log."
+      },
+      "clusterIdentifier": {
+        "type": "string",
+        "description": "The identifier of the cluster that you want to limit usage."
+      },
+      "featureType": {
+        "$ref": "#/types/aws-native:redshift:UsageLimitFeatureType",
+        "description": "The Amazon Redshift feature that you want to limit."
+      },
+      "limitType": {
+        "$ref": "#/types/aws-native:redshift:UsageLimitLimitType",
+        "description": "The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned."
+      },
+      "period": {
+        "$ref": "#/types/aws-native:redshift:UsageLimitPeriod",
+        "description": "The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of tag instances."
       }
     }
   },
@@ -18924,6 +19164,46 @@
       "stateMachineRevisionId": {
         "type": "string",
         "description": "Identifier for a state machine revision, which is an immutable, read-only snapshot of a state machine’s definition and configuration.\n\nOnly publish the state machine version if the current state machine's revision ID matches the specified ID. Use this option to avoid publishing a version if the state machine has changed since you last updated it.\n\nTo specify the initial state machine revision, set the value as `INITIAL` ."
+      }
+    }
+  },
+  "aws-native:storagegateway:Tape": {
+    "cfTypeName": "AWS::StorageGateway::Tape",
+    "properties": {
+      "gatewayArn": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of the Tape Gateway that hosts the virtual tape."
+      },
+      "kmsEncrypted": {
+        "type": "boolean",
+        "description": "Set to true to use Amazon S3 server-side encryption with your own KMS key, or false to use a key managed by Amazon S3. Optional."
+      },
+      "kmsKey": {
+        "type": "string",
+        "description": "The Amazon Resource Name (ARN) of a symmetric customer master key (CMK) used for Amazon S3 server-side encryption. This value must be set if KMSEncrypted is true."
+      },
+      "poolId": {
+        "type": "string",
+        "description": "The ID of the pool that you want to add your tape to for archiving. Tapes in this pool are archived in the S3 storage class that is associated with the pool."
+      },
+      "tags": {
+        "type": "array",
+        "items": {
+          "$ref": "#/types/aws-native:index:Tag"
+        },
+        "description": "A list of up to 50 tags to assign to the virtual tape."
+      },
+      "tapeBarcode": {
+        "type": "string",
+        "description": "The barcode that you want to assign to the virtual tape. Barcodes cannot be reused, even after a tape is deleted."
+      },
+      "tapeSizeInBytes": {
+        "type": "number",
+        "description": "The size, in bytes, of the virtual tape that you want to create."
+      },
+      "worm": {
+        "type": "boolean",
+        "description": "Set to true to create a write-once-read-many (WORM) virtual tape."
       }
     }
   },

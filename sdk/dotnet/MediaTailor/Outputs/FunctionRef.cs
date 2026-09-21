@@ -11,26 +11,33 @@ namespace Pulumi.AwsNative.MediaTailor.Outputs
 {
 
     /// <summary>
-    /// A reference to a function with an optional run condition.
+    /// A reference to a child function within an executor function.
     /// </summary>
     [OutputType]
     public sealed class FunctionRef
     {
         /// <summary>
-        /// The identifier of the function to execute.
+        /// An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list.
+        /// </summary>
+        public readonly string? Alias;
+        /// <summary>
+        /// The identifier of the child function to execute.
         /// </summary>
         public readonly string? FunctionId;
         /// <summary>
-        /// A conditional expression that determines whether this function should execute.
+        /// An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs.
         /// </summary>
         public readonly string? RunCondition;
 
         [OutputConstructor]
         private FunctionRef(
+            string? alias,
+
             string? functionId,
 
             string? runCondition)
         {
+            Alias = alias;
             FunctionId = functionId;
             RunCondition = runCondition;
         }

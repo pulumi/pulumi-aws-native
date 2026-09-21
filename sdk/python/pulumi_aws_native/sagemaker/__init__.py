@@ -8,11 +8,13 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .action import *
+from .ai_workload_config import *
 from .algorithm import *
 from .app import *
 from .app_image_config import *
 from .artifact import *
 from .cluster import *
+from .code_repository import *
 from .context import *
 from .data_quality_job_definition import *
 from .device import *
@@ -24,11 +26,13 @@ from .experiment import *
 from .experiment_trial_component import *
 from .feature_group import *
 from .get_action import *
+from .get_ai_workload_config import *
 from .get_algorithm import *
 from .get_app import *
 from .get_app_image_config import *
 from .get_artifact import *
 from .get_cluster import *
+from .get_code_repository import *
 from .get_context import *
 from .get_data_quality_job_definition import *
 from .get_device_fleet import *
@@ -55,6 +59,7 @@ from .get_model_package_group import *
 from .get_model_quality_job_definition import *
 from .get_monitoring_schedule import *
 from .get_notebook_instance import *
+from .get_notebook_instance_lifecycle_config import *
 from .get_partner_app import *
 from .get_pipeline import *
 from .get_processing_job import *
@@ -81,6 +86,7 @@ from .model_package_group import *
 from .model_quality_job_definition import *
 from .monitoring_schedule import *
 from .notebook_instance import *
+from .notebook_instance_lifecycle_config import *
 from .partner_app import *
 from .pipeline import *
 from .processing_job import *

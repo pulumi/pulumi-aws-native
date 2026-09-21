@@ -5,10 +5,11 @@
   "definitions" : {
     "FunctionType" : {
       "type" : "string",
-      "enum" : [ "HTTP_REQUEST", "CUSTOM_OUTPUT", "SEQUENTIAL_EXECUTOR" ]
+      "enum" : [ "HTTP_REQUEST", "CUSTOM_OUTPUT", "CONCURRENT_EXECUTOR", "SEQUENTIAL_EXECUTOR" ]
     },
     "RuntimeType" : {
       "type" : "string",
+      "description" : "The expression language used to evaluate expressions in the function configuration. Set this to JSONATA.",
       "enum" : [ "JSONATA" ]
     },
     "MethodType" : {
@@ -69,30 +70,82 @@
     },
     "FunctionRef" : {
       "type" : "object",
-      "description" : "A reference to a function with an optional run condition.",
+      "description" : "A reference to a child function within an executor function.",
       "properties" : {
         "RunCondition" : {
           "type" : "string",
-          "description" : "A conditional expression that determines whether this function should execute."
+          "description" : "An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs."
         },
         "FunctionId" : {
           "type" : "string",
-          "description" : "The identifier of the function to execute."
+          "description" : "The identifier of the child function to execute."
+        },
+        "Alias" : {
+          "type" : "string",
+          "description" : "An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list."
         }
       },
       "additionalProperties" : false
     },
-    "SequentialExecutorConfiguration" : {
+    "ConcurrentExecutorConfiguration" : {
       "type" : "object",
-      "description" : "Configuration for sequential executor functions.",
+      "description" : "The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.",
       "properties" : {
         "Runtime" : {
-          "$ref" : "#/definitions/RuntimeType",
-          "description" : "The runtime environment for the function expression language."
+          "$ref" : "#/definitions/RuntimeType"
         },
         "Output" : {
-          "$ref" : "#/definitions/StringMap",
-          "description" : "A map of output key-value pairs that define the final output from sequential execution."
+          "type" : "object",
+          "description" : "A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.",
+          "additionalProperties" : false,
+          "patternProperties" : {
+            ".*" : {
+              "type" : "string"
+            }
+          }
+        },
+        "FunctionList" : {
+          "type" : "array",
+          "insertionOrder" : true,
+          "minItems" : 1,
+          "maxItems" : 10,
+          "items" : {
+            "$ref" : "#/definitions/FunctionRef"
+          },
+          "description" : "The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list."
+        },
+        "TimeoutMilliseconds" : {
+          "type" : "integer",
+          "minimum" : 100,
+          "maximum" : 2000,
+          "description" : "The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000."
+        },
+        "MaxConcurrency" : {
+          "type" : "integer",
+          "minimum" : 1,
+          "maximum" : 2,
+          "description" : "The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2."
+        }
+      },
+      "required" : [ "Runtime", "Output", "FunctionList", "TimeoutMilliseconds", "MaxConcurrency" ],
+      "additionalProperties" : false
+    },
+    "SequentialExecutorConfiguration" : {
+      "type" : "object",
+      "description" : "The configuration for a SEQUENTIAL_EXECUTOR function. A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.",
+      "properties" : {
+        "Runtime" : {
+          "$ref" : "#/definitions/RuntimeType"
+        },
+        "Output" : {
+          "type" : "object",
+          "description" : "A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.",
+          "additionalProperties" : false,
+          "patternProperties" : {
+            ".*" : {
+              "type" : "string"
+            }
+          }
         },
         "FunctionList" : {
           "type" : "array",
@@ -100,11 +153,11 @@
           "items" : {
             "$ref" : "#/definitions/FunctionRef"
           },
-          "description" : "The list of functions to execute sequentially."
+          "description" : "An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list."
         },
         "TimeoutMilliseconds" : {
           "type" : "integer",
-          "description" : "The timeout in milliseconds for the entire sequential execution chain."
+          "description" : "The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000."
         }
       },
       "required" : [ "Runtime", "FunctionList", "TimeoutMilliseconds" ],
@@ -155,6 +208,10 @@
     },
     "CustomOutputConfiguration" : {
       "$ref" : "#/definitions/CustomOutputConfiguration"
+    },
+    "ConcurrentExecutorConfiguration" : {
+      "$ref" : "#/definitions/ConcurrentExecutorConfiguration",
+      "description" : "The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR."
     },
     "SequentialExecutorConfiguration" : {
       "$ref" : "#/definitions/SequentialExecutorConfiguration"

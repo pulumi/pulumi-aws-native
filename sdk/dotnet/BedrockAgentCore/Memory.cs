@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("namespaceKeys")]
+        public Output<ImmutableArray<Outputs.MemoryNamespaceKeyEntry>> NamespaceKeys { get; private set; } = null!;
+
         /// <summary>
         /// The memory status.
         /// </summary>
@@ -183,6 +186,14 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("namespaceKeys")]
+        private InputList<Inputs.MemoryNamespaceKeyEntryArgs>? _namespaceKeys;
+        public InputList<Inputs.MemoryNamespaceKeyEntryArgs> NamespaceKeys
+        {
+            get => _namespaceKeys ?? (_namespaceKeys = new InputList<Inputs.MemoryNamespaceKeyEntryArgs>());
+            set => _namespaceKeys = value;
+        }
 
         [Input("streamDeliveryResources")]
         public Input<Inputs.MemoryStreamDeliveryResourcesArgs>? StreamDeliveryResources { get; set; }

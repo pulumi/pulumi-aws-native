@@ -940,6 +940,218 @@ func (o ChannelTimeShiftConfigurationPtrOutput) MaxTimeDelaySeconds() pulumi.Flo
 	}).(pulumi.Float64PtrOutput)
 }
 
+// The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
+type FunctionConcurrentExecutorConfiguration struct {
+	// The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
+	FunctionList []FunctionRef `pulumi:"functionList"`
+	// The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2.
+	MaxConcurrency int `pulumi:"maxConcurrency"`
+	// A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+	Output  map[string]string   `pulumi:"output"`
+	Runtime FunctionRuntimeType `pulumi:"runtime"`
+	// The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000.
+	TimeoutMilliseconds int `pulumi:"timeoutMilliseconds"`
+}
+
+// FunctionConcurrentExecutorConfigurationInput is an input type that accepts FunctionConcurrentExecutorConfigurationArgs and FunctionConcurrentExecutorConfigurationOutput values.
+// You can construct a concrete instance of `FunctionConcurrentExecutorConfigurationInput` via:
+//
+//	FunctionConcurrentExecutorConfigurationArgs{...}
+type FunctionConcurrentExecutorConfigurationInput interface {
+	pulumi.Input
+
+	ToFunctionConcurrentExecutorConfigurationOutput() FunctionConcurrentExecutorConfigurationOutput
+	ToFunctionConcurrentExecutorConfigurationOutputWithContext(context.Context) FunctionConcurrentExecutorConfigurationOutput
+}
+
+// The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
+type FunctionConcurrentExecutorConfigurationArgs struct {
+	// The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
+	FunctionList FunctionRefArrayInput `pulumi:"functionList"`
+	// The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2.
+	MaxConcurrency pulumi.IntInput `pulumi:"maxConcurrency"`
+	// A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+	Output  pulumi.StringMapInput    `pulumi:"output"`
+	Runtime FunctionRuntimeTypeInput `pulumi:"runtime"`
+	// The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000.
+	TimeoutMilliseconds pulumi.IntInput `pulumi:"timeoutMilliseconds"`
+}
+
+func (FunctionConcurrentExecutorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConcurrentExecutorConfiguration)(nil)).Elem()
+}
+
+func (i FunctionConcurrentExecutorConfigurationArgs) ToFunctionConcurrentExecutorConfigurationOutput() FunctionConcurrentExecutorConfigurationOutput {
+	return i.ToFunctionConcurrentExecutorConfigurationOutputWithContext(context.Background())
+}
+
+func (i FunctionConcurrentExecutorConfigurationArgs) ToFunctionConcurrentExecutorConfigurationOutputWithContext(ctx context.Context) FunctionConcurrentExecutorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConcurrentExecutorConfigurationOutput)
+}
+
+func (i FunctionConcurrentExecutorConfigurationArgs) ToFunctionConcurrentExecutorConfigurationPtrOutput() FunctionConcurrentExecutorConfigurationPtrOutput {
+	return i.ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FunctionConcurrentExecutorConfigurationArgs) ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionConcurrentExecutorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConcurrentExecutorConfigurationOutput).ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(ctx)
+}
+
+// FunctionConcurrentExecutorConfigurationPtrInput is an input type that accepts FunctionConcurrentExecutorConfigurationArgs, FunctionConcurrentExecutorConfigurationPtr and FunctionConcurrentExecutorConfigurationPtrOutput values.
+// You can construct a concrete instance of `FunctionConcurrentExecutorConfigurationPtrInput` via:
+//
+//	        FunctionConcurrentExecutorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FunctionConcurrentExecutorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFunctionConcurrentExecutorConfigurationPtrOutput() FunctionConcurrentExecutorConfigurationPtrOutput
+	ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(context.Context) FunctionConcurrentExecutorConfigurationPtrOutput
+}
+
+type functionConcurrentExecutorConfigurationPtrType FunctionConcurrentExecutorConfigurationArgs
+
+func FunctionConcurrentExecutorConfigurationPtr(v *FunctionConcurrentExecutorConfigurationArgs) FunctionConcurrentExecutorConfigurationPtrInput {
+	return (*functionConcurrentExecutorConfigurationPtrType)(v)
+}
+
+func (*functionConcurrentExecutorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConcurrentExecutorConfiguration)(nil)).Elem()
+}
+
+func (i *functionConcurrentExecutorConfigurationPtrType) ToFunctionConcurrentExecutorConfigurationPtrOutput() FunctionConcurrentExecutorConfigurationPtrOutput {
+	return i.ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *functionConcurrentExecutorConfigurationPtrType) ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionConcurrentExecutorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FunctionConcurrentExecutorConfigurationPtrOutput)
+}
+
+// The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
+type FunctionConcurrentExecutorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FunctionConcurrentExecutorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FunctionConcurrentExecutorConfiguration)(nil)).Elem()
+}
+
+func (o FunctionConcurrentExecutorConfigurationOutput) ToFunctionConcurrentExecutorConfigurationOutput() FunctionConcurrentExecutorConfigurationOutput {
+	return o
+}
+
+func (o FunctionConcurrentExecutorConfigurationOutput) ToFunctionConcurrentExecutorConfigurationOutputWithContext(ctx context.Context) FunctionConcurrentExecutorConfigurationOutput {
+	return o
+}
+
+func (o FunctionConcurrentExecutorConfigurationOutput) ToFunctionConcurrentExecutorConfigurationPtrOutput() FunctionConcurrentExecutorConfigurationPtrOutput {
+	return o.ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FunctionConcurrentExecutorConfigurationOutput) ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionConcurrentExecutorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FunctionConcurrentExecutorConfiguration) *FunctionConcurrentExecutorConfiguration {
+		return &v
+	}).(FunctionConcurrentExecutorConfigurationPtrOutput)
+}
+
+// The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
+func (o FunctionConcurrentExecutorConfigurationOutput) FunctionList() FunctionRefArrayOutput {
+	return o.ApplyT(func(v FunctionConcurrentExecutorConfiguration) []FunctionRef { return v.FunctionList }).(FunctionRefArrayOutput)
+}
+
+// The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2.
+func (o FunctionConcurrentExecutorConfigurationOutput) MaxConcurrency() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionConcurrentExecutorConfiguration) int { return v.MaxConcurrency }).(pulumi.IntOutput)
+}
+
+// A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+func (o FunctionConcurrentExecutorConfigurationOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v FunctionConcurrentExecutorConfiguration) map[string]string { return v.Output }).(pulumi.StringMapOutput)
+}
+
+func (o FunctionConcurrentExecutorConfigurationOutput) Runtime() FunctionRuntimeTypeOutput {
+	return o.ApplyT(func(v FunctionConcurrentExecutorConfiguration) FunctionRuntimeType { return v.Runtime }).(FunctionRuntimeTypeOutput)
+}
+
+// The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000.
+func (o FunctionConcurrentExecutorConfigurationOutput) TimeoutMilliseconds() pulumi.IntOutput {
+	return o.ApplyT(func(v FunctionConcurrentExecutorConfiguration) int { return v.TimeoutMilliseconds }).(pulumi.IntOutput)
+}
+
+type FunctionConcurrentExecutorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FunctionConcurrentExecutorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FunctionConcurrentExecutorConfiguration)(nil)).Elem()
+}
+
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) ToFunctionConcurrentExecutorConfigurationPtrOutput() FunctionConcurrentExecutorConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) ToFunctionConcurrentExecutorConfigurationPtrOutputWithContext(ctx context.Context) FunctionConcurrentExecutorConfigurationPtrOutput {
+	return o
+}
+
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) Elem() FunctionConcurrentExecutorConfigurationOutput {
+	return o.ApplyT(func(v *FunctionConcurrentExecutorConfiguration) FunctionConcurrentExecutorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FunctionConcurrentExecutorConfiguration
+		return ret
+	}).(FunctionConcurrentExecutorConfigurationOutput)
+}
+
+// The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) FunctionList() FunctionRefArrayOutput {
+	return o.ApplyT(func(v *FunctionConcurrentExecutorConfiguration) []FunctionRef {
+		if v == nil {
+			return nil
+		}
+		return v.FunctionList
+	}).(FunctionRefArrayOutput)
+}
+
+// The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2.
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) MaxConcurrency() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionConcurrentExecutorConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.MaxConcurrency
+	}).(pulumi.IntPtrOutput)
+}
+
+// A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) Output() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FunctionConcurrentExecutorConfiguration) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Output
+	}).(pulumi.StringMapOutput)
+}
+
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) Runtime() FunctionRuntimeTypePtrOutput {
+	return o.ApplyT(func(v *FunctionConcurrentExecutorConfiguration) *FunctionRuntimeType {
+		if v == nil {
+			return nil
+		}
+		return &v.Runtime
+	}).(FunctionRuntimeTypePtrOutput)
+}
+
+// The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000.
+func (o FunctionConcurrentExecutorConfigurationPtrOutput) TimeoutMilliseconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FunctionConcurrentExecutorConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimeoutMilliseconds
+	}).(pulumi.IntPtrOutput)
+}
+
 // Configuration for custom output functions.
 type FunctionCustomOutputConfiguration struct {
 	// A map of output key-value pairs that define the custom output.
@@ -1353,11 +1565,13 @@ func (o FunctionHttpRequestConfigurationPtrOutput) Url() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
-// A reference to a function with an optional run condition.
+// A reference to a child function within an executor function.
 type FunctionRef struct {
-	// The identifier of the function to execute.
+	// An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list.
+	Alias *string `pulumi:"alias"`
+	// The identifier of the child function to execute.
 	FunctionId *string `pulumi:"functionId"`
-	// A conditional expression that determines whether this function should execute.
+	// An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs.
 	RunCondition *string `pulumi:"runCondition"`
 }
 
@@ -1372,11 +1586,13 @@ type FunctionRefInput interface {
 	ToFunctionRefOutputWithContext(context.Context) FunctionRefOutput
 }
 
-// A reference to a function with an optional run condition.
+// A reference to a child function within an executor function.
 type FunctionRefArgs struct {
-	// The identifier of the function to execute.
+	// An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list.
+	Alias pulumi.StringPtrInput `pulumi:"alias"`
+	// The identifier of the child function to execute.
 	FunctionId pulumi.StringPtrInput `pulumi:"functionId"`
-	// A conditional expression that determines whether this function should execute.
+	// An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs.
 	RunCondition pulumi.StringPtrInput `pulumi:"runCondition"`
 }
 
@@ -1417,7 +1633,7 @@ func (i FunctionRefArray) ToFunctionRefArrayOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionRefArrayOutput)
 }
 
-// A reference to a function with an optional run condition.
+// A reference to a child function within an executor function.
 type FunctionRefOutput struct{ *pulumi.OutputState }
 
 func (FunctionRefOutput) ElementType() reflect.Type {
@@ -1432,12 +1648,17 @@ func (o FunctionRefOutput) ToFunctionRefOutputWithContext(ctx context.Context) F
 	return o
 }
 
-// The identifier of the function to execute.
+// An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list.
+func (o FunctionRefOutput) Alias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FunctionRef) *string { return v.Alias }).(pulumi.StringPtrOutput)
+}
+
+// The identifier of the child function to execute.
 func (o FunctionRefOutput) FunctionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionRef) *string { return v.FunctionId }).(pulumi.StringPtrOutput)
 }
 
-// A conditional expression that determines whether this function should execute.
+// An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs.
 func (o FunctionRefOutput) RunCondition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionRef) *string { return v.RunCondition }).(pulumi.StringPtrOutput)
 }
@@ -1462,15 +1683,14 @@ func (o FunctionRefArrayOutput) Index(i pulumi.IntInput) FunctionRefOutput {
 	}).(FunctionRefOutput)
 }
 
-// Configuration for sequential executor functions.
+// The configuration for a SEQUENTIAL_EXECUTOR function. A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
 type FunctionSequentialExecutorConfiguration struct {
-	// The list of functions to execute sequentially.
+	// An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list.
 	FunctionList []FunctionRef `pulumi:"functionList"`
-	// A map of output key-value pairs that define the final output from sequential execution.
-	Output map[string]string `pulumi:"output"`
-	// The runtime environment for the function expression language.
+	// A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.
+	Output  map[string]string   `pulumi:"output"`
 	Runtime FunctionRuntimeType `pulumi:"runtime"`
-	// The timeout in milliseconds for the entire sequential execution chain.
+	// The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000.
 	TimeoutMilliseconds int `pulumi:"timeoutMilliseconds"`
 }
 
@@ -1485,15 +1705,14 @@ type FunctionSequentialExecutorConfigurationInput interface {
 	ToFunctionSequentialExecutorConfigurationOutputWithContext(context.Context) FunctionSequentialExecutorConfigurationOutput
 }
 
-// Configuration for sequential executor functions.
+// The configuration for a SEQUENTIAL_EXECUTOR function. A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
 type FunctionSequentialExecutorConfigurationArgs struct {
-	// The list of functions to execute sequentially.
+	// An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list.
 	FunctionList FunctionRefArrayInput `pulumi:"functionList"`
-	// A map of output key-value pairs that define the final output from sequential execution.
-	Output pulumi.StringMapInput `pulumi:"output"`
-	// The runtime environment for the function expression language.
+	// A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.
+	Output  pulumi.StringMapInput    `pulumi:"output"`
 	Runtime FunctionRuntimeTypeInput `pulumi:"runtime"`
-	// The timeout in milliseconds for the entire sequential execution chain.
+	// The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000.
 	TimeoutMilliseconds pulumi.IntInput `pulumi:"timeoutMilliseconds"`
 }
 
@@ -1550,7 +1769,7 @@ func (i *functionSequentialExecutorConfigurationPtrType) ToFunctionSequentialExe
 	return pulumi.ToOutputWithContext(ctx, i).(FunctionSequentialExecutorConfigurationPtrOutput)
 }
 
-// Configuration for sequential executor functions.
+// The configuration for a SEQUENTIAL_EXECUTOR function. A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
 type FunctionSequentialExecutorConfigurationOutput struct{ *pulumi.OutputState }
 
 func (FunctionSequentialExecutorConfigurationOutput) ElementType() reflect.Type {
@@ -1575,22 +1794,21 @@ func (o FunctionSequentialExecutorConfigurationOutput) ToFunctionSequentialExecu
 	}).(FunctionSequentialExecutorConfigurationPtrOutput)
 }
 
-// The list of functions to execute sequentially.
+// An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list.
 func (o FunctionSequentialExecutorConfigurationOutput) FunctionList() FunctionRefArrayOutput {
 	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) []FunctionRef { return v.FunctionList }).(FunctionRefArrayOutput)
 }
 
-// A map of output key-value pairs that define the final output from sequential execution.
+// A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.
 func (o FunctionSequentialExecutorConfigurationOutput) Output() pulumi.StringMapOutput {
 	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) map[string]string { return v.Output }).(pulumi.StringMapOutput)
 }
 
-// The runtime environment for the function expression language.
 func (o FunctionSequentialExecutorConfigurationOutput) Runtime() FunctionRuntimeTypeOutput {
 	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) FunctionRuntimeType { return v.Runtime }).(FunctionRuntimeTypeOutput)
 }
 
-// The timeout in milliseconds for the entire sequential execution chain.
+// The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000.
 func (o FunctionSequentialExecutorConfigurationOutput) TimeoutMilliseconds() pulumi.IntOutput {
 	return o.ApplyT(func(v FunctionSequentialExecutorConfiguration) int { return v.TimeoutMilliseconds }).(pulumi.IntOutput)
 }
@@ -1619,7 +1837,7 @@ func (o FunctionSequentialExecutorConfigurationPtrOutput) Elem() FunctionSequent
 	}).(FunctionSequentialExecutorConfigurationOutput)
 }
 
-// The list of functions to execute sequentially.
+// An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list.
 func (o FunctionSequentialExecutorConfigurationPtrOutput) FunctionList() FunctionRefArrayOutput {
 	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) []FunctionRef {
 		if v == nil {
@@ -1629,7 +1847,7 @@ func (o FunctionSequentialExecutorConfigurationPtrOutput) FunctionList() Functio
 	}).(FunctionRefArrayOutput)
 }
 
-// A map of output key-value pairs that define the final output from sequential execution.
+// A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.
 func (o FunctionSequentialExecutorConfigurationPtrOutput) Output() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) map[string]string {
 		if v == nil {
@@ -1639,7 +1857,6 @@ func (o FunctionSequentialExecutorConfigurationPtrOutput) Output() pulumi.String
 	}).(pulumi.StringMapOutput)
 }
 
-// The runtime environment for the function expression language.
 func (o FunctionSequentialExecutorConfigurationPtrOutput) Runtime() FunctionRuntimeTypePtrOutput {
 	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) *FunctionRuntimeType {
 		if v == nil {
@@ -1649,7 +1866,7 @@ func (o FunctionSequentialExecutorConfigurationPtrOutput) Runtime() FunctionRunt
 	}).(FunctionRuntimeTypePtrOutput)
 }
 
-// The timeout in milliseconds for the entire sequential execution chain.
+// The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000.
 func (o FunctionSequentialExecutorConfigurationPtrOutput) TimeoutMilliseconds() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *FunctionSequentialExecutorConfiguration) *int {
 		if v == nil {
@@ -7089,6 +7306,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelSlateSourcePtrInput)(nil)).Elem(), ChannelSlateSourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelTimeShiftConfigurationPtrInput)(nil)).Elem(), ChannelTimeShiftConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConcurrentExecutorConfigurationInput)(nil)).Elem(), FunctionConcurrentExecutorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FunctionConcurrentExecutorConfigurationPtrInput)(nil)).Elem(), FunctionConcurrentExecutorConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCustomOutputConfigurationInput)(nil)).Elem(), FunctionCustomOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionCustomOutputConfigurationPtrInput)(nil)).Elem(), FunctionCustomOutputConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionHttpRequestConfigurationInput)(nil)).Elem(), FunctionHttpRequestConfigurationArgs{})
@@ -7176,6 +7395,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelSlateSourcePtrOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelTimeShiftConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FunctionConcurrentExecutorConfigurationOutput{})
+	pulumi.RegisterOutputType(FunctionConcurrentExecutorConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FunctionCustomOutputConfigurationOutput{})
 	pulumi.RegisterOutputType(FunctionCustomOutputConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FunctionHttpRequestConfigurationOutput{})

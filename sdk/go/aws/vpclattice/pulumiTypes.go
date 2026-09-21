@@ -527,6 +527,139 @@ func (o ListenerWeightedTargetGroupArrayOutput) Index(i pulumi.IntInput) Listene
 	}).(ListenerWeightedTargetGroupOutput)
 }
 
+type ResourceConfigurationCidrResource struct {
+	CidrRanges []string `pulumi:"cidrRanges"`
+}
+
+// ResourceConfigurationCidrResourceInput is an input type that accepts ResourceConfigurationCidrResourceArgs and ResourceConfigurationCidrResourceOutput values.
+// You can construct a concrete instance of `ResourceConfigurationCidrResourceInput` via:
+//
+//	ResourceConfigurationCidrResourceArgs{...}
+type ResourceConfigurationCidrResourceInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationCidrResourceOutput() ResourceConfigurationCidrResourceOutput
+	ToResourceConfigurationCidrResourceOutputWithContext(context.Context) ResourceConfigurationCidrResourceOutput
+}
+
+type ResourceConfigurationCidrResourceArgs struct {
+	CidrRanges pulumi.StringArrayInput `pulumi:"cidrRanges"`
+}
+
+func (ResourceConfigurationCidrResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationCidrResource)(nil)).Elem()
+}
+
+func (i ResourceConfigurationCidrResourceArgs) ToResourceConfigurationCidrResourceOutput() ResourceConfigurationCidrResourceOutput {
+	return i.ToResourceConfigurationCidrResourceOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationCidrResourceArgs) ToResourceConfigurationCidrResourceOutputWithContext(ctx context.Context) ResourceConfigurationCidrResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationCidrResourceOutput)
+}
+
+func (i ResourceConfigurationCidrResourceArgs) ToResourceConfigurationCidrResourcePtrOutput() ResourceConfigurationCidrResourcePtrOutput {
+	return i.ToResourceConfigurationCidrResourcePtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationCidrResourceArgs) ToResourceConfigurationCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationCidrResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationCidrResourceOutput).ToResourceConfigurationCidrResourcePtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationCidrResourcePtrInput is an input type that accepts ResourceConfigurationCidrResourceArgs, ResourceConfigurationCidrResourcePtr and ResourceConfigurationCidrResourcePtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationCidrResourcePtrInput` via:
+//
+//	        ResourceConfigurationCidrResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationCidrResourcePtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationCidrResourcePtrOutput() ResourceConfigurationCidrResourcePtrOutput
+	ToResourceConfigurationCidrResourcePtrOutputWithContext(context.Context) ResourceConfigurationCidrResourcePtrOutput
+}
+
+type resourceConfigurationCidrResourcePtrType ResourceConfigurationCidrResourceArgs
+
+func ResourceConfigurationCidrResourcePtr(v *ResourceConfigurationCidrResourceArgs) ResourceConfigurationCidrResourcePtrInput {
+	return (*resourceConfigurationCidrResourcePtrType)(v)
+}
+
+func (*resourceConfigurationCidrResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationCidrResource)(nil)).Elem()
+}
+
+func (i *resourceConfigurationCidrResourcePtrType) ToResourceConfigurationCidrResourcePtrOutput() ResourceConfigurationCidrResourcePtrOutput {
+	return i.ToResourceConfigurationCidrResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationCidrResourcePtrType) ToResourceConfigurationCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationCidrResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationCidrResourcePtrOutput)
+}
+
+type ResourceConfigurationCidrResourceOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationCidrResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationCidrResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationCidrResourceOutput) ToResourceConfigurationCidrResourceOutput() ResourceConfigurationCidrResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationCidrResourceOutput) ToResourceConfigurationCidrResourceOutputWithContext(ctx context.Context) ResourceConfigurationCidrResourceOutput {
+	return o
+}
+
+func (o ResourceConfigurationCidrResourceOutput) ToResourceConfigurationCidrResourcePtrOutput() ResourceConfigurationCidrResourcePtrOutput {
+	return o.ToResourceConfigurationCidrResourcePtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationCidrResourceOutput) ToResourceConfigurationCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationCidrResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationCidrResource) *ResourceConfigurationCidrResource {
+		return &v
+	}).(ResourceConfigurationCidrResourcePtrOutput)
+}
+
+func (o ResourceConfigurationCidrResourceOutput) CidrRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ResourceConfigurationCidrResource) []string { return v.CidrRanges }).(pulumi.StringArrayOutput)
+}
+
+type ResourceConfigurationCidrResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationCidrResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationCidrResource)(nil)).Elem()
+}
+
+func (o ResourceConfigurationCidrResourcePtrOutput) ToResourceConfigurationCidrResourcePtrOutput() ResourceConfigurationCidrResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationCidrResourcePtrOutput) ToResourceConfigurationCidrResourcePtrOutputWithContext(ctx context.Context) ResourceConfigurationCidrResourcePtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationCidrResourcePtrOutput) Elem() ResourceConfigurationCidrResourceOutput {
+	return o.ApplyT(func(v *ResourceConfigurationCidrResource) ResourceConfigurationCidrResource {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationCidrResource
+		return ret
+	}).(ResourceConfigurationCidrResourceOutput)
+}
+
+func (o ResourceConfigurationCidrResourcePtrOutput) CidrRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ResourceConfigurationCidrResource) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CidrRanges
+	}).(pulumi.StringArrayOutput)
+}
+
 // Identifies the resource configuration in one of the following ways:
 //
 // - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
@@ -971,6 +1104,156 @@ func (o ResourceConfigurationDefinition2PropertiesPtrOutput) DnsResource() Resou
 		}
 		return &v.DnsResource
 	}).(ResourceConfigurationDnsResourcePtrOutput)
+}
+
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+type ResourceConfigurationDefinition3Properties struct {
+	CidrResource ResourceConfigurationCidrResource `pulumi:"cidrResource"`
+}
+
+// ResourceConfigurationDefinition3PropertiesInput is an input type that accepts ResourceConfigurationDefinition3PropertiesArgs and ResourceConfigurationDefinition3PropertiesOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition3PropertiesInput` via:
+//
+//	ResourceConfigurationDefinition3PropertiesArgs{...}
+type ResourceConfigurationDefinition3PropertiesInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition3PropertiesOutput() ResourceConfigurationDefinition3PropertiesOutput
+	ToResourceConfigurationDefinition3PropertiesOutputWithContext(context.Context) ResourceConfigurationDefinition3PropertiesOutput
+}
+
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+type ResourceConfigurationDefinition3PropertiesArgs struct {
+	CidrResource ResourceConfigurationCidrResourceInput `pulumi:"cidrResource"`
+}
+
+func (ResourceConfigurationDefinition3PropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition3Properties)(nil)).Elem()
+}
+
+func (i ResourceConfigurationDefinition3PropertiesArgs) ToResourceConfigurationDefinition3PropertiesOutput() ResourceConfigurationDefinition3PropertiesOutput {
+	return i.ToResourceConfigurationDefinition3PropertiesOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition3PropertiesArgs) ToResourceConfigurationDefinition3PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition3PropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition3PropertiesOutput)
+}
+
+func (i ResourceConfigurationDefinition3PropertiesArgs) ToResourceConfigurationDefinition3PropertiesPtrOutput() ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceConfigurationDefinition3PropertiesArgs) ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition3PropertiesOutput).ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(ctx)
+}
+
+// ResourceConfigurationDefinition3PropertiesPtrInput is an input type that accepts ResourceConfigurationDefinition3PropertiesArgs, ResourceConfigurationDefinition3PropertiesPtr and ResourceConfigurationDefinition3PropertiesPtrOutput values.
+// You can construct a concrete instance of `ResourceConfigurationDefinition3PropertiesPtrInput` via:
+//
+//	        ResourceConfigurationDefinition3PropertiesArgs{...}
+//
+//	or:
+//
+//	        nil
+type ResourceConfigurationDefinition3PropertiesPtrInput interface {
+	pulumi.Input
+
+	ToResourceConfigurationDefinition3PropertiesPtrOutput() ResourceConfigurationDefinition3PropertiesPtrOutput
+	ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(context.Context) ResourceConfigurationDefinition3PropertiesPtrOutput
+}
+
+type resourceConfigurationDefinition3PropertiesPtrType ResourceConfigurationDefinition3PropertiesArgs
+
+func ResourceConfigurationDefinition3PropertiesPtr(v *ResourceConfigurationDefinition3PropertiesArgs) ResourceConfigurationDefinition3PropertiesPtrInput {
+	return (*resourceConfigurationDefinition3PropertiesPtrType)(v)
+}
+
+func (*resourceConfigurationDefinition3PropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition3Properties)(nil)).Elem()
+}
+
+func (i *resourceConfigurationDefinition3PropertiesPtrType) ToResourceConfigurationDefinition3PropertiesPtrOutput() ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return i.ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceConfigurationDefinition3PropertiesPtrType) ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceConfigurationDefinition3PropertiesPtrOutput)
+}
+
+// Identifies the resource configuration in one of the following ways:
+//
+// - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+// - *Domain name* - Any domain name that is publicly resolvable.
+// - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+type ResourceConfigurationDefinition3PropertiesOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition3PropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceConfigurationDefinition3Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition3PropertiesOutput) ToResourceConfigurationDefinition3PropertiesOutput() ResourceConfigurationDefinition3PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition3PropertiesOutput) ToResourceConfigurationDefinition3PropertiesOutputWithContext(ctx context.Context) ResourceConfigurationDefinition3PropertiesOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition3PropertiesOutput) ToResourceConfigurationDefinition3PropertiesPtrOutput() ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return o.ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceConfigurationDefinition3PropertiesOutput) ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceConfigurationDefinition3Properties) *ResourceConfigurationDefinition3Properties {
+		return &v
+	}).(ResourceConfigurationDefinition3PropertiesPtrOutput)
+}
+
+func (o ResourceConfigurationDefinition3PropertiesOutput) CidrResource() ResourceConfigurationCidrResourceOutput {
+	return o.ApplyT(func(v ResourceConfigurationDefinition3Properties) ResourceConfigurationCidrResource {
+		return v.CidrResource
+	}).(ResourceConfigurationCidrResourceOutput)
+}
+
+type ResourceConfigurationDefinition3PropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceConfigurationDefinition3PropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceConfigurationDefinition3Properties)(nil)).Elem()
+}
+
+func (o ResourceConfigurationDefinition3PropertiesPtrOutput) ToResourceConfigurationDefinition3PropertiesPtrOutput() ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition3PropertiesPtrOutput) ToResourceConfigurationDefinition3PropertiesPtrOutputWithContext(ctx context.Context) ResourceConfigurationDefinition3PropertiesPtrOutput {
+	return o
+}
+
+func (o ResourceConfigurationDefinition3PropertiesPtrOutput) Elem() ResourceConfigurationDefinition3PropertiesOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition3Properties) ResourceConfigurationDefinition3Properties {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceConfigurationDefinition3Properties
+		return ret
+	}).(ResourceConfigurationDefinition3PropertiesOutput)
+}
+
+func (o ResourceConfigurationDefinition3PropertiesPtrOutput) CidrResource() ResourceConfigurationCidrResourcePtrOutput {
+	return o.ApplyT(func(v *ResourceConfigurationDefinition3Properties) *ResourceConfigurationCidrResource {
+		if v == nil {
+			return nil
+		}
+		return &v.CidrResource
+	}).(ResourceConfigurationCidrResourcePtrOutput)
 }
 
 type ResourceConfigurationDnsResource struct {
@@ -3883,12 +4166,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerForwardPtrInput)(nil)).Elem(), ListenerForwardArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerWeightedTargetGroupInput)(nil)).Elem(), ListenerWeightedTargetGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ListenerWeightedTargetGroupArrayInput)(nil)).Elem(), ListenerWeightedTargetGroupArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationCidrResourceInput)(nil)).Elem(), ResourceConfigurationCidrResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationCidrResourcePtrInput)(nil)).Elem(), ResourceConfigurationCidrResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition0PropertiesInput)(nil)).Elem(), ResourceConfigurationDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition0PropertiesPtrInput)(nil)).Elem(), ResourceConfigurationDefinition0PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition1PropertiesInput)(nil)).Elem(), ResourceConfigurationDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition1PropertiesPtrInput)(nil)).Elem(), ResourceConfigurationDefinition1PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition2PropertiesInput)(nil)).Elem(), ResourceConfigurationDefinition2PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition2PropertiesPtrInput)(nil)).Elem(), ResourceConfigurationDefinition2PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition3PropertiesInput)(nil)).Elem(), ResourceConfigurationDefinition3PropertiesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDefinition3PropertiesPtrInput)(nil)).Elem(), ResourceConfigurationDefinition3PropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDnsResourceInput)(nil)).Elem(), ResourceConfigurationDnsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceConfigurationDnsResourcePtrInput)(nil)).Elem(), ResourceConfigurationDnsResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RuleActionInput)(nil)).Elem(), RuleActionArgs{})
@@ -3931,12 +4218,16 @@ func init() {
 	pulumi.RegisterOutputType(ListenerForwardPtrOutput{})
 	pulumi.RegisterOutputType(ListenerWeightedTargetGroupOutput{})
 	pulumi.RegisterOutputType(ListenerWeightedTargetGroupArrayOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationCidrResourceOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationCidrResourcePtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDefinition0PropertiesOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDefinition0PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDefinition1PropertiesOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDefinition1PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDefinition2PropertiesOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDefinition2PropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition3PropertiesOutput{})
+	pulumi.RegisterOutputType(ResourceConfigurationDefinition3PropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDnsResourceOutput{})
 	pulumi.RegisterOutputType(ResourceConfigurationDnsResourcePtrOutput{})
 	pulumi.RegisterOutputType(RuleActionOutput{})

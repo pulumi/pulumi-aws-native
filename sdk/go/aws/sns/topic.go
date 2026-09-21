@@ -205,7 +205,8 @@ type Topic struct {
 	FifoTopic pulumi.BoolPtrOutput `pulumi:"fifoTopic"`
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
 	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
-	KmsMasterKeyId pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
+	KmsMasterKeyId     pulumi.StringPtrOutput `pulumi:"kmsMasterKeyId"`
+	MaximumMessageSize pulumi.IntPtrOutput    `pulumi:"maximumMessageSize"`
 	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
 	SignatureVersion pulumi.StringPtrOutput `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
@@ -299,7 +300,8 @@ type topicArgs struct {
 	FifoTopic *bool `pulumi:"fifoTopic"`
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
 	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	KmsMasterKeyId     *string `pulumi:"kmsMasterKeyId"`
+	MaximumMessageSize *int    `pulumi:"maximumMessageSize"`
 	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
 	SignatureVersion *string `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
@@ -348,7 +350,8 @@ type TopicArgs struct {
 	FifoTopic pulumi.BoolPtrInput
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
 	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
-	KmsMasterKeyId pulumi.StringPtrInput
+	KmsMasterKeyId     pulumi.StringPtrInput
+	MaximumMessageSize pulumi.IntPtrInput
 	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
 	SignatureVersion pulumi.StringPtrInput
 	// The SNS subscriptions (endpoints) for this topic.
@@ -462,6 +465,10 @@ func (o TopicOutput) FifoTopic() pulumi.BoolPtrOutput {
 //	This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 func (o TopicOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringPtrOutput { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o TopicOutput) MaximumMessageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Topic) pulumi.IntPtrOutput { return v.MaximumMessageSize }).(pulumi.IntPtrOutput)
 }
 
 // The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, “SignatureVersion“ is set to “1“.

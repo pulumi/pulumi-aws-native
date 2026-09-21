@@ -8,6 +8,70 @@ using Pulumi;
 namespace Pulumi.AwsNative.NetworkFirewall
 {
     /// <summary>
+    /// The current status of the container association.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerAssociationStatus : IEquatable<ContainerAssociationStatus>
+    {
+        private readonly string _value;
+
+        private ContainerAssociationStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerAssociationStatus Active { get; } = new ContainerAssociationStatus("ACTIVE");
+        public static ContainerAssociationStatus Creating { get; } = new ContainerAssociationStatus("CREATING");
+        public static ContainerAssociationStatus Deleting { get; } = new ContainerAssociationStatus("DELETING");
+        public static ContainerAssociationStatus Updating { get; } = new ContainerAssociationStatus("UPDATING");
+
+        public static bool operator ==(ContainerAssociationStatus left, ContainerAssociationStatus right) => left.Equals(right);
+        public static bool operator !=(ContainerAssociationStatus left, ContainerAssociationStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerAssociationStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerAssociationStatus other && Equals(other);
+        public bool Equals(ContainerAssociationStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of containers to monitor. You can't change the container type after creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct ContainerAssociationType : IEquatable<ContainerAssociationType>
+    {
+        private readonly string _value;
+
+        private ContainerAssociationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ContainerAssociationType Ecs { get; } = new ContainerAssociationType("ECS");
+        public static ContainerAssociationType Eks { get; } = new ContainerAssociationType("EKS");
+
+        public static bool operator ==(ContainerAssociationType left, ContainerAssociationType right) => left.Equals(right);
+        public static bool operator !=(ContainerAssociationType left, ContainerAssociationType right) => !left.Equals(right);
+
+        public static explicit operator string(ContainerAssociationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ContainerAssociationType other && Equals(other);
+        public bool Equals(ContainerAssociationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// An analysis type.
     /// </summary>
     [EnumType]

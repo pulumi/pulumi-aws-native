@@ -44,7 +44,8 @@ type LookupLocationAzureBlobResult struct {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 	//
 	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
-	CustomSecretConfig *LocationAzureBlobCustomSecretConfig `pulumi:"customSecretConfig"`
+	CustomSecretConfig *LocationAzureBlobCustomSecretConfig           `pulumi:"customSecretConfig"`
+	FederatedIdentity  *LocationAzureBlobAzureFederatedIdentityConfig `pulumi:"federatedIdentity"`
 	// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
 	LocationArn *string `pulumi:"locationArn"`
 	// The URL of the Azure Blob Location that was described.
@@ -118,6 +119,12 @@ func (o LookupLocationAzureBlobResultOutput) CustomSecretConfig() LocationAzureB
 	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobCustomSecretConfig {
 		return v.CustomSecretConfig
 	}).(LocationAzureBlobCustomSecretConfigPtrOutput)
+}
+
+func (o LookupLocationAzureBlobResultOutput) FederatedIdentity() LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return o.ApplyT(func(v LookupLocationAzureBlobResult) *LocationAzureBlobAzureFederatedIdentityConfig {
+		return v.FederatedIdentity
+	}).(LocationAzureBlobAzureFederatedIdentityConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Azure Blob Location that is created.

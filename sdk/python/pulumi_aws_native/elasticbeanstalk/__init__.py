@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from ._enums import *
 from .application import *
 from .application_version import *
 from .configuration_template import *

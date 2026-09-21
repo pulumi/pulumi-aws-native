@@ -49,6 +49,7 @@ export interface GetLocationObjectStorageResult {
      * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
      */
     readonly customSecretConfig?: outputs.datasync.LocationObjectStorageCustomSecretConfig;
+    readonly federatedIdentity?: outputs.datasync.LocationObjectStorageObjectStorageFederatedIdentityConfig;
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */

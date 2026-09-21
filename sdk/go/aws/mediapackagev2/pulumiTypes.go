@@ -232,6 +232,165 @@ func (o ChannelInputSwitchConfigurationPtrOutput) PreferredInput() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
+// <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+type ChannelMultiviewConfiguration struct {
+	// <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+	AvailableLayouts []ChannelMultiviewLayoutType `pulumi:"availableLayouts"`
+	// <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+	AvailableSources []string `pulumi:"availableSources"`
+}
+
+// ChannelMultiviewConfigurationInput is an input type that accepts ChannelMultiviewConfigurationArgs and ChannelMultiviewConfigurationOutput values.
+// You can construct a concrete instance of `ChannelMultiviewConfigurationInput` via:
+//
+//	ChannelMultiviewConfigurationArgs{...}
+type ChannelMultiviewConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelMultiviewConfigurationOutput() ChannelMultiviewConfigurationOutput
+	ToChannelMultiviewConfigurationOutputWithContext(context.Context) ChannelMultiviewConfigurationOutput
+}
+
+// <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+type ChannelMultiviewConfigurationArgs struct {
+	// <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+	AvailableLayouts ChannelMultiviewLayoutTypeArrayInput `pulumi:"availableLayouts"`
+	// <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+	AvailableSources pulumi.StringArrayInput `pulumi:"availableSources"`
+}
+
+func (ChannelMultiviewConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultiviewConfiguration)(nil)).Elem()
+}
+
+func (i ChannelMultiviewConfigurationArgs) ToChannelMultiviewConfigurationOutput() ChannelMultiviewConfigurationOutput {
+	return i.ToChannelMultiviewConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelMultiviewConfigurationArgs) ToChannelMultiviewConfigurationOutputWithContext(ctx context.Context) ChannelMultiviewConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiviewConfigurationOutput)
+}
+
+func (i ChannelMultiviewConfigurationArgs) ToChannelMultiviewConfigurationPtrOutput() ChannelMultiviewConfigurationPtrOutput {
+	return i.ToChannelMultiviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelMultiviewConfigurationArgs) ToChannelMultiviewConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultiviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiviewConfigurationOutput).ToChannelMultiviewConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelMultiviewConfigurationPtrInput is an input type that accepts ChannelMultiviewConfigurationArgs, ChannelMultiviewConfigurationPtr and ChannelMultiviewConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelMultiviewConfigurationPtrInput` via:
+//
+//	        ChannelMultiviewConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelMultiviewConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelMultiviewConfigurationPtrOutput() ChannelMultiviewConfigurationPtrOutput
+	ToChannelMultiviewConfigurationPtrOutputWithContext(context.Context) ChannelMultiviewConfigurationPtrOutput
+}
+
+type channelMultiviewConfigurationPtrType ChannelMultiviewConfigurationArgs
+
+func ChannelMultiviewConfigurationPtr(v *ChannelMultiviewConfigurationArgs) ChannelMultiviewConfigurationPtrInput {
+	return (*channelMultiviewConfigurationPtrType)(v)
+}
+
+func (*channelMultiviewConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelMultiviewConfiguration)(nil)).Elem()
+}
+
+func (i *channelMultiviewConfigurationPtrType) ToChannelMultiviewConfigurationPtrOutput() ChannelMultiviewConfigurationPtrOutput {
+	return i.ToChannelMultiviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelMultiviewConfigurationPtrType) ToChannelMultiviewConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultiviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiviewConfigurationPtrOutput)
+}
+
+// <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+type ChannelMultiviewConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultiviewConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultiviewConfiguration)(nil)).Elem()
+}
+
+func (o ChannelMultiviewConfigurationOutput) ToChannelMultiviewConfigurationOutput() ChannelMultiviewConfigurationOutput {
+	return o
+}
+
+func (o ChannelMultiviewConfigurationOutput) ToChannelMultiviewConfigurationOutputWithContext(ctx context.Context) ChannelMultiviewConfigurationOutput {
+	return o
+}
+
+func (o ChannelMultiviewConfigurationOutput) ToChannelMultiviewConfigurationPtrOutput() ChannelMultiviewConfigurationPtrOutput {
+	return o.ToChannelMultiviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultiviewConfigurationOutput) ToChannelMultiviewConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultiviewConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMultiviewConfiguration) *ChannelMultiviewConfiguration {
+		return &v
+	}).(ChannelMultiviewConfigurationPtrOutput)
+}
+
+// <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+func (o ChannelMultiviewConfigurationOutput) AvailableLayouts() ChannelMultiviewLayoutTypeArrayOutput {
+	return o.ApplyT(func(v ChannelMultiviewConfiguration) []ChannelMultiviewLayoutType { return v.AvailableLayouts }).(ChannelMultiviewLayoutTypeArrayOutput)
+}
+
+// <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+func (o ChannelMultiviewConfigurationOutput) AvailableSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ChannelMultiviewConfiguration) []string { return v.AvailableSources }).(pulumi.StringArrayOutput)
+}
+
+type ChannelMultiviewConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultiviewConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelMultiviewConfiguration)(nil)).Elem()
+}
+
+func (o ChannelMultiviewConfigurationPtrOutput) ToChannelMultiviewConfigurationPtrOutput() ChannelMultiviewConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelMultiviewConfigurationPtrOutput) ToChannelMultiviewConfigurationPtrOutputWithContext(ctx context.Context) ChannelMultiviewConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelMultiviewConfigurationPtrOutput) Elem() ChannelMultiviewConfigurationOutput {
+	return o.ApplyT(func(v *ChannelMultiviewConfiguration) ChannelMultiviewConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelMultiviewConfiguration
+		return ret
+	}).(ChannelMultiviewConfigurationOutput)
+}
+
+// <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+func (o ChannelMultiviewConfigurationPtrOutput) AvailableLayouts() ChannelMultiviewLayoutTypeArrayOutput {
+	return o.ApplyT(func(v *ChannelMultiviewConfiguration) []ChannelMultiviewLayoutType {
+		if v == nil {
+			return nil
+		}
+		return v.AvailableLayouts
+	}).(ChannelMultiviewLayoutTypeArrayOutput)
+}
+
+// <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+func (o ChannelMultiviewConfigurationPtrOutput) AvailableSources() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ChannelMultiviewConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailableSources
+	}).(pulumi.StringArrayOutput)
+}
+
 // <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
 type ChannelOutputHeaderConfiguration struct {
 	// <p>When true, AWS Elemental MediaPackage includes the MQCS in responses to the CDN. This setting is valid only when <code>InputType</code> is <code>CMAF</code>.</p>
@@ -4930,6 +5089,8 @@ type OriginEndpointTag struct {
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputSwitchConfigurationInput)(nil)).Elem(), ChannelInputSwitchConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputSwitchConfigurationPtrInput)(nil)).Elem(), ChannelInputSwitchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiviewConfigurationInput)(nil)).Elem(), ChannelMultiviewConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiviewConfigurationPtrInput)(nil)).Elem(), ChannelMultiviewConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputHeaderConfigurationPtrInput)(nil)).Elem(), ChannelOutputHeaderConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesInput)(nil)).Elem(), OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs{})
@@ -4986,6 +5147,8 @@ func init() {
 	pulumi.RegisterOutputType(ChannelIngestEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ChannelInputSwitchConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelInputSwitchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelMultiviewConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelMultiviewConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationOutput{})
 	pulumi.RegisterOutputType(ChannelOutputHeaderConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesOutput{})

@@ -14,6 +14,8 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import _inputs as _root_inputs
+from .. import outputs as _root_outputs
 from ._inputs import *
 
 __all__ = ['ScalableTargetArgs', 'ScalableTarget']
@@ -28,7 +30,8 @@ class ScalableTargetArgs:
                  service_namespace: pulumi.Input[_builtins.str],
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input['ScalableTargetScheduledActionArgs']]]] = None,
-                 suspended_state: pulumi.Input[Optional['ScalableTargetSuspendedStateArgs']] = None):
+                 suspended_state: pulumi.Input[Optional['ScalableTargetSuspendedStateArgs']] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
         The set of arguments for constructing a ScalableTarget resource.
 
@@ -101,6 +104,8 @@ class ScalableTargetArgs:
             pulumi.set(__self__, "scheduled_actions", scheduled_actions)
         if suspended_state is not None:
             pulumi.set(__self__, "suspended_state", suspended_state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter(name="maxCapacity")
@@ -247,6 +252,15 @@ class ScalableTargetArgs:
     def suspended_state(self, value: pulumi.Input[Optional['ScalableTargetSuspendedStateArgs']]):
         pulumi.set(self, "suspended_state", value)
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]:
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]]):
+        pulumi.set(self, "tags", value)
+
 
 @pulumi.type_token("aws-native:applicationautoscaling:ScalableTarget")
 class ScalableTarget(pulumi.CustomResource):
@@ -262,6 +276,7 @@ class ScalableTarget(pulumi.CustomResource):
                  scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
                  service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  suspended_state: pulumi.Input[Optional[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         """
         The ``AWS::ApplicationAutoScaling::ScalableTarget`` resource specifies a resource that Application Auto Scaling can scale, such as an AWS::DynamoDB::Table or AWS::ECS::Service resource.
@@ -362,6 +377,7 @@ class ScalableTarget(pulumi.CustomResource):
                  scheduled_actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ScalableTargetScheduledActionArgs', 'ScalableTargetScheduledActionArgsDict']]]]] = None,
                  service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
                  suspended_state: pulumi.Input[Optional[Union['ScalableTargetSuspendedStateArgs', 'ScalableTargetSuspendedStateArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -389,6 +405,7 @@ class ScalableTarget(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_namespace'")
             __props__.__dict__["service_namespace"] = service_namespace
             __props__.__dict__["suspended_state"] = suspended_state
+            __props__.__dict__["tags"] = tags
             __props__.__dict__["aws_id"] = None
         replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["resourceId", "scalableDimension", "serviceNamespace"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
@@ -423,6 +440,7 @@ class ScalableTarget(pulumi.CustomResource):
         __props__.__dict__["scheduled_actions"] = None
         __props__.__dict__["service_namespace"] = None
         __props__.__dict__["suspended_state"] = None
+        __props__.__dict__["tags"] = None
         return ScalableTarget(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -542,4 +560,9 @@ class ScalableTarget(pulumi.CustomResource):
           +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
         """
         return pulumi.get(self, "suspended_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Sequence['_root_outputs.Tag']]]:
+        return pulumi.get(self, "tags")
 

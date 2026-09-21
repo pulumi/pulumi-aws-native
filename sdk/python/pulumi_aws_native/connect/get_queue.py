@@ -149,7 +149,7 @@ class GetQueueResult:
     @pulumi.getter(name="outboundEmailConfig")
     def outbound_email_config(self) -> Optional['outputs.QueueOutboundEmailConfig']:
         """
-        The outbound email address ID.
+        The outbound email configuration for a specified queue.
         """
         return pulumi.get(self, "outbound_email_config")
 

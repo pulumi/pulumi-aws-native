@@ -62,7 +62,7 @@ export interface GetQueueResult {
      */
     readonly outboundCallerConfig?: outputs.connect.QueueOutboundCallerConfig;
     /**
-     * The outbound email address ID.
+     * The outbound email configuration for a specified queue.
      */
     readonly outboundEmailConfig?: outputs.connect.QueueOutboundEmailConfig;
     /**

@@ -7,7 +7,9 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_outpost import *
 from .get_site import *
+from .outpost import *
 from .site import *
 from ._inputs import *
 from . import outputs

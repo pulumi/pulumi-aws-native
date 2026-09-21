@@ -82,6 +82,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
      * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
      */
     declare public readonly customSecretConfig: pulumi.Output<outputs.datasync.LocationObjectStorageCustomSecretConfig | undefined>;
+    declare public readonly federatedIdentity: pulumi.Output<outputs.datasync.LocationObjectStorageObjectStorageFederatedIdentityConfig | undefined>;
     /**
      * The Amazon Resource Name (ARN) of the location that is created.
      */
@@ -136,6 +137,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["bucketName"] = args?.bucketName;
             resourceInputs["cmkSecretConfig"] = args?.cmkSecretConfig;
             resourceInputs["customSecretConfig"] = args?.customSecretConfig;
+            resourceInputs["federatedIdentity"] = args?.federatedIdentity;
             resourceInputs["secretKey"] = args?.secretKey;
             resourceInputs["serverCertificate"] = args?.serverCertificate;
             resourceInputs["serverHostname"] = args?.serverHostname;
@@ -152,6 +154,7 @@ export class LocationObjectStorage extends pulumi.CustomResource {
             resourceInputs["bucketName"] = undefined /*out*/;
             resourceInputs["cmkSecretConfig"] = undefined /*out*/;
             resourceInputs["customSecretConfig"] = undefined /*out*/;
+            resourceInputs["federatedIdentity"] = undefined /*out*/;
             resourceInputs["locationArn"] = undefined /*out*/;
             resourceInputs["locationUri"] = undefined /*out*/;
             resourceInputs["managedSecretConfig"] = undefined /*out*/;
@@ -202,6 +205,7 @@ export interface LocationObjectStorageArgs {
      * > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
      */
     customSecretConfig?: pulumi.Input<inputs.datasync.LocationObjectStorageCustomSecretConfigArgs | undefined>;
+    federatedIdentity?: pulumi.Input<inputs.datasync.LocationObjectStorageObjectStorageFederatedIdentityConfigArgs | undefined>;
     /**
      * Optional. The secret key is used if credentials are required to access the self-managed object storage server.
      */

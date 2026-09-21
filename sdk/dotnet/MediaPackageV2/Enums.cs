@@ -19,6 +19,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
         public static ChannelInputType Hls { get; } = new ChannelInputType("HLS");
         public static ChannelInputType Cmaf { get; } = new ChannelInputType("CMAF");
+        public static ChannelInputType Multiview { get; } = new ChannelInputType("MULTIVIEW");
 
         public static bool operator ==(ChannelInputType left, ChannelInputType right) => left.Equals(right);
         public static bool operator !=(ChannelInputType left, ChannelInputType right) => !left.Equals(right);
@@ -28,6 +29,41 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ChannelInputType other && Equals(other);
         public bool Equals(ChannelInputType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// &lt;p&gt;A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.&lt;/p&gt; &lt;p&gt;The allowed values are:&lt;/p&gt; &lt;ul&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_SINGLE&lt;/code&gt; – One tile at full resolution. Use this to serve a single source as a standard stream.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2EH&lt;/code&gt; – Two tiles of equal size, arranged horizontally.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_2PL&lt;/code&gt; – Two tiles, with one larger primary tile.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3EB&lt;/code&gt; – Three tiles of equal size, with two on top and one below.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3EL&lt;/code&gt; – Three tiles of equal size, arranged in two columns.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_3PL&lt;/code&gt; – Three tiles, with one larger primary tile on the left and two stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4E&lt;/code&gt; – Four tiles of equal size, arranged in a two-by-two grid.&lt;/p&gt; &lt;/li&gt; &lt;li&gt; &lt;p&gt; &lt;code&gt;LAYOUT_4PL&lt;/code&gt; – Four tiles, with one larger primary tile on the left and three stacked on the right.&lt;/p&gt; &lt;/li&gt; &lt;/ul&gt;
+    /// </summary>
+    [EnumType]
+    public readonly struct ChannelMultiviewLayoutType : IEquatable<ChannelMultiviewLayoutType>
+    {
+        private readonly string _value;
+
+        private ChannelMultiviewLayoutType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ChannelMultiviewLayoutType Layout2eh { get; } = new ChannelMultiviewLayoutType("LAYOUT_2EH");
+        public static ChannelMultiviewLayoutType Layout2pl { get; } = new ChannelMultiviewLayoutType("LAYOUT_2PL");
+        public static ChannelMultiviewLayoutType Layout3el { get; } = new ChannelMultiviewLayoutType("LAYOUT_3EL");
+        public static ChannelMultiviewLayoutType Layout3pl { get; } = new ChannelMultiviewLayoutType("LAYOUT_3PL");
+        public static ChannelMultiviewLayoutType Layout4e { get; } = new ChannelMultiviewLayoutType("LAYOUT_4E");
+        public static ChannelMultiviewLayoutType Layout4pl { get; } = new ChannelMultiviewLayoutType("LAYOUT_4PL");
+
+        public static bool operator ==(ChannelMultiviewLayoutType left, ChannelMultiviewLayoutType right) => left.Equals(right);
+        public static bool operator !=(ChannelMultiviewLayoutType left, ChannelMultiviewLayoutType right) => !left.Equals(right);
+
+        public static explicit operator string(ChannelMultiviewLayoutType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ChannelMultiviewLayoutType other && Equals(other);
+        public bool Equals(ChannelMultiviewLayoutType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

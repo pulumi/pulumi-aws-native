@@ -57,6 +57,9 @@ namespace Pulumi.AwsNative.Ec2.Inputs
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
+        [Input("multiAvailabilityZoneConfiguration")]
+        public Input<Inputs.Ec2FleetMultiAvailabilityZoneConfigurationArgs>? MultiAvailabilityZoneConfiguration { get; set; }
+
         /// <summary>
         /// The ID of the snapshot.
         /// </summary>

@@ -281,7 +281,7 @@
     "permissions" : [ "appsync:TagResource", "appsync:UntagResource" ]
   },
   "required" : [ "Name", "AuthenticationType" ],
-  "primaryIdentifier" : [ "/properties/ApiId" ],
+  "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/ApiId", "/properties/Arn", "/properties/GraphQLEndpointArn", "/properties/GraphQLDns", "/properties/GraphQLUrl", "/properties/RealtimeDns", "/properties/RealtimeUrl" ],
   "conditionalCreateOnlyProperties" : [ "/properties/LambdaAuthorizerConfig/AuthorizerResultTtlInSeconds", "/properties/LambdaAuthorizerConfig/AuthorizerUri", "/properties/LambdaAuthorizerConfig/IdentityValidationExpression", "/properties/UserPoolConfig/AppIdClientRegex", "/properties/UserPoolConfig/AwsRegion", "/properties/UserPoolConfig/DefaultAction", "/properties/UserPoolConfig/UserPoolId", "/properties/OpenIDConnectConfig/AuthTTL", "/properties/OpenIDConnectConfig/IatTTL", "/properties/OpenIDConnectConfig/Issuer", "/properties/OpenIDConnectConfig/ClientId" ],
   "handlers" : {

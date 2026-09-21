@@ -30,7 +30,7 @@ namespace Pulumi.AwsNative.AutoScaling.Inputs
         public Input<Inputs.AutoScalingGroupInstancesDistributionArgs>? InstancesDistribution { get; set; }
 
         /// <summary>
-        /// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        /// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
         /// </summary>
         [Input("launchTemplate", required: true)]
         public Input<Inputs.AutoScalingGroupLaunchTemplateArgs> LaunchTemplate { get; set; } = null!;

@@ -46,6 +46,9 @@ export const getEnvironmentOutput: typeof import("./getEnvironment").getEnvironm
 utilities.lazyLoad(exports, ["getEnvironment","getEnvironmentOutput"], () => require("./getEnvironment"));
 
 
+// Export enums:
+export * from "../types/enums/elasticbeanstalk";
+
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {

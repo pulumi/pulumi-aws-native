@@ -29,6 +29,10 @@ export interface GetFunctionResult {
      * The ARN of the function.
      */
     readonly arn?: string;
+    /**
+     * The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+     */
+    readonly concurrentExecutorConfiguration?: outputs.mediatailor.FunctionConcurrentExecutorConfiguration;
     readonly customOutputConfiguration?: outputs.mediatailor.FunctionCustomOutputConfiguration;
     /**
      * A description of the function.

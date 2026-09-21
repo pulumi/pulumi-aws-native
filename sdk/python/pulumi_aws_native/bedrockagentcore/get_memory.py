@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetMemoryResult:
-    def __init__(__self__, created_at=None, description=None, event_expiry_duration=None, failure_reason=None, indexed_keys=None, memory_arn=None, memory_execution_role_arn=None, memory_id=None, memory_strategies=None, status=None, stream_delivery_resources=None, tags=None, updated_at=None):
+    def __init__(__self__, created_at=None, description=None, event_expiry_duration=None, failure_reason=None, indexed_keys=None, memory_arn=None, memory_execution_role_arn=None, memory_id=None, memory_strategies=None, namespace_keys=None, status=None, stream_delivery_resources=None, tags=None, updated_at=None):
         if created_at and not isinstance(created_at, str):
             raise TypeError("Expected argument 'created_at' to be a str")
         pulumi.set(__self__, "created_at", created_at)
@@ -53,6 +53,9 @@ class GetMemoryResult:
         if memory_strategies and not isinstance(memory_strategies, list):
             raise TypeError("Expected argument 'memory_strategies' to be a list")
         pulumi.set(__self__, "memory_strategies", memory_strategies)
+        if namespace_keys and not isinstance(namespace_keys, list):
+            raise TypeError("Expected argument 'namespace_keys' to be a list")
+        pulumi.set(__self__, "namespace_keys", namespace_keys)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -127,6 +130,11 @@ class GetMemoryResult:
         return pulumi.get(self, "memory_strategies")
 
     @_builtins.property
+    @pulumi.getter(name="namespaceKeys")
+    def namespace_keys(self) -> Optional[Sequence['outputs.MemoryNamespaceKeyEntry']]:
+        return pulumi.get(self, "namespace_keys")
+
+    @_builtins.property
     @pulumi.getter
     def status(self) -> Optional['MemoryStatus']:
         """
@@ -168,6 +176,7 @@ class AwaitableGetMemoryResult(GetMemoryResult):
             memory_execution_role_arn=self.memory_execution_role_arn,
             memory_id=self.memory_id,
             memory_strategies=self.memory_strategies,
+            namespace_keys=self.namespace_keys,
             status=self.status,
             stream_delivery_resources=self.stream_delivery_resources,
             tags=self.tags,
@@ -194,6 +203,7 @@ def get_memory(memory_arn: Optional[_builtins.str] = None,
         memory_execution_role_arn=pulumi.get(__ret__, 'memory_execution_role_arn'),
         memory_id=pulumi.get(__ret__, 'memory_id'),
         memory_strategies=pulumi.get(__ret__, 'memory_strategies'),
+        namespace_keys=pulumi.get(__ret__, 'namespace_keys'),
         status=pulumi.get(__ret__, 'status'),
         stream_delivery_resources=pulumi.get(__ret__, 'stream_delivery_resources'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -217,6 +227,7 @@ def get_memory_output(memory_arn: pulumi.Input[Optional[_builtins.str]] = None,
         memory_execution_role_arn=pulumi.get(__response__, 'memory_execution_role_arn'),
         memory_id=pulumi.get(__response__, 'memory_id'),
         memory_strategies=pulumi.get(__response__, 'memory_strategies'),
+        namespace_keys=pulumi.get(__response__, 'namespace_keys'),
         status=pulumi.get(__response__, 'status'),
         stream_delivery_resources=pulumi.get(__response__, 'stream_delivery_resources'),
         tags=pulumi.get(__response__, 'tags'),

@@ -98,6 +98,10 @@ func NewFleet(ctx *pulumi.Context,
 		args = &FleetArgs{}
 	}
 
+	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
+		"name",
+	})
+	opts = append(opts, replaceOnChanges)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Fleet
 	err := ctx.RegisterResource("aws-native:codebuild:Fleet", name, args, &resource, opts...)

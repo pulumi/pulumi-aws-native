@@ -32,6 +32,7 @@ class LocationAzureBlobArgs:
                  azure_blob_type: pulumi.Input[Optional['LocationAzureBlobAzureBlobType']] = None,
                  cmk_secret_config: pulumi.Input[Optional['LocationAzureBlobCmkSecretConfigArgs']] = None,
                  custom_secret_config: pulumi.Input[Optional['LocationAzureBlobCustomSecretConfigArgs']] = None,
+                 federated_identity: pulumi.Input[Optional['LocationAzureBlobAzureFederatedIdentityConfigArgs']] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
         """
@@ -69,6 +70,8 @@ class LocationAzureBlobArgs:
             pulumi.set(__self__, "cmk_secret_config", cmk_secret_config)
         if custom_secret_config is not None:
             pulumi.set(__self__, "custom_secret_config", custom_secret_config)
+        if federated_identity is not None:
+            pulumi.set(__self__, "federated_identity", federated_identity)
         if subdirectory is not None:
             pulumi.set(__self__, "subdirectory", subdirectory)
         if tags is not None:
@@ -177,6 +180,15 @@ class LocationAzureBlobArgs:
         pulumi.set(self, "custom_secret_config", value)
 
     @_builtins.property
+    @pulumi.getter(name="federatedIdentity")
+    def federated_identity(self) -> pulumi.Input[Optional['LocationAzureBlobAzureFederatedIdentityConfigArgs']]:
+        return pulumi.get(self, "federated_identity")
+
+    @federated_identity.setter
+    def federated_identity(self, value: pulumi.Input[Optional['LocationAzureBlobAzureFederatedIdentityConfigArgs']]):
+        pulumi.set(self, "federated_identity", value)
+
+    @_builtins.property
     @pulumi.getter
     def subdirectory(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -215,6 +227,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  azure_blob_type: pulumi.Input[Optional['LocationAzureBlobAzureBlobType']] = None,
                  cmk_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict']]] = None,
                  custom_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict']]] = None,
+                 federated_identity: pulumi.Input[Optional[Union['LocationAzureBlobAzureFederatedIdentityConfigArgs', 'LocationAzureBlobAzureFederatedIdentityConfigArgsDict']]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -272,6 +285,7 @@ class LocationAzureBlob(pulumi.CustomResource):
                  azure_blob_type: pulumi.Input[Optional['LocationAzureBlobAzureBlobType']] = None,
                  cmk_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCmkSecretConfigArgs', 'LocationAzureBlobCmkSecretConfigArgsDict']]] = None,
                  custom_secret_config: pulumi.Input[Optional[Union['LocationAzureBlobCustomSecretConfigArgs', 'LocationAzureBlobCustomSecretConfigArgsDict']]] = None,
+                 federated_identity: pulumi.Input[Optional[Union['LocationAzureBlobAzureFederatedIdentityConfigArgs', 'LocationAzureBlobAzureFederatedIdentityConfigArgsDict']]] = None,
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
                  __props__=None):
@@ -293,6 +307,7 @@ class LocationAzureBlob(pulumi.CustomResource):
             __props__.__dict__["azure_blob_type"] = azure_blob_type
             __props__.__dict__["cmk_secret_config"] = cmk_secret_config
             __props__.__dict__["custom_secret_config"] = custom_secret_config
+            __props__.__dict__["federated_identity"] = federated_identity
             __props__.__dict__["subdirectory"] = subdirectory
             __props__.__dict__["tags"] = tags
             __props__.__dict__["location_arn"] = None
@@ -330,6 +345,7 @@ class LocationAzureBlob(pulumi.CustomResource):
         __props__.__dict__["azure_blob_type"] = None
         __props__.__dict__["cmk_secret_config"] = None
         __props__.__dict__["custom_secret_config"] = None
+        __props__.__dict__["federated_identity"] = None
         __props__.__dict__["location_arn"] = None
         __props__.__dict__["location_uri"] = None
         __props__.__dict__["managed_secret_config"] = None
@@ -406,6 +422,11 @@ class LocationAzureBlob(pulumi.CustomResource):
         > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         """
         return pulumi.get(self, "custom_secret_config")
+
+    @_builtins.property
+    @pulumi.getter(name="federatedIdentity")
+    def federated_identity(self) -> pulumi.Output[Optional['outputs.LocationAzureBlobAzureFederatedIdentityConfig']]:
+        return pulumi.get(self, "federated_identity")
 
     @_builtins.property
     @pulumi.getter(name="locationArn")

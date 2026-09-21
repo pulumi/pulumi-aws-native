@@ -43,13 +43,25 @@ export class ApplicationVersion extends pulumi.CustomResource {
     declare public readonly applicationName: pulumi.Output<string>;
     declare public /*out*/ readonly awsId: pulumi.Output<string>;
     /**
+     * Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+     */
+    declare public readonly buildConfiguration: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionBuildConfiguration | undefined>;
+    /**
      * A description of this application version.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
+     * Configuration for image-based application versions.
+     */
+    declare public readonly imageConfiguration: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionImageConfiguration | undefined>;
+    /**
+     * Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+     */
+    declare public readonly process: pulumi.Output<boolean | undefined>;
+    /**
      * The Amazon S3 bucket and key that identify the location of the source bundle for this version.
      */
-    declare public readonly sourceBundle: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionSourceBundle>;
+    declare public readonly sourceBundle: pulumi.Output<outputs.elasticbeanstalk.ApplicationVersionSourceBundle | undefined>;
 
     /**
      * Create a ApplicationVersion resource with the given unique name, arguments, and options.
@@ -65,21 +77,24 @@ export class ApplicationVersion extends pulumi.CustomResource {
             if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if (args?.sourceBundle === undefined && !opts.urn) {
-                throw new Error("Missing required property 'sourceBundle'");
-            }
             resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["buildConfiguration"] = args?.buildConfiguration;
             resourceInputs["description"] = args?.description;
+            resourceInputs["imageConfiguration"] = args?.imageConfiguration;
+            resourceInputs["process"] = args?.process;
             resourceInputs["sourceBundle"] = args?.sourceBundle;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["applicationName"] = undefined /*out*/;
             resourceInputs["awsId"] = undefined /*out*/;
+            resourceInputs["buildConfiguration"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
+            resourceInputs["imageConfiguration"] = undefined /*out*/;
+            resourceInputs["process"] = undefined /*out*/;
             resourceInputs["sourceBundle"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const replaceOnChanges = { replaceOnChanges: ["applicationName", "sourceBundle"] };
+        const replaceOnChanges = { replaceOnChanges: ["applicationName", "buildConfiguration", "imageConfiguration", "process", "sourceBundle"] };
         opts = pulumi.mergeOptions(opts, replaceOnChanges);
         super(ApplicationVersion.__pulumiType, name, resourceInputs, opts);
     }
@@ -94,11 +109,23 @@ export interface ApplicationVersionArgs {
      */
     applicationName: pulumi.Input<string>;
     /**
+     * Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+     */
+    buildConfiguration?: pulumi.Input<inputs.elasticbeanstalk.ApplicationVersionBuildConfigurationArgs | undefined>;
+    /**
      * A description of this application version.
      */
     description?: pulumi.Input<string | undefined>;
     /**
+     * Configuration for image-based application versions.
+     */
+    imageConfiguration?: pulumi.Input<inputs.elasticbeanstalk.ApplicationVersionImageConfigurationArgs | undefined>;
+    /**
+     * Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+     */
+    process?: pulumi.Input<boolean | undefined>;
+    /**
      * The Amazon S3 bucket and key that identify the location of the source bundle for this version.
      */
-    sourceBundle: pulumi.Input<inputs.elasticbeanstalk.ApplicationVersionSourceBundleArgs>;
+    sourceBundle?: pulumi.Input<inputs.elasticbeanstalk.ApplicationVersionSourceBundleArgs | undefined>;
 }

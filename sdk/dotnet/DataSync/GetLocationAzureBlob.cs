@@ -91,6 +91,7 @@ namespace Pulumi.AwsNative.DataSync
         /// &gt; You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
         /// </summary>
         public readonly Outputs.LocationAzureBlobCustomSecretConfig? CustomSecretConfig;
+        public readonly Outputs.LocationAzureBlobAzureFederatedIdentityConfig? FederatedIdentity;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
         /// </summary>
@@ -119,6 +120,8 @@ namespace Pulumi.AwsNative.DataSync
 
             Outputs.LocationAzureBlobCustomSecretConfig? customSecretConfig,
 
+            Outputs.LocationAzureBlobAzureFederatedIdentityConfig? federatedIdentity,
+
             string? locationArn,
 
             string? locationUri,
@@ -133,6 +136,7 @@ namespace Pulumi.AwsNative.DataSync
             AzureBlobType = azureBlobType;
             CmkSecretConfig = cmkSecretConfig;
             CustomSecretConfig = customSecretConfig;
+            FederatedIdentity = federatedIdentity;
             LocationArn = locationArn;
             LocationUri = locationUri;
             ManagedSecretConfig = managedSecretConfig;

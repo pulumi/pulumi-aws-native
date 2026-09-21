@@ -18,6 +18,8 @@ from ._enums import *
 __all__ = [
     'ChannelInputSwitchConfigurationArgs',
     'ChannelInputSwitchConfigurationArgsDict',
+    'ChannelMultiviewConfigurationArgs',
+    'ChannelMultiviewConfigurationArgsDict',
     'ChannelOutputHeaderConfigurationArgs',
     'ChannelOutputHeaderConfigurationArgsDict',
     'OriginEndpointDashAvailabilityStartTimeConfigurationPropertiesArgs',
@@ -124,6 +126,58 @@ class ChannelInputSwitchConfigurationArgs:
     @preferred_input.setter
     def preferred_input(self, value: pulumi.Input[Optional[_builtins.int]]):
         pulumi.set(self, "preferred_input", value)
+
+
+class ChannelMultiviewConfigurationArgsDict(TypedDict):
+    """
+    <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+    """
+    available_layouts: pulumi.Input[Sequence[pulumi.Input['ChannelMultiviewLayoutType']]]
+    """
+    <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+    """
+    available_sources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+    """
+
+@pulumi.input_type
+class ChannelMultiviewConfigurationArgs:
+    def __init__(__self__, *,
+                 available_layouts: pulumi.Input[Sequence[pulumi.Input['ChannelMultiviewLayoutType']]],
+                 available_sources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+
+        :param pulumi.Input[Sequence[pulumi.Input['ChannelMultiviewLayoutType']]] available_layouts: <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] available_sources: <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+        """
+        pulumi.set(__self__, "available_layouts", available_layouts)
+        pulumi.set(__self__, "available_sources", available_sources)
+
+    @_builtins.property
+    @pulumi.getter(name="availableLayouts")
+    def available_layouts(self) -> pulumi.Input[Sequence[pulumi.Input['ChannelMultiviewLayoutType']]]:
+        """
+        <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+        """
+        return pulumi.get(self, "available_layouts")
+
+    @available_layouts.setter
+    def available_layouts(self, value: pulumi.Input[Sequence[pulumi.Input['ChannelMultiviewLayoutType']]]):
+        pulumi.set(self, "available_layouts", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availableSources")
+    def available_sources(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+        """
+        return pulumi.get(self, "available_sources")
+
+    @available_sources.setter
+    def available_sources(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "available_sources", value)
 
 
 class ChannelOutputHeaderConfigurationArgsDict(TypedDict):

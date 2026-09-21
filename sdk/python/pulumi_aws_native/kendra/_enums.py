@@ -24,6 +24,7 @@ __all__ = [
     'DataSourceType',
     'DataSourceWebCrawlerSeedUrlConfigurationWebCrawlerMode',
     'FaqFileFormat',
+    'FeaturedResultsSetStatus',
     'IndexDocumentAttributeValueType',
     'IndexEdition',
     'IndexKeyLocation',
@@ -218,6 +219,15 @@ class FaqFileFormat(_builtins.str, Enum):
     CSV = "CSV"
     CSV_WITH_HEADER = "CSV_WITH_HEADER"
     JSON = "JSON"
+
+
+@pulumi.type_token("aws-native:kendra:FeaturedResultsSetStatus")
+class FeaturedResultsSetStatus(_builtins.str, Enum):
+    """
+    The current status of the set of featured results. When the value is ACTIVE, featured results are ready for use.
+    """
+    ACTIVE = "ACTIVE"
+    INACTIVE = "INACTIVE"
 
 
 @pulumi.type_token("aws-native:kendra:IndexDocumentAttributeValueType")

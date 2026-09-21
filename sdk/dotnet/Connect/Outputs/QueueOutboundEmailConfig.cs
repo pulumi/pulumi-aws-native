@@ -11,7 +11,7 @@ namespace Pulumi.AwsNative.Connect.Outputs
 {
 
     /// <summary>
-    /// The outbound email address ID.
+    /// The outbound email configuration for a specified queue.
     /// </summary>
     [OutputType]
     public sealed class QueueOutboundEmailConfig

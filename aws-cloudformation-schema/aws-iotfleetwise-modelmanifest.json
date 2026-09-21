@@ -77,7 +77,7 @@
   },
   "required" : [ "SignalCatalogArn", "Name" ],
   "readOnlyProperties" : [ "/properties/Arn", "/properties/CreationTime", "/properties/LastModificationTime" ],
-  "createOnlyProperties" : [ "/properties/Name" ],
+  "createOnlyProperties" : [ "/properties/Name", "/properties/SignalCatalogArn" ],
   "primaryIdentifier" : [ "/properties/Name" ],
   "handlers" : {
     "create" : {

@@ -45,7 +45,7 @@ class QueueArgs:
         :param pulumi.Input[_builtins.int] max_contacts: The maximum number of contacts that can be in the queue before it is considered full.
         :param pulumi.Input[_builtins.str] name: The name of the queue.
         :param pulumi.Input['QueueOutboundCallerConfigArgs'] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
-        :param pulumi.Input['QueueOutboundEmailConfigArgs'] outbound_email_config: The outbound email address ID.
+        :param pulumi.Input['QueueOutboundEmailConfigArgs'] outbound_email_config: The outbound email configuration for a specified queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
         :param pulumi.Input[Sequence[pulumi.Input['_root_inputs.TagArgs']]] tags: An array of key-value pairs to apply to this resource.
@@ -159,7 +159,7 @@ class QueueArgs:
     @pulumi.getter(name="outboundEmailConfig")
     def outbound_email_config(self) -> pulumi.Input[Optional['QueueOutboundEmailConfigArgs']]:
         """
-        The outbound email address ID.
+        The outbound email configuration for a specified queue.
         """
         return pulumi.get(self, "outbound_email_config")
 
@@ -234,7 +234,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] max_contacts: The maximum number of contacts that can be in the queue before it is considered full.
         :param pulumi.Input[_builtins.str] name: The name of the queue.
         :param pulumi.Input[Union['QueueOutboundCallerConfigArgs', 'QueueOutboundCallerConfigArgsDict']] outbound_caller_config: The outbound caller ID name, number, and outbound whisper flow.
-        :param pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']] outbound_email_config: The outbound email address ID.
+        :param pulumi.Input[Union['QueueOutboundEmailConfigArgs', 'QueueOutboundEmailConfigArgsDict']] outbound_email_config: The outbound email configuration for a specified queue.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] quick_connect_arns: The quick connects available to agents who are working the queue.
         :param pulumi.Input['QueueStatus'] status: The status of the queue.
         :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
@@ -417,7 +417,7 @@ class Queue(pulumi.CustomResource):
     @pulumi.getter(name="outboundEmailConfig")
     def outbound_email_config(self) -> pulumi.Output[Optional['outputs.QueueOutboundEmailConfig']]:
         """
-        The outbound email address ID.
+        The outbound email configuration for a specified queue.
         """
         return pulumi.get(self, "outbound_email_config")
 

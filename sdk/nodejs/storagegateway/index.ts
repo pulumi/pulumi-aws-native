@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetTapeArgs, GetTapeResult, GetTapeOutputArgs } from "./getTape";
+export const getTape: typeof import("./getTape").getTape = null as any;
+export const getTapeOutput: typeof import("./getTape").getTapeOutput = null as any;
+utilities.lazyLoad(exports, ["getTape","getTapeOutput"], () => require("./getTape"));
+
 export { GetTapePoolArgs, GetTapePoolResult, GetTapePoolOutputArgs } from "./getTapePool";
 export const getTapePool: typeof import("./getTapePool").getTapePool = null as any;
 export const getTapePoolOutput: typeof import("./getTapePool").getTapePoolOutput = null as any;
 utilities.lazyLoad(exports, ["getTapePool","getTapePoolOutput"], () => require("./getTapePool"));
+
+export { TapeArgs } from "./tape";
+export type Tape = import("./tape").Tape;
+export const Tape: typeof import("./tape").Tape = null as any;
+utilities.lazyLoad(exports, ["Tape"], () => require("./tape"));
 
 export { TapePoolArgs } from "./tapePool";
 export type TapePool = import("./tapePool").TapePool;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:storagegateway:Tape":
+                return new Tape(name, <any>undefined, { urn })
             case "aws-native:storagegateway:TapePool":
                 return new TapePool(name, <any>undefined, { urn })
             default:

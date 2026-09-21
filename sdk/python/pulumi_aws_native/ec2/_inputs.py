@@ -78,6 +78,8 @@ __all__ = [
     'Ec2FleetMemoryGiBPerVCpuRequestArgsDict',
     'Ec2FleetMemoryMiBRequestArgs',
     'Ec2FleetMemoryMiBRequestArgsDict',
+    'Ec2FleetMultiAvailabilityZoneConfigurationArgs',
+    'Ec2FleetMultiAvailabilityZoneConfigurationArgsDict',
     'Ec2FleetNetworkBandwidthGbpsRequestArgs',
     'Ec2FleetNetworkBandwidthGbpsRequestArgsDict',
     'Ec2FleetNetworkInterfaceCountRequestArgs',
@@ -98,6 +100,8 @@ __all__ = [
     'Ec2FleetReservedCapacityOptionsRequestArgsDict',
     'Ec2FleetSpotOptionsRequestArgs',
     'Ec2FleetSpotOptionsRequestArgsDict',
+    'Ec2FleetStandbyAvailabilityZoneArgs',
+    'Ec2FleetStandbyAvailabilityZoneArgsDict',
     'Ec2FleetTagArgs',
     'Ec2FleetTagArgsDict',
     'Ec2FleetTagSpecificationArgs',
@@ -1570,6 +1574,7 @@ class Ec2FleetEbsBlockDeviceArgsDict(TypedDict):
 
     This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
     """
+    multi_availability_zone_configuration: NotRequired[pulumi.Input[Optional['Ec2FleetMultiAvailabilityZoneConfigurationArgsDict']]]
     snapshot_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     The ID of the snapshot.
@@ -1599,6 +1604,7 @@ class Ec2FleetEbsBlockDeviceArgs:
                  encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  iops: pulumi.Input[Optional[_builtins.int]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 multi_availability_zone_configuration: pulumi.Input[Optional['Ec2FleetMultiAvailabilityZoneConfigurationArgs']] = None,
                  snapshot_id: pulumi.Input[Optional[_builtins.str]] = None,
                  volume_size: pulumi.Input[Optional[_builtins.int]] = None,
                  volume_type: pulumi.Input[Optional[_builtins.str]] = None):
@@ -1649,6 +1655,8 @@ class Ec2FleetEbsBlockDeviceArgs:
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if multi_availability_zone_configuration is not None:
+            pulumi.set(__self__, "multi_availability_zone_configuration", multi_availability_zone_configuration)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if volume_size is not None:
@@ -1724,6 +1732,15 @@ class Ec2FleetEbsBlockDeviceArgs:
     @kms_key_id.setter
     def kms_key_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "kms_key_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="multiAvailabilityZoneConfiguration")
+    def multi_availability_zone_configuration(self) -> pulumi.Input[Optional['Ec2FleetMultiAvailabilityZoneConfigurationArgs']]:
+        return pulumi.get(self, "multi_availability_zone_configuration")
+
+    @multi_availability_zone_configuration.setter
+    def multi_availability_zone_configuration(self, value: pulumi.Input[Optional['Ec2FleetMultiAvailabilityZoneConfigurationArgs']]):
+        pulumi.set(self, "multi_availability_zone_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
@@ -3448,6 +3465,39 @@ class Ec2FleetMemoryMiBRequestArgs:
         pulumi.set(self, "min", value)
 
 
+class Ec2FleetMultiAvailabilityZoneConfigurationArgsDict(TypedDict):
+    configuration_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    standby_availability_zones: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetStandbyAvailabilityZoneArgsDict']]]]]
+
+@pulumi.input_type
+class Ec2FleetMultiAvailabilityZoneConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 standby_availability_zones: pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetStandbyAvailabilityZoneArgs']]]] = None):
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if standby_availability_zones is not None:
+            pulumi.set(__self__, "standby_availability_zones", standby_availability_zones)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "configuration_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="standbyAvailabilityZones")
+    def standby_availability_zones(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetStandbyAvailabilityZoneArgs']]]]:
+        return pulumi.get(self, "standby_availability_zones")
+
+    @standby_availability_zones.setter
+    def standby_availability_zones(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['Ec2FleetStandbyAvailabilityZoneArgs']]]]):
+        pulumi.set(self, "standby_availability_zones", value)
+
+
 class Ec2FleetNetworkBandwidthGbpsRequestArgsDict(TypedDict):
     max: NotRequired[pulumi.Input[Optional[_builtins.float]]]
     """
@@ -4566,6 +4616,39 @@ class Ec2FleetSpotOptionsRequestArgs:
     @single_instance_type.setter
     def single_instance_type(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "single_instance_type", value)
+
+
+class Ec2FleetStandbyAvailabilityZoneArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    availability_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class Ec2FleetStandbyAvailabilityZoneArgs:
+    def __init__(__self__, *,
+                 availability_zone: pulumi.Input[Optional[_builtins.str]] = None,
+                 availability_zone_id: pulumi.Input[Optional[_builtins.str]] = None):
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "availability_zone_id")
+
+    @availability_zone_id.setter
+    def availability_zone_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "availability_zone_id", value)
 
 
 class Ec2FleetTagArgsDict(TypedDict):

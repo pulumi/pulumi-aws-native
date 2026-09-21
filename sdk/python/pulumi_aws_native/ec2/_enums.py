@@ -1445,6 +1445,7 @@ class VpcEndpointType(_builtins.str, Enum):
     GATEWAY_LOAD_BALANCER = "GatewayLoadBalancer"
     SERVICE_NETWORK = "ServiceNetwork"
     RESOURCE = "Resource"
+    TUNNEL = "Tunnel"
 
 
 @pulumi.type_token("aws-native:ec2:VpnConnectionCloudwatchLogOptionsSpecificationBgpLogOutputFormat")
