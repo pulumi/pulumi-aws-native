@@ -5,15 +5,35 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { BackupArgs } from "./backup";
+export type Backup = import("./backup").Backup;
+export const Backup: typeof import("./backup").Backup = null as any;
+utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
+
 export { DataRepositoryAssociationArgs } from "./dataRepositoryAssociation";
 export type DataRepositoryAssociation = import("./dataRepositoryAssociation").DataRepositoryAssociation;
 export const DataRepositoryAssociation: typeof import("./dataRepositoryAssociation").DataRepositoryAssociation = null as any;
 utilities.lazyLoad(exports, ["DataRepositoryAssociation"], () => require("./dataRepositoryAssociation"));
 
+export { FileCacheArgs } from "./fileCache";
+export type FileCache = import("./fileCache").FileCache;
+export const FileCache: typeof import("./fileCache").FileCache = null as any;
+utilities.lazyLoad(exports, ["FileCache"], () => require("./fileCache"));
+
+export { GetBackupArgs, GetBackupResult, GetBackupOutputArgs } from "./getBackup";
+export const getBackup: typeof import("./getBackup").getBackup = null as any;
+export const getBackupOutput: typeof import("./getBackup").getBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getBackup","getBackupOutput"], () => require("./getBackup"));
+
 export { GetDataRepositoryAssociationArgs, GetDataRepositoryAssociationResult, GetDataRepositoryAssociationOutputArgs } from "./getDataRepositoryAssociation";
 export const getDataRepositoryAssociation: typeof import("./getDataRepositoryAssociation").getDataRepositoryAssociation = null as any;
 export const getDataRepositoryAssociationOutput: typeof import("./getDataRepositoryAssociation").getDataRepositoryAssociationOutput = null as any;
 utilities.lazyLoad(exports, ["getDataRepositoryAssociation","getDataRepositoryAssociationOutput"], () => require("./getDataRepositoryAssociation"));
+
+export { GetFileCacheArgs, GetFileCacheResult, GetFileCacheOutputArgs } from "./getFileCache";
+export const getFileCache: typeof import("./getFileCache").getFileCache = null as any;
+export const getFileCacheOutput: typeof import("./getFileCache").getFileCacheOutput = null as any;
+utilities.lazyLoad(exports, ["getFileCache","getFileCacheOutput"], () => require("./getFileCache"));
 
 export { GetS3AccessPointAttachmentArgs, GetS3AccessPointAttachmentResult, GetS3AccessPointAttachmentOutputArgs } from "./getS3AccessPointAttachment";
 export const getS3AccessPointAttachment: typeof import("./getS3AccessPointAttachment").getS3AccessPointAttachment = null as any;
@@ -43,8 +63,12 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:fsx:Backup":
+                return new Backup(name, <any>undefined, { urn })
             case "aws-native:fsx:DataRepositoryAssociation":
                 return new DataRepositoryAssociation(name, <any>undefined, { urn })
+            case "aws-native:fsx:FileCache":
+                return new FileCache(name, <any>undefined, { urn })
             case "aws-native:fsx:S3AccessPointAttachment":
                 return new S3AccessPointAttachment(name, <any>undefined, { urn })
             case "aws-native:fsx:Volume":

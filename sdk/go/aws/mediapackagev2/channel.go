@@ -19,6 +19,8 @@ type Channel struct {
 
 	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 	Arn pulumi.StringOutput `pulumi:"arn"`
+	// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+	AttachedMultiviewChannels pulumi.StringArrayOutput `pulumi:"attachedMultiviewChannels"`
 	// The name of the channel group associated with the channel configuration.
 	ChannelGroupName pulumi.StringOutput `pulumi:"channelGroupName"`
 	// The name of the channel.
@@ -41,7 +43,8 @@ type Channel struct {
 	// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
 	InputType ChannelInputTypePtrOutput `pulumi:"inputType"`
 	// <p>The date and time the channel was modified.</p>
-	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	ModifiedAt             pulumi.StringOutput                    `pulumi:"modifiedAt"`
+	MultiviewConfiguration ChannelMultiviewConfigurationPtrOutput `pulumi:"multiviewConfiguration"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrOutput `pulumi:"outputHeaderConfiguration"`
 	OutputLockingMode         ChannelOutputLockingModePtrOutput         `pulumi:"outputLockingMode"`
@@ -112,7 +115,8 @@ type channelArgs struct {
 	//
 	// - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
 	// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
-	InputType *ChannelInputType `pulumi:"inputType"`
+	InputType              *ChannelInputType              `pulumi:"inputType"`
+	MultiviewConfiguration *ChannelMultiviewConfiguration `pulumi:"multiviewConfiguration"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
 	OutputLockingMode         *ChannelOutputLockingMode         `pulumi:"outputLockingMode"`
@@ -135,7 +139,8 @@ type ChannelArgs struct {
 	//
 	// - `HLS` - The HLS streaming specification (which defines M3U8 manifests and TS segments).
 	// - `CMAF` - The DASH-IF CMAF Ingest specification (which defines CMAF segments with optional DASH manifests).
-	InputType ChannelInputTypePtrInput
+	InputType              ChannelInputTypePtrInput
+	MultiviewConfiguration ChannelMultiviewConfigurationPtrInput
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration ChannelOutputHeaderConfigurationPtrInput
 	OutputLockingMode         ChannelOutputLockingModePtrInput
@@ -182,6 +187,11 @@ func (o ChannelOutput) ToChannelOutputWithContext(ctx context.Context) ChannelOu
 // <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 func (o ChannelOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+func (o ChannelOutput) AttachedMultiviewChannels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *Channel) pulumi.StringArrayOutput { return v.AttachedMultiviewChannels }).(pulumi.StringArrayOutput)
 }
 
 // The name of the channel group associated with the channel configuration.
@@ -232,6 +242,10 @@ func (o ChannelOutput) InputType() ChannelInputTypePtrOutput {
 // <p>The date and time the channel was modified.</p>
 func (o ChannelOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Channel) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
+}
+
+func (o ChannelOutput) MultiviewConfiguration() ChannelMultiviewConfigurationPtrOutput {
+	return o.ApplyT(func(v *Channel) ChannelMultiviewConfigurationPtrOutput { return v.MultiviewConfiguration }).(ChannelMultiviewConfigurationPtrOutput)
 }
 
 // The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.

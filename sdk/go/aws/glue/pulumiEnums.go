@@ -825,6 +825,3084 @@ func (o CatalogPrincipalPermissionsPermissionsItemArrayOutput) Index(i pulumi.In
 	}).(CatalogPrincipalPermissionsPermissionsItemOutput)
 }
 
+type ConnectionTypeClientCredentialsPropertiesContentType string
+
+const (
+	ConnectionTypeClientCredentialsPropertiesContentTypeApplicationJson = ConnectionTypeClientCredentialsPropertiesContentType("APPLICATION_JSON")
+	ConnectionTypeClientCredentialsPropertiesContentTypeUrlEncoded      = ConnectionTypeClientCredentialsPropertiesContentType("URL_ENCODED")
+)
+
+func (ConnectionTypeClientCredentialsPropertiesContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesContentType)(nil)).Elem()
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToConnectionTypeClientCredentialsPropertiesContentTypeOutput() ConnectionTypeClientCredentialsPropertiesContentTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeClientCredentialsPropertiesContentTypeOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToConnectionTypeClientCredentialsPropertiesContentTypeOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeClientCredentialsPropertiesContentTypeOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutput() ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return e.ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return ConnectionTypeClientCredentialsPropertiesContentType(e).ToConnectionTypeClientCredentialsPropertiesContentTypeOutputWithContext(ctx).ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeClientCredentialsPropertiesContentTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesContentType)(nil)).Elem()
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToConnectionTypeClientCredentialsPropertiesContentTypeOutput() ConnectionTypeClientCredentialsPropertiesContentTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToConnectionTypeClientCredentialsPropertiesContentTypeOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesContentTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutput() ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return o.ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeClientCredentialsPropertiesContentType) *ConnectionTypeClientCredentialsPropertiesContentType {
+		return &v
+	}).(ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput)
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeClientCredentialsPropertiesContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeClientCredentialsPropertiesContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeClientCredentialsPropertiesContentType)(nil)).Elem()
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutput() ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput) Elem() ConnectionTypeClientCredentialsPropertiesContentTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeClientCredentialsPropertiesContentType) ConnectionTypeClientCredentialsPropertiesContentType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeClientCredentialsPropertiesContentType
+		return ret
+	}).(ConnectionTypeClientCredentialsPropertiesContentTypeOutput)
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeClientCredentialsPropertiesContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeClientCredentialsPropertiesContentTypeInput is an input type that accepts values of the ConnectionTypeClientCredentialsPropertiesContentType enum
+// A concrete instance of `ConnectionTypeClientCredentialsPropertiesContentTypeInput` can be one of the following:
+//
+//	ConnectionTypeClientCredentialsPropertiesContentTypeApplicationJson
+//	ConnectionTypeClientCredentialsPropertiesContentTypeUrlEncoded
+type ConnectionTypeClientCredentialsPropertiesContentTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeClientCredentialsPropertiesContentTypeOutput() ConnectionTypeClientCredentialsPropertiesContentTypeOutput
+	ToConnectionTypeClientCredentialsPropertiesContentTypeOutputWithContext(context.Context) ConnectionTypeClientCredentialsPropertiesContentTypeOutput
+}
+
+var connectionTypeClientCredentialsPropertiesContentTypePtrType = reflect.TypeOf((**ConnectionTypeClientCredentialsPropertiesContentType)(nil)).Elem()
+
+type ConnectionTypeClientCredentialsPropertiesContentTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutput() ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput
+	ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(context.Context) ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput
+}
+
+type connectionTypeClientCredentialsPropertiesContentTypePtr string
+
+func ConnectionTypeClientCredentialsPropertiesContentTypePtr(v string) ConnectionTypeClientCredentialsPropertiesContentTypePtrInput {
+	return (*connectionTypeClientCredentialsPropertiesContentTypePtr)(&v)
+}
+
+func (*connectionTypeClientCredentialsPropertiesContentTypePtr) ElementType() reflect.Type {
+	return connectionTypeClientCredentialsPropertiesContentTypePtrType
+}
+
+func (in *connectionTypeClientCredentialsPropertiesContentTypePtr) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutput() ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput)
+}
+
+func (in *connectionTypeClientCredentialsPropertiesContentTypePtr) ToConnectionTypeClientCredentialsPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput)
+}
+
+type ConnectionTypeClientCredentialsPropertiesRequestMethod string
+
+const (
+	ConnectionTypeClientCredentialsPropertiesRequestMethodGet  = ConnectionTypeClientCredentialsPropertiesRequestMethod("GET")
+	ConnectionTypeClientCredentialsPropertiesRequestMethodPost = ConnectionTypeClientCredentialsPropertiesRequestMethod("POST")
+)
+
+func (ConnectionTypeClientCredentialsPropertiesRequestMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToConnectionTypeClientCredentialsPropertiesRequestMethodOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeClientCredentialsPropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToConnectionTypeClientCredentialsPropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeClientCredentialsPropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return e.ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return ConnectionTypeClientCredentialsPropertiesRequestMethod(e).ToConnectionTypeClientCredentialsPropertiesRequestMethodOutputWithContext(ctx).ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeClientCredentialsPropertiesRequestMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeClientCredentialsPropertiesRequestMethodOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToConnectionTypeClientCredentialsPropertiesRequestMethodOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToConnectionTypeClientCredentialsPropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return o.ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeClientCredentialsPropertiesRequestMethod) *ConnectionTypeClientCredentialsPropertiesRequestMethod {
+		return &v
+	}).(ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput)
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeClientCredentialsPropertiesRequestMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeClientCredentialsPropertiesRequestMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeClientCredentialsPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput) Elem() ConnectionTypeClientCredentialsPropertiesRequestMethodOutput {
+	return o.ApplyT(func(v *ConnectionTypeClientCredentialsPropertiesRequestMethod) ConnectionTypeClientCredentialsPropertiesRequestMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeClientCredentialsPropertiesRequestMethod
+		return ret
+	}).(ConnectionTypeClientCredentialsPropertiesRequestMethodOutput)
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeClientCredentialsPropertiesRequestMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeClientCredentialsPropertiesRequestMethodInput is an input type that accepts values of the ConnectionTypeClientCredentialsPropertiesRequestMethod enum
+// A concrete instance of `ConnectionTypeClientCredentialsPropertiesRequestMethodInput` can be one of the following:
+//
+//	ConnectionTypeClientCredentialsPropertiesRequestMethodGet
+//	ConnectionTypeClientCredentialsPropertiesRequestMethodPost
+type ConnectionTypeClientCredentialsPropertiesRequestMethodInput interface {
+	pulumi.Input
+
+	ToConnectionTypeClientCredentialsPropertiesRequestMethodOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodOutput
+	ToConnectionTypeClientCredentialsPropertiesRequestMethodOutputWithContext(context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodOutput
+}
+
+var connectionTypeClientCredentialsPropertiesRequestMethodPtrType = reflect.TypeOf((**ConnectionTypeClientCredentialsPropertiesRequestMethod)(nil)).Elem()
+
+type ConnectionTypeClientCredentialsPropertiesRequestMethodPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput
+	ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput
+}
+
+type connectionTypeClientCredentialsPropertiesRequestMethodPtr string
+
+func ConnectionTypeClientCredentialsPropertiesRequestMethodPtr(v string) ConnectionTypeClientCredentialsPropertiesRequestMethodPtrInput {
+	return (*connectionTypeClientCredentialsPropertiesRequestMethodPtr)(&v)
+}
+
+func (*connectionTypeClientCredentialsPropertiesRequestMethodPtr) ElementType() reflect.Type {
+	return connectionTypeClientCredentialsPropertiesRequestMethodPtrType
+}
+
+func (in *connectionTypeClientCredentialsPropertiesRequestMethodPtr) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput() ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput)
+}
+
+func (in *connectionTypeClientCredentialsPropertiesRequestMethodPtr) ToConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput)
+}
+
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem string
+
+const (
+	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemBasic  = ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("BASIC")
+	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOauth2 = ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("OAUTH2")
+	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemCustom = ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("CUSTOM")
+	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemIam    = ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("IAM")
+)
+
+func (ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)(nil)).Elem()
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput)
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput)
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return e.ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem(e).ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutputWithContext(ctx).ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return o.ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) *ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem {
+		return &v
+	}).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput)
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput) Elem() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput {
+	return o.ApplyT(func(v *ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem
+		return ret
+	}).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput)
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemInput is an input type that accepts values of the ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem enum
+// A concrete instance of `ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemInput` can be one of the following:
+//
+//	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemBasic
+//	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOauth2
+//	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemCustom
+//	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemIam
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput
+	ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutputWithContext(context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput
+}
+
+var connectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrType = reflect.TypeOf((**ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)(nil)).Elem()
+
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput
+	ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput
+}
+
+type connectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtr string
+
+func ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtr(v string) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrInput {
+	return (*connectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtr)(&v)
+}
+
+func (*connectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtr) ElementType() reflect.Type {
+	return connectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrType
+}
+
+func (in *connectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtr) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput)
+}
+
+func (in *connectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtr) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput)
+}
+
+// ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayInput is an input type that accepts ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArray and ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput values.
+// You can construct a concrete instance of `ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayInput` via:
+//
+//	ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArray{ ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArgs{...} }
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput
+	ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutputWithContext(context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput
+}
+
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArray []ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem
+
+func (ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)(nil)).Elem()
+}
+
+func (i ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArray) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput {
+	return i.ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArray) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput)
+}
+
+type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput() ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput) ToConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput) Index(i pulumi.IntInput) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem {
+		return vs[0].([]ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)[vs[1].(int)]
+	}).(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput)
+}
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesContentType string
+
+const (
+	ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeApplicationJson = ConnectionTypeConnectorAuthorizationCodePropertiesContentType("APPLICATION_JSON")
+	ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeUrlEncoded      = ConnectionTypeConnectorAuthorizationCodePropertiesContentType("URL_ENCODED")
+)
+
+func (ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesContentType)(nil)).Elem()
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return e.ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return ConnectionTypeConnectorAuthorizationCodePropertiesContentType(e).ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutputWithContext(ctx).ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesContentType)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return o.ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeConnectorAuthorizationCodePropertiesContentType) *ConnectionTypeConnectorAuthorizationCodePropertiesContentType {
+		return &v
+	}).(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput)
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorAuthorizationCodePropertiesContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeConnectorAuthorizationCodePropertiesContentType)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput) Elem() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeConnectorAuthorizationCodePropertiesContentType) ConnectionTypeConnectorAuthorizationCodePropertiesContentType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeConnectorAuthorizationCodePropertiesContentType
+		return ret
+	}).(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput)
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeConnectorAuthorizationCodePropertiesContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeInput is an input type that accepts values of the ConnectionTypeConnectorAuthorizationCodePropertiesContentType enum
+// A concrete instance of `ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeInput` can be one of the following:
+//
+//	ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeApplicationJson
+//	ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeUrlEncoded
+type ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput
+	ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutputWithContext(context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput
+}
+
+var connectionTypeConnectorAuthorizationCodePropertiesContentTypePtrType = reflect.TypeOf((**ConnectionTypeConnectorAuthorizationCodePropertiesContentType)(nil)).Elem()
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput
+	ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput
+}
+
+type connectionTypeConnectorAuthorizationCodePropertiesContentTypePtr string
+
+func ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtr(v string) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrInput {
+	return (*connectionTypeConnectorAuthorizationCodePropertiesContentTypePtr)(&v)
+}
+
+func (*connectionTypeConnectorAuthorizationCodePropertiesContentTypePtr) ElementType() reflect.Type {
+	return connectionTypeConnectorAuthorizationCodePropertiesContentTypePtrType
+}
+
+func (in *connectionTypeConnectorAuthorizationCodePropertiesContentTypePtr) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput)
+}
+
+func (in *connectionTypeConnectorAuthorizationCodePropertiesContentTypePtr) ToConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput)
+}
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod string
+
+const (
+	ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodGet  = ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod("GET")
+	ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPost = ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod("POST")
+)
+
+func (ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod)(nil)).Elem()
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return e.ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod(e).ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutputWithContext(ctx).ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return o.ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) *ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod {
+		return &v
+	}).(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput)
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput) Elem() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput {
+	return o.ApplyT(func(v *ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod
+		return ret
+	}).(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput)
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodInput is an input type that accepts values of the ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod enum
+// A concrete instance of `ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodInput` can be one of the following:
+//
+//	ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodGet
+//	ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPost
+type ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput
+	ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutputWithContext(context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput
+}
+
+var connectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrType = reflect.TypeOf((**ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod)(nil)).Elem()
+
+type ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput
+	ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput
+}
+
+type connectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtr string
+
+func ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtr(v string) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrInput {
+	return (*connectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtr)(&v)
+}
+
+func (*connectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtr) ElementType() reflect.Type {
+	return connectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrType
+}
+
+func (in *connectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtr) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput() ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput)
+}
+
+func (in *connectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtr) ToConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput)
+}
+
+// The OAuth2 grant type to use.
+type ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType string
+
+const (
+	ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeClientCredentials = ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("CLIENT_CREDENTIALS")
+	ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeJwtBearer         = ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("JWT_BEARER")
+	ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeAuthorizationCode = ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("AUTHORIZATION_CODE")
+)
+
+func (ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType)(nil)).Elem()
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput)
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutputWithContext(ctx context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput)
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return e.ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType(e).ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutputWithContext(ctx).ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutputWithContext(ctx context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return o.ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) *ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType {
+		return &v
+	}).(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput)
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput) Elem() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType
+		return ret
+	}).(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput)
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeInput is an input type that accepts values of the ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType enum
+// A concrete instance of `ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeInput` can be one of the following:
+//
+//	ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeClientCredentials
+//	ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeJwtBearer
+//	ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeAuthorizationCode
+type ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput
+	ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutputWithContext(context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput
+}
+
+var connectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrType = reflect.TypeOf((**ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType)(nil)).Elem()
+
+type ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput
+	ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput
+}
+
+type connectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtr string
+
+func ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtr(v string) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrInput {
+	return (*connectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtr)(&v)
+}
+
+func (*connectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtr) ElementType() reflect.Type {
+	return connectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrType
+}
+
+func (in *connectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtr) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput() ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput)
+}
+
+func (in *connectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtr) ToConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput)
+}
+
+// Specifies where this property should be included in REST requests.
+type ConnectionTypeConnectorPropertyPropertyLocation string
+
+const (
+	ConnectionTypeConnectorPropertyPropertyLocationHeader     = ConnectionTypeConnectorPropertyPropertyLocation("HEADER")
+	ConnectionTypeConnectorPropertyPropertyLocationBody       = ConnectionTypeConnectorPropertyPropertyLocation("BODY")
+	ConnectionTypeConnectorPropertyPropertyLocationQueryParam = ConnectionTypeConnectorPropertyPropertyLocation("QUERY_PARAM")
+	ConnectionTypeConnectorPropertyPropertyLocationPath       = ConnectionTypeConnectorPropertyPropertyLocation("PATH")
+)
+
+func (ConnectionTypeConnectorPropertyPropertyLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyLocation)(nil)).Elem()
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToConnectionTypeConnectorPropertyPropertyLocationOutput() ConnectionTypeConnectorPropertyPropertyLocationOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeConnectorPropertyPropertyLocationOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToConnectionTypeConnectorPropertyPropertyLocationOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeConnectorPropertyPropertyLocationOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return e.ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return ConnectionTypeConnectorPropertyPropertyLocation(e).ToConnectionTypeConnectorPropertyPropertyLocationOutputWithContext(ctx).ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyLocation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeConnectorPropertyPropertyLocationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorPropertyPropertyLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyLocation)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToConnectionTypeConnectorPropertyPropertyLocationOutput() ConnectionTypeConnectorPropertyPropertyLocationOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToConnectionTypeConnectorPropertyPropertyLocationOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyLocationOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return o.ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeConnectorPropertyPropertyLocation) *ConnectionTypeConnectorPropertyPropertyLocation {
+		return &v
+	}).(ConnectionTypeConnectorPropertyPropertyLocationPtrOutput)
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorPropertyPropertyLocation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorPropertyPropertyLocation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeConnectorPropertyPropertyLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorPropertyPropertyLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeConnectorPropertyPropertyLocation)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationPtrOutput) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationPtrOutput) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationPtrOutput) Elem() ConnectionTypeConnectorPropertyPropertyLocationOutput {
+	return o.ApplyT(func(v *ConnectionTypeConnectorPropertyPropertyLocation) ConnectionTypeConnectorPropertyPropertyLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeConnectorPropertyPropertyLocation
+		return ret
+	}).(ConnectionTypeConnectorPropertyPropertyLocationOutput)
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyLocationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeConnectorPropertyPropertyLocation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeConnectorPropertyPropertyLocationInput is an input type that accepts values of the ConnectionTypeConnectorPropertyPropertyLocation enum
+// A concrete instance of `ConnectionTypeConnectorPropertyPropertyLocationInput` can be one of the following:
+//
+//	ConnectionTypeConnectorPropertyPropertyLocationHeader
+//	ConnectionTypeConnectorPropertyPropertyLocationBody
+//	ConnectionTypeConnectorPropertyPropertyLocationQueryParam
+//	ConnectionTypeConnectorPropertyPropertyLocationPath
+type ConnectionTypeConnectorPropertyPropertyLocationInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorPropertyPropertyLocationOutput() ConnectionTypeConnectorPropertyPropertyLocationOutput
+	ToConnectionTypeConnectorPropertyPropertyLocationOutputWithContext(context.Context) ConnectionTypeConnectorPropertyPropertyLocationOutput
+}
+
+var connectionTypeConnectorPropertyPropertyLocationPtrType = reflect.TypeOf((**ConnectionTypeConnectorPropertyPropertyLocation)(nil)).Elem()
+
+type ConnectionTypeConnectorPropertyPropertyLocationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeConnectorPropertyPropertyLocationPtrOutput
+	ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(context.Context) ConnectionTypeConnectorPropertyPropertyLocationPtrOutput
+}
+
+type connectionTypeConnectorPropertyPropertyLocationPtr string
+
+func ConnectionTypeConnectorPropertyPropertyLocationPtr(v string) ConnectionTypeConnectorPropertyPropertyLocationPtrInput {
+	return (*connectionTypeConnectorPropertyPropertyLocationPtr)(&v)
+}
+
+func (*connectionTypeConnectorPropertyPropertyLocationPtr) ElementType() reflect.Type {
+	return connectionTypeConnectorPropertyPropertyLocationPtrType
+}
+
+func (in *connectionTypeConnectorPropertyPropertyLocationPtr) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeConnectorPropertyPropertyLocationPtrOutput)
+}
+
+func (in *connectionTypeConnectorPropertyPropertyLocationPtr) ToConnectionTypeConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeConnectorPropertyPropertyLocationPtrOutput)
+}
+
+// The data type of this property.
+type ConnectionTypeConnectorPropertyPropertyType string
+
+const (
+	ConnectionTypeConnectorPropertyPropertyTypeUserInput         = ConnectionTypeConnectorPropertyPropertyType("USER_INPUT")
+	ConnectionTypeConnectorPropertyPropertyTypeSecret            = ConnectionTypeConnectorPropertyPropertyType("SECRET")
+	ConnectionTypeConnectorPropertyPropertyTypeReadOnly          = ConnectionTypeConnectorPropertyPropertyType("READ_ONLY")
+	ConnectionTypeConnectorPropertyPropertyTypeUnused            = ConnectionTypeConnectorPropertyPropertyType("UNUSED")
+	ConnectionTypeConnectorPropertyPropertyTypeSecretOrUserInput = ConnectionTypeConnectorPropertyPropertyType("SECRET_OR_USER_INPUT")
+)
+
+func (ConnectionTypeConnectorPropertyPropertyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyType)(nil)).Elem()
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToConnectionTypeConnectorPropertyPropertyTypeOutput() ConnectionTypeConnectorPropertyPropertyTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeConnectorPropertyPropertyTypeOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToConnectionTypeConnectorPropertyPropertyTypeOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeConnectorPropertyPropertyTypeOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToConnectionTypeConnectorPropertyPropertyTypePtrOutput() ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return e.ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return ConnectionTypeConnectorPropertyPropertyType(e).ToConnectionTypeConnectorPropertyPropertyTypeOutputWithContext(ctx).ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeConnectorPropertyPropertyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeConnectorPropertyPropertyTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorPropertyPropertyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyType)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToConnectionTypeConnectorPropertyPropertyTypeOutput() ConnectionTypeConnectorPropertyPropertyTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToConnectionTypeConnectorPropertyPropertyTypeOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToConnectionTypeConnectorPropertyPropertyTypePtrOutput() ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return o.ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeConnectorPropertyPropertyType) *ConnectionTypeConnectorPropertyPropertyType {
+		return &v
+	}).(ConnectionTypeConnectorPropertyPropertyTypePtrOutput)
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorPropertyPropertyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeConnectorPropertyPropertyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeConnectorPropertyPropertyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeConnectorPropertyPropertyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeConnectorPropertyPropertyType)(nil)).Elem()
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypePtrOutput) ToConnectionTypeConnectorPropertyPropertyTypePtrOutput() ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypePtrOutput) ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypePtrOutput) Elem() ConnectionTypeConnectorPropertyPropertyTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeConnectorPropertyPropertyType) ConnectionTypeConnectorPropertyPropertyType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeConnectorPropertyPropertyType
+		return ret
+	}).(ConnectionTypeConnectorPropertyPropertyTypeOutput)
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeConnectorPropertyPropertyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeConnectorPropertyPropertyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeConnectorPropertyPropertyTypeInput is an input type that accepts values of the ConnectionTypeConnectorPropertyPropertyType enum
+// A concrete instance of `ConnectionTypeConnectorPropertyPropertyTypeInput` can be one of the following:
+//
+//	ConnectionTypeConnectorPropertyPropertyTypeUserInput
+//	ConnectionTypeConnectorPropertyPropertyTypeSecret
+//	ConnectionTypeConnectorPropertyPropertyTypeReadOnly
+//	ConnectionTypeConnectorPropertyPropertyTypeUnused
+//	ConnectionTypeConnectorPropertyPropertyTypeSecretOrUserInput
+type ConnectionTypeConnectorPropertyPropertyTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorPropertyPropertyTypeOutput() ConnectionTypeConnectorPropertyPropertyTypeOutput
+	ToConnectionTypeConnectorPropertyPropertyTypeOutputWithContext(context.Context) ConnectionTypeConnectorPropertyPropertyTypeOutput
+}
+
+var connectionTypeConnectorPropertyPropertyTypePtrType = reflect.TypeOf((**ConnectionTypeConnectorPropertyPropertyType)(nil)).Elem()
+
+type ConnectionTypeConnectorPropertyPropertyTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeConnectorPropertyPropertyTypePtrOutput() ConnectionTypeConnectorPropertyPropertyTypePtrOutput
+	ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(context.Context) ConnectionTypeConnectorPropertyPropertyTypePtrOutput
+}
+
+type connectionTypeConnectorPropertyPropertyTypePtr string
+
+func ConnectionTypeConnectorPropertyPropertyTypePtr(v string) ConnectionTypeConnectorPropertyPropertyTypePtrInput {
+	return (*connectionTypeConnectorPropertyPropertyTypePtr)(&v)
+}
+
+func (*connectionTypeConnectorPropertyPropertyTypePtr) ElementType() reflect.Type {
+	return connectionTypeConnectorPropertyPropertyTypePtrType
+}
+
+func (in *connectionTypeConnectorPropertyPropertyTypePtr) ToConnectionTypeConnectorPropertyPropertyTypePtrOutput() ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeConnectorPropertyPropertyTypePtrOutput)
+}
+
+func (in *connectionTypeConnectorPropertyPropertyTypePtr) ToConnectionTypeConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeConnectorPropertyPropertyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeConnectorPropertyPropertyTypePtrOutput)
+}
+
+// Specifies where to place the parameter in requests.
+type ConnectionTypeExtractedParameterPropertyLocation string
+
+const (
+	ConnectionTypeExtractedParameterPropertyLocationHeader     = ConnectionTypeExtractedParameterPropertyLocation("HEADER")
+	ConnectionTypeExtractedParameterPropertyLocationBody       = ConnectionTypeExtractedParameterPropertyLocation("BODY")
+	ConnectionTypeExtractedParameterPropertyLocationQueryParam = ConnectionTypeExtractedParameterPropertyLocation("QUERY_PARAM")
+	ConnectionTypeExtractedParameterPropertyLocationPath       = ConnectionTypeExtractedParameterPropertyLocation("PATH")
+)
+
+func (ConnectionTypeExtractedParameterPropertyLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeExtractedParameterPropertyLocation)(nil)).Elem()
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToConnectionTypeExtractedParameterPropertyLocationOutput() ConnectionTypeExtractedParameterPropertyLocationOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeExtractedParameterPropertyLocationOutput)
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToConnectionTypeExtractedParameterPropertyLocationOutputWithContext(ctx context.Context) ConnectionTypeExtractedParameterPropertyLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeExtractedParameterPropertyLocationOutput)
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToConnectionTypeExtractedParameterPropertyLocationPtrOutput() ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return e.ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return ConnectionTypeExtractedParameterPropertyLocation(e).ToConnectionTypeExtractedParameterPropertyLocationOutputWithContext(ctx).ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeExtractedParameterPropertyLocation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeExtractedParameterPropertyLocationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeExtractedParameterPropertyLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeExtractedParameterPropertyLocation)(nil)).Elem()
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToConnectionTypeExtractedParameterPropertyLocationOutput() ConnectionTypeExtractedParameterPropertyLocationOutput {
+	return o
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToConnectionTypeExtractedParameterPropertyLocationOutputWithContext(ctx context.Context) ConnectionTypeExtractedParameterPropertyLocationOutput {
+	return o
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToConnectionTypeExtractedParameterPropertyLocationPtrOutput() ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return o.ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeExtractedParameterPropertyLocation) *ConnectionTypeExtractedParameterPropertyLocation {
+		return &v
+	}).(ConnectionTypeExtractedParameterPropertyLocationPtrOutput)
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeExtractedParameterPropertyLocation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeExtractedParameterPropertyLocation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeExtractedParameterPropertyLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeExtractedParameterPropertyLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeExtractedParameterPropertyLocation)(nil)).Elem()
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationPtrOutput) ToConnectionTypeExtractedParameterPropertyLocationPtrOutput() ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationPtrOutput) ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationPtrOutput) Elem() ConnectionTypeExtractedParameterPropertyLocationOutput {
+	return o.ApplyT(func(v *ConnectionTypeExtractedParameterPropertyLocation) ConnectionTypeExtractedParameterPropertyLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeExtractedParameterPropertyLocation
+		return ret
+	}).(ConnectionTypeExtractedParameterPropertyLocationOutput)
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeExtractedParameterPropertyLocationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeExtractedParameterPropertyLocation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeExtractedParameterPropertyLocationInput is an input type that accepts values of the ConnectionTypeExtractedParameterPropertyLocation enum
+// A concrete instance of `ConnectionTypeExtractedParameterPropertyLocationInput` can be one of the following:
+//
+//	ConnectionTypeExtractedParameterPropertyLocationHeader
+//	ConnectionTypeExtractedParameterPropertyLocationBody
+//	ConnectionTypeExtractedParameterPropertyLocationQueryParam
+//	ConnectionTypeExtractedParameterPropertyLocationPath
+type ConnectionTypeExtractedParameterPropertyLocationInput interface {
+	pulumi.Input
+
+	ToConnectionTypeExtractedParameterPropertyLocationOutput() ConnectionTypeExtractedParameterPropertyLocationOutput
+	ToConnectionTypeExtractedParameterPropertyLocationOutputWithContext(context.Context) ConnectionTypeExtractedParameterPropertyLocationOutput
+}
+
+var connectionTypeExtractedParameterPropertyLocationPtrType = reflect.TypeOf((**ConnectionTypeExtractedParameterPropertyLocation)(nil)).Elem()
+
+type ConnectionTypeExtractedParameterPropertyLocationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeExtractedParameterPropertyLocationPtrOutput() ConnectionTypeExtractedParameterPropertyLocationPtrOutput
+	ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(context.Context) ConnectionTypeExtractedParameterPropertyLocationPtrOutput
+}
+
+type connectionTypeExtractedParameterPropertyLocationPtr string
+
+func ConnectionTypeExtractedParameterPropertyLocationPtr(v string) ConnectionTypeExtractedParameterPropertyLocationPtrInput {
+	return (*connectionTypeExtractedParameterPropertyLocationPtr)(&v)
+}
+
+func (*connectionTypeExtractedParameterPropertyLocationPtr) ElementType() reflect.Type {
+	return connectionTypeExtractedParameterPropertyLocationPtrType
+}
+
+func (in *connectionTypeExtractedParameterPropertyLocationPtr) ToConnectionTypeExtractedParameterPropertyLocationPtrOutput() ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeExtractedParameterPropertyLocationPtrOutput)
+}
+
+func (in *connectionTypeExtractedParameterPropertyLocationPtr) ToConnectionTypeExtractedParameterPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeExtractedParameterPropertyLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeExtractedParameterPropertyLocationPtrOutput)
+}
+
+// The data type of the field.
+type ConnectionTypeFieldDefinitionFieldDataType string
+
+const (
+	ConnectionTypeFieldDefinitionFieldDataTypeInt       = ConnectionTypeFieldDefinitionFieldDataType("INT")
+	ConnectionTypeFieldDefinitionFieldDataTypeSmallint  = ConnectionTypeFieldDefinitionFieldDataType("SMALLINT")
+	ConnectionTypeFieldDefinitionFieldDataTypeBigint    = ConnectionTypeFieldDefinitionFieldDataType("BIGINT")
+	ConnectionTypeFieldDefinitionFieldDataTypeFloat     = ConnectionTypeFieldDefinitionFieldDataType("FLOAT")
+	ConnectionTypeFieldDefinitionFieldDataTypeLong      = ConnectionTypeFieldDefinitionFieldDataType("LONG")
+	ConnectionTypeFieldDefinitionFieldDataTypeDate      = ConnectionTypeFieldDefinitionFieldDataType("DATE")
+	ConnectionTypeFieldDefinitionFieldDataTypeBoolean   = ConnectionTypeFieldDefinitionFieldDataType("BOOLEAN")
+	ConnectionTypeFieldDefinitionFieldDataTypeMap       = ConnectionTypeFieldDefinitionFieldDataType("MAP")
+	ConnectionTypeFieldDefinitionFieldDataTypeArray     = ConnectionTypeFieldDefinitionFieldDataType("ARRAY")
+	ConnectionTypeFieldDefinitionFieldDataTypeString    = ConnectionTypeFieldDefinitionFieldDataType("STRING")
+	ConnectionTypeFieldDefinitionFieldDataTypeTimestamp = ConnectionTypeFieldDefinitionFieldDataType("TIMESTAMP")
+	ConnectionTypeFieldDefinitionFieldDataTypeDecimal   = ConnectionTypeFieldDefinitionFieldDataType("DECIMAL")
+	ConnectionTypeFieldDefinitionFieldDataTypeByte      = ConnectionTypeFieldDefinitionFieldDataType("BYTE")
+	ConnectionTypeFieldDefinitionFieldDataTypeShort     = ConnectionTypeFieldDefinitionFieldDataType("SHORT")
+	ConnectionTypeFieldDefinitionFieldDataTypeDouble    = ConnectionTypeFieldDefinitionFieldDataType("DOUBLE")
+	ConnectionTypeFieldDefinitionFieldDataTypeStruct    = ConnectionTypeFieldDefinitionFieldDataType("STRUCT")
+	ConnectionTypeFieldDefinitionFieldDataTypeBinary    = ConnectionTypeFieldDefinitionFieldDataType("BINARY")
+	ConnectionTypeFieldDefinitionFieldDataTypeUnion     = ConnectionTypeFieldDefinitionFieldDataType("UNION")
+)
+
+func (ConnectionTypeFieldDefinitionFieldDataType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeFieldDefinitionFieldDataType)(nil)).Elem()
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToConnectionTypeFieldDefinitionFieldDataTypeOutput() ConnectionTypeFieldDefinitionFieldDataTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeFieldDefinitionFieldDataTypeOutput)
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToConnectionTypeFieldDefinitionFieldDataTypeOutputWithContext(ctx context.Context) ConnectionTypeFieldDefinitionFieldDataTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeFieldDefinitionFieldDataTypeOutput)
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutput() ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return e.ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(ctx context.Context) ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return ConnectionTypeFieldDefinitionFieldDataType(e).ToConnectionTypeFieldDefinitionFieldDataTypeOutputWithContext(ctx).ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeFieldDefinitionFieldDataType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeFieldDefinitionFieldDataTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeFieldDefinitionFieldDataTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeFieldDefinitionFieldDataType)(nil)).Elem()
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToConnectionTypeFieldDefinitionFieldDataTypeOutput() ConnectionTypeFieldDefinitionFieldDataTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToConnectionTypeFieldDefinitionFieldDataTypeOutputWithContext(ctx context.Context) ConnectionTypeFieldDefinitionFieldDataTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutput() ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return o.ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(ctx context.Context) ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeFieldDefinitionFieldDataType) *ConnectionTypeFieldDefinitionFieldDataType {
+		return &v
+	}).(ConnectionTypeFieldDefinitionFieldDataTypePtrOutput)
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeFieldDefinitionFieldDataType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeFieldDefinitionFieldDataType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeFieldDefinitionFieldDataTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeFieldDefinitionFieldDataTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeFieldDefinitionFieldDataType)(nil)).Elem()
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypePtrOutput) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutput() ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypePtrOutput) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(ctx context.Context) ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypePtrOutput) Elem() ConnectionTypeFieldDefinitionFieldDataTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeFieldDefinitionFieldDataType) ConnectionTypeFieldDefinitionFieldDataType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeFieldDefinitionFieldDataType
+		return ret
+	}).(ConnectionTypeFieldDefinitionFieldDataTypeOutput)
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFieldDefinitionFieldDataTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeFieldDefinitionFieldDataType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeFieldDefinitionFieldDataTypeInput is an input type that accepts values of the ConnectionTypeFieldDefinitionFieldDataType enum
+// A concrete instance of `ConnectionTypeFieldDefinitionFieldDataTypeInput` can be one of the following:
+//
+//	ConnectionTypeFieldDefinitionFieldDataTypeInt
+//	ConnectionTypeFieldDefinitionFieldDataTypeSmallint
+//	ConnectionTypeFieldDefinitionFieldDataTypeBigint
+//	ConnectionTypeFieldDefinitionFieldDataTypeFloat
+//	ConnectionTypeFieldDefinitionFieldDataTypeLong
+//	ConnectionTypeFieldDefinitionFieldDataTypeDate
+//	ConnectionTypeFieldDefinitionFieldDataTypeBoolean
+//	ConnectionTypeFieldDefinitionFieldDataTypeMap
+//	ConnectionTypeFieldDefinitionFieldDataTypeArray
+//	ConnectionTypeFieldDefinitionFieldDataTypeString
+//	ConnectionTypeFieldDefinitionFieldDataTypeTimestamp
+//	ConnectionTypeFieldDefinitionFieldDataTypeDecimal
+//	ConnectionTypeFieldDefinitionFieldDataTypeByte
+//	ConnectionTypeFieldDefinitionFieldDataTypeShort
+//	ConnectionTypeFieldDefinitionFieldDataTypeDouble
+//	ConnectionTypeFieldDefinitionFieldDataTypeStruct
+//	ConnectionTypeFieldDefinitionFieldDataTypeBinary
+//	ConnectionTypeFieldDefinitionFieldDataTypeUnion
+type ConnectionTypeFieldDefinitionFieldDataTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeFieldDefinitionFieldDataTypeOutput() ConnectionTypeFieldDefinitionFieldDataTypeOutput
+	ToConnectionTypeFieldDefinitionFieldDataTypeOutputWithContext(context.Context) ConnectionTypeFieldDefinitionFieldDataTypeOutput
+}
+
+var connectionTypeFieldDefinitionFieldDataTypePtrType = reflect.TypeOf((**ConnectionTypeFieldDefinitionFieldDataType)(nil)).Elem()
+
+type ConnectionTypeFieldDefinitionFieldDataTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeFieldDefinitionFieldDataTypePtrOutput() ConnectionTypeFieldDefinitionFieldDataTypePtrOutput
+	ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(context.Context) ConnectionTypeFieldDefinitionFieldDataTypePtrOutput
+}
+
+type connectionTypeFieldDefinitionFieldDataTypePtr string
+
+func ConnectionTypeFieldDefinitionFieldDataTypePtr(v string) ConnectionTypeFieldDefinitionFieldDataTypePtrInput {
+	return (*connectionTypeFieldDefinitionFieldDataTypePtr)(&v)
+}
+
+func (*connectionTypeFieldDefinitionFieldDataTypePtr) ElementType() reflect.Type {
+	return connectionTypeFieldDefinitionFieldDataTypePtrType
+}
+
+func (in *connectionTypeFieldDefinitionFieldDataTypePtr) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutput() ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeFieldDefinitionFieldDataTypePtrOutput)
+}
+
+func (in *connectionTypeFieldDefinitionFieldDataTypePtr) ToConnectionTypeFieldDefinitionFieldDataTypePtrOutputWithContext(ctx context.Context) ConnectionTypeFieldDefinitionFieldDataTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeFieldDefinitionFieldDataTypePtrOutput)
+}
+
+// The strategy for applying filters to requests.
+type ConnectionTypeFilterConfigurationFilterMode string
+
+const (
+	ConnectionTypeFilterConfigurationFilterModeQueryParams  = ConnectionTypeFilterConfigurationFilterMode("QUERY_PARAMS")
+	ConnectionTypeFilterConfigurationFilterModeFilterString = ConnectionTypeFilterConfigurationFilterMode("FILTER_STRING")
+)
+
+func (ConnectionTypeFilterConfigurationFilterMode) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeFilterConfigurationFilterMode)(nil)).Elem()
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToConnectionTypeFilterConfigurationFilterModeOutput() ConnectionTypeFilterConfigurationFilterModeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeFilterConfigurationFilterModeOutput)
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToConnectionTypeFilterConfigurationFilterModeOutputWithContext(ctx context.Context) ConnectionTypeFilterConfigurationFilterModeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeFilterConfigurationFilterModeOutput)
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToConnectionTypeFilterConfigurationFilterModePtrOutput() ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return e.ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(ctx context.Context) ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return ConnectionTypeFilterConfigurationFilterMode(e).ToConnectionTypeFilterConfigurationFilterModeOutputWithContext(ctx).ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeFilterConfigurationFilterMode) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeFilterConfigurationFilterModeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeFilterConfigurationFilterModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeFilterConfigurationFilterMode)(nil)).Elem()
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToConnectionTypeFilterConfigurationFilterModeOutput() ConnectionTypeFilterConfigurationFilterModeOutput {
+	return o
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToConnectionTypeFilterConfigurationFilterModeOutputWithContext(ctx context.Context) ConnectionTypeFilterConfigurationFilterModeOutput {
+	return o
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToConnectionTypeFilterConfigurationFilterModePtrOutput() ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return o.ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(ctx context.Context) ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeFilterConfigurationFilterMode) *ConnectionTypeFilterConfigurationFilterMode {
+		return &v
+	}).(ConnectionTypeFilterConfigurationFilterModePtrOutput)
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeFilterConfigurationFilterMode) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeFilterConfigurationFilterMode) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeFilterConfigurationFilterModePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeFilterConfigurationFilterModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeFilterConfigurationFilterMode)(nil)).Elem()
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModePtrOutput) ToConnectionTypeFilterConfigurationFilterModePtrOutput() ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModePtrOutput) ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(ctx context.Context) ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModePtrOutput) Elem() ConnectionTypeFilterConfigurationFilterModeOutput {
+	return o.ApplyT(func(v *ConnectionTypeFilterConfigurationFilterMode) ConnectionTypeFilterConfigurationFilterMode {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeFilterConfigurationFilterMode
+		return ret
+	}).(ConnectionTypeFilterConfigurationFilterModeOutput)
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeFilterConfigurationFilterModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeFilterConfigurationFilterMode) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeFilterConfigurationFilterModeInput is an input type that accepts values of the ConnectionTypeFilterConfigurationFilterMode enum
+// A concrete instance of `ConnectionTypeFilterConfigurationFilterModeInput` can be one of the following:
+//
+//	ConnectionTypeFilterConfigurationFilterModeQueryParams
+//	ConnectionTypeFilterConfigurationFilterModeFilterString
+type ConnectionTypeFilterConfigurationFilterModeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeFilterConfigurationFilterModeOutput() ConnectionTypeFilterConfigurationFilterModeOutput
+	ToConnectionTypeFilterConfigurationFilterModeOutputWithContext(context.Context) ConnectionTypeFilterConfigurationFilterModeOutput
+}
+
+var connectionTypeFilterConfigurationFilterModePtrType = reflect.TypeOf((**ConnectionTypeFilterConfigurationFilterMode)(nil)).Elem()
+
+type ConnectionTypeFilterConfigurationFilterModePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeFilterConfigurationFilterModePtrOutput() ConnectionTypeFilterConfigurationFilterModePtrOutput
+	ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(context.Context) ConnectionTypeFilterConfigurationFilterModePtrOutput
+}
+
+type connectionTypeFilterConfigurationFilterModePtr string
+
+func ConnectionTypeFilterConfigurationFilterModePtr(v string) ConnectionTypeFilterConfigurationFilterModePtrInput {
+	return (*connectionTypeFilterConfigurationFilterModePtr)(&v)
+}
+
+func (*connectionTypeFilterConfigurationFilterModePtr) ElementType() reflect.Type {
+	return connectionTypeFilterConfigurationFilterModePtrType
+}
+
+func (in *connectionTypeFilterConfigurationFilterModePtr) ToConnectionTypeFilterConfigurationFilterModePtrOutput() ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeFilterConfigurationFilterModePtrOutput)
+}
+
+func (in *connectionTypeFilterConfigurationFilterModePtr) ToConnectionTypeFilterConfigurationFilterModePtrOutputWithContext(ctx context.Context) ConnectionTypeFilterConfigurationFilterModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeFilterConfigurationFilterModePtrOutput)
+}
+
+// The integration type for the connection. Currently only REST is supported.
+type ConnectionTypeIntegrationType string
+
+const (
+	ConnectionTypeIntegrationTypeRest = ConnectionTypeIntegrationType("REST")
+)
+
+func (ConnectionTypeIntegrationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeIntegrationType)(nil)).Elem()
+}
+
+func (e ConnectionTypeIntegrationType) ToConnectionTypeIntegrationTypeOutput() ConnectionTypeIntegrationTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeIntegrationTypeOutput)
+}
+
+func (e ConnectionTypeIntegrationType) ToConnectionTypeIntegrationTypeOutputWithContext(ctx context.Context) ConnectionTypeIntegrationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeIntegrationTypeOutput)
+}
+
+func (e ConnectionTypeIntegrationType) ToConnectionTypeIntegrationTypePtrOutput() ConnectionTypeIntegrationTypePtrOutput {
+	return e.ToConnectionTypeIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeIntegrationType) ToConnectionTypeIntegrationTypePtrOutputWithContext(ctx context.Context) ConnectionTypeIntegrationTypePtrOutput {
+	return ConnectionTypeIntegrationType(e).ToConnectionTypeIntegrationTypeOutputWithContext(ctx).ToConnectionTypeIntegrationTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeIntegrationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeIntegrationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeIntegrationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeIntegrationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeIntegrationTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeIntegrationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeIntegrationType)(nil)).Elem()
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToConnectionTypeIntegrationTypeOutput() ConnectionTypeIntegrationTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToConnectionTypeIntegrationTypeOutputWithContext(ctx context.Context) ConnectionTypeIntegrationTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToConnectionTypeIntegrationTypePtrOutput() ConnectionTypeIntegrationTypePtrOutput {
+	return o.ToConnectionTypeIntegrationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToConnectionTypeIntegrationTypePtrOutputWithContext(ctx context.Context) ConnectionTypeIntegrationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeIntegrationType) *ConnectionTypeIntegrationType {
+		return &v
+	}).(ConnectionTypeIntegrationTypePtrOutput)
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeIntegrationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeIntegrationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeIntegrationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeIntegrationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeIntegrationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeIntegrationType)(nil)).Elem()
+}
+
+func (o ConnectionTypeIntegrationTypePtrOutput) ToConnectionTypeIntegrationTypePtrOutput() ConnectionTypeIntegrationTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeIntegrationTypePtrOutput) ToConnectionTypeIntegrationTypePtrOutputWithContext(ctx context.Context) ConnectionTypeIntegrationTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeIntegrationTypePtrOutput) Elem() ConnectionTypeIntegrationTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeIntegrationType) ConnectionTypeIntegrationType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeIntegrationType
+		return ret
+	}).(ConnectionTypeIntegrationTypeOutput)
+}
+
+func (o ConnectionTypeIntegrationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeIntegrationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeIntegrationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeIntegrationTypeInput is an input type that accepts values of the ConnectionTypeIntegrationType enum
+// A concrete instance of `ConnectionTypeIntegrationTypeInput` can be one of the following:
+//
+//	ConnectionTypeIntegrationTypeRest
+type ConnectionTypeIntegrationTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeIntegrationTypeOutput() ConnectionTypeIntegrationTypeOutput
+	ToConnectionTypeIntegrationTypeOutputWithContext(context.Context) ConnectionTypeIntegrationTypeOutput
+}
+
+var connectionTypeIntegrationTypePtrType = reflect.TypeOf((**ConnectionTypeIntegrationType)(nil)).Elem()
+
+type ConnectionTypeIntegrationTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeIntegrationTypePtrOutput() ConnectionTypeIntegrationTypePtrOutput
+	ToConnectionTypeIntegrationTypePtrOutputWithContext(context.Context) ConnectionTypeIntegrationTypePtrOutput
+}
+
+type connectionTypeIntegrationTypePtr string
+
+func ConnectionTypeIntegrationTypePtr(v string) ConnectionTypeIntegrationTypePtrInput {
+	return (*connectionTypeIntegrationTypePtr)(&v)
+}
+
+func (*connectionTypeIntegrationTypePtr) ElementType() reflect.Type {
+	return connectionTypeIntegrationTypePtrType
+}
+
+func (in *connectionTypeIntegrationTypePtr) ToConnectionTypeIntegrationTypePtrOutput() ConnectionTypeIntegrationTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeIntegrationTypePtrOutput)
+}
+
+func (in *connectionTypeIntegrationTypePtr) ToConnectionTypeIntegrationTypePtrOutputWithContext(ctx context.Context) ConnectionTypeIntegrationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeIntegrationTypePtrOutput)
+}
+
+type ConnectionTypeJwtBearerPropertiesContentType string
+
+const (
+	ConnectionTypeJwtBearerPropertiesContentTypeApplicationJson = ConnectionTypeJwtBearerPropertiesContentType("APPLICATION_JSON")
+	ConnectionTypeJwtBearerPropertiesContentTypeUrlEncoded      = ConnectionTypeJwtBearerPropertiesContentType("URL_ENCODED")
+)
+
+func (ConnectionTypeJwtBearerPropertiesContentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesContentType)(nil)).Elem()
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToConnectionTypeJwtBearerPropertiesContentTypeOutput() ConnectionTypeJwtBearerPropertiesContentTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeJwtBearerPropertiesContentTypeOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToConnectionTypeJwtBearerPropertiesContentTypeOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesContentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeJwtBearerPropertiesContentTypeOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutput() ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return e.ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return ConnectionTypeJwtBearerPropertiesContentType(e).ToConnectionTypeJwtBearerPropertiesContentTypeOutputWithContext(ctx).ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeJwtBearerPropertiesContentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeJwtBearerPropertiesContentTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeJwtBearerPropertiesContentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesContentType)(nil)).Elem()
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToConnectionTypeJwtBearerPropertiesContentTypeOutput() ConnectionTypeJwtBearerPropertiesContentTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToConnectionTypeJwtBearerPropertiesContentTypeOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesContentTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutput() ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return o.ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeJwtBearerPropertiesContentType) *ConnectionTypeJwtBearerPropertiesContentType {
+		return &v
+	}).(ConnectionTypeJwtBearerPropertiesContentTypePtrOutput)
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeJwtBearerPropertiesContentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeJwtBearerPropertiesContentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeJwtBearerPropertiesContentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeJwtBearerPropertiesContentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeJwtBearerPropertiesContentType)(nil)).Elem()
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypePtrOutput) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutput() ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypePtrOutput) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypePtrOutput) Elem() ConnectionTypeJwtBearerPropertiesContentTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeJwtBearerPropertiesContentType) ConnectionTypeJwtBearerPropertiesContentType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeJwtBearerPropertiesContentType
+		return ret
+	}).(ConnectionTypeJwtBearerPropertiesContentTypeOutput)
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeJwtBearerPropertiesContentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeJwtBearerPropertiesContentTypeInput is an input type that accepts values of the ConnectionTypeJwtBearerPropertiesContentType enum
+// A concrete instance of `ConnectionTypeJwtBearerPropertiesContentTypeInput` can be one of the following:
+//
+//	ConnectionTypeJwtBearerPropertiesContentTypeApplicationJson
+//	ConnectionTypeJwtBearerPropertiesContentTypeUrlEncoded
+type ConnectionTypeJwtBearerPropertiesContentTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeJwtBearerPropertiesContentTypeOutput() ConnectionTypeJwtBearerPropertiesContentTypeOutput
+	ToConnectionTypeJwtBearerPropertiesContentTypeOutputWithContext(context.Context) ConnectionTypeJwtBearerPropertiesContentTypeOutput
+}
+
+var connectionTypeJwtBearerPropertiesContentTypePtrType = reflect.TypeOf((**ConnectionTypeJwtBearerPropertiesContentType)(nil)).Elem()
+
+type ConnectionTypeJwtBearerPropertiesContentTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeJwtBearerPropertiesContentTypePtrOutput() ConnectionTypeJwtBearerPropertiesContentTypePtrOutput
+	ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(context.Context) ConnectionTypeJwtBearerPropertiesContentTypePtrOutput
+}
+
+type connectionTypeJwtBearerPropertiesContentTypePtr string
+
+func ConnectionTypeJwtBearerPropertiesContentTypePtr(v string) ConnectionTypeJwtBearerPropertiesContentTypePtrInput {
+	return (*connectionTypeJwtBearerPropertiesContentTypePtr)(&v)
+}
+
+func (*connectionTypeJwtBearerPropertiesContentTypePtr) ElementType() reflect.Type {
+	return connectionTypeJwtBearerPropertiesContentTypePtrType
+}
+
+func (in *connectionTypeJwtBearerPropertiesContentTypePtr) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutput() ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeJwtBearerPropertiesContentTypePtrOutput)
+}
+
+func (in *connectionTypeJwtBearerPropertiesContentTypePtr) ToConnectionTypeJwtBearerPropertiesContentTypePtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesContentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeJwtBearerPropertiesContentTypePtrOutput)
+}
+
+type ConnectionTypeJwtBearerPropertiesRequestMethod string
+
+const (
+	ConnectionTypeJwtBearerPropertiesRequestMethodGet  = ConnectionTypeJwtBearerPropertiesRequestMethod("GET")
+	ConnectionTypeJwtBearerPropertiesRequestMethodPost = ConnectionTypeJwtBearerPropertiesRequestMethod("POST")
+)
+
+func (ConnectionTypeJwtBearerPropertiesRequestMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToConnectionTypeJwtBearerPropertiesRequestMethodOutput() ConnectionTypeJwtBearerPropertiesRequestMethodOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeJwtBearerPropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToConnectionTypeJwtBearerPropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeJwtBearerPropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput() ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return e.ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return ConnectionTypeJwtBearerPropertiesRequestMethod(e).ToConnectionTypeJwtBearerPropertiesRequestMethodOutputWithContext(ctx).ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeJwtBearerPropertiesRequestMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeJwtBearerPropertiesRequestMethodOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToConnectionTypeJwtBearerPropertiesRequestMethodOutput() ConnectionTypeJwtBearerPropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToConnectionTypeJwtBearerPropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput() ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return o.ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeJwtBearerPropertiesRequestMethod) *ConnectionTypeJwtBearerPropertiesRequestMethod {
+		return &v
+	}).(ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput)
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeJwtBearerPropertiesRequestMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeJwtBearerPropertiesRequestMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeJwtBearerPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput() ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput) Elem() ConnectionTypeJwtBearerPropertiesRequestMethodOutput {
+	return o.ApplyT(func(v *ConnectionTypeJwtBearerPropertiesRequestMethod) ConnectionTypeJwtBearerPropertiesRequestMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeJwtBearerPropertiesRequestMethod
+		return ret
+	}).(ConnectionTypeJwtBearerPropertiesRequestMethodOutput)
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeJwtBearerPropertiesRequestMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeJwtBearerPropertiesRequestMethodInput is an input type that accepts values of the ConnectionTypeJwtBearerPropertiesRequestMethod enum
+// A concrete instance of `ConnectionTypeJwtBearerPropertiesRequestMethodInput` can be one of the following:
+//
+//	ConnectionTypeJwtBearerPropertiesRequestMethodGet
+//	ConnectionTypeJwtBearerPropertiesRequestMethodPost
+type ConnectionTypeJwtBearerPropertiesRequestMethodInput interface {
+	pulumi.Input
+
+	ToConnectionTypeJwtBearerPropertiesRequestMethodOutput() ConnectionTypeJwtBearerPropertiesRequestMethodOutput
+	ToConnectionTypeJwtBearerPropertiesRequestMethodOutputWithContext(context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodOutput
+}
+
+var connectionTypeJwtBearerPropertiesRequestMethodPtrType = reflect.TypeOf((**ConnectionTypeJwtBearerPropertiesRequestMethod)(nil)).Elem()
+
+type ConnectionTypeJwtBearerPropertiesRequestMethodPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput() ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput
+	ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput
+}
+
+type connectionTypeJwtBearerPropertiesRequestMethodPtr string
+
+func ConnectionTypeJwtBearerPropertiesRequestMethodPtr(v string) ConnectionTypeJwtBearerPropertiesRequestMethodPtrInput {
+	return (*connectionTypeJwtBearerPropertiesRequestMethodPtr)(&v)
+}
+
+func (*connectionTypeJwtBearerPropertiesRequestMethodPtr) ElementType() reflect.Type {
+	return connectionTypeJwtBearerPropertiesRequestMethodPtrType
+}
+
+func (in *connectionTypeJwtBearerPropertiesRequestMethodPtr) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput() ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput)
+}
+
+func (in *connectionTypeJwtBearerPropertiesRequestMethodPtr) ToConnectionTypeJwtBearerPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput)
+}
+
+// The HTTP method to use.
+type ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod string
+
+const (
+	ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodGet  = ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod("GET")
+	ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPost = ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod("POST")
+)
+
+func (ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput)
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return e.ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod(e).ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutputWithContext(ctx).ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return o.ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) *ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod {
+		return &v
+	}).(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput)
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput) Elem() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput {
+	return o.ApplyT(func(v *ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod
+		return ret
+	}).(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput)
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodInput is an input type that accepts values of the ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod enum
+// A concrete instance of `ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodInput` can be one of the following:
+//
+//	ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodGet
+//	ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPost
+type ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodInput interface {
+	pulumi.Input
+
+	ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput
+	ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutputWithContext(context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput
+}
+
+var connectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrType = reflect.TypeOf((**ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod)(nil)).Elem()
+
+type ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput
+	ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput
+}
+
+type connectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtr string
+
+func ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtr(v string) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrInput {
+	return (*connectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtr)(&v)
+}
+
+func (*connectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtr) ElementType() reflect.Type {
+	return connectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrType
+}
+
+func (in *connectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtr) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput() ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput)
+}
+
+func (in *connectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtr) ToConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput)
+}
+
+// Specifies where this property should be included in REST requests.
+type ConnectionTypeSecretConnectorPropertyPropertyLocation string
+
+const (
+	ConnectionTypeSecretConnectorPropertyPropertyLocationHeader     = ConnectionTypeSecretConnectorPropertyPropertyLocation("HEADER")
+	ConnectionTypeSecretConnectorPropertyPropertyLocationBody       = ConnectionTypeSecretConnectorPropertyPropertyLocation("BODY")
+	ConnectionTypeSecretConnectorPropertyPropertyLocationQueryParam = ConnectionTypeSecretConnectorPropertyPropertyLocation("QUERY_PARAM")
+	ConnectionTypeSecretConnectorPropertyPropertyLocationPath       = ConnectionTypeSecretConnectorPropertyPropertyLocation("PATH")
+)
+
+func (ConnectionTypeSecretConnectorPropertyPropertyLocation) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyLocation)(nil)).Elem()
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToConnectionTypeSecretConnectorPropertyPropertyLocationOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeSecretConnectorPropertyPropertyLocationOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToConnectionTypeSecretConnectorPropertyPropertyLocationOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeSecretConnectorPropertyPropertyLocationOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return e.ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return ConnectionTypeSecretConnectorPropertyPropertyLocation(e).ToConnectionTypeSecretConnectorPropertyPropertyLocationOutputWithContext(ctx).ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyLocation) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeSecretConnectorPropertyPropertyLocationOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyLocation)(nil)).Elem()
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToConnectionTypeSecretConnectorPropertyPropertyLocationOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToConnectionTypeSecretConnectorPropertyPropertyLocationOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return o.ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeSecretConnectorPropertyPropertyLocation) *ConnectionTypeSecretConnectorPropertyPropertyLocation {
+		return &v
+	}).(ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput)
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeSecretConnectorPropertyPropertyLocation) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeSecretConnectorPropertyPropertyLocation) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeSecretConnectorPropertyPropertyLocation)(nil)).Elem()
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput) Elem() ConnectionTypeSecretConnectorPropertyPropertyLocationOutput {
+	return o.ApplyT(func(v *ConnectionTypeSecretConnectorPropertyPropertyLocation) ConnectionTypeSecretConnectorPropertyPropertyLocation {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeSecretConnectorPropertyPropertyLocation
+		return ret
+	}).(ConnectionTypeSecretConnectorPropertyPropertyLocationOutput)
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeSecretConnectorPropertyPropertyLocation) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeSecretConnectorPropertyPropertyLocationInput is an input type that accepts values of the ConnectionTypeSecretConnectorPropertyPropertyLocation enum
+// A concrete instance of `ConnectionTypeSecretConnectorPropertyPropertyLocationInput` can be one of the following:
+//
+//	ConnectionTypeSecretConnectorPropertyPropertyLocationHeader
+//	ConnectionTypeSecretConnectorPropertyPropertyLocationBody
+//	ConnectionTypeSecretConnectorPropertyPropertyLocationQueryParam
+//	ConnectionTypeSecretConnectorPropertyPropertyLocationPath
+type ConnectionTypeSecretConnectorPropertyPropertyLocationInput interface {
+	pulumi.Input
+
+	ToConnectionTypeSecretConnectorPropertyPropertyLocationOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationOutput
+	ToConnectionTypeSecretConnectorPropertyPropertyLocationOutputWithContext(context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationOutput
+}
+
+var connectionTypeSecretConnectorPropertyPropertyLocationPtrType = reflect.TypeOf((**ConnectionTypeSecretConnectorPropertyPropertyLocation)(nil)).Elem()
+
+type ConnectionTypeSecretConnectorPropertyPropertyLocationPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput
+	ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput
+}
+
+type connectionTypeSecretConnectorPropertyPropertyLocationPtr string
+
+func ConnectionTypeSecretConnectorPropertyPropertyLocationPtr(v string) ConnectionTypeSecretConnectorPropertyPropertyLocationPtrInput {
+	return (*connectionTypeSecretConnectorPropertyPropertyLocationPtr)(&v)
+}
+
+func (*connectionTypeSecretConnectorPropertyPropertyLocationPtr) ElementType() reflect.Type {
+	return connectionTypeSecretConnectorPropertyPropertyLocationPtrType
+}
+
+func (in *connectionTypeSecretConnectorPropertyPropertyLocationPtr) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput() ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput)
+}
+
+func (in *connectionTypeSecretConnectorPropertyPropertyLocationPtr) ToConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput)
+}
+
+// The data type of this property. Must be SECRET for secret properties.
+type ConnectionTypeSecretConnectorPropertyPropertyType string
+
+const (
+	ConnectionTypeSecretConnectorPropertyPropertyTypeSecret = ConnectionTypeSecretConnectorPropertyPropertyType("SECRET")
+)
+
+func (ConnectionTypeSecretConnectorPropertyPropertyType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyType)(nil)).Elem()
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToConnectionTypeSecretConnectorPropertyPropertyTypeOutput() ConnectionTypeSecretConnectorPropertyPropertyTypeOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeSecretConnectorPropertyPropertyTypeOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToConnectionTypeSecretConnectorPropertyPropertyTypeOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeSecretConnectorPropertyPropertyTypeOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput() ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return e.ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return ConnectionTypeSecretConnectorPropertyPropertyType(e).ToConnectionTypeSecretConnectorPropertyPropertyTypeOutputWithContext(ctx).ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeSecretConnectorPropertyPropertyType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeSecretConnectorPropertyPropertyTypeOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyType)(nil)).Elem()
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToConnectionTypeSecretConnectorPropertyPropertyTypeOutput() ConnectionTypeSecretConnectorPropertyPropertyTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToConnectionTypeSecretConnectorPropertyPropertyTypeOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypeOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput() ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return o.ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeSecretConnectorPropertyPropertyType) *ConnectionTypeSecretConnectorPropertyPropertyType {
+		return &v
+	}).(ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput)
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeSecretConnectorPropertyPropertyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeSecretConnectorPropertyPropertyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeSecretConnectorPropertyPropertyType)(nil)).Elem()
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput() ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return o
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput) Elem() ConnectionTypeSecretConnectorPropertyPropertyTypeOutput {
+	return o.ApplyT(func(v *ConnectionTypeSecretConnectorPropertyPropertyType) ConnectionTypeSecretConnectorPropertyPropertyType {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeSecretConnectorPropertyPropertyType
+		return ret
+	}).(ConnectionTypeSecretConnectorPropertyPropertyTypeOutput)
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeSecretConnectorPropertyPropertyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeSecretConnectorPropertyPropertyTypeInput is an input type that accepts values of the ConnectionTypeSecretConnectorPropertyPropertyType enum
+// A concrete instance of `ConnectionTypeSecretConnectorPropertyPropertyTypeInput` can be one of the following:
+//
+//	ConnectionTypeSecretConnectorPropertyPropertyTypeSecret
+type ConnectionTypeSecretConnectorPropertyPropertyTypeInput interface {
+	pulumi.Input
+
+	ToConnectionTypeSecretConnectorPropertyPropertyTypeOutput() ConnectionTypeSecretConnectorPropertyPropertyTypeOutput
+	ToConnectionTypeSecretConnectorPropertyPropertyTypeOutputWithContext(context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypeOutput
+}
+
+var connectionTypeSecretConnectorPropertyPropertyTypePtrType = reflect.TypeOf((**ConnectionTypeSecretConnectorPropertyPropertyType)(nil)).Elem()
+
+type ConnectionTypeSecretConnectorPropertyPropertyTypePtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput() ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput
+	ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput
+}
+
+type connectionTypeSecretConnectorPropertyPropertyTypePtr string
+
+func ConnectionTypeSecretConnectorPropertyPropertyTypePtr(v string) ConnectionTypeSecretConnectorPropertyPropertyTypePtrInput {
+	return (*connectionTypeSecretConnectorPropertyPropertyTypePtr)(&v)
+}
+
+func (*connectionTypeSecretConnectorPropertyPropertyTypePtr) ElementType() reflect.Type {
+	return connectionTypeSecretConnectorPropertyPropertyTypePtrType
+}
+
+func (in *connectionTypeSecretConnectorPropertyPropertyTypePtr) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput() ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput)
+}
+
+func (in *connectionTypeSecretConnectorPropertyPropertyTypePtr) ToConnectionTypeSecretConnectorPropertyPropertyTypePtrOutputWithContext(ctx context.Context) ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput)
+}
+
+// The HTTP method to use.
+type ConnectionTypeSourceConfigurationRequestMethod string
+
+const (
+	ConnectionTypeSourceConfigurationRequestMethodGet  = ConnectionTypeSourceConfigurationRequestMethod("GET")
+	ConnectionTypeSourceConfigurationRequestMethodPost = ConnectionTypeSourceConfigurationRequestMethod("POST")
+)
+
+func (ConnectionTypeSourceConfigurationRequestMethod) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeSourceConfigurationRequestMethod)(nil)).Elem()
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToConnectionTypeSourceConfigurationRequestMethodOutput() ConnectionTypeSourceConfigurationRequestMethodOutput {
+	return pulumi.ToOutput(e).(ConnectionTypeSourceConfigurationRequestMethodOutput)
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToConnectionTypeSourceConfigurationRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeSourceConfigurationRequestMethodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ConnectionTypeSourceConfigurationRequestMethodOutput)
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToConnectionTypeSourceConfigurationRequestMethodPtrOutput() ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return e.ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return ConnectionTypeSourceConfigurationRequestMethod(e).ToConnectionTypeSourceConfigurationRequestMethodOutputWithContext(ctx).ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(ctx)
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ConnectionTypeSourceConfigurationRequestMethod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ConnectionTypeSourceConfigurationRequestMethodOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeSourceConfigurationRequestMethodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConnectionTypeSourceConfigurationRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToConnectionTypeSourceConfigurationRequestMethodOutput() ConnectionTypeSourceConfigurationRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToConnectionTypeSourceConfigurationRequestMethodOutputWithContext(ctx context.Context) ConnectionTypeSourceConfigurationRequestMethodOutput {
+	return o
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToConnectionTypeSourceConfigurationRequestMethodPtrOutput() ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return o.ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConnectionTypeSourceConfigurationRequestMethod) *ConnectionTypeSourceConfigurationRequestMethod {
+		return &v
+	}).(ConnectionTypeSourceConfigurationRequestMethodPtrOutput)
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeSourceConfigurationRequestMethod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ConnectionTypeSourceConfigurationRequestMethod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConnectionTypeSourceConfigurationRequestMethodPtrOutput struct{ *pulumi.OutputState }
+
+func (ConnectionTypeSourceConfigurationRequestMethodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConnectionTypeSourceConfigurationRequestMethod)(nil)).Elem()
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodPtrOutput) ToConnectionTypeSourceConfigurationRequestMethodPtrOutput() ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodPtrOutput) ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return o
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodPtrOutput) Elem() ConnectionTypeSourceConfigurationRequestMethodOutput {
+	return o.ApplyT(func(v *ConnectionTypeSourceConfigurationRequestMethod) ConnectionTypeSourceConfigurationRequestMethod {
+		if v != nil {
+			return *v
+		}
+		var ret ConnectionTypeSourceConfigurationRequestMethod
+		return ret
+	}).(ConnectionTypeSourceConfigurationRequestMethodOutput)
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConnectionTypeSourceConfigurationRequestMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ConnectionTypeSourceConfigurationRequestMethod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ConnectionTypeSourceConfigurationRequestMethodInput is an input type that accepts values of the ConnectionTypeSourceConfigurationRequestMethod enum
+// A concrete instance of `ConnectionTypeSourceConfigurationRequestMethodInput` can be one of the following:
+//
+//	ConnectionTypeSourceConfigurationRequestMethodGet
+//	ConnectionTypeSourceConfigurationRequestMethodPost
+type ConnectionTypeSourceConfigurationRequestMethodInput interface {
+	pulumi.Input
+
+	ToConnectionTypeSourceConfigurationRequestMethodOutput() ConnectionTypeSourceConfigurationRequestMethodOutput
+	ToConnectionTypeSourceConfigurationRequestMethodOutputWithContext(context.Context) ConnectionTypeSourceConfigurationRequestMethodOutput
+}
+
+var connectionTypeSourceConfigurationRequestMethodPtrType = reflect.TypeOf((**ConnectionTypeSourceConfigurationRequestMethod)(nil)).Elem()
+
+type ConnectionTypeSourceConfigurationRequestMethodPtrInput interface {
+	pulumi.Input
+
+	ToConnectionTypeSourceConfigurationRequestMethodPtrOutput() ConnectionTypeSourceConfigurationRequestMethodPtrOutput
+	ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(context.Context) ConnectionTypeSourceConfigurationRequestMethodPtrOutput
+}
+
+type connectionTypeSourceConfigurationRequestMethodPtr string
+
+func ConnectionTypeSourceConfigurationRequestMethodPtr(v string) ConnectionTypeSourceConfigurationRequestMethodPtrInput {
+	return (*connectionTypeSourceConfigurationRequestMethodPtr)(&v)
+}
+
+func (*connectionTypeSourceConfigurationRequestMethodPtr) ElementType() reflect.Type {
+	return connectionTypeSourceConfigurationRequestMethodPtrType
+}
+
+func (in *connectionTypeSourceConfigurationRequestMethodPtr) ToConnectionTypeSourceConfigurationRequestMethodPtrOutput() ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return pulumi.ToOutput(in).(ConnectionTypeSourceConfigurationRequestMethodPtrOutput)
+}
+
+func (in *connectionTypeSourceConfigurationRequestMethodPtr) ToConnectionTypeSourceConfigurationRequestMethodPtrOutputWithContext(ctx context.Context) ConnectionTypeSourceConfigurationRequestMethodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ConnectionTypeSourceConfigurationRequestMethodPtrOutput)
+}
+
 // TThe type of predefined worker that is allocated when a job runs.
 type JobWorkerType string
 
@@ -2144,6 +5222,43 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItemInput)(nil)).Elem(), CatalogPrincipalPermissionsPermissionsItem("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItemPtrInput)(nil)).Elem(), CatalogPrincipalPermissionsPermissionsItem("ALL"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CatalogPrincipalPermissionsPermissionsItemArrayInput)(nil)).Elem(), CatalogPrincipalPermissionsPermissionsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesContentTypeInput)(nil)).Elem(), ConnectionTypeClientCredentialsPropertiesContentType("APPLICATION_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesContentTypePtrInput)(nil)).Elem(), ConnectionTypeClientCredentialsPropertiesContentType("APPLICATION_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesRequestMethodInput)(nil)).Elem(), ConnectionTypeClientCredentialsPropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeClientCredentialsPropertiesRequestMethodPtrInput)(nil)).Elem(), ConnectionTypeClientCredentialsPropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemInput)(nil)).Elem(), ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrInput)(nil)).Elem(), ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("BASIC"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayInput)(nil)).Elem(), ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeInput)(nil)).Elem(), ConnectionTypeConnectorAuthorizationCodePropertiesContentType("APPLICATION_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrInput)(nil)).Elem(), ConnectionTypeConnectorAuthorizationCodePropertiesContentType("APPLICATION_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodInput)(nil)).Elem(), ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrInput)(nil)).Elem(), ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeInput)(nil)).Elem(), ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrInput)(nil)).Elem(), ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("CLIENT_CREDENTIALS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyLocationInput)(nil)).Elem(), ConnectionTypeConnectorPropertyPropertyLocation("HEADER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyLocationPtrInput)(nil)).Elem(), ConnectionTypeConnectorPropertyPropertyLocation("HEADER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyTypeInput)(nil)).Elem(), ConnectionTypeConnectorPropertyPropertyType("USER_INPUT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeConnectorPropertyPropertyTypePtrInput)(nil)).Elem(), ConnectionTypeConnectorPropertyPropertyType("USER_INPUT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeExtractedParameterPropertyLocationInput)(nil)).Elem(), ConnectionTypeExtractedParameterPropertyLocation("HEADER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeExtractedParameterPropertyLocationPtrInput)(nil)).Elem(), ConnectionTypeExtractedParameterPropertyLocation("HEADER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeFieldDefinitionFieldDataTypeInput)(nil)).Elem(), ConnectionTypeFieldDefinitionFieldDataType("INT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeFieldDefinitionFieldDataTypePtrInput)(nil)).Elem(), ConnectionTypeFieldDefinitionFieldDataType("INT"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeFilterConfigurationFilterModeInput)(nil)).Elem(), ConnectionTypeFilterConfigurationFilterMode("QUERY_PARAMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeFilterConfigurationFilterModePtrInput)(nil)).Elem(), ConnectionTypeFilterConfigurationFilterMode("QUERY_PARAMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeIntegrationTypeInput)(nil)).Elem(), ConnectionTypeIntegrationType("REST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeIntegrationTypePtrInput)(nil)).Elem(), ConnectionTypeIntegrationType("REST"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesContentTypeInput)(nil)).Elem(), ConnectionTypeJwtBearerPropertiesContentType("APPLICATION_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesContentTypePtrInput)(nil)).Elem(), ConnectionTypeJwtBearerPropertiesContentType("APPLICATION_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesRequestMethodInput)(nil)).Elem(), ConnectionTypeJwtBearerPropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeJwtBearerPropertiesRequestMethodPtrInput)(nil)).Elem(), ConnectionTypeJwtBearerPropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodInput)(nil)).Elem(), ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrInput)(nil)).Elem(), ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyLocationInput)(nil)).Elem(), ConnectionTypeSecretConnectorPropertyPropertyLocation("HEADER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyLocationPtrInput)(nil)).Elem(), ConnectionTypeSecretConnectorPropertyPropertyLocation("HEADER"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyTypeInput)(nil)).Elem(), ConnectionTypeSecretConnectorPropertyPropertyType("SECRET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeSecretConnectorPropertyPropertyTypePtrInput)(nil)).Elem(), ConnectionTypeSecretConnectorPropertyPropertyType("SECRET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeSourceConfigurationRequestMethodInput)(nil)).Elem(), ConnectionTypeSourceConfigurationRequestMethod("GET"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionTypeSourceConfigurationRequestMethodPtrInput)(nil)).Elem(), ConnectionTypeSourceConfigurationRequestMethod("GET"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobWorkerTypeInput)(nil)).Elem(), JobWorkerType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*JobWorkerTypePtrInput)(nil)).Elem(), JobWorkerType("Standard"))
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaCompatibilityInput)(nil)).Elem(), SchemaCompatibility("NONE"))
@@ -2169,6 +5284,43 @@ func init() {
 	pulumi.RegisterOutputType(CatalogPrincipalPermissionsPermissionsItemOutput{})
 	pulumi.RegisterOutputType(CatalogPrincipalPermissionsPermissionsItemPtrOutput{})
 	pulumi.RegisterOutputType(CatalogPrincipalPermissionsPermissionsItemArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeClientCredentialsPropertiesContentTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeClientCredentialsPropertiesContentTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeClientCredentialsPropertiesRequestMethodOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeClientCredentialsPropertiesRequestMethodPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItemArrayOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorAuthorizationCodePropertiesContentTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethodPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorPropertyPropertyLocationOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorPropertyPropertyLocationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorPropertyPropertyTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeConnectorPropertyPropertyTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeExtractedParameterPropertyLocationOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeExtractedParameterPropertyLocationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeFieldDefinitionFieldDataTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeFieldDefinitionFieldDataTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeFilterConfigurationFilterModeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeFilterConfigurationFilterModePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeIntegrationTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeIntegrationTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeJwtBearerPropertiesContentTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeJwtBearerPropertiesContentTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeJwtBearerPropertiesRequestMethodOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeJwtBearerPropertiesRequestMethodPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethodPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeSecretConnectorPropertyPropertyLocationOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeSecretConnectorPropertyPropertyLocationPtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeSecretConnectorPropertyPropertyTypeOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeSecretConnectorPropertyPropertyTypePtrOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeSourceConfigurationRequestMethodOutput{})
+	pulumi.RegisterOutputType(ConnectionTypeSourceConfigurationRequestMethodPtrOutput{})
 	pulumi.RegisterOutputType(JobWorkerTypeOutput{})
 	pulumi.RegisterOutputType(JobWorkerTypePtrOutput{})
 	pulumi.RegisterOutputType(SchemaCompatibilityOutput{})

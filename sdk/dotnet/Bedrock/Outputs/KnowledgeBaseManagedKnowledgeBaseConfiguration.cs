@@ -23,6 +23,7 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
         public readonly Outputs.KnowledgeBaseEmbeddingModelConfiguration? EmbeddingModelConfiguration;
         public readonly Pulumi.AwsNative.Bedrock.KnowledgeBaseEmbeddingModelType? EmbeddingModelType;
         public readonly Outputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration? ServerSideEncryptionConfiguration;
+        public readonly Outputs.KnowledgeBaseSupplementalDataStorageConfiguration? SupplementalDataStorageConfiguration;
 
         [OutputConstructor]
         private KnowledgeBaseManagedKnowledgeBaseConfiguration(
@@ -32,12 +33,15 @@ namespace Pulumi.AwsNative.Bedrock.Outputs
 
             Pulumi.AwsNative.Bedrock.KnowledgeBaseEmbeddingModelType? embeddingModelType,
 
-            Outputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration? serverSideEncryptionConfiguration)
+            Outputs.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration? serverSideEncryptionConfiguration,
+
+            Outputs.KnowledgeBaseSupplementalDataStorageConfiguration? supplementalDataStorageConfiguration)
         {
             EmbeddingModelArn = embeddingModelArn;
             EmbeddingModelConfiguration = embeddingModelConfiguration;
             EmbeddingModelType = embeddingModelType;
             ServerSideEncryptionConfiguration = serverSideEncryptionConfiguration;
+            SupplementalDataStorageConfiguration = supplementalDataStorageConfiguration;
         }
     }
 }

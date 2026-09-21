@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:sagemaker:Action":
 		r = &Action{}
+	case "aws-native:sagemaker:AiWorkloadConfig":
+		r = &AiWorkloadConfig{}
 	case "aws-native:sagemaker:Algorithm":
 		r = &Algorithm{}
 	case "aws-native:sagemaker:App":
@@ -33,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Artifact{}
 	case "aws-native:sagemaker:Cluster":
 		r = &Cluster{}
+	case "aws-native:sagemaker:CodeRepository":
+		r = &CodeRepository{}
 	case "aws-native:sagemaker:Context":
 		r = &Context{}
 	case "aws-native:sagemaker:DataQualityJobDefinition":
@@ -87,6 +91,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MonitoringSchedule{}
 	case "aws-native:sagemaker:NotebookInstance":
 		r = &NotebookInstance{}
+	case "aws-native:sagemaker:NotebookInstanceLifecycleConfig":
+		r = &NotebookInstanceLifecycleConfig{}
 	case "aws-native:sagemaker:PartnerApp":
 		r = &PartnerApp{}
 	case "aws-native:sagemaker:Pipeline":

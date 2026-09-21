@@ -12,6 +12,9 @@ namespace Pulumi.AwsNative.Batch.Inputs
 
     public sealed class ComputeEnvironmentEcsSettingsArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
+        /// </summary>
         [Input("containerInsights")]
         public Input<Pulumi.AwsNative.Batch.ComputeEnvironmentEcsSettingsContainerInsights>? ContainerInsights { get; set; }
 

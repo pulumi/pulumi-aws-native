@@ -100,7 +100,7 @@ namespace Pulumi.AwsNative.Connect
         /// </summary>
         public readonly Outputs.QueueOutboundCallerConfig? OutboundCallerConfig;
         /// <summary>
-        /// The outbound email address ID.
+        /// The outbound email configuration for a specified queue.
         /// </summary>
         public readonly Outputs.QueueOutboundEmailConfig? OutboundEmailConfig;
         /// <summary>

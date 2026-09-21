@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws-native:mediaconvert:Preset":
 		r = &Preset{}
+	case "aws-native:mediaconvert:Queue":
+		r = &Queue{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

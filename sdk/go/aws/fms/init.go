@@ -21,10 +21,14 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:fms:ApplicationsList":
+		r = &ApplicationsList{}
 	case "aws-native:fms:NotificationChannel":
 		r = &NotificationChannel{}
 	case "aws-native:fms:Policy":
 		r = &Policy{}
+	case "aws-native:fms:ProtocolsList":
+		r = &ProtocolsList{}
 	case "aws-native:fms:ResourceSet":
 		r = &ResourceSet{}
 	default:

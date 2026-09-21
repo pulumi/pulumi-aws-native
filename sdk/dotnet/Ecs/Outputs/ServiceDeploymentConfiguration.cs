@@ -39,6 +39,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
         ///   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
         /// </summary>
         public readonly Outputs.ServiceDeploymentCircuitBreaker? DeploymentCircuitBreaker;
+        public readonly Outputs.ServiceDeploymentEarlySuccessCriteria? EarlySuccessCriteria;
         /// <summary>
         /// An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
         /// </summary>
@@ -93,6 +94,8 @@ namespace Pulumi.AwsNative.Ecs.Outputs
 
             Outputs.ServiceDeploymentCircuitBreaker? deploymentCircuitBreaker,
 
+            Outputs.ServiceDeploymentEarlySuccessCriteria? earlySuccessCriteria,
+
             ImmutableArray<Outputs.ServiceDeploymentLifecycleHook> lifecycleHooks,
 
             Outputs.ServiceLinearConfiguration? linearConfiguration,
@@ -107,6 +110,7 @@ namespace Pulumi.AwsNative.Ecs.Outputs
             BakeTimeInMinutes = bakeTimeInMinutes;
             CanaryConfiguration = canaryConfiguration;
             DeploymentCircuitBreaker = deploymentCircuitBreaker;
+            EarlySuccessCriteria = earlySuccessCriteria;
             LifecycleHooks = lifecycleHooks;
             LinearConfiguration = linearConfiguration;
             MaximumPercent = maximumPercent;

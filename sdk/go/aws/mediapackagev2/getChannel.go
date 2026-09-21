@@ -31,6 +31,8 @@ type LookupChannelArgs struct {
 type LookupChannelResult struct {
 	// <p>The Amazon Resource Name (ARN) associated with the resource.</p>
 	Arn *string `pulumi:"arn"`
+	// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+	AttachedMultiviewChannels []string `pulumi:"attachedMultiviewChannels"`
 	// <p>The date and time the channel was created.</p>
 	CreatedAt *string `pulumi:"createdAt"`
 	// <p>Enter any descriptive text that helps you to identify the channel.</p>
@@ -42,7 +44,8 @@ type LookupChannelResult struct {
 	// The configuration for input switching based on the media quality confidence score (MQCS) as provided from AWS Elemental MediaLive.
 	InputSwitchConfiguration *ChannelInputSwitchConfiguration `pulumi:"inputSwitchConfiguration"`
 	// <p>The date and time the channel was modified.</p>
-	ModifiedAt *string `pulumi:"modifiedAt"`
+	ModifiedAt             *string                        `pulumi:"modifiedAt"`
+	MultiviewConfiguration *ChannelMultiviewConfiguration `pulumi:"multiviewConfiguration"`
 	// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
 	OutputHeaderConfiguration *ChannelOutputHeaderConfiguration `pulumi:"outputHeaderConfiguration"`
 	Tags                      []aws.Tag                         `pulumi:"tags"`
@@ -81,6 +84,11 @@ func (o LookupChannelResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
 
+// <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+func (o LookupChannelResultOutput) AttachedMultiviewChannels() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupChannelResult) []string { return v.AttachedMultiviewChannels }).(pulumi.StringArrayOutput)
+}
+
 // <p>The date and time the channel was created.</p>
 func (o LookupChannelResultOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
@@ -109,6 +117,10 @@ func (o LookupChannelResultOutput) InputSwitchConfiguration() ChannelInputSwitch
 // <p>The date and time the channel was modified.</p>
 func (o LookupChannelResultOutput) ModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupChannelResult) *string { return v.ModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupChannelResultOutput) MultiviewConfiguration() ChannelMultiviewConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupChannelResult) *ChannelMultiviewConfiguration { return v.MultiviewConfiguration }).(ChannelMultiviewConfigurationPtrOutput)
 }
 
 // The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.

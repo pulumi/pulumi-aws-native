@@ -9808,6 +9808,114 @@ type FaqTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A featured document. This document is displayed at the top of the search results page.
+type FeaturedResultsSetFeaturedDocument struct {
+	// The identifier of the document to feature in the search results.
+	Id *string `pulumi:"id"`
+}
+
+// FeaturedResultsSetFeaturedDocumentInput is an input type that accepts FeaturedResultsSetFeaturedDocumentArgs and FeaturedResultsSetFeaturedDocumentOutput values.
+// You can construct a concrete instance of `FeaturedResultsSetFeaturedDocumentInput` via:
+//
+//	FeaturedResultsSetFeaturedDocumentArgs{...}
+type FeaturedResultsSetFeaturedDocumentInput interface {
+	pulumi.Input
+
+	ToFeaturedResultsSetFeaturedDocumentOutput() FeaturedResultsSetFeaturedDocumentOutput
+	ToFeaturedResultsSetFeaturedDocumentOutputWithContext(context.Context) FeaturedResultsSetFeaturedDocumentOutput
+}
+
+// A featured document. This document is displayed at the top of the search results page.
+type FeaturedResultsSetFeaturedDocumentArgs struct {
+	// The identifier of the document to feature in the search results.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+}
+
+func (FeaturedResultsSetFeaturedDocumentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturedResultsSetFeaturedDocument)(nil)).Elem()
+}
+
+func (i FeaturedResultsSetFeaturedDocumentArgs) ToFeaturedResultsSetFeaturedDocumentOutput() FeaturedResultsSetFeaturedDocumentOutput {
+	return i.ToFeaturedResultsSetFeaturedDocumentOutputWithContext(context.Background())
+}
+
+func (i FeaturedResultsSetFeaturedDocumentArgs) ToFeaturedResultsSetFeaturedDocumentOutputWithContext(ctx context.Context) FeaturedResultsSetFeaturedDocumentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturedResultsSetFeaturedDocumentOutput)
+}
+
+// FeaturedResultsSetFeaturedDocumentArrayInput is an input type that accepts FeaturedResultsSetFeaturedDocumentArray and FeaturedResultsSetFeaturedDocumentArrayOutput values.
+// You can construct a concrete instance of `FeaturedResultsSetFeaturedDocumentArrayInput` via:
+//
+//	FeaturedResultsSetFeaturedDocumentArray{ FeaturedResultsSetFeaturedDocumentArgs{...} }
+type FeaturedResultsSetFeaturedDocumentArrayInput interface {
+	pulumi.Input
+
+	ToFeaturedResultsSetFeaturedDocumentArrayOutput() FeaturedResultsSetFeaturedDocumentArrayOutput
+	ToFeaturedResultsSetFeaturedDocumentArrayOutputWithContext(context.Context) FeaturedResultsSetFeaturedDocumentArrayOutput
+}
+
+type FeaturedResultsSetFeaturedDocumentArray []FeaturedResultsSetFeaturedDocumentInput
+
+func (FeaturedResultsSetFeaturedDocumentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeaturedResultsSetFeaturedDocument)(nil)).Elem()
+}
+
+func (i FeaturedResultsSetFeaturedDocumentArray) ToFeaturedResultsSetFeaturedDocumentArrayOutput() FeaturedResultsSetFeaturedDocumentArrayOutput {
+	return i.ToFeaturedResultsSetFeaturedDocumentArrayOutputWithContext(context.Background())
+}
+
+func (i FeaturedResultsSetFeaturedDocumentArray) ToFeaturedResultsSetFeaturedDocumentArrayOutputWithContext(ctx context.Context) FeaturedResultsSetFeaturedDocumentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturedResultsSetFeaturedDocumentArrayOutput)
+}
+
+// A featured document. This document is displayed at the top of the search results page.
+type FeaturedResultsSetFeaturedDocumentOutput struct{ *pulumi.OutputState }
+
+func (FeaturedResultsSetFeaturedDocumentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturedResultsSetFeaturedDocument)(nil)).Elem()
+}
+
+func (o FeaturedResultsSetFeaturedDocumentOutput) ToFeaturedResultsSetFeaturedDocumentOutput() FeaturedResultsSetFeaturedDocumentOutput {
+	return o
+}
+
+func (o FeaturedResultsSetFeaturedDocumentOutput) ToFeaturedResultsSetFeaturedDocumentOutputWithContext(ctx context.Context) FeaturedResultsSetFeaturedDocumentOutput {
+	return o
+}
+
+// The identifier of the document to feature in the search results.
+func (o FeaturedResultsSetFeaturedDocumentOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FeaturedResultsSetFeaturedDocument) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+type FeaturedResultsSetFeaturedDocumentArrayOutput struct{ *pulumi.OutputState }
+
+func (FeaturedResultsSetFeaturedDocumentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FeaturedResultsSetFeaturedDocument)(nil)).Elem()
+}
+
+func (o FeaturedResultsSetFeaturedDocumentArrayOutput) ToFeaturedResultsSetFeaturedDocumentArrayOutput() FeaturedResultsSetFeaturedDocumentArrayOutput {
+	return o
+}
+
+func (o FeaturedResultsSetFeaturedDocumentArrayOutput) ToFeaturedResultsSetFeaturedDocumentArrayOutputWithContext(ctx context.Context) FeaturedResultsSetFeaturedDocumentArrayOutput {
+	return o
+}
+
+func (o FeaturedResultsSetFeaturedDocumentArrayOutput) Index(i pulumi.IntInput) FeaturedResultsSetFeaturedDocumentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FeaturedResultsSetFeaturedDocument {
+		return vs[0].([]FeaturedResultsSetFeaturedDocument)[vs[1].(int)]
+	}).(FeaturedResultsSetFeaturedDocumentOutput)
+}
+
+// A key-value pair that identifies or categorizes a resource.
+type FeaturedResultsSetTag struct {
+	// The key for the tag.
+	Key string `pulumi:"key"`
+	// The value associated with the tag.
+	Value string `pulumi:"value"`
+}
+
 type IndexCapacityUnitsConfiguration struct {
 	// The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
 	//
@@ -11517,6 +11625,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWorkDocsConfigurationInput)(nil)).Elem(), DataSourceWorkDocsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataSourceWorkDocsConfigurationPtrInput)(nil)).Elem(), DataSourceWorkDocsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FaqS3PathInput)(nil)).Elem(), FaqS3PathArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturedResultsSetFeaturedDocumentInput)(nil)).Elem(), FeaturedResultsSetFeaturedDocumentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturedResultsSetFeaturedDocumentArrayInput)(nil)).Elem(), FeaturedResultsSetFeaturedDocumentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityUnitsConfigurationInput)(nil)).Elem(), IndexCapacityUnitsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexCapacityUnitsConfigurationPtrInput)(nil)).Elem(), IndexCapacityUnitsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IndexDocumentMetadataConfigurationInput)(nil)).Elem(), IndexDocumentMetadataConfigurationArgs{})
@@ -11638,6 +11748,8 @@ func init() {
 	pulumi.RegisterOutputType(DataSourceWorkDocsConfigurationOutput{})
 	pulumi.RegisterOutputType(DataSourceWorkDocsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(FaqS3PathOutput{})
+	pulumi.RegisterOutputType(FeaturedResultsSetFeaturedDocumentOutput{})
+	pulumi.RegisterOutputType(FeaturedResultsSetFeaturedDocumentArrayOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsConfigurationOutput{})
 	pulumi.RegisterOutputType(IndexCapacityUnitsConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(IndexDocumentMetadataConfigurationOutput{})

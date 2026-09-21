@@ -10,11 +10,24 @@ export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
 
+export { ClusterSnapshotArgs } from "./clusterSnapshot";
+export type ClusterSnapshot = import("./clusterSnapshot").ClusterSnapshot;
+export const ClusterSnapshot: typeof import("./clusterSnapshot").ClusterSnapshot = null as any;
+utilities.lazyLoad(exports, ["ClusterSnapshot"], () => require("./clusterSnapshot"));
+
 export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getCluster";
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
 
+export { GetClusterSnapshotArgs, GetClusterSnapshotResult, GetClusterSnapshotOutputArgs } from "./getClusterSnapshot";
+export const getClusterSnapshot: typeof import("./getClusterSnapshot").getClusterSnapshot = null as any;
+export const getClusterSnapshotOutput: typeof import("./getClusterSnapshot").getClusterSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getClusterSnapshot","getClusterSnapshotOutput"], () => require("./getClusterSnapshot"));
+
+
+// Export enums:
+export * from "../types/enums/docdbelastic";
 
 const _module = {
     version: utilities.getVersion(),
@@ -22,6 +35,8 @@ const _module = {
         switch (type) {
             case "aws-native:docdbelastic:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:docdbelastic:ClusterSnapshot":
+                return new ClusterSnapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

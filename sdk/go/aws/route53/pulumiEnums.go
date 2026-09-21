@@ -712,6 +712,112 @@ func (in *recordSetFailoverPtr) ToRecordSetFailoverPtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(RecordSetFailoverPtrOutput)
 }
 
+// The DNS type of the resource record sets that Amazon Route 53 creates when the traffic policy is used to create a traffic policy instance.
+type TrafficPolicyType string
+
+const (
+	TrafficPolicyTypeSoa   = TrafficPolicyType("SOA")
+	TrafficPolicyTypeA     = TrafficPolicyType("A")
+	TrafficPolicyTypeTxt   = TrafficPolicyType("TXT")
+	TrafficPolicyTypeNs    = TrafficPolicyType("NS")
+	TrafficPolicyTypeCname = TrafficPolicyType("CNAME")
+	TrafficPolicyTypeMx    = TrafficPolicyType("MX")
+	TrafficPolicyTypeNaptr = TrafficPolicyType("NAPTR")
+	TrafficPolicyTypePtr   = TrafficPolicyType("PTR")
+	TrafficPolicyTypeSrv   = TrafficPolicyType("SRV")
+	TrafficPolicyTypeSpf   = TrafficPolicyType("SPF")
+	TrafficPolicyTypeAaaa  = TrafficPolicyType("AAAA")
+	TrafficPolicyTypeCaa   = TrafficPolicyType("CAA")
+	TrafficPolicyTypeDs    = TrafficPolicyType("DS")
+	TrafficPolicyTypeTlsa  = TrafficPolicyType("TLSA")
+	TrafficPolicyTypeSshfp = TrafficPolicyType("SSHFP")
+	TrafficPolicyTypeSvcb  = TrafficPolicyType("SVCB")
+	TrafficPolicyTypeHttps = TrafficPolicyType("HTTPS")
+)
+
+type TrafficPolicyTypeOutput struct{ *pulumi.OutputState }
+
+func (TrafficPolicyTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TrafficPolicyType)(nil)).Elem()
+}
+
+func (o TrafficPolicyTypeOutput) ToTrafficPolicyTypeOutput() TrafficPolicyTypeOutput {
+	return o
+}
+
+func (o TrafficPolicyTypeOutput) ToTrafficPolicyTypeOutputWithContext(ctx context.Context) TrafficPolicyTypeOutput {
+	return o
+}
+
+func (o TrafficPolicyTypeOutput) ToTrafficPolicyTypePtrOutput() TrafficPolicyTypePtrOutput {
+	return o.ToTrafficPolicyTypePtrOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyTypeOutput) ToTrafficPolicyTypePtrOutputWithContext(ctx context.Context) TrafficPolicyTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TrafficPolicyType) *TrafficPolicyType {
+		return &v
+	}).(TrafficPolicyTypePtrOutput)
+}
+
+func (o TrafficPolicyTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficPolicyType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TrafficPolicyTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TrafficPolicyType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TrafficPolicyTypePtrOutput struct{ *pulumi.OutputState }
+
+func (TrafficPolicyTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TrafficPolicyType)(nil)).Elem()
+}
+
+func (o TrafficPolicyTypePtrOutput) ToTrafficPolicyTypePtrOutput() TrafficPolicyTypePtrOutput {
+	return o
+}
+
+func (o TrafficPolicyTypePtrOutput) ToTrafficPolicyTypePtrOutputWithContext(ctx context.Context) TrafficPolicyTypePtrOutput {
+	return o
+}
+
+func (o TrafficPolicyTypePtrOutput) Elem() TrafficPolicyTypeOutput {
+	return o.ApplyT(func(v *TrafficPolicyType) TrafficPolicyType {
+		if v != nil {
+			return *v
+		}
+		var ret TrafficPolicyType
+		return ret
+	}).(TrafficPolicyTypeOutput)
+}
+
+func (o TrafficPolicyTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TrafficPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TrafficPolicyType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
 	pulumi.RegisterInputType(reflect.TypeOf((*HealthCheckConfigPropertiesInsufficientDataHealthStatusPtrInput)(nil)).Elem(), HealthCheckConfigPropertiesInsufficientDataHealthStatus("Healthy"))
@@ -729,4 +835,6 @@ func init() {
 	pulumi.RegisterOutputType(KeySigningKeyStatusPtrOutput{})
 	pulumi.RegisterOutputType(RecordSetFailoverOutput{})
 	pulumi.RegisterOutputType(RecordSetFailoverPtrOutput{})
+	pulumi.RegisterOutputType(TrafficPolicyTypeOutput{})
+	pulumi.RegisterOutputType(TrafficPolicyTypePtrOutput{})
 }

@@ -165,4 +165,132 @@ namespace Pulumi.AwsNative.Redshift
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// The action that Amazon Redshift takes when the limit is reached. The default is log.
+    /// </summary>
+    [EnumType]
+    public readonly struct UsageLimitBreachAction : IEquatable<UsageLimitBreachAction>
+    {
+        private readonly string _value;
+
+        private UsageLimitBreachAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UsageLimitBreachAction Log { get; } = new UsageLimitBreachAction("log");
+        public static UsageLimitBreachAction EmitMetric { get; } = new UsageLimitBreachAction("emit-metric");
+        public static UsageLimitBreachAction Disable { get; } = new UsageLimitBreachAction("disable");
+
+        public static bool operator ==(UsageLimitBreachAction left, UsageLimitBreachAction right) => left.Equals(right);
+        public static bool operator !=(UsageLimitBreachAction left, UsageLimitBreachAction right) => !left.Equals(right);
+
+        public static explicit operator string(UsageLimitBreachAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UsageLimitBreachAction other && Equals(other);
+        public bool Equals(UsageLimitBreachAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The Amazon Redshift feature that you want to limit.
+    /// </summary>
+    [EnumType]
+    public readonly struct UsageLimitFeatureType : IEquatable<UsageLimitFeatureType>
+    {
+        private readonly string _value;
+
+        private UsageLimitFeatureType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UsageLimitFeatureType Spectrum { get; } = new UsageLimitFeatureType("spectrum");
+        public static UsageLimitFeatureType ConcurrencyScaling { get; } = new UsageLimitFeatureType("concurrency-scaling");
+        public static UsageLimitFeatureType CrossRegionDatasharing { get; } = new UsageLimitFeatureType("cross-region-datasharing");
+        public static UsageLimitFeatureType ExtraComputeForAutomaticOptimization { get; } = new UsageLimitFeatureType("extra-compute-for-automatic-optimization");
+
+        public static bool operator ==(UsageLimitFeatureType left, UsageLimitFeatureType right) => left.Equals(right);
+        public static bool operator !=(UsageLimitFeatureType left, UsageLimitFeatureType right) => !left.Equals(right);
+
+        public static explicit operator string(UsageLimitFeatureType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UsageLimitFeatureType other && Equals(other);
+        public bool Equals(UsageLimitFeatureType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned.
+    /// </summary>
+    [EnumType]
+    public readonly struct UsageLimitLimitType : IEquatable<UsageLimitLimitType>
+    {
+        private readonly string _value;
+
+        private UsageLimitLimitType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UsageLimitLimitType Time { get; } = new UsageLimitLimitType("time");
+        public static UsageLimitLimitType DataScanned { get; } = new UsageLimitLimitType("data-scanned");
+
+        public static bool operator ==(UsageLimitLimitType left, UsageLimitLimitType right) => left.Equals(right);
+        public static bool operator !=(UsageLimitLimitType left, UsageLimitLimitType right) => !left.Equals(right);
+
+        public static explicit operator string(UsageLimitLimitType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UsageLimitLimitType other && Equals(other);
+        public bool Equals(UsageLimitLimitType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.
+    /// </summary>
+    [EnumType]
+    public readonly struct UsageLimitPeriod : IEquatable<UsageLimitPeriod>
+    {
+        private readonly string _value;
+
+        private UsageLimitPeriod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UsageLimitPeriod Daily { get; } = new UsageLimitPeriod("daily");
+        public static UsageLimitPeriod Weekly { get; } = new UsageLimitPeriod("weekly");
+        public static UsageLimitPeriod Monthly { get; } = new UsageLimitPeriod("monthly");
+
+        public static bool operator ==(UsageLimitPeriod left, UsageLimitPeriod right) => left.Equals(right);
+        public static bool operator !=(UsageLimitPeriod left, UsageLimitPeriod right) => !left.Equals(right);
+
+        public static explicit operator string(UsageLimitPeriod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UsageLimitPeriod other && Equals(other);
+        public bool Equals(UsageLimitPeriod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

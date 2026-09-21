@@ -51,6 +51,7 @@ __all__ = [
     'Ec2FleetMaintenanceStrategies',
     'Ec2FleetMemoryGiBPerVCpuRequest',
     'Ec2FleetMemoryMiBRequest',
+    'Ec2FleetMultiAvailabilityZoneConfiguration',
     'Ec2FleetNetworkBandwidthGbpsRequest',
     'Ec2FleetNetworkInterfaceCountRequest',
     'Ec2FleetNetworkInterfaceSpecificationRequest',
@@ -61,6 +62,7 @@ __all__ = [
     'Ec2FleetReservedCapacityFallbackOptionsRequest',
     'Ec2FleetReservedCapacityOptionsRequest',
     'Ec2FleetSpotOptionsRequest',
+    'Ec2FleetStandbyAvailabilityZone',
     'Ec2FleetTag',
     'Ec2FleetTagSpecification',
     'Ec2FleetTargetCapacitySpecificationRequest',
@@ -1319,6 +1321,8 @@ class Ec2FleetEbsBlockDevice(dict):
             suggest = "delete_on_termination"
         elif key == "kmsKeyId":
             suggest = "kms_key_id"
+        elif key == "multiAvailabilityZoneConfiguration":
+            suggest = "multi_availability_zone_configuration"
         elif key == "snapshotId":
             suggest = "snapshot_id"
         elif key == "volumeSize":
@@ -1342,6 +1346,7 @@ class Ec2FleetEbsBlockDevice(dict):
                  encrypted: Optional[_builtins.bool] = None,
                  iops: Optional[_builtins.int] = None,
                  kms_key_id: Optional[_builtins.str] = None,
+                 multi_availability_zone_configuration: Optional['outputs.Ec2FleetMultiAvailabilityZoneConfiguration'] = None,
                  snapshot_id: Optional[_builtins.str] = None,
                  volume_size: Optional[_builtins.int] = None,
                  volume_type: Optional[_builtins.str] = None):
@@ -1392,6 +1397,8 @@ class Ec2FleetEbsBlockDevice(dict):
             pulumi.set(__self__, "iops", iops)
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if multi_availability_zone_configuration is not None:
+            pulumi.set(__self__, "multi_availability_zone_configuration", multi_availability_zone_configuration)
         if snapshot_id is not None:
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if volume_size is not None:
@@ -1451,6 +1458,11 @@ class Ec2FleetEbsBlockDevice(dict):
         This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
         """
         return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="multiAvailabilityZoneConfiguration")
+    def multi_availability_zone_configuration(self) -> Optional['outputs.Ec2FleetMultiAvailabilityZoneConfiguration']:
+        return pulumi.get(self, "multi_availability_zone_configuration")
 
     @_builtins.property
     @pulumi.getter(name="snapshotId")
@@ -2743,6 +2755,46 @@ class Ec2FleetMemoryMiBRequest(dict):
 
 
 @pulumi.output_type
+class Ec2FleetMultiAvailabilityZoneConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationType":
+            suggest = "configuration_type"
+        elif key == "standbyAvailabilityZones":
+            suggest = "standby_availability_zones"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetMultiAvailabilityZoneConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetMultiAvailabilityZoneConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetMultiAvailabilityZoneConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_type: Optional[_builtins.str] = None,
+                 standby_availability_zones: Optional[Sequence['outputs.Ec2FleetStandbyAvailabilityZone']] = None):
+        if configuration_type is not None:
+            pulumi.set(__self__, "configuration_type", configuration_type)
+        if standby_availability_zones is not None:
+            pulumi.set(__self__, "standby_availability_zones", standby_availability_zones)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "configuration_type")
+
+    @_builtins.property
+    @pulumi.getter(name="standbyAvailabilityZones")
+    def standby_availability_zones(self) -> Optional[Sequence['outputs.Ec2FleetStandbyAvailabilityZone']]:
+        return pulumi.get(self, "standby_availability_zones")
+
+
+@pulumi.output_type
 class Ec2FleetNetworkBandwidthGbpsRequest(dict):
     def __init__(__self__, *,
                  max: Optional[_builtins.float] = None,
@@ -3642,6 +3694,46 @@ class Ec2FleetSpotOptionsRequest(dict):
         Supported only for fleets of type `instant` .
         """
         return pulumi.get(self, "single_instance_type")
+
+
+@pulumi.output_type
+class Ec2FleetStandbyAvailabilityZone(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availabilityZone":
+            suggest = "availability_zone"
+        elif key == "availabilityZoneId":
+            suggest = "availability_zone_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in Ec2FleetStandbyAvailabilityZone. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        Ec2FleetStandbyAvailabilityZone.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        Ec2FleetStandbyAvailabilityZone.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 availability_zone: Optional[_builtins.str] = None,
+                 availability_zone_id: Optional[_builtins.str] = None):
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if availability_zone_id is not None:
+            pulumi.set(__self__, "availability_zone_id", availability_zone_id)
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "availability_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="availabilityZoneId")
+    def availability_zone_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "availability_zone_id")
 
 
 @pulumi.output_type

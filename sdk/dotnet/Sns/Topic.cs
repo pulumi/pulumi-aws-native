@@ -210,6 +210,9 @@ namespace Pulumi.AwsNative.Sns
         [Output("kmsMasterKeyId")]
         public Output<string?> KmsMasterKeyId { get; private set; } = null!;
 
+        [Output("maximumMessageSize")]
+        public Output<int?> MaximumMessageSize { get; private set; } = null!;
+
         /// <summary>
         /// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
         /// </summary>
@@ -368,6 +371,9 @@ namespace Pulumi.AwsNative.Sns
         /// </summary>
         [Input("kmsMasterKeyId")]
         public Input<string>? KmsMasterKeyId { get; set; }
+
+        [Input("maximumMessageSize")]
+        public Input<int>? MaximumMessageSize { get; set; }
 
         /// <summary>
         /// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.

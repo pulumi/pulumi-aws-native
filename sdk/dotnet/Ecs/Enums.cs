@@ -991,6 +991,34 @@ namespace Pulumi.AwsNative.Ecs
     }
 
     [EnumType]
+    public readonly struct ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup : IEquatable<ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup>
+    {
+        private readonly string _value;
+
+        private ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup Blocking { get; } = new ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup("BLOCKING");
+        public static ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup Deferred { get; } = new ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup("DEFERRED");
+
+        public static bool operator ==(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup left, ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup right) => left.Equals(right);
+        public static bool operator !=(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup left, ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup other && Equals(other);
+        public bool Equals(ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
     public readonly struct ServiceDeploymentLifecycleHookLifecycleStagesItem : IEquatable<ServiceDeploymentLifecycleHookLifecycleStagesItem>
     {
         private readonly string _value;

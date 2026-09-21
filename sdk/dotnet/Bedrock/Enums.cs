@@ -1587,6 +1587,7 @@ namespace Pulumi.AwsNative.Bedrock
         public static DataSourceParsingStrategy BedrockFoundationModel { get; } = new DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL");
         public static DataSourceParsingStrategy BedrockDataAutomation { get; } = new DataSourceParsingStrategy("BEDROCK_DATA_AUTOMATION");
         public static DataSourceParsingStrategy SmartParsing { get; } = new DataSourceParsingStrategy("SMART_PARSING");
+        public static DataSourceParsingStrategy MultiModalEmbeddings { get; } = new DataSourceParsingStrategy("MULTI_MODAL_EMBEDDINGS");
 
         public static bool operator ==(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => left.Equals(right);
         public static bool operator !=(DataSourceParsingStrategy left, DataSourceParsingStrategy right) => !left.Equals(right);

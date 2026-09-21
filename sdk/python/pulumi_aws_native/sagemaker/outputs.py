@@ -19,6 +19,12 @@ from ._enums import *
 __all__ = [
     'ActionMetadataProperties',
     'ActionSource',
+    'AiWorkloadConfigAiDatasetConfig',
+    'AiWorkloadConfigAiWorkloadConfigs',
+    'AiWorkloadConfigAiWorkloadDataSource',
+    'AiWorkloadConfigAiWorkloadInputDataConfig',
+    'AiWorkloadConfigAiWorkloadS3DataSource',
+    'AiWorkloadConfigWorkloadSpec',
     'AlgorithmCategoricalParameterRangeSpecification',
     'AlgorithmChannelSpecification',
     'AlgorithmContinuousParameterRangeSpecification',
@@ -75,6 +81,7 @@ __all__ = [
     'ClusterSpotOptions',
     'ClusterTieredStorageConfig',
     'ClusterVpcConfig',
+    'CodeRepositoryGitConfig',
     'DataQualityJobDefinitionBatchTransformInput',
     'DataQualityJobDefinitionClusterConfig',
     'DataQualityJobDefinitionConstraintsResource',
@@ -339,6 +346,7 @@ __all__ = [
     'MonitoringScheduleStoppingCondition',
     'MonitoringScheduleVpcConfig',
     'NotebookInstanceInstanceMetadataServiceConfiguration',
+    'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook',
     'OfflineStoreConfigProperties',
     'OnlineStoreConfigProperties',
     'ParallelismConfigurationProperties',
@@ -558,6 +566,243 @@ class ActionSource(dict):
         The type of the source.
         """
         return pulumi.get(self, "source_type")
+
+
+@pulumi.output_type
+class AiWorkloadConfigAiDatasetConfig(dict):
+    """
+    The dataset configuration for an AI workload.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inputDataConfig":
+            suggest = "input_data_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiWorkloadConfigAiDatasetConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiWorkloadConfigAiDatasetConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiWorkloadConfigAiDatasetConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 input_data_config: Sequence['outputs.AiWorkloadConfigAiWorkloadInputDataConfig']):
+        """
+        The dataset configuration for an AI workload.
+
+        :param Sequence['AiWorkloadConfigAiWorkloadInputDataConfig'] input_data_config: An array of input data channel configurations for the workload.
+        """
+        pulumi.set(__self__, "input_data_config", input_data_config)
+
+    @_builtins.property
+    @pulumi.getter(name="inputDataConfig")
+    def input_data_config(self) -> Sequence['outputs.AiWorkloadConfigAiWorkloadInputDataConfig']:
+        """
+        An array of input data channel configurations for the workload.
+        """
+        return pulumi.get(self, "input_data_config")
+
+
+@pulumi.output_type
+class AiWorkloadConfigAiWorkloadConfigs(dict):
+    """
+    The benchmark tool configuration for an AI workload.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "workloadSpec":
+            suggest = "workload_spec"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiWorkloadConfigAiWorkloadConfigs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiWorkloadConfigAiWorkloadConfigs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiWorkloadConfigAiWorkloadConfigs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 workload_spec: 'outputs.AiWorkloadConfigWorkloadSpec'):
+        """
+        The benchmark tool configuration for an AI workload.
+
+        :param 'AiWorkloadConfigWorkloadSpec' workload_spec: The workload specification that defines benchmark parameters.
+        """
+        pulumi.set(__self__, "workload_spec", workload_spec)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadSpec")
+    def workload_spec(self) -> 'outputs.AiWorkloadConfigWorkloadSpec':
+        """
+        The workload specification that defines benchmark parameters.
+        """
+        return pulumi.get(self, "workload_spec")
+
+
+@pulumi.output_type
+class AiWorkloadConfigAiWorkloadDataSource(dict):
+    """
+    The data source for an AI workload input data channel.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiWorkloadConfigAiWorkloadDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiWorkloadConfigAiWorkloadDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiWorkloadConfigAiWorkloadDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: Optional['outputs.AiWorkloadConfigAiWorkloadS3DataSource'] = None):
+        """
+        The data source for an AI workload input data channel.
+
+        :param 'AiWorkloadConfigAiWorkloadS3DataSource' s3_data_source: The Amazon S3 data source configuration.
+        """
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional['outputs.AiWorkloadConfigAiWorkloadS3DataSource']:
+        """
+        The Amazon S3 data source configuration.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+
+@pulumi.output_type
+class AiWorkloadConfigAiWorkloadInputDataConfig(dict):
+    """
+    A channel of input data for an AI workload configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "channelName":
+            suggest = "channel_name"
+        elif key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiWorkloadConfigAiWorkloadInputDataConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiWorkloadConfigAiWorkloadInputDataConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiWorkloadConfigAiWorkloadInputDataConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 channel_name: _builtins.str,
+                 data_source: 'outputs.AiWorkloadConfigAiWorkloadDataSource'):
+        """
+        A channel of input data for an AI workload configuration.
+
+        :param _builtins.str channel_name: The logical name for the data channel.
+        :param 'AiWorkloadConfigAiWorkloadDataSource' data_source: The data source for this channel.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "data_source", data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> _builtins.str:
+        """
+        The logical name for the data channel.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> 'outputs.AiWorkloadConfigAiWorkloadDataSource':
+        """
+        The data source for this channel.
+        """
+        return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
+class AiWorkloadConfigAiWorkloadS3DataSource(dict):
+    """
+    The Amazon S3 data source for an AI workload.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AiWorkloadConfigAiWorkloadS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AiWorkloadConfigAiWorkloadS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AiWorkloadConfigAiWorkloadS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: _builtins.str):
+        """
+        The Amazon S3 data source for an AI workload.
+
+        :param _builtins.str s3_uri: The Amazon S3 URI of the data.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        The Amazon S3 URI of the data.
+        """
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class AiWorkloadConfigWorkloadSpec(dict):
+    """
+    The workload specification for benchmark tool configuration.
+    """
+    def __init__(__self__, *,
+                 inline: _builtins.str):
+        """
+        The workload specification for benchmark tool configuration.
+
+        :param _builtins.str inline: An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+        """
+        pulumi.set(__self__, "inline", inline)
+
+    @_builtins.property
+    @pulumi.getter
+    def inline(self) -> _builtins.str:
+        """
+        An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+        """
+        return pulumi.get(self, "inline")
 
 
 @pulumi.output_type
@@ -3627,6 +3872,67 @@ class ClusterVpcConfig(dict):
         The ID of the subnets in the VPC to which you want to connect your training job or model.
         """
         return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class CodeRepositoryGitConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryUrl":
+            suggest = "repository_url"
+        elif key == "secretArn":
+            suggest = "secret_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CodeRepositoryGitConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CodeRepositoryGitConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CodeRepositoryGitConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_url: _builtins.str,
+                 branch: Optional[_builtins.str] = None,
+                 secret_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str repository_url: The URL where the Git repository is located.
+        :param _builtins.str branch: The default branch for the Git repository.
+        :param _builtins.str secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> _builtins.str:
+        """
+        The URL where the Git repository is located.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> Optional[_builtins.str]:
+        """
+        The default branch for the Git repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+        """
+        return pulumi.get(self, "secret_arn")
 
 
 @pulumi.output_type
@@ -20548,6 +20854,30 @@ class NotebookInstanceInstanceMetadataServiceConfiguration(dict):
         Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
         """
         return pulumi.get(self, "minimum_instance_metadata_service_version")
+
+
+@pulumi.output_type
+class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook(dict):
+    """
+    Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+    """
+    def __init__(__self__, *,
+                 content: Optional[_builtins.str] = None):
+        """
+        Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+
+        :param _builtins.str content: A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @_builtins.property
+    @pulumi.getter
+    def content(self) -> Optional[_builtins.str]:
+        """
+        A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+        """
+        return pulumi.get(self, "content")
 
 
 @pulumi.output_type

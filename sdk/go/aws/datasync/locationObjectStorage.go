@@ -66,7 +66,8 @@ type LocationObjectStorage struct {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 	//
 	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
-	CustomSecretConfig LocationObjectStorageCustomSecretConfigPtrOutput `pulumi:"customSecretConfig"`
+	CustomSecretConfig LocationObjectStorageCustomSecretConfigPtrOutput                   `pulumi:"customSecretConfig"`
+	FederatedIdentity  LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput `pulumi:"federatedIdentity"`
 	// The Amazon Resource Name (ARN) of the location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the object storage location that was described.
@@ -149,7 +150,8 @@ type locationObjectStorageArgs struct {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where the secret key for a specific object storage location is stored in plain text, in Secrets Manager. This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 	//
 	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
-	CustomSecretConfig *LocationObjectStorageCustomSecretConfig `pulumi:"customSecretConfig"`
+	CustomSecretConfig *LocationObjectStorageCustomSecretConfig                   `pulumi:"customSecretConfig"`
+	FederatedIdentity  *LocationObjectStorageObjectStorageFederatedIdentityConfig `pulumi:"federatedIdentity"`
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey *string `pulumi:"secretKey"`
 	// X.509 PEM content containing a certificate authority or chain to trust.
@@ -186,6 +188,7 @@ type LocationObjectStorageArgs struct {
 	//
 	// > You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
 	CustomSecretConfig LocationObjectStorageCustomSecretConfigPtrInput
+	FederatedIdentity  LocationObjectStorageObjectStorageFederatedIdentityConfigPtrInput
 	// Optional. The secret key is used if credentials are required to access the self-managed object storage server.
 	SecretKey pulumi.StringPtrInput
 	// X.509 PEM content containing a certificate authority or chain to trust.
@@ -272,6 +275,12 @@ func (o LocationObjectStorageOutput) CustomSecretConfig() LocationObjectStorageC
 	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageCustomSecretConfigPtrOutput {
 		return v.CustomSecretConfig
 	}).(LocationObjectStorageCustomSecretConfigPtrOutput)
+}
+
+func (o LocationObjectStorageOutput) FederatedIdentity() LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+	return o.ApplyT(func(v *LocationObjectStorage) LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput {
+		return v.FederatedIdentity
+	}).(LocationObjectStorageObjectStorageFederatedIdentityConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the location that is created.

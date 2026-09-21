@@ -2,6 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ContainerAssociationStatus = {
+    Active: "ACTIVE",
+    Creating: "CREATING",
+    Deleting: "DELETING",
+    Updating: "UPDATING",
+} as const;
+
+/**
+ * The current status of the container association.
+ */
+export type ContainerAssociationStatus = (typeof ContainerAssociationStatus)[keyof typeof ContainerAssociationStatus];
+
+export const ContainerAssociationType = {
+    Ecs: "ECS",
+    Eks: "EKS",
+} as const;
+
+/**
+ * The type of containers to monitor. You can't change the container type after creation.
+ */
+export type ContainerAssociationType = (typeof ContainerAssociationType)[keyof typeof ContainerAssociationType];
+
 export const FirewallEnabledAnalysisType = {
     TlsSni: "TLS_SNI",
     HttpHost: "HTTP_HOST",

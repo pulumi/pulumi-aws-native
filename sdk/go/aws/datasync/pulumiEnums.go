@@ -276,6 +276,7 @@ type LocationAzureBlobAzureBlobAuthenticationType string
 const (
 	LocationAzureBlobAzureBlobAuthenticationTypeSas  = LocationAzureBlobAzureBlobAuthenticationType("SAS")
 	LocationAzureBlobAzureBlobAuthenticationTypeNone = LocationAzureBlobAzureBlobAuthenticationType("NONE")
+	LocationAzureBlobAzureBlobAuthenticationTypeOidc = LocationAzureBlobAzureBlobAuthenticationType("OIDC")
 )
 
 func (LocationAzureBlobAzureBlobAuthenticationType) ElementType() reflect.Type {
@@ -402,6 +403,7 @@ func (o LocationAzureBlobAzureBlobAuthenticationTypePtrOutput) ToStringPtrOutput
 //
 //	LocationAzureBlobAzureBlobAuthenticationTypeSas
 //	LocationAzureBlobAzureBlobAuthenticationTypeNone
+//	LocationAzureBlobAzureBlobAuthenticationTypeOidc
 type LocationAzureBlobAzureBlobAuthenticationTypeInput interface {
 	pulumi.Input
 
@@ -1112,6 +1114,7 @@ const (
 	LocationFSxOpenZfsMountOptionsVersionNfs3      = LocationFSxOpenZfsMountOptionsVersion("NFS3")
 	LocationFSxOpenZfsMountOptionsVersionNfs40     = LocationFSxOpenZfsMountOptionsVersion("NFS4_0")
 	LocationFSxOpenZfsMountOptionsVersionNfs41     = LocationFSxOpenZfsMountOptionsVersion("NFS4_1")
+	LocationFSxOpenZfsMountOptionsVersionNfs42     = LocationFSxOpenZfsMountOptionsVersion("NFS4_2")
 )
 
 func (LocationFSxOpenZfsMountOptionsVersion) ElementType() reflect.Type {
@@ -1240,6 +1243,7 @@ func (o LocationFSxOpenZfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithCon
 //	LocationFSxOpenZfsMountOptionsVersionNfs3
 //	LocationFSxOpenZfsMountOptionsVersionNfs40
 //	LocationFSxOpenZfsMountOptionsVersionNfs41
+//	LocationFSxOpenZfsMountOptionsVersionNfs42
 type LocationFSxOpenZfsMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -1788,6 +1792,7 @@ const (
 	LocationNfsMountOptionsVersionNfs3      = LocationNfsMountOptionsVersion("NFS3")
 	LocationNfsMountOptionsVersionNfs40     = LocationNfsMountOptionsVersion("NFS4_0")
 	LocationNfsMountOptionsVersionNfs41     = LocationNfsMountOptionsVersion("NFS4_1")
+	LocationNfsMountOptionsVersionNfs42     = LocationNfsMountOptionsVersion("NFS4_2")
 )
 
 func (LocationNfsMountOptionsVersion) ElementType() reflect.Type {
@@ -1916,6 +1921,7 @@ func (o LocationNfsMountOptionsVersionPtrOutput) ToStringPtrOutputWithContext(ct
 //	LocationNfsMountOptionsVersionNfs3
 //	LocationNfsMountOptionsVersionNfs40
 //	LocationNfsMountOptionsVersionNfs41
+//	LocationNfsMountOptionsVersionNfs42
 type LocationNfsMountOptionsVersionInput interface {
 	pulumi.Input
 
@@ -4212,6 +4218,172 @@ func (in *taskOptionsMtimePtr) ToTaskOptionsMtimePtrOutput() TaskOptionsMtimePtr
 
 func (in *taskOptionsMtimePtr) ToTaskOptionsMtimePtrOutputWithContext(ctx context.Context) TaskOptionsMtimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsMtimePtrOutput)
+}
+
+// A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+type TaskOptionsObjectMetadata string
+
+const (
+	TaskOptionsObjectMetadataPreserve = TaskOptionsObjectMetadata("PRESERVE")
+	TaskOptionsObjectMetadataNone     = TaskOptionsObjectMetadata("NONE")
+)
+
+func (TaskOptionsObjectMetadata) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskOptionsObjectMetadata)(nil)).Elem()
+}
+
+func (e TaskOptionsObjectMetadata) ToTaskOptionsObjectMetadataOutput() TaskOptionsObjectMetadataOutput {
+	return pulumi.ToOutput(e).(TaskOptionsObjectMetadataOutput)
+}
+
+func (e TaskOptionsObjectMetadata) ToTaskOptionsObjectMetadataOutputWithContext(ctx context.Context) TaskOptionsObjectMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(TaskOptionsObjectMetadataOutput)
+}
+
+func (e TaskOptionsObjectMetadata) ToTaskOptionsObjectMetadataPtrOutput() TaskOptionsObjectMetadataPtrOutput {
+	return e.ToTaskOptionsObjectMetadataPtrOutputWithContext(context.Background())
+}
+
+func (e TaskOptionsObjectMetadata) ToTaskOptionsObjectMetadataPtrOutputWithContext(ctx context.Context) TaskOptionsObjectMetadataPtrOutput {
+	return TaskOptionsObjectMetadata(e).ToTaskOptionsObjectMetadataOutputWithContext(ctx).ToTaskOptionsObjectMetadataPtrOutputWithContext(ctx)
+}
+
+func (e TaskOptionsObjectMetadata) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskOptionsObjectMetadata) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e TaskOptionsObjectMetadata) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e TaskOptionsObjectMetadata) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type TaskOptionsObjectMetadataOutput struct{ *pulumi.OutputState }
+
+func (TaskOptionsObjectMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskOptionsObjectMetadata)(nil)).Elem()
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToTaskOptionsObjectMetadataOutput() TaskOptionsObjectMetadataOutput {
+	return o
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToTaskOptionsObjectMetadataOutputWithContext(ctx context.Context) TaskOptionsObjectMetadataOutput {
+	return o
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToTaskOptionsObjectMetadataPtrOutput() TaskOptionsObjectMetadataPtrOutput {
+	return o.ToTaskOptionsObjectMetadataPtrOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToTaskOptionsObjectMetadataPtrOutputWithContext(ctx context.Context) TaskOptionsObjectMetadataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskOptionsObjectMetadata) *TaskOptionsObjectMetadata {
+		return &v
+	}).(TaskOptionsObjectMetadataPtrOutput)
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskOptionsObjectMetadata) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectMetadataOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e TaskOptionsObjectMetadata) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type TaskOptionsObjectMetadataPtrOutput struct{ *pulumi.OutputState }
+
+func (TaskOptionsObjectMetadataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TaskOptionsObjectMetadata)(nil)).Elem()
+}
+
+func (o TaskOptionsObjectMetadataPtrOutput) ToTaskOptionsObjectMetadataPtrOutput() TaskOptionsObjectMetadataPtrOutput {
+	return o
+}
+
+func (o TaskOptionsObjectMetadataPtrOutput) ToTaskOptionsObjectMetadataPtrOutputWithContext(ctx context.Context) TaskOptionsObjectMetadataPtrOutput {
+	return o
+}
+
+func (o TaskOptionsObjectMetadataPtrOutput) Elem() TaskOptionsObjectMetadataOutput {
+	return o.ApplyT(func(v *TaskOptionsObjectMetadata) TaskOptionsObjectMetadata {
+		if v != nil {
+			return *v
+		}
+		var ret TaskOptionsObjectMetadata
+		return ret
+	}).(TaskOptionsObjectMetadataOutput)
+}
+
+func (o TaskOptionsObjectMetadataPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o TaskOptionsObjectMetadataPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *TaskOptionsObjectMetadata) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// TaskOptionsObjectMetadataInput is an input type that accepts values of the TaskOptionsObjectMetadata enum
+// A concrete instance of `TaskOptionsObjectMetadataInput` can be one of the following:
+//
+//	TaskOptionsObjectMetadataPreserve
+//	TaskOptionsObjectMetadataNone
+type TaskOptionsObjectMetadataInput interface {
+	pulumi.Input
+
+	ToTaskOptionsObjectMetadataOutput() TaskOptionsObjectMetadataOutput
+	ToTaskOptionsObjectMetadataOutputWithContext(context.Context) TaskOptionsObjectMetadataOutput
+}
+
+var taskOptionsObjectMetadataPtrType = reflect.TypeOf((**TaskOptionsObjectMetadata)(nil)).Elem()
+
+type TaskOptionsObjectMetadataPtrInput interface {
+	pulumi.Input
+
+	ToTaskOptionsObjectMetadataPtrOutput() TaskOptionsObjectMetadataPtrOutput
+	ToTaskOptionsObjectMetadataPtrOutputWithContext(context.Context) TaskOptionsObjectMetadataPtrOutput
+}
+
+type taskOptionsObjectMetadataPtr string
+
+func TaskOptionsObjectMetadataPtr(v string) TaskOptionsObjectMetadataPtrInput {
+	return (*taskOptionsObjectMetadataPtr)(&v)
+}
+
+func (*taskOptionsObjectMetadataPtr) ElementType() reflect.Type {
+	return taskOptionsObjectMetadataPtrType
+}
+
+func (in *taskOptionsObjectMetadataPtr) ToTaskOptionsObjectMetadataPtrOutput() TaskOptionsObjectMetadataPtrOutput {
+	return pulumi.ToOutput(in).(TaskOptionsObjectMetadataPtrOutput)
+}
+
+func (in *taskOptionsObjectMetadataPtr) ToTaskOptionsObjectMetadataPtrOutputWithContext(ctx context.Context) TaskOptionsObjectMetadataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(TaskOptionsObjectMetadataPtrOutput)
 }
 
 // A value that determines whether object tags should be read from the source object store and written to the destination object store.
@@ -7353,6 +7525,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsLogLevelPtrInput)(nil)).Elem(), TaskOptionsLogLevel("OFF"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsMtimeInput)(nil)).Elem(), TaskOptionsMtime("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsMtimePtrInput)(nil)).Elem(), TaskOptionsMtime("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsObjectMetadataInput)(nil)).Elem(), TaskOptionsObjectMetadata("PRESERVE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsObjectMetadataPtrInput)(nil)).Elem(), TaskOptionsObjectMetadata("PRESERVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsObjectTagsInput)(nil)).Elem(), TaskOptionsObjectTags("PRESERVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsObjectTagsPtrInput)(nil)).Elem(), TaskOptionsObjectTags("PRESERVE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskOptionsOverwriteModeInput)(nil)).Elem(), TaskOptionsOverwriteMode("ALWAYS"))
@@ -7441,6 +7615,8 @@ func init() {
 	pulumi.RegisterOutputType(TaskOptionsLogLevelPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsMtimeOutput{})
 	pulumi.RegisterOutputType(TaskOptionsMtimePtrOutput{})
+	pulumi.RegisterOutputType(TaskOptionsObjectMetadataOutput{})
+	pulumi.RegisterOutputType(TaskOptionsObjectMetadataPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsObjectTagsOutput{})
 	pulumi.RegisterOutputType(TaskOptionsObjectTagsPtrOutput{})
 	pulumi.RegisterOutputType(TaskOptionsOverwriteModeOutput{})

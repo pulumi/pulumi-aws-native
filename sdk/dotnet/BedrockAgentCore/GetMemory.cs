@@ -81,6 +81,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// The memory strategies.
         /// </summary>
         public readonly ImmutableArray<Outputs.MemoryStrategy> MemoryStrategies;
+        public readonly ImmutableArray<Outputs.MemoryNamespaceKeyEntry> NamespaceKeys;
         /// <summary>
         /// The memory status.
         /// </summary>
@@ -112,6 +113,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             ImmutableArray<Outputs.MemoryStrategy> memoryStrategies,
 
+            ImmutableArray<Outputs.MemoryNamespaceKeyEntry> namespaceKeys,
+
             Pulumi.AwsNative.BedrockAgentCore.MemoryStatus? status,
 
             Outputs.MemoryStreamDeliveryResources? streamDeliveryResources,
@@ -129,6 +132,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             MemoryExecutionRoleArn = memoryExecutionRoleArn;
             MemoryId = memoryId;
             MemoryStrategies = memoryStrategies;
+            NamespaceKeys = namespaceKeys;
             Status = status;
             StreamDeliveryResources = streamDeliveryResources;
             Tags = tags;

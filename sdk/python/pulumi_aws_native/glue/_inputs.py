@@ -52,6 +52,56 @@ __all__ = [
     'ConnectionOAuth2PropertiesArgsDict',
     'ConnectionPhysicalConnectionRequirementsArgs',
     'ConnectionPhysicalConnectionRequirementsArgsDict',
+    'ConnectionTypeBasicAuthenticationPropertiesArgs',
+    'ConnectionTypeBasicAuthenticationPropertiesArgsDict',
+    'ConnectionTypeBetweenConfigurationArgs',
+    'ConnectionTypeBetweenConfigurationArgsDict',
+    'ConnectionTypeClientCredentialsPropertiesArgs',
+    'ConnectionTypeClientCredentialsPropertiesArgsDict',
+    'ConnectionTypeConnectionPropertiesConfigurationArgs',
+    'ConnectionTypeConnectionPropertiesConfigurationArgsDict',
+    'ConnectionTypeConnectorAuthenticationConfigurationArgs',
+    'ConnectionTypeConnectorAuthenticationConfigurationArgsDict',
+    'ConnectionTypeConnectorAuthorizationCodePropertiesArgs',
+    'ConnectionTypeConnectorAuthorizationCodePropertiesArgsDict',
+    'ConnectionTypeConnectorOAuth2PropertiesArgs',
+    'ConnectionTypeConnectorOAuth2PropertiesArgsDict',
+    'ConnectionTypeConnectorPropertyArgs',
+    'ConnectionTypeConnectorPropertyArgsDict',
+    'ConnectionTypeCursorConfigurationArgs',
+    'ConnectionTypeCursorConfigurationArgsDict',
+    'ConnectionTypeCustomAuthenticationPropertiesArgs',
+    'ConnectionTypeCustomAuthenticationPropertiesArgsDict',
+    'ConnectionTypeEntityConfigurationArgs',
+    'ConnectionTypeEntityConfigurationArgsDict',
+    'ConnectionTypeExtractedParameterArgs',
+    'ConnectionTypeExtractedParameterArgsDict',
+    'ConnectionTypeFieldDefinitionArgs',
+    'ConnectionTypeFieldDefinitionArgsDict',
+    'ConnectionTypeFilterConfigurationArgs',
+    'ConnectionTypeFilterConfigurationArgsDict',
+    'ConnectionTypeFilterOverridesArgs',
+    'ConnectionTypeFilterOverridesArgsDict',
+    'ConnectionTypeFilterStringConfigurationArgs',
+    'ConnectionTypeFilterStringConfigurationArgsDict',
+    'ConnectionTypeJwtBearerPropertiesArgs',
+    'ConnectionTypeJwtBearerPropertiesArgsDict',
+    'ConnectionTypeOffsetConfigurationArgs',
+    'ConnectionTypeOffsetConfigurationArgsDict',
+    'ConnectionTypePaginationConfigurationArgs',
+    'ConnectionTypePaginationConfigurationArgsDict',
+    'ConnectionTypeResponseConfigurationArgs',
+    'ConnectionTypeResponseConfigurationArgsDict',
+    'ConnectionTypeResponseExtractionMappingArgs',
+    'ConnectionTypeResponseExtractionMappingArgsDict',
+    'ConnectionTypeRestConfigurationArgs',
+    'ConnectionTypeRestConfigurationArgsDict',
+    'ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgs',
+    'ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgsDict',
+    'ConnectionTypeSecretConnectorPropertyArgs',
+    'ConnectionTypeSecretConnectorPropertyArgsDict',
+    'ConnectionTypeSourceConfigurationArgs',
+    'ConnectionTypeSourceConfigurationArgsDict',
     'CrawlerCatalogTargetArgs',
     'CrawlerCatalogTargetArgsDict',
     'CrawlerDeltaTargetArgs',
@@ -1787,6 +1837,1968 @@ class ConnectionPhysicalConnectionRequirementsArgs:
     @subnet_id.setter
     def subnet_id(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subnet_id", value)
+
+
+class ConnectionTypeBasicAuthenticationPropertiesArgsDict(TypedDict):
+    """
+    Basic authentication configuration.
+    """
+    password: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+    username: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeBasicAuthenticationPropertiesArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']] = None,
+                 username: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']] = None):
+        """
+        Basic authentication configuration.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]:
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]):
+        pulumi.set(self, "password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]:
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]):
+        pulumi.set(self, "username", value)
+
+
+class ConnectionTypeBetweenConfigurationArgsDict(TypedDict):
+    """
+    Configuration that defines how BETWEEN range filter operations are translated into REST API request parameters.
+    """
+    high_bound_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The parameter name used for the upper bound value in a BETWEEN filter operation.
+    """
+    low_bound_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The parameter name used for the lower bound value in a BETWEEN filter operation.
+    """
+    template: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A template string for constructing the BETWEEN filter expression.
+    """
+
+@pulumi.input_type
+class ConnectionTypeBetweenConfigurationArgs:
+    def __init__(__self__, *,
+                 high_bound_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 low_bound_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 template: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration that defines how BETWEEN range filter operations are translated into REST API request parameters.
+
+        :param pulumi.Input[_builtins.str] high_bound_key: The parameter name used for the upper bound value in a BETWEEN filter operation.
+        :param pulumi.Input[_builtins.str] low_bound_key: The parameter name used for the lower bound value in a BETWEEN filter operation.
+        :param pulumi.Input[_builtins.str] template: A template string for constructing the BETWEEN filter expression.
+        """
+        if high_bound_key is not None:
+            pulumi.set(__self__, "high_bound_key", high_bound_key)
+        if low_bound_key is not None:
+            pulumi.set(__self__, "low_bound_key", low_bound_key)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @_builtins.property
+    @pulumi.getter(name="highBoundKey")
+    def high_bound_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The parameter name used for the upper bound value in a BETWEEN filter operation.
+        """
+        return pulumi.get(self, "high_bound_key")
+
+    @high_bound_key.setter
+    def high_bound_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "high_bound_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="lowBoundKey")
+    def low_bound_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The parameter name used for the lower bound value in a BETWEEN filter operation.
+        """
+        return pulumi.get(self, "low_bound_key")
+
+    @low_bound_key.setter
+    def low_bound_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "low_bound_key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def template(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A template string for constructing the BETWEEN filter expression.
+        """
+        return pulumi.get(self, "template")
+
+    @template.setter
+    def template(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "template", value)
+
+
+class ConnectionTypeClientCredentialsPropertiesArgsDict(TypedDict):
+    """
+    OAuth2 client credentials configuration.
+    """
+    client_id: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+    client_secret: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+    content_type: NotRequired[pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesContentType']]]
+    request_method: NotRequired[pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesRequestMethod']]]
+    scope: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    token_url: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    token_url_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgsDict']]]]]
+
+@pulumi.input_type
+class ConnectionTypeClientCredentialsPropertiesArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']] = None,
+                 client_secret: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']] = None,
+                 content_type: pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesContentType']] = None,
+                 request_method: pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesRequestMethod']] = None,
+                 scope: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 token_url: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 token_url_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]] = None):
+        """
+        OAuth2 client credentials configuration.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters is not None:
+            pulumi.set(__self__, "token_url_parameters", token_url_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesContentType']]:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesContentType']]):
+        pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesRequestMethod']]:
+        return pulumi.get(self, "request_method")
+
+    @request_method.setter
+    def request_method(self, value: pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesRequestMethod']]):
+        pulumi.set(self, "request_method", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "token_url")
+
+    @token_url.setter
+    def token_url(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "token_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrlParameters")
+    def token_url_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]:
+        return pulumi.get(self, "token_url_parameters")
+
+    @token_url_parameters.setter
+    def token_url_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]):
+        pulumi.set(self, "token_url_parameters", value)
+
+
+class ConnectionTypeConnectionPropertiesConfigurationArgsDict(TypedDict):
+    """
+    Configuration that defines the base URL and additional request parameters needed during connection creation.
+    """
+    additional_request_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgsDict']]]]]
+    """
+    Key-value pairs of additional request parameters.
+    """
+    url: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeConnectionPropertiesConfigurationArgs:
+    def __init__(__self__, *,
+                 additional_request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]] = None,
+                 url: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None):
+        """
+        Configuration that defines the base URL and additional request parameters needed during connection creation.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]] additional_request_parameters: Key-value pairs of additional request parameters.
+        """
+        if additional_request_parameters is not None:
+            pulumi.set(__self__, "additional_request_parameters", additional_request_parameters)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalRequestParameters")
+    def additional_request_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]:
+        """
+        Key-value pairs of additional request parameters.
+        """
+        return pulumi.get(self, "additional_request_parameters")
+
+    @additional_request_parameters.setter
+    def additional_request_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]):
+        pulumi.set(self, "additional_request_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "url", value)
+
+
+class ConnectionTypeConnectorAuthenticationConfigurationArgsDict(TypedDict):
+    """
+    Configuration that defines supported authentication types and required properties.
+    """
+    authentication_types: pulumi.Input[Sequence[pulumi.Input['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem']]]
+    """
+    A list of authentication types supported.
+    """
+    basic_authentication_properties: NotRequired[pulumi.Input[Optional['ConnectionTypeBasicAuthenticationPropertiesArgsDict']]]
+    custom_authentication_properties: NotRequired[pulumi.Input[Optional['ConnectionTypeCustomAuthenticationPropertiesArgsDict']]]
+    o_auth2_properties: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorOAuth2PropertiesArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeConnectorAuthenticationConfigurationArgs:
+    def __init__(__self__, *,
+                 authentication_types: pulumi.Input[Sequence[pulumi.Input['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem']]],
+                 basic_authentication_properties: pulumi.Input[Optional['ConnectionTypeBasicAuthenticationPropertiesArgs']] = None,
+                 custom_authentication_properties: pulumi.Input[Optional['ConnectionTypeCustomAuthenticationPropertiesArgs']] = None,
+                 o_auth2_properties: pulumi.Input[Optional['ConnectionTypeConnectorOAuth2PropertiesArgs']] = None):
+        """
+        Configuration that defines supported authentication types and required properties.
+
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem']]] authentication_types: A list of authentication types supported.
+        """
+        pulumi.set(__self__, "authentication_types", authentication_types)
+        if basic_authentication_properties is not None:
+            pulumi.set(__self__, "basic_authentication_properties", basic_authentication_properties)
+        if custom_authentication_properties is not None:
+            pulumi.set(__self__, "custom_authentication_properties", custom_authentication_properties)
+        if o_auth2_properties is not None:
+            pulumi.set(__self__, "o_auth2_properties", o_auth2_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationTypes")
+    def authentication_types(self) -> pulumi.Input[Sequence[pulumi.Input['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem']]]:
+        """
+        A list of authentication types supported.
+        """
+        return pulumi.get(self, "authentication_types")
+
+    @authentication_types.setter
+    def authentication_types(self, value: pulumi.Input[Sequence[pulumi.Input['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem']]]):
+        pulumi.set(self, "authentication_types", value)
+
+    @_builtins.property
+    @pulumi.getter(name="basicAuthenticationProperties")
+    def basic_authentication_properties(self) -> pulumi.Input[Optional['ConnectionTypeBasicAuthenticationPropertiesArgs']]:
+        return pulumi.get(self, "basic_authentication_properties")
+
+    @basic_authentication_properties.setter
+    def basic_authentication_properties(self, value: pulumi.Input[Optional['ConnectionTypeBasicAuthenticationPropertiesArgs']]):
+        pulumi.set(self, "basic_authentication_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="customAuthenticationProperties")
+    def custom_authentication_properties(self) -> pulumi.Input[Optional['ConnectionTypeCustomAuthenticationPropertiesArgs']]:
+        return pulumi.get(self, "custom_authentication_properties")
+
+    @custom_authentication_properties.setter
+    def custom_authentication_properties(self, value: pulumi.Input[Optional['ConnectionTypeCustomAuthenticationPropertiesArgs']]):
+        pulumi.set(self, "custom_authentication_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2Properties")
+    def o_auth2_properties(self) -> pulumi.Input[Optional['ConnectionTypeConnectorOAuth2PropertiesArgs']]:
+        return pulumi.get(self, "o_auth2_properties")
+
+    @o_auth2_properties.setter
+    def o_auth2_properties(self, value: pulumi.Input[Optional['ConnectionTypeConnectorOAuth2PropertiesArgs']]):
+        pulumi.set(self, "o_auth2_properties", value)
+
+
+class ConnectionTypeConnectorAuthorizationCodePropertiesArgsDict(TypedDict):
+    """
+    OAuth2 authorization code configuration.
+    """
+    authorization_code: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    authorization_code_url: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    client_id: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+    client_secret: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+    content_type: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesContentType']]]
+    prompt: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    redirect_uri: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    request_method: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod']]]
+    scope: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    token_url: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    token_url_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgsDict']]]]]
+
+@pulumi.input_type
+class ConnectionTypeConnectorAuthorizationCodePropertiesArgs:
+    def __init__(__self__, *,
+                 authorization_code: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 authorization_code_url: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 client_id: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']] = None,
+                 client_secret: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']] = None,
+                 content_type: pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesContentType']] = None,
+                 prompt: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 redirect_uri: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 request_method: pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod']] = None,
+                 scope: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 token_url: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 token_url_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]] = None):
+        """
+        OAuth2 authorization code configuration.
+        """
+        if authorization_code is not None:
+            pulumi.set(__self__, "authorization_code", authorization_code)
+        if authorization_code_url is not None:
+            pulumi.set(__self__, "authorization_code_url", authorization_code_url)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if prompt is not None:
+            pulumi.set(__self__, "prompt", prompt)
+        if redirect_uri is not None:
+            pulumi.set(__self__, "redirect_uri", redirect_uri)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters is not None:
+            pulumi.set(__self__, "token_url_parameters", token_url_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCode")
+    def authorization_code(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "authorization_code")
+
+    @authorization_code.setter
+    def authorization_code(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "authorization_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCodeUrl")
+    def authorization_code_url(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "authorization_code_url")
+
+    @authorization_code_url.setter
+    def authorization_code_url(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "authorization_code_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]:
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]):
+        pulumi.set(self, "client_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]:
+        return pulumi.get(self, "client_secret")
+
+    @client_secret.setter
+    def client_secret(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]):
+        pulumi.set(self, "client_secret", value)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesContentType']]:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesContentType']]):
+        pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def prompt(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "prompt")
+
+    @prompt.setter
+    def prompt(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "prompt", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "redirect_uri")
+
+    @redirect_uri.setter
+    def redirect_uri(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "redirect_uri", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod']]:
+        return pulumi.get(self, "request_method")
+
+    @request_method.setter
+    def request_method(self, value: pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod']]):
+        pulumi.set(self, "request_method", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "token_url")
+
+    @token_url.setter
+    def token_url(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "token_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrlParameters")
+    def token_url_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]:
+        return pulumi.get(self, "token_url_parameters")
+
+    @token_url_parameters.setter
+    def token_url_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]):
+        pulumi.set(self, "token_url_parameters", value)
+
+
+class ConnectionTypeConnectorOAuth2PropertiesArgsDict(TypedDict):
+    """
+    OAuth2 configuration container.
+    """
+    o_auth2_grant_type: pulumi.Input['ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType']
+    """
+    The OAuth2 grant type to use.
+    """
+    authorization_code_properties: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesArgsDict']]]
+    client_credentials_properties: NotRequired[pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesArgsDict']]]
+    jwt_bearer_properties: NotRequired[pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeConnectorOAuth2PropertiesArgs:
+    def __init__(__self__, *,
+                 o_auth2_grant_type: pulumi.Input['ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType'],
+                 authorization_code_properties: pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesArgs']] = None,
+                 client_credentials_properties: pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesArgs']] = None,
+                 jwt_bearer_properties: pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesArgs']] = None):
+        """
+        OAuth2 configuration container.
+
+        :param pulumi.Input['ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType'] o_auth2_grant_type: The OAuth2 grant type to use.
+        """
+        pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
+        if authorization_code_properties is not None:
+            pulumi.set(__self__, "authorization_code_properties", authorization_code_properties)
+        if client_credentials_properties is not None:
+            pulumi.set(__self__, "client_credentials_properties", client_credentials_properties)
+        if jwt_bearer_properties is not None:
+            pulumi.set(__self__, "jwt_bearer_properties", jwt_bearer_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2GrantType")
+    def o_auth2_grant_type(self) -> pulumi.Input['ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType']:
+        """
+        The OAuth2 grant type to use.
+        """
+        return pulumi.get(self, "o_auth2_grant_type")
+
+    @o_auth2_grant_type.setter
+    def o_auth2_grant_type(self, value: pulumi.Input['ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType']):
+        pulumi.set(self, "o_auth2_grant_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCodeProperties")
+    def authorization_code_properties(self) -> pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesArgs']]:
+        return pulumi.get(self, "authorization_code_properties")
+
+    @authorization_code_properties.setter
+    def authorization_code_properties(self, value: pulumi.Input[Optional['ConnectionTypeConnectorAuthorizationCodePropertiesArgs']]):
+        pulumi.set(self, "authorization_code_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsProperties")
+    def client_credentials_properties(self) -> pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesArgs']]:
+        return pulumi.get(self, "client_credentials_properties")
+
+    @client_credentials_properties.setter
+    def client_credentials_properties(self, value: pulumi.Input[Optional['ConnectionTypeClientCredentialsPropertiesArgs']]):
+        pulumi.set(self, "client_credentials_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jwtBearerProperties")
+    def jwt_bearer_properties(self) -> pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesArgs']]:
+        return pulumi.get(self, "jwt_bearer_properties")
+
+    @jwt_bearer_properties.setter
+    def jwt_bearer_properties(self, value: pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesArgs']]):
+        pulumi.set(self, "jwt_bearer_properties", value)
+
+
+class ConnectionTypeConnectorPropertyArgsDict(TypedDict):
+    """
+    Defines a property configuration for connection types.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the property.
+    """
+    property_type: pulumi.Input['ConnectionTypeConnectorPropertyPropertyType']
+    """
+    The data type of this property.
+    """
+    required: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the property is required.
+    """
+    allowed_values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of allowed values for the property.
+    """
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The default value for the property.
+    """
+    key_override: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A key name to use when sending this property in API requests.
+    """
+    property_location: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyPropertyLocation']]]
+    """
+    Specifies where this property should be included in REST requests.
+    """
+
+@pulumi.input_type
+class ConnectionTypeConnectorPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 property_type: pulumi.Input['ConnectionTypeConnectorPropertyPropertyType'],
+                 required: pulumi.Input[_builtins.bool],
+                 allowed_values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_location: pulumi.Input[Optional['ConnectionTypeConnectorPropertyPropertyLocation']] = None):
+        """
+        Defines a property configuration for connection types.
+
+        :param pulumi.Input[_builtins.str] name: The name of the property.
+        :param pulumi.Input['ConnectionTypeConnectorPropertyPropertyType'] property_type: The data type of this property.
+        :param pulumi.Input[_builtins.bool] required: Indicates whether the property is required.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_values: A list of allowed values for the property.
+        :param pulumi.Input[_builtins.str] default_value: The default value for the property.
+        :param pulumi.Input[_builtins.str] key_override: A key name to use when sending this property in API requests.
+        :param pulumi.Input['ConnectionTypeConnectorPropertyPropertyLocation'] property_location: Specifies where this property should be included in REST requests.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_type", property_type)
+        pulumi.set(__self__, "required", required)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if key_override is not None:
+            pulumi.set(__self__, "key_override", key_override)
+        if property_location is not None:
+            pulumi.set(__self__, "property_location", property_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyType")
+    def property_type(self) -> pulumi.Input['ConnectionTypeConnectorPropertyPropertyType']:
+        """
+        The data type of this property.
+        """
+        return pulumi.get(self, "property_type")
+
+    @property_type.setter
+    def property_type(self, value: pulumi.Input['ConnectionTypeConnectorPropertyPropertyType']):
+        pulumi.set(self, "property_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates whether the property is required.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "required", value)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of allowed values for the property.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @allowed_values.setter
+    def allowed_values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "allowed_values", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The default value for the property.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyOverride")
+    def key_override(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A key name to use when sending this property in API requests.
+        """
+        return pulumi.get(self, "key_override")
+
+    @key_override.setter
+    def key_override(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyLocation")
+    def property_location(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyPropertyLocation']]:
+        """
+        Specifies where this property should be included in REST requests.
+        """
+        return pulumi.get(self, "property_location")
+
+    @property_location.setter
+    def property_location(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyPropertyLocation']]):
+        pulumi.set(self, "property_location", value)
+
+
+class ConnectionTypeCursorConfigurationArgsDict(TypedDict):
+    """
+    Cursor-based pagination configuration.
+    """
+    next_page: pulumi.Input['ConnectionTypeExtractedParameterArgsDict']
+    limit_parameter: NotRequired[pulumi.Input[Optional['ConnectionTypeExtractedParameterArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeCursorConfigurationArgs:
+    def __init__(__self__, *,
+                 next_page: pulumi.Input['ConnectionTypeExtractedParameterArgs'],
+                 limit_parameter: pulumi.Input[Optional['ConnectionTypeExtractedParameterArgs']] = None):
+        """
+        Cursor-based pagination configuration.
+        """
+        pulumi.set(__self__, "next_page", next_page)
+        if limit_parameter is not None:
+            pulumi.set(__self__, "limit_parameter", limit_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="nextPage")
+    def next_page(self) -> pulumi.Input['ConnectionTypeExtractedParameterArgs']:
+        return pulumi.get(self, "next_page")
+
+    @next_page.setter
+    def next_page(self, value: pulumi.Input['ConnectionTypeExtractedParameterArgs']):
+        pulumi.set(self, "next_page", value)
+
+    @_builtins.property
+    @pulumi.getter(name="limitParameter")
+    def limit_parameter(self) -> pulumi.Input[Optional['ConnectionTypeExtractedParameterArgs']]:
+        return pulumi.get(self, "limit_parameter")
+
+    @limit_parameter.setter
+    def limit_parameter(self, value: pulumi.Input[Optional['ConnectionTypeExtractedParameterArgs']]):
+        pulumi.set(self, "limit_parameter", value)
+
+
+class ConnectionTypeCustomAuthenticationPropertiesArgsDict(TypedDict):
+    """
+    Custom authentication configuration.
+    """
+    authentication_parameters: pulumi.Input[Sequence[pulumi.Input['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeCustomAuthenticationPropertiesArgs:
+    def __init__(__self__, *,
+                 authentication_parameters: pulumi.Input[Sequence[pulumi.Input['ConnectionTypeSecretConnectorPropertyArgs']]]):
+        """
+        Custom authentication configuration.
+        """
+        pulumi.set(__self__, "authentication_parameters", authentication_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationParameters")
+    def authentication_parameters(self) -> pulumi.Input[Sequence[pulumi.Input['ConnectionTypeSecretConnectorPropertyArgs']]]:
+        return pulumi.get(self, "authentication_parameters")
+
+    @authentication_parameters.setter
+    def authentication_parameters(self, value: pulumi.Input[Sequence[pulumi.Input['ConnectionTypeSecretConnectorPropertyArgs']]]):
+        pulumi.set(self, "authentication_parameters", value)
+
+
+class ConnectionTypeEntityConfigurationArgsDict(TypedDict):
+    """
+    Configuration for interacting with a specific data entity.
+    """
+    schema: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeFieldDefinitionArgsDict']]]]]
+    """
+    The schema definition for this entity.
+    """
+    source_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeEntityConfigurationArgs:
+    def __init__(__self__, *,
+                 schema: pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeFieldDefinitionArgs']]]] = None,
+                 source_configuration: pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgs']] = None):
+        """
+        Configuration for interacting with a specific data entity.
+
+        :param pulumi.Input[Mapping[str, pulumi.Input['ConnectionTypeFieldDefinitionArgs']]] schema: The schema definition for this entity.
+        """
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeFieldDefinitionArgs']]]]:
+        """
+        The schema definition for this entity.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeFieldDefinitionArgs']]]]):
+        pulumi.set(self, "schema", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgs']]:
+        return pulumi.get(self, "source_configuration")
+
+    @source_configuration.setter
+    def source_configuration(self, value: pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgs']]):
+        pulumi.set(self, "source_configuration", value)
+
+
+class ConnectionTypeExtractedParameterArgsDict(TypedDict):
+    """
+    Parameter extraction configuration.
+    """
+    default_value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The default value.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The parameter key name.
+    """
+    property_location: NotRequired[pulumi.Input[Optional['ConnectionTypeExtractedParameterPropertyLocation']]]
+    """
+    Specifies where to place the parameter in requests.
+    """
+    value: NotRequired[pulumi.Input[Optional['ConnectionTypeResponseExtractionMappingArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeExtractedParameterArgs:
+    def __init__(__self__, *,
+                 default_value: pulumi.Input[Optional[_builtins.str]] = None,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_location: pulumi.Input[Optional['ConnectionTypeExtractedParameterPropertyLocation']] = None,
+                 value: pulumi.Input[Optional['ConnectionTypeResponseExtractionMappingArgs']] = None):
+        """
+        Parameter extraction configuration.
+
+        :param pulumi.Input[_builtins.str] default_value: The default value.
+        :param pulumi.Input[_builtins.str] key: The parameter key name.
+        :param pulumi.Input['ConnectionTypeExtractedParameterPropertyLocation'] property_location: Specifies where to place the parameter in requests.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if property_location is not None:
+            pulumi.set(__self__, "property_location", property_location)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The default value.
+        """
+        return pulumi.get(self, "default_value")
+
+    @default_value.setter
+    def default_value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "default_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The parameter key name.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyLocation")
+    def property_location(self) -> pulumi.Input[Optional['ConnectionTypeExtractedParameterPropertyLocation']]:
+        """
+        Specifies where to place the parameter in requests.
+        """
+        return pulumi.get(self, "property_location")
+
+    @property_location.setter
+    def property_location(self, value: pulumi.Input[Optional['ConnectionTypeExtractedParameterPropertyLocation']]):
+        pulumi.set(self, "property_location", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional['ConnectionTypeResponseExtractionMappingArgs']]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional['ConnectionTypeResponseExtractionMappingArgs']]):
+        pulumi.set(self, "value", value)
+
+
+class ConnectionTypeFieldDefinitionArgsDict(TypedDict):
+    """
+    Defines a field in an entity schema.
+    """
+    field_data_type: pulumi.Input['ConnectionTypeFieldDefinitionFieldDataType']
+    """
+    The data type of the field.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the field.
+    """
+    filter_overrides: NotRequired[pulumi.Input[Optional['ConnectionTypeFilterOverridesArgsDict']]]
+    is_nullable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether this field can contain null values.
+    """
+    is_orderable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether this field can be used for ordering results.
+    """
+    is_partitionable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether this field can be used for partitioning queries to the data source.
+    """
+    is_queryable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether this field can be used in filter predicates when querying data.
+    """
+    response_date_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The format pattern for parsing date values from API responses. Accepts Java DateTimeFormatter patterns, EPOCH_SECONDS, or EPOCH_MILLIS.
+    """
+
+@pulumi.input_type
+class ConnectionTypeFieldDefinitionArgs:
+    def __init__(__self__, *,
+                 field_data_type: pulumi.Input['ConnectionTypeFieldDefinitionFieldDataType'],
+                 name: pulumi.Input[_builtins.str],
+                 filter_overrides: pulumi.Input[Optional['ConnectionTypeFilterOverridesArgs']] = None,
+                 is_nullable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_orderable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_partitionable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 is_queryable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 response_date_format: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Defines a field in an entity schema.
+
+        :param pulumi.Input['ConnectionTypeFieldDefinitionFieldDataType'] field_data_type: The data type of the field.
+        :param pulumi.Input[_builtins.str] name: The name of the field.
+        :param pulumi.Input[_builtins.bool] is_nullable: Indicates whether this field can contain null values.
+        :param pulumi.Input[_builtins.bool] is_orderable: Indicates whether this field can be used for ordering results.
+        :param pulumi.Input[_builtins.bool] is_partitionable: Indicates whether this field can be used for partitioning queries to the data source.
+        :param pulumi.Input[_builtins.bool] is_queryable: Indicates whether this field can be used in filter predicates when querying data.
+        :param pulumi.Input[_builtins.str] response_date_format: The format pattern for parsing date values from API responses. Accepts Java DateTimeFormatter patterns, EPOCH_SECONDS, or EPOCH_MILLIS.
+        """
+        pulumi.set(__self__, "field_data_type", field_data_type)
+        pulumi.set(__self__, "name", name)
+        if filter_overrides is not None:
+            pulumi.set(__self__, "filter_overrides", filter_overrides)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if is_orderable is not None:
+            pulumi.set(__self__, "is_orderable", is_orderable)
+        if is_partitionable is not None:
+            pulumi.set(__self__, "is_partitionable", is_partitionable)
+        if is_queryable is not None:
+            pulumi.set(__self__, "is_queryable", is_queryable)
+        if response_date_format is not None:
+            pulumi.set(__self__, "response_date_format", response_date_format)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDataType")
+    def field_data_type(self) -> pulumi.Input['ConnectionTypeFieldDefinitionFieldDataType']:
+        """
+        The data type of the field.
+        """
+        return pulumi.get(self, "field_data_type")
+
+    @field_data_type.setter
+    def field_data_type(self, value: pulumi.Input['ConnectionTypeFieldDefinitionFieldDataType']):
+        pulumi.set(self, "field_data_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterOverrides")
+    def filter_overrides(self) -> pulumi.Input[Optional['ConnectionTypeFilterOverridesArgs']]:
+        return pulumi.get(self, "filter_overrides")
+
+    @filter_overrides.setter
+    def filter_overrides(self, value: pulumi.Input[Optional['ConnectionTypeFilterOverridesArgs']]):
+        pulumi.set(self, "filter_overrides", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether this field can contain null values.
+        """
+        return pulumi.get(self, "is_nullable")
+
+    @is_nullable.setter
+    def is_nullable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_nullable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isOrderable")
+    def is_orderable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether this field can be used for ordering results.
+        """
+        return pulumi.get(self, "is_orderable")
+
+    @is_orderable.setter
+    def is_orderable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_orderable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isPartitionable")
+    def is_partitionable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether this field can be used for partitioning queries to the data source.
+        """
+        return pulumi.get(self, "is_partitionable")
+
+    @is_partitionable.setter
+    def is_partitionable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_partitionable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="isQueryable")
+    def is_queryable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether this field can be used in filter predicates when querying data.
+        """
+        return pulumi.get(self, "is_queryable")
+
+    @is_queryable.setter
+    def is_queryable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "is_queryable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseDateFormat")
+    def response_date_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The format pattern for parsing date values from API responses. Accepts Java DateTimeFormatter patterns, EPOCH_SECONDS, or EPOCH_MILLIS.
+        """
+        return pulumi.get(self, "response_date_format")
+
+    @response_date_format.setter
+    def response_date_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "response_date_format", value)
+
+
+class ConnectionTypeFilterConfigurationArgsDict(TypedDict):
+    """
+    Configuration that defines how filter predicates are applied to REST API requests, supporting both query parameter and filter string strategies.
+    """
+    filter_mode: pulumi.Input['ConnectionTypeFilterConfigurationFilterMode']
+    """
+    The strategy for applying filters to requests.
+    """
+    between_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgsDict']]]
+    date_time_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The global date and time format for filter expressions.
+    """
+    filter_string_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeFilterStringConfigurationArgsDict']]]
+    operator_mappings: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of logical filter operators to their API-specific string representations.
+    """
+    strip_quotes: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether surrounding double quotes should be stripped from filter values before processing.
+    """
+
+@pulumi.input_type
+class ConnectionTypeFilterConfigurationArgs:
+    def __init__(__self__, *,
+                 filter_mode: pulumi.Input['ConnectionTypeFilterConfigurationFilterMode'],
+                 between_configuration: pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgs']] = None,
+                 date_time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 filter_string_configuration: pulumi.Input[Optional['ConnectionTypeFilterStringConfigurationArgs']] = None,
+                 operator_mappings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 strip_quotes: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Configuration that defines how filter predicates are applied to REST API requests, supporting both query parameter and filter string strategies.
+
+        :param pulumi.Input['ConnectionTypeFilterConfigurationFilterMode'] filter_mode: The strategy for applying filters to requests.
+        :param pulumi.Input[_builtins.str] date_time_format: The global date and time format for filter expressions.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] operator_mappings: A map of logical filter operators to their API-specific string representations.
+        :param pulumi.Input[_builtins.bool] strip_quotes: Indicates whether surrounding double quotes should be stripped from filter values before processing.
+        """
+        pulumi.set(__self__, "filter_mode", filter_mode)
+        if between_configuration is not None:
+            pulumi.set(__self__, "between_configuration", between_configuration)
+        if date_time_format is not None:
+            pulumi.set(__self__, "date_time_format", date_time_format)
+        if filter_string_configuration is not None:
+            pulumi.set(__self__, "filter_string_configuration", filter_string_configuration)
+        if operator_mappings is not None:
+            pulumi.set(__self__, "operator_mappings", operator_mappings)
+        if strip_quotes is not None:
+            pulumi.set(__self__, "strip_quotes", strip_quotes)
+
+    @_builtins.property
+    @pulumi.getter(name="filterMode")
+    def filter_mode(self) -> pulumi.Input['ConnectionTypeFilterConfigurationFilterMode']:
+        """
+        The strategy for applying filters to requests.
+        """
+        return pulumi.get(self, "filter_mode")
+
+    @filter_mode.setter
+    def filter_mode(self, value: pulumi.Input['ConnectionTypeFilterConfigurationFilterMode']):
+        pulumi.set(self, "filter_mode", value)
+
+    @_builtins.property
+    @pulumi.getter(name="betweenConfiguration")
+    def between_configuration(self) -> pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgs']]:
+        return pulumi.get(self, "between_configuration")
+
+    @between_configuration.setter
+    def between_configuration(self, value: pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgs']]):
+        pulumi.set(self, "between_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dateTimeFormat")
+    def date_time_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The global date and time format for filter expressions.
+        """
+        return pulumi.get(self, "date_time_format")
+
+    @date_time_format.setter
+    def date_time_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "date_time_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="filterStringConfiguration")
+    def filter_string_configuration(self) -> pulumi.Input[Optional['ConnectionTypeFilterStringConfigurationArgs']]:
+        return pulumi.get(self, "filter_string_configuration")
+
+    @filter_string_configuration.setter
+    def filter_string_configuration(self, value: pulumi.Input[Optional['ConnectionTypeFilterStringConfigurationArgs']]):
+        pulumi.set(self, "filter_string_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="operatorMappings")
+    def operator_mappings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of logical filter operators to their API-specific string representations.
+        """
+        return pulumi.get(self, "operator_mappings")
+
+    @operator_mappings.setter
+    def operator_mappings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "operator_mappings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stripQuotes")
+    def strip_quotes(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether surrounding double quotes should be stripped from filter values before processing.
+        """
+        return pulumi.get(self, "strip_quotes")
+
+    @strip_quotes.setter
+    def strip_quotes(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "strip_quotes", value)
+
+
+class ConnectionTypeFilterOverridesArgsDict(TypedDict):
+    """
+    Configuration that defines per-field overrides for filter behavior, allowing individual fields to customize how filter operations are applied.
+    """
+    between_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgsDict']]]
+    date_time_format: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The date and time format for filter expressions on this field, overriding the global DateTimeFormat.
+    """
+    field_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    An override for the field name to use in filter expressions, if different from the schema field name.
+    """
+    operator_mappings: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
+    """
+    A map of logical filter operators to their field-specific API representations, overriding the global operator mappings.
+    """
+
+@pulumi.input_type
+class ConnectionTypeFilterOverridesArgs:
+    def __init__(__self__, *,
+                 between_configuration: pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgs']] = None,
+                 date_time_format: pulumi.Input[Optional[_builtins.str]] = None,
+                 field_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 operator_mappings: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        Configuration that defines per-field overrides for filter behavior, allowing individual fields to customize how filter operations are applied.
+
+        :param pulumi.Input[_builtins.str] date_time_format: The date and time format for filter expressions on this field, overriding the global DateTimeFormat.
+        :param pulumi.Input[_builtins.str] field_name: An override for the field name to use in filter expressions, if different from the schema field name.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] operator_mappings: A map of logical filter operators to their field-specific API representations, overriding the global operator mappings.
+        """
+        if between_configuration is not None:
+            pulumi.set(__self__, "between_configuration", between_configuration)
+        if date_time_format is not None:
+            pulumi.set(__self__, "date_time_format", date_time_format)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+        if operator_mappings is not None:
+            pulumi.set(__self__, "operator_mappings", operator_mappings)
+
+    @_builtins.property
+    @pulumi.getter(name="betweenConfiguration")
+    def between_configuration(self) -> pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgs']]:
+        return pulumi.get(self, "between_configuration")
+
+    @between_configuration.setter
+    def between_configuration(self, value: pulumi.Input[Optional['ConnectionTypeBetweenConfigurationArgs']]):
+        pulumi.set(self, "between_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dateTimeFormat")
+    def date_time_format(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The date and time format for filter expressions on this field, overriding the global DateTimeFormat.
+        """
+        return pulumi.get(self, "date_time_format")
+
+    @date_time_format.setter
+    def date_time_format(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "date_time_format", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        An override for the field name to use in filter expressions, if different from the schema field name.
+        """
+        return pulumi.get(self, "field_name")
+
+    @field_name.setter
+    def field_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "field_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="operatorMappings")
+    def operator_mappings(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        A map of logical filter operators to their field-specific API representations, overriding the global operator mappings.
+        """
+        return pulumi.get(self, "operator_mappings")
+
+    @operator_mappings.setter
+    def operator_mappings(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "operator_mappings", value)
+
+
+class ConnectionTypeFilterStringConfigurationArgsDict(TypedDict):
+    """
+    Configuration for constructing filter expression strings when using the FILTER_STRING filter mode.
+    """
+    query_parameter_name: pulumi.Input[_builtins.str]
+    """
+    The query parameter name used to send the constructed filter expression string in API requests.
+    """
+    quote_character: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The character used to quote values when QuoteStringValues is true. Defaults to double quotes if not specified.
+    """
+    quote_string_values: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Indicates whether string and date values should be wrapped with a quote character in the filter expression.
+    """
+
+@pulumi.input_type
+class ConnectionTypeFilterStringConfigurationArgs:
+    def __init__(__self__, *,
+                 query_parameter_name: pulumi.Input[_builtins.str],
+                 quote_character: pulumi.Input[Optional[_builtins.str]] = None,
+                 quote_string_values: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        Configuration for constructing filter expression strings when using the FILTER_STRING filter mode.
+
+        :param pulumi.Input[_builtins.str] query_parameter_name: The query parameter name used to send the constructed filter expression string in API requests.
+        :param pulumi.Input[_builtins.str] quote_character: The character used to quote values when QuoteStringValues is true. Defaults to double quotes if not specified.
+        :param pulumi.Input[_builtins.bool] quote_string_values: Indicates whether string and date values should be wrapped with a quote character in the filter expression.
+        """
+        pulumi.set(__self__, "query_parameter_name", query_parameter_name)
+        if quote_character is not None:
+            pulumi.set(__self__, "quote_character", quote_character)
+        if quote_string_values is not None:
+            pulumi.set(__self__, "quote_string_values", quote_string_values)
+
+    @_builtins.property
+    @pulumi.getter(name="queryParameterName")
+    def query_parameter_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The query parameter name used to send the constructed filter expression string in API requests.
+        """
+        return pulumi.get(self, "query_parameter_name")
+
+    @query_parameter_name.setter
+    def query_parameter_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query_parameter_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quoteCharacter")
+    def quote_character(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The character used to quote values when QuoteStringValues is true. Defaults to double quotes if not specified.
+        """
+        return pulumi.get(self, "quote_character")
+
+    @quote_character.setter
+    def quote_character(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "quote_character", value)
+
+    @_builtins.property
+    @pulumi.getter(name="quoteStringValues")
+    def quote_string_values(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Indicates whether string and date values should be wrapped with a quote character in the filter expression.
+        """
+        return pulumi.get(self, "quote_string_values")
+
+    @quote_string_values.setter
+    def quote_string_values(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "quote_string_values", value)
+
+
+class ConnectionTypeJwtBearerPropertiesArgsDict(TypedDict):
+    """
+    JWT bearer token configuration.
+    """
+    content_type: NotRequired[pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesContentType']]]
+    jwt_token: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgsDict']]]
+    request_method: NotRequired[pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesRequestMethod']]]
+    token_url: NotRequired[pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgsDict']]]
+    token_url_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgsDict']]]]]
+
+@pulumi.input_type
+class ConnectionTypeJwtBearerPropertiesArgs:
+    def __init__(__self__, *,
+                 content_type: pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesContentType']] = None,
+                 jwt_token: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']] = None,
+                 request_method: pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesRequestMethod']] = None,
+                 token_url: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']] = None,
+                 token_url_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]] = None):
+        """
+        JWT bearer token configuration.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if jwt_token is not None:
+            pulumi.set(__self__, "jwt_token", jwt_token)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters is not None:
+            pulumi.set(__self__, "token_url_parameters", token_url_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesContentType']]:
+        return pulumi.get(self, "content_type")
+
+    @content_type.setter
+    def content_type(self, value: pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesContentType']]):
+        pulumi.set(self, "content_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="jwtToken")
+    def jwt_token(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]:
+        return pulumi.get(self, "jwt_token")
+
+    @jwt_token.setter
+    def jwt_token(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyArgs']]):
+        pulumi.set(self, "jwt_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesRequestMethod']]:
+        return pulumi.get(self, "request_method")
+
+    @request_method.setter
+    def request_method(self, value: pulumi.Input[Optional['ConnectionTypeJwtBearerPropertiesRequestMethod']]):
+        pulumi.set(self, "request_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]:
+        return pulumi.get(self, "token_url")
+
+    @token_url.setter
+    def token_url(self, value: pulumi.Input[Optional['ConnectionTypeConnectorPropertyArgs']]):
+        pulumi.set(self, "token_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrlParameters")
+    def token_url_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]:
+        return pulumi.get(self, "token_url_parameters")
+
+    @token_url_parameters.setter
+    def token_url_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]):
+        pulumi.set(self, "token_url_parameters", value)
+
+
+class ConnectionTypeOffsetConfigurationArgsDict(TypedDict):
+    """
+    Offset-based pagination configuration.
+    """
+    limit_parameter: pulumi.Input['ConnectionTypeExtractedParameterArgsDict']
+    offset_parameter: pulumi.Input['ConnectionTypeExtractedParameterArgsDict']
+
+@pulumi.input_type
+class ConnectionTypeOffsetConfigurationArgs:
+    def __init__(__self__, *,
+                 limit_parameter: pulumi.Input['ConnectionTypeExtractedParameterArgs'],
+                 offset_parameter: pulumi.Input['ConnectionTypeExtractedParameterArgs']):
+        """
+        Offset-based pagination configuration.
+        """
+        pulumi.set(__self__, "limit_parameter", limit_parameter)
+        pulumi.set(__self__, "offset_parameter", offset_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="limitParameter")
+    def limit_parameter(self) -> pulumi.Input['ConnectionTypeExtractedParameterArgs']:
+        return pulumi.get(self, "limit_parameter")
+
+    @limit_parameter.setter
+    def limit_parameter(self, value: pulumi.Input['ConnectionTypeExtractedParameterArgs']):
+        pulumi.set(self, "limit_parameter", value)
+
+    @_builtins.property
+    @pulumi.getter(name="offsetParameter")
+    def offset_parameter(self) -> pulumi.Input['ConnectionTypeExtractedParameterArgs']:
+        return pulumi.get(self, "offset_parameter")
+
+    @offset_parameter.setter
+    def offset_parameter(self, value: pulumi.Input['ConnectionTypeExtractedParameterArgs']):
+        pulumi.set(self, "offset_parameter", value)
+
+
+class ConnectionTypePaginationConfigurationArgsDict(TypedDict):
+    """
+    Configuration for handling paginated responses.
+    """
+    cursor_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeCursorConfigurationArgsDict']]]
+    offset_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeOffsetConfigurationArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypePaginationConfigurationArgs:
+    def __init__(__self__, *,
+                 cursor_configuration: pulumi.Input[Optional['ConnectionTypeCursorConfigurationArgs']] = None,
+                 offset_configuration: pulumi.Input[Optional['ConnectionTypeOffsetConfigurationArgs']] = None):
+        """
+        Configuration for handling paginated responses.
+        """
+        if cursor_configuration is not None:
+            pulumi.set(__self__, "cursor_configuration", cursor_configuration)
+        if offset_configuration is not None:
+            pulumi.set(__self__, "offset_configuration", offset_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cursorConfiguration")
+    def cursor_configuration(self) -> pulumi.Input[Optional['ConnectionTypeCursorConfigurationArgs']]:
+        return pulumi.get(self, "cursor_configuration")
+
+    @cursor_configuration.setter
+    def cursor_configuration(self, value: pulumi.Input[Optional['ConnectionTypeCursorConfigurationArgs']]):
+        pulumi.set(self, "cursor_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="offsetConfiguration")
+    def offset_configuration(self) -> pulumi.Input[Optional['ConnectionTypeOffsetConfigurationArgs']]:
+        return pulumi.get(self, "offset_configuration")
+
+    @offset_configuration.setter
+    def offset_configuration(self, value: pulumi.Input[Optional['ConnectionTypeOffsetConfigurationArgs']]):
+        pulumi.set(self, "offset_configuration", value)
+
+
+class ConnectionTypeResponseConfigurationArgsDict(TypedDict):
+    """
+    Configuration for parsing JSON responses from REST API calls.
+    """
+    result_path: pulumi.Input[_builtins.str]
+    """
+    JSON path expression for result data location.
+    """
+    error_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    JSON path expression for error information location.
+    """
+
+@pulumi.input_type
+class ConnectionTypeResponseConfigurationArgs:
+    def __init__(__self__, *,
+                 result_path: pulumi.Input[_builtins.str],
+                 error_path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration for parsing JSON responses from REST API calls.
+
+        :param pulumi.Input[_builtins.str] result_path: JSON path expression for result data location.
+        :param pulumi.Input[_builtins.str] error_path: JSON path expression for error information location.
+        """
+        pulumi.set(__self__, "result_path", result_path)
+        if error_path is not None:
+            pulumi.set(__self__, "error_path", error_path)
+
+    @_builtins.property
+    @pulumi.getter(name="resultPath")
+    def result_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        JSON path expression for result data location.
+        """
+        return pulumi.get(self, "result_path")
+
+    @result_path.setter
+    def result_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "result_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="errorPath")
+    def error_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        JSON path expression for error information location.
+        """
+        return pulumi.get(self, "error_path")
+
+    @error_path.setter
+    def error_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "error_path", value)
+
+
+class ConnectionTypeResponseExtractionMappingArgsDict(TypedDict):
+    """
+    Defines how to extract values from HTTP responses.
+    """
+    content_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A JSON path expression to extract a value from response body.
+    """
+    header_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The name of an HTTP response header from which to extract the value.
+    """
+
+@pulumi.input_type
+class ConnectionTypeResponseExtractionMappingArgs:
+    def __init__(__self__, *,
+                 content_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 header_key: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Defines how to extract values from HTTP responses.
+
+        :param pulumi.Input[_builtins.str] content_path: A JSON path expression to extract a value from response body.
+        :param pulumi.Input[_builtins.str] header_key: The name of an HTTP response header from which to extract the value.
+        """
+        if content_path is not None:
+            pulumi.set(__self__, "content_path", content_path)
+        if header_key is not None:
+            pulumi.set(__self__, "header_key", header_key)
+
+    @_builtins.property
+    @pulumi.getter(name="contentPath")
+    def content_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A JSON path expression to extract a value from response body.
+        """
+        return pulumi.get(self, "content_path")
+
+    @content_path.setter
+    def content_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "content_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="headerKey")
+    def header_key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The name of an HTTP response header from which to extract the value.
+        """
+        return pulumi.get(self, "header_key")
+
+    @header_key.setter
+    def header_key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "header_key", value)
+
+
+class ConnectionTypeRestConfigurationArgsDict(TypedDict):
+    """
+    Configuration for HTTP request and response handling.
+    """
+    entity_configurations: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeEntityConfigurationArgsDict']]]]]
+    """
+    A map of entity configurations.
+    """
+    global_source_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgsDict']]]
+    validation_endpoint_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgsDict']]]
+    """
+    Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+    """
+
+@pulumi.input_type
+class ConnectionTypeRestConfigurationArgs:
+    def __init__(__self__, *,
+                 entity_configurations: pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeEntityConfigurationArgs']]]] = None,
+                 global_source_configuration: pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgs']] = None,
+                 validation_endpoint_configuration: pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgs']] = None):
+        """
+        Configuration for HTTP request and response handling.
+
+        :param pulumi.Input[Mapping[str, pulumi.Input['ConnectionTypeEntityConfigurationArgs']]] entity_configurations: A map of entity configurations.
+        :param pulumi.Input['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgs'] validation_endpoint_configuration: Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+        """
+        if entity_configurations is not None:
+            pulumi.set(__self__, "entity_configurations", entity_configurations)
+        if global_source_configuration is not None:
+            pulumi.set(__self__, "global_source_configuration", global_source_configuration)
+        if validation_endpoint_configuration is not None:
+            pulumi.set(__self__, "validation_endpoint_configuration", validation_endpoint_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="entityConfigurations")
+    def entity_configurations(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeEntityConfigurationArgs']]]]:
+        """
+        A map of entity configurations.
+        """
+        return pulumi.get(self, "entity_configurations")
+
+    @entity_configurations.setter
+    def entity_configurations(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input['ConnectionTypeEntityConfigurationArgs']]]]):
+        pulumi.set(self, "entity_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalSourceConfiguration")
+    def global_source_configuration(self) -> pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgs']]:
+        return pulumi.get(self, "global_source_configuration")
+
+    @global_source_configuration.setter
+    def global_source_configuration(self, value: pulumi.Input[Optional['ConnectionTypeSourceConfigurationArgs']]):
+        pulumi.set(self, "global_source_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="validationEndpointConfiguration")
+    def validation_endpoint_configuration(self) -> pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgs']]:
+        """
+        Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+        """
+        return pulumi.get(self, "validation_endpoint_configuration")
+
+    @validation_endpoint_configuration.setter
+    def validation_endpoint_configuration(self, value: pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgs']]):
+        pulumi.set(self, "validation_endpoint_configuration", value)
+
+
+class ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgsDict(TypedDict):
+    """
+    Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+    """
+    request_method: NotRequired[pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod']]]
+    """
+    The HTTP method to use.
+    """
+    request_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL path for the REST endpoint.
+    """
+
+@pulumi.input_type
+class ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 request_method: pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod']] = None,
+                 request_path: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+
+        :param pulumi.Input['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod'] request_method: The HTTP method to use.
+        :param pulumi.Input[_builtins.str] request_path: The URL path for the REST endpoint.
+        """
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod']]:
+        """
+        The HTTP method to use.
+        """
+        return pulumi.get(self, "request_method")
+
+    @request_method.setter
+    def request_method(self, value: pulumi.Input[Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod']]):
+        pulumi.set(self, "request_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL path for the REST endpoint.
+        """
+        return pulumi.get(self, "request_path")
+
+    @request_path.setter
+    def request_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "request_path", value)
+
+
+class ConnectionTypeSecretConnectorPropertyArgsDict(TypedDict):
+    """
+    Defines a secret property configuration. SECRET-type properties cannot have DefaultValue or AllowedValues.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the property.
+    """
+    property_type: pulumi.Input['ConnectionTypeSecretConnectorPropertyPropertyType']
+    """
+    The data type of this property. Must be SECRET for secret properties.
+    """
+    required: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the property is required.
+    """
+    key_override: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A key name to use when sending this property in API requests.
+    """
+    property_location: NotRequired[pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyPropertyLocation']]]
+    """
+    Specifies where this property should be included in REST requests.
+    """
+
+@pulumi.input_type
+class ConnectionTypeSecretConnectorPropertyArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 property_type: pulumi.Input['ConnectionTypeSecretConnectorPropertyPropertyType'],
+                 required: pulumi.Input[_builtins.bool],
+                 key_override: pulumi.Input[Optional[_builtins.str]] = None,
+                 property_location: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyPropertyLocation']] = None):
+        """
+        Defines a secret property configuration. SECRET-type properties cannot have DefaultValue or AllowedValues.
+
+        :param pulumi.Input[_builtins.str] name: The name of the property.
+        :param pulumi.Input['ConnectionTypeSecretConnectorPropertyPropertyType'] property_type: The data type of this property. Must be SECRET for secret properties.
+        :param pulumi.Input[_builtins.bool] required: Indicates whether the property is required.
+        :param pulumi.Input[_builtins.str] key_override: A key name to use when sending this property in API requests.
+        :param pulumi.Input['ConnectionTypeSecretConnectorPropertyPropertyLocation'] property_location: Specifies where this property should be included in REST requests.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_type", property_type)
+        pulumi.set(__self__, "required", required)
+        if key_override is not None:
+            pulumi.set(__self__, "key_override", key_override)
+        if property_location is not None:
+            pulumi.set(__self__, "property_location", property_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyType")
+    def property_type(self) -> pulumi.Input['ConnectionTypeSecretConnectorPropertyPropertyType']:
+        """
+        The data type of this property. Must be SECRET for secret properties.
+        """
+        return pulumi.get(self, "property_type")
+
+    @property_type.setter
+    def property_type(self, value: pulumi.Input['ConnectionTypeSecretConnectorPropertyPropertyType']):
+        pulumi.set(self, "property_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Indicates whether the property is required.
+        """
+        return pulumi.get(self, "required")
+
+    @required.setter
+    def required(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "required", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyOverride")
+    def key_override(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A key name to use when sending this property in API requests.
+        """
+        return pulumi.get(self, "key_override")
+
+    @key_override.setter
+    def key_override(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key_override", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertyLocation")
+    def property_location(self) -> pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyPropertyLocation']]:
+        """
+        Specifies where this property should be included in REST requests.
+        """
+        return pulumi.get(self, "property_location")
+
+    @property_location.setter
+    def property_location(self, value: pulumi.Input[Optional['ConnectionTypeSecretConnectorPropertyPropertyLocation']]):
+        pulumi.set(self, "property_location", value)
+
+
+class ConnectionTypeSourceConfigurationArgsDict(TypedDict):
+    """
+    Configuration that defines how to make requests to endpoints.
+    """
+    filter_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeFilterConfigurationArgsDict']]]
+    pagination_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypePaginationConfigurationArgsDict']]]
+    request_method: NotRequired[pulumi.Input[Optional['ConnectionTypeSourceConfigurationRequestMethod']]]
+    """
+    The HTTP method to use.
+    """
+    request_parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgsDict']]]]]
+    """
+    Request parameters configuration.
+    """
+    request_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The URL path for the REST endpoint.
+    """
+    response_configuration: NotRequired[pulumi.Input[Optional['ConnectionTypeResponseConfigurationArgsDict']]]
+
+@pulumi.input_type
+class ConnectionTypeSourceConfigurationArgs:
+    def __init__(__self__, *,
+                 filter_configuration: pulumi.Input[Optional['ConnectionTypeFilterConfigurationArgs']] = None,
+                 pagination_configuration: pulumi.Input[Optional['ConnectionTypePaginationConfigurationArgs']] = None,
+                 request_method: pulumi.Input[Optional['ConnectionTypeSourceConfigurationRequestMethod']] = None,
+                 request_parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]] = None,
+                 request_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 response_configuration: pulumi.Input[Optional['ConnectionTypeResponseConfigurationArgs']] = None):
+        """
+        Configuration that defines how to make requests to endpoints.
+
+        :param pulumi.Input['ConnectionTypeSourceConfigurationRequestMethod'] request_method: The HTTP method to use.
+        :param pulumi.Input[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]] request_parameters: Request parameters configuration.
+        :param pulumi.Input[_builtins.str] request_path: The URL path for the REST endpoint.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if pagination_configuration is not None:
+            pulumi.set(__self__, "pagination_configuration", pagination_configuration)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if request_parameters is not None:
+            pulumi.set(__self__, "request_parameters", request_parameters)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+        if response_configuration is not None:
+            pulumi.set(__self__, "response_configuration", response_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> pulumi.Input[Optional['ConnectionTypeFilterConfigurationArgs']]:
+        return pulumi.get(self, "filter_configuration")
+
+    @filter_configuration.setter
+    def filter_configuration(self, value: pulumi.Input[Optional['ConnectionTypeFilterConfigurationArgs']]):
+        pulumi.set(self, "filter_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="paginationConfiguration")
+    def pagination_configuration(self) -> pulumi.Input[Optional['ConnectionTypePaginationConfigurationArgs']]:
+        return pulumi.get(self, "pagination_configuration")
+
+    @pagination_configuration.setter
+    def pagination_configuration(self, value: pulumi.Input[Optional['ConnectionTypePaginationConfigurationArgs']]):
+        pulumi.set(self, "pagination_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> pulumi.Input[Optional['ConnectionTypeSourceConfigurationRequestMethod']]:
+        """
+        The HTTP method to use.
+        """
+        return pulumi.get(self, "request_method")
+
+    @request_method.setter
+    def request_method(self, value: pulumi.Input[Optional['ConnectionTypeSourceConfigurationRequestMethod']]):
+        pulumi.set(self, "request_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestParameters")
+    def request_parameters(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]:
+        """
+        Request parameters configuration.
+        """
+        return pulumi.get(self, "request_parameters")
+
+    @request_parameters.setter
+    def request_parameters(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ConnectionTypeConnectorPropertyArgs']]]]):
+        pulumi.set(self, "request_parameters", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The URL path for the REST endpoint.
+        """
+        return pulumi.get(self, "request_path")
+
+    @request_path.setter
+    def request_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "request_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="responseConfiguration")
+    def response_configuration(self) -> pulumi.Input[Optional['ConnectionTypeResponseConfigurationArgs']]:
+        return pulumi.get(self, "response_configuration")
+
+    @response_configuration.setter
+    def response_configuration(self, value: pulumi.Input[Optional['ConnectionTypeResponseConfigurationArgs']]):
+        pulumi.set(self, "response_configuration", value)
 
 
 class CrawlerCatalogTargetArgsDict(TypedDict):

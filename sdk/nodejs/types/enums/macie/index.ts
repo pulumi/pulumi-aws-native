@@ -25,6 +25,24 @@ export const FindingsFilterFindingFilterAction = {
 
 export type FindingsFilterFindingFilterAction = (typeof FindingsFilterFindingFilterAction)[keyof typeof FindingsFilterFindingFilterAction];
 
+export const MemberRelationshipStatus = {
+    Enabled: "Enabled",
+    Paused: "Paused",
+    Invited: "Invited",
+    Created: "Created",
+    Removed: "Removed",
+    Resigned: "Resigned",
+    EmailVerificationInProgress: "EmailVerificationInProgress",
+    EmailVerificationFailed: "EmailVerificationFailed",
+    RegionDisabled: "RegionDisabled",
+    AccountSuspended: "AccountSuspended",
+} as const;
+
+/**
+ * The current status of the relationship between the account and the Amazon Macie administrator account.
+ */
+export type MemberRelationshipStatus = (typeof MemberRelationshipStatus)[keyof typeof MemberRelationshipStatus];
+
 export const SessionAutomatedDiscoveryStatus = {
     Enabled: "ENABLED",
     Disabled: "DISABLED",

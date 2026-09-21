@@ -53,6 +53,7 @@ export interface GetLocationAzureBlobResult {
      * > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
      */
     readonly customSecretConfig?: outputs.datasync.LocationAzureBlobCustomSecretConfig;
+    readonly federatedIdentity?: outputs.datasync.LocationAzureBlobAzureFederatedIdentityConfig;
     /**
      * The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
      */

@@ -189,6 +189,7 @@ import * as grafana from "./grafana";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
 import * as guardduty from "./guardduty";
+import * as healthagent from "./healthagent";
 import * as healthimaging from "./healthimaging";
 import * as healthlake from "./healthlake";
 import * as iam from "./iam";
@@ -472,6 +473,7 @@ export {
     greengrassv2,
     groundstation,
     guardduty,
+    healthagent,
     healthimaging,
     healthlake,
     iam,

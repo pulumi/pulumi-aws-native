@@ -10,6 +10,194 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The lifecycle status of the backup.
+type BackupLifecycle string
+
+const (
+	BackupLifecycleAvailable    = BackupLifecycle("AVAILABLE")
+	BackupLifecycleCreating     = BackupLifecycle("CREATING")
+	BackupLifecycleTransferring = BackupLifecycle("TRANSFERRING")
+	BackupLifecycleDeleted      = BackupLifecycle("DELETED")
+	BackupLifecycleFailed       = BackupLifecycle("FAILED")
+	BackupLifecyclePending      = BackupLifecycle("PENDING")
+	BackupLifecycleCopying      = BackupLifecycle("COPYING")
+)
+
+type BackupLifecycleOutput struct{ *pulumi.OutputState }
+
+func (BackupLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupLifecycle)(nil)).Elem()
+}
+
+func (o BackupLifecycleOutput) ToBackupLifecycleOutput() BackupLifecycleOutput {
+	return o
+}
+
+func (o BackupLifecycleOutput) ToBackupLifecycleOutputWithContext(ctx context.Context) BackupLifecycleOutput {
+	return o
+}
+
+func (o BackupLifecycleOutput) ToBackupLifecyclePtrOutput() BackupLifecyclePtrOutput {
+	return o.ToBackupLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o BackupLifecycleOutput) ToBackupLifecyclePtrOutputWithContext(ctx context.Context) BackupLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupLifecycle) *BackupLifecycle {
+		return &v
+	}).(BackupLifecyclePtrOutput)
+}
+
+func (o BackupLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackupLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackupLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupLifecycle)(nil)).Elem()
+}
+
+func (o BackupLifecyclePtrOutput) ToBackupLifecyclePtrOutput() BackupLifecyclePtrOutput {
+	return o
+}
+
+func (o BackupLifecyclePtrOutput) ToBackupLifecyclePtrOutputWithContext(ctx context.Context) BackupLifecyclePtrOutput {
+	return o
+}
+
+func (o BackupLifecyclePtrOutput) Elem() BackupLifecycleOutput {
+	return o.ApplyT(func(v *BackupLifecycle) BackupLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret BackupLifecycle
+		return ret
+	}).(BackupLifecycleOutput)
+}
+
+func (o BackupLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the backup.
+type BackupType string
+
+const (
+	BackupTypeAutomatic     = BackupType("AUTOMATIC")
+	BackupTypeUserInitiated = BackupType("USER_INITIATED")
+	BackupTypeAwsBackup     = BackupType("AWS_BACKUP")
+)
+
+type BackupTypeOutput struct{ *pulumi.OutputState }
+
+func (BackupTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupType)(nil)).Elem()
+}
+
+func (o BackupTypeOutput) ToBackupTypeOutput() BackupTypeOutput {
+	return o
+}
+
+func (o BackupTypeOutput) ToBackupTypeOutputWithContext(ctx context.Context) BackupTypeOutput {
+	return o
+}
+
+func (o BackupTypeOutput) ToBackupTypePtrOutput() BackupTypePtrOutput {
+	return o.ToBackupTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackupTypeOutput) ToBackupTypePtrOutputWithContext(ctx context.Context) BackupTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupType) *BackupType {
+		return &v
+	}).(BackupTypePtrOutput)
+}
+
+func (o BackupTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackupTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackupTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackupType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackupTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupType)(nil)).Elem()
+}
+
+func (o BackupTypePtrOutput) ToBackupTypePtrOutput() BackupTypePtrOutput {
+	return o
+}
+
+func (o BackupTypePtrOutput) ToBackupTypePtrOutputWithContext(ctx context.Context) BackupTypePtrOutput {
+	return o
+}
+
+func (o BackupTypePtrOutput) Elem() BackupTypeOutput {
+	return o.ApplyT(func(v *BackupType) BackupType {
+		if v != nil {
+			return *v
+		}
+		var ret BackupType
+		return ret
+	}).(BackupTypeOutput)
+}
+
+func (o BackupTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackupType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 type DataRepositoryAssociationEventType string
 
 const (
@@ -220,6 +408,596 @@ func (o DataRepositoryAssociationEventTypeArrayOutput) Index(i pulumi.IntInput) 
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataRepositoryAssociationEventType {
 		return vs[0].([]DataRepositoryAssociationEventType)[vs[1].(int)]
 	}).(DataRepositoryAssociationEventTypeOutput)
+}
+
+// The lifecycle status of the cache
+type FileCacheLifecycle string
+
+const (
+	FileCacheLifecycleAvailable = FileCacheLifecycle("AVAILABLE")
+	FileCacheLifecycleCreating  = FileCacheLifecycle("CREATING")
+	FileCacheLifecycleDeleting  = FileCacheLifecycle("DELETING")
+	FileCacheLifecycleUpdating  = FileCacheLifecycle("UPDATING")
+	FileCacheLifecycleFailed    = FileCacheLifecycle("FAILED")
+)
+
+type FileCacheLifecycleOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLifecycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLifecycle)(nil)).Elem()
+}
+
+func (o FileCacheLifecycleOutput) ToFileCacheLifecycleOutput() FileCacheLifecycleOutput {
+	return o
+}
+
+func (o FileCacheLifecycleOutput) ToFileCacheLifecycleOutputWithContext(ctx context.Context) FileCacheLifecycleOutput {
+	return o
+}
+
+func (o FileCacheLifecycleOutput) ToFileCacheLifecyclePtrOutput() FileCacheLifecyclePtrOutput {
+	return o.ToFileCacheLifecyclePtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLifecycleOutput) ToFileCacheLifecyclePtrOutputWithContext(ctx context.Context) FileCacheLifecyclePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileCacheLifecycle) *FileCacheLifecycle {
+		return &v
+	}).(FileCacheLifecyclePtrOutput)
+}
+
+func (o FileCacheLifecycleOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FileCacheLifecycleOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheLifecycle) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FileCacheLifecycleOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLifecycleOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheLifecycle) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileCacheLifecyclePtrOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLifecyclePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheLifecycle)(nil)).Elem()
+}
+
+func (o FileCacheLifecyclePtrOutput) ToFileCacheLifecyclePtrOutput() FileCacheLifecyclePtrOutput {
+	return o
+}
+
+func (o FileCacheLifecyclePtrOutput) ToFileCacheLifecyclePtrOutputWithContext(ctx context.Context) FileCacheLifecyclePtrOutput {
+	return o
+}
+
+func (o FileCacheLifecyclePtrOutput) Elem() FileCacheLifecycleOutput {
+	return o.ApplyT(func(v *FileCacheLifecycle) FileCacheLifecycle {
+		if v != nil {
+			return *v
+		}
+		var ret FileCacheLifecycle
+		return ret
+	}).(FileCacheLifecycleOutput)
+}
+
+func (o FileCacheLifecyclePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLifecyclePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FileCacheLifecycle) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileCacheLogConfigurationLevel string
+
+const (
+	FileCacheLogConfigurationLevelDisabled  = FileCacheLogConfigurationLevel("DISABLED")
+	FileCacheLogConfigurationLevelWarnOnly  = FileCacheLogConfigurationLevel("WARN_ONLY")
+	FileCacheLogConfigurationLevelErrorOnly = FileCacheLogConfigurationLevel("ERROR_ONLY")
+	FileCacheLogConfigurationLevelWarnError = FileCacheLogConfigurationLevel("WARN_ERROR")
+)
+
+func (FileCacheLogConfigurationLevel) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLogConfigurationLevel)(nil)).Elem()
+}
+
+func (e FileCacheLogConfigurationLevel) ToFileCacheLogConfigurationLevelOutput() FileCacheLogConfigurationLevelOutput {
+	return pulumi.ToOutput(e).(FileCacheLogConfigurationLevelOutput)
+}
+
+func (e FileCacheLogConfigurationLevel) ToFileCacheLogConfigurationLevelOutputWithContext(ctx context.Context) FileCacheLogConfigurationLevelOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FileCacheLogConfigurationLevelOutput)
+}
+
+func (e FileCacheLogConfigurationLevel) ToFileCacheLogConfigurationLevelPtrOutput() FileCacheLogConfigurationLevelPtrOutput {
+	return e.ToFileCacheLogConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (e FileCacheLogConfigurationLevel) ToFileCacheLogConfigurationLevelPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationLevelPtrOutput {
+	return FileCacheLogConfigurationLevel(e).ToFileCacheLogConfigurationLevelOutputWithContext(ctx).ToFileCacheLogConfigurationLevelPtrOutputWithContext(ctx)
+}
+
+func (e FileCacheLogConfigurationLevel) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileCacheLogConfigurationLevel) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileCacheLogConfigurationLevel) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FileCacheLogConfigurationLevel) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FileCacheLogConfigurationLevelOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLogConfigurationLevelOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLogConfigurationLevel)(nil)).Elem()
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToFileCacheLogConfigurationLevelOutput() FileCacheLogConfigurationLevelOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToFileCacheLogConfigurationLevelOutputWithContext(ctx context.Context) FileCacheLogConfigurationLevelOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToFileCacheLogConfigurationLevelPtrOutput() FileCacheLogConfigurationLevelPtrOutput {
+	return o.ToFileCacheLogConfigurationLevelPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToFileCacheLogConfigurationLevelPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationLevelPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileCacheLogConfigurationLevel) *FileCacheLogConfigurationLevel {
+		return &v
+	}).(FileCacheLogConfigurationLevelPtrOutput)
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheLogConfigurationLevel) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLogConfigurationLevelOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheLogConfigurationLevel) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileCacheLogConfigurationLevelPtrOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLogConfigurationLevelPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheLogConfigurationLevel)(nil)).Elem()
+}
+
+func (o FileCacheLogConfigurationLevelPtrOutput) ToFileCacheLogConfigurationLevelPtrOutput() FileCacheLogConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationLevelPtrOutput) ToFileCacheLogConfigurationLevelPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationLevelPtrOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationLevelPtrOutput) Elem() FileCacheLogConfigurationLevelOutput {
+	return o.ApplyT(func(v *FileCacheLogConfigurationLevel) FileCacheLogConfigurationLevel {
+		if v != nil {
+			return *v
+		}
+		var ret FileCacheLogConfigurationLevel
+		return ret
+	}).(FileCacheLogConfigurationLevelOutput)
+}
+
+func (o FileCacheLogConfigurationLevelPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLogConfigurationLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FileCacheLogConfigurationLevel) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FileCacheLogConfigurationLevelInput is an input type that accepts values of the FileCacheLogConfigurationLevel enum
+// A concrete instance of `FileCacheLogConfigurationLevelInput` can be one of the following:
+//
+//	FileCacheLogConfigurationLevelDisabled
+//	FileCacheLogConfigurationLevelWarnOnly
+//	FileCacheLogConfigurationLevelErrorOnly
+//	FileCacheLogConfigurationLevelWarnError
+type FileCacheLogConfigurationLevelInput interface {
+	pulumi.Input
+
+	ToFileCacheLogConfigurationLevelOutput() FileCacheLogConfigurationLevelOutput
+	ToFileCacheLogConfigurationLevelOutputWithContext(context.Context) FileCacheLogConfigurationLevelOutput
+}
+
+var fileCacheLogConfigurationLevelPtrType = reflect.TypeOf((**FileCacheLogConfigurationLevel)(nil)).Elem()
+
+type FileCacheLogConfigurationLevelPtrInput interface {
+	pulumi.Input
+
+	ToFileCacheLogConfigurationLevelPtrOutput() FileCacheLogConfigurationLevelPtrOutput
+	ToFileCacheLogConfigurationLevelPtrOutputWithContext(context.Context) FileCacheLogConfigurationLevelPtrOutput
+}
+
+type fileCacheLogConfigurationLevelPtr string
+
+func FileCacheLogConfigurationLevelPtr(v string) FileCacheLogConfigurationLevelPtrInput {
+	return (*fileCacheLogConfigurationLevelPtr)(&v)
+}
+
+func (*fileCacheLogConfigurationLevelPtr) ElementType() reflect.Type {
+	return fileCacheLogConfigurationLevelPtrType
+}
+
+func (in *fileCacheLogConfigurationLevelPtr) ToFileCacheLogConfigurationLevelPtrOutput() FileCacheLogConfigurationLevelPtrOutput {
+	return pulumi.ToOutput(in).(FileCacheLogConfigurationLevelPtrOutput)
+}
+
+func (in *fileCacheLogConfigurationLevelPtr) ToFileCacheLogConfigurationLevelPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationLevelPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FileCacheLogConfigurationLevelPtrOutput)
+}
+
+type FileCacheLustreConfigurationDeploymentType string
+
+const (
+	FileCacheLustreConfigurationDeploymentTypeCache1 = FileCacheLustreConfigurationDeploymentType("CACHE_1")
+)
+
+func (FileCacheLustreConfigurationDeploymentType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfigurationDeploymentType)(nil)).Elem()
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToFileCacheLustreConfigurationDeploymentTypeOutput() FileCacheLustreConfigurationDeploymentTypeOutput {
+	return pulumi.ToOutput(e).(FileCacheLustreConfigurationDeploymentTypeOutput)
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToFileCacheLustreConfigurationDeploymentTypeOutputWithContext(ctx context.Context) FileCacheLustreConfigurationDeploymentTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FileCacheLustreConfigurationDeploymentTypeOutput)
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToFileCacheLustreConfigurationDeploymentTypePtrOutput() FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return e.ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(context.Background())
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return FileCacheLustreConfigurationDeploymentType(e).ToFileCacheLustreConfigurationDeploymentTypeOutputWithContext(ctx).ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(ctx)
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FileCacheLustreConfigurationDeploymentType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FileCacheLustreConfigurationDeploymentTypeOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationDeploymentTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfigurationDeploymentType)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToFileCacheLustreConfigurationDeploymentTypeOutput() FileCacheLustreConfigurationDeploymentTypeOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToFileCacheLustreConfigurationDeploymentTypeOutputWithContext(ctx context.Context) FileCacheLustreConfigurationDeploymentTypeOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToFileCacheLustreConfigurationDeploymentTypePtrOutput() FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return o.ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileCacheLustreConfigurationDeploymentType) *FileCacheLustreConfigurationDeploymentType {
+		return &v
+	}).(FileCacheLustreConfigurationDeploymentTypePtrOutput)
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheLustreConfigurationDeploymentType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheLustreConfigurationDeploymentType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileCacheLustreConfigurationDeploymentTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationDeploymentTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheLustreConfigurationDeploymentType)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypePtrOutput) ToFileCacheLustreConfigurationDeploymentTypePtrOutput() FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypePtrOutput) ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypePtrOutput) Elem() FileCacheLustreConfigurationDeploymentTypeOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfigurationDeploymentType) FileCacheLustreConfigurationDeploymentType {
+		if v != nil {
+			return *v
+		}
+		var ret FileCacheLustreConfigurationDeploymentType
+		return ret
+	}).(FileCacheLustreConfigurationDeploymentTypeOutput)
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLustreConfigurationDeploymentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FileCacheLustreConfigurationDeploymentType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FileCacheLustreConfigurationDeploymentTypeInput is an input type that accepts values of the FileCacheLustreConfigurationDeploymentType enum
+// A concrete instance of `FileCacheLustreConfigurationDeploymentTypeInput` can be one of the following:
+//
+//	FileCacheLustreConfigurationDeploymentTypeCache1
+type FileCacheLustreConfigurationDeploymentTypeInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationDeploymentTypeOutput() FileCacheLustreConfigurationDeploymentTypeOutput
+	ToFileCacheLustreConfigurationDeploymentTypeOutputWithContext(context.Context) FileCacheLustreConfigurationDeploymentTypeOutput
+}
+
+var fileCacheLustreConfigurationDeploymentTypePtrType = reflect.TypeOf((**FileCacheLustreConfigurationDeploymentType)(nil)).Elem()
+
+type FileCacheLustreConfigurationDeploymentTypePtrInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationDeploymentTypePtrOutput() FileCacheLustreConfigurationDeploymentTypePtrOutput
+	ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(context.Context) FileCacheLustreConfigurationDeploymentTypePtrOutput
+}
+
+type fileCacheLustreConfigurationDeploymentTypePtr string
+
+func FileCacheLustreConfigurationDeploymentTypePtr(v string) FileCacheLustreConfigurationDeploymentTypePtrInput {
+	return (*fileCacheLustreConfigurationDeploymentTypePtr)(&v)
+}
+
+func (*fileCacheLustreConfigurationDeploymentTypePtr) ElementType() reflect.Type {
+	return fileCacheLustreConfigurationDeploymentTypePtrType
+}
+
+func (in *fileCacheLustreConfigurationDeploymentTypePtr) ToFileCacheLustreConfigurationDeploymentTypePtrOutput() FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return pulumi.ToOutput(in).(FileCacheLustreConfigurationDeploymentTypePtrOutput)
+}
+
+func (in *fileCacheLustreConfigurationDeploymentTypePtr) ToFileCacheLustreConfigurationDeploymentTypePtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FileCacheLustreConfigurationDeploymentTypePtrOutput)
+}
+
+// The type of cache, which must be LUSTRE
+type FileCacheType string
+
+const (
+	FileCacheTypeLustre = FileCacheType("LUSTRE")
+)
+
+func (FileCacheType) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheType)(nil)).Elem()
+}
+
+func (e FileCacheType) ToFileCacheTypeOutput() FileCacheTypeOutput {
+	return pulumi.ToOutput(e).(FileCacheTypeOutput)
+}
+
+func (e FileCacheType) ToFileCacheTypeOutputWithContext(ctx context.Context) FileCacheTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(FileCacheTypeOutput)
+}
+
+func (e FileCacheType) ToFileCacheTypePtrOutput() FileCacheTypePtrOutput {
+	return e.ToFileCacheTypePtrOutputWithContext(context.Background())
+}
+
+func (e FileCacheType) ToFileCacheTypePtrOutputWithContext(ctx context.Context) FileCacheTypePtrOutput {
+	return FileCacheType(e).ToFileCacheTypeOutputWithContext(ctx).ToFileCacheTypePtrOutputWithContext(ctx)
+}
+
+func (e FileCacheType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileCacheType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e FileCacheType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e FileCacheType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type FileCacheTypeOutput struct{ *pulumi.OutputState }
+
+func (FileCacheTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheType)(nil)).Elem()
+}
+
+func (o FileCacheTypeOutput) ToFileCacheTypeOutput() FileCacheTypeOutput {
+	return o
+}
+
+func (o FileCacheTypeOutput) ToFileCacheTypeOutputWithContext(ctx context.Context) FileCacheTypeOutput {
+	return o
+}
+
+func (o FileCacheTypeOutput) ToFileCacheTypePtrOutput() FileCacheTypePtrOutput {
+	return o.ToFileCacheTypePtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheTypeOutput) ToFileCacheTypePtrOutputWithContext(ctx context.Context) FileCacheTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileCacheType) *FileCacheType {
+		return &v
+	}).(FileCacheTypePtrOutput)
+}
+
+func (o FileCacheTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o FileCacheTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o FileCacheTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e FileCacheType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileCacheTypePtrOutput struct{ *pulumi.OutputState }
+
+func (FileCacheTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheType)(nil)).Elem()
+}
+
+func (o FileCacheTypePtrOutput) ToFileCacheTypePtrOutput() FileCacheTypePtrOutput {
+	return o
+}
+
+func (o FileCacheTypePtrOutput) ToFileCacheTypePtrOutputWithContext(ctx context.Context) FileCacheTypePtrOutput {
+	return o
+}
+
+func (o FileCacheTypePtrOutput) Elem() FileCacheTypeOutput {
+	return o.ApplyT(func(v *FileCacheType) FileCacheType {
+		if v != nil {
+			return *v
+		}
+		var ret FileCacheType
+		return ret
+	}).(FileCacheTypeOutput)
+}
+
+func (o FileCacheTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *FileCacheType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// FileCacheTypeInput is an input type that accepts values of the FileCacheType enum
+// A concrete instance of `FileCacheTypeInput` can be one of the following:
+//
+//	FileCacheTypeLustre
+type FileCacheTypeInput interface {
+	pulumi.Input
+
+	ToFileCacheTypeOutput() FileCacheTypeOutput
+	ToFileCacheTypeOutputWithContext(context.Context) FileCacheTypeOutput
+}
+
+var fileCacheTypePtrType = reflect.TypeOf((**FileCacheType)(nil)).Elem()
+
+type FileCacheTypePtrInput interface {
+	pulumi.Input
+
+	ToFileCacheTypePtrOutput() FileCacheTypePtrOutput
+	ToFileCacheTypePtrOutputWithContext(context.Context) FileCacheTypePtrOutput
+}
+
+type fileCacheTypePtr string
+
+func FileCacheTypePtr(v string) FileCacheTypePtrInput {
+	return (*fileCacheTypePtr)(&v)
+}
+
+func (*fileCacheTypePtr) ElementType() reflect.Type {
+	return fileCacheTypePtrType
+}
+
+func (in *fileCacheTypePtr) ToFileCacheTypePtrOutput() FileCacheTypePtrOutput {
+	return pulumi.ToOutput(in).(FileCacheTypePtrOutput)
+}
+
+func (in *fileCacheTypePtr) ToFileCacheTypePtrOutputWithContext(ctx context.Context) FileCacheTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(FileCacheTypePtrOutput)
 }
 
 // The lifecycle status of the S3 access point attachment.
@@ -817,15 +1595,33 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypeInput)(nil)).Elem(), DataRepositoryAssociationEventType("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypePtrInput)(nil)).Elem(), DataRepositoryAssociationEventType("NEW"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationEventTypeArrayInput)(nil)).Elem(), DataRepositoryAssociationEventTypeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLogConfigurationLevelInput)(nil)).Elem(), FileCacheLogConfigurationLevel("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLogConfigurationLevelPtrInput)(nil)).Elem(), FileCacheLogConfigurationLevel("DISABLED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationDeploymentTypeInput)(nil)).Elem(), FileCacheLustreConfigurationDeploymentType("CACHE_1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationDeploymentTypePtrInput)(nil)).Elem(), FileCacheLustreConfigurationDeploymentType("CACHE_1"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheTypeInput)(nil)).Elem(), FileCacheType("LUSTRE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheTypePtrInput)(nil)).Elem(), FileCacheType("LUSTRE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityTypeInput)(nil)).Elem(), S3AccessPointAttachmentOntapFileSystemIdentityType("UNIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityTypePtrInput)(nil)).Elem(), S3AccessPointAttachmentOntapFileSystemIdentityType("UNIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityTypeInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityType("POSIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOpenZfsFileSystemIdentityTypePtrInput)(nil)).Elem(), S3AccessPointAttachmentOpenZfsFileSystemIdentityType("POSIX"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentTypeInput)(nil)).Elem(), S3AccessPointAttachmentType("OPENZFS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentTypePtrInput)(nil)).Elem(), S3AccessPointAttachmentType("OPENZFS"))
+	pulumi.RegisterOutputType(BackupLifecycleOutput{})
+	pulumi.RegisterOutputType(BackupLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(BackupTypeOutput{})
+	pulumi.RegisterOutputType(BackupTypePtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypePtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationEventTypeArrayOutput{})
+	pulumi.RegisterOutputType(FileCacheLifecycleOutput{})
+	pulumi.RegisterOutputType(FileCacheLifecyclePtrOutput{})
+	pulumi.RegisterOutputType(FileCacheLogConfigurationLevelOutput{})
+	pulumi.RegisterOutputType(FileCacheLogConfigurationLevelPtrOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationDeploymentTypeOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationDeploymentTypePtrOutput{})
+	pulumi.RegisterOutputType(FileCacheTypeOutput{})
+	pulumi.RegisterOutputType(FileCacheTypePtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentLifecycleOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentLifecyclePtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityTypeOutput{})

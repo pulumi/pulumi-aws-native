@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationsListArgs } from "./applicationsList";
+export type ApplicationsList = import("./applicationsList").ApplicationsList;
+export const ApplicationsList: typeof import("./applicationsList").ApplicationsList = null as any;
+utilities.lazyLoad(exports, ["ApplicationsList"], () => require("./applicationsList"));
+
+export { GetApplicationsListArgs, GetApplicationsListResult, GetApplicationsListOutputArgs } from "./getApplicationsList";
+export const getApplicationsList: typeof import("./getApplicationsList").getApplicationsList = null as any;
+export const getApplicationsListOutput: typeof import("./getApplicationsList").getApplicationsListOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationsList","getApplicationsListOutput"], () => require("./getApplicationsList"));
+
 export { GetNotificationChannelArgs, GetNotificationChannelResult, GetNotificationChannelOutputArgs } from "./getNotificationChannel";
 export const getNotificationChannel: typeof import("./getNotificationChannel").getNotificationChannel = null as any;
 export const getNotificationChannelOutput: typeof import("./getNotificationChannel").getNotificationChannelOutput = null as any;
@@ -14,6 +24,11 @@ export { GetPolicyArgs, GetPolicyResult, GetPolicyOutputArgs } from "./getPolicy
 export const getPolicy: typeof import("./getPolicy").getPolicy = null as any;
 export const getPolicyOutput: typeof import("./getPolicy").getPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getPolicy","getPolicyOutput"], () => require("./getPolicy"));
+
+export { GetProtocolsListArgs, GetProtocolsListResult, GetProtocolsListOutputArgs } from "./getProtocolsList";
+export const getProtocolsList: typeof import("./getProtocolsList").getProtocolsList = null as any;
+export const getProtocolsListOutput: typeof import("./getProtocolsList").getProtocolsListOutput = null as any;
+utilities.lazyLoad(exports, ["getProtocolsList","getProtocolsListOutput"], () => require("./getProtocolsList"));
 
 export { GetResourceSetArgs, GetResourceSetResult, GetResourceSetOutputArgs } from "./getResourceSet";
 export const getResourceSet: typeof import("./getResourceSet").getResourceSet = null as any;
@@ -30,6 +45,11 @@ export type Policy = import("./policy").Policy;
 export const Policy: typeof import("./policy").Policy = null as any;
 utilities.lazyLoad(exports, ["Policy"], () => require("./policy"));
 
+export { ProtocolsListArgs } from "./protocolsList";
+export type ProtocolsList = import("./protocolsList").ProtocolsList;
+export const ProtocolsList: typeof import("./protocolsList").ProtocolsList = null as any;
+utilities.lazyLoad(exports, ["ProtocolsList"], () => require("./protocolsList"));
+
 export { ResourceSetArgs } from "./resourceSet";
 export type ResourceSet = import("./resourceSet").ResourceSet;
 export const ResourceSet: typeof import("./resourceSet").ResourceSet = null as any;
@@ -43,10 +63,14 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:fms:ApplicationsList":
+                return new ApplicationsList(name, <any>undefined, { urn })
             case "aws-native:fms:NotificationChannel":
                 return new NotificationChannel(name, <any>undefined, { urn })
             case "aws-native:fms:Policy":
                 return new Policy(name, <any>undefined, { urn })
+            case "aws-native:fms:ProtocolsList":
+                return new ProtocolsList(name, <any>undefined, { urn })
             case "aws-native:fms:ResourceSet":
                 return new ResourceSet(name, <any>undefined, { urn })
             default:

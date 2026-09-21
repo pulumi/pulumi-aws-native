@@ -13,15 +13,15 @@ import * as utilities from "../utilities";
 export function getGraphQlApi(args: GetGraphQlApiArgs, opts?: pulumi.InvokeOptions): Promise<GetGraphQlApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws-native:appsync:getGraphQlApi", {
-        "apiId": args.apiId,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetGraphQlApiArgs {
     /**
-     * Unique AWS AppSync GraphQL API identifier.
+     * The Amazon Resource Name (ARN) of the API key
      */
-    apiId: string;
+    arn: string;
 }
 
 export interface GetGraphQlApiResult {
@@ -132,13 +132,13 @@ export interface GetGraphQlApiResult {
 export function getGraphQlApiOutput(args: GetGraphQlApiOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGraphQlApiResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws-native:appsync:getGraphQlApi", {
-        "apiId": args.apiId,
+        "arn": args.arn,
     }, opts);
 }
 
 export interface GetGraphQlApiOutputArgs {
     /**
-     * Unique AWS AppSync GraphQL API identifier.
+     * The Amazon Resource Name (ARN) of the API key
      */
-    apiId: pulumi.Input<string>;
+    arn: pulumi.Input<string>;
 }

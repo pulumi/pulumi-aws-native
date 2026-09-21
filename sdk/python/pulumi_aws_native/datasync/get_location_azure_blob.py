@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetLocationAzureBlobResult:
-    def __init__(__self__, agent_arns=None, azure_access_tier=None, azure_blob_authentication_type=None, azure_blob_type=None, cmk_secret_config=None, custom_secret_config=None, location_arn=None, location_uri=None, managed_secret_config=None, tags=None):
+    def __init__(__self__, agent_arns=None, azure_access_tier=None, azure_blob_authentication_type=None, azure_blob_type=None, cmk_secret_config=None, custom_secret_config=None, federated_identity=None, location_arn=None, location_uri=None, managed_secret_config=None, tags=None):
         if agent_arns and not isinstance(agent_arns, list):
             raise TypeError("Expected argument 'agent_arns' to be a list")
         pulumi.set(__self__, "agent_arns", agent_arns)
@@ -45,6 +45,9 @@ class GetLocationAzureBlobResult:
         if custom_secret_config and not isinstance(custom_secret_config, dict):
             raise TypeError("Expected argument 'custom_secret_config' to be a dict")
         pulumi.set(__self__, "custom_secret_config", custom_secret_config)
+        if federated_identity and not isinstance(federated_identity, dict):
+            raise TypeError("Expected argument 'federated_identity' to be a dict")
+        pulumi.set(__self__, "federated_identity", federated_identity)
         if location_arn and not isinstance(location_arn, str):
             raise TypeError("Expected argument 'location_arn' to be a str")
         pulumi.set(__self__, "location_arn", location_arn)
@@ -111,6 +114,11 @@ class GetLocationAzureBlobResult:
         return pulumi.get(self, "custom_secret_config")
 
     @_builtins.property
+    @pulumi.getter(name="federatedIdentity")
+    def federated_identity(self) -> Optional['outputs.LocationAzureBlobAzureFederatedIdentityConfig']:
+        return pulumi.get(self, "federated_identity")
+
+    @_builtins.property
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> Optional[_builtins.str]:
         """
@@ -152,6 +160,7 @@ class AwaitableGetLocationAzureBlobResult(GetLocationAzureBlobResult):
             azure_blob_type=self.azure_blob_type,
             cmk_secret_config=self.cmk_secret_config,
             custom_secret_config=self.custom_secret_config,
+            federated_identity=self.federated_identity,
             location_arn=self.location_arn,
             location_uri=self.location_uri,
             managed_secret_config=self.managed_secret_config,
@@ -177,6 +186,7 @@ def get_location_azure_blob(location_arn: Optional[_builtins.str] = None,
         azure_blob_type=pulumi.get(__ret__, 'azure_blob_type'),
         cmk_secret_config=pulumi.get(__ret__, 'cmk_secret_config'),
         custom_secret_config=pulumi.get(__ret__, 'custom_secret_config'),
+        federated_identity=pulumi.get(__ret__, 'federated_identity'),
         location_arn=pulumi.get(__ret__, 'location_arn'),
         location_uri=pulumi.get(__ret__, 'location_uri'),
         managed_secret_config=pulumi.get(__ret__, 'managed_secret_config'),
@@ -199,6 +209,7 @@ def get_location_azure_blob_output(location_arn: pulumi.Input[Optional[_builtins
         azure_blob_type=pulumi.get(__response__, 'azure_blob_type'),
         cmk_secret_config=pulumi.get(__response__, 'cmk_secret_config'),
         custom_secret_config=pulumi.get(__response__, 'custom_secret_config'),
+        federated_identity=pulumi.get(__response__, 'federated_identity'),
         location_arn=pulumi.get(__response__, 'location_arn'),
         location_uri=pulumi.get(__response__, 'location_uri'),
         managed_secret_config=pulumi.get(__response__, 'managed_secret_config'),

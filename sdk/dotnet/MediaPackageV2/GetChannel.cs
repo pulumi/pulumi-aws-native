@@ -68,6 +68,10 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         public readonly string? Arn;
         /// <summary>
+        /// &lt;p&gt;The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.&lt;/p&gt;
+        /// </summary>
+        public readonly ImmutableArray<string> AttachedMultiviewChannels;
+        /// <summary>
         /// &lt;p&gt;The date and time the channel was created.&lt;/p&gt;
         /// </summary>
         public readonly string? CreatedAt;
@@ -91,6 +95,7 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// &lt;p&gt;The date and time the channel was modified.&lt;/p&gt;
         /// </summary>
         public readonly string? ModifiedAt;
+        public readonly Outputs.ChannelMultiviewConfiguration? MultiviewConfiguration;
         /// <summary>
         /// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
         /// </summary>
@@ -100,6 +105,8 @@ namespace Pulumi.AwsNative.MediaPackageV2
         [OutputConstructor]
         private GetChannelResult(
             string? arn,
+
+            ImmutableArray<string> attachedMultiviewChannels,
 
             string? createdAt,
 
@@ -113,17 +120,21 @@ namespace Pulumi.AwsNative.MediaPackageV2
 
             string? modifiedAt,
 
+            Outputs.ChannelMultiviewConfiguration? multiviewConfiguration,
+
             Outputs.ChannelOutputHeaderConfiguration? outputHeaderConfiguration,
 
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            AttachedMultiviewChannels = attachedMultiviewChannels;
             CreatedAt = createdAt;
             Description = description;
             IngestEndpointUrls = ingestEndpointUrls;
             IngestEndpoints = ingestEndpoints;
             InputSwitchConfiguration = inputSwitchConfiguration;
             ModifiedAt = modifiedAt;
+            MultiviewConfiguration = multiviewConfiguration;
             OutputHeaderConfiguration = outputHeaderConfiguration;
             Tags = tags;
         }

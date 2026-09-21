@@ -18,6 +18,8 @@ from ._enums import *
 
 __all__ = [
     'LocationAzureBlobAzureBlobSasConfiguration',
+    'LocationAzureBlobAzureFederatedIdentityConfig',
+    'LocationAzureBlobAzureOidcConfig',
     'LocationAzureBlobCmkSecretConfig',
     'LocationAzureBlobCustomSecretConfig',
     'LocationAzureBlobManagedSecretConfig',
@@ -45,7 +47,10 @@ __all__ = [
     'LocationNfsOnPremConfig',
     'LocationObjectStorageCmkSecretConfig',
     'LocationObjectStorageCustomSecretConfig',
+    'LocationObjectStorageGoogleOidcConfig',
     'LocationObjectStorageManagedSecretConfig',
+    'LocationObjectStorageObjectStorageExternalIdentityConfig',
+    'LocationObjectStorageObjectStorageFederatedIdentityConfig',
     'LocationS3s3Config',
     'LocationSmbCmkSecretConfig',
     'LocationSmbCustomSecretConfig',
@@ -107,6 +112,110 @@ class LocationAzureBlobAzureBlobSasConfiguration(dict):
         Specifies the shared access signature (SAS) token, which indicates the permissions DataSync needs to access your Azure Blob Storage container.
         """
         return pulumi.get(self, "azure_blob_sas_token")
+
+
+@pulumi.output_type
+class LocationAzureBlobAzureFederatedIdentityConfig(dict):
+    """
+    Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIamRole":
+            suggest = "aws_iam_role"
+        elif key == "azureOidc":
+            suggest = "azure_oidc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationAzureBlobAzureFederatedIdentityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationAzureBlobAzureFederatedIdentityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationAzureBlobAzureFederatedIdentityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_iam_role: Optional[_builtins.str] = None,
+                 azure_oidc: Optional['outputs.LocationAzureBlobAzureOidcConfig'] = None):
+        """
+        Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+
+        :param _builtins.str aws_iam_role: Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        if aws_iam_role is not None:
+            pulumi.set(__self__, "aws_iam_role", aws_iam_role)
+        if azure_oidc is not None:
+            pulumi.set(__self__, "azure_oidc", azure_oidc)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIamRole")
+    def aws_iam_role(self) -> Optional[_builtins.str]:
+        """
+        Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        return pulumi.get(self, "aws_iam_role")
+
+    @_builtins.property
+    @pulumi.getter(name="azureOidc")
+    def azure_oidc(self) -> Optional['outputs.LocationAzureBlobAzureOidcConfig']:
+        return pulumi.get(self, "azure_oidc")
+
+
+@pulumi.output_type
+class LocationAzureBlobAzureOidcConfig(dict):
+    """
+    Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationAzureBlobAzureOidcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationAzureBlobAzureOidcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationAzureBlobAzureOidcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: _builtins.str,
+                 tenant_id: _builtins.str):
+        """
+        Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+
+        :param _builtins.str client_id: Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+        :param _builtins.str tenant_id: Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> _builtins.str:
+        """
+        Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+        """
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> _builtins.str:
+        """
+        Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+        """
+        return pulumi.get(self, "tenant_id")
 
 
 @pulumi.output_type
@@ -1333,6 +1442,85 @@ class LocationObjectStorageCustomSecretConfig(dict):
 
 
 @pulumi.output_type
+class LocationObjectStorageGoogleOidcConfig(dict):
+    """
+    Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "identityPoolName":
+            suggest = "identity_pool_name"
+        elif key == "identityProviderName":
+            suggest = "identity_provider_name"
+        elif key == "projectName":
+            suggest = "project_name"
+        elif key == "projectNumber":
+            suggest = "project_number"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationObjectStorageGoogleOidcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationObjectStorageGoogleOidcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationObjectStorageGoogleOidcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 identity_pool_name: _builtins.str,
+                 identity_provider_name: _builtins.str,
+                 project_name: _builtins.str,
+                 project_number: _builtins.str):
+        """
+        Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+
+        :param _builtins.str identity_pool_name: The name of the Google Cloud workload identity pool that DataSync federates with.
+        :param _builtins.str identity_provider_name: The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+        :param _builtins.str project_name: The human-readable Google Cloud project name.
+        :param _builtins.str project_number: The numeric Google Cloud project ID, as a string.
+        """
+        pulumi.set(__self__, "identity_pool_name", identity_pool_name)
+        pulumi.set(__self__, "identity_provider_name", identity_provider_name)
+        pulumi.set(__self__, "project_name", project_name)
+        pulumi.set(__self__, "project_number", project_number)
+
+    @_builtins.property
+    @pulumi.getter(name="identityPoolName")
+    def identity_pool_name(self) -> _builtins.str:
+        """
+        The name of the Google Cloud workload identity pool that DataSync federates with.
+        """
+        return pulumi.get(self, "identity_pool_name")
+
+    @_builtins.property
+    @pulumi.getter(name="identityProviderName")
+    def identity_provider_name(self) -> _builtins.str:
+        """
+        The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+        """
+        return pulumi.get(self, "identity_provider_name")
+
+    @_builtins.property
+    @pulumi.getter(name="projectName")
+    def project_name(self) -> _builtins.str:
+        """
+        The human-readable Google Cloud project name.
+        """
+        return pulumi.get(self, "project_name")
+
+    @_builtins.property
+    @pulumi.getter(name="projectNumber")
+    def project_number(self) -> _builtins.str:
+        """
+        The numeric Google Cloud project ID, as a string.
+        """
+        return pulumi.get(self, "project_number")
+
+
+@pulumi.output_type
 class LocationObjectStorageManagedSecretConfig(dict):
     """
     Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
@@ -1370,6 +1558,93 @@ class LocationObjectStorageManagedSecretConfig(dict):
         Specifies the ARN for an AWS Secrets Manager secret.
         """
         return pulumi.get(self, "secret_arn")
+
+
+@pulumi.output_type
+class LocationObjectStorageObjectStorageExternalIdentityConfig(dict):
+    """
+    Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "googleOidc":
+            suggest = "google_oidc"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationObjectStorageObjectStorageExternalIdentityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationObjectStorageObjectStorageExternalIdentityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationObjectStorageObjectStorageExternalIdentityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 google_oidc: Optional['outputs.LocationObjectStorageGoogleOidcConfig'] = None):
+        """
+        Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+        """
+        if google_oidc is not None:
+            pulumi.set(__self__, "google_oidc", google_oidc)
+
+    @_builtins.property
+    @pulumi.getter(name="googleOidc")
+    def google_oidc(self) -> Optional['outputs.LocationObjectStorageGoogleOidcConfig']:
+        return pulumi.get(self, "google_oidc")
+
+
+@pulumi.output_type
+class LocationObjectStorageObjectStorageFederatedIdentityConfig(dict):
+    """
+    Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "awsIamRole":
+            suggest = "aws_iam_role"
+        elif key == "externalIdentity":
+            suggest = "external_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LocationObjectStorageObjectStorageFederatedIdentityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LocationObjectStorageObjectStorageFederatedIdentityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LocationObjectStorageObjectStorageFederatedIdentityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aws_iam_role: Optional[_builtins.str] = None,
+                 external_identity: Optional['outputs.LocationObjectStorageObjectStorageExternalIdentityConfig'] = None):
+        """
+        Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+
+        :param _builtins.str aws_iam_role: Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        if aws_iam_role is not None:
+            pulumi.set(__self__, "aws_iam_role", aws_iam_role)
+        if external_identity is not None:
+            pulumi.set(__self__, "external_identity", external_identity)
+
+    @_builtins.property
+    @pulumi.getter(name="awsIamRole")
+    def aws_iam_role(self) -> Optional[_builtins.str]:
+        """
+        Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+        """
+        return pulumi.get(self, "aws_iam_role")
+
+    @_builtins.property
+    @pulumi.getter(name="externalIdentity")
+    def external_identity(self) -> Optional['outputs.LocationObjectStorageObjectStorageExternalIdentityConfig']:
+        return pulumi.get(self, "external_identity")
 
 
 @pulumi.output_type
@@ -1886,6 +2161,8 @@ class TaskOptions(dict):
             suggest = "bytes_per_second"
         elif key == "logLevel":
             suggest = "log_level"
+        elif key == "objectMetadata":
+            suggest = "object_metadata"
         elif key == "objectTags":
             suggest = "object_tags"
         elif key == "overwriteMode":
@@ -1922,6 +2199,7 @@ class TaskOptions(dict):
                  gid: Optional['TaskOptionsGid'] = None,
                  log_level: Optional['TaskOptionsLogLevel'] = None,
                  mtime: Optional['TaskOptionsMtime'] = None,
+                 object_metadata: Optional['TaskOptionsObjectMetadata'] = None,
                  object_tags: Optional['TaskOptionsObjectTags'] = None,
                  overwrite_mode: Optional['TaskOptionsOverwriteMode'] = None,
                  posix_permissions: Optional['TaskOptionsPosixPermissions'] = None,
@@ -1940,6 +2218,7 @@ class TaskOptions(dict):
         :param 'TaskOptionsGid' gid: The group ID (GID) of the file's owners.
         :param 'TaskOptionsLogLevel' log_level: A value that determines the types of logs that DataSync publishes to a log stream in the Amazon CloudWatch log group that you provide.
         :param 'TaskOptionsMtime' mtime: A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
+        :param 'TaskOptionsObjectMetadata' object_metadata: A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
         :param 'TaskOptionsObjectTags' object_tags: A value that determines whether object tags should be read from the source object store and written to the destination object store.
         :param 'TaskOptionsOverwriteMode' overwrite_mode: A value that determines whether files at the destination should be overwritten or preserved when copying files.
         :param 'TaskOptionsPosixPermissions' posix_permissions: A value that determines which users or groups can access a file for a specific purpose such as reading, writing, or execution of the file.
@@ -1961,6 +2240,8 @@ class TaskOptions(dict):
             pulumi.set(__self__, "log_level", log_level)
         if mtime is not None:
             pulumi.set(__self__, "mtime", mtime)
+        if object_metadata is not None:
+            pulumi.set(__self__, "object_metadata", object_metadata)
         if object_tags is not None:
             pulumi.set(__self__, "object_tags", object_tags)
         if overwrite_mode is not None:
@@ -2021,6 +2302,14 @@ class TaskOptions(dict):
         A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
         """
         return pulumi.get(self, "mtime")
+
+    @_builtins.property
+    @pulumi.getter(name="objectMetadata")
+    def object_metadata(self) -> Optional['TaskOptionsObjectMetadata']:
+        """
+        A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+        """
+        return pulumi.get(self, "object_metadata")
 
     @_builtins.property
     @pulumi.getter(name="objectTags")

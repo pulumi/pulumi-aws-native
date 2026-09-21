@@ -27,6 +27,7 @@ export type LocationAzureBlobAzureAccessTier = (typeof LocationAzureBlobAzureAcc
 export const LocationAzureBlobAzureBlobAuthenticationType = {
     Sas: "SAS",
     None: "NONE",
+    Oidc: "OIDC",
 } as const;
 
 /**
@@ -81,6 +82,7 @@ export const LocationFSxOpenZfsMountOptionsVersion = {
     Nfs3: "NFS3",
     Nfs40: "NFS4_0",
     Nfs41: "NFS4_1",
+    Nfs42: "NFS4_2",
 } as const;
 
 /**
@@ -127,6 +129,7 @@ export const LocationNfsMountOptionsVersion = {
     Nfs3: "NFS3",
     Nfs40: "NFS4_0",
     Nfs41: "NFS4_1",
+    Nfs42: "NFS4_2",
 } as const;
 
 /**
@@ -281,6 +284,16 @@ export const TaskOptionsMtime = {
  * A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
  */
 export type TaskOptionsMtime = (typeof TaskOptionsMtime)[keyof typeof TaskOptionsMtime];
+
+export const TaskOptionsObjectMetadata = {
+    Preserve: "PRESERVE",
+    None: "NONE",
+} as const;
+
+/**
+ * A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+ */
+export type TaskOptionsObjectMetadata = (typeof TaskOptionsObjectMetadata)[keyof typeof TaskOptionsObjectMetadata];
 
 export const TaskOptionsObjectTags = {
     Preserve: "PRESERVE",

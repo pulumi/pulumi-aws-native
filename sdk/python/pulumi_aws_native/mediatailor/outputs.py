@@ -23,6 +23,7 @@ __all__ = [
     'ChannelRequestOutputItem',
     'ChannelSlateSource',
     'ChannelTimeShiftConfiguration',
+    'FunctionConcurrentExecutorConfiguration',
     'FunctionCustomOutputConfiguration',
     'FunctionHttpRequestConfiguration',
     'FunctionRef',
@@ -419,6 +420,90 @@ class ChannelTimeShiftConfiguration(dict):
 
 
 @pulumi.output_type
+class FunctionConcurrentExecutorConfiguration(dict):
+    """
+    The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "functionList":
+            suggest = "function_list"
+        elif key == "maxConcurrency":
+            suggest = "max_concurrency"
+        elif key == "timeoutMilliseconds":
+            suggest = "timeout_milliseconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionConcurrentExecutorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionConcurrentExecutorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionConcurrentExecutorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 function_list: Sequence['outputs.FunctionRef'],
+                 max_concurrency: _builtins.int,
+                 output: Mapping[str, _builtins.str],
+                 runtime: 'FunctionRuntimeType',
+                 timeout_milliseconds: _builtins.int):
+        """
+        The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
+
+        :param Sequence['FunctionRef'] function_list: The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
+        :param _builtins.int max_concurrency: The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2.
+        :param Mapping[str, _builtins.str] output: A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+        :param _builtins.int timeout_milliseconds: The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000.
+        """
+        pulumi.set(__self__, "function_list", function_list)
+        pulumi.set(__self__, "max_concurrency", max_concurrency)
+        pulumi.set(__self__, "output", output)
+        pulumi.set(__self__, "runtime", runtime)
+        pulumi.set(__self__, "timeout_milliseconds", timeout_milliseconds)
+
+    @_builtins.property
+    @pulumi.getter(name="functionList")
+    def function_list(self) -> Sequence['outputs.FunctionRef']:
+        """
+        The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
+        """
+        return pulumi.get(self, "function_list")
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrency")
+    def max_concurrency(self) -> _builtins.int:
+        """
+        The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2.
+        """
+        return pulumi.get(self, "max_concurrency")
+
+    @_builtins.property
+    @pulumi.getter
+    def output(self) -> Mapping[str, _builtins.str]:
+        """
+        A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+        """
+        return pulumi.get(self, "output")
+
+    @_builtins.property
+    @pulumi.getter
+    def runtime(self) -> 'FunctionRuntimeType':
+        return pulumi.get(self, "runtime")
+
+    @_builtins.property
+    @pulumi.getter(name="timeoutMilliseconds")
+    def timeout_milliseconds(self) -> _builtins.int:
+        """
+        The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000.
+        """
+        return pulumi.get(self, "timeout_milliseconds")
+
+
+@pulumi.output_type
 class FunctionCustomOutputConfiguration(dict):
     """
     Configuration for custom output functions.
@@ -567,7 +652,7 @@ class FunctionHttpRequestConfiguration(dict):
 @pulumi.output_type
 class FunctionRef(dict):
     """
-    A reference to a function with an optional run condition.
+    A reference to a child function within an executor function.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -589,24 +674,36 @@ class FunctionRef(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 alias: Optional[_builtins.str] = None,
                  function_id: Optional[_builtins.str] = None,
                  run_condition: Optional[_builtins.str] = None):
         """
-        A reference to a function with an optional run condition.
+        A reference to a child function within an executor function.
 
-        :param _builtins.str function_id: The identifier of the function to execute.
-        :param _builtins.str run_condition: A conditional expression that determines whether this function should execute.
+        :param _builtins.str alias: An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list.
+        :param _builtins.str function_id: The identifier of the child function to execute.
+        :param _builtins.str run_condition: An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs.
         """
+        if alias is not None:
+            pulumi.set(__self__, "alias", alias)
         if function_id is not None:
             pulumi.set(__self__, "function_id", function_id)
         if run_condition is not None:
             pulumi.set(__self__, "run_condition", run_condition)
 
     @_builtins.property
+    @pulumi.getter
+    def alias(self) -> Optional[_builtins.str]:
+        """
+        An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list.
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
     @pulumi.getter(name="functionId")
     def function_id(self) -> Optional[_builtins.str]:
         """
-        The identifier of the function to execute.
+        The identifier of the child function to execute.
         """
         return pulumi.get(self, "function_id")
 
@@ -614,7 +711,7 @@ class FunctionRef(dict):
     @pulumi.getter(name="runCondition")
     def run_condition(self) -> Optional[_builtins.str]:
         """
-        A conditional expression that determines whether this function should execute.
+        An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs.
         """
         return pulumi.get(self, "run_condition")
 
@@ -622,7 +719,7 @@ class FunctionRef(dict):
 @pulumi.output_type
 class FunctionSequentialExecutorConfiguration(dict):
     """
-    Configuration for sequential executor functions.
+    The configuration for a SEQUENTIAL_EXECUTOR function. A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -649,12 +746,11 @@ class FunctionSequentialExecutorConfiguration(dict):
                  timeout_milliseconds: _builtins.int,
                  output: Optional[Mapping[str, _builtins.str]] = None):
         """
-        Configuration for sequential executor functions.
+        The configuration for a SEQUENTIAL_EXECUTOR function. A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
 
-        :param Sequence['FunctionRef'] function_list: The list of functions to execute sequentially.
-        :param 'FunctionRuntimeType' runtime: The runtime environment for the function expression language.
-        :param _builtins.int timeout_milliseconds: The timeout in milliseconds for the entire sequential execution chain.
-        :param Mapping[str, _builtins.str] output: A map of output key-value pairs that define the final output from sequential execution.
+        :param Sequence['FunctionRef'] function_list: An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list.
+        :param _builtins.int timeout_milliseconds: The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000.
+        :param Mapping[str, _builtins.str] output: A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.
         """
         pulumi.set(__self__, "function_list", function_list)
         pulumi.set(__self__, "runtime", runtime)
@@ -666,23 +762,20 @@ class FunctionSequentialExecutorConfiguration(dict):
     @pulumi.getter(name="functionList")
     def function_list(self) -> Sequence['outputs.FunctionRef']:
         """
-        The list of functions to execute sequentially.
+        An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list.
         """
         return pulumi.get(self, "function_list")
 
     @_builtins.property
     @pulumi.getter
     def runtime(self) -> 'FunctionRuntimeType':
-        """
-        The runtime environment for the function expression language.
-        """
         return pulumi.get(self, "runtime")
 
     @_builtins.property
     @pulumi.getter(name="timeoutMilliseconds")
     def timeout_milliseconds(self) -> _builtins.int:
         """
-        The timeout in milliseconds for the entire sequential execution chain.
+        The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000.
         """
         return pulumi.get(self, "timeout_milliseconds")
 
@@ -690,7 +783,7 @@ class FunctionSequentialExecutorConfiguration(dict):
     @pulumi.getter
     def output(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        A map of output key-value pairs that define the final output from sequential execution.
+        A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.
         """
         return pulumi.get(self, "output")
 

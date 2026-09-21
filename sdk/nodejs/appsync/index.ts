@@ -10,6 +10,11 @@ export type Api = import("./api").Api;
 export const Api: typeof import("./api").Api = null as any;
 utilities.lazyLoad(exports, ["Api"], () => require("./api"));
 
+export { ApiKeyArgs } from "./apiKey";
+export type ApiKey = import("./apiKey").ApiKey;
+export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
+utilities.lazyLoad(exports, ["ApiKey"], () => require("./apiKey"));
+
 export { ChannelNamespaceArgs } from "./channelNamespace";
 export type ChannelNamespace = import("./channelNamespace").ChannelNamespace;
 export const ChannelNamespace: typeof import("./channelNamespace").ChannelNamespace = null as any;
@@ -39,6 +44,11 @@ export { GetApiArgs, GetApiResult, GetApiOutputArgs } from "./getApi";
 export const getApi: typeof import("./getApi").getApi = null as any;
 export const getApiOutput: typeof import("./getApi").getApiOutput = null as any;
 utilities.lazyLoad(exports, ["getApi","getApiOutput"], () => require("./getApi"));
+
+export { GetApiKeyArgs, GetApiKeyResult, GetApiKeyOutputArgs } from "./getApiKey";
+export const getApiKey: typeof import("./getApiKey").getApiKey = null as any;
+export const getApiKeyOutput: typeof import("./getApiKey").getApiKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getApiKey","getApiKeyOutput"], () => require("./getApiKey"));
 
 export { GetChannelNamespaceArgs, GetChannelNamespaceResult, GetChannelNamespaceOutputArgs } from "./getChannelNamespace";
 export const getChannelNamespace: typeof import("./getChannelNamespace").getChannelNamespace = null as any;
@@ -115,6 +125,8 @@ const _module = {
         switch (type) {
             case "aws-native:appsync:Api":
                 return new Api(name, <any>undefined, { urn })
+            case "aws-native:appsync:ApiKey":
+                return new ApiKey(name, <any>undefined, { urn })
             case "aws-native:appsync:ChannelNamespace":
                 return new ChannelNamespace(name, <any>undefined, { urn })
             case "aws-native:appsync:DataSource":

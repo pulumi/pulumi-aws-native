@@ -24,12 +24,16 @@ __all__ = [
     'ListenerForwardArgsDict',
     'ListenerWeightedTargetGroupArgs',
     'ListenerWeightedTargetGroupArgsDict',
+    'ResourceConfigurationCidrResourceArgs',
+    'ResourceConfigurationCidrResourceArgsDict',
     'ResourceConfigurationDefinition0PropertiesArgs',
     'ResourceConfigurationDefinition0PropertiesArgsDict',
     'ResourceConfigurationDefinition1PropertiesArgs',
     'ResourceConfigurationDefinition1PropertiesArgsDict',
     'ResourceConfigurationDefinition2PropertiesArgs',
     'ResourceConfigurationDefinition2PropertiesArgsDict',
+    'ResourceConfigurationDefinition3PropertiesArgs',
+    'ResourceConfigurationDefinition3PropertiesArgsDict',
     'ResourceConfigurationDnsResourceArgs',
     'ResourceConfigurationDnsResourceArgsDict',
     'RuleActionArgs',
@@ -229,6 +233,25 @@ class ListenerWeightedTargetGroupArgs:
         pulumi.set(self, "weight", value)
 
 
+class ResourceConfigurationCidrResourceArgsDict(TypedDict):
+    cidr_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+
+@pulumi.input_type
+class ResourceConfigurationCidrResourceArgs:
+    def __init__(__self__, *,
+                 cidr_ranges: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(__self__, "cidr_ranges", cidr_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRanges")
+    def cidr_ranges(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "cidr_ranges")
+
+    @cidr_ranges.setter
+    def cidr_ranges(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "cidr_ranges", value)
+
+
 class ResourceConfigurationDefinition0PropertiesArgsDict(TypedDict):
     """
     Identifies the resource configuration in one of the following ways:
@@ -326,6 +349,39 @@ class ResourceConfigurationDefinition2PropertiesArgs:
     @dns_resource.setter
     def dns_resource(self, value: pulumi.Input['ResourceConfigurationDnsResourceArgs']):
         pulumi.set(self, "dns_resource", value)
+
+
+class ResourceConfigurationDefinition3PropertiesArgsDict(TypedDict):
+    """
+    Identifies the resource configuration in one of the following ways:
+
+    - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+    - *Domain name* - Any domain name that is publicly resolvable.
+    - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+    """
+    cidr_resource: pulumi.Input['ResourceConfigurationCidrResourceArgsDict']
+
+@pulumi.input_type
+class ResourceConfigurationDefinition3PropertiesArgs:
+    def __init__(__self__, *,
+                 cidr_resource: pulumi.Input['ResourceConfigurationCidrResourceArgs']):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
+        pulumi.set(__self__, "cidr_resource", cidr_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrResource")
+    def cidr_resource(self) -> pulumi.Input['ResourceConfigurationCidrResourceArgs']:
+        return pulumi.get(self, "cidr_resource")
+
+    @cidr_resource.setter
+    def cidr_resource(self, value: pulumi.Input['ResourceConfigurationCidrResourceArgs']):
+        pulumi.set(self, "cidr_resource", value)
 
 
 class ResourceConfigurationDnsResourceArgsDict(TypedDict):

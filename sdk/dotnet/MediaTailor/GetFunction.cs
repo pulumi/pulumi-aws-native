@@ -67,6 +67,10 @@ namespace Pulumi.AwsNative.MediaTailor
         /// The ARN of the function.
         /// </summary>
         public readonly string? Arn;
+        /// <summary>
+        /// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+        /// </summary>
+        public readonly Outputs.FunctionConcurrentExecutorConfiguration? ConcurrentExecutorConfiguration;
         public readonly Outputs.FunctionCustomOutputConfiguration? CustomOutputConfiguration;
         /// <summary>
         /// A description of the function.
@@ -87,6 +91,8 @@ namespace Pulumi.AwsNative.MediaTailor
         private GetFunctionResult(
             string? arn,
 
+            Outputs.FunctionConcurrentExecutorConfiguration? concurrentExecutorConfiguration,
+
             Outputs.FunctionCustomOutputConfiguration? customOutputConfiguration,
 
             string? description,
@@ -100,6 +106,7 @@ namespace Pulumi.AwsNative.MediaTailor
             ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Arn = arn;
+            ConcurrentExecutorConfiguration = concurrentExecutorConfiguration;
             CustomOutputConfiguration = customOutputConfiguration;
             Description = description;
             FunctionType = functionType;

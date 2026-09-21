@@ -14,6 +14,87 @@ import (
 )
 
 // Resource Type definition for AWS::SageMaker::NotebookInstance
+//
+// ## Example Usage
+// ### Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/base64"
+//
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/sagemaker"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			basicNotebookInstanceLifecycleConfig, err := sagemaker.NewNotebookInstanceLifecycleConfig(ctx, "basicNotebookInstanceLifecycleConfig", &sagemaker.NotebookInstanceLifecycleConfigArgs{
+//				OnStart: sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray{
+//					&sagemaker.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs{
+//						Content: pulumi.String(base64.StdEncoding.EncodeToString([]byte("echo 'hello'"))),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			executionRole, err := iam.NewRole(ctx, "executionRole", &iam.RoleArgs{
+//				AssumeRolePolicyDocument: pulumi.Any(map[string]interface{}{
+//					"version": "2012-10-17",
+//					"statement": []map[string]interface{}{
+//						map[string]interface{}{
+//							"effect": "Allow",
+//							"principal": map[string][]string{
+//								"service": []string{
+//									"sagemaker.amazonaws.com",
+//								},
+//							},
+//							"action": []string{
+//								"sts:AssumeRole",
+//							},
+//						},
+//					},
+//				}),
+//				Path: pulumi.String("/"),
+//				Policies: iam.RolePolicyTypeArray{
+//					&iam.RolePolicyTypeArgs{
+//						PolicyName: pulumi.String("root"),
+//						PolicyDocument: pulumi.Any(map[string]interface{}{
+//							"version": "2012-10-17",
+//							"statement": []map[string]string{
+//								{
+//									"effect":   "Allow",
+//									"action":   "*",
+//									"resource": "*",
+//								},
+//							},
+//						}),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			basicNotebookInstance, err := sagemaker.NewNotebookInstance(ctx, "basicNotebookInstance", &sagemaker.NotebookInstanceArgs{
+//				InstanceType:        pulumi.String("ml.t2.medium"),
+//				RoleArn:             executionRole.Arn,
+//				LifecycleConfigName: basicNotebookInstanceLifecycleConfig.NotebookInstanceLifecycleConfigName,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("basicNotebookInstanceId", basicNotebookInstance.ID())
+//			ctx.Export("basicNotebookInstanceLifecycleConfigId", basicNotebookInstanceLifecycleConfig.ID())
+//			return nil
+//		})
+//	}
+//
+// ```
 type NotebookInstance struct {
 	pulumi.CustomResourceState
 

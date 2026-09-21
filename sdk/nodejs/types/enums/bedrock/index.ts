@@ -520,6 +520,7 @@ export const DataSourceParsingStrategy = {
     BedrockFoundationModel: "BEDROCK_FOUNDATION_MODEL",
     BedrockDataAutomation: "BEDROCK_DATA_AUTOMATION",
     SmartParsing: "SMART_PARSING",
+    MultiModalEmbeddings: "MULTI_MODAL_EMBEDDINGS",
 } as const;
 
 /**

@@ -35789,6 +35789,8 @@ type KnowledgeBaseBedrockEmbeddingModelConfiguration struct {
 	Dimensions *int `pulumi:"dimensions"`
 	// The data type for the vectors when using a model to convert text into vector embeddings.
 	EmbeddingDataType *KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType `pulumi:"embeddingDataType"`
+	// Model-specific configuration for the embedding model.
+	ModelConfiguration interface{} `pulumi:"modelConfiguration"`
 	// Configuration settings for processing video content in multimodal knowledge bases.
 	Video []KnowledgeBaseVideoConfiguration `pulumi:"video"`
 }
@@ -35812,6 +35814,8 @@ type KnowledgeBaseBedrockEmbeddingModelConfigurationArgs struct {
 	Dimensions pulumi.IntPtrInput `pulumi:"dimensions"`
 	// The data type for the vectors when using a model to convert text into vector embeddings.
 	EmbeddingDataType KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrInput `pulumi:"embeddingDataType"`
+	// Model-specific configuration for the embedding model.
+	ModelConfiguration pulumi.Input `pulumi:"modelConfiguration"`
 	// Configuration settings for processing video content in multimodal knowledge bases.
 	Video KnowledgeBaseVideoConfigurationArrayInput `pulumi:"video"`
 }
@@ -35913,6 +35917,11 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) EmbeddingDataType
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
 }
 
+// Model-specific configuration for the embedding model.
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) ModelConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) interface{} { return v.ModelConfiguration }).(pulumi.AnyOutput)
+}
+
 // Configuration settings for processing video content in multimodal knowledge bases.
 func (o KnowledgeBaseBedrockEmbeddingModelConfigurationOutput) Video() KnowledgeBaseVideoConfigurationArrayOutput {
 	return o.ApplyT(func(v KnowledgeBaseBedrockEmbeddingModelConfiguration) []KnowledgeBaseVideoConfiguration {
@@ -35972,6 +35981,16 @@ func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) EmbeddingDataT
 		}
 		return v.EmbeddingDataType
 	}).(KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataTypePtrOutput)
+}
+
+// Model-specific configuration for the embedding model.
+func (o KnowledgeBaseBedrockEmbeddingModelConfigurationPtrOutput) ModelConfiguration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *KnowledgeBaseBedrockEmbeddingModelConfiguration) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.ModelConfiguration
+	}).(pulumi.AnyOutput)
 }
 
 // Configuration settings for processing video content in multimodal knowledge bases.
@@ -36541,10 +36560,11 @@ func (o KnowledgeBaseKendraKnowledgeBaseConfigurationPtrOutput) KendraIndexArn()
 // Contains details about the model used to create vector embeddings for a managed knowledge base.
 type KnowledgeBaseManagedKnowledgeBaseConfiguration struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn                 *string                                                             `pulumi:"embeddingModelArn"`
-	EmbeddingModelConfiguration       *KnowledgeBaseEmbeddingModelConfiguration                           `pulumi:"embeddingModelConfiguration"`
-	EmbeddingModelType                *KnowledgeBaseEmbeddingModelType                                    `pulumi:"embeddingModelType"`
-	ServerSideEncryptionConfiguration *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
+	EmbeddingModelArn                    *string                                                             `pulumi:"embeddingModelArn"`
+	EmbeddingModelConfiguration          *KnowledgeBaseEmbeddingModelConfiguration                           `pulumi:"embeddingModelConfiguration"`
+	EmbeddingModelType                   *KnowledgeBaseEmbeddingModelType                                    `pulumi:"embeddingModelType"`
+	ServerSideEncryptionConfiguration    *KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration `pulumi:"serverSideEncryptionConfiguration"`
+	SupplementalDataStorageConfiguration *KnowledgeBaseSupplementalDataStorageConfiguration                  `pulumi:"supplementalDataStorageConfiguration"`
 }
 
 // KnowledgeBaseManagedKnowledgeBaseConfigurationInput is an input type that accepts KnowledgeBaseManagedKnowledgeBaseConfigurationArgs and KnowledgeBaseManagedKnowledgeBaseConfigurationOutput values.
@@ -36561,10 +36581,11 @@ type KnowledgeBaseManagedKnowledgeBaseConfigurationInput interface {
 // Contains details about the model used to create vector embeddings for a managed knowledge base.
 type KnowledgeBaseManagedKnowledgeBaseConfigurationArgs struct {
 	// The ARN of the model used to create vector embeddings for the knowledge base.
-	EmbeddingModelArn                 pulumi.StringPtrInput                                                      `pulumi:"embeddingModelArn"`
-	EmbeddingModelConfiguration       KnowledgeBaseEmbeddingModelConfigurationPtrInput                           `pulumi:"embeddingModelConfiguration"`
-	EmbeddingModelType                KnowledgeBaseEmbeddingModelTypePtrInput                                    `pulumi:"embeddingModelType"`
-	ServerSideEncryptionConfiguration KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput `pulumi:"serverSideEncryptionConfiguration"`
+	EmbeddingModelArn                    pulumi.StringPtrInput                                                      `pulumi:"embeddingModelArn"`
+	EmbeddingModelConfiguration          KnowledgeBaseEmbeddingModelConfigurationPtrInput                           `pulumi:"embeddingModelConfiguration"`
+	EmbeddingModelType                   KnowledgeBaseEmbeddingModelTypePtrInput                                    `pulumi:"embeddingModelType"`
+	ServerSideEncryptionConfiguration    KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrInput `pulumi:"serverSideEncryptionConfiguration"`
+	SupplementalDataStorageConfiguration KnowledgeBaseSupplementalDataStorageConfigurationPtrInput                  `pulumi:"supplementalDataStorageConfiguration"`
 }
 
 func (KnowledgeBaseManagedKnowledgeBaseConfigurationArgs) ElementType() reflect.Type {
@@ -36668,6 +36689,12 @@ func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) ServerSideEncrypti
 	}).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
 }
 
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationOutput) SupplementalDataStorageConfiguration() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseSupplementalDataStorageConfiguration {
+		return v.SupplementalDataStorageConfiguration
+	}).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
+}
+
 type KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput struct{ *pulumi.OutputState }
 
 func (KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) ElementType() reflect.Type {
@@ -36727,6 +36754,15 @@ func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) ServerSideEncry
 		}
 		return v.ServerSideEncryptionConfiguration
 	}).(KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfigurationPtrOutput)
+}
+
+func (o KnowledgeBaseManagedKnowledgeBaseConfigurationPtrOutput) SupplementalDataStorageConfiguration() KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *KnowledgeBaseManagedKnowledgeBaseConfiguration) *KnowledgeBaseSupplementalDataStorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SupplementalDataStorageConfiguration
+	}).(KnowledgeBaseSupplementalDataStorageConfigurationPtrOutput)
 }
 
 // Contains details about the server-side encryption for the managed knowledge base.

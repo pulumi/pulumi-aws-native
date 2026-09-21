@@ -17,6 +17,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApplicationsListApp',
     'PolicyIeMap',
     'PolicyNetworkAclCommonPolicy',
     'PolicyNetworkAclEntry',
@@ -29,6 +30,68 @@ __all__ = [
     'PolicySecurityServicePolicyData',
     'PolicyThirdPartyFirewallPolicy',
 ]
+
+@pulumi.output_type
+class ApplicationsListApp(dict):
+    """
+    An individual Firewall Manager application.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appName":
+            suggest = "app_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationsListApp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationsListApp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationsListApp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 app_name: _builtins.str,
+                 port: _builtins.int,
+                 protocol: _builtins.str):
+        """
+        An individual Firewall Manager application.
+
+        :param _builtins.str app_name: The application's name.
+        :param _builtins.int port: The application's port number, for example 80.
+        :param _builtins.str protocol: The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        """
+        pulumi.set(__self__, "app_name", app_name)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+
+    @_builtins.property
+    @pulumi.getter(name="appName")
+    def app_name(self) -> _builtins.str:
+        """
+        The application's name.
+        """
+        return pulumi.get(self, "app_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        The application's port number, for example 80.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+        """
+        return pulumi.get(self, "protocol")
+
 
 @pulumi.output_type
 class PolicyIeMap(dict):

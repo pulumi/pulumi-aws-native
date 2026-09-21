@@ -91,7 +91,7 @@
           "type" : "string",
           "maxLength" : 255,
           "minLength" : 1,
-          "pattern" : "^[A-Za-z0-9_.-:]+$"
+          "pattern" : "^[A-Za-z0-9_.:-]+$"
         },
         "InboundTokenClaimValueType" : {
           "$ref" : "#/definitions/InboundTokenClaimValueType"

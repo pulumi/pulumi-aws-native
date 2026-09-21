@@ -8287,6 +8287,7 @@ const (
 	DataSourceParsingStrategyBedrockFoundationModel = DataSourceParsingStrategy("BEDROCK_FOUNDATION_MODEL")
 	DataSourceParsingStrategyBedrockDataAutomation  = DataSourceParsingStrategy("BEDROCK_DATA_AUTOMATION")
 	DataSourceParsingStrategySmartParsing           = DataSourceParsingStrategy("SMART_PARSING")
+	DataSourceParsingStrategyMultiModalEmbeddings   = DataSourceParsingStrategy("MULTI_MODAL_EMBEDDINGS")
 )
 
 func (DataSourceParsingStrategy) ElementType() reflect.Type {
@@ -8414,6 +8415,7 @@ func (o DataSourceParsingStrategyPtrOutput) ToStringPtrOutputWithContext(ctx con
 //	DataSourceParsingStrategyBedrockFoundationModel
 //	DataSourceParsingStrategyBedrockDataAutomation
 //	DataSourceParsingStrategySmartParsing
+//	DataSourceParsingStrategyMultiModalEmbeddings
 type DataSourceParsingStrategyInput interface {
 	pulumi.Input
 

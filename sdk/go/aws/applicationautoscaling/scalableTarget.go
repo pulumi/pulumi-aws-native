@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-aws-native/sdk/go/aws"
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -85,6 +86,7 @@ type ScalableTarget struct {
 	//   +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
 	//   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
 	SuspendedState ScalableTargetSuspendedStatePtrOutput `pulumi:"suspendedState"`
+	Tags           aws.TagArrayOutput                    `pulumi:"tags"`
 }
 
 // NewScalableTarget registers a new resource with the given unique name, arguments, and options.
@@ -213,6 +215,7 @@ type scalableTargetArgs struct {
 	//   +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
 	//   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
 	SuspendedState *ScalableTargetSuspendedState `pulumi:"suspendedState"`
+	Tags           []aws.Tag                     `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ScalableTarget resource.
@@ -282,6 +285,7 @@ type ScalableTargetArgs struct {
 	//   +  For ``DynamicScalingOutSuspended``, while a suspension is in effect, all scale-out activities that are triggered by a scaling policy are suspended.
 	//   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
 	SuspendedState ScalableTargetSuspendedStatePtrInput
+	Tags           aws.TagArrayInput
 }
 
 func (ScalableTargetArgs) ElementType() reflect.Type {
@@ -414,6 +418,10 @@ func (o ScalableTargetOutput) ServiceNamespace() pulumi.StringOutput {
 //	+  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
 func (o ScalableTargetOutput) SuspendedState() ScalableTargetSuspendedStatePtrOutput {
 	return o.ApplyT(func(v *ScalableTarget) ScalableTargetSuspendedStatePtrOutput { return v.SuspendedState }).(ScalableTargetSuspendedStatePtrOutput)
+}
+
+func (o ScalableTargetOutput) Tags() aws.TagArrayOutput {
+	return o.ApplyT(func(v *ScalableTarget) aws.TagArrayOutput { return v.Tags }).(aws.TagArrayOutput)
 }
 
 func init() {

@@ -2,6 +2,32 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const BackupLifecycle = {
+    Available: "AVAILABLE",
+    Creating: "CREATING",
+    Transferring: "TRANSFERRING",
+    Deleted: "DELETED",
+    Failed: "FAILED",
+    Pending: "PENDING",
+    Copying: "COPYING",
+} as const;
+
+/**
+ * The lifecycle status of the backup.
+ */
+export type BackupLifecycle = (typeof BackupLifecycle)[keyof typeof BackupLifecycle];
+
+export const BackupType = {
+    Automatic: "AUTOMATIC",
+    UserInitiated: "USER_INITIATED",
+    AwsBackup: "AWS_BACKUP",
+} as const;
+
+/**
+ * The type of the backup.
+ */
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
 export const DataRepositoryAssociationEventType = {
     New: "NEW",
     Changed: "CHANGED",
@@ -9,6 +35,43 @@ export const DataRepositoryAssociationEventType = {
 } as const;
 
 export type DataRepositoryAssociationEventType = (typeof DataRepositoryAssociationEventType)[keyof typeof DataRepositoryAssociationEventType];
+
+export const FileCacheLifecycle = {
+    Available: "AVAILABLE",
+    Creating: "CREATING",
+    Deleting: "DELETING",
+    Updating: "UPDATING",
+    Failed: "FAILED",
+} as const;
+
+/**
+ * The lifecycle status of the cache
+ */
+export type FileCacheLifecycle = (typeof FileCacheLifecycle)[keyof typeof FileCacheLifecycle];
+
+export const FileCacheLogConfigurationLevel = {
+    Disabled: "DISABLED",
+    WarnOnly: "WARN_ONLY",
+    ErrorOnly: "ERROR_ONLY",
+    WarnError: "WARN_ERROR",
+} as const;
+
+export type FileCacheLogConfigurationLevel = (typeof FileCacheLogConfigurationLevel)[keyof typeof FileCacheLogConfigurationLevel];
+
+export const FileCacheLustreConfigurationDeploymentType = {
+    Cache1: "CACHE_1",
+} as const;
+
+export type FileCacheLustreConfigurationDeploymentType = (typeof FileCacheLustreConfigurationDeploymentType)[keyof typeof FileCacheLustreConfigurationDeploymentType];
+
+export const FileCacheType = {
+    Lustre: "LUSTRE",
+} as const;
+
+/**
+ * The type of cache, which must be LUSTRE
+ */
+export type FileCacheType = (typeof FileCacheType)[keyof typeof FileCacheType];
 
 export const S3AccessPointAttachmentLifecycle = {
     Available: "AVAILABLE",

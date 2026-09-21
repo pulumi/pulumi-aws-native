@@ -202,6 +202,7 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
         ///   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
         /// </summary>
         public readonly Outputs.ScalableTargetSuspendedState? SuspendedState;
+        public readonly ImmutableArray<Pulumi.AwsNative.Outputs.Tag> Tags;
 
         [OutputConstructor]
         private GetScalableTargetResult(
@@ -213,13 +214,16 @@ namespace Pulumi.AwsNative.ApplicationAutoScaling
 
             ImmutableArray<Outputs.ScalableTargetScheduledAction> scheduledActions,
 
-            Outputs.ScalableTargetSuspendedState? suspendedState)
+            Outputs.ScalableTargetSuspendedState? suspendedState,
+
+            ImmutableArray<Pulumi.AwsNative.Outputs.Tag> tags)
         {
             Id = id;
             MaxCapacity = maxCapacity;
             MinCapacity = minCapacity;
             ScheduledActions = scheduledActions;
             SuspendedState = suspendedState;
+            Tags = tags;
         }
     }
 }

@@ -33,7 +33,8 @@ type Memory struct {
 	// The memory strategies.
 	MemoryStrategies MemoryStrategyArrayOutput `pulumi:"memoryStrategies"`
 	// The memory name.
-	Name pulumi.StringOutput `pulumi:"name"`
+	Name          pulumi.StringOutput                `pulumi:"name"`
+	NamespaceKeys MemoryNamespaceKeyEntryArrayOutput `pulumi:"namespaceKeys"`
 	// The memory status.
 	Status                  MemoryStatusOutput                     `pulumi:"status"`
 	StreamDeliveryResources MemoryStreamDeliveryResourcesPtrOutput `pulumi:"streamDeliveryResources"`
@@ -102,6 +103,7 @@ type memoryArgs struct {
 	MemoryStrategies []MemoryStrategy `pulumi:"memoryStrategies"`
 	// The memory name.
 	Name                    *string                        `pulumi:"name"`
+	NamespaceKeys           []MemoryNamespaceKeyEntry      `pulumi:"namespaceKeys"`
 	StreamDeliveryResources *MemoryStreamDeliveryResources `pulumi:"streamDeliveryResources"`
 	// The tags for the resources.
 	Tags map[string]string `pulumi:"tags"`
@@ -121,6 +123,7 @@ type MemoryArgs struct {
 	MemoryStrategies MemoryStrategyArrayInput
 	// The memory name.
 	Name                    pulumi.StringPtrInput
+	NamespaceKeys           MemoryNamespaceKeyEntryArrayInput
 	StreamDeliveryResources MemoryStreamDeliveryResourcesPtrInput
 	// The tags for the resources.
 	Tags pulumi.StringMapInput
@@ -212,6 +215,10 @@ func (o MemoryOutput) MemoryStrategies() MemoryStrategyArrayOutput {
 // The memory name.
 func (o MemoryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Memory) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o MemoryOutput) NamespaceKeys() MemoryNamespaceKeyEntryArrayOutput {
+	return o.ApplyT(func(v *Memory) MemoryNamespaceKeyEntryArrayOutput { return v.NamespaceKeys }).(MemoryNamespaceKeyEntryArrayOutput)
 }
 
 // The memory status.

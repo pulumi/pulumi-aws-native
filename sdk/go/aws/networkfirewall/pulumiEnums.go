@@ -10,6 +10,265 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The current status of the container association.
+type ContainerAssociationStatus string
+
+const (
+	ContainerAssociationStatusActive   = ContainerAssociationStatus("ACTIVE")
+	ContainerAssociationStatusCreating = ContainerAssociationStatus("CREATING")
+	ContainerAssociationStatusDeleting = ContainerAssociationStatus("DELETING")
+	ContainerAssociationStatusUpdating = ContainerAssociationStatus("UPDATING")
+)
+
+type ContainerAssociationStatusOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationStatus)(nil)).Elem()
+}
+
+func (o ContainerAssociationStatusOutput) ToContainerAssociationStatusOutput() ContainerAssociationStatusOutput {
+	return o
+}
+
+func (o ContainerAssociationStatusOutput) ToContainerAssociationStatusOutputWithContext(ctx context.Context) ContainerAssociationStatusOutput {
+	return o
+}
+
+func (o ContainerAssociationStatusOutput) ToContainerAssociationStatusPtrOutput() ContainerAssociationStatusPtrOutput {
+	return o.ToContainerAssociationStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationStatusOutput) ToContainerAssociationStatusPtrOutputWithContext(ctx context.Context) ContainerAssociationStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerAssociationStatus) *ContainerAssociationStatus {
+		return &v
+	}).(ContainerAssociationStatusPtrOutput)
+}
+
+func (o ContainerAssociationStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerAssociationStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerAssociationStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerAssociationStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerAssociationStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerAssociationStatus)(nil)).Elem()
+}
+
+func (o ContainerAssociationStatusPtrOutput) ToContainerAssociationStatusPtrOutput() ContainerAssociationStatusPtrOutput {
+	return o
+}
+
+func (o ContainerAssociationStatusPtrOutput) ToContainerAssociationStatusPtrOutputWithContext(ctx context.Context) ContainerAssociationStatusPtrOutput {
+	return o
+}
+
+func (o ContainerAssociationStatusPtrOutput) Elem() ContainerAssociationStatusOutput {
+	return o.ApplyT(func(v *ContainerAssociationStatus) ContainerAssociationStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerAssociationStatus
+		return ret
+	}).(ContainerAssociationStatusOutput)
+}
+
+func (o ContainerAssociationStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerAssociationStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of containers to monitor. You can't change the container type after creation.
+type ContainerAssociationType string
+
+const (
+	ContainerAssociationTypeEcs = ContainerAssociationType("ECS")
+	ContainerAssociationTypeEks = ContainerAssociationType("EKS")
+)
+
+func (ContainerAssociationType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationType)(nil)).Elem()
+}
+
+func (e ContainerAssociationType) ToContainerAssociationTypeOutput() ContainerAssociationTypeOutput {
+	return pulumi.ToOutput(e).(ContainerAssociationTypeOutput)
+}
+
+func (e ContainerAssociationType) ToContainerAssociationTypeOutputWithContext(ctx context.Context) ContainerAssociationTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ContainerAssociationTypeOutput)
+}
+
+func (e ContainerAssociationType) ToContainerAssociationTypePtrOutput() ContainerAssociationTypePtrOutput {
+	return e.ToContainerAssociationTypePtrOutputWithContext(context.Background())
+}
+
+func (e ContainerAssociationType) ToContainerAssociationTypePtrOutputWithContext(ctx context.Context) ContainerAssociationTypePtrOutput {
+	return ContainerAssociationType(e).ToContainerAssociationTypeOutputWithContext(ctx).ToContainerAssociationTypePtrOutputWithContext(ctx)
+}
+
+func (e ContainerAssociationType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerAssociationType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ContainerAssociationType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ContainerAssociationType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ContainerAssociationTypeOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationType)(nil)).Elem()
+}
+
+func (o ContainerAssociationTypeOutput) ToContainerAssociationTypeOutput() ContainerAssociationTypeOutput {
+	return o
+}
+
+func (o ContainerAssociationTypeOutput) ToContainerAssociationTypeOutputWithContext(ctx context.Context) ContainerAssociationTypeOutput {
+	return o
+}
+
+func (o ContainerAssociationTypeOutput) ToContainerAssociationTypePtrOutput() ContainerAssociationTypePtrOutput {
+	return o.ToContainerAssociationTypePtrOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationTypeOutput) ToContainerAssociationTypePtrOutputWithContext(ctx context.Context) ContainerAssociationTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ContainerAssociationType) *ContainerAssociationType {
+		return &v
+	}).(ContainerAssociationTypePtrOutput)
+}
+
+func (o ContainerAssociationTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerAssociationType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ContainerAssociationTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ContainerAssociationType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ContainerAssociationTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ContainerAssociationType)(nil)).Elem()
+}
+
+func (o ContainerAssociationTypePtrOutput) ToContainerAssociationTypePtrOutput() ContainerAssociationTypePtrOutput {
+	return o
+}
+
+func (o ContainerAssociationTypePtrOutput) ToContainerAssociationTypePtrOutputWithContext(ctx context.Context) ContainerAssociationTypePtrOutput {
+	return o
+}
+
+func (o ContainerAssociationTypePtrOutput) Elem() ContainerAssociationTypeOutput {
+	return o.ApplyT(func(v *ContainerAssociationType) ContainerAssociationType {
+		if v != nil {
+			return *v
+		}
+		var ret ContainerAssociationType
+		return ret
+	}).(ContainerAssociationTypeOutput)
+}
+
+func (o ContainerAssociationTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ContainerAssociationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ContainerAssociationType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ContainerAssociationTypeInput is an input type that accepts values of the ContainerAssociationType enum
+// A concrete instance of `ContainerAssociationTypeInput` can be one of the following:
+//
+//	ContainerAssociationTypeEcs
+//	ContainerAssociationTypeEks
+type ContainerAssociationTypeInput interface {
+	pulumi.Input
+
+	ToContainerAssociationTypeOutput() ContainerAssociationTypeOutput
+	ToContainerAssociationTypeOutputWithContext(context.Context) ContainerAssociationTypeOutput
+}
+
+var containerAssociationTypePtrType = reflect.TypeOf((**ContainerAssociationType)(nil)).Elem()
+
+type ContainerAssociationTypePtrInput interface {
+	pulumi.Input
+
+	ToContainerAssociationTypePtrOutput() ContainerAssociationTypePtrOutput
+	ToContainerAssociationTypePtrOutputWithContext(context.Context) ContainerAssociationTypePtrOutput
+}
+
+type containerAssociationTypePtr string
+
+func ContainerAssociationTypePtr(v string) ContainerAssociationTypePtrInput {
+	return (*containerAssociationTypePtr)(&v)
+}
+
+func (*containerAssociationTypePtr) ElementType() reflect.Type {
+	return containerAssociationTypePtrType
+}
+
+func (in *containerAssociationTypePtr) ToContainerAssociationTypePtrOutput() ContainerAssociationTypePtrOutput {
+	return pulumi.ToOutput(in).(ContainerAssociationTypePtrOutput)
+}
+
+func (in *containerAssociationTypePtr) ToContainerAssociationTypePtrOutputWithContext(ctx context.Context) ContainerAssociationTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ContainerAssociationTypePtrOutput)
+}
+
 // An analysis type.
 type FirewallEnabledAnalysisType string
 
@@ -3084,6 +3343,8 @@ func (in *tlsInspectionConfigurationUnknownStatusActionPtr) ToTlsInspectionConfi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationTypeInput)(nil)).Elem(), ContainerAssociationType("ECS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationTypePtrInput)(nil)).Elem(), ContainerAssociationType("ECS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypeInput)(nil)).Elem(), FirewallEnabledAnalysisType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypePtrInput)(nil)).Elem(), FirewallEnabledAnalysisType("TLS_SNI"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallEnabledAnalysisTypeArrayInput)(nil)).Elem(), FirewallEnabledAnalysisTypeArray{})
@@ -3122,6 +3383,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationRevokedStatusActionPtrInput)(nil)).Elem(), TlsInspectionConfigurationRevokedStatusAction("PASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusActionInput)(nil)).Elem(), TlsInspectionConfigurationUnknownStatusAction("PASS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationUnknownStatusActionPtrInput)(nil)).Elem(), TlsInspectionConfigurationUnknownStatusAction("PASS"))
+	pulumi.RegisterOutputType(ContainerAssociationStatusOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationStatusPtrOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationTypeOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypeOutput{})
 	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypePtrOutput{})
 	pulumi.RegisterOutputType(FirewallEnabledAnalysisTypeArrayOutput{})

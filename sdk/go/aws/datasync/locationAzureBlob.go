@@ -38,7 +38,8 @@ type LocationAzureBlob struct {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 	//
 	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
-	CustomSecretConfig LocationAzureBlobCustomSecretConfigPtrOutput `pulumi:"customSecretConfig"`
+	CustomSecretConfig LocationAzureBlobCustomSecretConfigPtrOutput           `pulumi:"customSecretConfig"`
+	FederatedIdentity  LocationAzureBlobAzureFederatedIdentityConfigPtrOutput `pulumi:"federatedIdentity"`
 	// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
 	// The URL of the Azure Blob Location that was described.
@@ -118,7 +119,8 @@ type locationAzureBlobArgs struct {
 	// Specifies configuration information for a customer-managed Secrets Manager secret where a storage location credentials is stored in Secrets Manager as plain text (for authentication token, secret key, or password) or as binary (for Kerberos keytab). This configuration includes the secret ARN, and the ARN for an IAM role that provides access to the secret.
 	//
 	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
-	CustomSecretConfig *LocationAzureBlobCustomSecretConfig `pulumi:"customSecretConfig"`
+	CustomSecretConfig *LocationAzureBlobCustomSecretConfig           `pulumi:"customSecretConfig"`
+	FederatedIdentity  *LocationAzureBlobAzureFederatedIdentityConfig `pulumi:"federatedIdentity"`
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory *string `pulumi:"subdirectory"`
 	// An array of key-value pairs to apply to this resource.
@@ -149,6 +151,7 @@ type LocationAzureBlobArgs struct {
 	//
 	// > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 	CustomSecretConfig LocationAzureBlobCustomSecretConfigPtrInput
+	FederatedIdentity  LocationAzureBlobAzureFederatedIdentityConfigPtrInput
 	// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.
 	Subdirectory pulumi.StringPtrInput
 	// An array of key-value pairs to apply to this resource.
@@ -240,6 +243,12 @@ func (o LocationAzureBlobOutput) CmkSecretConfig() LocationAzureBlobCmkSecretCon
 // > You can use either `CmkSecretConfig` or `CustomSecretConfig` to provide credentials for a `CreateLocation` request. Do not provide both parameters for the same request.
 func (o LocationAzureBlobOutput) CustomSecretConfig() LocationAzureBlobCustomSecretConfigPtrOutput {
 	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobCustomSecretConfigPtrOutput { return v.CustomSecretConfig }).(LocationAzureBlobCustomSecretConfigPtrOutput)
+}
+
+func (o LocationAzureBlobOutput) FederatedIdentity() LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+	return o.ApplyT(func(v *LocationAzureBlob) LocationAzureBlobAzureFederatedIdentityConfigPtrOutput {
+		return v.FederatedIdentity
+	}).(LocationAzureBlobAzureFederatedIdentityConfigPtrOutput)
 }
 
 // The Amazon Resource Name (ARN) of the Azure Blob Location that is created.

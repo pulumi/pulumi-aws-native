@@ -35,6 +35,11 @@ export const getParameterGroup: typeof import("./getParameterGroup").getParamete
 export const getParameterGroupOutput: typeof import("./getParameterGroup").getParameterGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getParameterGroup","getParameterGroupOutput"], () => require("./getParameterGroup"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
 export { GetSubnetGroupArgs, GetSubnetGroupResult, GetSubnetGroupOutputArgs } from "./getSubnetGroup";
 export const getSubnetGroup: typeof import("./getSubnetGroup").getSubnetGroup = null as any;
 export const getSubnetGroupOutput: typeof import("./getSubnetGroup").getSubnetGroupOutput = null as any;
@@ -54,6 +59,11 @@ export { ParameterGroupArgs } from "./parameterGroup";
 export type ParameterGroup = import("./parameterGroup").ParameterGroup;
 export const ParameterGroup: typeof import("./parameterGroup").ParameterGroup = null as any;
 utilities.lazyLoad(exports, ["ParameterGroup"], () => require("./parameterGroup"));
+
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
 
 export { SubnetGroupArgs } from "./subnetGroup";
 export type SubnetGroup = import("./subnetGroup").SubnetGroup;
@@ -81,6 +91,8 @@ const _module = {
                 return new MultiRegionCluster(name, <any>undefined, { urn })
             case "aws-native:memorydb:ParameterGroup":
                 return new ParameterGroup(name, <any>undefined, { urn })
+            case "aws-native:memorydb:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
             case "aws-native:memorydb:SubnetGroup":
                 return new SubnetGroup(name, <any>undefined, { urn })
             case "aws-native:memorydb:User":

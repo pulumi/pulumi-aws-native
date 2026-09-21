@@ -73,6 +73,45 @@ namespace Pulumi.AwsNative.Macie
     }
 
     /// <summary>
+    /// The current status of the relationship between the account and the Amazon Macie administrator account.
+    /// </summary>
+    [EnumType]
+    public readonly struct MemberRelationshipStatus : IEquatable<MemberRelationshipStatus>
+    {
+        private readonly string _value;
+
+        private MemberRelationshipStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MemberRelationshipStatus Enabled { get; } = new MemberRelationshipStatus("Enabled");
+        public static MemberRelationshipStatus Paused { get; } = new MemberRelationshipStatus("Paused");
+        public static MemberRelationshipStatus Invited { get; } = new MemberRelationshipStatus("Invited");
+        public static MemberRelationshipStatus Created { get; } = new MemberRelationshipStatus("Created");
+        public static MemberRelationshipStatus Removed { get; } = new MemberRelationshipStatus("Removed");
+        public static MemberRelationshipStatus Resigned { get; } = new MemberRelationshipStatus("Resigned");
+        public static MemberRelationshipStatus EmailVerificationInProgress { get; } = new MemberRelationshipStatus("EmailVerificationInProgress");
+        public static MemberRelationshipStatus EmailVerificationFailed { get; } = new MemberRelationshipStatus("EmailVerificationFailed");
+        public static MemberRelationshipStatus RegionDisabled { get; } = new MemberRelationshipStatus("RegionDisabled");
+        public static MemberRelationshipStatus AccountSuspended { get; } = new MemberRelationshipStatus("AccountSuspended");
+
+        public static bool operator ==(MemberRelationshipStatus left, MemberRelationshipStatus right) => left.Equals(right);
+        public static bool operator !=(MemberRelationshipStatus left, MemberRelationshipStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MemberRelationshipStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MemberRelationshipStatus other && Equals(other);
+        public bool Equals(MemberRelationshipStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The status of automated sensitive data discovery for the Macie session.
     /// </summary>
     [EnumType]

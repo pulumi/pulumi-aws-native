@@ -11,6 +11,7 @@ __all__ = [
     'ClusterSupportedIpDiscoveryTypes',
     'ClusterSupportedNetworkTypes',
     'MultiRegionClusterUpdateStrategy',
+    'SnapshotDataTiering',
     'UserAuthenticationModePropertiesType',
 ]
 
@@ -41,6 +42,15 @@ class MultiRegionClusterUpdateStrategy(_builtins.str, Enum):
     """
     COORDINATED = "COORDINATED"
     UNCOORDINATED = "UNCOORDINATED"
+
+
+@pulumi.type_token("aws-native:memorydb:SnapshotDataTiering")
+class SnapshotDataTiering(_builtins.str, Enum):
+    """
+    Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
+    """
+    TRUE = "true"
+    FALSE = "false"
 
 
 @pulumi.type_token("aws-native:memorydb:UserAuthenticationModePropertiesType")

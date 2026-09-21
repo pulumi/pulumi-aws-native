@@ -284,6 +284,744 @@ type ActionTag struct {
 	Value string `pulumi:"value"`
 }
 
+// The dataset configuration for an AI workload.
+type AiWorkloadConfigAiDatasetConfig struct {
+	// An array of input data channel configurations for the workload.
+	InputDataConfig []AiWorkloadConfigAiWorkloadInputDataConfig `pulumi:"inputDataConfig"`
+}
+
+// AiWorkloadConfigAiDatasetConfigInput is an input type that accepts AiWorkloadConfigAiDatasetConfigArgs and AiWorkloadConfigAiDatasetConfigOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiDatasetConfigInput` via:
+//
+//	AiWorkloadConfigAiDatasetConfigArgs{...}
+type AiWorkloadConfigAiDatasetConfigInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiDatasetConfigOutput() AiWorkloadConfigAiDatasetConfigOutput
+	ToAiWorkloadConfigAiDatasetConfigOutputWithContext(context.Context) AiWorkloadConfigAiDatasetConfigOutput
+}
+
+// The dataset configuration for an AI workload.
+type AiWorkloadConfigAiDatasetConfigArgs struct {
+	// An array of input data channel configurations for the workload.
+	InputDataConfig AiWorkloadConfigAiWorkloadInputDataConfigArrayInput `pulumi:"inputDataConfig"`
+}
+
+func (AiWorkloadConfigAiDatasetConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiDatasetConfig)(nil)).Elem()
+}
+
+func (i AiWorkloadConfigAiDatasetConfigArgs) ToAiWorkloadConfigAiDatasetConfigOutput() AiWorkloadConfigAiDatasetConfigOutput {
+	return i.ToAiWorkloadConfigAiDatasetConfigOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiDatasetConfigArgs) ToAiWorkloadConfigAiDatasetConfigOutputWithContext(ctx context.Context) AiWorkloadConfigAiDatasetConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiDatasetConfigOutput)
+}
+
+func (i AiWorkloadConfigAiDatasetConfigArgs) ToAiWorkloadConfigAiDatasetConfigPtrOutput() AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return i.ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiDatasetConfigArgs) ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiDatasetConfigOutput).ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(ctx)
+}
+
+// AiWorkloadConfigAiDatasetConfigPtrInput is an input type that accepts AiWorkloadConfigAiDatasetConfigArgs, AiWorkloadConfigAiDatasetConfigPtr and AiWorkloadConfigAiDatasetConfigPtrOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiDatasetConfigPtrInput` via:
+//
+//	        AiWorkloadConfigAiDatasetConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiWorkloadConfigAiDatasetConfigPtrInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiDatasetConfigPtrOutput() AiWorkloadConfigAiDatasetConfigPtrOutput
+	ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(context.Context) AiWorkloadConfigAiDatasetConfigPtrOutput
+}
+
+type aiWorkloadConfigAiDatasetConfigPtrType AiWorkloadConfigAiDatasetConfigArgs
+
+func AiWorkloadConfigAiDatasetConfigPtr(v *AiWorkloadConfigAiDatasetConfigArgs) AiWorkloadConfigAiDatasetConfigPtrInput {
+	return (*aiWorkloadConfigAiDatasetConfigPtrType)(v)
+}
+
+func (*aiWorkloadConfigAiDatasetConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigAiDatasetConfig)(nil)).Elem()
+}
+
+func (i *aiWorkloadConfigAiDatasetConfigPtrType) ToAiWorkloadConfigAiDatasetConfigPtrOutput() AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return i.ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *aiWorkloadConfigAiDatasetConfigPtrType) ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiDatasetConfigPtrOutput)
+}
+
+// The dataset configuration for an AI workload.
+type AiWorkloadConfigAiDatasetConfigOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiDatasetConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiDatasetConfig)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiDatasetConfigOutput) ToAiWorkloadConfigAiDatasetConfigOutput() AiWorkloadConfigAiDatasetConfigOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiDatasetConfigOutput) ToAiWorkloadConfigAiDatasetConfigOutputWithContext(ctx context.Context) AiWorkloadConfigAiDatasetConfigOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiDatasetConfigOutput) ToAiWorkloadConfigAiDatasetConfigPtrOutput() AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return o.ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AiWorkloadConfigAiDatasetConfigOutput) ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiWorkloadConfigAiDatasetConfig) *AiWorkloadConfigAiDatasetConfig {
+		return &v
+	}).(AiWorkloadConfigAiDatasetConfigPtrOutput)
+}
+
+// An array of input data channel configurations for the workload.
+func (o AiWorkloadConfigAiDatasetConfigOutput) InputDataConfig() AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput {
+	return o.ApplyT(func(v AiWorkloadConfigAiDatasetConfig) []AiWorkloadConfigAiWorkloadInputDataConfig {
+		return v.InputDataConfig
+	}).(AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput)
+}
+
+type AiWorkloadConfigAiDatasetConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiDatasetConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigAiDatasetConfig)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiDatasetConfigPtrOutput) ToAiWorkloadConfigAiDatasetConfigPtrOutput() AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiDatasetConfigPtrOutput) ToAiWorkloadConfigAiDatasetConfigPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiDatasetConfigPtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiDatasetConfigPtrOutput) Elem() AiWorkloadConfigAiDatasetConfigOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigAiDatasetConfig) AiWorkloadConfigAiDatasetConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AiWorkloadConfigAiDatasetConfig
+		return ret
+	}).(AiWorkloadConfigAiDatasetConfigOutput)
+}
+
+// An array of input data channel configurations for the workload.
+func (o AiWorkloadConfigAiDatasetConfigPtrOutput) InputDataConfig() AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigAiDatasetConfig) []AiWorkloadConfigAiWorkloadInputDataConfig {
+		if v == nil {
+			return nil
+		}
+		return v.InputDataConfig
+	}).(AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput)
+}
+
+// The benchmark tool configuration for an AI workload.
+type AiWorkloadConfigAiWorkloadConfigs struct {
+	// The workload specification that defines benchmark parameters.
+	WorkloadSpec AiWorkloadConfigWorkloadSpec `pulumi:"workloadSpec"`
+}
+
+// AiWorkloadConfigAiWorkloadConfigsInput is an input type that accepts AiWorkloadConfigAiWorkloadConfigsArgs and AiWorkloadConfigAiWorkloadConfigsOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiWorkloadConfigsInput` via:
+//
+//	AiWorkloadConfigAiWorkloadConfigsArgs{...}
+type AiWorkloadConfigAiWorkloadConfigsInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiWorkloadConfigsOutput() AiWorkloadConfigAiWorkloadConfigsOutput
+	ToAiWorkloadConfigAiWorkloadConfigsOutputWithContext(context.Context) AiWorkloadConfigAiWorkloadConfigsOutput
+}
+
+// The benchmark tool configuration for an AI workload.
+type AiWorkloadConfigAiWorkloadConfigsArgs struct {
+	// The workload specification that defines benchmark parameters.
+	WorkloadSpec AiWorkloadConfigWorkloadSpecInput `pulumi:"workloadSpec"`
+}
+
+func (AiWorkloadConfigAiWorkloadConfigsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadConfigs)(nil)).Elem()
+}
+
+func (i AiWorkloadConfigAiWorkloadConfigsArgs) ToAiWorkloadConfigAiWorkloadConfigsOutput() AiWorkloadConfigAiWorkloadConfigsOutput {
+	return i.ToAiWorkloadConfigAiWorkloadConfigsOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiWorkloadConfigsArgs) ToAiWorkloadConfigAiWorkloadConfigsOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadConfigsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadConfigsOutput)
+}
+
+func (i AiWorkloadConfigAiWorkloadConfigsArgs) ToAiWorkloadConfigAiWorkloadConfigsPtrOutput() AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return i.ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiWorkloadConfigsArgs) ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadConfigsOutput).ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(ctx)
+}
+
+// AiWorkloadConfigAiWorkloadConfigsPtrInput is an input type that accepts AiWorkloadConfigAiWorkloadConfigsArgs, AiWorkloadConfigAiWorkloadConfigsPtr and AiWorkloadConfigAiWorkloadConfigsPtrOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiWorkloadConfigsPtrInput` via:
+//
+//	        AiWorkloadConfigAiWorkloadConfigsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiWorkloadConfigAiWorkloadConfigsPtrInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiWorkloadConfigsPtrOutput() AiWorkloadConfigAiWorkloadConfigsPtrOutput
+	ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(context.Context) AiWorkloadConfigAiWorkloadConfigsPtrOutput
+}
+
+type aiWorkloadConfigAiWorkloadConfigsPtrType AiWorkloadConfigAiWorkloadConfigsArgs
+
+func AiWorkloadConfigAiWorkloadConfigsPtr(v *AiWorkloadConfigAiWorkloadConfigsArgs) AiWorkloadConfigAiWorkloadConfigsPtrInput {
+	return (*aiWorkloadConfigAiWorkloadConfigsPtrType)(v)
+}
+
+func (*aiWorkloadConfigAiWorkloadConfigsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigAiWorkloadConfigs)(nil)).Elem()
+}
+
+func (i *aiWorkloadConfigAiWorkloadConfigsPtrType) ToAiWorkloadConfigAiWorkloadConfigsPtrOutput() AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return i.ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(context.Background())
+}
+
+func (i *aiWorkloadConfigAiWorkloadConfigsPtrType) ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadConfigsPtrOutput)
+}
+
+// The benchmark tool configuration for an AI workload.
+type AiWorkloadConfigAiWorkloadConfigsOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiWorkloadConfigsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadConfigs)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiWorkloadConfigsOutput) ToAiWorkloadConfigAiWorkloadConfigsOutput() AiWorkloadConfigAiWorkloadConfigsOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadConfigsOutput) ToAiWorkloadConfigAiWorkloadConfigsOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadConfigsOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadConfigsOutput) ToAiWorkloadConfigAiWorkloadConfigsPtrOutput() AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return o.ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(context.Background())
+}
+
+func (o AiWorkloadConfigAiWorkloadConfigsOutput) ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiWorkloadConfigAiWorkloadConfigs) *AiWorkloadConfigAiWorkloadConfigs {
+		return &v
+	}).(AiWorkloadConfigAiWorkloadConfigsPtrOutput)
+}
+
+// The workload specification that defines benchmark parameters.
+func (o AiWorkloadConfigAiWorkloadConfigsOutput) WorkloadSpec() AiWorkloadConfigWorkloadSpecOutput {
+	return o.ApplyT(func(v AiWorkloadConfigAiWorkloadConfigs) AiWorkloadConfigWorkloadSpec { return v.WorkloadSpec }).(AiWorkloadConfigWorkloadSpecOutput)
+}
+
+type AiWorkloadConfigAiWorkloadConfigsPtrOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiWorkloadConfigsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigAiWorkloadConfigs)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiWorkloadConfigsPtrOutput) ToAiWorkloadConfigAiWorkloadConfigsPtrOutput() AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadConfigsPtrOutput) ToAiWorkloadConfigAiWorkloadConfigsPtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadConfigsPtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadConfigsPtrOutput) Elem() AiWorkloadConfigAiWorkloadConfigsOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigAiWorkloadConfigs) AiWorkloadConfigAiWorkloadConfigs {
+		if v != nil {
+			return *v
+		}
+		var ret AiWorkloadConfigAiWorkloadConfigs
+		return ret
+	}).(AiWorkloadConfigAiWorkloadConfigsOutput)
+}
+
+// The workload specification that defines benchmark parameters.
+func (o AiWorkloadConfigAiWorkloadConfigsPtrOutput) WorkloadSpec() AiWorkloadConfigWorkloadSpecPtrOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigAiWorkloadConfigs) *AiWorkloadConfigWorkloadSpec {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkloadSpec
+	}).(AiWorkloadConfigWorkloadSpecPtrOutput)
+}
+
+// The data source for an AI workload input data channel.
+type AiWorkloadConfigAiWorkloadDataSource struct {
+	// The Amazon S3 data source configuration.
+	S3DataSource *AiWorkloadConfigAiWorkloadS3DataSource `pulumi:"s3DataSource"`
+}
+
+// AiWorkloadConfigAiWorkloadDataSourceInput is an input type that accepts AiWorkloadConfigAiWorkloadDataSourceArgs and AiWorkloadConfigAiWorkloadDataSourceOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiWorkloadDataSourceInput` via:
+//
+//	AiWorkloadConfigAiWorkloadDataSourceArgs{...}
+type AiWorkloadConfigAiWorkloadDataSourceInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiWorkloadDataSourceOutput() AiWorkloadConfigAiWorkloadDataSourceOutput
+	ToAiWorkloadConfigAiWorkloadDataSourceOutputWithContext(context.Context) AiWorkloadConfigAiWorkloadDataSourceOutput
+}
+
+// The data source for an AI workload input data channel.
+type AiWorkloadConfigAiWorkloadDataSourceArgs struct {
+	// The Amazon S3 data source configuration.
+	S3DataSource AiWorkloadConfigAiWorkloadS3DataSourcePtrInput `pulumi:"s3DataSource"`
+}
+
+func (AiWorkloadConfigAiWorkloadDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadDataSource)(nil)).Elem()
+}
+
+func (i AiWorkloadConfigAiWorkloadDataSourceArgs) ToAiWorkloadConfigAiWorkloadDataSourceOutput() AiWorkloadConfigAiWorkloadDataSourceOutput {
+	return i.ToAiWorkloadConfigAiWorkloadDataSourceOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiWorkloadDataSourceArgs) ToAiWorkloadConfigAiWorkloadDataSourceOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadDataSourceOutput)
+}
+
+// The data source for an AI workload input data channel.
+type AiWorkloadConfigAiWorkloadDataSourceOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiWorkloadDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadDataSource)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiWorkloadDataSourceOutput) ToAiWorkloadConfigAiWorkloadDataSourceOutput() AiWorkloadConfigAiWorkloadDataSourceOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadDataSourceOutput) ToAiWorkloadConfigAiWorkloadDataSourceOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadDataSourceOutput {
+	return o
+}
+
+// The Amazon S3 data source configuration.
+func (o AiWorkloadConfigAiWorkloadDataSourceOutput) S3DataSource() AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return o.ApplyT(func(v AiWorkloadConfigAiWorkloadDataSource) *AiWorkloadConfigAiWorkloadS3DataSource {
+		return v.S3DataSource
+	}).(AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput)
+}
+
+// A channel of input data for an AI workload configuration.
+type AiWorkloadConfigAiWorkloadInputDataConfig struct {
+	// The logical name for the data channel.
+	ChannelName string `pulumi:"channelName"`
+	// The data source for this channel.
+	DataSource AiWorkloadConfigAiWorkloadDataSource `pulumi:"dataSource"`
+}
+
+// AiWorkloadConfigAiWorkloadInputDataConfigInput is an input type that accepts AiWorkloadConfigAiWorkloadInputDataConfigArgs and AiWorkloadConfigAiWorkloadInputDataConfigOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiWorkloadInputDataConfigInput` via:
+//
+//	AiWorkloadConfigAiWorkloadInputDataConfigArgs{...}
+type AiWorkloadConfigAiWorkloadInputDataConfigInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiWorkloadInputDataConfigOutput() AiWorkloadConfigAiWorkloadInputDataConfigOutput
+	ToAiWorkloadConfigAiWorkloadInputDataConfigOutputWithContext(context.Context) AiWorkloadConfigAiWorkloadInputDataConfigOutput
+}
+
+// A channel of input data for an AI workload configuration.
+type AiWorkloadConfigAiWorkloadInputDataConfigArgs struct {
+	// The logical name for the data channel.
+	ChannelName pulumi.StringInput `pulumi:"channelName"`
+	// The data source for this channel.
+	DataSource AiWorkloadConfigAiWorkloadDataSourceInput `pulumi:"dataSource"`
+}
+
+func (AiWorkloadConfigAiWorkloadInputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadInputDataConfig)(nil)).Elem()
+}
+
+func (i AiWorkloadConfigAiWorkloadInputDataConfigArgs) ToAiWorkloadConfigAiWorkloadInputDataConfigOutput() AiWorkloadConfigAiWorkloadInputDataConfigOutput {
+	return i.ToAiWorkloadConfigAiWorkloadInputDataConfigOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiWorkloadInputDataConfigArgs) ToAiWorkloadConfigAiWorkloadInputDataConfigOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadInputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadInputDataConfigOutput)
+}
+
+// AiWorkloadConfigAiWorkloadInputDataConfigArrayInput is an input type that accepts AiWorkloadConfigAiWorkloadInputDataConfigArray and AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiWorkloadInputDataConfigArrayInput` via:
+//
+//	AiWorkloadConfigAiWorkloadInputDataConfigArray{ AiWorkloadConfigAiWorkloadInputDataConfigArgs{...} }
+type AiWorkloadConfigAiWorkloadInputDataConfigArrayInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiWorkloadInputDataConfigArrayOutput() AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput
+	ToAiWorkloadConfigAiWorkloadInputDataConfigArrayOutputWithContext(context.Context) AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput
+}
+
+type AiWorkloadConfigAiWorkloadInputDataConfigArray []AiWorkloadConfigAiWorkloadInputDataConfigInput
+
+func (AiWorkloadConfigAiWorkloadInputDataConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiWorkloadConfigAiWorkloadInputDataConfig)(nil)).Elem()
+}
+
+func (i AiWorkloadConfigAiWorkloadInputDataConfigArray) ToAiWorkloadConfigAiWorkloadInputDataConfigArrayOutput() AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput {
+	return i.ToAiWorkloadConfigAiWorkloadInputDataConfigArrayOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiWorkloadInputDataConfigArray) ToAiWorkloadConfigAiWorkloadInputDataConfigArrayOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput)
+}
+
+// A channel of input data for an AI workload configuration.
+type AiWorkloadConfigAiWorkloadInputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiWorkloadInputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadInputDataConfig)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiWorkloadInputDataConfigOutput) ToAiWorkloadConfigAiWorkloadInputDataConfigOutput() AiWorkloadConfigAiWorkloadInputDataConfigOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadInputDataConfigOutput) ToAiWorkloadConfigAiWorkloadInputDataConfigOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadInputDataConfigOutput {
+	return o
+}
+
+// The logical name for the data channel.
+func (o AiWorkloadConfigAiWorkloadInputDataConfigOutput) ChannelName() pulumi.StringOutput {
+	return o.ApplyT(func(v AiWorkloadConfigAiWorkloadInputDataConfig) string { return v.ChannelName }).(pulumi.StringOutput)
+}
+
+// The data source for this channel.
+func (o AiWorkloadConfigAiWorkloadInputDataConfigOutput) DataSource() AiWorkloadConfigAiWorkloadDataSourceOutput {
+	return o.ApplyT(func(v AiWorkloadConfigAiWorkloadInputDataConfig) AiWorkloadConfigAiWorkloadDataSource {
+		return v.DataSource
+	}).(AiWorkloadConfigAiWorkloadDataSourceOutput)
+}
+
+type AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiWorkloadConfigAiWorkloadInputDataConfig)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput) ToAiWorkloadConfigAiWorkloadInputDataConfigArrayOutput() AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput) ToAiWorkloadConfigAiWorkloadInputDataConfigArrayOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput) Index(i pulumi.IntInput) AiWorkloadConfigAiWorkloadInputDataConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiWorkloadConfigAiWorkloadInputDataConfig {
+		return vs[0].([]AiWorkloadConfigAiWorkloadInputDataConfig)[vs[1].(int)]
+	}).(AiWorkloadConfigAiWorkloadInputDataConfigOutput)
+}
+
+// The Amazon S3 data source for an AI workload.
+type AiWorkloadConfigAiWorkloadS3DataSource struct {
+	// The Amazon S3 URI of the data.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// AiWorkloadConfigAiWorkloadS3DataSourceInput is an input type that accepts AiWorkloadConfigAiWorkloadS3DataSourceArgs and AiWorkloadConfigAiWorkloadS3DataSourceOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiWorkloadS3DataSourceInput` via:
+//
+//	AiWorkloadConfigAiWorkloadS3DataSourceArgs{...}
+type AiWorkloadConfigAiWorkloadS3DataSourceInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiWorkloadS3DataSourceOutput() AiWorkloadConfigAiWorkloadS3DataSourceOutput
+	ToAiWorkloadConfigAiWorkloadS3DataSourceOutputWithContext(context.Context) AiWorkloadConfigAiWorkloadS3DataSourceOutput
+}
+
+// The Amazon S3 data source for an AI workload.
+type AiWorkloadConfigAiWorkloadS3DataSourceArgs struct {
+	// The Amazon S3 URI of the data.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (AiWorkloadConfigAiWorkloadS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadS3DataSource)(nil)).Elem()
+}
+
+func (i AiWorkloadConfigAiWorkloadS3DataSourceArgs) ToAiWorkloadConfigAiWorkloadS3DataSourceOutput() AiWorkloadConfigAiWorkloadS3DataSourceOutput {
+	return i.ToAiWorkloadConfigAiWorkloadS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiWorkloadS3DataSourceArgs) ToAiWorkloadConfigAiWorkloadS3DataSourceOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadS3DataSourceOutput)
+}
+
+func (i AiWorkloadConfigAiWorkloadS3DataSourceArgs) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutput() AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return i.ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigAiWorkloadS3DataSourceArgs) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadS3DataSourceOutput).ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// AiWorkloadConfigAiWorkloadS3DataSourcePtrInput is an input type that accepts AiWorkloadConfigAiWorkloadS3DataSourceArgs, AiWorkloadConfigAiWorkloadS3DataSourcePtr and AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigAiWorkloadS3DataSourcePtrInput` via:
+//
+//	        AiWorkloadConfigAiWorkloadS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiWorkloadConfigAiWorkloadS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutput() AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput
+	ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(context.Context) AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput
+}
+
+type aiWorkloadConfigAiWorkloadS3DataSourcePtrType AiWorkloadConfigAiWorkloadS3DataSourceArgs
+
+func AiWorkloadConfigAiWorkloadS3DataSourcePtr(v *AiWorkloadConfigAiWorkloadS3DataSourceArgs) AiWorkloadConfigAiWorkloadS3DataSourcePtrInput {
+	return (*aiWorkloadConfigAiWorkloadS3DataSourcePtrType)(v)
+}
+
+func (*aiWorkloadConfigAiWorkloadS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigAiWorkloadS3DataSource)(nil)).Elem()
+}
+
+func (i *aiWorkloadConfigAiWorkloadS3DataSourcePtrType) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutput() AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return i.ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *aiWorkloadConfigAiWorkloadS3DataSourcePtrType) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput)
+}
+
+// The Amazon S3 data source for an AI workload.
+type AiWorkloadConfigAiWorkloadS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiWorkloadS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigAiWorkloadS3DataSource)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiWorkloadS3DataSourceOutput) ToAiWorkloadConfigAiWorkloadS3DataSourceOutput() AiWorkloadConfigAiWorkloadS3DataSourceOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadS3DataSourceOutput) ToAiWorkloadConfigAiWorkloadS3DataSourceOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadS3DataSourceOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadS3DataSourceOutput) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutput() AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return o.ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o AiWorkloadConfigAiWorkloadS3DataSourceOutput) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiWorkloadConfigAiWorkloadS3DataSource) *AiWorkloadConfigAiWorkloadS3DataSource {
+		return &v
+	}).(AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput)
+}
+
+// The Amazon S3 URI of the data.
+func (o AiWorkloadConfigAiWorkloadS3DataSourceOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v AiWorkloadConfigAiWorkloadS3DataSource) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigAiWorkloadS3DataSource)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutput() AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput) ToAiWorkloadConfigAiWorkloadS3DataSourcePtrOutputWithContext(ctx context.Context) AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput) Elem() AiWorkloadConfigAiWorkloadS3DataSourceOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigAiWorkloadS3DataSource) AiWorkloadConfigAiWorkloadS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret AiWorkloadConfigAiWorkloadS3DataSource
+		return ret
+	}).(AiWorkloadConfigAiWorkloadS3DataSourceOutput)
+}
+
+// The Amazon S3 URI of the data.
+func (o AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigAiWorkloadS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// A key-value pair to associate with a resource.
+type AiWorkloadConfigTag struct {
+	// The tag key. Tag keys must be unique per resource.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
+// The workload specification for benchmark tool configuration.
+type AiWorkloadConfigWorkloadSpec struct {
+	// An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+	Inline string `pulumi:"inline"`
+}
+
+// AiWorkloadConfigWorkloadSpecInput is an input type that accepts AiWorkloadConfigWorkloadSpecArgs and AiWorkloadConfigWorkloadSpecOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigWorkloadSpecInput` via:
+//
+//	AiWorkloadConfigWorkloadSpecArgs{...}
+type AiWorkloadConfigWorkloadSpecInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigWorkloadSpecOutput() AiWorkloadConfigWorkloadSpecOutput
+	ToAiWorkloadConfigWorkloadSpecOutputWithContext(context.Context) AiWorkloadConfigWorkloadSpecOutput
+}
+
+// The workload specification for benchmark tool configuration.
+type AiWorkloadConfigWorkloadSpecArgs struct {
+	// An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+	Inline pulumi.StringInput `pulumi:"inline"`
+}
+
+func (AiWorkloadConfigWorkloadSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigWorkloadSpec)(nil)).Elem()
+}
+
+func (i AiWorkloadConfigWorkloadSpecArgs) ToAiWorkloadConfigWorkloadSpecOutput() AiWorkloadConfigWorkloadSpecOutput {
+	return i.ToAiWorkloadConfigWorkloadSpecOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigWorkloadSpecArgs) ToAiWorkloadConfigWorkloadSpecOutputWithContext(ctx context.Context) AiWorkloadConfigWorkloadSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigWorkloadSpecOutput)
+}
+
+func (i AiWorkloadConfigWorkloadSpecArgs) ToAiWorkloadConfigWorkloadSpecPtrOutput() AiWorkloadConfigWorkloadSpecPtrOutput {
+	return i.ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(context.Background())
+}
+
+func (i AiWorkloadConfigWorkloadSpecArgs) ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(ctx context.Context) AiWorkloadConfigWorkloadSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigWorkloadSpecOutput).ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(ctx)
+}
+
+// AiWorkloadConfigWorkloadSpecPtrInput is an input type that accepts AiWorkloadConfigWorkloadSpecArgs, AiWorkloadConfigWorkloadSpecPtr and AiWorkloadConfigWorkloadSpecPtrOutput values.
+// You can construct a concrete instance of `AiWorkloadConfigWorkloadSpecPtrInput` via:
+//
+//	        AiWorkloadConfigWorkloadSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiWorkloadConfigWorkloadSpecPtrInput interface {
+	pulumi.Input
+
+	ToAiWorkloadConfigWorkloadSpecPtrOutput() AiWorkloadConfigWorkloadSpecPtrOutput
+	ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(context.Context) AiWorkloadConfigWorkloadSpecPtrOutput
+}
+
+type aiWorkloadConfigWorkloadSpecPtrType AiWorkloadConfigWorkloadSpecArgs
+
+func AiWorkloadConfigWorkloadSpecPtr(v *AiWorkloadConfigWorkloadSpecArgs) AiWorkloadConfigWorkloadSpecPtrInput {
+	return (*aiWorkloadConfigWorkloadSpecPtrType)(v)
+}
+
+func (*aiWorkloadConfigWorkloadSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigWorkloadSpec)(nil)).Elem()
+}
+
+func (i *aiWorkloadConfigWorkloadSpecPtrType) ToAiWorkloadConfigWorkloadSpecPtrOutput() AiWorkloadConfigWorkloadSpecPtrOutput {
+	return i.ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *aiWorkloadConfigWorkloadSpecPtrType) ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(ctx context.Context) AiWorkloadConfigWorkloadSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiWorkloadConfigWorkloadSpecPtrOutput)
+}
+
+// The workload specification for benchmark tool configuration.
+type AiWorkloadConfigWorkloadSpecOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigWorkloadSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiWorkloadConfigWorkloadSpec)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigWorkloadSpecOutput) ToAiWorkloadConfigWorkloadSpecOutput() AiWorkloadConfigWorkloadSpecOutput {
+	return o
+}
+
+func (o AiWorkloadConfigWorkloadSpecOutput) ToAiWorkloadConfigWorkloadSpecOutputWithContext(ctx context.Context) AiWorkloadConfigWorkloadSpecOutput {
+	return o
+}
+
+func (o AiWorkloadConfigWorkloadSpecOutput) ToAiWorkloadConfigWorkloadSpecPtrOutput() AiWorkloadConfigWorkloadSpecPtrOutput {
+	return o.ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(context.Background())
+}
+
+func (o AiWorkloadConfigWorkloadSpecOutput) ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(ctx context.Context) AiWorkloadConfigWorkloadSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiWorkloadConfigWorkloadSpec) *AiWorkloadConfigWorkloadSpec {
+		return &v
+	}).(AiWorkloadConfigWorkloadSpecPtrOutput)
+}
+
+// An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+func (o AiWorkloadConfigWorkloadSpecOutput) Inline() pulumi.StringOutput {
+	return o.ApplyT(func(v AiWorkloadConfigWorkloadSpec) string { return v.Inline }).(pulumi.StringOutput)
+}
+
+type AiWorkloadConfigWorkloadSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (AiWorkloadConfigWorkloadSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiWorkloadConfigWorkloadSpec)(nil)).Elem()
+}
+
+func (o AiWorkloadConfigWorkloadSpecPtrOutput) ToAiWorkloadConfigWorkloadSpecPtrOutput() AiWorkloadConfigWorkloadSpecPtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigWorkloadSpecPtrOutput) ToAiWorkloadConfigWorkloadSpecPtrOutputWithContext(ctx context.Context) AiWorkloadConfigWorkloadSpecPtrOutput {
+	return o
+}
+
+func (o AiWorkloadConfigWorkloadSpecPtrOutput) Elem() AiWorkloadConfigWorkloadSpecOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigWorkloadSpec) AiWorkloadConfigWorkloadSpec {
+		if v != nil {
+			return *v
+		}
+		var ret AiWorkloadConfigWorkloadSpec
+		return ret
+	}).(AiWorkloadConfigWorkloadSpecOutput)
+}
+
+// An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+func (o AiWorkloadConfigWorkloadSpecPtrOutput) Inline() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiWorkloadConfigWorkloadSpec) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Inline
+	}).(pulumi.StringPtrOutput)
+}
+
 type AlgorithmCategoricalParameterRangeSpecification struct {
 	Values []string `pulumi:"values"`
 }
@@ -8556,6 +9294,137 @@ func (o ClusterVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 		}
 		return v.Subnets
 	}).(pulumi.StringArrayOutput)
+}
+
+type CodeRepositoryGitConfig struct {
+	// The default branch for the Git repository.
+	Branch *string `pulumi:"branch"`
+	// The URL where the Git repository is located.
+	RepositoryUrl string `pulumi:"repositoryUrl"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+	SecretArn *string `pulumi:"secretArn"`
+}
+
+// CodeRepositoryGitConfigInput is an input type that accepts CodeRepositoryGitConfigArgs and CodeRepositoryGitConfigOutput values.
+// You can construct a concrete instance of `CodeRepositoryGitConfigInput` via:
+//
+//	CodeRepositoryGitConfigArgs{...}
+type CodeRepositoryGitConfigInput interface {
+	pulumi.Input
+
+	ToCodeRepositoryGitConfigOutput() CodeRepositoryGitConfigOutput
+	ToCodeRepositoryGitConfigOutputWithContext(context.Context) CodeRepositoryGitConfigOutput
+}
+
+type CodeRepositoryGitConfigArgs struct {
+	// The default branch for the Git repository.
+	Branch pulumi.StringPtrInput `pulumi:"branch"`
+	// The URL where the Git repository is located.
+	RepositoryUrl pulumi.StringInput `pulumi:"repositoryUrl"`
+	// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
+}
+
+func (CodeRepositoryGitConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigOutput() CodeRepositoryGitConfigOutput {
+	return i.ToCodeRepositoryGitConfigOutputWithContext(context.Background())
+}
+
+func (i CodeRepositoryGitConfigArgs) ToCodeRepositoryGitConfigOutputWithContext(ctx context.Context) CodeRepositoryGitConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CodeRepositoryGitConfigOutput)
+}
+
+type CodeRepositoryGitConfigOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryGitConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigOutput() CodeRepositoryGitConfigOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigOutput) ToCodeRepositoryGitConfigOutputWithContext(ctx context.Context) CodeRepositoryGitConfigOutput {
+	return o
+}
+
+// The default branch for the Git repository.
+func (o CodeRepositoryGitConfigOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.Branch }).(pulumi.StringPtrOutput)
+}
+
+// The URL where the Git repository is located.
+func (o CodeRepositoryGitConfigOutput) RepositoryUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v CodeRepositoryGitConfig) string { return v.RepositoryUrl }).(pulumi.StringOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+func (o CodeRepositoryGitConfigOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CodeRepositoryGitConfig) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
+}
+
+type CodeRepositoryGitConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (CodeRepositoryGitConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CodeRepositoryGitConfig)(nil)).Elem()
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutput() CodeRepositoryGitConfigPtrOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) ToCodeRepositoryGitConfigPtrOutputWithContext(ctx context.Context) CodeRepositoryGitConfigPtrOutput {
+	return o
+}
+
+func (o CodeRepositoryGitConfigPtrOutput) Elem() CodeRepositoryGitConfigOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) CodeRepositoryGitConfig {
+		if v != nil {
+			return *v
+		}
+		var ret CodeRepositoryGitConfig
+		return ret
+	}).(CodeRepositoryGitConfigOutput)
+}
+
+// The default branch for the Git repository.
+func (o CodeRepositoryGitConfigPtrOutput) Branch() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Branch
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL where the Git repository is located.
+func (o CodeRepositoryGitConfigPtrOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RepositoryUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+func (o CodeRepositoryGitConfigPtrOutput) SecretArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CodeRepositoryGitConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type CodeRepositoryTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
 }
 
 // The batch transform input for a monitoring job.
@@ -49752,6 +50621,113 @@ func (o NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput) MinimumIn
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook struct {
+	// A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+	Content *string `pulumi:"content"`
+}
+
+// NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookInput is an input type that accepts NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs and NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput values.
+// You can construct a concrete instance of `NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookInput` via:
+//
+//	NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs{...}
+type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput
+	ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutputWithContext(context.Context) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput
+}
+
+// Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs struct {
+	// A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+	Content pulumi.StringPtrInput `pulumi:"content"`
+}
+
+func (NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook)(nil)).Elem()
+}
+
+func (i NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput {
+	return i.ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput)
+}
+
+// NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayInput is an input type that accepts NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray and NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput values.
+// You can construct a concrete instance of `NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayInput` via:
+//
+//	NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray{ NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs{...} }
+type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayInput interface {
+	pulumi.Input
+
+	ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput
+	ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutputWithContext(context.Context) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput
+}
+
+type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray []NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookInput
+
+func (NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook)(nil)).Elem()
+}
+
+func (i NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+	return i.ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutputWithContext(context.Background())
+}
+
+func (i NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput)
+}
+
+// Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook)(nil)).Elem()
+}
+
+func (o NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput {
+	return o
+}
+
+func (o NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput {
+	return o
+}
+
+// A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+func (o NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput) Content() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook) *string { return v.Content }).(pulumi.StringPtrOutput)
+}
+
+type NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput struct{ *pulumi.OutputState }
+
+func (NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook)(nil)).Elem()
+}
+
+func (o NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput() NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+	return o
+}
+
+func (o NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput) ToNotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutputWithContext(ctx context.Context) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput {
+	return o
+}
+
+func (o NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput) Index(i pulumi.IntInput) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook {
+		return vs[0].([]NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook)[vs[1].(int)]
+	}).(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput)
+}
+
+type NotebookInstanceLifecycleConfigTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 // A tag object that consists of a key and an optional value, used to manage metadata for SageMaker AWS resources.
 type NotebookInstanceTag struct {
 	// The tag key. Tag keys must be unique per resource.
@@ -62756,6 +63732,17 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionMetadataPropertiesInput)(nil)).Elem(), ActionMetadataPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionMetadataPropertiesPtrInput)(nil)).Elem(), ActionMetadataPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionSourceInput)(nil)).Elem(), ActionSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiDatasetConfigInput)(nil)).Elem(), AiWorkloadConfigAiDatasetConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiDatasetConfigPtrInput)(nil)).Elem(), AiWorkloadConfigAiDatasetConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiWorkloadConfigsInput)(nil)).Elem(), AiWorkloadConfigAiWorkloadConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiWorkloadConfigsPtrInput)(nil)).Elem(), AiWorkloadConfigAiWorkloadConfigsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiWorkloadDataSourceInput)(nil)).Elem(), AiWorkloadConfigAiWorkloadDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiWorkloadInputDataConfigInput)(nil)).Elem(), AiWorkloadConfigAiWorkloadInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiWorkloadInputDataConfigArrayInput)(nil)).Elem(), AiWorkloadConfigAiWorkloadInputDataConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiWorkloadS3DataSourceInput)(nil)).Elem(), AiWorkloadConfigAiWorkloadS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigAiWorkloadS3DataSourcePtrInput)(nil)).Elem(), AiWorkloadConfigAiWorkloadS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigWorkloadSpecInput)(nil)).Elem(), AiWorkloadConfigWorkloadSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiWorkloadConfigWorkloadSpecPtrInput)(nil)).Elem(), AiWorkloadConfigWorkloadSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmCategoricalParameterRangeSpecificationInput)(nil)).Elem(), AlgorithmCategoricalParameterRangeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmCategoricalParameterRangeSpecificationPtrInput)(nil)).Elem(), AlgorithmCategoricalParameterRangeSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AlgorithmChannelSpecificationInput)(nil)).Elem(), AlgorithmChannelSpecificationArgs{})
@@ -62866,6 +63853,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterTieredStorageConfigPtrInput)(nil)).Elem(), ClusterTieredStorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigInput)(nil)).Elem(), ClusterVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ClusterVpcConfigPtrInput)(nil)).Elem(), ClusterVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CodeRepositoryGitConfigInput)(nil)).Elem(), CodeRepositoryGitConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionBatchTransformInputPtrInput)(nil)).Elem(), DataQualityJobDefinitionBatchTransformInputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataQualityJobDefinitionClusterConfigInput)(nil)).Elem(), DataQualityJobDefinitionClusterConfigArgs{})
@@ -63350,6 +64338,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleVpcConfigPtrInput)(nil)).Elem(), MonitoringScheduleVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationPtrInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookInput)(nil)).Elem(), NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayInput)(nil)).Elem(), NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OfflineStoreConfigPropertiesInput)(nil)).Elem(), OfflineStoreConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OfflineStoreConfigPropertiesPtrInput)(nil)).Elem(), OfflineStoreConfigPropertiesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OnlineStoreConfigPropertiesInput)(nil)).Elem(), OnlineStoreConfigPropertiesArgs{})
@@ -63506,6 +64496,17 @@ func init() {
 	pulumi.RegisterOutputType(ActionMetadataPropertiesOutput{})
 	pulumi.RegisterOutputType(ActionMetadataPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ActionSourceOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiDatasetConfigOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiDatasetConfigPtrOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiWorkloadConfigsOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiWorkloadConfigsPtrOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiWorkloadDataSourceOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiWorkloadInputDataConfigOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiWorkloadInputDataConfigArrayOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiWorkloadS3DataSourceOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigAiWorkloadS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigWorkloadSpecOutput{})
+	pulumi.RegisterOutputType(AiWorkloadConfigWorkloadSpecPtrOutput{})
 	pulumi.RegisterOutputType(AlgorithmCategoricalParameterRangeSpecificationOutput{})
 	pulumi.RegisterOutputType(AlgorithmCategoricalParameterRangeSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(AlgorithmChannelSpecificationOutput{})
@@ -63616,6 +64617,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterTieredStorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigOutput{})
 	pulumi.RegisterOutputType(ClusterVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryGitConfigOutput{})
+	pulumi.RegisterOutputType(CodeRepositoryGitConfigPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionBatchTransformInputPtrOutput{})
 	pulumi.RegisterOutputType(DataQualityJobDefinitionClusterConfigOutput{})
@@ -64106,6 +65109,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitoringScheduleVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookOutput{})
+	pulumi.RegisterOutputType(NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArrayOutput{})
 	pulumi.RegisterOutputType(OfflineStoreConfigPropertiesOutput{})
 	pulumi.RegisterOutputType(OfflineStoreConfigPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(OnlineStoreConfigPropertiesOutput{})

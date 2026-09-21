@@ -3658,6 +3658,89 @@ type InstanceTag struct {
 	Value *string `pulumi:"value"`
 }
 
+type KeyPairResourceLocation struct {
+	// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AWS Region name.
+	RegionName *string `pulumi:"regionName"`
+}
+
+type KeyPairResourceLocationOutput struct{ *pulumi.OutputState }
+
+func (KeyPairResourceLocationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyPairResourceLocation)(nil)).Elem()
+}
+
+func (o KeyPairResourceLocationOutput) ToKeyPairResourceLocationOutput() KeyPairResourceLocationOutput {
+	return o
+}
+
+func (o KeyPairResourceLocationOutput) ToKeyPairResourceLocationOutputWithContext(ctx context.Context) KeyPairResourceLocationOutput {
+	return o
+}
+
+// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+func (o KeyPairResourceLocationOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyPairResourceLocation) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region name.
+func (o KeyPairResourceLocationOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyPairResourceLocation) *string { return v.RegionName }).(pulumi.StringPtrOutput)
+}
+
+type KeyPairResourceLocationPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyPairResourceLocationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyPairResourceLocation)(nil)).Elem()
+}
+
+func (o KeyPairResourceLocationPtrOutput) ToKeyPairResourceLocationPtrOutput() KeyPairResourceLocationPtrOutput {
+	return o
+}
+
+func (o KeyPairResourceLocationPtrOutput) ToKeyPairResourceLocationPtrOutputWithContext(ctx context.Context) KeyPairResourceLocationPtrOutput {
+	return o
+}
+
+func (o KeyPairResourceLocationPtrOutput) Elem() KeyPairResourceLocationOutput {
+	return o.ApplyT(func(v *KeyPairResourceLocation) KeyPairResourceLocation {
+		if v != nil {
+			return *v
+		}
+		var ret KeyPairResourceLocation
+		return ret
+	}).(KeyPairResourceLocationOutput)
+}
+
+// The Availability Zone. Follows the format us-east-2a (case-sensitive).
+func (o KeyPairResourceLocationPtrOutput) AvailabilityZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyPairResourceLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AvailabilityZone
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS Region name.
+func (o KeyPairResourceLocationPtrOutput) RegionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyPairResourceLocation) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RegionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// A tag key-value pair.
+type KeyPairTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 // A key-value pair to associate with a resource.
 type LoadBalancerTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -3838,6 +3921,8 @@ func init() {
 	pulumi.RegisterOutputType(InstanceSnapshotLocationPtrOutput{})
 	pulumi.RegisterOutputType(InstanceStateTypeOutput{})
 	pulumi.RegisterOutputType(InstanceStateTypePtrOutput{})
+	pulumi.RegisterOutputType(KeyPairResourceLocationOutput{})
+	pulumi.RegisterOutputType(KeyPairResourceLocationPtrOutput{})
 	pulumi.RegisterOutputType(LocationPropertiesOutput{})
 	pulumi.RegisterOutputType(LocationPropertiesPtrOutput{})
 }

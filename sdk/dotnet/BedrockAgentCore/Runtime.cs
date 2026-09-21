@@ -106,6 +106,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         public Output<Outputs.RuntimeNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
+        /// The version of the runtime platform
+        /// </summary>
+        [Output("platformVersion")]
+        public Output<string?> PlatformVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Protocol configuration for the agent runtime
         /// </summary>
         [Output("protocolConfiguration")]
@@ -255,6 +261,12 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         [Input("networkConfiguration")]
         public Input<Inputs.RuntimeNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+
+        /// <summary>
+        /// The version of the runtime platform
+        /// </summary>
+        [Input("platformVersion")]
+        public Input<string>? PlatformVersion { get; set; }
 
         /// <summary>
         /// Protocol configuration for the agent runtime

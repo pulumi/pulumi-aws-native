@@ -168,6 +168,569 @@ namespace Pulumi.AwsNative.Glue
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct ConnectionTypeClientCredentialsPropertiesContentType : IEquatable<ConnectionTypeClientCredentialsPropertiesContentType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeClientCredentialsPropertiesContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeClientCredentialsPropertiesContentType ApplicationJson { get; } = new ConnectionTypeClientCredentialsPropertiesContentType("APPLICATION_JSON");
+        public static ConnectionTypeClientCredentialsPropertiesContentType UrlEncoded { get; } = new ConnectionTypeClientCredentialsPropertiesContentType("URL_ENCODED");
+
+        public static bool operator ==(ConnectionTypeClientCredentialsPropertiesContentType left, ConnectionTypeClientCredentialsPropertiesContentType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeClientCredentialsPropertiesContentType left, ConnectionTypeClientCredentialsPropertiesContentType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeClientCredentialsPropertiesContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeClientCredentialsPropertiesContentType other && Equals(other);
+        public bool Equals(ConnectionTypeClientCredentialsPropertiesContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectionTypeClientCredentialsPropertiesRequestMethod : IEquatable<ConnectionTypeClientCredentialsPropertiesRequestMethod>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeClientCredentialsPropertiesRequestMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeClientCredentialsPropertiesRequestMethod Get { get; } = new ConnectionTypeClientCredentialsPropertiesRequestMethod("GET");
+        public static ConnectionTypeClientCredentialsPropertiesRequestMethod Post { get; } = new ConnectionTypeClientCredentialsPropertiesRequestMethod("POST");
+
+        public static bool operator ==(ConnectionTypeClientCredentialsPropertiesRequestMethod left, ConnectionTypeClientCredentialsPropertiesRequestMethod right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeClientCredentialsPropertiesRequestMethod left, ConnectionTypeClientCredentialsPropertiesRequestMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeClientCredentialsPropertiesRequestMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeClientCredentialsPropertiesRequestMethod other && Equals(other);
+        public bool Equals(ConnectionTypeClientCredentialsPropertiesRequestMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem : IEquatable<ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem Basic { get; } = new ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("BASIC");
+        public static ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem Oauth2 { get; } = new ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("OAUTH2");
+        public static ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem Custom { get; } = new ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("CUSTOM");
+        public static ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem Iam { get; } = new ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem("IAM");
+
+        public static bool operator ==(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem left, ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem left, ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem other && Equals(other);
+        public bool Equals(ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectionTypeConnectorAuthorizationCodePropertiesContentType : IEquatable<ConnectionTypeConnectorAuthorizationCodePropertiesContentType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeConnectorAuthorizationCodePropertiesContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeConnectorAuthorizationCodePropertiesContentType ApplicationJson { get; } = new ConnectionTypeConnectorAuthorizationCodePropertiesContentType("APPLICATION_JSON");
+        public static ConnectionTypeConnectorAuthorizationCodePropertiesContentType UrlEncoded { get; } = new ConnectionTypeConnectorAuthorizationCodePropertiesContentType("URL_ENCODED");
+
+        public static bool operator ==(ConnectionTypeConnectorAuthorizationCodePropertiesContentType left, ConnectionTypeConnectorAuthorizationCodePropertiesContentType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeConnectorAuthorizationCodePropertiesContentType left, ConnectionTypeConnectorAuthorizationCodePropertiesContentType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeConnectorAuthorizationCodePropertiesContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeConnectorAuthorizationCodePropertiesContentType other && Equals(other);
+        public bool Equals(ConnectionTypeConnectorAuthorizationCodePropertiesContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod : IEquatable<ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod Get { get; } = new ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod("GET");
+        public static ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod Post { get; } = new ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod("POST");
+
+        public static bool operator ==(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod left, ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod left, ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod other && Equals(other);
+        public bool Equals(ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The OAuth2 grant type to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType : IEquatable<ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType ClientCredentials { get; } = new ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("CLIENT_CREDENTIALS");
+        public static ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType JwtBearer { get; } = new ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("JWT_BEARER");
+        public static ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType AuthorizationCode { get; } = new ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType("AUTHORIZATION_CODE");
+
+        public static bool operator ==(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType left, ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType left, ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType other && Equals(other);
+        public bool Equals(ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies where this property should be included in REST requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeConnectorPropertyPropertyLocation : IEquatable<ConnectionTypeConnectorPropertyPropertyLocation>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeConnectorPropertyPropertyLocation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeConnectorPropertyPropertyLocation Header { get; } = new ConnectionTypeConnectorPropertyPropertyLocation("HEADER");
+        public static ConnectionTypeConnectorPropertyPropertyLocation Body { get; } = new ConnectionTypeConnectorPropertyPropertyLocation("BODY");
+        public static ConnectionTypeConnectorPropertyPropertyLocation QueryParam { get; } = new ConnectionTypeConnectorPropertyPropertyLocation("QUERY_PARAM");
+        public static ConnectionTypeConnectorPropertyPropertyLocation Path { get; } = new ConnectionTypeConnectorPropertyPropertyLocation("PATH");
+
+        public static bool operator ==(ConnectionTypeConnectorPropertyPropertyLocation left, ConnectionTypeConnectorPropertyPropertyLocation right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeConnectorPropertyPropertyLocation left, ConnectionTypeConnectorPropertyPropertyLocation right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeConnectorPropertyPropertyLocation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeConnectorPropertyPropertyLocation other && Equals(other);
+        public bool Equals(ConnectionTypeConnectorPropertyPropertyLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data type of this property.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeConnectorPropertyPropertyType : IEquatable<ConnectionTypeConnectorPropertyPropertyType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeConnectorPropertyPropertyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeConnectorPropertyPropertyType UserInput { get; } = new ConnectionTypeConnectorPropertyPropertyType("USER_INPUT");
+        public static ConnectionTypeConnectorPropertyPropertyType Secret { get; } = new ConnectionTypeConnectorPropertyPropertyType("SECRET");
+        public static ConnectionTypeConnectorPropertyPropertyType ReadOnly { get; } = new ConnectionTypeConnectorPropertyPropertyType("READ_ONLY");
+        public static ConnectionTypeConnectorPropertyPropertyType Unused { get; } = new ConnectionTypeConnectorPropertyPropertyType("UNUSED");
+        public static ConnectionTypeConnectorPropertyPropertyType SecretOrUserInput { get; } = new ConnectionTypeConnectorPropertyPropertyType("SECRET_OR_USER_INPUT");
+
+        public static bool operator ==(ConnectionTypeConnectorPropertyPropertyType left, ConnectionTypeConnectorPropertyPropertyType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeConnectorPropertyPropertyType left, ConnectionTypeConnectorPropertyPropertyType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeConnectorPropertyPropertyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeConnectorPropertyPropertyType other && Equals(other);
+        public bool Equals(ConnectionTypeConnectorPropertyPropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies where to place the parameter in requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeExtractedParameterPropertyLocation : IEquatable<ConnectionTypeExtractedParameterPropertyLocation>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeExtractedParameterPropertyLocation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeExtractedParameterPropertyLocation Header { get; } = new ConnectionTypeExtractedParameterPropertyLocation("HEADER");
+        public static ConnectionTypeExtractedParameterPropertyLocation Body { get; } = new ConnectionTypeExtractedParameterPropertyLocation("BODY");
+        public static ConnectionTypeExtractedParameterPropertyLocation QueryParam { get; } = new ConnectionTypeExtractedParameterPropertyLocation("QUERY_PARAM");
+        public static ConnectionTypeExtractedParameterPropertyLocation Path { get; } = new ConnectionTypeExtractedParameterPropertyLocation("PATH");
+
+        public static bool operator ==(ConnectionTypeExtractedParameterPropertyLocation left, ConnectionTypeExtractedParameterPropertyLocation right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeExtractedParameterPropertyLocation left, ConnectionTypeExtractedParameterPropertyLocation right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeExtractedParameterPropertyLocation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeExtractedParameterPropertyLocation other && Equals(other);
+        public bool Equals(ConnectionTypeExtractedParameterPropertyLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data type of the field.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeFieldDefinitionFieldDataType : IEquatable<ConnectionTypeFieldDefinitionFieldDataType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeFieldDefinitionFieldDataType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeFieldDefinitionFieldDataType Int { get; } = new ConnectionTypeFieldDefinitionFieldDataType("INT");
+        public static ConnectionTypeFieldDefinitionFieldDataType Smallint { get; } = new ConnectionTypeFieldDefinitionFieldDataType("SMALLINT");
+        public static ConnectionTypeFieldDefinitionFieldDataType Bigint { get; } = new ConnectionTypeFieldDefinitionFieldDataType("BIGINT");
+        public static ConnectionTypeFieldDefinitionFieldDataType Float { get; } = new ConnectionTypeFieldDefinitionFieldDataType("FLOAT");
+        public static ConnectionTypeFieldDefinitionFieldDataType Long { get; } = new ConnectionTypeFieldDefinitionFieldDataType("LONG");
+        public static ConnectionTypeFieldDefinitionFieldDataType Date { get; } = new ConnectionTypeFieldDefinitionFieldDataType("DATE");
+        public static ConnectionTypeFieldDefinitionFieldDataType Boolean { get; } = new ConnectionTypeFieldDefinitionFieldDataType("BOOLEAN");
+        public static ConnectionTypeFieldDefinitionFieldDataType Map { get; } = new ConnectionTypeFieldDefinitionFieldDataType("MAP");
+        public static ConnectionTypeFieldDefinitionFieldDataType Array { get; } = new ConnectionTypeFieldDefinitionFieldDataType("ARRAY");
+        public static ConnectionTypeFieldDefinitionFieldDataType String { get; } = new ConnectionTypeFieldDefinitionFieldDataType("STRING");
+        public static ConnectionTypeFieldDefinitionFieldDataType Timestamp { get; } = new ConnectionTypeFieldDefinitionFieldDataType("TIMESTAMP");
+        public static ConnectionTypeFieldDefinitionFieldDataType Decimal { get; } = new ConnectionTypeFieldDefinitionFieldDataType("DECIMAL");
+        public static ConnectionTypeFieldDefinitionFieldDataType Byte { get; } = new ConnectionTypeFieldDefinitionFieldDataType("BYTE");
+        public static ConnectionTypeFieldDefinitionFieldDataType Short { get; } = new ConnectionTypeFieldDefinitionFieldDataType("SHORT");
+        public static ConnectionTypeFieldDefinitionFieldDataType Double { get; } = new ConnectionTypeFieldDefinitionFieldDataType("DOUBLE");
+        public static ConnectionTypeFieldDefinitionFieldDataType Struct { get; } = new ConnectionTypeFieldDefinitionFieldDataType("STRUCT");
+        public static ConnectionTypeFieldDefinitionFieldDataType Binary { get; } = new ConnectionTypeFieldDefinitionFieldDataType("BINARY");
+        public static ConnectionTypeFieldDefinitionFieldDataType Union { get; } = new ConnectionTypeFieldDefinitionFieldDataType("UNION");
+
+        public static bool operator ==(ConnectionTypeFieldDefinitionFieldDataType left, ConnectionTypeFieldDefinitionFieldDataType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeFieldDefinitionFieldDataType left, ConnectionTypeFieldDefinitionFieldDataType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeFieldDefinitionFieldDataType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeFieldDefinitionFieldDataType other && Equals(other);
+        public bool Equals(ConnectionTypeFieldDefinitionFieldDataType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The strategy for applying filters to requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeFilterConfigurationFilterMode : IEquatable<ConnectionTypeFilterConfigurationFilterMode>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeFilterConfigurationFilterMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeFilterConfigurationFilterMode QueryParams { get; } = new ConnectionTypeFilterConfigurationFilterMode("QUERY_PARAMS");
+        public static ConnectionTypeFilterConfigurationFilterMode FilterString { get; } = new ConnectionTypeFilterConfigurationFilterMode("FILTER_STRING");
+
+        public static bool operator ==(ConnectionTypeFilterConfigurationFilterMode left, ConnectionTypeFilterConfigurationFilterMode right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeFilterConfigurationFilterMode left, ConnectionTypeFilterConfigurationFilterMode right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeFilterConfigurationFilterMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeFilterConfigurationFilterMode other && Equals(other);
+        public bool Equals(ConnectionTypeFilterConfigurationFilterMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The integration type for the connection. Currently only REST is supported.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeIntegrationType : IEquatable<ConnectionTypeIntegrationType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeIntegrationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeIntegrationType Rest { get; } = new ConnectionTypeIntegrationType("REST");
+
+        public static bool operator ==(ConnectionTypeIntegrationType left, ConnectionTypeIntegrationType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeIntegrationType left, ConnectionTypeIntegrationType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeIntegrationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeIntegrationType other && Equals(other);
+        public bool Equals(ConnectionTypeIntegrationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectionTypeJwtBearerPropertiesContentType : IEquatable<ConnectionTypeJwtBearerPropertiesContentType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeJwtBearerPropertiesContentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeJwtBearerPropertiesContentType ApplicationJson { get; } = new ConnectionTypeJwtBearerPropertiesContentType("APPLICATION_JSON");
+        public static ConnectionTypeJwtBearerPropertiesContentType UrlEncoded { get; } = new ConnectionTypeJwtBearerPropertiesContentType("URL_ENCODED");
+
+        public static bool operator ==(ConnectionTypeJwtBearerPropertiesContentType left, ConnectionTypeJwtBearerPropertiesContentType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeJwtBearerPropertiesContentType left, ConnectionTypeJwtBearerPropertiesContentType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeJwtBearerPropertiesContentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeJwtBearerPropertiesContentType other && Equals(other);
+        public bool Equals(ConnectionTypeJwtBearerPropertiesContentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct ConnectionTypeJwtBearerPropertiesRequestMethod : IEquatable<ConnectionTypeJwtBearerPropertiesRequestMethod>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeJwtBearerPropertiesRequestMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeJwtBearerPropertiesRequestMethod Get { get; } = new ConnectionTypeJwtBearerPropertiesRequestMethod("GET");
+        public static ConnectionTypeJwtBearerPropertiesRequestMethod Post { get; } = new ConnectionTypeJwtBearerPropertiesRequestMethod("POST");
+
+        public static bool operator ==(ConnectionTypeJwtBearerPropertiesRequestMethod left, ConnectionTypeJwtBearerPropertiesRequestMethod right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeJwtBearerPropertiesRequestMethod left, ConnectionTypeJwtBearerPropertiesRequestMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeJwtBearerPropertiesRequestMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeJwtBearerPropertiesRequestMethod other && Equals(other);
+        public bool Equals(ConnectionTypeJwtBearerPropertiesRequestMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The HTTP method to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod : IEquatable<ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod Get { get; } = new ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod("GET");
+        public static ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod Post { get; } = new ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod("POST");
+
+        public static bool operator ==(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod left, ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod left, ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod other && Equals(other);
+        public bool Equals(ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies where this property should be included in REST requests.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeSecretConnectorPropertyPropertyLocation : IEquatable<ConnectionTypeSecretConnectorPropertyPropertyLocation>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeSecretConnectorPropertyPropertyLocation(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeSecretConnectorPropertyPropertyLocation Header { get; } = new ConnectionTypeSecretConnectorPropertyPropertyLocation("HEADER");
+        public static ConnectionTypeSecretConnectorPropertyPropertyLocation Body { get; } = new ConnectionTypeSecretConnectorPropertyPropertyLocation("BODY");
+        public static ConnectionTypeSecretConnectorPropertyPropertyLocation QueryParam { get; } = new ConnectionTypeSecretConnectorPropertyPropertyLocation("QUERY_PARAM");
+        public static ConnectionTypeSecretConnectorPropertyPropertyLocation Path { get; } = new ConnectionTypeSecretConnectorPropertyPropertyLocation("PATH");
+
+        public static bool operator ==(ConnectionTypeSecretConnectorPropertyPropertyLocation left, ConnectionTypeSecretConnectorPropertyPropertyLocation right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeSecretConnectorPropertyPropertyLocation left, ConnectionTypeSecretConnectorPropertyPropertyLocation right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeSecretConnectorPropertyPropertyLocation value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeSecretConnectorPropertyPropertyLocation other && Equals(other);
+        public bool Equals(ConnectionTypeSecretConnectorPropertyPropertyLocation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data type of this property. Must be SECRET for secret properties.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeSecretConnectorPropertyPropertyType : IEquatable<ConnectionTypeSecretConnectorPropertyPropertyType>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeSecretConnectorPropertyPropertyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeSecretConnectorPropertyPropertyType Secret { get; } = new ConnectionTypeSecretConnectorPropertyPropertyType("SECRET");
+
+        public static bool operator ==(ConnectionTypeSecretConnectorPropertyPropertyType left, ConnectionTypeSecretConnectorPropertyPropertyType right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeSecretConnectorPropertyPropertyType left, ConnectionTypeSecretConnectorPropertyPropertyType right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeSecretConnectorPropertyPropertyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeSecretConnectorPropertyPropertyType other && Equals(other);
+        public bool Equals(ConnectionTypeSecretConnectorPropertyPropertyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The HTTP method to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionTypeSourceConfigurationRequestMethod : IEquatable<ConnectionTypeSourceConfigurationRequestMethod>
+    {
+        private readonly string _value;
+
+        private ConnectionTypeSourceConfigurationRequestMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionTypeSourceConfigurationRequestMethod Get { get; } = new ConnectionTypeSourceConfigurationRequestMethod("GET");
+        public static ConnectionTypeSourceConfigurationRequestMethod Post { get; } = new ConnectionTypeSourceConfigurationRequestMethod("POST");
+
+        public static bool operator ==(ConnectionTypeSourceConfigurationRequestMethod left, ConnectionTypeSourceConfigurationRequestMethod right) => left.Equals(right);
+        public static bool operator !=(ConnectionTypeSourceConfigurationRequestMethod left, ConnectionTypeSourceConfigurationRequestMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionTypeSourceConfigurationRequestMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionTypeSourceConfigurationRequestMethod other && Equals(other);
+        public bool Equals(ConnectionTypeSourceConfigurationRequestMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// TThe type of predefined worker that is allocated when a job runs.
     /// </summary>

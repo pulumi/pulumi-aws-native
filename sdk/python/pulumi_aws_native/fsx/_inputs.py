@@ -22,6 +22,14 @@ __all__ = [
     'DataRepositoryAssociationAutoImportPolicyArgsDict',
     'DataRepositoryAssociationS3Args',
     'DataRepositoryAssociationS3ArgsDict',
+    'FileCacheDataRepositoryAssociationArgs',
+    'FileCacheDataRepositoryAssociationArgsDict',
+    'FileCacheLogConfigurationArgs',
+    'FileCacheLogConfigurationArgsDict',
+    'FileCacheLustreConfigurationArgs',
+    'FileCacheLustreConfigurationArgsDict',
+    'FileCacheMetadataConfigurationArgs',
+    'FileCacheMetadataConfigurationArgsDict',
     'S3AccessPointAttachmentFileSystemGidArgs',
     'S3AccessPointAttachmentFileSystemGidArgsDict',
     'S3AccessPointAttachmentOntapFileSystemIdentityArgs',
@@ -234,6 +242,170 @@ class DataRepositoryAssociationS3Args:
     @auto_import_policy.setter
     def auto_import_policy(self, value: pulumi.Input[Optional['DataRepositoryAssociationAutoImportPolicyArgs']]):
         pulumi.set(self, "auto_import_policy", value)
+
+
+class FileCacheDataRepositoryAssociationArgsDict(TypedDict):
+    data_repository_path: pulumi.Input[_builtins.str]
+    file_cache_path: pulumi.Input[_builtins.str]
+
+@pulumi.input_type
+class FileCacheDataRepositoryAssociationArgs:
+    def __init__(__self__, *,
+                 data_repository_path: pulumi.Input[_builtins.str],
+                 file_cache_path: pulumi.Input[_builtins.str]):
+        pulumi.set(__self__, "data_repository_path", data_repository_path)
+        pulumi.set(__self__, "file_cache_path", file_cache_path)
+
+    @_builtins.property
+    @pulumi.getter(name="dataRepositoryPath")
+    def data_repository_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "data_repository_path")
+
+    @data_repository_path.setter
+    def data_repository_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_repository_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fileCachePath")
+    def file_cache_path(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "file_cache_path")
+
+    @file_cache_path.setter
+    def file_cache_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "file_cache_path", value)
+
+
+class FileCacheLogConfigurationArgsDict(TypedDict):
+    level: pulumi.Input['FileCacheLogConfigurationLevel']
+    destination: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FileCacheLogConfigurationArgs:
+    def __init__(__self__, *,
+                 level: pulumi.Input['FileCacheLogConfigurationLevel'],
+                 destination: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "level", level)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+
+    @_builtins.property
+    @pulumi.getter
+    def level(self) -> pulumi.Input['FileCacheLogConfigurationLevel']:
+        return pulumi.get(self, "level")
+
+    @level.setter
+    def level(self, value: pulumi.Input['FileCacheLogConfigurationLevel']):
+        pulumi.set(self, "level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "destination", value)
+
+
+class FileCacheLustreConfigurationArgsDict(TypedDict):
+    deployment_type: pulumi.Input['FileCacheLustreConfigurationDeploymentType']
+    metadata_configuration: pulumi.Input['FileCacheMetadataConfigurationArgsDict']
+    per_unit_storage_throughput: pulumi.Input[_builtins.int]
+    log_configuration: NotRequired[pulumi.Input[Optional['FileCacheLogConfigurationArgsDict']]]
+    mount_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    weekly_maintenance_start_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class FileCacheLustreConfigurationArgs:
+    def __init__(__self__, *,
+                 deployment_type: pulumi.Input['FileCacheLustreConfigurationDeploymentType'],
+                 metadata_configuration: pulumi.Input['FileCacheMetadataConfigurationArgs'],
+                 per_unit_storage_throughput: pulumi.Input[_builtins.int],
+                 log_configuration: pulumi.Input[Optional['FileCacheLogConfigurationArgs']] = None,
+                 mount_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 weekly_maintenance_start_time: pulumi.Input[Optional[_builtins.str]] = None):
+        pulumi.set(__self__, "deployment_type", deployment_type)
+        pulumi.set(__self__, "metadata_configuration", metadata_configuration)
+        pulumi.set(__self__, "per_unit_storage_throughput", per_unit_storage_throughput)
+        if log_configuration is not None:
+            pulumi.set(__self__, "log_configuration", log_configuration)
+        if mount_name is not None:
+            pulumi.set(__self__, "mount_name", mount_name)
+        if weekly_maintenance_start_time is not None:
+            pulumi.set(__self__, "weekly_maintenance_start_time", weekly_maintenance_start_time)
+
+    @_builtins.property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Input['FileCacheLustreConfigurationDeploymentType']:
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: pulumi.Input['FileCacheLustreConfigurationDeploymentType']):
+        pulumi.set(self, "deployment_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metadataConfiguration")
+    def metadata_configuration(self) -> pulumi.Input['FileCacheMetadataConfigurationArgs']:
+        return pulumi.get(self, "metadata_configuration")
+
+    @metadata_configuration.setter
+    def metadata_configuration(self, value: pulumi.Input['FileCacheMetadataConfigurationArgs']):
+        pulumi.set(self, "metadata_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="perUnitStorageThroughput")
+    def per_unit_storage_throughput(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "per_unit_storage_throughput")
+
+    @per_unit_storage_throughput.setter
+    def per_unit_storage_throughput(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "per_unit_storage_throughput", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logConfiguration")
+    def log_configuration(self) -> pulumi.Input[Optional['FileCacheLogConfigurationArgs']]:
+        return pulumi.get(self, "log_configuration")
+
+    @log_configuration.setter
+    def log_configuration(self, value: pulumi.Input[Optional['FileCacheLogConfigurationArgs']]):
+        pulumi.set(self, "log_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mountName")
+    def mount_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "mount_name")
+
+    @mount_name.setter
+    def mount_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "mount_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="weeklyMaintenanceStartTime")
+    def weekly_maintenance_start_time(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "weekly_maintenance_start_time")
+
+    @weekly_maintenance_start_time.setter
+    def weekly_maintenance_start_time(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "weekly_maintenance_start_time", value)
+
+
+class FileCacheMetadataConfigurationArgsDict(TypedDict):
+    storage_capacity: pulumi.Input[_builtins.int]
+
+@pulumi.input_type
+class FileCacheMetadataConfigurationArgs:
+    def __init__(__self__, *,
+                 storage_capacity: pulumi.Input[_builtins.int]):
+        pulumi.set(__self__, "storage_capacity", storage_capacity)
+
+    @_builtins.property
+    @pulumi.getter(name="storageCapacity")
+    def storage_capacity(self) -> pulumi.Input[_builtins.int]:
+        return pulumi.get(self, "storage_capacity")
+
+    @storage_capacity.setter
+    def storage_capacity(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "storage_capacity", value)
 
 
 class S3AccessPointAttachmentFileSystemGidArgsDict(TypedDict):

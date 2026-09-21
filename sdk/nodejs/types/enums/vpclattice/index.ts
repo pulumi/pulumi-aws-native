@@ -76,6 +76,7 @@ export const ResourceConfigurationType = {
     Child: "CHILD",
     Single: "SINGLE",
     Arn: "ARN",
+    Cidr: "CIDR",
 } as const;
 
 /**

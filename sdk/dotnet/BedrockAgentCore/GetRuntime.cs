@@ -120,6 +120,10 @@ namespace Pulumi.AwsNative.BedrockAgentCore
         /// </summary>
         public readonly Outputs.RuntimeNetworkConfiguration? NetworkConfiguration;
         /// <summary>
+        /// The version of the runtime platform
+        /// </summary>
+        public readonly string? PlatformVersion;
+        /// <summary>
         /// Protocol configuration for the agent runtime
         /// </summary>
         public readonly Pulumi.AwsNative.BedrockAgentCore.RuntimeProtocolConfiguration? ProtocolConfiguration;
@@ -174,6 +178,8 @@ namespace Pulumi.AwsNative.BedrockAgentCore
 
             Outputs.RuntimeNetworkConfiguration? networkConfiguration,
 
+            string? platformVersion,
+
             Pulumi.AwsNative.BedrockAgentCore.RuntimeProtocolConfiguration? protocolConfiguration,
 
             Outputs.RuntimeRequestHeaderConfiguration? requestHeaderConfiguration,
@@ -200,6 +206,7 @@ namespace Pulumi.AwsNative.BedrockAgentCore
             LastUpdatedAt = lastUpdatedAt;
             LifecycleConfiguration = lifecycleConfiguration;
             NetworkConfiguration = networkConfiguration;
+            PlatformVersion = platformVersion;
             ProtocolConfiguration = protocolConfiguration;
             RequestHeaderConfiguration = requestHeaderConfiguration;
             RoleArn = roleArn;

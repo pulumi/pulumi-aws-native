@@ -13,6 +13,234 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// A key-value filter pair used in container association monitoring configurations to narrow which containers are tracked.
+type ContainerAssociationContainerAttribute struct {
+	// The attribute key to filter on.
+	Key string `pulumi:"key"`
+	// The attribute value to match.
+	Value string `pulumi:"value"`
+}
+
+// ContainerAssociationContainerAttributeInput is an input type that accepts ContainerAssociationContainerAttributeArgs and ContainerAssociationContainerAttributeOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerAttributeInput` via:
+//
+//	ContainerAssociationContainerAttributeArgs{...}
+type ContainerAssociationContainerAttributeInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerAttributeOutput() ContainerAssociationContainerAttributeOutput
+	ToContainerAssociationContainerAttributeOutputWithContext(context.Context) ContainerAssociationContainerAttributeOutput
+}
+
+// A key-value filter pair used in container association monitoring configurations to narrow which containers are tracked.
+type ContainerAssociationContainerAttributeArgs struct {
+	// The attribute key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The attribute value to match.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ContainerAssociationContainerAttributeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerAttribute)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerAttributeArgs) ToContainerAssociationContainerAttributeOutput() ContainerAssociationContainerAttributeOutput {
+	return i.ToContainerAssociationContainerAttributeOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerAttributeArgs) ToContainerAssociationContainerAttributeOutputWithContext(ctx context.Context) ContainerAssociationContainerAttributeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerAttributeOutput)
+}
+
+// ContainerAssociationContainerAttributeArrayInput is an input type that accepts ContainerAssociationContainerAttributeArray and ContainerAssociationContainerAttributeArrayOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerAttributeArrayInput` via:
+//
+//	ContainerAssociationContainerAttributeArray{ ContainerAssociationContainerAttributeArgs{...} }
+type ContainerAssociationContainerAttributeArrayInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerAttributeArrayOutput() ContainerAssociationContainerAttributeArrayOutput
+	ToContainerAssociationContainerAttributeArrayOutputWithContext(context.Context) ContainerAssociationContainerAttributeArrayOutput
+}
+
+type ContainerAssociationContainerAttributeArray []ContainerAssociationContainerAttributeInput
+
+func (ContainerAssociationContainerAttributeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerAttribute)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerAttributeArray) ToContainerAssociationContainerAttributeArrayOutput() ContainerAssociationContainerAttributeArrayOutput {
+	return i.ToContainerAssociationContainerAttributeArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerAttributeArray) ToContainerAssociationContainerAttributeArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerAttributeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerAttributeArrayOutput)
+}
+
+// A key-value filter pair used in container association monitoring configurations to narrow which containers are tracked.
+type ContainerAssociationContainerAttributeOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerAttributeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerAttribute)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerAttributeOutput) ToContainerAssociationContainerAttributeOutput() ContainerAssociationContainerAttributeOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerAttributeOutput) ToContainerAssociationContainerAttributeOutputWithContext(ctx context.Context) ContainerAssociationContainerAttributeOutput {
+	return o
+}
+
+// The attribute key to filter on.
+func (o ContainerAssociationContainerAttributeOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerAttribute) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The attribute value to match.
+func (o ContainerAssociationContainerAttributeOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerAttribute) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ContainerAssociationContainerAttributeArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerAttributeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerAttribute)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerAttributeArrayOutput) ToContainerAssociationContainerAttributeArrayOutput() ContainerAssociationContainerAttributeArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerAttributeArrayOutput) ToContainerAssociationContainerAttributeArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerAttributeArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerAttributeArrayOutput) Index(i pulumi.IntInput) ContainerAssociationContainerAttributeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerAssociationContainerAttribute {
+		return vs[0].([]ContainerAssociationContainerAttribute)[vs[1].(int)]
+	}).(ContainerAssociationContainerAttributeOutput)
+}
+
+// Contains the monitoring configuration for a single cluster in a container association. Specifies the cluster ARN and optional attribute filters to narrow which containers are tracked.
+type ContainerAssociationContainerMonitoringConfiguration struct {
+	// Key-value pairs that filter which containers are tracked. For Amazon EKS, you can filter by namespace and Kubernetes labels. For Amazon ECS, you can filter by container instance attributes (EC2 launch type only).
+	AttributeFilters []ContainerAssociationContainerAttribute `pulumi:"attributeFilters"`
+	// The ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+	ClusterArn string `pulumi:"clusterArn"`
+}
+
+// ContainerAssociationContainerMonitoringConfigurationInput is an input type that accepts ContainerAssociationContainerMonitoringConfigurationArgs and ContainerAssociationContainerMonitoringConfigurationOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerMonitoringConfigurationInput` via:
+//
+//	ContainerAssociationContainerMonitoringConfigurationArgs{...}
+type ContainerAssociationContainerMonitoringConfigurationInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerMonitoringConfigurationOutput() ContainerAssociationContainerMonitoringConfigurationOutput
+	ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(context.Context) ContainerAssociationContainerMonitoringConfigurationOutput
+}
+
+// Contains the monitoring configuration for a single cluster in a container association. Specifies the cluster ARN and optional attribute filters to narrow which containers are tracked.
+type ContainerAssociationContainerMonitoringConfigurationArgs struct {
+	// Key-value pairs that filter which containers are tracked. For Amazon EKS, you can filter by namespace and Kubernetes labels. For Amazon ECS, you can filter by container instance attributes (EC2 launch type only).
+	AttributeFilters ContainerAssociationContainerAttributeArrayInput `pulumi:"attributeFilters"`
+	// The ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+	ClusterArn pulumi.StringInput `pulumi:"clusterArn"`
+}
+
+func (ContainerAssociationContainerMonitoringConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArgs) ToContainerAssociationContainerMonitoringConfigurationOutput() ContainerAssociationContainerMonitoringConfigurationOutput {
+	return i.ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArgs) ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerMonitoringConfigurationOutput)
+}
+
+// ContainerAssociationContainerMonitoringConfigurationArrayInput is an input type that accepts ContainerAssociationContainerMonitoringConfigurationArray and ContainerAssociationContainerMonitoringConfigurationArrayOutput values.
+// You can construct a concrete instance of `ContainerAssociationContainerMonitoringConfigurationArrayInput` via:
+//
+//	ContainerAssociationContainerMonitoringConfigurationArray{ ContainerAssociationContainerMonitoringConfigurationArgs{...} }
+type ContainerAssociationContainerMonitoringConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToContainerAssociationContainerMonitoringConfigurationArrayOutput() ContainerAssociationContainerMonitoringConfigurationArrayOutput
+	ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(context.Context) ContainerAssociationContainerMonitoringConfigurationArrayOutput
+}
+
+type ContainerAssociationContainerMonitoringConfigurationArray []ContainerAssociationContainerMonitoringConfigurationInput
+
+func (ContainerAssociationContainerMonitoringConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArray) ToContainerAssociationContainerMonitoringConfigurationArrayOutput() ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return i.ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ContainerAssociationContainerMonitoringConfigurationArray) ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ContainerAssociationContainerMonitoringConfigurationArrayOutput)
+}
+
+// Contains the monitoring configuration for a single cluster in a container association. Specifies the cluster ARN and optional attribute filters to narrow which containers are tracked.
+type ContainerAssociationContainerMonitoringConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerMonitoringConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) ToContainerAssociationContainerMonitoringConfigurationOutput() ContainerAssociationContainerMonitoringConfigurationOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) ToContainerAssociationContainerMonitoringConfigurationOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationOutput {
+	return o
+}
+
+// Key-value pairs that filter which containers are tracked. For Amazon EKS, you can filter by namespace and Kubernetes labels. For Amazon ECS, you can filter by container instance attributes (EC2 launch type only).
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) AttributeFilters() ContainerAssociationContainerAttributeArrayOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerMonitoringConfiguration) []ContainerAssociationContainerAttribute {
+		return v.AttributeFilters
+	}).(ContainerAssociationContainerAttributeArrayOutput)
+}
+
+// The ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+func (o ContainerAssociationContainerMonitoringConfigurationOutput) ClusterArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ContainerAssociationContainerMonitoringConfiguration) string { return v.ClusterArn }).(pulumi.StringOutput)
+}
+
+type ContainerAssociationContainerMonitoringConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ContainerAssociationContainerMonitoringConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ContainerAssociationContainerMonitoringConfiguration)(nil)).Elem()
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationArrayOutput) ToContainerAssociationContainerMonitoringConfigurationArrayOutput() ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationArrayOutput) ToContainerAssociationContainerMonitoringConfigurationArrayOutputWithContext(ctx context.Context) ContainerAssociationContainerMonitoringConfigurationArrayOutput {
+	return o
+}
+
+func (o ContainerAssociationContainerMonitoringConfigurationArrayOutput) Index(i pulumi.IntInput) ContainerAssociationContainerMonitoringConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ContainerAssociationContainerMonitoringConfiguration {
+		return vs[0].([]ContainerAssociationContainerMonitoringConfiguration)[vs[1].(int)]
+	}).(ContainerAssociationContainerMonitoringConfigurationOutput)
+}
+
+// A key:value pair associated with an Amazon Web Services resource.
+type ContainerAssociationTag struct {
+	// The part of the key:value pair that defines a tag. Tag keys are case-sensitive.
+	Key string `pulumi:"key"`
+	// The part of the key:value pair that defines a tag. Tag values are case-sensitive.
+	Value string `pulumi:"value"`
+}
+
 type FirewallAvailabilityZoneMapping struct {
 	// A AvailabilityZone
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -6215,6 +6443,10 @@ type VpcEndpointAssociationTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerAttributeInput)(nil)).Elem(), ContainerAssociationContainerAttributeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerAttributeArrayInput)(nil)).Elem(), ContainerAssociationContainerAttributeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationInput)(nil)).Elem(), ContainerAssociationContainerMonitoringConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ContainerAssociationContainerMonitoringConfigurationArrayInput)(nil)).Elem(), ContainerAssociationContainerMonitoringConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallAvailabilityZoneMappingArrayInput)(nil)).Elem(), FirewallAvailabilityZoneMappingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FirewallPolicyTypeInput)(nil)).Elem(), FirewallPolicyTypeArgs{})
@@ -6302,6 +6534,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationServerCertificateScopeArrayInput)(nil)).Elem(), TlsInspectionConfigurationServerCertificateScopeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TlsInspectionConfigurationTlsInspectionConfigurationInput)(nil)).Elem(), TlsInspectionConfigurationTlsInspectionConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcEndpointAssociationSubnetMappingInput)(nil)).Elem(), VpcEndpointAssociationSubnetMappingArgs{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerAttributeOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerAttributeArrayOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerMonitoringConfigurationOutput{})
+	pulumi.RegisterOutputType(ContainerAssociationContainerMonitoringConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingOutput{})
 	pulumi.RegisterOutputType(FirewallAvailabilityZoneMappingArrayOutput{})
 	pulumi.RegisterOutputType(FirewallPolicyTypeOutput{})

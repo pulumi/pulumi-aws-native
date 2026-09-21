@@ -176,6 +176,7 @@ export class Topic extends pulumi.CustomResource {
      *  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
      */
     declare public readonly kmsMasterKeyId: pulumi.Output<string | undefined>;
+    declare public readonly maximumMessageSize: pulumi.Output<number | undefined>;
     /**
      * The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
      */
@@ -224,6 +225,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["fifoThroughputScope"] = args?.fifoThroughputScope;
             resourceInputs["fifoTopic"] = args?.fifoTopic;
             resourceInputs["kmsMasterKeyId"] = args?.kmsMasterKeyId;
+            resourceInputs["maximumMessageSize"] = args?.maximumMessageSize;
             resourceInputs["signatureVersion"] = args?.signatureVersion;
             resourceInputs["subscription"] = args?.subscription;
             resourceInputs["tags"] = args?.tags;
@@ -239,6 +241,7 @@ export class Topic extends pulumi.CustomResource {
             resourceInputs["fifoThroughputScope"] = undefined /*out*/;
             resourceInputs["fifoTopic"] = undefined /*out*/;
             resourceInputs["kmsMasterKeyId"] = undefined /*out*/;
+            resourceInputs["maximumMessageSize"] = undefined /*out*/;
             resourceInputs["signatureVersion"] = undefined /*out*/;
             resourceInputs["subscription"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -304,6 +307,7 @@ export interface TopicArgs {
      *  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
      */
     kmsMasterKeyId?: pulumi.Input<string | undefined>;
+    maximumMessageSize?: pulumi.Input<number | undefined>;
     /**
      * The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
      */

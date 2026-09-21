@@ -111,6 +111,7 @@ class ResourceConfigurationType(_builtins.str, Enum):
     CHILD = "CHILD"
     SINGLE = "SINGLE"
     ARN = "ARN"
+    CIDR = "CIDR"
 
 
 @pulumi.type_token("aws-native:vpclattice:ResourceGatewayIpAddressType")

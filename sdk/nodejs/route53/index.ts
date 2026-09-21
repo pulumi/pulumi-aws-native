@@ -40,6 +40,11 @@ export const getRecordSet: typeof import("./getRecordSet").getRecordSet = null a
 export const getRecordSetOutput: typeof import("./getRecordSet").getRecordSetOutput = null as any;
 utilities.lazyLoad(exports, ["getRecordSet","getRecordSetOutput"], () => require("./getRecordSet"));
 
+export { GetTrafficPolicyArgs, GetTrafficPolicyResult, GetTrafficPolicyOutputArgs } from "./getTrafficPolicy";
+export const getTrafficPolicy: typeof import("./getTrafficPolicy").getTrafficPolicy = null as any;
+export const getTrafficPolicyOutput: typeof import("./getTrafficPolicy").getTrafficPolicyOutput = null as any;
+utilities.lazyLoad(exports, ["getTrafficPolicy","getTrafficPolicyOutput"], () => require("./getTrafficPolicy"));
+
 export { HealthCheckArgs } from "./healthCheck";
 export type HealthCheck = import("./healthCheck").HealthCheck;
 export const HealthCheck: typeof import("./healthCheck").HealthCheck = null as any;
@@ -59,6 +64,11 @@ export { RecordSetArgs } from "./recordSet";
 export type RecordSet = import("./recordSet").RecordSet;
 export const RecordSet: typeof import("./recordSet").RecordSet = null as any;
 utilities.lazyLoad(exports, ["RecordSet"], () => require("./recordSet"));
+
+export { TrafficPolicyArgs } from "./trafficPolicy";
+export type TrafficPolicy = import("./trafficPolicy").TrafficPolicy;
+export const TrafficPolicy: typeof import("./trafficPolicy").TrafficPolicy = null as any;
+utilities.lazyLoad(exports, ["TrafficPolicy"], () => require("./trafficPolicy"));
 
 
 // Export enums:
@@ -80,6 +90,8 @@ const _module = {
                 return new KeySigningKey(name, <any>undefined, { urn })
             case "aws-native:route53:RecordSet":
                 return new RecordSet(name, <any>undefined, { urn })
+            case "aws-native:route53:TrafficPolicy":
+                return new TrafficPolicy(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

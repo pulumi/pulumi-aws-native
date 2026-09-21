@@ -9,8 +9,10 @@ import typing
 from ._enums import *
 from .data_source import *
 from .faq import *
+from .featured_results_set import *
 from .get_data_source import *
 from .get_faq import *
+from .get_featured_results_set import *
 from .get_index import *
 from .get_query_suggestions_block_list import *
 from .get_thesaurus import *

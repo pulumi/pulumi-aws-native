@@ -25,16 +25,34 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Output<string> AwsId { get; private set; } = null!;
 
         /// <summary>
+        /// Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+        /// </summary>
+        [Output("buildConfiguration")]
+        public Output<Outputs.ApplicationVersionBuildConfiguration?> BuildConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// A description of this application version.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration for image-based application versions.
+        /// </summary>
+        [Output("imageConfiguration")]
+        public Output<Outputs.ApplicationVersionImageConfiguration?> ImageConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+        /// </summary>
+        [Output("process")]
+        public Output<bool?> Process { get; private set; } = null!;
+
+        /// <summary>
         /// The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
         /// </summary>
         [Output("sourceBundle")]
-        public Output<Outputs.ApplicationVersionSourceBundle> SourceBundle { get; private set; } = null!;
+        public Output<Outputs.ApplicationVersionSourceBundle?> SourceBundle { get; private set; } = null!;
 
 
         /// <summary>
@@ -62,6 +80,9 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
                 ReplaceOnChanges =
                 {
                     "applicationName",
+                    "buildConfiguration",
+                    "imageConfiguration",
+                    "process",
                     "sourceBundle",
                 },
             };
@@ -93,16 +114,34 @@ namespace Pulumi.AwsNative.ElasticBeanstalk
         public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
+        /// Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+        /// </summary>
+        [Input("buildConfiguration")]
+        public Input<Inputs.ApplicationVersionBuildConfigurationArgs>? BuildConfiguration { get; set; }
+
+        /// <summary>
         /// A description of this application version.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// Configuration for image-based application versions.
+        /// </summary>
+        [Input("imageConfiguration")]
+        public Input<Inputs.ApplicationVersionImageConfigurationArgs>? ImageConfiguration { get; set; }
+
+        /// <summary>
+        /// Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+        /// </summary>
+        [Input("process")]
+        public Input<bool>? Process { get; set; }
+
+        /// <summary>
         /// The Amazon S3 bucket and key that identify the location of the source bundle for this version. 
         /// </summary>
-        [Input("sourceBundle", required: true)]
-        public Input<Inputs.ApplicationVersionSourceBundleArgs> SourceBundle { get; set; } = null!;
+        [Input("sourceBundle")]
+        public Input<Inputs.ApplicationVersionSourceBundleArgs>? SourceBundle { get; set; }
 
         public ApplicationVersionArgs()
         {

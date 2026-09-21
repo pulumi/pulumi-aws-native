@@ -21,9 +21,11 @@ __all__ = [
     'ListenerFixedResponse',
     'ListenerForward',
     'ListenerWeightedTargetGroup',
+    'ResourceConfigurationCidrResource',
     'ResourceConfigurationDefinition0Properties',
     'ResourceConfigurationDefinition1Properties',
     'ResourceConfigurationDefinition2Properties',
+    'ResourceConfigurationDefinition3Properties',
     'ResourceConfigurationDnsResource',
     'RuleAction',
     'RuleFixedResponse',
@@ -216,6 +218,35 @@ class ListenerWeightedTargetGroup(dict):
 
 
 @pulumi.output_type
+class ResourceConfigurationCidrResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrRanges":
+            suggest = "cidr_ranges"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationCidrResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationCidrResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationCidrResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_ranges: Sequence[_builtins.str]):
+        pulumi.set(__self__, "cidr_ranges", cidr_ranges)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrRanges")
+    def cidr_ranges(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "cidr_ranges")
+
+
+@pulumi.output_type
 class ResourceConfigurationDefinition0Properties(dict):
     """
     Identifies the resource configuration in one of the following ways:
@@ -342,6 +373,49 @@ class ResourceConfigurationDefinition2Properties(dict):
     @pulumi.getter(name="dnsResource")
     def dns_resource(self) -> 'outputs.ResourceConfigurationDnsResource':
         return pulumi.get(self, "dns_resource")
+
+
+@pulumi.output_type
+class ResourceConfigurationDefinition3Properties(dict):
+    """
+    Identifies the resource configuration in one of the following ways:
+
+    - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+    - *Domain name* - Any domain name that is publicly resolvable.
+    - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cidrResource":
+            suggest = "cidr_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceConfigurationDefinition3Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceConfigurationDefinition3Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceConfigurationDefinition3Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cidr_resource: 'outputs.ResourceConfigurationCidrResource'):
+        """
+        Identifies the resource configuration in one of the following ways:
+
+        - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+        - *Domain name* - Any domain name that is publicly resolvable.
+        - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+        """
+        pulumi.set(__self__, "cidr_resource", cidr_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="cidrResource")
+    def cidr_resource(self) -> 'outputs.ResourceConfigurationCidrResource':
+        return pulumi.get(self, "cidr_resource")
 
 
 @pulumi.output_type

@@ -162,6 +162,8 @@ __all__ = [
     'ServiceDeploymentConfigurationArgsDict',
     'ServiceDeploymentControllerArgs',
     'ServiceDeploymentControllerArgsDict',
+    'ServiceDeploymentEarlySuccessCriteriaArgs',
+    'ServiceDeploymentEarlySuccessCriteriaArgsDict',
     'ServiceDeploymentLifecycleHookArgs',
     'ServiceDeploymentLifecycleHookArgsDict',
     'ServiceEbsTagSpecificationArgs',
@@ -6431,6 +6433,7 @@ class ServiceDeploymentConfigurationArgsDict(TypedDict):
     The deployment circuit breaker can only be used for services using the rolling update (``ECS``) deployment type.
       The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
     """
+    early_success_criteria: NotRequired[pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaArgsDict']]]
     lifecycle_hooks: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookArgsDict']]]]]
     """
     An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
@@ -6482,6 +6485,7 @@ class ServiceDeploymentConfigurationArgs:
                  bake_time_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
                  canary_configuration: pulumi.Input[Optional['ServiceCanaryConfigurationArgs']] = None,
                  deployment_circuit_breaker: pulumi.Input[Optional['ServiceDeploymentCircuitBreakerArgs']] = None,
+                 early_success_criteria: pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaArgs']] = None,
                  lifecycle_hooks: pulumi.Input[Optional[Sequence[pulumi.Input['ServiceDeploymentLifecycleHookArgs']]]] = None,
                  linear_configuration: pulumi.Input[Optional['ServiceLinearConfigurationArgs']] = None,
                  maximum_percent: pulumi.Input[Optional[_builtins.int]] = None,
@@ -6538,6 +6542,8 @@ class ServiceDeploymentConfigurationArgs:
             pulumi.set(__self__, "canary_configuration", canary_configuration)
         if deployment_circuit_breaker is not None:
             pulumi.set(__self__, "deployment_circuit_breaker", deployment_circuit_breaker)
+        if early_success_criteria is not None:
+            pulumi.set(__self__, "early_success_criteria", early_success_criteria)
         if lifecycle_hooks is not None:
             pulumi.set(__self__, "lifecycle_hooks", lifecycle_hooks)
         if linear_configuration is not None:
@@ -6603,6 +6609,15 @@ class ServiceDeploymentConfigurationArgs:
     @deployment_circuit_breaker.setter
     def deployment_circuit_breaker(self, value: pulumi.Input[Optional['ServiceDeploymentCircuitBreakerArgs']]):
         pulumi.set(self, "deployment_circuit_breaker", value)
+
+    @_builtins.property
+    @pulumi.getter(name="earlySuccessCriteria")
+    def early_success_criteria(self) -> pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaArgs']]:
+        return pulumi.get(self, "early_success_criteria")
+
+    @early_success_criteria.setter
+    def early_success_criteria(self, value: pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaArgs']]):
+        pulumi.set(self, "early_success_criteria", value)
 
     @_builtins.property
     @pulumi.getter(name="lifecycleHooks")
@@ -6816,6 +6831,52 @@ class ServiceDeploymentControllerArgs:
     @type.setter
     def type(self, value: pulumi.Input[Optional['ServiceDeploymentControllerType']]):
         pulumi.set(self, "type", value)
+
+
+class ServiceDeploymentEarlySuccessCriteriaArgsDict(TypedDict):
+    enable: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    healthy_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    source_service_revision_cleanup: NotRequired[pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup']]]
+
+@pulumi.input_type
+class ServiceDeploymentEarlySuccessCriteriaArgs:
+    def __init__(__self__, *,
+                 enable: pulumi.Input[Optional[_builtins.bool]] = None,
+                 healthy_percent: pulumi.Input[Optional[_builtins.int]] = None,
+                 source_service_revision_cleanup: pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup']] = None):
+        if enable is not None:
+            pulumi.set(__self__, "enable", enable)
+        if healthy_percent is not None:
+            pulumi.set(__self__, "healthy_percent", healthy_percent)
+        if source_service_revision_cleanup is not None:
+            pulumi.set(__self__, "source_service_revision_cleanup", source_service_revision_cleanup)
+
+    @_builtins.property
+    @pulumi.getter
+    def enable(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        return pulumi.get(self, "enable")
+
+    @enable.setter
+    def enable(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "enable", value)
+
+    @_builtins.property
+    @pulumi.getter(name="healthyPercent")
+    def healthy_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
+        return pulumi.get(self, "healthy_percent")
+
+    @healthy_percent.setter
+    def healthy_percent(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "healthy_percent", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceServiceRevisionCleanup")
+    def source_service_revision_cleanup(self) -> pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup']]:
+        return pulumi.get(self, "source_service_revision_cleanup")
+
+    @source_service_revision_cleanup.setter
+    def source_service_revision_cleanup(self, value: pulumi.Input[Optional['ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup']]):
+        pulumi.set(self, "source_service_revision_cleanup", value)
 
 
 class ServiceDeploymentLifecycleHookArgsDict(TypedDict):

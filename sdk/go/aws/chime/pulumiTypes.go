@@ -13,6 +13,2290 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration struct {
+	// The categories to send to the insights target.
+	CallAnalyticsStreamCategories []string `pulumi:"callAnalyticsStreamCategories"`
+	// Labels all PII identified in the transcript.
+	ContentIdentificationType *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType `pulumi:"contentIdentificationType"`
+	// Redacts all PII identified in the transcript.
+	ContentRedactionType *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType `pulumi:"contentRedactionType"`
+	// Enables partial result stabilization.
+	EnablePartialResultsStabilization *bool `pulumi:"enablePartialResultsStabilization"`
+	// If true, partial results are filtered out.
+	FilterPartialResults *bool `pulumi:"filterPartialResults"`
+	// The language code in the configuration.
+	LanguageCode MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode `pulumi:"languageCode"`
+	// The name of the custom language model.
+	LanguageModelName *string `pulumi:"languageModelName"`
+	// The level of stability for partial results.
+	PartialResultsStability *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability `pulumi:"partialResultsStability"`
+	// The types of PII to redact.
+	PiiEntityTypes            *string                                                      `pulumi:"piiEntityTypes"`
+	PostCallAnalyticsSettings *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings `pulumi:"postCallAnalyticsSettings"`
+	// The vocabulary filtering method.
+	VocabularyFilterMethod *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod `pulumi:"vocabularyFilterMethod"`
+	// The name of the custom vocabulary filter.
+	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
+	// The name of the custom vocabulary.
+	VocabularyName *string `pulumi:"vocabularyName"`
+}
+
+// MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs and MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs struct {
+	// The categories to send to the insights target.
+	CallAnalyticsStreamCategories pulumi.StringArrayInput `pulumi:"callAnalyticsStreamCategories"`
+	// Labels all PII identified in the transcript.
+	ContentIdentificationType MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationTypePtrInput `pulumi:"contentIdentificationType"`
+	// Redacts all PII identified in the transcript.
+	ContentRedactionType MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionTypePtrInput `pulumi:"contentRedactionType"`
+	// Enables partial result stabilization.
+	EnablePartialResultsStabilization pulumi.BoolPtrInput `pulumi:"enablePartialResultsStabilization"`
+	// If true, partial results are filtered out.
+	FilterPartialResults pulumi.BoolPtrInput `pulumi:"filterPartialResults"`
+	// The language code in the configuration.
+	LanguageCode MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCodeInput `pulumi:"languageCode"`
+	// The name of the custom language model.
+	LanguageModelName pulumi.StringPtrInput `pulumi:"languageModelName"`
+	// The level of stability for partial results.
+	PartialResultsStability MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStabilityPtrInput `pulumi:"partialResultsStability"`
+	// The types of PII to redact.
+	PiiEntityTypes            pulumi.StringPtrInput                                               `pulumi:"piiEntityTypes"`
+	PostCallAnalyticsSettings MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrInput `pulumi:"postCallAnalyticsSettings"`
+	// The vocabulary filtering method.
+	VocabularyFilterMethod MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethodPtrInput `pulumi:"vocabularyFilterMethod"`
+	// The name of the custom vocabulary filter.
+	VocabularyFilterName pulumi.StringPtrInput `pulumi:"vocabularyFilterName"`
+	// The name of the custom vocabulary.
+	VocabularyName pulumi.StringPtrInput `pulumi:"vocabularyName"`
+}
+
+func (MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput).ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs, MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtr and MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrType MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs
+
+func MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtr(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrType) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrType) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput)
+}
+
+// The categories to send to the insights target.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) CallAnalyticsStreamCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) []string {
+		return v.CallAnalyticsStreamCategories
+	}).(pulumi.StringArrayOutput)
+}
+
+// Labels all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ContentIdentificationType() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationTypePtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType {
+		return v.ContentIdentificationType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationTypePtrOutput)
+}
+
+// Redacts all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) ContentRedactionType() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionTypePtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType {
+		return v.ContentRedactionType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionTypePtrOutput)
+}
+
+// Enables partial result stabilization.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
+		return v.EnablePartialResultsStabilization
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, partial results are filtered out.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) FilterPartialResults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
+		return v.FilterPartialResults
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The language code in the configuration.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) LanguageCode() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCodeOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode {
+		return v.LanguageCode
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCodeOutput)
+}
+
+// The name of the custom language model.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) LanguageModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		return v.LanguageModelName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The level of stability for partial results.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) PartialResultsStability() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStabilityPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability {
+		return v.PartialResultsStability
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStabilityPtrOutput)
+}
+
+// The types of PII to redact.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) PiiEntityTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		return v.PiiEntityTypes
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) PostCallAnalyticsSettings() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings {
+		return v.PostCallAnalyticsSettings
+	}).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput)
+}
+
+// The vocabulary filtering method.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyFilterMethod() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethodPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod {
+		return v.VocabularyFilterMethod
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethodPtrOutput)
+}
+
+// The name of the custom vocabulary filter.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyFilterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		return v.VocabularyFilterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the custom vocabulary.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput) VocabularyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		return v.VocabularyName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput)
+}
+
+// The categories to send to the insights target.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) CallAnalyticsStreamCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.CallAnalyticsStreamCategories
+	}).(pulumi.StringArrayOutput)
+}
+
+// Labels all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ContentIdentificationType() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationTypePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType {
+		if v == nil {
+			return nil
+		}
+		return v.ContentIdentificationType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationTypePtrOutput)
+}
+
+// Redacts all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) ContentRedactionType() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionTypePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType {
+		if v == nil {
+			return nil
+		}
+		return v.ContentRedactionType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionTypePtrOutput)
+}
+
+// Enables partial result stabilization.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePartialResultsStabilization
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, partial results are filtered out.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) FilterPartialResults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FilterPartialResults
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The language code in the configuration.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) LanguageCode() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCodePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode {
+		if v == nil {
+			return nil
+		}
+		return &v.LanguageCode
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCodePtrOutput)
+}
+
+// The name of the custom language model.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) LanguageModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LanguageModelName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The level of stability for partial results.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) PartialResultsStability() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStabilityPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability {
+		if v == nil {
+			return nil
+		}
+		return v.PartialResultsStability
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStabilityPtrOutput)
+}
+
+// The types of PII to redact.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) PiiEntityTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PiiEntityTypes
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) PostCallAnalyticsSettings() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings {
+		if v == nil {
+			return nil
+		}
+		return v.PostCallAnalyticsSettings
+	}).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput)
+}
+
+// The vocabulary filtering method.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyFilterMethod() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethodPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyFilterMethod
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethodPtrOutput)
+}
+
+// The name of the custom vocabulary filter.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyFilterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyFilterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the custom vocabulary.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput) VocabularyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration struct {
+	// Labels all PII identified in the transcript.
+	ContentIdentificationType *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType `pulumi:"contentIdentificationType"`
+	// Redacts all PII identified in the transcript.
+	ContentRedactionType *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType `pulumi:"contentRedactionType"`
+	// Enables partial result stabilization.
+	EnablePartialResultsStabilization *bool `pulumi:"enablePartialResultsStabilization"`
+	// If true, partial results are filtered out.
+	FilterPartialResults *bool `pulumi:"filterPartialResults"`
+	// Turns language identification on or off.
+	IdentifyLanguage *bool `pulumi:"identifyLanguage"`
+	// Turns multiple language identification on or off.
+	IdentifyMultipleLanguages *bool `pulumi:"identifyMultipleLanguages"`
+	// The language code.
+	LanguageCode *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode `pulumi:"languageCode"`
+	// The name of the custom language model.
+	LanguageModelName *string `pulumi:"languageModelName"`
+	// The language options for transcription.
+	LanguageOptions *string `pulumi:"languageOptions"`
+	// The level of stability for partial results.
+	PartialResultsStability *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability `pulumi:"partialResultsStability"`
+	// The types of PII to redact.
+	PiiEntityTypes *string `pulumi:"piiEntityTypes"`
+	// The preferred language for transcription.
+	PreferredLanguage *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage `pulumi:"preferredLanguage"`
+	// Enables speaker partitioning.
+	ShowSpeakerLabel *bool `pulumi:"showSpeakerLabel"`
+	// The vocabulary filtering method.
+	VocabularyFilterMethod *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod `pulumi:"vocabularyFilterMethod"`
+	// The name of the custom vocabulary filter.
+	VocabularyFilterName *string `pulumi:"vocabularyFilterName"`
+	// The names of the custom vocabulary filters.
+	VocabularyFilterNames *string `pulumi:"vocabularyFilterNames"`
+	// The name of the custom vocabulary.
+	VocabularyName *string `pulumi:"vocabularyName"`
+	// The names of the custom vocabularies.
+	VocabularyNames *string `pulumi:"vocabularyNames"`
+}
+
+// MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs and MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs struct {
+	// Labels all PII identified in the transcript.
+	ContentIdentificationType MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationTypePtrInput `pulumi:"contentIdentificationType"`
+	// Redacts all PII identified in the transcript.
+	ContentRedactionType MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionTypePtrInput `pulumi:"contentRedactionType"`
+	// Enables partial result stabilization.
+	EnablePartialResultsStabilization pulumi.BoolPtrInput `pulumi:"enablePartialResultsStabilization"`
+	// If true, partial results are filtered out.
+	FilterPartialResults pulumi.BoolPtrInput `pulumi:"filterPartialResults"`
+	// Turns language identification on or off.
+	IdentifyLanguage pulumi.BoolPtrInput `pulumi:"identifyLanguage"`
+	// Turns multiple language identification on or off.
+	IdentifyMultipleLanguages pulumi.BoolPtrInput `pulumi:"identifyMultipleLanguages"`
+	// The language code.
+	LanguageCode MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCodePtrInput `pulumi:"languageCode"`
+	// The name of the custom language model.
+	LanguageModelName pulumi.StringPtrInput `pulumi:"languageModelName"`
+	// The language options for transcription.
+	LanguageOptions pulumi.StringPtrInput `pulumi:"languageOptions"`
+	// The level of stability for partial results.
+	PartialResultsStability MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStabilityPtrInput `pulumi:"partialResultsStability"`
+	// The types of PII to redact.
+	PiiEntityTypes pulumi.StringPtrInput `pulumi:"piiEntityTypes"`
+	// The preferred language for transcription.
+	PreferredLanguage MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguagePtrInput `pulumi:"preferredLanguage"`
+	// Enables speaker partitioning.
+	ShowSpeakerLabel pulumi.BoolPtrInput `pulumi:"showSpeakerLabel"`
+	// The vocabulary filtering method.
+	VocabularyFilterMethod MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethodPtrInput `pulumi:"vocabularyFilterMethod"`
+	// The name of the custom vocabulary filter.
+	VocabularyFilterName pulumi.StringPtrInput `pulumi:"vocabularyFilterName"`
+	// The names of the custom vocabulary filters.
+	VocabularyFilterNames pulumi.StringPtrInput `pulumi:"vocabularyFilterNames"`
+	// The name of the custom vocabulary.
+	VocabularyName pulumi.StringPtrInput `pulumi:"vocabularyName"`
+	// The names of the custom vocabularies.
+	VocabularyNames pulumi.StringPtrInput `pulumi:"vocabularyNames"`
+}
+
+func (MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput).ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs, MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtr and MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrType MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs
+
+func MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtr(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrType) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrType) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput)
+}
+
+// Labels all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ContentIdentificationType() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationTypePtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType {
+		return v.ContentIdentificationType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationTypePtrOutput)
+}
+
+// Redacts all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ContentRedactionType() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionTypePtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType {
+		return v.ContentRedactionType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionTypePtrOutput)
+}
+
+// Enables partial result stabilization.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		return v.EnablePartialResultsStabilization
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, partial results are filtered out.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) FilterPartialResults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		return v.FilterPartialResults
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Turns language identification on or off.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) IdentifyLanguage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		return v.IdentifyLanguage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Turns multiple language identification on or off.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) IdentifyMultipleLanguages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		return v.IdentifyMultipleLanguages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The language code.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) LanguageCode() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCodePtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode {
+		return v.LanguageCode
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCodePtrOutput)
+}
+
+// The name of the custom language model.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) LanguageModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		return v.LanguageModelName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The language options for transcription.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) LanguageOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		return v.LanguageOptions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The level of stability for partial results.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) PartialResultsStability() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStabilityPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability {
+		return v.PartialResultsStability
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStabilityPtrOutput)
+}
+
+// The types of PII to redact.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) PiiEntityTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		return v.PiiEntityTypes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The preferred language for transcription.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) PreferredLanguage() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguagePtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage {
+		return v.PreferredLanguage
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguagePtrOutput)
+}
+
+// Enables speaker partitioning.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) ShowSpeakerLabel() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		return v.ShowSpeakerLabel
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The vocabulary filtering method.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) VocabularyFilterMethod() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethodPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod {
+		return v.VocabularyFilterMethod
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethodPtrOutput)
+}
+
+// The name of the custom vocabulary filter.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) VocabularyFilterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		return v.VocabularyFilterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The names of the custom vocabulary filters.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) VocabularyFilterNames() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		return v.VocabularyFilterNames
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the custom vocabulary.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) VocabularyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		return v.VocabularyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The names of the custom vocabularies.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput) VocabularyNames() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		return v.VocabularyNames
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput)
+}
+
+// Labels all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) ContentIdentificationType() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationTypePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType {
+		if v == nil {
+			return nil
+		}
+		return v.ContentIdentificationType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationTypePtrOutput)
+}
+
+// Redacts all PII identified in the transcript.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) ContentRedactionType() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionTypePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType {
+		if v == nil {
+			return nil
+		}
+		return v.ContentRedactionType
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionTypePtrOutput)
+}
+
+// Enables partial result stabilization.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) EnablePartialResultsStabilization() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnablePartialResultsStabilization
+	}).(pulumi.BoolPtrOutput)
+}
+
+// If true, partial results are filtered out.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) FilterPartialResults() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FilterPartialResults
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Turns language identification on or off.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) IdentifyLanguage() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IdentifyLanguage
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Turns multiple language identification on or off.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) IdentifyMultipleLanguages() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.IdentifyMultipleLanguages
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The language code.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) LanguageCode() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCodePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode {
+		if v == nil {
+			return nil
+		}
+		return v.LanguageCode
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCodePtrOutput)
+}
+
+// The name of the custom language model.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) LanguageModelName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LanguageModelName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The language options for transcription.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) LanguageOptions() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LanguageOptions
+	}).(pulumi.StringPtrOutput)
+}
+
+// The level of stability for partial results.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) PartialResultsStability() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStabilityPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability {
+		if v == nil {
+			return nil
+		}
+		return v.PartialResultsStability
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStabilityPtrOutput)
+}
+
+// The types of PII to redact.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) PiiEntityTypes() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PiiEntityTypes
+	}).(pulumi.StringPtrOutput)
+}
+
+// The preferred language for transcription.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) PreferredLanguage() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguagePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage {
+		if v == nil {
+			return nil
+		}
+		return v.PreferredLanguage
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguagePtrOutput)
+}
+
+// Enables speaker partitioning.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) ShowSpeakerLabel() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ShowSpeakerLabel
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The vocabulary filtering method.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyFilterMethod() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethodPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyFilterMethod
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethodPtrOutput)
+}
+
+// The name of the custom vocabulary filter.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyFilterName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyFilterName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The names of the custom vocabulary filters.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyFilterNames() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyFilterNames
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the custom vocabulary.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The names of the custom vocabularies.
+func (o MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput) VocabularyNames() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VocabularyNames
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationElement struct {
+	AmazonTranscribeCallAnalyticsProcessorConfiguration *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration `pulumi:"amazonTranscribeCallAnalyticsProcessorConfiguration"`
+	AmazonTranscribeProcessorConfiguration              *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration              `pulumi:"amazonTranscribeProcessorConfiguration"`
+	KinesisDataStreamSinkConfiguration                  *MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration                  `pulumi:"kinesisDataStreamSinkConfiguration"`
+	S3RecordingSinkConfiguration                        *MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration                        `pulumi:"s3RecordingSinkConfiguration"`
+	// The element type.
+	Type MediaInsightsPipelineConfigurationElementType `pulumi:"type"`
+}
+
+// MediaInsightsPipelineConfigurationElementInput is an input type that accepts MediaInsightsPipelineConfigurationElementArgs and MediaInsightsPipelineConfigurationElementOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationElementInput` via:
+//
+//	MediaInsightsPipelineConfigurationElementArgs{...}
+type MediaInsightsPipelineConfigurationElementInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationElementOutput() MediaInsightsPipelineConfigurationElementOutput
+	ToMediaInsightsPipelineConfigurationElementOutputWithContext(context.Context) MediaInsightsPipelineConfigurationElementOutput
+}
+
+type MediaInsightsPipelineConfigurationElementArgs struct {
+	AmazonTranscribeCallAnalyticsProcessorConfiguration MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrInput `pulumi:"amazonTranscribeCallAnalyticsProcessorConfiguration"`
+	AmazonTranscribeProcessorConfiguration              MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrInput              `pulumi:"amazonTranscribeProcessorConfiguration"`
+	KinesisDataStreamSinkConfiguration                  MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrInput                  `pulumi:"kinesisDataStreamSinkConfiguration"`
+	S3RecordingSinkConfiguration                        MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrInput                        `pulumi:"s3RecordingSinkConfiguration"`
+	// The element type.
+	Type MediaInsightsPipelineConfigurationElementTypeInput `pulumi:"type"`
+}
+
+func (MediaInsightsPipelineConfigurationElementArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationElement)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationElementArgs) ToMediaInsightsPipelineConfigurationElementOutput() MediaInsightsPipelineConfigurationElementOutput {
+	return i.ToMediaInsightsPipelineConfigurationElementOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationElementArgs) ToMediaInsightsPipelineConfigurationElementOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementOutput)
+}
+
+// MediaInsightsPipelineConfigurationElementArrayInput is an input type that accepts MediaInsightsPipelineConfigurationElementArray and MediaInsightsPipelineConfigurationElementArrayOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationElementArrayInput` via:
+//
+//	MediaInsightsPipelineConfigurationElementArray{ MediaInsightsPipelineConfigurationElementArgs{...} }
+type MediaInsightsPipelineConfigurationElementArrayInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationElementArrayOutput() MediaInsightsPipelineConfigurationElementArrayOutput
+	ToMediaInsightsPipelineConfigurationElementArrayOutputWithContext(context.Context) MediaInsightsPipelineConfigurationElementArrayOutput
+}
+
+type MediaInsightsPipelineConfigurationElementArray []MediaInsightsPipelineConfigurationElementInput
+
+func (MediaInsightsPipelineConfigurationElementArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaInsightsPipelineConfigurationElement)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationElementArray) ToMediaInsightsPipelineConfigurationElementArrayOutput() MediaInsightsPipelineConfigurationElementArrayOutput {
+	return i.ToMediaInsightsPipelineConfigurationElementArrayOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationElementArray) ToMediaInsightsPipelineConfigurationElementArrayOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationElementArrayOutput)
+}
+
+type MediaInsightsPipelineConfigurationElementOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationElementOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationElement)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationElementOutput) ToMediaInsightsPipelineConfigurationElementOutput() MediaInsightsPipelineConfigurationElementOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationElementOutput) ToMediaInsightsPipelineConfigurationElementOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationElementOutput) AmazonTranscribeCallAnalyticsProcessorConfiguration() MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration {
+		return v.AmazonTranscribeCallAnalyticsProcessorConfiguration
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput)
+}
+
+func (o MediaInsightsPipelineConfigurationElementOutput) AmazonTranscribeProcessorConfiguration() MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration {
+		return v.AmazonTranscribeProcessorConfiguration
+	}).(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput)
+}
+
+func (o MediaInsightsPipelineConfigurationElementOutput) KinesisDataStreamSinkConfiguration() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration {
+		return v.KinesisDataStreamSinkConfiguration
+	}).(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput)
+}
+
+func (o MediaInsightsPipelineConfigurationElementOutput) S3RecordingSinkConfiguration() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) *MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration {
+		return v.S3RecordingSinkConfiguration
+	}).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput)
+}
+
+// The element type.
+func (o MediaInsightsPipelineConfigurationElementOutput) Type() MediaInsightsPipelineConfigurationElementTypeOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationElement) MediaInsightsPipelineConfigurationElementType {
+		return v.Type
+	}).(MediaInsightsPipelineConfigurationElementTypeOutput)
+}
+
+type MediaInsightsPipelineConfigurationElementArrayOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationElementArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaInsightsPipelineConfigurationElement)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationElementArrayOutput) ToMediaInsightsPipelineConfigurationElementArrayOutput() MediaInsightsPipelineConfigurationElementArrayOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationElementArrayOutput) ToMediaInsightsPipelineConfigurationElementArrayOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationElementArrayOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationElementArrayOutput) Index(i pulumi.IntInput) MediaInsightsPipelineConfigurationElementOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaInsightsPipelineConfigurationElement {
+		return vs[0].([]MediaInsightsPipelineConfigurationElement)[vs[1].(int)]
+	}).(MediaInsightsPipelineConfigurationElementOutput)
+}
+
+type MediaInsightsPipelineConfigurationIssueDetectionConfiguration struct {
+	// The name of the issue detection rule.
+	RuleName string `pulumi:"ruleName"`
+}
+
+// MediaInsightsPipelineConfigurationIssueDetectionConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs and MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationIssueDetectionConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationIssueDetectionConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput
+	ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs struct {
+	// The name of the issue detection rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+}
+
+func (MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationIssueDetectionConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput).ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs, MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtr and MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrType MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs
+
+func MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtr(v *MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs) MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationIssueDetectionConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrType) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrType) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationIssueDetectionConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationIssueDetectionConfiguration) *MediaInsightsPipelineConfigurationIssueDetectionConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput)
+}
+
+// The name of the issue detection rule.
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationIssueDetectionConfiguration) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+type MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationIssueDetectionConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput() MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationIssueDetectionConfiguration) MediaInsightsPipelineConfigurationIssueDetectionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationIssueDetectionConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput)
+}
+
+// The name of the issue detection rule.
+func (o MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationIssueDetectionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuleName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationKeywordMatchConfiguration struct {
+	// The keywords or phrases to match.
+	Keywords []string `pulumi:"keywords"`
+	// Matches keywords on their presence or absence.
+	Negate *bool `pulumi:"negate"`
+	// The name of the keyword match rule.
+	RuleName string `pulumi:"ruleName"`
+}
+
+// MediaInsightsPipelineConfigurationKeywordMatchConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs and MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationKeywordMatchConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationKeywordMatchConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput
+	ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs struct {
+	// The keywords or phrases to match.
+	Keywords pulumi.StringArrayInput `pulumi:"keywords"`
+	// Matches keywords on their presence or absence.
+	Negate pulumi.BoolPtrInput `pulumi:"negate"`
+	// The name of the keyword match rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+}
+
+func (MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationKeywordMatchConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput).ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs, MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtr and MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrType MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs
+
+func MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtr(v *MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs) MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationKeywordMatchConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrType) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrType) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationKeywordMatchConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationKeywordMatchConfiguration) *MediaInsightsPipelineConfigurationKeywordMatchConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput)
+}
+
+// The keywords or phrases to match.
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationKeywordMatchConfiguration) []string { return v.Keywords }).(pulumi.StringArrayOutput)
+}
+
+// Matches keywords on their presence or absence.
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationKeywordMatchConfiguration) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+// The name of the keyword match rule.
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationKeywordMatchConfiguration) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+type MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationKeywordMatchConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput() MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationKeywordMatchConfiguration) MediaInsightsPipelineConfigurationKeywordMatchConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationKeywordMatchConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput)
+}
+
+// The keywords or phrases to match.
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput) Keywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationKeywordMatchConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Keywords
+	}).(pulumi.StringArrayOutput)
+}
+
+// Matches keywords on their presence or absence.
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationKeywordMatchConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The name of the keyword match rule.
+func (o MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationKeywordMatchConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuleName
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration struct {
+	// The ARN of the Kinesis Data Stream sink.
+	InsightsTarget *string `pulumi:"insightsTarget"`
+}
+
+// MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs and MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput
+	ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs struct {
+	// The ARN of the Kinesis Data Stream sink.
+	InsightsTarget pulumi.StringPtrInput `pulumi:"insightsTarget"`
+}
+
+func (MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput).ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs, MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtr and MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrType MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs
+
+func MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtr(v *MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrType) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrType) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration) *MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput)
+}
+
+// The ARN of the Kinesis Data Stream sink.
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput) InsightsTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration) *string {
+		return v.InsightsTarget
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration) MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput)
+}
+
+// The ARN of the Kinesis Data Stream sink.
+func (o MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput) InsightsTarget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InsightsTarget
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationPostCallAnalyticsSettings struct {
+	// The content redaction output settings.
+	ContentRedactionOutput *MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput `pulumi:"contentRedactionOutput"`
+	// The ARN of the role used by Transcribe to upload post-call analysis.
+	DataAccessRoleArn string `pulumi:"dataAccessRoleArn"`
+	// The ID of the KMS key used to encrypt the output.
+	OutputEncryptionKmsKeyId *string `pulumi:"outputEncryptionKmsKeyId"`
+	// The URL of the Amazon S3 bucket for post-call data.
+	OutputLocation string `pulumi:"outputLocation"`
+}
+
+// MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsInput is an input type that accepts MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs and MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsInput` via:
+//
+//	MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs{...}
+type MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput
+	ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutputWithContext(context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput
+}
+
+type MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs struct {
+	// The content redaction output settings.
+	ContentRedactionOutput MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutputPtrInput `pulumi:"contentRedactionOutput"`
+	// The ARN of the role used by Transcribe to upload post-call analysis.
+	DataAccessRoleArn pulumi.StringInput `pulumi:"dataAccessRoleArn"`
+	// The ID of the KMS key used to encrypt the output.
+	OutputEncryptionKmsKeyId pulumi.StringPtrInput `pulumi:"outputEncryptionKmsKeyId"`
+	// The URL of the Amazon S3 bucket for post-call data.
+	OutputLocation pulumi.StringInput `pulumi:"outputLocation"`
+}
+
+func (MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationPostCallAnalyticsSettings)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput {
+	return i.ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput).ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrInput is an input type that accepts MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs, MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtr and MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput
+	ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrType MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs
+
+func MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtr(v *MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrInput {
+	return (*mediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationPostCallAnalyticsSettings)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrType) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrType) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationPostCallAnalyticsSettings)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings {
+		return &v
+	}).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput)
+}
+
+// The content redaction output settings.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) ContentRedactionOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutputPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) *MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput {
+		return v.ContentRedactionOutput
+	}).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutputPtrOutput)
+}
+
+// The ARN of the role used by Transcribe to upload post-call analysis.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) DataAccessRoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) string { return v.DataAccessRoleArn }).(pulumi.StringOutput)
+}
+
+// The ID of the KMS key used to encrypt the output.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) OutputEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) *string {
+		return v.OutputEncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the Amazon S3 bucket for post-call data.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput) OutputLocation() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) string { return v.OutputLocation }).(pulumi.StringOutput)
+}
+
+type MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationPostCallAnalyticsSettings)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) ToMediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) Elem() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) MediaInsightsPipelineConfigurationPostCallAnalyticsSettings {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationPostCallAnalyticsSettings
+		return ret
+	}).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput)
+}
+
+// The content redaction output settings.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) ContentRedactionOutput() MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutputPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) *MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput {
+		if v == nil {
+			return nil
+		}
+		return v.ContentRedactionOutput
+	}).(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutputPtrOutput)
+}
+
+// The ARN of the role used by Transcribe to upload post-call analysis.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) DataAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ID of the KMS key used to encrypt the output.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) OutputEncryptionKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputEncryptionKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the Amazon S3 bucket for post-call data.
+func (o MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput) OutputLocation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationPostCallAnalyticsSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OutputLocation
+	}).(pulumi.StringPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertConfiguration struct {
+	// Turns off real-time alerts.
+	Disabled *bool `pulumi:"disabled"`
+	// The rules in the alert.
+	Rules []MediaInsightsPipelineConfigurationRealTimeAlertRule `pulumi:"rules"`
+}
+
+// MediaInsightsPipelineConfigurationRealTimeAlertConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs and MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationRealTimeAlertConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput
+	ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs struct {
+	// Turns off real-time alerts.
+	Disabled pulumi.BoolPtrInput `pulumi:"disabled"`
+	// The rules in the alert.
+	Rules MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayInput `pulumi:"rules"`
+}
+
+func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput).ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs, MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtr and MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrType MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs
+
+func MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtr(v *MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationRealTimeAlertConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrType) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrType) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput)
+}
+
+// Turns off real-time alerts.
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) *bool { return v.Disabled }).(pulumi.BoolPtrOutput)
+}
+
+// The rules in the alert.
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput) Rules() MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) []MediaInsightsPipelineConfigurationRealTimeAlertRule {
+		return v.Rules
+	}).(MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput)
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationRealTimeAlertConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) MediaInsightsPipelineConfigurationRealTimeAlertConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationRealTimeAlertConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput)
+}
+
+// Turns off real-time alerts.
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) Disabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Disabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The rules in the alert.
+func (o MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput) Rules() MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationRealTimeAlertConfiguration) []MediaInsightsPipelineConfigurationRealTimeAlertRule {
+		if v == nil {
+			return nil
+		}
+		return v.Rules
+	}).(MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput)
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertRule struct {
+	IssueDetectionConfiguration *MediaInsightsPipelineConfigurationIssueDetectionConfiguration `pulumi:"issueDetectionConfiguration"`
+	KeywordMatchConfiguration   *MediaInsightsPipelineConfigurationKeywordMatchConfiguration   `pulumi:"keywordMatchConfiguration"`
+	SentimentConfiguration      *MediaInsightsPipelineConfigurationSentimentConfiguration      `pulumi:"sentimentConfiguration"`
+	// The type of alert rule.
+	Type MediaInsightsPipelineConfigurationRealTimeAlertRuleType `pulumi:"type"`
+}
+
+// MediaInsightsPipelineConfigurationRealTimeAlertRuleInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs and MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationRealTimeAlertRuleInput` via:
+//
+//	MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs{...}
+type MediaInsightsPipelineConfigurationRealTimeAlertRuleInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationRealTimeAlertRuleOutput() MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput
+	ToMediaInsightsPipelineConfigurationRealTimeAlertRuleOutputWithContext(context.Context) MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs struct {
+	IssueDetectionConfiguration MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrInput `pulumi:"issueDetectionConfiguration"`
+	KeywordMatchConfiguration   MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrInput   `pulumi:"keywordMatchConfiguration"`
+	SentimentConfiguration      MediaInsightsPipelineConfigurationSentimentConfigurationPtrInput      `pulumi:"sentimentConfiguration"`
+	// The type of alert rule.
+	Type MediaInsightsPipelineConfigurationRealTimeAlertRuleTypeInput `pulumi:"type"`
+}
+
+func (MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertRule)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleOutput() MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput {
+	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertRuleOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput)
+}
+
+// MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayInput is an input type that accepts MediaInsightsPipelineConfigurationRealTimeAlertRuleArray and MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayInput` via:
+//
+//	MediaInsightsPipelineConfigurationRealTimeAlertRuleArray{ MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs{...} }
+type MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput() MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput
+	ToMediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutputWithContext(context.Context) MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertRuleArray []MediaInsightsPipelineConfigurationRealTimeAlertRuleInput
+
+func (MediaInsightsPipelineConfigurationRealTimeAlertRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaInsightsPipelineConfigurationRealTimeAlertRule)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertRuleArray) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput() MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput {
+	return i.ToMediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationRealTimeAlertRuleArray) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput)
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertRule)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleOutput() MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput) IssueDetectionConfiguration() MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertRule) *MediaInsightsPipelineConfigurationIssueDetectionConfiguration {
+		return v.IssueDetectionConfiguration
+	}).(MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput)
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput) KeywordMatchConfiguration() MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertRule) *MediaInsightsPipelineConfigurationKeywordMatchConfiguration {
+		return v.KeywordMatchConfiguration
+	}).(MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput)
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput) SentimentConfiguration() MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertRule) *MediaInsightsPipelineConfigurationSentimentConfiguration {
+		return v.SentimentConfiguration
+	}).(MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput)
+}
+
+// The type of alert rule.
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput) Type() MediaInsightsPipelineConfigurationRealTimeAlertRuleTypeOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationRealTimeAlertRule) MediaInsightsPipelineConfigurationRealTimeAlertRuleType {
+		return v.Type
+	}).(MediaInsightsPipelineConfigurationRealTimeAlertRuleTypeOutput)
+}
+
+type MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MediaInsightsPipelineConfigurationRealTimeAlertRule)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput() MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput) ToMediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput) Index(i pulumi.IntInput) MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MediaInsightsPipelineConfigurationRealTimeAlertRule {
+		return vs[0].([]MediaInsightsPipelineConfigurationRealTimeAlertRule)[vs[1].(int)]
+	}).(MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput)
+}
+
+type MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration struct {
+	// The default URI of the Amazon S3 bucket.
+	Destination *string `pulumi:"destination"`
+	// The recording file format.
+	RecordingFileFormat *MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat `pulumi:"recordingFileFormat"`
+}
+
+// MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs and MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput
+	ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs struct {
+	// The default URI of the Amazon S3 bucket.
+	Destination pulumi.StringPtrInput `pulumi:"destination"`
+	// The recording file format.
+	RecordingFileFormat MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormatPtrInput `pulumi:"recordingFileFormat"`
+}
+
+func (MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput).ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs, MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtr and MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrType MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs
+
+func MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtr(v *MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrType) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrType) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration) *MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput)
+}
+
+// The default URI of the Amazon S3 bucket.
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+// The recording file format.
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput) RecordingFileFormat() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormatPtrOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration) *MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat {
+		return v.RecordingFileFormat
+	}).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormatPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration) MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput)
+}
+
+// The default URI of the Amazon S3 bucket.
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+// The recording file format.
+func (o MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput) RecordingFileFormat() MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormatPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration) *MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat {
+		if v == nil {
+			return nil
+		}
+		return v.RecordingFileFormat
+	}).(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormatPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationSentimentConfiguration struct {
+	// The name of the sentiment rule.
+	RuleName string `pulumi:"ruleName"`
+	// The type of sentiment.
+	SentimentType MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType `pulumi:"sentimentType"`
+	// The analysis interval in seconds.
+	TimePeriod int `pulumi:"timePeriod"`
+}
+
+// MediaInsightsPipelineConfigurationSentimentConfigurationInput is an input type that accepts MediaInsightsPipelineConfigurationSentimentConfigurationArgs and MediaInsightsPipelineConfigurationSentimentConfigurationOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationSentimentConfigurationInput` via:
+//
+//	MediaInsightsPipelineConfigurationSentimentConfigurationArgs{...}
+type MediaInsightsPipelineConfigurationSentimentConfigurationInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationSentimentConfigurationOutput() MediaInsightsPipelineConfigurationSentimentConfigurationOutput
+	ToMediaInsightsPipelineConfigurationSentimentConfigurationOutputWithContext(context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationOutput
+}
+
+type MediaInsightsPipelineConfigurationSentimentConfigurationArgs struct {
+	// The name of the sentiment rule.
+	RuleName pulumi.StringInput `pulumi:"ruleName"`
+	// The type of sentiment.
+	SentimentType MediaInsightsPipelineConfigurationSentimentConfigurationSentimentTypeInput `pulumi:"sentimentType"`
+	// The analysis interval in seconds.
+	TimePeriod pulumi.IntInput `pulumi:"timePeriod"`
+}
+
+func (MediaInsightsPipelineConfigurationSentimentConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationSentimentConfiguration)(nil)).Elem()
+}
+
+func (i MediaInsightsPipelineConfigurationSentimentConfigurationArgs) ToMediaInsightsPipelineConfigurationSentimentConfigurationOutput() MediaInsightsPipelineConfigurationSentimentConfigurationOutput {
+	return i.ToMediaInsightsPipelineConfigurationSentimentConfigurationOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationSentimentConfigurationArgs) ToMediaInsightsPipelineConfigurationSentimentConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationSentimentConfigurationOutput)
+}
+
+func (i MediaInsightsPipelineConfigurationSentimentConfigurationArgs) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput() MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i MediaInsightsPipelineConfigurationSentimentConfigurationArgs) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationSentimentConfigurationOutput).ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(ctx)
+}
+
+// MediaInsightsPipelineConfigurationSentimentConfigurationPtrInput is an input type that accepts MediaInsightsPipelineConfigurationSentimentConfigurationArgs, MediaInsightsPipelineConfigurationSentimentConfigurationPtr and MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput values.
+// You can construct a concrete instance of `MediaInsightsPipelineConfigurationSentimentConfigurationPtrInput` via:
+//
+//	        MediaInsightsPipelineConfigurationSentimentConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MediaInsightsPipelineConfigurationSentimentConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput() MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput
+	ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput
+}
+
+type mediaInsightsPipelineConfigurationSentimentConfigurationPtrType MediaInsightsPipelineConfigurationSentimentConfigurationArgs
+
+func MediaInsightsPipelineConfigurationSentimentConfigurationPtr(v *MediaInsightsPipelineConfigurationSentimentConfigurationArgs) MediaInsightsPipelineConfigurationSentimentConfigurationPtrInput {
+	return (*mediaInsightsPipelineConfigurationSentimentConfigurationPtrType)(v)
+}
+
+func (*mediaInsightsPipelineConfigurationSentimentConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationSentimentConfiguration)(nil)).Elem()
+}
+
+func (i *mediaInsightsPipelineConfigurationSentimentConfigurationPtrType) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput() MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return i.ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaInsightsPipelineConfigurationSentimentConfigurationPtrType) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationSentimentConfigurationOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationSentimentConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaInsightsPipelineConfigurationSentimentConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationOutput) ToMediaInsightsPipelineConfigurationSentimentConfigurationOutput() MediaInsightsPipelineConfigurationSentimentConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationOutput) ToMediaInsightsPipelineConfigurationSentimentConfigurationOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationOutput) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput() MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return o.ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationOutput) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaInsightsPipelineConfigurationSentimentConfiguration) *MediaInsightsPipelineConfigurationSentimentConfiguration {
+		return &v
+	}).(MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput)
+}
+
+// The name of the sentiment rule.
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationOutput) RuleName() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationSentimentConfiguration) string { return v.RuleName }).(pulumi.StringOutput)
+}
+
+// The type of sentiment.
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationOutput) SentimentType() MediaInsightsPipelineConfigurationSentimentConfigurationSentimentTypeOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationSentimentConfiguration) MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType {
+		return v.SentimentType
+	}).(MediaInsightsPipelineConfigurationSentimentConfigurationSentimentTypeOutput)
+}
+
+// The analysis interval in seconds.
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationOutput) TimePeriod() pulumi.IntOutput {
+	return o.ApplyT(func(v MediaInsightsPipelineConfigurationSentimentConfiguration) int { return v.TimePeriod }).(pulumi.IntOutput)
+}
+
+type MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaInsightsPipelineConfigurationSentimentConfiguration)(nil)).Elem()
+}
+
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput() MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput) ToMediaInsightsPipelineConfigurationSentimentConfigurationPtrOutputWithContext(ctx context.Context) MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput {
+	return o
+}
+
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput) Elem() MediaInsightsPipelineConfigurationSentimentConfigurationOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationSentimentConfiguration) MediaInsightsPipelineConfigurationSentimentConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret MediaInsightsPipelineConfigurationSentimentConfiguration
+		return ret
+	}).(MediaInsightsPipelineConfigurationSentimentConfigurationOutput)
+}
+
+// The name of the sentiment rule.
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput) RuleName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationSentimentConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RuleName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of sentiment.
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput) SentimentType() MediaInsightsPipelineConfigurationSentimentConfigurationSentimentTypePtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationSentimentConfiguration) *MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType {
+		if v == nil {
+			return nil
+		}
+		return &v.SentimentType
+	}).(MediaInsightsPipelineConfigurationSentimentConfigurationSentimentTypePtrOutput)
+}
+
+// The analysis interval in seconds.
+func (o MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput) TimePeriod() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MediaInsightsPipelineConfigurationSentimentConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TimePeriod
+	}).(pulumi.IntPtrOutput)
+}
+
+type MediaInsightsPipelineConfigurationTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // The configuration settings for the Kinesis video stream.
 type StreamConfigurationProperties struct {
 	// The amount of time that data is retained, in hours.
@@ -127,7 +2411,51 @@ type TagsItemProperties struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationElementInput)(nil)).Elem(), MediaInsightsPipelineConfigurationElementArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationElementArrayInput)(nil)).Elem(), MediaInsightsPipelineConfigurationElementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationIssueDetectionConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationIssueDetectionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationKeywordMatchConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationKeywordMatchConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsInput)(nil)).Elem(), MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertRuleInput)(nil)).Elem(), MediaInsightsPipelineConfigurationRealTimeAlertRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayInput)(nil)).Elem(), MediaInsightsPipelineConfigurationRealTimeAlertRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationSentimentConfigurationInput)(nil)).Elem(), MediaInsightsPipelineConfigurationSentimentConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MediaInsightsPipelineConfigurationSentimentConfigurationPtrInput)(nil)).Elem(), MediaInsightsPipelineConfigurationSentimentConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamConfigurationPropertiesInput)(nil)).Elem(), StreamConfigurationPropertiesArgs{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationElementOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationElementArrayOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationIssueDetectionConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationIssueDetectionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationKeywordMatchConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationKeywordMatchConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationRealTimeAlertConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationRealTimeAlertRuleOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationRealTimeAlertRuleArrayOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationSentimentConfigurationOutput{})
+	pulumi.RegisterOutputType(MediaInsightsPipelineConfigurationSentimentConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(StreamConfigurationPropertiesOutput{})
 	pulumi.RegisterOutputType(StreamConfigurationPropertiesPtrOutput{})
 }

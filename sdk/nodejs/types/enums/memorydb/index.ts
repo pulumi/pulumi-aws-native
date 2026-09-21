@@ -34,6 +34,16 @@ export const MultiRegionClusterUpdateStrategy = {
  */
 export type MultiRegionClusterUpdateStrategy = (typeof MultiRegionClusterUpdateStrategy)[keyof typeof MultiRegionClusterUpdateStrategy];
 
+export const SnapshotDataTiering = {
+    True: "true",
+    False: "false",
+} as const;
+
+/**
+ * Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
+ */
+export type SnapshotDataTiering = (typeof SnapshotDataTiering)[keyof typeof SnapshotDataTiering];
+
 export const UserAuthenticationModePropertiesType = {
     Password: "password",
     Iam: "iam",

@@ -272,6 +272,105 @@ func (in *findingsFilterFindingFilterActionPtr) ToFindingsFilterFindingFilterAct
 	return pulumi.ToOutputWithContext(ctx, in).(FindingsFilterFindingFilterActionPtrOutput)
 }
 
+// The current status of the relationship between the account and the Amazon Macie administrator account.
+type MemberRelationshipStatus string
+
+const (
+	MemberRelationshipStatusEnabled                     = MemberRelationshipStatus("Enabled")
+	MemberRelationshipStatusPaused                      = MemberRelationshipStatus("Paused")
+	MemberRelationshipStatusInvited                     = MemberRelationshipStatus("Invited")
+	MemberRelationshipStatusCreated                     = MemberRelationshipStatus("Created")
+	MemberRelationshipStatusRemoved                     = MemberRelationshipStatus("Removed")
+	MemberRelationshipStatusResigned                    = MemberRelationshipStatus("Resigned")
+	MemberRelationshipStatusEmailVerificationInProgress = MemberRelationshipStatus("EmailVerificationInProgress")
+	MemberRelationshipStatusEmailVerificationFailed     = MemberRelationshipStatus("EmailVerificationFailed")
+	MemberRelationshipStatusRegionDisabled              = MemberRelationshipStatus("RegionDisabled")
+	MemberRelationshipStatusAccountSuspended            = MemberRelationshipStatus("AccountSuspended")
+)
+
+type MemberRelationshipStatusOutput struct{ *pulumi.OutputState }
+
+func (MemberRelationshipStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MemberRelationshipStatus)(nil)).Elem()
+}
+
+func (o MemberRelationshipStatusOutput) ToMemberRelationshipStatusOutput() MemberRelationshipStatusOutput {
+	return o
+}
+
+func (o MemberRelationshipStatusOutput) ToMemberRelationshipStatusOutputWithContext(ctx context.Context) MemberRelationshipStatusOutput {
+	return o
+}
+
+func (o MemberRelationshipStatusOutput) ToMemberRelationshipStatusPtrOutput() MemberRelationshipStatusPtrOutput {
+	return o.ToMemberRelationshipStatusPtrOutputWithContext(context.Background())
+}
+
+func (o MemberRelationshipStatusOutput) ToMemberRelationshipStatusPtrOutputWithContext(ctx context.Context) MemberRelationshipStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MemberRelationshipStatus) *MemberRelationshipStatus {
+		return &v
+	}).(MemberRelationshipStatusPtrOutput)
+}
+
+func (o MemberRelationshipStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MemberRelationshipStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemberRelationshipStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MemberRelationshipStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemberRelationshipStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MemberRelationshipStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MemberRelationshipStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (MemberRelationshipStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MemberRelationshipStatus)(nil)).Elem()
+}
+
+func (o MemberRelationshipStatusPtrOutput) ToMemberRelationshipStatusPtrOutput() MemberRelationshipStatusPtrOutput {
+	return o
+}
+
+func (o MemberRelationshipStatusPtrOutput) ToMemberRelationshipStatusPtrOutputWithContext(ctx context.Context) MemberRelationshipStatusPtrOutput {
+	return o
+}
+
+func (o MemberRelationshipStatusPtrOutput) Elem() MemberRelationshipStatusOutput {
+	return o.ApplyT(func(v *MemberRelationshipStatus) MemberRelationshipStatus {
+		if v != nil {
+			return *v
+		}
+		var ret MemberRelationshipStatus
+		return ret
+	}).(MemberRelationshipStatusOutput)
+}
+
+func (o MemberRelationshipStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MemberRelationshipStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MemberRelationshipStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The status of automated sensitive data discovery for the Macie session.
 type SessionAutomatedDiscoveryStatus string
 
@@ -708,6 +807,8 @@ func init() {
 	pulumi.RegisterOutputType(AllowListStatusPtrOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionOutput{})
 	pulumi.RegisterOutputType(FindingsFilterFindingFilterActionPtrOutput{})
+	pulumi.RegisterOutputType(MemberRelationshipStatusOutput{})
+	pulumi.RegisterOutputType(MemberRelationshipStatusPtrOutput{})
 	pulumi.RegisterOutputType(SessionAutomatedDiscoveryStatusOutput{})
 	pulumi.RegisterOutputType(SessionAutomatedDiscoveryStatusPtrOutput{})
 	pulumi.RegisterOutputType(SessionFindingPublishingFrequencyOutput{})

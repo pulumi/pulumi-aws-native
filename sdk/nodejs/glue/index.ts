@@ -25,6 +25,11 @@ export type Connection = import("./connection").Connection;
 export const Connection: typeof import("./connection").Connection = null as any;
 utilities.lazyLoad(exports, ["Connection"], () => require("./connection"));
 
+export { ConnectionTypeArgs } from "./connectionType";
+export type ConnectionType = import("./connectionType").ConnectionType;
+export const ConnectionType: typeof import("./connectionType").ConnectionType = null as any;
+utilities.lazyLoad(exports, ["ConnectionType"], () => require("./connectionType"));
+
 export { CrawlerArgs } from "./crawler";
 export type Crawler = import("./crawler").Crawler;
 export const Crawler: typeof import("./crawler").Crawler = null as any;
@@ -69,6 +74,11 @@ export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from 
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
 utilities.lazyLoad(exports, ["getConnection","getConnectionOutput"], () => require("./getConnection"));
+
+export { GetConnectionTypeArgs, GetConnectionTypeResult, GetConnectionTypeOutputArgs } from "./getConnectionType";
+export const getConnectionType: typeof import("./getConnectionType").getConnectionType = null as any;
+export const getConnectionTypeOutput: typeof import("./getConnectionType").getConnectionTypeOutput = null as any;
+utilities.lazyLoad(exports, ["getConnectionType","getConnectionTypeOutput"], () => require("./getConnectionType"));
 
 export { GetCrawlerArgs, GetCrawlerResult, GetCrawlerOutputArgs } from "./getCrawler";
 export const getCrawler: typeof import("./getCrawler").getCrawler = null as any;
@@ -266,6 +276,8 @@ const _module = {
                 return new Classifier(name, <any>undefined, { urn })
             case "aws-native:glue:Connection":
                 return new Connection(name, <any>undefined, { urn })
+            case "aws-native:glue:ConnectionType":
+                return new ConnectionType(name, <any>undefined, { urn })
             case "aws-native:glue:Crawler":
                 return new Crawler(name, <any>undefined, { urn })
             case "aws-native:glue:CustomEntityType":

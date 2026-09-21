@@ -75,10 +75,25 @@ export const getScheduledAction: typeof import("./getScheduledAction").getSchedu
 export const getScheduledActionOutput: typeof import("./getScheduledAction").getScheduledActionOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledAction","getScheduledActionOutput"], () => require("./getScheduledAction"));
 
+export { GetSnapshotArgs, GetSnapshotResult, GetSnapshotOutputArgs } from "./getSnapshot";
+export const getSnapshot: typeof import("./getSnapshot").getSnapshot = null as any;
+export const getSnapshotOutput: typeof import("./getSnapshot").getSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshot","getSnapshotOutput"], () => require("./getSnapshot"));
+
+export { GetSnapshotCopyGrantArgs, GetSnapshotCopyGrantResult, GetSnapshotCopyGrantOutputArgs } from "./getSnapshotCopyGrant";
+export const getSnapshotCopyGrant: typeof import("./getSnapshotCopyGrant").getSnapshotCopyGrant = null as any;
+export const getSnapshotCopyGrantOutput: typeof import("./getSnapshotCopyGrant").getSnapshotCopyGrantOutput = null as any;
+utilities.lazyLoad(exports, ["getSnapshotCopyGrant","getSnapshotCopyGrantOutput"], () => require("./getSnapshotCopyGrant"));
+
 export { GetSnapshotScheduleArgs, GetSnapshotScheduleResult, GetSnapshotScheduleOutputArgs } from "./getSnapshotSchedule";
 export const getSnapshotSchedule: typeof import("./getSnapshotSchedule").getSnapshotSchedule = null as any;
 export const getSnapshotScheduleOutput: typeof import("./getSnapshotSchedule").getSnapshotScheduleOutput = null as any;
 utilities.lazyLoad(exports, ["getSnapshotSchedule","getSnapshotScheduleOutput"], () => require("./getSnapshotSchedule"));
+
+export { GetUsageLimitArgs, GetUsageLimitResult, GetUsageLimitOutputArgs } from "./getUsageLimit";
+export const getUsageLimit: typeof import("./getUsageLimit").getUsageLimit = null as any;
+export const getUsageLimitOutput: typeof import("./getUsageLimit").getUsageLimitOutput = null as any;
+utilities.lazyLoad(exports, ["getUsageLimit","getUsageLimitOutput"], () => require("./getUsageLimit"));
 
 export { IntegrationArgs } from "./integration";
 export type Integration = import("./integration").Integration;
@@ -90,10 +105,25 @@ export type ScheduledAction = import("./scheduledAction").ScheduledAction;
 export const ScheduledAction: typeof import("./scheduledAction").ScheduledAction = null as any;
 utilities.lazyLoad(exports, ["ScheduledAction"], () => require("./scheduledAction"));
 
+export { SnapshotArgs } from "./snapshot";
+export type Snapshot = import("./snapshot").Snapshot;
+export const Snapshot: typeof import("./snapshot").Snapshot = null as any;
+utilities.lazyLoad(exports, ["Snapshot"], () => require("./snapshot"));
+
+export { SnapshotCopyGrantArgs } from "./snapshotCopyGrant";
+export type SnapshotCopyGrant = import("./snapshotCopyGrant").SnapshotCopyGrant;
+export const SnapshotCopyGrant: typeof import("./snapshotCopyGrant").SnapshotCopyGrant = null as any;
+utilities.lazyLoad(exports, ["SnapshotCopyGrant"], () => require("./snapshotCopyGrant"));
+
 export { SnapshotScheduleArgs } from "./snapshotSchedule";
 export type SnapshotSchedule = import("./snapshotSchedule").SnapshotSchedule;
 export const SnapshotSchedule: typeof import("./snapshotSchedule").SnapshotSchedule = null as any;
 utilities.lazyLoad(exports, ["SnapshotSchedule"], () => require("./snapshotSchedule"));
+
+export { UsageLimitArgs } from "./usageLimit";
+export type UsageLimit = import("./usageLimit").UsageLimit;
+export const UsageLimit: typeof import("./usageLimit").UsageLimit = null as any;
+utilities.lazyLoad(exports, ["UsageLimit"], () => require("./usageLimit"));
 
 
 // Export enums:
@@ -119,8 +149,14 @@ const _module = {
                 return new Integration(name, <any>undefined, { urn })
             case "aws-native:redshift:ScheduledAction":
                 return new ScheduledAction(name, <any>undefined, { urn })
+            case "aws-native:redshift:Snapshot":
+                return new Snapshot(name, <any>undefined, { urn })
+            case "aws-native:redshift:SnapshotCopyGrant":
+                return new SnapshotCopyGrant(name, <any>undefined, { urn })
             case "aws-native:redshift:SnapshotSchedule":
                 return new SnapshotSchedule(name, <any>undefined, { urn })
+            case "aws-native:redshift:UsageLimit":
+                return new UsageLimit(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

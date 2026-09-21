@@ -102,10 +102,6 @@ export interface GetFleetResult {
      */
     readonly imageId?: string;
     /**
-     * The name of the compute fleet.
-     */
-    readonly name?: string;
-    /**
      * The compute fleet overflow behavior.
      *
      * - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.

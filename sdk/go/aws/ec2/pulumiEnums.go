@@ -20338,6 +20338,7 @@ const (
 	VpcEndpointTypeGatewayLoadBalancer = VpcEndpointType("GatewayLoadBalancer")
 	VpcEndpointTypeServiceNetwork      = VpcEndpointType("ServiceNetwork")
 	VpcEndpointTypeResource            = VpcEndpointType("Resource")
+	VpcEndpointTypeTunnel              = VpcEndpointType("Tunnel")
 )
 
 func (VpcEndpointType) ElementType() reflect.Type {
@@ -20467,6 +20468,7 @@ func (o VpcEndpointTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 //	VpcEndpointTypeGatewayLoadBalancer
 //	VpcEndpointTypeServiceNetwork
 //	VpcEndpointTypeResource
+//	VpcEndpointTypeTunnel
 type VpcEndpointTypeInput interface {
 	pulumi.Input
 

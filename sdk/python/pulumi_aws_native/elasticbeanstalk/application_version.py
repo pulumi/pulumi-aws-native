@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['ApplicationVersionArgs', 'ApplicationVersion']
@@ -22,19 +23,32 @@ __all__ = ['ApplicationVersionArgs', 'ApplicationVersion']
 class ApplicationVersionArgs:
     def __init__(__self__, *,
                  application_name: pulumi.Input[_builtins.str],
-                 source_bundle: pulumi.Input['ApplicationVersionSourceBundleArgs'],
-                 description: pulumi.Input[Optional[_builtins.str]] = None):
+                 build_configuration: pulumi.Input[Optional['ApplicationVersionBuildConfigurationArgs']] = None,
+                 description: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_configuration: pulumi.Input[Optional['ApplicationVersionImageConfigurationArgs']] = None,
+                 process: pulumi.Input[Optional[_builtins.bool]] = None,
+                 source_bundle: pulumi.Input[Optional['ApplicationVersionSourceBundleArgs']] = None):
         """
         The set of arguments for constructing a ApplicationVersion resource.
 
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version.
-        :param pulumi.Input['ApplicationVersionSourceBundleArgs'] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+        :param pulumi.Input['ApplicationVersionBuildConfigurationArgs'] build_configuration: Settings for an AWS CodeBuild build that packages and builds an application version from source code.
         :param pulumi.Input[_builtins.str] description: A description of this application version.
+        :param pulumi.Input['ApplicationVersionImageConfigurationArgs'] image_configuration: Configuration for image-based application versions.
+        :param pulumi.Input[_builtins.bool] process: Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+        :param pulumi.Input['ApplicationVersionSourceBundleArgs'] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """
         pulumi.set(__self__, "application_name", application_name)
-        pulumi.set(__self__, "source_bundle", source_bundle)
+        if build_configuration is not None:
+            pulumi.set(__self__, "build_configuration", build_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if image_configuration is not None:
+            pulumi.set(__self__, "image_configuration", image_configuration)
+        if process is not None:
+            pulumi.set(__self__, "process", process)
+        if source_bundle is not None:
+            pulumi.set(__self__, "source_bundle", source_bundle)
 
     @_builtins.property
     @pulumi.getter(name="applicationName")
@@ -49,16 +63,16 @@ class ApplicationVersionArgs:
         pulumi.set(self, "application_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="sourceBundle")
-    def source_bundle(self) -> pulumi.Input['ApplicationVersionSourceBundleArgs']:
+    @pulumi.getter(name="buildConfiguration")
+    def build_configuration(self) -> pulumi.Input[Optional['ApplicationVersionBuildConfigurationArgs']]:
         """
-        The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+        Settings for an AWS CodeBuild build that packages and builds an application version from source code.
         """
-        return pulumi.get(self, "source_bundle")
+        return pulumi.get(self, "build_configuration")
 
-    @source_bundle.setter
-    def source_bundle(self, value: pulumi.Input['ApplicationVersionSourceBundleArgs']):
-        pulumi.set(self, "source_bundle", value)
+    @build_configuration.setter
+    def build_configuration(self, value: pulumi.Input[Optional['ApplicationVersionBuildConfigurationArgs']]):
+        pulumi.set(self, "build_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -72,6 +86,42 @@ class ApplicationVersionArgs:
     def description(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "description", value)
 
+    @_builtins.property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> pulumi.Input[Optional['ApplicationVersionImageConfigurationArgs']]:
+        """
+        Configuration for image-based application versions.
+        """
+        return pulumi.get(self, "image_configuration")
+
+    @image_configuration.setter
+    def image_configuration(self, value: pulumi.Input[Optional['ApplicationVersionImageConfigurationArgs']]):
+        pulumi.set(self, "image_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def process(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+        """
+        return pulumi.get(self, "process")
+
+    @process.setter
+    def process(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "process", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sourceBundle")
+    def source_bundle(self) -> pulumi.Input[Optional['ApplicationVersionSourceBundleArgs']]:
+        """
+        The Amazon S3 bucket and key that identify the location of the source bundle for this version.
+        """
+        return pulumi.get(self, "source_bundle")
+
+    @source_bundle.setter
+    def source_bundle(self, value: pulumi.Input[Optional['ApplicationVersionSourceBundleArgs']]):
+        pulumi.set(self, "source_bundle", value)
+
 
 @pulumi.type_token("aws-native:elasticbeanstalk:ApplicationVersion")
 class ApplicationVersion(pulumi.CustomResource):
@@ -80,7 +130,10 @@ class ApplicationVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_configuration: pulumi.Input[Optional[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_configuration: pulumi.Input[Optional[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict']]] = None,
+                 process: pulumi.Input[Optional[_builtins.bool]] = None,
                  source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         """
@@ -89,7 +142,10 @@ class ApplicationVersion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_name: The name of the Elastic Beanstalk application that is associated with this application version.
+        :param pulumi.Input[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict']] build_configuration: Settings for an AWS CodeBuild build that packages and builds an application version from source code.
         :param pulumi.Input[_builtins.str] description: A description of this application version.
+        :param pulumi.Input[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict']] image_configuration: Configuration for image-based application versions.
+        :param pulumi.Input[_builtins.bool] process: Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
         :param pulumi.Input[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']] source_bundle: The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """
         ...
@@ -117,7 +173,10 @@ class ApplicationVersion(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 build_configuration: pulumi.Input[Optional[Union['ApplicationVersionBuildConfigurationArgs', 'ApplicationVersionBuildConfigurationArgsDict']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
+                 image_configuration: pulumi.Input[Optional[Union['ApplicationVersionImageConfigurationArgs', 'ApplicationVersionImageConfigurationArgsDict']]] = None,
+                 process: pulumi.Input[Optional[_builtins.bool]] = None,
                  source_bundle: pulumi.Input[Optional[Union['ApplicationVersionSourceBundleArgs', 'ApplicationVersionSourceBundleArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -131,12 +190,13 @@ class ApplicationVersion(pulumi.CustomResource):
             if application_name is None and not opts.urn:
                 raise TypeError("Missing required property 'application_name'")
             __props__.__dict__["application_name"] = application_name
+            __props__.__dict__["build_configuration"] = build_configuration
             __props__.__dict__["description"] = description
-            if source_bundle is None and not opts.urn:
-                raise TypeError("Missing required property 'source_bundle'")
+            __props__.__dict__["image_configuration"] = image_configuration
+            __props__.__dict__["process"] = process
             __props__.__dict__["source_bundle"] = source_bundle
             __props__.__dict__["aws_id"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationName", "sourceBundle"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["applicationName", "buildConfiguration", "imageConfiguration", "process", "sourceBundle"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(ApplicationVersion, __self__).__init__(
             'aws-native:elasticbeanstalk:ApplicationVersion',
@@ -162,7 +222,10 @@ class ApplicationVersion(pulumi.CustomResource):
 
         __props__.__dict__["application_name"] = None
         __props__.__dict__["aws_id"] = None
+        __props__.__dict__["build_configuration"] = None
         __props__.__dict__["description"] = None
+        __props__.__dict__["image_configuration"] = None
+        __props__.__dict__["process"] = None
         __props__.__dict__["source_bundle"] = None
         return ApplicationVersion(resource_name, opts=opts, __props__=__props__)
 
@@ -180,6 +243,14 @@ class ApplicationVersion(pulumi.CustomResource):
         return pulumi.get(self, "aws_id")
 
     @_builtins.property
+    @pulumi.getter(name="buildConfiguration")
+    def build_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationVersionBuildConfiguration']]:
+        """
+        Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+        """
+        return pulumi.get(self, "build_configuration")
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
@@ -188,8 +259,24 @@ class ApplicationVersion(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @_builtins.property
+    @pulumi.getter(name="imageConfiguration")
+    def image_configuration(self) -> pulumi.Output[Optional['outputs.ApplicationVersionImageConfiguration']]:
+        """
+        Configuration for image-based application versions.
+        """
+        return pulumi.get(self, "image_configuration")
+
+    @_builtins.property
+    @pulumi.getter
+    def process(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+        """
+        return pulumi.get(self, "process")
+
+    @_builtins.property
     @pulumi.getter(name="sourceBundle")
-    def source_bundle(self) -> pulumi.Output['outputs.ApplicationVersionSourceBundle']:
+    def source_bundle(self) -> pulumi.Output[Optional['outputs.ApplicationVersionSourceBundle']]:
         """
         The Amazon S3 bucket and key that identify the location of the source bundle for this version.
         """

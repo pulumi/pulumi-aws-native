@@ -7,10 +7,86 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ChannelEncryptionConfigurationEncryptionType',
+    'ChannelPartitionFieldTransform',
+    'ChannelRecordConfigurationRecordFormatType',
+    'ChannelS3StorageConfigurationCompressionType',
+    'ChannelS3StorageConfigurationStorageClass',
+    'ChannelS3TableConfigurationCompressionType',
+    'ChannelStatus',
     'StreamEncryptionEncryptionType',
     'StreamEnhancedMetric',
     'StreamModeDetailsStreamMode',
 ]
+
+
+@pulumi.type_token("aws-native:kinesis:ChannelEncryptionConfigurationEncryptionType")
+class ChannelEncryptionConfigurationEncryptionType(_builtins.str, Enum):
+    """
+    The encryption type. KMS is the only supported value.
+    """
+    KMS = "KMS"
+
+
+@pulumi.type_token("aws-native:kinesis:ChannelPartitionFieldTransform")
+class ChannelPartitionFieldTransform(_builtins.str, Enum):
+    """
+    The partitioning transform applied to the SourceName column.
+    """
+    TIME_HOUR = "TIME_HOUR"
+
+
+@pulumi.type_token("aws-native:kinesis:ChannelRecordConfigurationRecordFormatType")
+class ChannelRecordConfigurationRecordFormatType(_builtins.str, Enum):
+    """
+    The format used to interpret records read from the source stream.
+    """
+    GSR_JSON = "GSR_JSON"
+    JSON = "JSON"
+    STRING = "STRING"
+    BYTE_ARRAY = "BYTE_ARRAY"
+
+
+@pulumi.type_token("aws-native:kinesis:ChannelS3StorageConfigurationCompressionType")
+class ChannelS3StorageConfigurationCompressionType(_builtins.str, Enum):
+    """
+    The compression algorithm applied to delivered objects.
+    """
+    NONE = "NONE"
+    GZIP = "GZIP"
+    ZSTD = "ZSTD"
+
+
+@pulumi.type_token("aws-native:kinesis:ChannelS3StorageConfigurationStorageClass")
+class ChannelS3StorageConfigurationStorageClass(_builtins.str, Enum):
+    """
+    The S3 storage class for delivered objects.
+    """
+    STANDARD = "STANDARD"
+    INTELLIGENT_TIERING = "INTELLIGENT_TIERING"
+    GLACIER_IR = "GLACIER_IR"
+
+
+@pulumi.type_token("aws-native:kinesis:ChannelS3TableConfigurationCompressionType")
+class ChannelS3TableConfigurationCompressionType(_builtins.str, Enum):
+    """
+    The compression algorithm applied to objects delivered to the S3 Tables destination.
+    """
+    NONE = "NONE"
+    ZSTD = "ZSTD"
+    SNAPPY = "SNAPPY"
+
+
+@pulumi.type_token("aws-native:kinesis:ChannelStatus")
+class ChannelStatus(_builtins.str, Enum):
+    """
+    The status of the channel.
+    """
+    CREATING = "CREATING"
+    ACTIVE = "ACTIVE"
+    UPDATING = "UPDATING"
+    DELETING = "DELETING"
+    FAILED = "FAILED"
 
 
 @pulumi.type_token("aws-native:kinesis:StreamEncryptionEncryptionType")

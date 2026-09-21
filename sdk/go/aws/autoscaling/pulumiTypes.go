@@ -1441,7 +1441,11 @@ func (o AutoScalingGroupCpuPerformanceFactorRequestPtrOutput) References() AutoS
 	}).(AutoScalingGroupPerformanceFactorReferenceRequestArrayOutput)
 }
 
+// Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it launches instances.
 type AutoScalingGroupDistributionSegment struct {
+	// The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in the priority order of the capacity types, and within each capacity type, in the order of instance types listed in your launch template ``Overrides``.
+	//  The following lists the valid values:
+	//   + on-demand-capacity-reservation On-Demand Capacity Reservations. + capacity-block Capacity Blocks. + interruptible-capacity-reservation Interruptible Capacity Reservations. + on-demand On-Demand capacity. Include this value to allow the group to fall back to On-Demand capacity when the preceding capacity types are unavailable.
 	TargetCapacityTypes []AutoScalingGroupDistributionSegmentTargetCapacityTypesItem `pulumi:"targetCapacityTypes"`
 }
 
@@ -1456,7 +1460,11 @@ type AutoScalingGroupDistributionSegmentInput interface {
 	ToAutoScalingGroupDistributionSegmentOutputWithContext(context.Context) AutoScalingGroupDistributionSegmentOutput
 }
 
+// Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it launches instances.
 type AutoScalingGroupDistributionSegmentArgs struct {
+	// The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in the priority order of the capacity types, and within each capacity type, in the order of instance types listed in your launch template ``Overrides``.
+	//  The following lists the valid values:
+	//   + on-demand-capacity-reservation On-Demand Capacity Reservations. + capacity-block Capacity Blocks. + interruptible-capacity-reservation Interruptible Capacity Reservations. + on-demand On-Demand capacity. Include this value to allow the group to fall back to On-Demand capacity when the preceding capacity types are unavailable.
 	TargetCapacityTypes AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayInput `pulumi:"targetCapacityTypes"`
 }
 
@@ -1497,6 +1505,7 @@ func (i AutoScalingGroupDistributionSegmentArray) ToAutoScalingGroupDistribution
 	return pulumi.ToOutputWithContext(ctx, i).(AutoScalingGroupDistributionSegmentArrayOutput)
 }
 
+// Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it launches instances.
 type AutoScalingGroupDistributionSegmentOutput struct{ *pulumi.OutputState }
 
 func (AutoScalingGroupDistributionSegmentOutput) ElementType() reflect.Type {
@@ -1511,6 +1520,10 @@ func (o AutoScalingGroupDistributionSegmentOutput) ToAutoScalingGroupDistributio
 	return o
 }
 
+// The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in the priority order of the capacity types, and within each capacity type, in the order of instance types listed in your launch template “Overrides“.
+//
+//	The following lists the valid values:
+//	 + on-demand-capacity-reservation On-Demand Capacity Reservations. + capacity-block Capacity Blocks. + interruptible-capacity-reservation Interruptible Capacity Reservations. + on-demand On-Demand capacity. Include this value to allow the group to fall back to On-Demand capacity when the preceding capacity types are unavailable.
 func (o AutoScalingGroupDistributionSegmentOutput) TargetCapacityTypes() AutoScalingGroupDistributionSegmentTargetCapacityTypesItemArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupDistributionSegment) []AutoScalingGroupDistributionSegmentTargetCapacityTypesItem {
 		return v.TargetCapacityTypes
@@ -2837,6 +2850,8 @@ func (o AutoScalingGroupInstanceRequirementsPtrOutput) VCpuCount() AutoScalingGr
 //	For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
 //	``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
 type AutoScalingGroupInstancesDistribution struct {
+	// The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+	//  For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	DistributionSegments []AutoScalingGroupDistributionSegment `pulumi:"distributionSegments"`
 	// The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
 	//  The following lists the valid values:
@@ -2880,6 +2895,8 @@ type AutoScalingGroupInstancesDistributionInput interface {
 //	For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
 //	``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
 type AutoScalingGroupInstancesDistributionArgs struct {
+	// The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+	//  For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
 	DistributionSegments AutoScalingGroupDistributionSegmentArrayInput `pulumi:"distributionSegments"`
 	// The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
 	//  The following lists the valid values:
@@ -2988,6 +3005,9 @@ func (o AutoScalingGroupInstancesDistributionOutput) ToAutoScalingGroupInstances
 	}).(AutoScalingGroupInstancesDistributionPtrOutput)
 }
 
+// The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+//
+//	For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
 func (o AutoScalingGroupInstancesDistributionOutput) DistributionSegments() AutoScalingGroupDistributionSegmentArrayOutput {
 	return o.ApplyT(func(v AutoScalingGroupInstancesDistribution) []AutoScalingGroupDistributionSegment {
 		return v.DistributionSegments
@@ -3066,6 +3086,9 @@ func (o AutoScalingGroupInstancesDistributionPtrOutput) Elem() AutoScalingGroupI
 	}).(AutoScalingGroupInstancesDistributionOutput)
 }
 
+// The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+//
+//	For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
 func (o AutoScalingGroupInstancesDistributionPtrOutput) DistributionSegments() AutoScalingGroupDistributionSegmentArrayOutput {
 	return o.ApplyT(func(v *AutoScalingGroupInstancesDistribution) []AutoScalingGroupDistributionSegment {
 		if v == nil {
@@ -4436,7 +4459,7 @@ func (o AutoScalingGroupMetricsCollectionArrayOutput) Index(i pulumi.IntInput) A
 type AutoScalingGroupMixedInstancesPolicy struct {
 	// The instances distribution.
 	InstancesDistribution *AutoScalingGroupInstancesDistribution `pulumi:"instancesDistribution"`
-	// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+	// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
 	LaunchTemplate AutoScalingGroupLaunchTemplate `pulumi:"launchTemplate"`
 }
 
@@ -4464,7 +4487,7 @@ type AutoScalingGroupMixedInstancesPolicyInput interface {
 type AutoScalingGroupMixedInstancesPolicyArgs struct {
 	// The instances distribution.
 	InstancesDistribution AutoScalingGroupInstancesDistributionPtrInput `pulumi:"instancesDistribution"`
-	// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+	// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
 	LaunchTemplate AutoScalingGroupLaunchTemplateInput `pulumi:"launchTemplate"`
 }
 
@@ -4562,7 +4585,7 @@ func (o AutoScalingGroupMixedInstancesPolicyOutput) InstancesDistribution() Auto
 	}).(AutoScalingGroupInstancesDistributionPtrOutput)
 }
 
-// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
 func (o AutoScalingGroupMixedInstancesPolicyOutput) LaunchTemplate() AutoScalingGroupLaunchTemplateOutput {
 	return o.ApplyT(func(v AutoScalingGroupMixedInstancesPolicy) AutoScalingGroupLaunchTemplate { return v.LaunchTemplate }).(AutoScalingGroupLaunchTemplateOutput)
 }
@@ -4601,7 +4624,7 @@ func (o AutoScalingGroupMixedInstancesPolicyPtrOutput) InstancesDistribution() A
 	}).(AutoScalingGroupInstancesDistributionPtrOutput)
 }
 
-// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+// One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
 func (o AutoScalingGroupMixedInstancesPolicyPtrOutput) LaunchTemplate() AutoScalingGroupLaunchTemplatePtrOutput {
 	return o.ApplyT(func(v *AutoScalingGroupMixedInstancesPolicy) *AutoScalingGroupLaunchTemplate {
 		if v == nil {

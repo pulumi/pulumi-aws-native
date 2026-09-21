@@ -46,6 +46,7 @@ export interface GetMemoryResult {
      * The memory strategies.
      */
     readonly memoryStrategies?: outputs.bedrockagentcore.MemoryStrategy[];
+    readonly namespaceKeys?: outputs.bedrockagentcore.MemoryNamespaceKeyEntry[];
     /**
      * The memory status.
      */

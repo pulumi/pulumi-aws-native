@@ -747,6 +747,678 @@ func (o ScheduledActionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
+// The action that Amazon Redshift takes when the limit is reached. The default is log.
+type UsageLimitBreachAction string
+
+const (
+	UsageLimitBreachActionLog        = UsageLimitBreachAction("log")
+	UsageLimitBreachActionEmitMetric = UsageLimitBreachAction("emit-metric")
+	UsageLimitBreachActionDisable    = UsageLimitBreachAction("disable")
+)
+
+func (UsageLimitBreachAction) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitBreachAction)(nil)).Elem()
+}
+
+func (e UsageLimitBreachAction) ToUsageLimitBreachActionOutput() UsageLimitBreachActionOutput {
+	return pulumi.ToOutput(e).(UsageLimitBreachActionOutput)
+}
+
+func (e UsageLimitBreachAction) ToUsageLimitBreachActionOutputWithContext(ctx context.Context) UsageLimitBreachActionOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UsageLimitBreachActionOutput)
+}
+
+func (e UsageLimitBreachAction) ToUsageLimitBreachActionPtrOutput() UsageLimitBreachActionPtrOutput {
+	return e.ToUsageLimitBreachActionPtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitBreachAction) ToUsageLimitBreachActionPtrOutputWithContext(ctx context.Context) UsageLimitBreachActionPtrOutput {
+	return UsageLimitBreachAction(e).ToUsageLimitBreachActionOutputWithContext(ctx).ToUsageLimitBreachActionPtrOutputWithContext(ctx)
+}
+
+func (e UsageLimitBreachAction) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitBreachAction) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitBreachAction) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitBreachAction) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UsageLimitBreachActionOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitBreachActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitBreachAction)(nil)).Elem()
+}
+
+func (o UsageLimitBreachActionOutput) ToUsageLimitBreachActionOutput() UsageLimitBreachActionOutput {
+	return o
+}
+
+func (o UsageLimitBreachActionOutput) ToUsageLimitBreachActionOutputWithContext(ctx context.Context) UsageLimitBreachActionOutput {
+	return o
+}
+
+func (o UsageLimitBreachActionOutput) ToUsageLimitBreachActionPtrOutput() UsageLimitBreachActionPtrOutput {
+	return o.ToUsageLimitBreachActionPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitBreachActionOutput) ToUsageLimitBreachActionPtrOutputWithContext(ctx context.Context) UsageLimitBreachActionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsageLimitBreachAction) *UsageLimitBreachAction {
+		return &v
+	}).(UsageLimitBreachActionPtrOutput)
+}
+
+func (o UsageLimitBreachActionOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UsageLimitBreachActionOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitBreachAction) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UsageLimitBreachActionOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitBreachActionOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitBreachAction) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UsageLimitBreachActionPtrOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitBreachActionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsageLimitBreachAction)(nil)).Elem()
+}
+
+func (o UsageLimitBreachActionPtrOutput) ToUsageLimitBreachActionPtrOutput() UsageLimitBreachActionPtrOutput {
+	return o
+}
+
+func (o UsageLimitBreachActionPtrOutput) ToUsageLimitBreachActionPtrOutputWithContext(ctx context.Context) UsageLimitBreachActionPtrOutput {
+	return o
+}
+
+func (o UsageLimitBreachActionPtrOutput) Elem() UsageLimitBreachActionOutput {
+	return o.ApplyT(func(v *UsageLimitBreachAction) UsageLimitBreachAction {
+		if v != nil {
+			return *v
+		}
+		var ret UsageLimitBreachAction
+		return ret
+	}).(UsageLimitBreachActionOutput)
+}
+
+func (o UsageLimitBreachActionPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitBreachActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UsageLimitBreachAction) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UsageLimitBreachActionInput is an input type that accepts values of the UsageLimitBreachAction enum
+// A concrete instance of `UsageLimitBreachActionInput` can be one of the following:
+//
+//	UsageLimitBreachActionLog
+//	UsageLimitBreachActionEmitMetric
+//	UsageLimitBreachActionDisable
+type UsageLimitBreachActionInput interface {
+	pulumi.Input
+
+	ToUsageLimitBreachActionOutput() UsageLimitBreachActionOutput
+	ToUsageLimitBreachActionOutputWithContext(context.Context) UsageLimitBreachActionOutput
+}
+
+var usageLimitBreachActionPtrType = reflect.TypeOf((**UsageLimitBreachAction)(nil)).Elem()
+
+type UsageLimitBreachActionPtrInput interface {
+	pulumi.Input
+
+	ToUsageLimitBreachActionPtrOutput() UsageLimitBreachActionPtrOutput
+	ToUsageLimitBreachActionPtrOutputWithContext(context.Context) UsageLimitBreachActionPtrOutput
+}
+
+type usageLimitBreachActionPtr string
+
+func UsageLimitBreachActionPtr(v string) UsageLimitBreachActionPtrInput {
+	return (*usageLimitBreachActionPtr)(&v)
+}
+
+func (*usageLimitBreachActionPtr) ElementType() reflect.Type {
+	return usageLimitBreachActionPtrType
+}
+
+func (in *usageLimitBreachActionPtr) ToUsageLimitBreachActionPtrOutput() UsageLimitBreachActionPtrOutput {
+	return pulumi.ToOutput(in).(UsageLimitBreachActionPtrOutput)
+}
+
+func (in *usageLimitBreachActionPtr) ToUsageLimitBreachActionPtrOutputWithContext(ctx context.Context) UsageLimitBreachActionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UsageLimitBreachActionPtrOutput)
+}
+
+// The Amazon Redshift feature that you want to limit.
+type UsageLimitFeatureType string
+
+const (
+	UsageLimitFeatureTypeSpectrum                             = UsageLimitFeatureType("spectrum")
+	UsageLimitFeatureTypeConcurrencyScaling                   = UsageLimitFeatureType("concurrency-scaling")
+	UsageLimitFeatureTypeCrossRegionDatasharing               = UsageLimitFeatureType("cross-region-datasharing")
+	UsageLimitFeatureTypeExtraComputeForAutomaticOptimization = UsageLimitFeatureType("extra-compute-for-automatic-optimization")
+)
+
+func (UsageLimitFeatureType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitFeatureType)(nil)).Elem()
+}
+
+func (e UsageLimitFeatureType) ToUsageLimitFeatureTypeOutput() UsageLimitFeatureTypeOutput {
+	return pulumi.ToOutput(e).(UsageLimitFeatureTypeOutput)
+}
+
+func (e UsageLimitFeatureType) ToUsageLimitFeatureTypeOutputWithContext(ctx context.Context) UsageLimitFeatureTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UsageLimitFeatureTypeOutput)
+}
+
+func (e UsageLimitFeatureType) ToUsageLimitFeatureTypePtrOutput() UsageLimitFeatureTypePtrOutput {
+	return e.ToUsageLimitFeatureTypePtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitFeatureType) ToUsageLimitFeatureTypePtrOutputWithContext(ctx context.Context) UsageLimitFeatureTypePtrOutput {
+	return UsageLimitFeatureType(e).ToUsageLimitFeatureTypeOutputWithContext(ctx).ToUsageLimitFeatureTypePtrOutputWithContext(ctx)
+}
+
+func (e UsageLimitFeatureType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitFeatureType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitFeatureType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitFeatureType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UsageLimitFeatureTypeOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitFeatureTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitFeatureType)(nil)).Elem()
+}
+
+func (o UsageLimitFeatureTypeOutput) ToUsageLimitFeatureTypeOutput() UsageLimitFeatureTypeOutput {
+	return o
+}
+
+func (o UsageLimitFeatureTypeOutput) ToUsageLimitFeatureTypeOutputWithContext(ctx context.Context) UsageLimitFeatureTypeOutput {
+	return o
+}
+
+func (o UsageLimitFeatureTypeOutput) ToUsageLimitFeatureTypePtrOutput() UsageLimitFeatureTypePtrOutput {
+	return o.ToUsageLimitFeatureTypePtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitFeatureTypeOutput) ToUsageLimitFeatureTypePtrOutputWithContext(ctx context.Context) UsageLimitFeatureTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsageLimitFeatureType) *UsageLimitFeatureType {
+		return &v
+	}).(UsageLimitFeatureTypePtrOutput)
+}
+
+func (o UsageLimitFeatureTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UsageLimitFeatureTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitFeatureType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UsageLimitFeatureTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitFeatureTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitFeatureType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UsageLimitFeatureTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitFeatureTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsageLimitFeatureType)(nil)).Elem()
+}
+
+func (o UsageLimitFeatureTypePtrOutput) ToUsageLimitFeatureTypePtrOutput() UsageLimitFeatureTypePtrOutput {
+	return o
+}
+
+func (o UsageLimitFeatureTypePtrOutput) ToUsageLimitFeatureTypePtrOutputWithContext(ctx context.Context) UsageLimitFeatureTypePtrOutput {
+	return o
+}
+
+func (o UsageLimitFeatureTypePtrOutput) Elem() UsageLimitFeatureTypeOutput {
+	return o.ApplyT(func(v *UsageLimitFeatureType) UsageLimitFeatureType {
+		if v != nil {
+			return *v
+		}
+		var ret UsageLimitFeatureType
+		return ret
+	}).(UsageLimitFeatureTypeOutput)
+}
+
+func (o UsageLimitFeatureTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitFeatureTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UsageLimitFeatureType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UsageLimitFeatureTypeInput is an input type that accepts values of the UsageLimitFeatureType enum
+// A concrete instance of `UsageLimitFeatureTypeInput` can be one of the following:
+//
+//	UsageLimitFeatureTypeSpectrum
+//	UsageLimitFeatureTypeConcurrencyScaling
+//	UsageLimitFeatureTypeCrossRegionDatasharing
+//	UsageLimitFeatureTypeExtraComputeForAutomaticOptimization
+type UsageLimitFeatureTypeInput interface {
+	pulumi.Input
+
+	ToUsageLimitFeatureTypeOutput() UsageLimitFeatureTypeOutput
+	ToUsageLimitFeatureTypeOutputWithContext(context.Context) UsageLimitFeatureTypeOutput
+}
+
+var usageLimitFeatureTypePtrType = reflect.TypeOf((**UsageLimitFeatureType)(nil)).Elem()
+
+type UsageLimitFeatureTypePtrInput interface {
+	pulumi.Input
+
+	ToUsageLimitFeatureTypePtrOutput() UsageLimitFeatureTypePtrOutput
+	ToUsageLimitFeatureTypePtrOutputWithContext(context.Context) UsageLimitFeatureTypePtrOutput
+}
+
+type usageLimitFeatureTypePtr string
+
+func UsageLimitFeatureTypePtr(v string) UsageLimitFeatureTypePtrInput {
+	return (*usageLimitFeatureTypePtr)(&v)
+}
+
+func (*usageLimitFeatureTypePtr) ElementType() reflect.Type {
+	return usageLimitFeatureTypePtrType
+}
+
+func (in *usageLimitFeatureTypePtr) ToUsageLimitFeatureTypePtrOutput() UsageLimitFeatureTypePtrOutput {
+	return pulumi.ToOutput(in).(UsageLimitFeatureTypePtrOutput)
+}
+
+func (in *usageLimitFeatureTypePtr) ToUsageLimitFeatureTypePtrOutputWithContext(ctx context.Context) UsageLimitFeatureTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UsageLimitFeatureTypePtrOutput)
+}
+
+// The type of limit. Depending on the feature type, this can be based on a time duration or data size. If FeatureType is spectrum, then LimitType must be data-scanned. If FeatureType is concurrency-scaling, then LimitType must be time. If FeatureType is cross-region-datasharing, then LimitType must be data-scanned.
+type UsageLimitLimitType string
+
+const (
+	UsageLimitLimitTypeTime        = UsageLimitLimitType("time")
+	UsageLimitLimitTypeDataScanned = UsageLimitLimitType("data-scanned")
+)
+
+func (UsageLimitLimitType) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitLimitType)(nil)).Elem()
+}
+
+func (e UsageLimitLimitType) ToUsageLimitLimitTypeOutput() UsageLimitLimitTypeOutput {
+	return pulumi.ToOutput(e).(UsageLimitLimitTypeOutput)
+}
+
+func (e UsageLimitLimitType) ToUsageLimitLimitTypeOutputWithContext(ctx context.Context) UsageLimitLimitTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UsageLimitLimitTypeOutput)
+}
+
+func (e UsageLimitLimitType) ToUsageLimitLimitTypePtrOutput() UsageLimitLimitTypePtrOutput {
+	return e.ToUsageLimitLimitTypePtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitLimitType) ToUsageLimitLimitTypePtrOutputWithContext(ctx context.Context) UsageLimitLimitTypePtrOutput {
+	return UsageLimitLimitType(e).ToUsageLimitLimitTypeOutputWithContext(ctx).ToUsageLimitLimitTypePtrOutputWithContext(ctx)
+}
+
+func (e UsageLimitLimitType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitLimitType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitLimitType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitLimitType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UsageLimitLimitTypeOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitLimitTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitLimitType)(nil)).Elem()
+}
+
+func (o UsageLimitLimitTypeOutput) ToUsageLimitLimitTypeOutput() UsageLimitLimitTypeOutput {
+	return o
+}
+
+func (o UsageLimitLimitTypeOutput) ToUsageLimitLimitTypeOutputWithContext(ctx context.Context) UsageLimitLimitTypeOutput {
+	return o
+}
+
+func (o UsageLimitLimitTypeOutput) ToUsageLimitLimitTypePtrOutput() UsageLimitLimitTypePtrOutput {
+	return o.ToUsageLimitLimitTypePtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitLimitTypeOutput) ToUsageLimitLimitTypePtrOutputWithContext(ctx context.Context) UsageLimitLimitTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsageLimitLimitType) *UsageLimitLimitType {
+		return &v
+	}).(UsageLimitLimitTypePtrOutput)
+}
+
+func (o UsageLimitLimitTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UsageLimitLimitTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitLimitType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UsageLimitLimitTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitLimitTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitLimitType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UsageLimitLimitTypePtrOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitLimitTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsageLimitLimitType)(nil)).Elem()
+}
+
+func (o UsageLimitLimitTypePtrOutput) ToUsageLimitLimitTypePtrOutput() UsageLimitLimitTypePtrOutput {
+	return o
+}
+
+func (o UsageLimitLimitTypePtrOutput) ToUsageLimitLimitTypePtrOutputWithContext(ctx context.Context) UsageLimitLimitTypePtrOutput {
+	return o
+}
+
+func (o UsageLimitLimitTypePtrOutput) Elem() UsageLimitLimitTypeOutput {
+	return o.ApplyT(func(v *UsageLimitLimitType) UsageLimitLimitType {
+		if v != nil {
+			return *v
+		}
+		var ret UsageLimitLimitType
+		return ret
+	}).(UsageLimitLimitTypeOutput)
+}
+
+func (o UsageLimitLimitTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitLimitTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UsageLimitLimitType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UsageLimitLimitTypeInput is an input type that accepts values of the UsageLimitLimitType enum
+// A concrete instance of `UsageLimitLimitTypeInput` can be one of the following:
+//
+//	UsageLimitLimitTypeTime
+//	UsageLimitLimitTypeDataScanned
+type UsageLimitLimitTypeInput interface {
+	pulumi.Input
+
+	ToUsageLimitLimitTypeOutput() UsageLimitLimitTypeOutput
+	ToUsageLimitLimitTypeOutputWithContext(context.Context) UsageLimitLimitTypeOutput
+}
+
+var usageLimitLimitTypePtrType = reflect.TypeOf((**UsageLimitLimitType)(nil)).Elem()
+
+type UsageLimitLimitTypePtrInput interface {
+	pulumi.Input
+
+	ToUsageLimitLimitTypePtrOutput() UsageLimitLimitTypePtrOutput
+	ToUsageLimitLimitTypePtrOutputWithContext(context.Context) UsageLimitLimitTypePtrOutput
+}
+
+type usageLimitLimitTypePtr string
+
+func UsageLimitLimitTypePtr(v string) UsageLimitLimitTypePtrInput {
+	return (*usageLimitLimitTypePtr)(&v)
+}
+
+func (*usageLimitLimitTypePtr) ElementType() reflect.Type {
+	return usageLimitLimitTypePtrType
+}
+
+func (in *usageLimitLimitTypePtr) ToUsageLimitLimitTypePtrOutput() UsageLimitLimitTypePtrOutput {
+	return pulumi.ToOutput(in).(UsageLimitLimitTypePtrOutput)
+}
+
+func (in *usageLimitLimitTypePtr) ToUsageLimitLimitTypePtrOutputWithContext(ctx context.Context) UsageLimitLimitTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UsageLimitLimitTypePtrOutput)
+}
+
+// The time period that the amount applies to. A weekly period begins on Sunday. The default is monthly.
+type UsageLimitPeriod string
+
+const (
+	UsageLimitPeriodDaily   = UsageLimitPeriod("daily")
+	UsageLimitPeriodWeekly  = UsageLimitPeriod("weekly")
+	UsageLimitPeriodMonthly = UsageLimitPeriod("monthly")
+)
+
+func (UsageLimitPeriod) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitPeriod)(nil)).Elem()
+}
+
+func (e UsageLimitPeriod) ToUsageLimitPeriodOutput() UsageLimitPeriodOutput {
+	return pulumi.ToOutput(e).(UsageLimitPeriodOutput)
+}
+
+func (e UsageLimitPeriod) ToUsageLimitPeriodOutputWithContext(ctx context.Context) UsageLimitPeriodOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(UsageLimitPeriodOutput)
+}
+
+func (e UsageLimitPeriod) ToUsageLimitPeriodPtrOutput() UsageLimitPeriodPtrOutput {
+	return e.ToUsageLimitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitPeriod) ToUsageLimitPeriodPtrOutputWithContext(ctx context.Context) UsageLimitPeriodPtrOutput {
+	return UsageLimitPeriod(e).ToUsageLimitPeriodOutputWithContext(ctx).ToUsageLimitPeriodPtrOutputWithContext(ctx)
+}
+
+func (e UsageLimitPeriod) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitPeriod) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e UsageLimitPeriod) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e UsageLimitPeriod) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type UsageLimitPeriodOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitPeriodOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UsageLimitPeriod)(nil)).Elem()
+}
+
+func (o UsageLimitPeriodOutput) ToUsageLimitPeriodOutput() UsageLimitPeriodOutput {
+	return o
+}
+
+func (o UsageLimitPeriodOutput) ToUsageLimitPeriodOutputWithContext(ctx context.Context) UsageLimitPeriodOutput {
+	return o
+}
+
+func (o UsageLimitPeriodOutput) ToUsageLimitPeriodPtrOutput() UsageLimitPeriodPtrOutput {
+	return o.ToUsageLimitPeriodPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitPeriodOutput) ToUsageLimitPeriodPtrOutputWithContext(ctx context.Context) UsageLimitPeriodPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UsageLimitPeriod) *UsageLimitPeriod {
+		return &v
+	}).(UsageLimitPeriodPtrOutput)
+}
+
+func (o UsageLimitPeriodOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o UsageLimitPeriodOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitPeriod) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o UsageLimitPeriodOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitPeriodOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e UsageLimitPeriod) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type UsageLimitPeriodPtrOutput struct{ *pulumi.OutputState }
+
+func (UsageLimitPeriodPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UsageLimitPeriod)(nil)).Elem()
+}
+
+func (o UsageLimitPeriodPtrOutput) ToUsageLimitPeriodPtrOutput() UsageLimitPeriodPtrOutput {
+	return o
+}
+
+func (o UsageLimitPeriodPtrOutput) ToUsageLimitPeriodPtrOutputWithContext(ctx context.Context) UsageLimitPeriodPtrOutput {
+	return o
+}
+
+func (o UsageLimitPeriodPtrOutput) Elem() UsageLimitPeriodOutput {
+	return o.ApplyT(func(v *UsageLimitPeriod) UsageLimitPeriod {
+		if v != nil {
+			return *v
+		}
+		var ret UsageLimitPeriod
+		return ret
+	}).(UsageLimitPeriodOutput)
+}
+
+func (o UsageLimitPeriodPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o UsageLimitPeriodPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *UsageLimitPeriod) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// UsageLimitPeriodInput is an input type that accepts values of the UsageLimitPeriod enum
+// A concrete instance of `UsageLimitPeriodInput` can be one of the following:
+//
+//	UsageLimitPeriodDaily
+//	UsageLimitPeriodWeekly
+//	UsageLimitPeriodMonthly
+type UsageLimitPeriodInput interface {
+	pulumi.Input
+
+	ToUsageLimitPeriodOutput() UsageLimitPeriodOutput
+	ToUsageLimitPeriodOutputWithContext(context.Context) UsageLimitPeriodOutput
+}
+
+var usageLimitPeriodPtrType = reflect.TypeOf((**UsageLimitPeriod)(nil)).Elem()
+
+type UsageLimitPeriodPtrInput interface {
+	pulumi.Input
+
+	ToUsageLimitPeriodPtrOutput() UsageLimitPeriodPtrOutput
+	ToUsageLimitPeriodPtrOutputWithContext(context.Context) UsageLimitPeriodPtrOutput
+}
+
+type usageLimitPeriodPtr string
+
+func UsageLimitPeriodPtr(v string) UsageLimitPeriodPtrInput {
+	return (*usageLimitPeriodPtr)(&v)
+}
+
+func (*usageLimitPeriodPtr) ElementType() reflect.Type {
+	return usageLimitPeriodPtrType
+}
+
+func (in *usageLimitPeriodPtr) ToUsageLimitPeriodPtrOutput() UsageLimitPeriodPtrOutput {
+	return pulumi.ToOutput(in).(UsageLimitPeriodPtrOutput)
+}
+
+func (in *usageLimitPeriodPtr) ToUsageLimitPeriodPtrOutputWithContext(ctx context.Context) UsageLimitPeriodPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(UsageLimitPeriodPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventCategoriesItemInput)(nil)).Elem(), EventSubscriptionEventCategoriesItem("configuration"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionEventCategoriesItemPtrInput)(nil)).Elem(), EventSubscriptionEventCategoriesItem("configuration"))
@@ -755,6 +1427,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSeverityPtrInput)(nil)).Elem(), EventSubscriptionSeverity("ERROR"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypeInput)(nil)).Elem(), EventSubscriptionSourceType("cluster"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionSourceTypePtrInput)(nil)).Elem(), EventSubscriptionSourceType("cluster"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitBreachActionInput)(nil)).Elem(), UsageLimitBreachAction("log"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitBreachActionPtrInput)(nil)).Elem(), UsageLimitBreachAction("log"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitFeatureTypeInput)(nil)).Elem(), UsageLimitFeatureType("spectrum"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitFeatureTypePtrInput)(nil)).Elem(), UsageLimitFeatureType("spectrum"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitLimitTypeInput)(nil)).Elem(), UsageLimitLimitType("time"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitLimitTypePtrInput)(nil)).Elem(), UsageLimitLimitType("time"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitPeriodInput)(nil)).Elem(), UsageLimitPeriod("daily"))
+	pulumi.RegisterInputType(reflect.TypeOf((*UsageLimitPeriodPtrInput)(nil)).Elem(), UsageLimitPeriod("daily"))
 	pulumi.RegisterOutputType(EventSubscriptionEventCategoriesItemOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventCategoriesItemPtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionEventCategoriesItemArrayOutput{})
@@ -766,4 +1446,12 @@ func init() {
 	pulumi.RegisterOutputType(EventSubscriptionStatusPtrOutput{})
 	pulumi.RegisterOutputType(ScheduledActionStateEnumOutput{})
 	pulumi.RegisterOutputType(ScheduledActionStateEnumPtrOutput{})
+	pulumi.RegisterOutputType(UsageLimitBreachActionOutput{})
+	pulumi.RegisterOutputType(UsageLimitBreachActionPtrOutput{})
+	pulumi.RegisterOutputType(UsageLimitFeatureTypeOutput{})
+	pulumi.RegisterOutputType(UsageLimitFeatureTypePtrOutput{})
+	pulumi.RegisterOutputType(UsageLimitLimitTypeOutput{})
+	pulumi.RegisterOutputType(UsageLimitLimitTypePtrOutput{})
+	pulumi.RegisterOutputType(UsageLimitPeriodOutput{})
+	pulumi.RegisterOutputType(UsageLimitPeriodPtrOutput{})
 }

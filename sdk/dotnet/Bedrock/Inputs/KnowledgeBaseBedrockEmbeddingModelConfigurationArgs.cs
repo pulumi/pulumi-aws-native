@@ -39,6 +39,12 @@ namespace Pulumi.AwsNative.Bedrock.Inputs
         [Input("embeddingDataType")]
         public Input<Pulumi.AwsNative.Bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType>? EmbeddingDataType { get; set; }
 
+        /// <summary>
+        /// Model-specific configuration for the embedding model.
+        /// </summary>
+        [Input("modelConfiguration")]
+        public Input<object>? ModelConfiguration { get; set; }
+
         [Input("video")]
         private InputList<Inputs.KnowledgeBaseVideoConfigurationArgs>? _video;
 

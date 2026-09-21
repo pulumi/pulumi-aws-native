@@ -140,10 +140,6 @@ namespace Pulumi.AwsNative.CodeBuild
         /// </summary>
         public readonly string? ImageId;
         /// <summary>
-        /// The name of the compute fleet.
-        /// </summary>
-        public readonly string? Name;
-        /// <summary>
         /// The compute fleet overflow behavior.
         /// 
         /// - For overflow behavior `QUEUE` , your overflow builds need to wait on the existing fleet instance to become available.
@@ -183,8 +179,6 @@ namespace Pulumi.AwsNative.CodeBuild
 
             string? imageId,
 
-            string? name,
-
             Pulumi.AwsNative.CodeBuild.FleetOverflowBehavior? overflowBehavior,
 
             Outputs.FleetScalingConfigurationInput? scalingConfiguration,
@@ -200,7 +194,6 @@ namespace Pulumi.AwsNative.CodeBuild
             FleetServiceRole = fleetServiceRole;
             FleetVpcConfig = fleetVpcConfig;
             ImageId = imageId;
-            Name = name;
             OverflowBehavior = overflowBehavior;
             ScalingConfiguration = scalingConfiguration;
             Tags = tags;

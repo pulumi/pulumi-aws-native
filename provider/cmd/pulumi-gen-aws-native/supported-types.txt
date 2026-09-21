@@ -98,6 +98,7 @@ AWS::AppStream::StackFleetAssociation
 AWS::AppStream::StackUserAssociation
 AWS::AppStream::User
 AWS::AppSync::Api
+AWS::AppSync::ApiKey
 AWS::AppSync::ChannelNamespace
 AWS::AppSync::DataSource
 AWS::AppSync::DomainName
@@ -221,6 +222,7 @@ AWS::CertificateManager::Certificate
 AWS::Chatbot::CustomAction
 AWS::Chatbot::MicrosoftTeamsChannelConfiguration
 AWS::Chatbot::SlackChannelConfiguration
+AWS::Chime::MediaInsightsPipelineConfiguration
 AWS::Chime::MediaPipelineKinesisVideoStreamPool
 AWS::CleanRooms::AnalysisTemplate
 AWS::CleanRooms::Collaboration
@@ -322,6 +324,7 @@ AWS::Cognito::UserPoolUICustomizationAttachment
 AWS::Cognito::UserPoolUser
 AWS::Cognito::UserPoolUserToGroupAttachment
 AWS::Comprehend::DocumentClassifier
+AWS::Comprehend::DocumentClassifierEndpoint
 AWS::Comprehend::Flywheel
 AWS::ComputeOptimizer::AutomationRule
 AWS::Config::AggregationAuthorization
@@ -485,6 +488,7 @@ AWS::DocDB::DBSubnetGroup
 AWS::DocDB::EventSubscription
 AWS::DocDB::GlobalCluster
 AWS::DocDBElastic::Cluster
+AWS::DocDBElastic::ClusterSnapshot
 AWS::DynamoDB::Backup
 AWS::DynamoDB::GlobalTable
 AWS::DynamoDB::Table
@@ -685,10 +689,14 @@ AWS::Evidently::Project
 AWS::Evidently::Segment
 AWS::FIS::ExperimentTemplate
 AWS::FIS::TargetAccountConfiguration
+AWS::FMS::ApplicationsList
 AWS::FMS::NotificationChannel
 AWS::FMS::Policy
+AWS::FMS::ProtocolsList
 AWS::FMS::ResourceSet
+AWS::FSx::Backup
 AWS::FSx::DataRepositoryAssociation
+AWS::FSx::FileCache
 AWS::FSx::S3AccessPointAttachment
 AWS::FSx::Volume
 AWS::FinSpace::Environment
@@ -724,6 +732,7 @@ AWS::Glue::Blueprint
 AWS::Glue::Catalog
 AWS::Glue::Classifier
 AWS::Glue::Connection
+AWS::Glue::ConnectionType
 AWS::Glue::Crawler
 AWS::Glue::CustomEntityType
 AWS::Glue::DataCatalogEncryptionSettings
@@ -763,6 +772,7 @@ AWS::GuardDuty::PublishingDestination
 AWS::GuardDuty::ThreatEntitySet
 AWS::GuardDuty::ThreatIntelSet
 AWS::GuardDuty::TrustedEntitySet
+AWS::HealthAgent::Domain
 AWS::HealthImaging::Datastore
 AWS::HealthLake::DataTransformationProfile
 AWS::HealthLake::FHIRDatastore
@@ -884,10 +894,12 @@ AWS::KafkaConnect::CustomPlugin
 AWS::KafkaConnect::WorkerConfiguration
 AWS::Kendra::DataSource
 AWS::Kendra::Faq
+AWS::Kendra::FeaturedResultsSet
 AWS::Kendra::Index
 AWS::Kendra::QuerySuggestionsBlockList
 AWS::Kendra::Thesaurus
 AWS::KendraRanking::ExecutionPlan
+AWS::Kinesis::Channel
 AWS::Kinesis::ResourcePolicy
 AWS::Kinesis::Stream
 AWS::Kinesis::StreamConsumer
@@ -920,6 +932,7 @@ AWS::Lex::BotVersion
 AWS::Lex::ResourcePolicy
 AWS::LicenseManager::Grant
 AWS::LicenseManager::License
+AWS::LicenseManager::LicenseAssetGroup
 AWS::LicenseManager::LicenseAssetRuleSet
 AWS::Lightsail::Alarm
 AWS::Lightsail::Bucket
@@ -932,6 +945,7 @@ AWS::Lightsail::Disk
 AWS::Lightsail::DiskSnapshot
 AWS::Lightsail::Instance
 AWS::Lightsail::InstanceSnapshot
+AWS::Lightsail::KeyPair
 AWS::Lightsail::LoadBalancer
 AWS::Lightsail::LoadBalancerTlsCertificate
 AWS::Lightsail::StaticIp
@@ -979,6 +993,7 @@ AWS::MWAAServerless::Workflow
 AWS::Macie::AllowList
 AWS::Macie::CustomDataIdentifier
 AWS::Macie::FindingsFilter
+AWS::Macie::Member
 AWS::Macie::Session
 AWS::MediaConnect::Bridge
 AWS::MediaConnect::BridgeOutput
@@ -993,6 +1008,7 @@ AWS::MediaConnect::RouterInput
 AWS::MediaConnect::RouterNetworkInterface
 AWS::MediaConnect::RouterOutput
 AWS::MediaConvert::Preset
+AWS::MediaConvert::Queue
 AWS::MediaLive::ChannelPlacementGroup
 AWS::MediaLive::CloudWatchAlarmTemplate
 AWS::MediaLive::CloudWatchAlarmTemplateGroup
@@ -1027,6 +1043,7 @@ AWS::MemoryDB::ACL
 AWS::MemoryDB::Cluster
 AWS::MemoryDB::MultiRegionCluster
 AWS::MemoryDB::ParameterGroup
+AWS::MemoryDB::Snapshot
 AWS::MemoryDB::SubnetGroup
 AWS::MemoryDB::User
 AWS::Neptune::DBCluster
@@ -1039,6 +1056,7 @@ AWS::Neptune::GlobalCluster
 AWS::NeptuneGraph::Graph
 AWS::NeptuneGraph::GraphSnapshot
 AWS::NeptuneGraph::PrivateGraphEndpoint
+AWS::NetworkFirewall::ContainerAssociation
 AWS::NetworkFirewall::Firewall
 AWS::NetworkFirewall::FirewallPolicy
 AWS::NetworkFirewall::LoggingConfiguration
@@ -1107,6 +1125,7 @@ AWS::Organizations::Organization
 AWS::Organizations::OrganizationalUnit
 AWS::Organizations::Policy
 AWS::Organizations::ResourcePolicy
+AWS::Outposts::Outpost
 AWS::Outposts::Site
 AWS::PCAConnectorAD::Connector
 AWS::PCAConnectorAD::DirectoryRegistration
@@ -1199,7 +1218,10 @@ AWS::Redshift::EndpointAuthorization
 AWS::Redshift::EventSubscription
 AWS::Redshift::Integration
 AWS::Redshift::ScheduledAction
+AWS::Redshift::Snapshot
+AWS::Redshift::SnapshotCopyGrant
 AWS::Redshift::SnapshotSchedule
+AWS::Redshift::UsageLimit
 AWS::RedshiftServerless::Namespace
 AWS::RedshiftServerless::Snapshot
 AWS::RedshiftServerless::Workgroup
@@ -1238,6 +1260,7 @@ AWS::Route53::HealthCheck
 AWS::Route53::HostedZone
 AWS::Route53::KeySigningKey
 AWS::Route53::RecordSet
+AWS::Route53::TrafficPolicy
 AWS::Route53GlobalResolver::AccessSource
 AWS::Route53GlobalResolver::AccessToken
 AWS::Route53GlobalResolver::DnsView
@@ -1361,12 +1384,14 @@ AWS::SSO::Assignment
 AWS::SSO::Instance
 AWS::SSO::InstanceAccessControlAttributeConfiguration
 AWS::SSO::PermissionSet
+AWS::SageMaker::AIWorkloadConfig
 AWS::SageMaker::Action
 AWS::SageMaker::Algorithm
 AWS::SageMaker::App
 AWS::SageMaker::AppImageConfig
 AWS::SageMaker::Artifact
 AWS::SageMaker::Cluster
+AWS::SageMaker::CodeRepository
 AWS::SageMaker::Context
 AWS::SageMaker::DataQualityJobDefinition
 AWS::SageMaker::Device
@@ -1394,6 +1419,7 @@ AWS::SageMaker::ModelPackageGroup
 AWS::SageMaker::ModelQualityJobDefinition
 AWS::SageMaker::MonitoringSchedule
 AWS::SageMaker::NotebookInstance
+AWS::SageMaker::NotebookInstanceLifecycleConfig
 AWS::SageMaker::PartnerApp
 AWS::SageMaker::Pipeline
 AWS::SageMaker::ProcessingJob
@@ -1471,6 +1497,7 @@ AWS::StepFunctions::Activity
 AWS::StepFunctions::StateMachine
 AWS::StepFunctions::StateMachineAlias
 AWS::StepFunctions::StateMachineVersion
+AWS::StorageGateway::Tape
 AWS::StorageGateway::TapePool
 AWS::SupportApp::AccountAlias
 AWS::SupportApp::SlackChannelConfiguration
@@ -1485,6 +1512,8 @@ AWS::Timestream::InfluxDBCluster
 AWS::Timestream::InfluxDBInstance
 AWS::Timestream::ScheduledQuery
 AWS::Timestream::Table
+AWS::Transcribe::CallAnalyticsCategory
+AWS::Transcribe::Vocabulary
 AWS::Transcribe::VocabularyFilter
 AWS::Transfer::Agreement
 AWS::Transfer::Certificate

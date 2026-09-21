@@ -30,6 +30,10 @@ export interface GetChannelResult {
      */
     readonly arn?: string;
     /**
+     * <p>The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.</p>
+     */
+    readonly attachedMultiviewChannels?: string[];
+    /**
      * <p>The date and time the channel was created.</p>
      */
     readonly createdAt?: string;
@@ -53,6 +57,7 @@ export interface GetChannelResult {
      * <p>The date and time the channel was modified.</p>
      */
     readonly modifiedAt?: string;
+    readonly multiviewConfiguration?: outputs.mediapackagev2.ChannelMultiviewConfiguration;
     /**
      * The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
      */

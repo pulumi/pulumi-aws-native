@@ -69,6 +69,9 @@ namespace Pulumi.AwsNative.DataSync
         [Output("customSecretConfig")]
         public Output<Outputs.LocationAzureBlobCustomSecretConfig?> CustomSecretConfig { get; private set; } = null!;
 
+        [Output("federatedIdentity")]
+        public Output<Outputs.LocationAzureBlobAzureFederatedIdentityConfig?> FederatedIdentity { get; private set; } = null!;
+
         /// <summary>
         /// The Amazon Resource Name (ARN) of the Azure Blob Location that is created.
         /// </summary>
@@ -204,6 +207,9 @@ namespace Pulumi.AwsNative.DataSync
         /// </summary>
         [Input("customSecretConfig")]
         public Input<Inputs.LocationAzureBlobCustomSecretConfigArgs>? CustomSecretConfig { get; set; }
+
+        [Input("federatedIdentity")]
+        public Input<Inputs.LocationAzureBlobAzureFederatedIdentityConfigArgs>? FederatedIdentity { get; set; }
 
         /// <summary>
         /// The subdirectory in the Azure Blob Container that is used to read data from the Azure Blob Source Location.

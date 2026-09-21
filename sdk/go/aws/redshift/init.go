@@ -37,8 +37,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Integration{}
 	case "aws-native:redshift:ScheduledAction":
 		r = &ScheduledAction{}
+	case "aws-native:redshift:Snapshot":
+		r = &Snapshot{}
+	case "aws-native:redshift:SnapshotCopyGrant":
+		r = &SnapshotCopyGrant{}
 	case "aws-native:redshift:SnapshotSchedule":
 		r = &SnapshotSchedule{}
+	case "aws-native:redshift:UsageLimit":
+		r = &UsageLimit{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

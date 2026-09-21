@@ -25,7 +25,7 @@
       "timeoutInMinutes" : 180
     },
     "update" : {
-      "permissions" : [ "ecs:UpdateExpressGatewayService", "ecs:DescribeExpressGatewayService", "ecs:DescribeServiceDeployments", "ecs:DescribeServiceRevisions", "ecs:DescribeServices", "ecs:ListServiceDeployments", "ecs:RegisterTaskDefinition", "iam:PassRole" ],
+      "permissions" : [ "ecs:UpdateExpressGatewayService", "ecs:DescribeExpressGatewayService", "ecs:DescribeServiceDeployments", "ecs:DescribeServiceRevisions", "ecs:DescribeServices", "ecs:DescribeTaskDefinition", "ecs:ListServiceDeployments", "ecs:RegisterTaskDefinition", "iam:PassRole" ],
       "timeoutInMinutes" : 180
     },
     "delete" : {
@@ -214,20 +214,8 @@
         "ServiceRevisionArn" : {
           "type" : "string"
         },
-        "ExecutionRoleArn" : {
-          "type" : "string"
-        },
         "TaskRoleArn" : {
           "type" : "string"
-        },
-        "ScalingTarget" : {
-          "$ref" : "#/definitions/ExpressGatewayScalingTarget"
-        },
-        "IngressPaths" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/IngressPathSummary"
-          }
         },
         "PrimaryContainer" : {
           "$ref" : "#/definitions/ExpressGatewayContainer"
@@ -244,6 +232,18 @@
         },
         "Cpu" : {
           "type" : "string"
+        },
+        "ExecutionRoleArn" : {
+          "type" : "string"
+        },
+        "ScalingTarget" : {
+          "$ref" : "#/definitions/ExpressGatewayScalingTarget"
+        },
+        "IngressPaths" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/IngressPathSummary"
+          }
         },
         "NetworkConfiguration" : {
           "$ref" : "#/definitions/ExpressGatewayServiceNetworkConfiguration"

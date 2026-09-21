@@ -20,6 +20,18 @@ __all__ = [
     'ActionMetadataPropertiesArgsDict',
     'ActionSourceArgs',
     'ActionSourceArgsDict',
+    'AiWorkloadConfigAiDatasetConfigArgs',
+    'AiWorkloadConfigAiDatasetConfigArgsDict',
+    'AiWorkloadConfigAiWorkloadConfigsArgs',
+    'AiWorkloadConfigAiWorkloadConfigsArgsDict',
+    'AiWorkloadConfigAiWorkloadDataSourceArgs',
+    'AiWorkloadConfigAiWorkloadDataSourceArgsDict',
+    'AiWorkloadConfigAiWorkloadInputDataConfigArgs',
+    'AiWorkloadConfigAiWorkloadInputDataConfigArgsDict',
+    'AiWorkloadConfigAiWorkloadS3DataSourceArgs',
+    'AiWorkloadConfigAiWorkloadS3DataSourceArgsDict',
+    'AiWorkloadConfigWorkloadSpecArgs',
+    'AiWorkloadConfigWorkloadSpecArgsDict',
     'AlgorithmCategoricalParameterRangeSpecificationArgs',
     'AlgorithmCategoricalParameterRangeSpecificationArgsDict',
     'AlgorithmChannelSpecificationArgs',
@@ -132,6 +144,8 @@ __all__ = [
     'ClusterTieredStorageConfigArgsDict',
     'ClusterVpcConfigArgs',
     'ClusterVpcConfigArgsDict',
+    'CodeRepositoryGitConfigArgs',
+    'CodeRepositoryGitConfigArgsDict',
     'DataQualityJobDefinitionBatchTransformInputArgs',
     'DataQualityJobDefinitionBatchTransformInputArgsDict',
     'DataQualityJobDefinitionClusterConfigArgs',
@@ -658,6 +672,8 @@ __all__ = [
     'MonitoringScheduleVpcConfigArgsDict',
     'NotebookInstanceInstanceMetadataServiceConfigurationArgs',
     'NotebookInstanceInstanceMetadataServiceConfigurationArgsDict',
+    'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs',
+    'NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict',
     'OfflineStoreConfigPropertiesArgs',
     'OfflineStoreConfigPropertiesArgsDict',
     'OnlineStoreConfigPropertiesArgs',
@@ -975,6 +991,224 @@ class ActionSourceArgs:
     @source_type.setter
     def source_type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "source_type", value)
+
+
+class AiWorkloadConfigAiDatasetConfigArgsDict(TypedDict):
+    """
+    The dataset configuration for an AI workload.
+    """
+    input_data_config: pulumi.Input[Sequence[pulumi.Input['AiWorkloadConfigAiWorkloadInputDataConfigArgsDict']]]
+    """
+    An array of input data channel configurations for the workload.
+    """
+
+@pulumi.input_type
+class AiWorkloadConfigAiDatasetConfigArgs:
+    def __init__(__self__, *,
+                 input_data_config: pulumi.Input[Sequence[pulumi.Input['AiWorkloadConfigAiWorkloadInputDataConfigArgs']]]):
+        """
+        The dataset configuration for an AI workload.
+
+        :param pulumi.Input[Sequence[pulumi.Input['AiWorkloadConfigAiWorkloadInputDataConfigArgs']]] input_data_config: An array of input data channel configurations for the workload.
+        """
+        pulumi.set(__self__, "input_data_config", input_data_config)
+
+    @_builtins.property
+    @pulumi.getter(name="inputDataConfig")
+    def input_data_config(self) -> pulumi.Input[Sequence[pulumi.Input['AiWorkloadConfigAiWorkloadInputDataConfigArgs']]]:
+        """
+        An array of input data channel configurations for the workload.
+        """
+        return pulumi.get(self, "input_data_config")
+
+    @input_data_config.setter
+    def input_data_config(self, value: pulumi.Input[Sequence[pulumi.Input['AiWorkloadConfigAiWorkloadInputDataConfigArgs']]]):
+        pulumi.set(self, "input_data_config", value)
+
+
+class AiWorkloadConfigAiWorkloadConfigsArgsDict(TypedDict):
+    """
+    The benchmark tool configuration for an AI workload.
+    """
+    workload_spec: pulumi.Input['AiWorkloadConfigWorkloadSpecArgsDict']
+    """
+    The workload specification that defines benchmark parameters.
+    """
+
+@pulumi.input_type
+class AiWorkloadConfigAiWorkloadConfigsArgs:
+    def __init__(__self__, *,
+                 workload_spec: pulumi.Input['AiWorkloadConfigWorkloadSpecArgs']):
+        """
+        The benchmark tool configuration for an AI workload.
+
+        :param pulumi.Input['AiWorkloadConfigWorkloadSpecArgs'] workload_spec: The workload specification that defines benchmark parameters.
+        """
+        pulumi.set(__self__, "workload_spec", workload_spec)
+
+    @_builtins.property
+    @pulumi.getter(name="workloadSpec")
+    def workload_spec(self) -> pulumi.Input['AiWorkloadConfigWorkloadSpecArgs']:
+        """
+        The workload specification that defines benchmark parameters.
+        """
+        return pulumi.get(self, "workload_spec")
+
+    @workload_spec.setter
+    def workload_spec(self, value: pulumi.Input['AiWorkloadConfigWorkloadSpecArgs']):
+        pulumi.set(self, "workload_spec", value)
+
+
+class AiWorkloadConfigAiWorkloadDataSourceArgsDict(TypedDict):
+    """
+    The data source for an AI workload input data channel.
+    """
+    s3_data_source: NotRequired[pulumi.Input[Optional['AiWorkloadConfigAiWorkloadS3DataSourceArgsDict']]]
+    """
+    The Amazon S3 data source configuration.
+    """
+
+@pulumi.input_type
+class AiWorkloadConfigAiWorkloadDataSourceArgs:
+    def __init__(__self__, *,
+                 s3_data_source: pulumi.Input[Optional['AiWorkloadConfigAiWorkloadS3DataSourceArgs']] = None):
+        """
+        The data source for an AI workload input data channel.
+
+        :param pulumi.Input['AiWorkloadConfigAiWorkloadS3DataSourceArgs'] s3_data_source: The Amazon S3 data source configuration.
+        """
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> pulumi.Input[Optional['AiWorkloadConfigAiWorkloadS3DataSourceArgs']]:
+        """
+        The Amazon S3 data source configuration.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+    @s3_data_source.setter
+    def s3_data_source(self, value: pulumi.Input[Optional['AiWorkloadConfigAiWorkloadS3DataSourceArgs']]):
+        pulumi.set(self, "s3_data_source", value)
+
+
+class AiWorkloadConfigAiWorkloadInputDataConfigArgsDict(TypedDict):
+    """
+    A channel of input data for an AI workload configuration.
+    """
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    The logical name for the data channel.
+    """
+    data_source: pulumi.Input['AiWorkloadConfigAiWorkloadDataSourceArgsDict']
+    """
+    The data source for this channel.
+    """
+
+@pulumi.input_type
+class AiWorkloadConfigAiWorkloadInputDataConfigArgs:
+    def __init__(__self__, *,
+                 channel_name: pulumi.Input[_builtins.str],
+                 data_source: pulumi.Input['AiWorkloadConfigAiWorkloadDataSourceArgs']):
+        """
+        A channel of input data for an AI workload configuration.
+
+        :param pulumi.Input[_builtins.str] channel_name: The logical name for the data channel.
+        :param pulumi.Input['AiWorkloadConfigAiWorkloadDataSourceArgs'] data_source: The data source for this channel.
+        """
+        pulumi.set(__self__, "channel_name", channel_name)
+        pulumi.set(__self__, "data_source", data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="channelName")
+    def channel_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The logical name for the data channel.
+        """
+        return pulumi.get(self, "channel_name")
+
+    @channel_name.setter
+    def channel_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "channel_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input['AiWorkloadConfigAiWorkloadDataSourceArgs']:
+        """
+        The data source for this channel.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input['AiWorkloadConfigAiWorkloadDataSourceArgs']):
+        pulumi.set(self, "data_source", value)
+
+
+class AiWorkloadConfigAiWorkloadS3DataSourceArgsDict(TypedDict):
+    """
+    The Amazon S3 data source for an AI workload.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 URI of the data.
+    """
+
+@pulumi.input_type
+class AiWorkloadConfigAiWorkloadS3DataSourceArgs:
+    def __init__(__self__, *,
+                 s3_uri: pulumi.Input[_builtins.str]):
+        """
+        The Amazon S3 data source for an AI workload.
+
+        :param pulumi.Input[_builtins.str] s3_uri: The Amazon S3 URI of the data.
+        """
+        pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> pulumi.Input[_builtins.str]:
+        """
+        The Amazon S3 URI of the data.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @s3_uri.setter
+    def s3_uri(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "s3_uri", value)
+
+
+class AiWorkloadConfigWorkloadSpecArgsDict(TypedDict):
+    """
+    The workload specification for benchmark tool configuration.
+    """
+    inline: pulumi.Input[_builtins.str]
+    """
+    An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+    """
+
+@pulumi.input_type
+class AiWorkloadConfigWorkloadSpecArgs:
+    def __init__(__self__, *,
+                 inline: pulumi.Input[_builtins.str]):
+        """
+        The workload specification for benchmark tool configuration.
+
+        :param pulumi.Input[_builtins.str] inline: An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+        """
+        pulumi.set(__self__, "inline", inline)
+
+    @_builtins.property
+    @pulumi.getter
+    def inline(self) -> pulumi.Input[_builtins.str]:
+        """
+        An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+        """
+        return pulumi.get(self, "inline")
+
+    @inline.setter
+    def inline(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "inline", value)
 
 
 class AlgorithmCategoricalParameterRangeSpecificationArgsDict(TypedDict):
@@ -4237,6 +4471,74 @@ class ClusterVpcConfigArgs:
     @subnets.setter
     def subnets(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "subnets", value)
+
+
+class CodeRepositoryGitConfigArgsDict(TypedDict):
+    repository_url: pulumi.Input[_builtins.str]
+    """
+    The URL where the Git repository is located.
+    """
+    branch: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The default branch for the Git repository.
+    """
+    secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+    """
+
+@pulumi.input_type
+class CodeRepositoryGitConfigArgs:
+    def __init__(__self__, *,
+                 repository_url: pulumi.Input[_builtins.str],
+                 branch: pulumi.Input[Optional[_builtins.str]] = None,
+                 secret_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] repository_url: The URL where the Git repository is located.
+        :param pulumi.Input[_builtins.str] branch: The default branch for the Git repository.
+        :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+        """
+        pulumi.set(__self__, "repository_url", repository_url)
+        if branch is not None:
+            pulumi.set(__self__, "branch", branch)
+        if secret_arn is not None:
+            pulumi.set(__self__, "secret_arn", secret_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> pulumi.Input[_builtins.str]:
+        """
+        The URL where the Git repository is located.
+        """
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "repository_url", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def branch(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The default branch for the Git repository.
+        """
+        return pulumi.get(self, "branch")
+
+    @branch.setter
+    def branch(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "branch", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretArn")
+    def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+        """
+        return pulumi.get(self, "secret_arn")
+
+    @secret_arn.setter
+    def secret_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secret_arn", value)
 
 
 class DataQualityJobDefinitionBatchTransformInputArgsDict(TypedDict):
@@ -23090,6 +23392,40 @@ class NotebookInstanceInstanceMetadataServiceConfigurationArgs:
     @minimum_instance_metadata_service_version.setter
     def minimum_instance_metadata_service_version(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "minimum_instance_metadata_service_version", value)
+
+
+class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgsDict(TypedDict):
+    """
+    Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+    """
+    content: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+    """
+
+@pulumi.input_type
+class NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+
+        :param pulumi.Input[_builtins.str] content: A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+        """
+        if content is not None:
+            pulumi.set(__self__, "content", content)
+
+    @_builtins.property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "content", value)
 
 
 class OfflineStoreConfigPropertiesArgsDict(TypedDict):

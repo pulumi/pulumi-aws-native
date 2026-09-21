@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomDataIdentifier{}
 	case "aws-native:macie:FindingsFilter":
 		r = &FindingsFilter{}
+	case "aws-native:macie:Member":
+		r = &Member{}
 	case "aws-native:macie:Session":
 		r = &Session{}
 	default:

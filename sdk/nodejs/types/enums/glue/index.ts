@@ -58,6 +58,191 @@ export const CatalogPrincipalPermissionsPermissionsItem = {
 
 export type CatalogPrincipalPermissionsPermissionsItem = (typeof CatalogPrincipalPermissionsPermissionsItem)[keyof typeof CatalogPrincipalPermissionsPermissionsItem];
 
+export const ConnectionTypeClientCredentialsPropertiesContentType = {
+    ApplicationJson: "APPLICATION_JSON",
+    UrlEncoded: "URL_ENCODED",
+} as const;
+
+export type ConnectionTypeClientCredentialsPropertiesContentType = (typeof ConnectionTypeClientCredentialsPropertiesContentType)[keyof typeof ConnectionTypeClientCredentialsPropertiesContentType];
+
+export const ConnectionTypeClientCredentialsPropertiesRequestMethod = {
+    Get: "GET",
+    Post: "POST",
+} as const;
+
+export type ConnectionTypeClientCredentialsPropertiesRequestMethod = (typeof ConnectionTypeClientCredentialsPropertiesRequestMethod)[keyof typeof ConnectionTypeClientCredentialsPropertiesRequestMethod];
+
+export const ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem = {
+    Basic: "BASIC",
+    Oauth2: "OAUTH2",
+    Custom: "CUSTOM",
+    Iam: "IAM",
+} as const;
+
+export type ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem = (typeof ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem)[keyof typeof ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem];
+
+export const ConnectionTypeConnectorAuthorizationCodePropertiesContentType = {
+    ApplicationJson: "APPLICATION_JSON",
+    UrlEncoded: "URL_ENCODED",
+} as const;
+
+export type ConnectionTypeConnectorAuthorizationCodePropertiesContentType = (typeof ConnectionTypeConnectorAuthorizationCodePropertiesContentType)[keyof typeof ConnectionTypeConnectorAuthorizationCodePropertiesContentType];
+
+export const ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod = {
+    Get: "GET",
+    Post: "POST",
+} as const;
+
+export type ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod = (typeof ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod)[keyof typeof ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod];
+
+export const ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType = {
+    ClientCredentials: "CLIENT_CREDENTIALS",
+    JwtBearer: "JWT_BEARER",
+    AuthorizationCode: "AUTHORIZATION_CODE",
+} as const;
+
+/**
+ * The OAuth2 grant type to use.
+ */
+export type ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType = (typeof ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType)[keyof typeof ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType];
+
+export const ConnectionTypeConnectorPropertyPropertyLocation = {
+    Header: "HEADER",
+    Body: "BODY",
+    QueryParam: "QUERY_PARAM",
+    Path: "PATH",
+} as const;
+
+/**
+ * Specifies where this property should be included in REST requests.
+ */
+export type ConnectionTypeConnectorPropertyPropertyLocation = (typeof ConnectionTypeConnectorPropertyPropertyLocation)[keyof typeof ConnectionTypeConnectorPropertyPropertyLocation];
+
+export const ConnectionTypeConnectorPropertyPropertyType = {
+    UserInput: "USER_INPUT",
+    Secret: "SECRET",
+    ReadOnly: "READ_ONLY",
+    Unused: "UNUSED",
+    SecretOrUserInput: "SECRET_OR_USER_INPUT",
+} as const;
+
+/**
+ * The data type of this property.
+ */
+export type ConnectionTypeConnectorPropertyPropertyType = (typeof ConnectionTypeConnectorPropertyPropertyType)[keyof typeof ConnectionTypeConnectorPropertyPropertyType];
+
+export const ConnectionTypeExtractedParameterPropertyLocation = {
+    Header: "HEADER",
+    Body: "BODY",
+    QueryParam: "QUERY_PARAM",
+    Path: "PATH",
+} as const;
+
+/**
+ * Specifies where to place the parameter in requests.
+ */
+export type ConnectionTypeExtractedParameterPropertyLocation = (typeof ConnectionTypeExtractedParameterPropertyLocation)[keyof typeof ConnectionTypeExtractedParameterPropertyLocation];
+
+export const ConnectionTypeFieldDefinitionFieldDataType = {
+    Int: "INT",
+    Smallint: "SMALLINT",
+    Bigint: "BIGINT",
+    Float: "FLOAT",
+    Long: "LONG",
+    Date: "DATE",
+    Boolean: "BOOLEAN",
+    Map: "MAP",
+    Array: "ARRAY",
+    String: "STRING",
+    Timestamp: "TIMESTAMP",
+    Decimal: "DECIMAL",
+    Byte: "BYTE",
+    Short: "SHORT",
+    Double: "DOUBLE",
+    Struct: "STRUCT",
+    Binary: "BINARY",
+    Union: "UNION",
+} as const;
+
+/**
+ * The data type of the field.
+ */
+export type ConnectionTypeFieldDefinitionFieldDataType = (typeof ConnectionTypeFieldDefinitionFieldDataType)[keyof typeof ConnectionTypeFieldDefinitionFieldDataType];
+
+export const ConnectionTypeFilterConfigurationFilterMode = {
+    QueryParams: "QUERY_PARAMS",
+    FilterString: "FILTER_STRING",
+} as const;
+
+/**
+ * The strategy for applying filters to requests.
+ */
+export type ConnectionTypeFilterConfigurationFilterMode = (typeof ConnectionTypeFilterConfigurationFilterMode)[keyof typeof ConnectionTypeFilterConfigurationFilterMode];
+
+export const ConnectionTypeIntegrationType = {
+    Rest: "REST",
+} as const;
+
+/**
+ * The integration type for the connection. Currently only REST is supported.
+ */
+export type ConnectionTypeIntegrationType = (typeof ConnectionTypeIntegrationType)[keyof typeof ConnectionTypeIntegrationType];
+
+export const ConnectionTypeJwtBearerPropertiesContentType = {
+    ApplicationJson: "APPLICATION_JSON",
+    UrlEncoded: "URL_ENCODED",
+} as const;
+
+export type ConnectionTypeJwtBearerPropertiesContentType = (typeof ConnectionTypeJwtBearerPropertiesContentType)[keyof typeof ConnectionTypeJwtBearerPropertiesContentType];
+
+export const ConnectionTypeJwtBearerPropertiesRequestMethod = {
+    Get: "GET",
+    Post: "POST",
+} as const;
+
+export type ConnectionTypeJwtBearerPropertiesRequestMethod = (typeof ConnectionTypeJwtBearerPropertiesRequestMethod)[keyof typeof ConnectionTypeJwtBearerPropertiesRequestMethod];
+
+export const ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod = {
+    Get: "GET",
+    Post: "POST",
+} as const;
+
+/**
+ * The HTTP method to use.
+ */
+export type ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod = (typeof ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod)[keyof typeof ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod];
+
+export const ConnectionTypeSecretConnectorPropertyPropertyLocation = {
+    Header: "HEADER",
+    Body: "BODY",
+    QueryParam: "QUERY_PARAM",
+    Path: "PATH",
+} as const;
+
+/**
+ * Specifies where this property should be included in REST requests.
+ */
+export type ConnectionTypeSecretConnectorPropertyPropertyLocation = (typeof ConnectionTypeSecretConnectorPropertyPropertyLocation)[keyof typeof ConnectionTypeSecretConnectorPropertyPropertyLocation];
+
+export const ConnectionTypeSecretConnectorPropertyPropertyType = {
+    Secret: "SECRET",
+} as const;
+
+/**
+ * The data type of this property. Must be SECRET for secret properties.
+ */
+export type ConnectionTypeSecretConnectorPropertyPropertyType = (typeof ConnectionTypeSecretConnectorPropertyPropertyType)[keyof typeof ConnectionTypeSecretConnectorPropertyPropertyType];
+
+export const ConnectionTypeSourceConfigurationRequestMethod = {
+    Get: "GET",
+    Post: "POST",
+} as const;
+
+/**
+ * The HTTP method to use.
+ */
+export type ConnectionTypeSourceConfigurationRequestMethod = (typeof ConnectionTypeSourceConfigurationRequestMethod)[keyof typeof ConnectionTypeSourceConfigurationRequestMethod];
+
 export const JobWorkerType = {
     Standard: "Standard",
     G1x: "G.1X",

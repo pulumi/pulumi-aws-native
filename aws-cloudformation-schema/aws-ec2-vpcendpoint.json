@@ -198,7 +198,7 @@
     "VpcEndpointType" : {
       "description" : "The type of endpoint.\n Default: Gateway",
       "type" : "string",
-      "enum" : [ "Interface", "Gateway", "GatewayLoadBalancer", "ServiceNetwork", "Resource" ]
+      "enum" : [ "Interface", "Gateway", "GatewayLoadBalancer", "ServiceNetwork", "Resource", "Tunnel" ]
     },
     "Id" : {
       "description" : "",

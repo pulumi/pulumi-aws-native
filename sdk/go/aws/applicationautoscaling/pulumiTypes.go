@@ -534,6 +534,11 @@ func (o ScalableTargetSuspendedStatePtrOutput) ScheduledScalingSuspended() pulum
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ScalableTargetTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
 // Contains customized metric specification information for a target tracking scaling policy for Application Auto Scaling.
 //
 //	For information about the available metrics for a service, see [services that publish CloudWatch metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html) in the *Amazon CloudWatch User Guide*.

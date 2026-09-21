@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'OutpostSupportedHardwareType',
     'SiteRackPhysicalPropertiesFiberOpticCableType',
     'SiteRackPhysicalPropertiesMaximumSupportedWeightLbs',
     'SiteRackPhysicalPropertiesOpticalStandard',
@@ -17,6 +18,12 @@ __all__ = [
     'SiteRackPhysicalPropertiesUplinkCount',
     'SiteRackPhysicalPropertiesUplinkGbps',
 ]
+
+
+@pulumi.type_token("aws-native:outposts:OutpostSupportedHardwareType")
+class OutpostSupportedHardwareType(_builtins.str, Enum):
+    RACK = "RACK"
+    SERVER = "SERVER"
 
 
 @pulumi.type_token("aws-native:outposts:SiteRackPhysicalPropertiesFiberOpticCableType")

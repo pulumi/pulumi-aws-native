@@ -18,8 +18,10 @@ type Function struct {
 	pulumi.CustomResourceState
 
 	// The ARN of the function.
-	Arn                       pulumi.StringOutput                        `pulumi:"arn"`
-	CustomOutputConfiguration FunctionCustomOutputConfigurationPtrOutput `pulumi:"customOutputConfiguration"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+	ConcurrentExecutorConfiguration FunctionConcurrentExecutorConfigurationPtrOutput `pulumi:"concurrentExecutorConfiguration"`
+	CustomOutputConfiguration       FunctionCustomOutputConfigurationPtrOutput       `pulumi:"customOutputConfiguration"`
 	// A description of the function.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The unique identifier for the function.
@@ -82,7 +84,9 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	CustomOutputConfiguration *FunctionCustomOutputConfiguration `pulumi:"customOutputConfiguration"`
+	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+	ConcurrentExecutorConfiguration *FunctionConcurrentExecutorConfiguration `pulumi:"concurrentExecutorConfiguration"`
+	CustomOutputConfiguration       *FunctionCustomOutputConfiguration       `pulumi:"customOutputConfiguration"`
 	// A description of the function.
 	Description *string `pulumi:"description"`
 	// The unique identifier for the function.
@@ -97,7 +101,9 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	CustomOutputConfiguration FunctionCustomOutputConfigurationPtrInput
+	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+	ConcurrentExecutorConfiguration FunctionConcurrentExecutorConfigurationPtrInput
+	CustomOutputConfiguration       FunctionCustomOutputConfigurationPtrInput
 	// A description of the function.
 	Description pulumi.StringPtrInput
 	// The unique identifier for the function.
@@ -150,6 +156,13 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 // The ARN of the function.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
+}
+
+// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+func (o FunctionOutput) ConcurrentExecutorConfiguration() FunctionConcurrentExecutorConfigurationPtrOutput {
+	return o.ApplyT(func(v *Function) FunctionConcurrentExecutorConfigurationPtrOutput {
+		return v.ConcurrentExecutorConfiguration
+	}).(FunctionConcurrentExecutorConfigurationPtrOutput)
 }
 
 func (o FunctionOutput) CustomOutputConfiguration() FunctionCustomOutputConfigurationPtrOutput {

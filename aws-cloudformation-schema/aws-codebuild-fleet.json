@@ -195,6 +195,7 @@
       }
     }
   },
+  "createOnlyProperties" : [ "/properties/Name" ],
   "primaryIdentifier" : [ "/properties/Arn" ],
   "readOnlyProperties" : [ "/properties/Arn" ],
   "tagging" : {

@@ -43,6 +43,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Instance{}
 	case "aws-native:lightsail:InstanceSnapshot":
 		r = &InstanceSnapshot{}
+	case "aws-native:lightsail:KeyPair":
+		r = &KeyPair{}
 	case "aws-native:lightsail:LoadBalancer":
 		r = &LoadBalancer{}
 	case "aws-native:lightsail:LoadBalancerTlsCertificate":

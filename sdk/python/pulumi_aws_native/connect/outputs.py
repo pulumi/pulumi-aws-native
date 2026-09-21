@@ -4284,7 +4284,7 @@ class QueueOutboundCallerConfig(dict):
 @pulumi.output_type
 class QueueOutboundEmailConfig(dict):
     """
-    The outbound email address ID.
+    The outbound email configuration for a specified queue.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -4306,7 +4306,7 @@ class QueueOutboundEmailConfig(dict):
     def __init__(__self__, *,
                  outbound_email_address_id: Optional[_builtins.str] = None):
         """
-        The outbound email address ID.
+        The outbound email configuration for a specified queue.
 
         :param _builtins.str outbound_email_address_id: The identifier of the email address.
         """

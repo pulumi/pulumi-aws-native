@@ -11,6 +11,92 @@ namespace Pulumi.AwsNative.SageMaker
 {
     /// <summary>
     /// Resource Type definition for AWS::SageMaker::NotebookInstance
+    /// 
+    /// ## Example Usage
+    /// ### Example
+    /// ```csharp
+    /// using System;
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AwsNative = Pulumi.AwsNative;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var basicNotebookInstanceLifecycleConfig = new AwsNative.SageMaker.NotebookInstanceLifecycleConfig("basicNotebookInstanceLifecycleConfig", new()
+    ///     {
+    ///         OnStart = new[]
+    ///         {
+    ///             new AwsNative.SageMaker.Inputs.NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHookArgs
+    ///             {
+    ///                 Content = Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes("echo 'hello'")),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var executionRole = new AwsNative.Iam.Role("executionRole", new()
+    ///     {
+    ///         AssumeRolePolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["version"] = "2012-10-17",
+    ///             ["statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["effect"] = "Allow",
+    ///                     ["principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["service"] = new[]
+    ///                         {
+    ///                             "sagemaker.amazonaws.com",
+    ///                         },
+    ///                     },
+    ///                     ["action"] = new[]
+    ///                     {
+    ///                         "sts:AssumeRole",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Path = "/",
+    ///         Policies = new[]
+    ///         {
+    ///             new AwsNative.Iam.Inputs.RolePolicyArgs
+    ///             {
+    ///                 PolicyName = "root",
+    ///                 PolicyDocument = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["version"] = "2012-10-17",
+    ///                     ["statement"] = new[]
+    ///                     {
+    ///                         new Dictionary&lt;string, object?&gt;
+    ///                         {
+    ///                             ["effect"] = "Allow",
+    ///                             ["action"] = "*",
+    ///                             ["resource"] = "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var basicNotebookInstance = new AwsNative.SageMaker.NotebookInstance("basicNotebookInstance", new()
+    ///     {
+    ///         InstanceType = "ml.t2.medium",
+    ///         RoleArn = executionRole.Arn,
+    ///         LifecycleConfigName = basicNotebookInstanceLifecycleConfig.NotebookInstanceLifecycleConfigName,
+    ///     });
+    /// 
+    ///     return new Dictionary&lt;string, object?&gt;
+    ///     {
+    ///         ["basicNotebookInstanceId"] = basicNotebookInstance.Id,
+    ///         ["basicNotebookInstanceLifecycleConfigId"] = basicNotebookInstanceLifecycleConfig.Id,
+    ///     };
+    /// });
+    /// 
+    /// 
+    /// ```
     /// </summary>
     [AwsNativeResourceType("aws-native:sagemaker:NotebookInstance")]
     public partial class NotebookInstance : global::Pulumi.CustomResource

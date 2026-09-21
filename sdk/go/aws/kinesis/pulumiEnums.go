@@ -10,6 +10,1102 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The encryption type. KMS is the only supported value.
+type ChannelEncryptionConfigurationEncryptionType string
+
+const (
+	ChannelEncryptionConfigurationEncryptionTypeKms = ChannelEncryptionConfigurationEncryptionType("KMS")
+)
+
+func (ChannelEncryptionConfigurationEncryptionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncryptionConfigurationEncryptionType)(nil)).Elem()
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToChannelEncryptionConfigurationEncryptionTypeOutput() ChannelEncryptionConfigurationEncryptionTypeOutput {
+	return pulumi.ToOutput(e).(ChannelEncryptionConfigurationEncryptionTypeOutput)
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToChannelEncryptionConfigurationEncryptionTypeOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationEncryptionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelEncryptionConfigurationEncryptionTypeOutput)
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToChannelEncryptionConfigurationEncryptionTypePtrOutput() ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return e.ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return ChannelEncryptionConfigurationEncryptionType(e).ToChannelEncryptionConfigurationEncryptionTypeOutputWithContext(ctx).ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelEncryptionConfigurationEncryptionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelEncryptionConfigurationEncryptionTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncryptionConfigurationEncryptionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncryptionConfigurationEncryptionType)(nil)).Elem()
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToChannelEncryptionConfigurationEncryptionTypeOutput() ChannelEncryptionConfigurationEncryptionTypeOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToChannelEncryptionConfigurationEncryptionTypeOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationEncryptionTypeOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToChannelEncryptionConfigurationEncryptionTypePtrOutput() ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return o.ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncryptionConfigurationEncryptionType) *ChannelEncryptionConfigurationEncryptionType {
+		return &v
+	}).(ChannelEncryptionConfigurationEncryptionTypePtrOutput)
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelEncryptionConfigurationEncryptionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelEncryptionConfigurationEncryptionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelEncryptionConfigurationEncryptionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncryptionConfigurationEncryptionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncryptionConfigurationEncryptionType)(nil)).Elem()
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypePtrOutput) ToChannelEncryptionConfigurationEncryptionTypePtrOutput() ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypePtrOutput) ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypePtrOutput) Elem() ChannelEncryptionConfigurationEncryptionTypeOutput {
+	return o.ApplyT(func(v *ChannelEncryptionConfigurationEncryptionType) ChannelEncryptionConfigurationEncryptionType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncryptionConfigurationEncryptionType
+		return ret
+	}).(ChannelEncryptionConfigurationEncryptionTypeOutput)
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncryptionConfigurationEncryptionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelEncryptionConfigurationEncryptionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelEncryptionConfigurationEncryptionTypeInput is an input type that accepts values of the ChannelEncryptionConfigurationEncryptionType enum
+// A concrete instance of `ChannelEncryptionConfigurationEncryptionTypeInput` can be one of the following:
+//
+//	ChannelEncryptionConfigurationEncryptionTypeKms
+type ChannelEncryptionConfigurationEncryptionTypeInput interface {
+	pulumi.Input
+
+	ToChannelEncryptionConfigurationEncryptionTypeOutput() ChannelEncryptionConfigurationEncryptionTypeOutput
+	ToChannelEncryptionConfigurationEncryptionTypeOutputWithContext(context.Context) ChannelEncryptionConfigurationEncryptionTypeOutput
+}
+
+var channelEncryptionConfigurationEncryptionTypePtrType = reflect.TypeOf((**ChannelEncryptionConfigurationEncryptionType)(nil)).Elem()
+
+type ChannelEncryptionConfigurationEncryptionTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelEncryptionConfigurationEncryptionTypePtrOutput() ChannelEncryptionConfigurationEncryptionTypePtrOutput
+	ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(context.Context) ChannelEncryptionConfigurationEncryptionTypePtrOutput
+}
+
+type channelEncryptionConfigurationEncryptionTypePtr string
+
+func ChannelEncryptionConfigurationEncryptionTypePtr(v string) ChannelEncryptionConfigurationEncryptionTypePtrInput {
+	return (*channelEncryptionConfigurationEncryptionTypePtr)(&v)
+}
+
+func (*channelEncryptionConfigurationEncryptionTypePtr) ElementType() reflect.Type {
+	return channelEncryptionConfigurationEncryptionTypePtrType
+}
+
+func (in *channelEncryptionConfigurationEncryptionTypePtr) ToChannelEncryptionConfigurationEncryptionTypePtrOutput() ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelEncryptionConfigurationEncryptionTypePtrOutput)
+}
+
+func (in *channelEncryptionConfigurationEncryptionTypePtr) ToChannelEncryptionConfigurationEncryptionTypePtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelEncryptionConfigurationEncryptionTypePtrOutput)
+}
+
+// The partitioning transform applied to the SourceName column.
+type ChannelPartitionFieldTransform string
+
+const (
+	ChannelPartitionFieldTransformTimeHour = ChannelPartitionFieldTransform("TIME_HOUR")
+)
+
+func (ChannelPartitionFieldTransform) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPartitionFieldTransform)(nil)).Elem()
+}
+
+func (e ChannelPartitionFieldTransform) ToChannelPartitionFieldTransformOutput() ChannelPartitionFieldTransformOutput {
+	return pulumi.ToOutput(e).(ChannelPartitionFieldTransformOutput)
+}
+
+func (e ChannelPartitionFieldTransform) ToChannelPartitionFieldTransformOutputWithContext(ctx context.Context) ChannelPartitionFieldTransformOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelPartitionFieldTransformOutput)
+}
+
+func (e ChannelPartitionFieldTransform) ToChannelPartitionFieldTransformPtrOutput() ChannelPartitionFieldTransformPtrOutput {
+	return e.ToChannelPartitionFieldTransformPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelPartitionFieldTransform) ToChannelPartitionFieldTransformPtrOutputWithContext(ctx context.Context) ChannelPartitionFieldTransformPtrOutput {
+	return ChannelPartitionFieldTransform(e).ToChannelPartitionFieldTransformOutputWithContext(ctx).ToChannelPartitionFieldTransformPtrOutputWithContext(ctx)
+}
+
+func (e ChannelPartitionFieldTransform) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelPartitionFieldTransform) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelPartitionFieldTransform) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelPartitionFieldTransform) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelPartitionFieldTransformOutput struct{ *pulumi.OutputState }
+
+func (ChannelPartitionFieldTransformOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPartitionFieldTransform)(nil)).Elem()
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToChannelPartitionFieldTransformOutput() ChannelPartitionFieldTransformOutput {
+	return o
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToChannelPartitionFieldTransformOutputWithContext(ctx context.Context) ChannelPartitionFieldTransformOutput {
+	return o
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToChannelPartitionFieldTransformPtrOutput() ChannelPartitionFieldTransformPtrOutput {
+	return o.ToChannelPartitionFieldTransformPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToChannelPartitionFieldTransformPtrOutputWithContext(ctx context.Context) ChannelPartitionFieldTransformPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelPartitionFieldTransform) *ChannelPartitionFieldTransform {
+		return &v
+	}).(ChannelPartitionFieldTransformPtrOutput)
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelPartitionFieldTransform) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPartitionFieldTransformOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelPartitionFieldTransform) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelPartitionFieldTransformPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelPartitionFieldTransformPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelPartitionFieldTransform)(nil)).Elem()
+}
+
+func (o ChannelPartitionFieldTransformPtrOutput) ToChannelPartitionFieldTransformPtrOutput() ChannelPartitionFieldTransformPtrOutput {
+	return o
+}
+
+func (o ChannelPartitionFieldTransformPtrOutput) ToChannelPartitionFieldTransformPtrOutputWithContext(ctx context.Context) ChannelPartitionFieldTransformPtrOutput {
+	return o
+}
+
+func (o ChannelPartitionFieldTransformPtrOutput) Elem() ChannelPartitionFieldTransformOutput {
+	return o.ApplyT(func(v *ChannelPartitionFieldTransform) ChannelPartitionFieldTransform {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelPartitionFieldTransform
+		return ret
+	}).(ChannelPartitionFieldTransformOutput)
+}
+
+func (o ChannelPartitionFieldTransformPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPartitionFieldTransformPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelPartitionFieldTransform) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelPartitionFieldTransformInput is an input type that accepts values of the ChannelPartitionFieldTransform enum
+// A concrete instance of `ChannelPartitionFieldTransformInput` can be one of the following:
+//
+//	ChannelPartitionFieldTransformTimeHour
+type ChannelPartitionFieldTransformInput interface {
+	pulumi.Input
+
+	ToChannelPartitionFieldTransformOutput() ChannelPartitionFieldTransformOutput
+	ToChannelPartitionFieldTransformOutputWithContext(context.Context) ChannelPartitionFieldTransformOutput
+}
+
+var channelPartitionFieldTransformPtrType = reflect.TypeOf((**ChannelPartitionFieldTransform)(nil)).Elem()
+
+type ChannelPartitionFieldTransformPtrInput interface {
+	pulumi.Input
+
+	ToChannelPartitionFieldTransformPtrOutput() ChannelPartitionFieldTransformPtrOutput
+	ToChannelPartitionFieldTransformPtrOutputWithContext(context.Context) ChannelPartitionFieldTransformPtrOutput
+}
+
+type channelPartitionFieldTransformPtr string
+
+func ChannelPartitionFieldTransformPtr(v string) ChannelPartitionFieldTransformPtrInput {
+	return (*channelPartitionFieldTransformPtr)(&v)
+}
+
+func (*channelPartitionFieldTransformPtr) ElementType() reflect.Type {
+	return channelPartitionFieldTransformPtrType
+}
+
+func (in *channelPartitionFieldTransformPtr) ToChannelPartitionFieldTransformPtrOutput() ChannelPartitionFieldTransformPtrOutput {
+	return pulumi.ToOutput(in).(ChannelPartitionFieldTransformPtrOutput)
+}
+
+func (in *channelPartitionFieldTransformPtr) ToChannelPartitionFieldTransformPtrOutputWithContext(ctx context.Context) ChannelPartitionFieldTransformPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelPartitionFieldTransformPtrOutput)
+}
+
+// The format used to interpret records read from the source stream.
+type ChannelRecordConfigurationRecordFormatType string
+
+const (
+	ChannelRecordConfigurationRecordFormatTypeGsrJson   = ChannelRecordConfigurationRecordFormatType("GSR_JSON")
+	ChannelRecordConfigurationRecordFormatTypeJson      = ChannelRecordConfigurationRecordFormatType("JSON")
+	ChannelRecordConfigurationRecordFormatTypeString    = ChannelRecordConfigurationRecordFormatType("STRING")
+	ChannelRecordConfigurationRecordFormatTypeByteArray = ChannelRecordConfigurationRecordFormatType("BYTE_ARRAY")
+)
+
+func (ChannelRecordConfigurationRecordFormatType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelRecordConfigurationRecordFormatType)(nil)).Elem()
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToChannelRecordConfigurationRecordFormatTypeOutput() ChannelRecordConfigurationRecordFormatTypeOutput {
+	return pulumi.ToOutput(e).(ChannelRecordConfigurationRecordFormatTypeOutput)
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToChannelRecordConfigurationRecordFormatTypeOutputWithContext(ctx context.Context) ChannelRecordConfigurationRecordFormatTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelRecordConfigurationRecordFormatTypeOutput)
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToChannelRecordConfigurationRecordFormatTypePtrOutput() ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return e.ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(ctx context.Context) ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return ChannelRecordConfigurationRecordFormatType(e).ToChannelRecordConfigurationRecordFormatTypeOutputWithContext(ctx).ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelRecordConfigurationRecordFormatType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelRecordConfigurationRecordFormatTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelRecordConfigurationRecordFormatTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelRecordConfigurationRecordFormatType)(nil)).Elem()
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToChannelRecordConfigurationRecordFormatTypeOutput() ChannelRecordConfigurationRecordFormatTypeOutput {
+	return o
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToChannelRecordConfigurationRecordFormatTypeOutputWithContext(ctx context.Context) ChannelRecordConfigurationRecordFormatTypeOutput {
+	return o
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToChannelRecordConfigurationRecordFormatTypePtrOutput() ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return o.ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(ctx context.Context) ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelRecordConfigurationRecordFormatType) *ChannelRecordConfigurationRecordFormatType {
+		return &v
+	}).(ChannelRecordConfigurationRecordFormatTypePtrOutput)
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelRecordConfigurationRecordFormatType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelRecordConfigurationRecordFormatType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelRecordConfigurationRecordFormatTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelRecordConfigurationRecordFormatTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelRecordConfigurationRecordFormatType)(nil)).Elem()
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypePtrOutput) ToChannelRecordConfigurationRecordFormatTypePtrOutput() ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return o
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypePtrOutput) ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(ctx context.Context) ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return o
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypePtrOutput) Elem() ChannelRecordConfigurationRecordFormatTypeOutput {
+	return o.ApplyT(func(v *ChannelRecordConfigurationRecordFormatType) ChannelRecordConfigurationRecordFormatType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelRecordConfigurationRecordFormatType
+		return ret
+	}).(ChannelRecordConfigurationRecordFormatTypeOutput)
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelRecordConfigurationRecordFormatTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelRecordConfigurationRecordFormatType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelRecordConfigurationRecordFormatTypeInput is an input type that accepts values of the ChannelRecordConfigurationRecordFormatType enum
+// A concrete instance of `ChannelRecordConfigurationRecordFormatTypeInput` can be one of the following:
+//
+//	ChannelRecordConfigurationRecordFormatTypeGsrJson
+//	ChannelRecordConfigurationRecordFormatTypeJson
+//	ChannelRecordConfigurationRecordFormatTypeString
+//	ChannelRecordConfigurationRecordFormatTypeByteArray
+type ChannelRecordConfigurationRecordFormatTypeInput interface {
+	pulumi.Input
+
+	ToChannelRecordConfigurationRecordFormatTypeOutput() ChannelRecordConfigurationRecordFormatTypeOutput
+	ToChannelRecordConfigurationRecordFormatTypeOutputWithContext(context.Context) ChannelRecordConfigurationRecordFormatTypeOutput
+}
+
+var channelRecordConfigurationRecordFormatTypePtrType = reflect.TypeOf((**ChannelRecordConfigurationRecordFormatType)(nil)).Elem()
+
+type ChannelRecordConfigurationRecordFormatTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelRecordConfigurationRecordFormatTypePtrOutput() ChannelRecordConfigurationRecordFormatTypePtrOutput
+	ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(context.Context) ChannelRecordConfigurationRecordFormatTypePtrOutput
+}
+
+type channelRecordConfigurationRecordFormatTypePtr string
+
+func ChannelRecordConfigurationRecordFormatTypePtr(v string) ChannelRecordConfigurationRecordFormatTypePtrInput {
+	return (*channelRecordConfigurationRecordFormatTypePtr)(&v)
+}
+
+func (*channelRecordConfigurationRecordFormatTypePtr) ElementType() reflect.Type {
+	return channelRecordConfigurationRecordFormatTypePtrType
+}
+
+func (in *channelRecordConfigurationRecordFormatTypePtr) ToChannelRecordConfigurationRecordFormatTypePtrOutput() ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelRecordConfigurationRecordFormatTypePtrOutput)
+}
+
+func (in *channelRecordConfigurationRecordFormatTypePtr) ToChannelRecordConfigurationRecordFormatTypePtrOutputWithContext(ctx context.Context) ChannelRecordConfigurationRecordFormatTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelRecordConfigurationRecordFormatTypePtrOutput)
+}
+
+// The compression algorithm applied to delivered objects.
+type ChannelS3StorageConfigurationCompressionType string
+
+const (
+	ChannelS3StorageConfigurationCompressionTypeNone = ChannelS3StorageConfigurationCompressionType("NONE")
+	ChannelS3StorageConfigurationCompressionTypeGzip = ChannelS3StorageConfigurationCompressionType("GZIP")
+	ChannelS3StorageConfigurationCompressionTypeZstd = ChannelS3StorageConfigurationCompressionType("ZSTD")
+)
+
+func (ChannelS3StorageConfigurationCompressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3StorageConfigurationCompressionType)(nil)).Elem()
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToChannelS3StorageConfigurationCompressionTypeOutput() ChannelS3StorageConfigurationCompressionTypeOutput {
+	return pulumi.ToOutput(e).(ChannelS3StorageConfigurationCompressionTypeOutput)
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToChannelS3StorageConfigurationCompressionTypeOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationCompressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelS3StorageConfigurationCompressionTypeOutput)
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToChannelS3StorageConfigurationCompressionTypePtrOutput() ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return e.ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return ChannelS3StorageConfigurationCompressionType(e).ToChannelS3StorageConfigurationCompressionTypeOutputWithContext(ctx).ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelS3StorageConfigurationCompressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelS3StorageConfigurationCompressionTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3StorageConfigurationCompressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3StorageConfigurationCompressionType)(nil)).Elem()
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToChannelS3StorageConfigurationCompressionTypeOutput() ChannelS3StorageConfigurationCompressionTypeOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToChannelS3StorageConfigurationCompressionTypeOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationCompressionTypeOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToChannelS3StorageConfigurationCompressionTypePtrOutput() ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return o.ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3StorageConfigurationCompressionType) *ChannelS3StorageConfigurationCompressionType {
+		return &v
+	}).(ChannelS3StorageConfigurationCompressionTypePtrOutput)
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelS3StorageConfigurationCompressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelS3StorageConfigurationCompressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelS3StorageConfigurationCompressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3StorageConfigurationCompressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3StorageConfigurationCompressionType)(nil)).Elem()
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypePtrOutput) ToChannelS3StorageConfigurationCompressionTypePtrOutput() ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypePtrOutput) ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypePtrOutput) Elem() ChannelS3StorageConfigurationCompressionTypeOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfigurationCompressionType) ChannelS3StorageConfigurationCompressionType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3StorageConfigurationCompressionType
+		return ret
+	}).(ChannelS3StorageConfigurationCompressionTypeOutput)
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationCompressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelS3StorageConfigurationCompressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelS3StorageConfigurationCompressionTypeInput is an input type that accepts values of the ChannelS3StorageConfigurationCompressionType enum
+// A concrete instance of `ChannelS3StorageConfigurationCompressionTypeInput` can be one of the following:
+//
+//	ChannelS3StorageConfigurationCompressionTypeNone
+//	ChannelS3StorageConfigurationCompressionTypeGzip
+//	ChannelS3StorageConfigurationCompressionTypeZstd
+type ChannelS3StorageConfigurationCompressionTypeInput interface {
+	pulumi.Input
+
+	ToChannelS3StorageConfigurationCompressionTypeOutput() ChannelS3StorageConfigurationCompressionTypeOutput
+	ToChannelS3StorageConfigurationCompressionTypeOutputWithContext(context.Context) ChannelS3StorageConfigurationCompressionTypeOutput
+}
+
+var channelS3StorageConfigurationCompressionTypePtrType = reflect.TypeOf((**ChannelS3StorageConfigurationCompressionType)(nil)).Elem()
+
+type ChannelS3StorageConfigurationCompressionTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelS3StorageConfigurationCompressionTypePtrOutput() ChannelS3StorageConfigurationCompressionTypePtrOutput
+	ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(context.Context) ChannelS3StorageConfigurationCompressionTypePtrOutput
+}
+
+type channelS3StorageConfigurationCompressionTypePtr string
+
+func ChannelS3StorageConfigurationCompressionTypePtr(v string) ChannelS3StorageConfigurationCompressionTypePtrInput {
+	return (*channelS3StorageConfigurationCompressionTypePtr)(&v)
+}
+
+func (*channelS3StorageConfigurationCompressionTypePtr) ElementType() reflect.Type {
+	return channelS3StorageConfigurationCompressionTypePtrType
+}
+
+func (in *channelS3StorageConfigurationCompressionTypePtr) ToChannelS3StorageConfigurationCompressionTypePtrOutput() ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelS3StorageConfigurationCompressionTypePtrOutput)
+}
+
+func (in *channelS3StorageConfigurationCompressionTypePtr) ToChannelS3StorageConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelS3StorageConfigurationCompressionTypePtrOutput)
+}
+
+// The S3 storage class for delivered objects.
+type ChannelS3StorageConfigurationStorageClass string
+
+const (
+	ChannelS3StorageConfigurationStorageClassStandard           = ChannelS3StorageConfigurationStorageClass("STANDARD")
+	ChannelS3StorageConfigurationStorageClassIntelligentTiering = ChannelS3StorageConfigurationStorageClass("INTELLIGENT_TIERING")
+	ChannelS3StorageConfigurationStorageClassGlacierIr          = ChannelS3StorageConfigurationStorageClass("GLACIER_IR")
+)
+
+func (ChannelS3StorageConfigurationStorageClass) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3StorageConfigurationStorageClass)(nil)).Elem()
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToChannelS3StorageConfigurationStorageClassOutput() ChannelS3StorageConfigurationStorageClassOutput {
+	return pulumi.ToOutput(e).(ChannelS3StorageConfigurationStorageClassOutput)
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToChannelS3StorageConfigurationStorageClassOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationStorageClassOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelS3StorageConfigurationStorageClassOutput)
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToChannelS3StorageConfigurationStorageClassPtrOutput() ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return e.ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return ChannelS3StorageConfigurationStorageClass(e).ToChannelS3StorageConfigurationStorageClassOutputWithContext(ctx).ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(ctx)
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelS3StorageConfigurationStorageClass) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelS3StorageConfigurationStorageClassOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3StorageConfigurationStorageClassOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3StorageConfigurationStorageClass)(nil)).Elem()
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToChannelS3StorageConfigurationStorageClassOutput() ChannelS3StorageConfigurationStorageClassOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToChannelS3StorageConfigurationStorageClassOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationStorageClassOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToChannelS3StorageConfigurationStorageClassPtrOutput() ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return o.ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3StorageConfigurationStorageClass) *ChannelS3StorageConfigurationStorageClass {
+		return &v
+	}).(ChannelS3StorageConfigurationStorageClassPtrOutput)
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelS3StorageConfigurationStorageClass) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationStorageClassOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelS3StorageConfigurationStorageClass) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelS3StorageConfigurationStorageClassPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3StorageConfigurationStorageClassPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3StorageConfigurationStorageClass)(nil)).Elem()
+}
+
+func (o ChannelS3StorageConfigurationStorageClassPtrOutput) ToChannelS3StorageConfigurationStorageClassPtrOutput() ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationStorageClassPtrOutput) ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationStorageClassPtrOutput) Elem() ChannelS3StorageConfigurationStorageClassOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfigurationStorageClass) ChannelS3StorageConfigurationStorageClass {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3StorageConfigurationStorageClass
+		return ret
+	}).(ChannelS3StorageConfigurationStorageClassOutput)
+}
+
+func (o ChannelS3StorageConfigurationStorageClassPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationStorageClassPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelS3StorageConfigurationStorageClass) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelS3StorageConfigurationStorageClassInput is an input type that accepts values of the ChannelS3StorageConfigurationStorageClass enum
+// A concrete instance of `ChannelS3StorageConfigurationStorageClassInput` can be one of the following:
+//
+//	ChannelS3StorageConfigurationStorageClassStandard
+//	ChannelS3StorageConfigurationStorageClassIntelligentTiering
+//	ChannelS3StorageConfigurationStorageClassGlacierIr
+type ChannelS3StorageConfigurationStorageClassInput interface {
+	pulumi.Input
+
+	ToChannelS3StorageConfigurationStorageClassOutput() ChannelS3StorageConfigurationStorageClassOutput
+	ToChannelS3StorageConfigurationStorageClassOutputWithContext(context.Context) ChannelS3StorageConfigurationStorageClassOutput
+}
+
+var channelS3StorageConfigurationStorageClassPtrType = reflect.TypeOf((**ChannelS3StorageConfigurationStorageClass)(nil)).Elem()
+
+type ChannelS3StorageConfigurationStorageClassPtrInput interface {
+	pulumi.Input
+
+	ToChannelS3StorageConfigurationStorageClassPtrOutput() ChannelS3StorageConfigurationStorageClassPtrOutput
+	ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(context.Context) ChannelS3StorageConfigurationStorageClassPtrOutput
+}
+
+type channelS3StorageConfigurationStorageClassPtr string
+
+func ChannelS3StorageConfigurationStorageClassPtr(v string) ChannelS3StorageConfigurationStorageClassPtrInput {
+	return (*channelS3StorageConfigurationStorageClassPtr)(&v)
+}
+
+func (*channelS3StorageConfigurationStorageClassPtr) ElementType() reflect.Type {
+	return channelS3StorageConfigurationStorageClassPtrType
+}
+
+func (in *channelS3StorageConfigurationStorageClassPtr) ToChannelS3StorageConfigurationStorageClassPtrOutput() ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return pulumi.ToOutput(in).(ChannelS3StorageConfigurationStorageClassPtrOutput)
+}
+
+func (in *channelS3StorageConfigurationStorageClassPtr) ToChannelS3StorageConfigurationStorageClassPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelS3StorageConfigurationStorageClassPtrOutput)
+}
+
+// The compression algorithm applied to objects delivered to the S3 Tables destination.
+type ChannelS3TableConfigurationCompressionType string
+
+const (
+	ChannelS3TableConfigurationCompressionTypeNone   = ChannelS3TableConfigurationCompressionType("NONE")
+	ChannelS3TableConfigurationCompressionTypeZstd   = ChannelS3TableConfigurationCompressionType("ZSTD")
+	ChannelS3TableConfigurationCompressionTypeSnappy = ChannelS3TableConfigurationCompressionType("SNAPPY")
+)
+
+func (ChannelS3TableConfigurationCompressionType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3TableConfigurationCompressionType)(nil)).Elem()
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToChannelS3TableConfigurationCompressionTypeOutput() ChannelS3TableConfigurationCompressionTypeOutput {
+	return pulumi.ToOutput(e).(ChannelS3TableConfigurationCompressionTypeOutput)
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToChannelS3TableConfigurationCompressionTypeOutputWithContext(ctx context.Context) ChannelS3TableConfigurationCompressionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelS3TableConfigurationCompressionTypeOutput)
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToChannelS3TableConfigurationCompressionTypePtrOutput() ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return e.ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return ChannelS3TableConfigurationCompressionType(e).ToChannelS3TableConfigurationCompressionTypeOutputWithContext(ctx).ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelS3TableConfigurationCompressionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelS3TableConfigurationCompressionTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3TableConfigurationCompressionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3TableConfigurationCompressionType)(nil)).Elem()
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToChannelS3TableConfigurationCompressionTypeOutput() ChannelS3TableConfigurationCompressionTypeOutput {
+	return o
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToChannelS3TableConfigurationCompressionTypeOutputWithContext(ctx context.Context) ChannelS3TableConfigurationCompressionTypeOutput {
+	return o
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToChannelS3TableConfigurationCompressionTypePtrOutput() ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return o.ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3TableConfigurationCompressionType) *ChannelS3TableConfigurationCompressionType {
+		return &v
+	}).(ChannelS3TableConfigurationCompressionTypePtrOutput)
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelS3TableConfigurationCompressionType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3TableConfigurationCompressionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelS3TableConfigurationCompressionType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelS3TableConfigurationCompressionTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3TableConfigurationCompressionTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3TableConfigurationCompressionType)(nil)).Elem()
+}
+
+func (o ChannelS3TableConfigurationCompressionTypePtrOutput) ToChannelS3TableConfigurationCompressionTypePtrOutput() ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return o
+}
+
+func (o ChannelS3TableConfigurationCompressionTypePtrOutput) ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return o
+}
+
+func (o ChannelS3TableConfigurationCompressionTypePtrOutput) Elem() ChannelS3TableConfigurationCompressionTypeOutput {
+	return o.ApplyT(func(v *ChannelS3TableConfigurationCompressionType) ChannelS3TableConfigurationCompressionType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3TableConfigurationCompressionType
+		return ret
+	}).(ChannelS3TableConfigurationCompressionTypeOutput)
+}
+
+func (o ChannelS3TableConfigurationCompressionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3TableConfigurationCompressionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelS3TableConfigurationCompressionType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelS3TableConfigurationCompressionTypeInput is an input type that accepts values of the ChannelS3TableConfigurationCompressionType enum
+// A concrete instance of `ChannelS3TableConfigurationCompressionTypeInput` can be one of the following:
+//
+//	ChannelS3TableConfigurationCompressionTypeNone
+//	ChannelS3TableConfigurationCompressionTypeZstd
+//	ChannelS3TableConfigurationCompressionTypeSnappy
+type ChannelS3TableConfigurationCompressionTypeInput interface {
+	pulumi.Input
+
+	ToChannelS3TableConfigurationCompressionTypeOutput() ChannelS3TableConfigurationCompressionTypeOutput
+	ToChannelS3TableConfigurationCompressionTypeOutputWithContext(context.Context) ChannelS3TableConfigurationCompressionTypeOutput
+}
+
+var channelS3TableConfigurationCompressionTypePtrType = reflect.TypeOf((**ChannelS3TableConfigurationCompressionType)(nil)).Elem()
+
+type ChannelS3TableConfigurationCompressionTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelS3TableConfigurationCompressionTypePtrOutput() ChannelS3TableConfigurationCompressionTypePtrOutput
+	ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(context.Context) ChannelS3TableConfigurationCompressionTypePtrOutput
+}
+
+type channelS3TableConfigurationCompressionTypePtr string
+
+func ChannelS3TableConfigurationCompressionTypePtr(v string) ChannelS3TableConfigurationCompressionTypePtrInput {
+	return (*channelS3TableConfigurationCompressionTypePtr)(&v)
+}
+
+func (*channelS3TableConfigurationCompressionTypePtr) ElementType() reflect.Type {
+	return channelS3TableConfigurationCompressionTypePtrType
+}
+
+func (in *channelS3TableConfigurationCompressionTypePtr) ToChannelS3TableConfigurationCompressionTypePtrOutput() ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelS3TableConfigurationCompressionTypePtrOutput)
+}
+
+func (in *channelS3TableConfigurationCompressionTypePtr) ToChannelS3TableConfigurationCompressionTypePtrOutputWithContext(ctx context.Context) ChannelS3TableConfigurationCompressionTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelS3TableConfigurationCompressionTypePtrOutput)
+}
+
+// The status of the channel.
+type ChannelStatus string
+
+const (
+	ChannelStatusCreating = ChannelStatus("CREATING")
+	ChannelStatusActive   = ChannelStatus("ACTIVE")
+	ChannelStatusUpdating = ChannelStatus("UPDATING")
+	ChannelStatusDeleting = ChannelStatus("DELETING")
+	ChannelStatusFailed   = ChannelStatus("FAILED")
+)
+
+type ChannelStatusOutput struct{ *pulumi.OutputState }
+
+func (ChannelStatusOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelStatus)(nil)).Elem()
+}
+
+func (o ChannelStatusOutput) ToChannelStatusOutput() ChannelStatusOutput {
+	return o
+}
+
+func (o ChannelStatusOutput) ToChannelStatusOutputWithContext(ctx context.Context) ChannelStatusOutput {
+	return o
+}
+
+func (o ChannelStatusOutput) ToChannelStatusPtrOutput() ChannelStatusPtrOutput {
+	return o.ToChannelStatusPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelStatusOutput) ToChannelStatusPtrOutputWithContext(ctx context.Context) ChannelStatusPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelStatus) *ChannelStatus {
+		return &v
+	}).(ChannelStatusPtrOutput)
+}
+
+func (o ChannelStatusOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelStatusOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelStatus) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelStatusOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelStatusOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelStatus) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelStatusPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelStatusPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelStatus)(nil)).Elem()
+}
+
+func (o ChannelStatusPtrOutput) ToChannelStatusPtrOutput() ChannelStatusPtrOutput {
+	return o
+}
+
+func (o ChannelStatusPtrOutput) ToChannelStatusPtrOutputWithContext(ctx context.Context) ChannelStatusPtrOutput {
+	return o
+}
+
+func (o ChannelStatusPtrOutput) Elem() ChannelStatusOutput {
+	return o.ApplyT(func(v *ChannelStatus) ChannelStatus {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelStatus
+		return ret
+	}).(ChannelStatusOutput)
+}
+
+func (o ChannelStatusPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelStatus) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // The encryption type to use. The only valid value is KMS.
 type StreamEncryptionEncryptionType string
 
@@ -564,6 +1660,18 @@ func (in *streamModeDetailsStreamModePtr) ToStreamModeDetailsStreamModePtrOutput
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationEncryptionTypeInput)(nil)).Elem(), ChannelEncryptionConfigurationEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationEncryptionTypePtrInput)(nil)).Elem(), ChannelEncryptionConfigurationEncryptionType("KMS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPartitionFieldTransformInput)(nil)).Elem(), ChannelPartitionFieldTransform("TIME_HOUR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPartitionFieldTransformPtrInput)(nil)).Elem(), ChannelPartitionFieldTransform("TIME_HOUR"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRecordConfigurationRecordFormatTypeInput)(nil)).Elem(), ChannelRecordConfigurationRecordFormatType("GSR_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRecordConfigurationRecordFormatTypePtrInput)(nil)).Elem(), ChannelRecordConfigurationRecordFormatType("GSR_JSON"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3StorageConfigurationCompressionTypeInput)(nil)).Elem(), ChannelS3StorageConfigurationCompressionType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3StorageConfigurationCompressionTypePtrInput)(nil)).Elem(), ChannelS3StorageConfigurationCompressionType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3StorageConfigurationStorageClassInput)(nil)).Elem(), ChannelS3StorageConfigurationStorageClass("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3StorageConfigurationStorageClassPtrInput)(nil)).Elem(), ChannelS3StorageConfigurationStorageClass("STANDARD"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3TableConfigurationCompressionTypeInput)(nil)).Elem(), ChannelS3TableConfigurationCompressionType("NONE"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3TableConfigurationCompressionTypePtrInput)(nil)).Elem(), ChannelS3TableConfigurationCompressionType("NONE"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypeInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionEncryptionTypePtrInput)(nil)).Elem(), StreamEncryptionEncryptionType("KMS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEnhancedMetricInput)(nil)).Elem(), StreamEnhancedMetric("IncomingBytes"))
@@ -571,6 +1679,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEnhancedMetricArrayInput)(nil)).Elem(), StreamEnhancedMetricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModeInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsStreamModePtrInput)(nil)).Elem(), StreamModeDetailsStreamMode("ON_DEMAND"))
+	pulumi.RegisterOutputType(ChannelEncryptionConfigurationEncryptionTypeOutput{})
+	pulumi.RegisterOutputType(ChannelEncryptionConfigurationEncryptionTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelPartitionFieldTransformOutput{})
+	pulumi.RegisterOutputType(ChannelPartitionFieldTransformPtrOutput{})
+	pulumi.RegisterOutputType(ChannelRecordConfigurationRecordFormatTypeOutput{})
+	pulumi.RegisterOutputType(ChannelRecordConfigurationRecordFormatTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3StorageConfigurationCompressionTypeOutput{})
+	pulumi.RegisterOutputType(ChannelS3StorageConfigurationCompressionTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3StorageConfigurationStorageClassOutput{})
+	pulumi.RegisterOutputType(ChannelS3StorageConfigurationStorageClassPtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3TableConfigurationCompressionTypeOutput{})
+	pulumi.RegisterOutputType(ChannelS3TableConfigurationCompressionTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelStatusOutput{})
+	pulumi.RegisterOutputType(ChannelStatusPtrOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypeOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionEncryptionTypePtrOutput{})
 	pulumi.RegisterOutputType(StreamEnhancedMetricOutput{})

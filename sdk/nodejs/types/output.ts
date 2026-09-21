@@ -8711,7 +8711,15 @@ export namespace autoscaling {
         references?: outputs.autoscaling.AutoScalingGroupPerformanceFactorReferenceRequest[];
     }
 
+    /**
+     * Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it launches instances.
+     */
     export interface AutoScalingGroupDistributionSegment {
+        /**
+         * The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in the priority order of the capacity types, and within each capacity type, in the order of instance types listed in your launch template ``Overrides``.
+         *  The following lists the valid values:
+         *   + on-demand-capacity-reservation On-Demand Capacity Reservations. + capacity-block Capacity Blocks. + interruptible-capacity-reservation Interruptible Capacity Reservations. + on-demand On-Demand capacity. Include this value to allow the group to fall back to On-Demand capacity when the preceding capacity types are unavailable.
+         */
         targetCapacityTypes: enums.autoscaling.AutoScalingGroupDistributionSegmentTargetCapacityTypesItem[];
     }
 
@@ -8927,6 +8935,10 @@ export namespace autoscaling {
      *  ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
      */
     export interface AutoScalingGroupInstancesDistribution {
+        /**
+         * The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+         *  For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
+         */
         distributionSegments?: outputs.autoscaling.AutoScalingGroupDistributionSegment[];
         /**
          * The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
@@ -9175,7 +9187,7 @@ export namespace autoscaling {
          */
         instancesDistribution?: outputs.autoscaling.AutoScalingGroupInstancesDistribution;
         /**
-         * One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+         * One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
          */
         launchTemplate: outputs.autoscaling.AutoScalingGroupLaunchTemplate;
     }
@@ -10780,6 +10792,9 @@ export namespace batch {
     }
 
     export interface ComputeEnvironmentEcsSettings {
+        /**
+         * The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
+         */
         containerInsights?: enums.batch.ComputeEnvironmentEcsSettingsContainerInsights;
     }
 
@@ -15971,6 +15986,10 @@ export namespace bedrock {
          */
         embeddingDataType?: enums.bedrock.KnowledgeBaseBedrockEmbeddingModelConfigurationEmbeddingDataType;
         /**
+         * Model-specific configuration for the embedding model.
+         */
+        modelConfiguration?: any;
+        /**
          * Configuration settings for processing video content in multimodal knowledge bases.
          */
         video?: outputs.bedrock.KnowledgeBaseVideoConfiguration[];
@@ -16038,6 +16057,7 @@ export namespace bedrock {
         embeddingModelConfiguration?: outputs.bedrock.KnowledgeBaseEmbeddingModelConfiguration;
         embeddingModelType?: enums.bedrock.KnowledgeBaseEmbeddingModelType;
         serverSideEncryptionConfiguration?: outputs.bedrock.KnowledgeBaseManagedKnowledgeBaseServerSideEncryptionConfiguration;
+        supplementalDataStorageConfiguration?: outputs.bedrock.KnowledgeBaseSupplementalDataStorageConfiguration;
     }
 
     /**
@@ -18921,6 +18941,25 @@ export namespace bedrockagentcore {
         type?: enums.bedrockagentcore.MemoryMetadataValueType;
     }
 
+    /**
+     * A namespace variable key definition with optional validation rules
+     */
+    export interface MemoryNamespaceKeyEntry {
+        key: string;
+        validation?: outputs.bedrockagentcore.MemoryNamespaceKeyValidation;
+    }
+
+    /**
+     * Validation rules for namespace variable values. Multiple rules can be specified and all must pass.
+     */
+    export interface MemoryNamespaceKeyValidation {
+        /**
+         * List of allowed values for this namespace variable
+         */
+        allowedValues?: string[];
+        regexPattern?: string;
+    }
+
     export interface MemoryNumberValidation {
         maxValue?: number;
         minValue?: number;
@@ -20869,6 +20908,239 @@ export namespace chatbot {
 }
 
 export namespace chime {
+    export interface MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration {
+        /**
+         * The categories to send to the insights target.
+         */
+        callAnalyticsStreamCategories?: string[];
+        /**
+         * Labels all PII identified in the transcript.
+         */
+        contentIdentificationType?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType;
+        /**
+         * Redacts all PII identified in the transcript.
+         */
+        contentRedactionType?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType;
+        /**
+         * Enables partial result stabilization.
+         */
+        enablePartialResultsStabilization?: boolean;
+        /**
+         * If true, partial results are filtered out.
+         */
+        filterPartialResults?: boolean;
+        /**
+         * The language code in the configuration.
+         */
+        languageCode: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode;
+        /**
+         * The name of the custom language model.
+         */
+        languageModelName?: string;
+        /**
+         * The level of stability for partial results.
+         */
+        partialResultsStability?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability;
+        /**
+         * The types of PII to redact.
+         */
+        piiEntityTypes?: string;
+        postCallAnalyticsSettings?: outputs.chime.MediaInsightsPipelineConfigurationPostCallAnalyticsSettings;
+        /**
+         * The vocabulary filtering method.
+         */
+        vocabularyFilterMethod?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod;
+        /**
+         * The name of the custom vocabulary filter.
+         */
+        vocabularyFilterName?: string;
+        /**
+         * The name of the custom vocabulary.
+         */
+        vocabularyName?: string;
+    }
+
+    export interface MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration {
+        /**
+         * Labels all PII identified in the transcript.
+         */
+        contentIdentificationType?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType;
+        /**
+         * Redacts all PII identified in the transcript.
+         */
+        contentRedactionType?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType;
+        /**
+         * Enables partial result stabilization.
+         */
+        enablePartialResultsStabilization?: boolean;
+        /**
+         * If true, partial results are filtered out.
+         */
+        filterPartialResults?: boolean;
+        /**
+         * Turns language identification on or off.
+         */
+        identifyLanguage?: boolean;
+        /**
+         * Turns multiple language identification on or off.
+         */
+        identifyMultipleLanguages?: boolean;
+        /**
+         * The language code.
+         */
+        languageCode?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode;
+        /**
+         * The name of the custom language model.
+         */
+        languageModelName?: string;
+        /**
+         * The language options for transcription.
+         */
+        languageOptions?: string;
+        /**
+         * The level of stability for partial results.
+         */
+        partialResultsStability?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability;
+        /**
+         * The types of PII to redact.
+         */
+        piiEntityTypes?: string;
+        /**
+         * The preferred language for transcription.
+         */
+        preferredLanguage?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage;
+        /**
+         * Enables speaker partitioning.
+         */
+        showSpeakerLabel?: boolean;
+        /**
+         * The vocabulary filtering method.
+         */
+        vocabularyFilterMethod?: enums.chime.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod;
+        /**
+         * The name of the custom vocabulary filter.
+         */
+        vocabularyFilterName?: string;
+        /**
+         * The names of the custom vocabulary filters.
+         */
+        vocabularyFilterNames?: string;
+        /**
+         * The name of the custom vocabulary.
+         */
+        vocabularyName?: string;
+        /**
+         * The names of the custom vocabularies.
+         */
+        vocabularyNames?: string;
+    }
+
+    export interface MediaInsightsPipelineConfigurationElement {
+        amazonTranscribeCallAnalyticsProcessorConfiguration?: outputs.chime.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration;
+        amazonTranscribeProcessorConfiguration?: outputs.chime.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration;
+        kinesisDataStreamSinkConfiguration?: outputs.chime.MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration;
+        s3RecordingSinkConfiguration?: outputs.chime.MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration;
+        /**
+         * The element type.
+         */
+        type: enums.chime.MediaInsightsPipelineConfigurationElementType;
+    }
+
+    export interface MediaInsightsPipelineConfigurationIssueDetectionConfiguration {
+        /**
+         * The name of the issue detection rule.
+         */
+        ruleName: string;
+    }
+
+    export interface MediaInsightsPipelineConfigurationKeywordMatchConfiguration {
+        /**
+         * The keywords or phrases to match.
+         */
+        keywords: string[];
+        /**
+         * Matches keywords on their presence or absence.
+         */
+        negate?: boolean;
+        /**
+         * The name of the keyword match rule.
+         */
+        ruleName: string;
+    }
+
+    export interface MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration {
+        /**
+         * The ARN of the Kinesis Data Stream sink.
+         */
+        insightsTarget?: string;
+    }
+
+    export interface MediaInsightsPipelineConfigurationPostCallAnalyticsSettings {
+        /**
+         * The content redaction output settings.
+         */
+        contentRedactionOutput?: enums.chime.MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput;
+        /**
+         * The ARN of the role used by Transcribe to upload post-call analysis.
+         */
+        dataAccessRoleArn: string;
+        /**
+         * The ID of the KMS key used to encrypt the output.
+         */
+        outputEncryptionKmsKeyId?: string;
+        /**
+         * The URL of the Amazon S3 bucket for post-call data.
+         */
+        outputLocation: string;
+    }
+
+    export interface MediaInsightsPipelineConfigurationRealTimeAlertConfiguration {
+        /**
+         * Turns off real-time alerts.
+         */
+        disabled?: boolean;
+        /**
+         * The rules in the alert.
+         */
+        rules?: outputs.chime.MediaInsightsPipelineConfigurationRealTimeAlertRule[];
+    }
+
+    export interface MediaInsightsPipelineConfigurationRealTimeAlertRule {
+        issueDetectionConfiguration?: outputs.chime.MediaInsightsPipelineConfigurationIssueDetectionConfiguration;
+        keywordMatchConfiguration?: outputs.chime.MediaInsightsPipelineConfigurationKeywordMatchConfiguration;
+        sentimentConfiguration?: outputs.chime.MediaInsightsPipelineConfigurationSentimentConfiguration;
+        /**
+         * The type of alert rule.
+         */
+        type: enums.chime.MediaInsightsPipelineConfigurationRealTimeAlertRuleType;
+    }
+
+    export interface MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration {
+        /**
+         * The default URI of the Amazon S3 bucket.
+         */
+        destination?: string;
+        /**
+         * The recording file format.
+         */
+        recordingFileFormat?: enums.chime.MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat;
+    }
+
+    export interface MediaInsightsPipelineConfigurationSentimentConfiguration {
+        /**
+         * The name of the sentiment rule.
+         */
+        ruleName: string;
+        /**
+         * The type of sentiment.
+         */
+        sentimentType: enums.chime.MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType;
+        /**
+         * The analysis interval in seconds.
+         */
+        timePeriod: number;
+    }
+
     /**
      * The configuration settings for the Kinesis video stream.
      */
@@ -28664,7 +28936,7 @@ export namespace connect {
     }
 
     /**
-     * The outbound email address ID.
+     * The outbound email configuration for a specified queue.
      */
     export interface QueueOutboundEmailConfig {
         /**
@@ -32230,6 +32502,31 @@ export namespace datasync {
     }
 
     /**
+     * Specifies the identity federation configuration that DataSync uses to access your Azure Blob Storage container using an OpenID Connect (OIDC) token.
+     */
+    export interface LocationAzureBlobAzureFederatedIdentityConfig {
+        /**
+         * Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+         */
+        awsIamRole?: string;
+        azureOidc?: outputs.datasync.LocationAzureBlobAzureOidcConfig;
+    }
+
+    /**
+     * Specifies the Microsoft Entra (Azure AD) identity that DataSync federates with to obtain an access token for your Azure Blob Storage container.
+     */
+    export interface LocationAzureBlobAzureOidcConfig {
+        /**
+         * Specifies the client ID of the Microsoft Entra (Azure AD) identity that DataSync uses to obtain an access token.
+         */
+        clientId: string;
+        /**
+         * Specifies the Microsoft Entra (Azure AD) tenant ID that the identity belongs to.
+         */
+        tenantId: string;
+    }
+
+    /**
      * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location, and a customer-managed AWS KMS key.
      */
     export interface LocationAzureBlobCmkSecretConfig {
@@ -32571,6 +32868,28 @@ export namespace datasync {
     }
 
     /**
+     * Specifies the Google Cloud workload identity federation configuration that DataSync uses to obtain an access token for your Google Cloud Storage bucket.
+     */
+    export interface LocationObjectStorageGoogleOidcConfig {
+        /**
+         * The name of the Google Cloud workload identity pool that DataSync federates with.
+         */
+        identityPoolName: string;
+        /**
+         * The name of the OIDC identity provider configured in the Google Cloud workload identity pool.
+         */
+        identityProviderName: string;
+        /**
+         * The human-readable Google Cloud project name.
+         */
+        projectName: string;
+        /**
+         * The numeric Google Cloud project ID, as a string.
+         */
+        projectNumber: string;
+    }
+
+    /**
      * Specifies configuration information for a DataSync-managed secret, such as an authentication token or set of credentials that DataSync uses to access a specific transfer location. DataSync uses the default AWS-managed KMS key to encrypt this secret in AWS Secrets Manager.
      */
     export interface LocationObjectStorageManagedSecretConfig {
@@ -32578,6 +32897,24 @@ export namespace datasync {
          * Specifies the ARN for an AWS Secrets Manager secret.
          */
         secretArn: string;
+    }
+
+    /**
+     * Specifies the external (non-AWS) identity provider that DataSync federates with to access your object storage location.
+     */
+    export interface LocationObjectStorageObjectStorageExternalIdentityConfig {
+        googleOidc?: outputs.datasync.LocationObjectStorageGoogleOidcConfig;
+    }
+
+    /**
+     * Specifies the identity federation configuration that DataSync uses to access your object storage location using an OpenID Connect (OIDC) token.
+     */
+    export interface LocationObjectStorageObjectStorageFederatedIdentityConfig {
+        /**
+         * Specifies the ARN of the AWS Identity and Access Management (IAM) role that DataSync assumes to mint the OIDC token used to authenticate with the identity provider.
+         */
+        awsIamRole?: string;
+        externalIdentity?: outputs.datasync.LocationObjectStorageObjectStorageExternalIdentityConfig;
     }
 
     /**
@@ -32751,6 +33088,10 @@ export namespace datasync {
          * A value that indicates the last time that a file was modified (that is, a file was written to) before the PREPARING phase.
          */
         mtime?: enums.datasync.TaskOptionsMtime;
+        /**
+         * A value that determines whether source object metadata should be copied to the destination. PRESERVE copies metadata; NONE copies only file-mtime.
+         */
+        objectMetadata?: enums.datasync.TaskOptionsObjectMetadata;
         /**
          * A value that determines whether object tags should be read from the source object store and written to the destination object store.
          */
@@ -38562,6 +38903,7 @@ export namespace ec2 {
          * This parameter is only supported on `BlockDeviceMapping` objects called by [RunInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances.html) , [RequestSpotFleet](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotFleet.html) , and [RequestSpotInstances](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RequestSpotInstances.html) .
          */
         kmsKeyId?: string;
+        multiAvailabilityZoneConfiguration?: outputs.ec2.Ec2FleetMultiAvailabilityZoneConfiguration;
         /**
          * The ID of the snapshot.
          */
@@ -38987,6 +39329,11 @@ export namespace ec2 {
         min?: number;
     }
 
+    export interface Ec2FleetMultiAvailabilityZoneConfiguration {
+        configurationType?: string;
+        standbyAvailabilityZones?: outputs.ec2.Ec2FleetStandbyAvailabilityZone[];
+    }
+
     export interface Ec2FleetNetworkBandwidthGbpsRequest {
         /**
          * The maximum amount of network bandwidth, in Gbps. To specify no maximum limit, omit this parameter.
@@ -39219,6 +39566,11 @@ export namespace ec2 {
          * Supported only for fleets of type `instant` .
          */
         singleInstanceType?: boolean;
+    }
+
+    export interface Ec2FleetStandbyAvailabilityZone {
+        availabilityZone?: string;
+        availabilityZoneId?: string;
     }
 
     export interface Ec2FleetTag {
@@ -45535,6 +45887,7 @@ export namespace ecs {
          *   The *deployment circuit breaker* determines whether a service deployment will fail if the service can't reach a steady state. If you use the deployment circuit breaker, a service deployment will transition to a failed state and stop launching new tasks. If you use the rollback option, when a service deployment fails, the service is rolled back to the last deployment that completed successfully. For more information, see [Rolling update](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/deployment-type-ecs.html) in the *Amazon Elastic Container Service Developer Guide*
          */
         deploymentCircuitBreaker?: outputs.ecs.ServiceDeploymentCircuitBreaker;
+        earlySuccessCriteria?: outputs.ecs.ServiceDeploymentEarlySuccessCriteria;
         /**
          * An array of deployment lifecycle hook objects to run custom logic or pause the deployment at specific stages of the deployment lifecycle.
          */
@@ -45620,6 +45973,12 @@ export namespace ecs {
          *   +  After a successful migration from ``ECS`` to ``EXTERNAL`` deployment controller, you need to manually remove the ``ACTIVE`` task set, because ECS no longer manages the deployment. For information about how to delete a task set, see [DeleteTaskSet](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteTaskSet.html) in the ECSlong API Reference.
          */
         type?: enums.ecs.ServiceDeploymentControllerType;
+    }
+
+    export interface ServiceDeploymentEarlySuccessCriteria {
+        enable?: boolean;
+        healthyPercent?: number;
+        sourceServiceRevisionCleanup?: enums.ecs.ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup;
     }
 
     /**
@@ -48530,6 +48889,78 @@ export namespace elasticbeanstalk {
          * Defines lifecycle settings for application versions.
          */
         versionLifecycleConfig?: outputs.elasticbeanstalk.ApplicationVersionLifecycleConfig;
+    }
+
+    export interface ApplicationVersionBuildConfiguration {
+        /**
+         * The name of the build artifact.
+         */
+        artifactName?: string;
+        /**
+         * The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+         */
+        codeBuildServiceRole: string;
+        /**
+         * The compute type for the CodeBuild build environment.
+         */
+        computeType?: enums.elasticbeanstalk.ApplicationVersionBuildConfigurationComputeType;
+        /**
+         * The CodeBuild image used for the build environment.
+         */
+        image: string;
+        /**
+         * The timeout for the CodeBuild build, in minutes.
+         */
+        timeoutInMinutes?: number;
+    }
+
+    export interface ApplicationVersionImageBuildConfiguration {
+        /**
+         * The target architecture for the built container image.
+         */
+        architecture?: enums.elasticbeanstalk.ApplicationVersionImageBuildConfigurationArchitecture;
+        /**
+         * The buildpack to use for building the image.
+         */
+        buildpack?: string;
+        /**
+         * The ARN of the IAM role that AWS CodeBuild assumes to build the application version.
+         */
+        codeBuildServiceRole: string;
+        /**
+         * The compute type for the CodeBuild build environment.
+         */
+        computeType?: enums.elasticbeanstalk.ApplicationVersionImageBuildConfigurationComputeType;
+        /**
+         * The path to the Dockerfile, relative to the source root.
+         */
+        dockerfileLocation?: string;
+        /**
+         * The timeout for the CodeBuild build, in minutes.
+         */
+        timeoutInMinutes?: number;
+        /**
+         * The type of image build: docker or buildpack.
+         */
+        type: enums.elasticbeanstalk.ApplicationVersionImageBuildConfigurationType;
+    }
+
+    export interface ApplicationVersionImageConfiguration {
+        /**
+         * Configuration for building a container image from source code.
+         */
+        build?: outputs.elasticbeanstalk.ApplicationVersionImageBuildConfiguration;
+        /**
+         * The container image source for this version, as an ECR image URI.
+         */
+        source?: outputs.elasticbeanstalk.ApplicationVersionImageSource;
+    }
+
+    export interface ApplicationVersionImageSource {
+        /**
+         * The URI of the container image, e.g. an ECR image URI.
+         */
+        uri?: string;
     }
 
     export interface ApplicationVersionLifecycleConfig {
@@ -52063,6 +52494,24 @@ export namespace fis {
 
 export namespace fms {
     /**
+     * An individual Firewall Manager application.
+     */
+    export interface ApplicationsListApp {
+        /**
+         * The application's name.
+         */
+        appName: string;
+        /**
+         * The application's port number, for example 80.
+         */
+        port: number;
+        /**
+         * The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+         */
+        protocol: string;
+    }
+
+    /**
      * An FMS includeMap or excludeMap.
      */
     export interface PolicyIeMap {
@@ -52826,6 +53275,29 @@ export namespace fsx {
          * The `AutoImportPolicy` is only supported on Amazon FSx for Lustre file systems with a data repository association.
          */
         autoImportPolicy?: outputs.fsx.DataRepositoryAssociationAutoImportPolicy;
+    }
+
+    export interface FileCacheDataRepositoryAssociation {
+        dataRepositoryPath: string;
+        fileCachePath: string;
+    }
+
+    export interface FileCacheLogConfiguration {
+        destination?: string;
+        level: enums.fsx.FileCacheLogConfigurationLevel;
+    }
+
+    export interface FileCacheLustreConfiguration {
+        deploymentType: enums.fsx.FileCacheLustreConfigurationDeploymentType;
+        logConfiguration?: outputs.fsx.FileCacheLogConfiguration;
+        metadataConfiguration: outputs.fsx.FileCacheMetadataConfiguration;
+        mountName?: string;
+        perUnitStorageThroughput: number;
+        weeklyMaintenanceStartTime?: string;
+    }
+
+    export interface FileCacheMetadataConfiguration {
+        storageCapacity: number;
     }
 
     export interface S3AccessPointAttachmentFileSystemGid {
@@ -54555,6 +55027,405 @@ export namespace glue {
          * The subnet ID used by the connection.
          */
         subnetId?: string;
+    }
+
+    /**
+     * Basic authentication configuration.
+     */
+    export interface ConnectionTypeBasicAuthenticationProperties {
+        password?: outputs.glue.ConnectionTypeSecretConnectorProperty;
+        username?: outputs.glue.ConnectionTypeSecretConnectorProperty;
+    }
+
+    /**
+     * Configuration that defines how BETWEEN range filter operations are translated into REST API request parameters.
+     */
+    export interface ConnectionTypeBetweenConfiguration {
+        /**
+         * The parameter name used for the upper bound value in a BETWEEN filter operation.
+         */
+        highBoundKey?: string;
+        /**
+         * The parameter name used for the lower bound value in a BETWEEN filter operation.
+         */
+        lowBoundKey?: string;
+        /**
+         * A template string for constructing the BETWEEN filter expression.
+         */
+        template?: string;
+    }
+
+    /**
+     * OAuth2 client credentials configuration.
+     */
+    export interface ConnectionTypeClientCredentialsProperties {
+        clientId?: outputs.glue.ConnectionTypeSecretConnectorProperty;
+        clientSecret?: outputs.glue.ConnectionTypeSecretConnectorProperty;
+        contentType?: enums.glue.ConnectionTypeClientCredentialsPropertiesContentType;
+        requestMethod?: enums.glue.ConnectionTypeClientCredentialsPropertiesRequestMethod;
+        scope?: outputs.glue.ConnectionTypeConnectorProperty;
+        tokenUrl?: outputs.glue.ConnectionTypeConnectorProperty;
+        tokenUrlParameters?: outputs.glue.ConnectionTypeConnectorProperty[];
+    }
+
+    /**
+     * Configuration that defines the base URL and additional request parameters needed during connection creation.
+     */
+    export interface ConnectionTypeConnectionPropertiesConfiguration {
+        /**
+         * Key-value pairs of additional request parameters.
+         */
+        additionalRequestParameters?: outputs.glue.ConnectionTypeConnectorProperty[];
+        url?: outputs.glue.ConnectionTypeConnectorProperty;
+    }
+
+    /**
+     * Configuration that defines supported authentication types and required properties.
+     */
+    export interface ConnectionTypeConnectorAuthenticationConfiguration {
+        /**
+         * A list of authentication types supported.
+         */
+        authenticationTypes: enums.glue.ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem[];
+        basicAuthenticationProperties?: outputs.glue.ConnectionTypeBasicAuthenticationProperties;
+        customAuthenticationProperties?: outputs.glue.ConnectionTypeCustomAuthenticationProperties;
+        oAuth2Properties?: outputs.glue.ConnectionTypeConnectorOAuth2Properties;
+    }
+
+    /**
+     * OAuth2 authorization code configuration.
+     */
+    export interface ConnectionTypeConnectorAuthorizationCodeProperties {
+        authorizationCode?: outputs.glue.ConnectionTypeConnectorProperty;
+        authorizationCodeUrl?: outputs.glue.ConnectionTypeConnectorProperty;
+        clientId?: outputs.glue.ConnectionTypeSecretConnectorProperty;
+        clientSecret?: outputs.glue.ConnectionTypeSecretConnectorProperty;
+        contentType?: enums.glue.ConnectionTypeConnectorAuthorizationCodePropertiesContentType;
+        prompt?: outputs.glue.ConnectionTypeConnectorProperty;
+        redirectUri?: outputs.glue.ConnectionTypeConnectorProperty;
+        requestMethod?: enums.glue.ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod;
+        scope?: outputs.glue.ConnectionTypeConnectorProperty;
+        tokenUrl?: outputs.glue.ConnectionTypeConnectorProperty;
+        tokenUrlParameters?: outputs.glue.ConnectionTypeConnectorProperty[];
+    }
+
+    /**
+     * OAuth2 configuration container.
+     */
+    export interface ConnectionTypeConnectorOAuth2Properties {
+        authorizationCodeProperties?: outputs.glue.ConnectionTypeConnectorAuthorizationCodeProperties;
+        clientCredentialsProperties?: outputs.glue.ConnectionTypeClientCredentialsProperties;
+        jwtBearerProperties?: outputs.glue.ConnectionTypeJwtBearerProperties;
+        /**
+         * The OAuth2 grant type to use.
+         */
+        oAuth2GrantType: enums.glue.ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType;
+    }
+
+    /**
+     * Defines a property configuration for connection types.
+     */
+    export interface ConnectionTypeConnectorProperty {
+        /**
+         * A list of allowed values for the property.
+         */
+        allowedValues?: string[];
+        /**
+         * The default value for the property.
+         */
+        defaultValue?: string;
+        /**
+         * A key name to use when sending this property in API requests.
+         */
+        keyOverride?: string;
+        /**
+         * The name of the property.
+         */
+        name: string;
+        /**
+         * Specifies where this property should be included in REST requests.
+         */
+        propertyLocation?: enums.glue.ConnectionTypeConnectorPropertyPropertyLocation;
+        /**
+         * The data type of this property.
+         */
+        propertyType: enums.glue.ConnectionTypeConnectorPropertyPropertyType;
+        /**
+         * Indicates whether the property is required.
+         */
+        required: boolean;
+    }
+
+    /**
+     * Cursor-based pagination configuration.
+     */
+    export interface ConnectionTypeCursorConfiguration {
+        limitParameter?: outputs.glue.ConnectionTypeExtractedParameter;
+        nextPage: outputs.glue.ConnectionTypeExtractedParameter;
+    }
+
+    /**
+     * Custom authentication configuration.
+     */
+    export interface ConnectionTypeCustomAuthenticationProperties {
+        authenticationParameters: outputs.glue.ConnectionTypeSecretConnectorProperty[];
+    }
+
+    /**
+     * Configuration for interacting with a specific data entity.
+     */
+    export interface ConnectionTypeEntityConfiguration {
+        /**
+         * The schema definition for this entity.
+         */
+        schema?: {[key: string]: outputs.glue.ConnectionTypeFieldDefinition};
+        sourceConfiguration?: outputs.glue.ConnectionTypeSourceConfiguration;
+    }
+
+    /**
+     * Parameter extraction configuration.
+     */
+    export interface ConnectionTypeExtractedParameter {
+        /**
+         * The default value.
+         */
+        defaultValue?: string;
+        /**
+         * The parameter key name.
+         */
+        key?: string;
+        /**
+         * Specifies where to place the parameter in requests.
+         */
+        propertyLocation?: enums.glue.ConnectionTypeExtractedParameterPropertyLocation;
+        value?: outputs.glue.ConnectionTypeResponseExtractionMapping;
+    }
+
+    /**
+     * Defines a field in an entity schema.
+     */
+    export interface ConnectionTypeFieldDefinition {
+        /**
+         * The data type of the field.
+         */
+        fieldDataType: enums.glue.ConnectionTypeFieldDefinitionFieldDataType;
+        filterOverrides?: outputs.glue.ConnectionTypeFilterOverrides;
+        /**
+         * Indicates whether this field can contain null values.
+         */
+        isNullable?: boolean;
+        /**
+         * Indicates whether this field can be used for ordering results.
+         */
+        isOrderable?: boolean;
+        /**
+         * Indicates whether this field can be used for partitioning queries to the data source.
+         */
+        isPartitionable?: boolean;
+        /**
+         * Indicates whether this field can be used in filter predicates when querying data.
+         */
+        isQueryable?: boolean;
+        /**
+         * The name of the field.
+         */
+        name: string;
+        /**
+         * The format pattern for parsing date values from API responses. Accepts Java DateTimeFormatter patterns, EPOCH_SECONDS, or EPOCH_MILLIS.
+         */
+        responseDateFormat?: string;
+    }
+
+    /**
+     * Configuration that defines how filter predicates are applied to REST API requests, supporting both query parameter and filter string strategies.
+     */
+    export interface ConnectionTypeFilterConfiguration {
+        betweenConfiguration?: outputs.glue.ConnectionTypeBetweenConfiguration;
+        /**
+         * The global date and time format for filter expressions.
+         */
+        dateTimeFormat?: string;
+        /**
+         * The strategy for applying filters to requests.
+         */
+        filterMode: enums.glue.ConnectionTypeFilterConfigurationFilterMode;
+        filterStringConfiguration?: outputs.glue.ConnectionTypeFilterStringConfiguration;
+        /**
+         * A map of logical filter operators to their API-specific string representations.
+         */
+        operatorMappings?: {[key: string]: string};
+        /**
+         * Indicates whether surrounding double quotes should be stripped from filter values before processing.
+         */
+        stripQuotes?: boolean;
+    }
+
+    /**
+     * Configuration that defines per-field overrides for filter behavior, allowing individual fields to customize how filter operations are applied.
+     */
+    export interface ConnectionTypeFilterOverrides {
+        betweenConfiguration?: outputs.glue.ConnectionTypeBetweenConfiguration;
+        /**
+         * The date and time format for filter expressions on this field, overriding the global DateTimeFormat.
+         */
+        dateTimeFormat?: string;
+        /**
+         * An override for the field name to use in filter expressions, if different from the schema field name.
+         */
+        fieldName?: string;
+        /**
+         * A map of logical filter operators to their field-specific API representations, overriding the global operator mappings.
+         */
+        operatorMappings?: {[key: string]: string};
+    }
+
+    /**
+     * Configuration for constructing filter expression strings when using the FILTER_STRING filter mode.
+     */
+    export interface ConnectionTypeFilterStringConfiguration {
+        /**
+         * The query parameter name used to send the constructed filter expression string in API requests.
+         */
+        queryParameterName: string;
+        /**
+         * The character used to quote values when QuoteStringValues is true. Defaults to double quotes if not specified.
+         */
+        quoteCharacter?: string;
+        /**
+         * Indicates whether string and date values should be wrapped with a quote character in the filter expression.
+         */
+        quoteStringValues?: boolean;
+    }
+
+    /**
+     * JWT bearer token configuration.
+     */
+    export interface ConnectionTypeJwtBearerProperties {
+        contentType?: enums.glue.ConnectionTypeJwtBearerPropertiesContentType;
+        jwtToken?: outputs.glue.ConnectionTypeSecretConnectorProperty;
+        requestMethod?: enums.glue.ConnectionTypeJwtBearerPropertiesRequestMethod;
+        tokenUrl?: outputs.glue.ConnectionTypeConnectorProperty;
+        tokenUrlParameters?: outputs.glue.ConnectionTypeConnectorProperty[];
+    }
+
+    /**
+     * Offset-based pagination configuration.
+     */
+    export interface ConnectionTypeOffsetConfiguration {
+        limitParameter: outputs.glue.ConnectionTypeExtractedParameter;
+        offsetParameter: outputs.glue.ConnectionTypeExtractedParameter;
+    }
+
+    /**
+     * Configuration for handling paginated responses.
+     */
+    export interface ConnectionTypePaginationConfiguration {
+        cursorConfiguration?: outputs.glue.ConnectionTypeCursorConfiguration;
+        offsetConfiguration?: outputs.glue.ConnectionTypeOffsetConfiguration;
+    }
+
+    /**
+     * Configuration for parsing JSON responses from REST API calls.
+     */
+    export interface ConnectionTypeResponseConfiguration {
+        /**
+         * JSON path expression for error information location.
+         */
+        errorPath?: string;
+        /**
+         * JSON path expression for result data location.
+         */
+        resultPath: string;
+    }
+
+    /**
+     * Defines how to extract values from HTTP responses.
+     */
+    export interface ConnectionTypeResponseExtractionMapping {
+        /**
+         * A JSON path expression to extract a value from response body.
+         */
+        contentPath?: string;
+        /**
+         * The name of an HTTP response header from which to extract the value.
+         */
+        headerKey?: string;
+    }
+
+    /**
+     * Configuration for HTTP request and response handling.
+     */
+    export interface ConnectionTypeRestConfiguration {
+        /**
+         * A map of entity configurations.
+         */
+        entityConfigurations?: {[key: string]: outputs.glue.ConnectionTypeEntityConfiguration};
+        globalSourceConfiguration?: outputs.glue.ConnectionTypeSourceConfiguration;
+        /**
+         * Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+         */
+        validationEndpointConfiguration?: outputs.glue.ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties;
+    }
+
+    /**
+     * Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+     */
+    export interface ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties {
+        /**
+         * The HTTP method to use.
+         */
+        requestMethod?: enums.glue.ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod;
+        /**
+         * The URL path for the REST endpoint.
+         */
+        requestPath?: string;
+    }
+
+    /**
+     * Defines a secret property configuration. SECRET-type properties cannot have DefaultValue or AllowedValues.
+     */
+    export interface ConnectionTypeSecretConnectorProperty {
+        /**
+         * A key name to use when sending this property in API requests.
+         */
+        keyOverride?: string;
+        /**
+         * The name of the property.
+         */
+        name: string;
+        /**
+         * Specifies where this property should be included in REST requests.
+         */
+        propertyLocation?: enums.glue.ConnectionTypeSecretConnectorPropertyPropertyLocation;
+        /**
+         * The data type of this property. Must be SECRET for secret properties.
+         */
+        propertyType: enums.glue.ConnectionTypeSecretConnectorPropertyPropertyType;
+        /**
+         * Indicates whether the property is required.
+         */
+        required: boolean;
+    }
+
+    /**
+     * Configuration that defines how to make requests to endpoints.
+     */
+    export interface ConnectionTypeSourceConfiguration {
+        filterConfiguration?: outputs.glue.ConnectionTypeFilterConfiguration;
+        paginationConfiguration?: outputs.glue.ConnectionTypePaginationConfiguration;
+        /**
+         * The HTTP method to use.
+         */
+        requestMethod?: enums.glue.ConnectionTypeSourceConfigurationRequestMethod;
+        /**
+         * Request parameters configuration.
+         */
+        requestParameters?: outputs.glue.ConnectionTypeConnectorProperty[];
+        /**
+         * The URL path for the REST endpoint.
+         */
+        requestPath?: string;
+        responseConfiguration?: outputs.glue.ConnectionTypeResponseConfiguration;
     }
 
     /**
@@ -56817,6 +57688,19 @@ export namespace guardduty {
          * The ARN of the KMS key to use for encryption.
          */
         kmsKeyArn?: string;
+    }
+
+}
+
+export namespace healthagent {
+    /**
+     * Encryption context for the Domain.
+     */
+    export interface EncryptionContextProperties {
+        /**
+         * The type of encryption key used.
+         */
+        encryptionType: enums.healthagent.DomainEncryptionContextPropertiesEncryptionType;
     }
 
 }
@@ -65255,6 +66139,16 @@ export namespace kendra {
         key: string;
     }
 
+    /**
+     * A featured document. This document is displayed at the top of the search results page.
+     */
+    export interface FeaturedResultsSetFeaturedDocument {
+        /**
+         * The identifier of the document to feature in the search results.
+         */
+        id?: string;
+    }
+
     export interface IndexCapacityUnitsConfiguration {
         /**
          * The amount of extra query capacity for an index and [GetQuerySuggestions](https://docs.aws.amazon.com/kendra/latest/dg/API_GetQuerySuggestions.html) capacity.
@@ -65367,6 +66261,206 @@ export namespace kendraranking {
 }
 
 export namespace kinesis {
+    /**
+     * CloudWatch Logs configuration for the channel. When Enabled is true and LogGroupName is omitted, the service uses a default group derived from the channel name and id; LogStreamName defaults to the literal string 'DestinationDelivery'.
+     */
+    export interface ChannelCloudWatchLogsConfiguration {
+        /**
+         * Whether CloudWatch Logs delivery is enabled.
+         */
+        enabled: boolean;
+        /**
+         * The CloudWatch log group name. When Enabled is true and LogGroupName is omitted, the service uses the default '/aws/kinesis/<channelName>/<channelId>'.
+         */
+        logGroupName?: string;
+        /**
+         * The CloudWatch log stream name. Defaults to the literal string 'DestinationDelivery' when omitted.
+         */
+        logStreamName?: string;
+    }
+
+    /**
+     * Configuration of the S3 bucket used to capture records that cannot be delivered to the primary destination.
+     */
+    export interface ChannelDeadLetterQueueS3Configuration {
+        /**
+         * The ARN of the S3 bucket for storing failed records.
+         */
+        bucketArn: string;
+        /**
+         * Optional S3 key prefix under which error records are organized. When omitted, the service uses the default 'kinesis-channel/errors/<channelName>/<channelId>/'.
+         */
+        errorOutputPrefix?: string;
+        /**
+         * The AWS account ID of the expected owner of the dead-letter queue S3 bucket. Used to verify bucket ownership before delivery.
+         */
+        expectedBucketOwner: string;
+    }
+
+    /**
+     * Server-side encryption configuration for data at rest in the destination. Data delivered to S3 / S3 Tables is encrypted with the same key.
+     */
+    export interface ChannelEncryptionConfiguration {
+        /**
+         * The encryption type. KMS is the only supported value.
+         */
+        encryptionType: enums.kinesis.ChannelEncryptionConfigurationEncryptionType;
+        /**
+         * The customer-managed AWS KMS key. Accepts a key GUID, key ARN, alias ARN, or alias name prefixed by 'alias/'. The Kinesis Data Streams managed alias 'aws/kinesis' is not accepted - the key must be customer-owned so it can also be used by readers of the destination.
+         */
+        keyId: string;
+    }
+
+    /**
+     * Configuration for delivering channel operational logs.
+     */
+    export interface ChannelLoggingConfiguration {
+        /**
+         * CloudWatch Logs configuration block. When provided, controls whether and where the channel writes operational logs.
+         */
+        cloudWatchLogs: outputs.kinesis.ChannelCloudWatchLogsConfiguration;
+    }
+
+    /**
+     * A single partition field consisting of a transform applied to a source column.
+     */
+    export interface ChannelPartitionField {
+        /**
+         * The name of the source column on which the transform is applied.
+         */
+        sourceName: string;
+        /**
+         * The partitioning transform applied to the SourceName column.
+         */
+        transform: enums.kinesis.ChannelPartitionFieldTransform;
+    }
+
+    /**
+     * Partitioning specification for the destination Iceberg table. Follows the S3 Tables / Iceberg PartitionSpec format.
+     */
+    export interface ChannelPartitionSpec {
+        /**
+         * List of partition fields that define how records are partitioned when written to the destination table.
+         */
+        partitionFields: outputs.kinesis.ChannelPartitionField[];
+    }
+
+    /**
+     * The configuration that describes how records on the source stream are encoded.
+     */
+    export interface ChannelRecordConfiguration {
+        /**
+         * The ARN of the AWS Glue Schema Registry (GSR) schema. Required for the S3 Tables destination, where it is used to create the S3 Table and to validate that the record format matches the table schema. Also used when RecordFormatType is GSR_JSON to interpret records read from the source stream. Vanilla S3 delivery writes records as S3 objects and does not need a schema. The schema must be in the same account and region as the channel.
+         */
+        gsrSchemaArn?: string;
+        /**
+         * The format used to interpret records read from the source stream.
+         */
+        recordFormatType: enums.kinesis.ChannelRecordConfigurationRecordFormatType;
+    }
+
+    /**
+     * Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+     */
+    export interface ChannelS3DestinationConfiguration {
+        /**
+         * The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+         */
+        dataFreshnessInSeconds?: number;
+        /**
+         * Optional dead-letter queue (DLQ) configuration for records that cannot be delivered to the destination. When omitted, the service auto-fills using the storage BucketARN with an error prefix.
+         */
+        deadLetterQueueS3Configuration?: outputs.kinesis.ChannelDeadLetterQueueS3Configuration;
+        /**
+         * S3 storage configuration including the destination bucket, output key template, storage class, and compression type.
+         */
+        storageConfiguration: outputs.kinesis.ChannelS3StorageConfiguration;
+    }
+
+    /**
+     * S3 storage configuration that describes the destination bucket and how delivered objects are stored.
+     */
+    export interface ChannelS3StorageConfiguration {
+        /**
+         * The ARN of the S3 bucket for record delivery. Different channels can deliver to the same bucket. Buckets can be cross-account but must be in the same region as the channel.
+         */
+        bucketArn: string;
+        /**
+         * The compression algorithm applied to delivered objects.
+         */
+        compressionType: enums.kinesis.ChannelS3StorageConfigurationCompressionType;
+        /**
+         * The AWS account ID of the expected owner of the destination S3 bucket. Used to verify bucket ownership before delivery.
+         */
+        expectedBucketOwner: string;
+        /**
+         * Optional template for the S3 object key path. Supports placeholders in the form !{name}: !{channel-name}, !{channel-id}, !{stream-name}, !{yyyy}, !{yy}, !{MM}, !{dd}, !{HH}, !{mm}, and !{extension} (a literal file extension can be supplied as !{extension:.json.gz}). When omitted, the service uses the default 'kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}'.
+         */
+        outputKeyTemplate?: string;
+        /**
+         * The S3 storage class for delivered objects.
+         */
+        storageClass?: enums.kinesis.ChannelS3StorageConfigurationStorageClass;
+    }
+
+    /**
+     * An S3 Tables destination including its table bucket, namespace, table name, and partition spec.
+     */
+    export interface ChannelS3TableConfiguration {
+        /**
+         * The compression algorithm applied to objects delivered to the S3 Tables destination.
+         */
+        compressionType: enums.kinesis.ChannelS3TableConfigurationCompressionType;
+        /**
+         * The name of the S3 Tables namespace that contains the destination table.
+         */
+        namespace: string;
+        /**
+         * The partition specification used by the destination Iceberg table.
+         */
+        partitionSpec?: outputs.kinesis.ChannelPartitionSpec;
+        /**
+         * The ARN of the S3 Tables table bucket for record delivery. Buckets can be cross-account but must be in the same region as the channel.
+         */
+        tableBucketArn: string;
+        /**
+         * The name of the destination S3 Tables table. The table is created for the customer if it does not yet exist.
+         */
+        tableName: string;
+    }
+
+    /**
+     * Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+     */
+    export interface ChannelS3TablesDestinationConfiguration {
+        /**
+         * The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+         */
+        dataFreshnessInSeconds?: number;
+        /**
+         * The dead-letter queue (DLQ) configuration for records that cannot be delivered to the S3 Tables destination. Required for S3 Tables: there is no safe fallback because S3 Tables metadata writes are critical-path.
+         */
+        deadLetterQueueS3Configuration: outputs.kinesis.ChannelDeadLetterQueueS3Configuration;
+        /**
+         * The list of S3 Tables destinations. v1 supports a single element; the list shape allows future extensibility to fan out to multiple tables.
+         */
+        s3TablesConfigurationList: outputs.kinesis.ChannelS3TableConfiguration[];
+    }
+
+    /**
+     * The configuration of a Kinesis stream that the channel reads from.
+     */
+    export interface ChannelStreamConfiguration {
+        /**
+         * The configuration that describes how records on the source stream are encoded.
+         */
+        recordConfiguration: outputs.kinesis.ChannelRecordConfiguration;
+        /**
+         * The Amazon resource name (ARN) of the Kinesis data stream that the channel reads from.
+         */
+        streamArn: string;
+    }
+
     /**
      * When specified, enables or updates server-side encryption using an AWS KMS key for a specified stream. Removing this property from your stack template and updating your stack disables encryption.
      */
@@ -69945,6 +71039,15 @@ export namespace lex {
 }
 
 export namespace licensemanager {
+    export interface LicenseAssetGroupConfiguration {
+        usageDimension?: string;
+    }
+
+    export interface LicenseAssetGroupProperty {
+        key?: string;
+        value?: string;
+    }
+
     /**
      * AND rule statement.
      */
@@ -70561,6 +71664,17 @@ export namespace lightsail {
          * Status code of the Instance.
          */
         name?: string;
+    }
+
+    export interface KeyPairResourceLocation {
+        /**
+         * The Availability Zone. Follows the format us-east-2a (case-sensitive).
+         */
+        availabilityZone?: string;
+        /**
+         * The AWS Region name.
+         */
+        regionName?: string;
     }
 
     /**
@@ -74198,6 +75312,20 @@ export namespace mediapackagev2 {
     }
 
     /**
+     * <p>The multiview configuration for a channel. A multiview channel composites video from several source channels into a single tiled output stream. Players receive one standard HLS or DASH stream instead of several separate streams. This setting is required when <code>InputType</code> is <code>MULTIVIEW</code>, and can't be set for any other input type.</p>
+     */
+    export interface ChannelMultiviewConfiguration {
+        /**
+         * <p>The tile layouts that players can request from this multiview channel's origin endpoints. Only the layouts that you list here are available. Each layout must appear at most once.</p>
+         */
+        availableLayouts: enums.mediapackagev2.ChannelMultiviewLayoutType[];
+        /**
+         * <p>The channels that players can use as tiles in this multiview channel's output. Each source channel must be in the same channel group as the multiview channel, and must have an <code>InputType</code> of <code>CMAF</code>. Only the channels that you list here are available as tiles.</p>
+         */
+        availableSources: string[];
+    }
+
+    /**
      * <p>The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.</p>
      */
     export interface ChannelOutputHeaderConfiguration {
@@ -74890,6 +76018,29 @@ export namespace mediatailor {
     }
 
     /**
+     * The configuration for a CONCURRENT_EXECUTOR function. A CONCURRENT_EXECUTOR runs a set of child functions in parallel, up to a maximum concurrency, and combines their output when all functions complete. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
+     */
+    export interface FunctionConcurrentExecutorConfiguration {
+        /**
+         * The list of 1 to 10 child functions that MediaTailor runs in parallel. Each entry specifies a child function to execute and an optional run condition expression that controls whether the function runs. Child functions cannot themselves be executors, and each child function's resolved namespace must be unique across the list.
+         */
+        functionList: outputs.mediatailor.FunctionRef[];
+        /**
+         * The maximum number of child functions that MediaTailor runs simultaneously. When the list contains more functions than MaxConcurrency, MediaTailor starts additional functions as running ones complete, so that no more than MaxConcurrency functions run at the same time. Valid values are 1 to 2.
+         */
+        maxConcurrency: number;
+        /**
+         * A map of output bindings that controls which bindings the executor commits to the session state after all child functions complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the combined results of the child functions.
+         */
+        output: {[key: string]: string};
+        runtime: enums.mediatailor.FunctionRuntimeType;
+        /**
+         * The maximum time, in milliseconds, for all child functions to complete. This timeout covers every function in the list, including any HTTP calls the child functions make. If the executor exceeds this timeout, MediaTailor discards all output from the executor and proceeds with default behavior. Valid values are 100 to 2000.
+         */
+        timeoutMilliseconds: number;
+    }
+
+    /**
      * Configuration for custom output functions.
      */
     export interface FunctionCustomOutputConfiguration {
@@ -74938,37 +76089,38 @@ export namespace mediatailor {
     }
 
     /**
-     * A reference to a function with an optional run condition.
+     * A reference to a child function within an executor function.
      */
     export interface FunctionRef {
         /**
-         * The identifier of the function to execute.
+         * An optional alternate name for the child function within the executor. MediaTailor uses this value as the namespace for the child function's output. If omitted, MediaTailor uses the function identifier. The resolved namespace must be unique across all child functions in the list.
+         */
+        alias?: string;
+        /**
+         * The identifier of the child function to execute.
          */
         functionId?: string;
         /**
-         * A conditional expression that determines whether this function should execute.
+         * An optional expression that evaluates to a boolean. MediaTailor evaluates this expression immediately before running the child function, using the accumulated state at that point. If the expression evaluates to false, MediaTailor skips the child function. If omitted, the child function always runs.
          */
         runCondition?: string;
     }
 
     /**
-     * Configuration for sequential executor functions.
+     * The configuration for a SEQUENTIAL_EXECUTOR function. A SEQUENTIAL_EXECUTOR runs an ordered list of child functions one at a time, passing data between them. For more information about functions, see Working with functions (https://docs.aws.amazon.com/mediatailor/latest/ug/monetization-functions.html) in the MediaTailor User Guide.
      */
     export interface FunctionSequentialExecutorConfiguration {
         /**
-         * The list of functions to execute sequentially.
+         * An ordered list of 1 to 10 steps. Each step specifies a child function to execute and an optional run condition expression that controls whether the step runs. MediaTailor executes the steps in order, passing data between steps through temporary data. Each step's resolved namespace must be unique across the list.
          */
         functionList: outputs.mediatailor.FunctionRef[];
         /**
-         * A map of output key-value pairs that define the final output from sequential execution.
+         * A map of output bindings that controls which bindings the sequence commits to the session state after all steps complete. Each key is a namespaced output path, and each value is an expression that MediaTailor evaluates against the accumulated results of the steps.
          */
         output?: {[key: string]: string};
-        /**
-         * The runtime environment for the function expression language.
-         */
         runtime: enums.mediatailor.FunctionRuntimeType;
         /**
-         * The timeout in milliseconds for the entire sequential execution chain.
+         * The maximum time, in milliseconds, for the entire sequence to complete. This timeout covers all steps, including any HTTP calls made by child functions. If the sequence exceeds this timeout, MediaTailor discards all output from the sequence and proceeds with default behavior. Valid values are 100 to 2000.
          */
         timeoutMilliseconds: number;
     }
@@ -75468,6 +76620,65 @@ export namespace memorydb {
          * The port number that the engine is listening on.
          */
         port?: number;
+    }
+
+    export interface SnapshotClusterConfiguration {
+        /**
+         * The description of the cluster configuration.
+         */
+        description?: string;
+        /**
+         * The name of the engine used by the cluster configuration.
+         */
+        engine?: string;
+        /**
+         * The Redis OSS engine version used by the cluster.
+         */
+        engineVersion?: string;
+        /**
+         * The specified maintenance window for the cluster.
+         */
+        maintenanceWindow?: string;
+        /**
+         * The name of the cluster.
+         */
+        name?: string;
+        /**
+         * The node type used for the cluster.
+         */
+        nodeType?: string;
+        /**
+         * The number of shards in the cluster.
+         */
+        numShards?: number;
+        /**
+         * The name of parameter group used by the cluster.
+         */
+        parameterGroupName?: string;
+        /**
+         * The port used by the cluster.
+         */
+        port?: number;
+        /**
+         * The snapshot retention limit set by the cluster.
+         */
+        snapshotRetentionLimit?: number;
+        /**
+         * The snapshot window set by the cluster.
+         */
+        snapshotWindow?: string;
+        /**
+         * The name of the subnet group used by the cluster.
+         */
+        subnetGroupName?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the SNS notification topic for the cluster.
+         */
+        topicArn?: string;
+        /**
+         * The ID of the VPC the cluster belongs to.
+         */
+        vpcId?: string;
     }
 
 }
@@ -76799,6 +78010,34 @@ export namespace neptunegraph {
 }
 
 export namespace networkfirewall {
+    /**
+     * A key-value filter pair used in container association monitoring configurations to narrow which containers are tracked.
+     */
+    export interface ContainerAssociationContainerAttribute {
+        /**
+         * The attribute key to filter on.
+         */
+        key: string;
+        /**
+         * The attribute value to match.
+         */
+        value: string;
+    }
+
+    /**
+     * Contains the monitoring configuration for a single cluster in a container association. Specifies the cluster ARN and optional attribute filters to narrow which containers are tracked.
+     */
+    export interface ContainerAssociationContainerMonitoringConfiguration {
+        /**
+         * Key-value pairs that filter which containers are tracked. For Amazon EKS, you can filter by namespace and Kubernetes labels. For Amazon ECS, you can filter by container instance attributes (EC2 launch type only).
+         */
+        attributeFilters?: outputs.networkfirewall.ContainerAssociationContainerAttribute[];
+        /**
+         * The ARN of the Amazon ECS or Amazon EKS cluster to monitor. The cluster must be in the same Region and account as the container association.
+         */
+        clusterArn: string;
+    }
+
     export interface FirewallAvailabilityZoneMapping {
         /**
          * A AvailabilityZone
@@ -120365,6 +121604,70 @@ export namespace sagemaker {
         sourceUri: string;
     }
 
+    /**
+     * The dataset configuration for an AI workload.
+     */
+    export interface AiWorkloadConfigAiDatasetConfig {
+        /**
+         * An array of input data channel configurations for the workload.
+         */
+        inputDataConfig: outputs.sagemaker.AiWorkloadConfigAiWorkloadInputDataConfig[];
+    }
+
+    /**
+     * The benchmark tool configuration for an AI workload.
+     */
+    export interface AiWorkloadConfigAiWorkloadConfigs {
+        /**
+         * The workload specification that defines benchmark parameters.
+         */
+        workloadSpec: outputs.sagemaker.AiWorkloadConfigWorkloadSpec;
+    }
+
+    /**
+     * The data source for an AI workload input data channel.
+     */
+    export interface AiWorkloadConfigAiWorkloadDataSource {
+        /**
+         * The Amazon S3 data source configuration.
+         */
+        s3DataSource?: outputs.sagemaker.AiWorkloadConfigAiWorkloadS3DataSource;
+    }
+
+    /**
+     * A channel of input data for an AI workload configuration.
+     */
+    export interface AiWorkloadConfigAiWorkloadInputDataConfig {
+        /**
+         * The logical name for the data channel.
+         */
+        channelName: string;
+        /**
+         * The data source for this channel.
+         */
+        dataSource: outputs.sagemaker.AiWorkloadConfigAiWorkloadDataSource;
+    }
+
+    /**
+     * The Amazon S3 data source for an AI workload.
+     */
+    export interface AiWorkloadConfigAiWorkloadS3DataSource {
+        /**
+         * The Amazon S3 URI of the data.
+         */
+        s3Uri: string;
+    }
+
+    /**
+     * The workload specification for benchmark tool configuration.
+     */
+    export interface AiWorkloadConfigWorkloadSpec {
+        /**
+         * An inline YAML or JSON string that defines benchmark parameters. The service validates the document against its own benchmark schema: it must declare a benchmark object whose type member matches the pattern ^(aiperf)$.
+         */
+        inline: string;
+    }
+
     export interface AlgorithmCategoricalParameterRangeSpecification {
         values: string[];
     }
@@ -121029,6 +122332,21 @@ export namespace sagemaker {
          * The ID of the subnets in the VPC to which you want to connect your training job or model.
          */
         subnets: string[];
+    }
+
+    export interface CodeRepositoryGitConfig {
+        /**
+         * The default branch for the Git repository.
+         */
+        branch?: string;
+        /**
+         * The URL where the Git repository is located.
+         */
+        repositoryUrl: string;
+        /**
+         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository.
+         */
+        secretArn?: string;
     }
 
     /**
@@ -125505,6 +126823,16 @@ export namespace sagemaker {
          * Indicates the minimum IMDS version that the notebook instance supports. When passed as part of CreateNotebookInstance, if no value is selected, then it defaults to IMDSv1. This means that both IMDSv1 and IMDSv2 are supported. If passed as part of UpdateNotebookInstance, there is no default.
          */
         minimumInstanceMetadataServiceVersion: string;
+    }
+
+    /**
+     * Specifies the notebook instance lifecycle configuration script. Each lifecycle configuration script has a limit of 16384 characters.
+     */
+    export interface NotebookInstanceLifecycleConfigNotebookInstanceLifecycleHook {
+        /**
+         * A base64-encoded string that contains a shell script for a notebook instance lifecycle configuration.
+         */
+        content?: string;
     }
 
     /**
@@ -133259,6 +134587,59 @@ export namespace timestream {
 }
 
 export namespace transcribe {
+    export interface CallAnalyticsCategoryAbsoluteTimeRange {
+        endTime?: number;
+        first?: number;
+        last?: number;
+        startTime?: number;
+    }
+
+    export interface CallAnalyticsCategoryInterruptionFilter {
+        absoluteTimeRange?: outputs.transcribe.CallAnalyticsCategoryAbsoluteTimeRange;
+        negate?: boolean;
+        participantRole?: enums.transcribe.CallAnalyticsCategoryInterruptionFilterParticipantRole;
+        relativeTimeRange?: outputs.transcribe.CallAnalyticsCategoryRelativeTimeRange;
+        threshold?: number;
+    }
+
+    export interface CallAnalyticsCategoryNonTalkTimeFilter {
+        absoluteTimeRange?: outputs.transcribe.CallAnalyticsCategoryAbsoluteTimeRange;
+        negate?: boolean;
+        relativeTimeRange?: outputs.transcribe.CallAnalyticsCategoryRelativeTimeRange;
+        threshold?: number;
+    }
+
+    export interface CallAnalyticsCategoryRelativeTimeRange {
+        endPercentage?: number;
+        first?: number;
+        last?: number;
+        startPercentage?: number;
+    }
+
+    export interface CallAnalyticsCategoryRule {
+        interruptionFilter?: outputs.transcribe.CallAnalyticsCategoryInterruptionFilter;
+        nonTalkTimeFilter?: outputs.transcribe.CallAnalyticsCategoryNonTalkTimeFilter;
+        sentimentFilter?: outputs.transcribe.CallAnalyticsCategorySentimentFilter;
+        transcriptFilter?: outputs.transcribe.CallAnalyticsCategoryTranscriptFilter;
+    }
+
+    export interface CallAnalyticsCategorySentimentFilter {
+        absoluteTimeRange?: outputs.transcribe.CallAnalyticsCategoryAbsoluteTimeRange;
+        negate?: boolean;
+        participantRole?: enums.transcribe.CallAnalyticsCategorySentimentFilterParticipantRole;
+        relativeTimeRange?: outputs.transcribe.CallAnalyticsCategoryRelativeTimeRange;
+        sentiments: enums.transcribe.CallAnalyticsCategorySentimentFilterSentimentsItem[];
+    }
+
+    export interface CallAnalyticsCategoryTranscriptFilter {
+        absoluteTimeRange?: outputs.transcribe.CallAnalyticsCategoryAbsoluteTimeRange;
+        negate?: boolean;
+        participantRole?: enums.transcribe.CallAnalyticsCategoryTranscriptFilterParticipantRole;
+        relativeTimeRange?: outputs.transcribe.CallAnalyticsCategoryRelativeTimeRange;
+        targets: string[];
+        transcriptFilterType: enums.transcribe.CallAnalyticsCategoryTranscriptFilterTranscriptFilterType;
+    }
+
 }
 
 export namespace transfer {
@@ -134037,6 +135418,10 @@ export namespace vpclattice {
         weight?: number;
     }
 
+    export interface ResourceConfigurationCidrResource {
+        cidrRanges: string[];
+    }
+
     /**
      * Identifies the resource configuration in one of the following ways:
      *
@@ -134068,6 +135453,17 @@ export namespace vpclattice {
      */
     export interface ResourceConfigurationDefinition2Properties {
         dnsResource: outputs.vpclattice.ResourceConfigurationDnsResource;
+    }
+
+    /**
+     * Identifies the resource configuration in one of the following ways:
+     *
+     * - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
+     * - *Domain name* - Any domain name that is publicly resolvable.
+     * - *IP address* - For IPv4 and IPv6, only IP addresses in the VPC are supported.
+     */
+    export interface ResourceConfigurationDefinition3Properties {
+        cidrResource: outputs.vpclattice.ResourceConfigurationCidrResource;
     }
 
     export interface ResourceConfigurationDnsResource {

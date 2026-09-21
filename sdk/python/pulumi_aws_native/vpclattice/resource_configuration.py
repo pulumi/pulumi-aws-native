@@ -33,7 +33,7 @@ class ResourceConfigurationArgs:
                  port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol_type: pulumi.Input[Optional['ResourceConfigurationProtocolType']] = None,
                  resource_configuration_auth_type: pulumi.Input[Optional['ResourceConfigurationAuthType']] = None,
-                 resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs']]] = None,
+                 resource_configuration_definition: pulumi.Input[Optional[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition3PropertiesArgs']]] = None,
                  resource_configuration_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Sequence[pulumi.Input['_root_inputs.TagArgs']]]] = None):
@@ -54,7 +54,7 @@ class ResourceConfigurationArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
         :param pulumi.Input['ResourceConfigurationProtocolType'] protocol_type: (SINGLE, GROUP) The protocol accepted by the resource configuration.
         :param pulumi.Input['ResourceConfigurationAuthType'] resource_configuration_auth_type: The auth type for the resource configuration.
-        :param pulumi.Input[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs']] resource_configuration_definition: Identifies the resource configuration in one of the following ways:
+        :param pulumi.Input[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition3PropertiesArgs']] resource_configuration_definition: Identifies the resource configuration in one of the following ways:
                
                - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
                - *Domain name* - Any domain name that is publicly resolvable.
@@ -204,7 +204,7 @@ class ResourceConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="resourceConfigurationDefinition")
-    def resource_configuration_definition(self) -> pulumi.Input[Optional[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs']]]:
+    def resource_configuration_definition(self) -> pulumi.Input[Optional[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition3PropertiesArgs']]]:
         """
         Identifies the resource configuration in one of the following ways:
 
@@ -215,7 +215,7 @@ class ResourceConfigurationArgs:
         return pulumi.get(self, "resource_configuration_definition")
 
     @resource_configuration_definition.setter
-    def resource_configuration_definition(self, value: pulumi.Input[Optional[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs']]]):
+    def resource_configuration_definition(self, value: pulumi.Input[Optional[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition3PropertiesArgs']]]):
         pulumi.set(self, "resource_configuration_definition", value)
 
     @_builtins.property
@@ -269,7 +269,7 @@ class ResourceConfiguration(pulumi.CustomResource):
                  port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol_type: pulumi.Input[Optional['ResourceConfigurationProtocolType']] = None,
                  resource_configuration_auth_type: pulumi.Input[Optional['ResourceConfigurationAuthType']] = None,
-                 resource_configuration_definition: pulumi.Input[Optional[Union[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition0PropertiesArgsDict'], Union['ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgsDict'], Union['ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgsDict']]]] = None,
+                 resource_configuration_definition: pulumi.Input[Optional[Union[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition0PropertiesArgsDict'], Union['ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgsDict'], Union['ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgsDict'], Union['ResourceConfigurationDefinition3PropertiesArgs', 'ResourceConfigurationDefinition3PropertiesArgsDict']]]] = None,
                  resource_configuration_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_configuration_type: pulumi.Input[Optional['ResourceConfigurationType']] = None,
                  resource_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,
@@ -288,7 +288,7 @@ class ResourceConfiguration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] port_ranges: (SINGLE, GROUP, CHILD) The TCP port ranges that a consumer can use to access a resource configuration (for example: 1-65535). You can separate port ranges using commas (for example: 1,2,22-30).
         :param pulumi.Input['ResourceConfigurationProtocolType'] protocol_type: (SINGLE, GROUP) The protocol accepted by the resource configuration.
         :param pulumi.Input['ResourceConfigurationAuthType'] resource_configuration_auth_type: The auth type for the resource configuration.
-        :param pulumi.Input[Union[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition0PropertiesArgsDict'], Union['ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgsDict'], Union['ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgsDict']]] resource_configuration_definition: Identifies the resource configuration in one of the following ways:
+        :param pulumi.Input[Union[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition0PropertiesArgsDict'], Union['ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgsDict'], Union['ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgsDict'], Union['ResourceConfigurationDefinition3PropertiesArgs', 'ResourceConfigurationDefinition3PropertiesArgsDict']]] resource_configuration_definition: Identifies the resource configuration in one of the following ways:
                
                - *Amazon Resource Name (ARN)* - Supported resource-types that are provisioned by AWS services, such as RDS databases, can be identified by their ARN.
                - *Domain name* - Any domain name that is publicly resolvable.
@@ -335,7 +335,7 @@ class ResourceConfiguration(pulumi.CustomResource):
                  port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  protocol_type: pulumi.Input[Optional['ResourceConfigurationProtocolType']] = None,
                  resource_configuration_auth_type: pulumi.Input[Optional['ResourceConfigurationAuthType']] = None,
-                 resource_configuration_definition: pulumi.Input[Optional[Union[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition0PropertiesArgsDict'], Union['ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgsDict'], Union['ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgsDict']]]] = None,
+                 resource_configuration_definition: pulumi.Input[Optional[Union[Union['ResourceConfigurationDefinition0PropertiesArgs', 'ResourceConfigurationDefinition0PropertiesArgsDict'], Union['ResourceConfigurationDefinition1PropertiesArgs', 'ResourceConfigurationDefinition1PropertiesArgsDict'], Union['ResourceConfigurationDefinition2PropertiesArgs', 'ResourceConfigurationDefinition2PropertiesArgsDict'], Union['ResourceConfigurationDefinition3PropertiesArgs', 'ResourceConfigurationDefinition3PropertiesArgsDict']]]] = None,
                  resource_configuration_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  resource_configuration_type: pulumi.Input[Optional['ResourceConfigurationType']] = None,
                  resource_gateway_id: pulumi.Input[Optional[_builtins.str]] = None,

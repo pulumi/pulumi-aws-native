@@ -7,6 +7,74 @@ using Pulumi;
 
 namespace Pulumi.AwsNative.FSx
 {
+    /// <summary>
+    /// The lifecycle status of the backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupLifecycle : IEquatable<BackupLifecycle>
+    {
+        private readonly string _value;
+
+        private BackupLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupLifecycle Available { get; } = new BackupLifecycle("AVAILABLE");
+        public static BackupLifecycle Creating { get; } = new BackupLifecycle("CREATING");
+        public static BackupLifecycle Transferring { get; } = new BackupLifecycle("TRANSFERRING");
+        public static BackupLifecycle Deleted { get; } = new BackupLifecycle("DELETED");
+        public static BackupLifecycle Failed { get; } = new BackupLifecycle("FAILED");
+        public static BackupLifecycle Pending { get; } = new BackupLifecycle("PENDING");
+        public static BackupLifecycle Copying { get; } = new BackupLifecycle("COPYING");
+
+        public static bool operator ==(BackupLifecycle left, BackupLifecycle right) => left.Equals(right);
+        public static bool operator !=(BackupLifecycle left, BackupLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(BackupLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupLifecycle other && Equals(other);
+        public bool Equals(BackupLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the backup.
+    /// </summary>
+    [EnumType]
+    public readonly struct BackupType : IEquatable<BackupType>
+    {
+        private readonly string _value;
+
+        private BackupType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static BackupType Automatic { get; } = new BackupType("AUTOMATIC");
+        public static BackupType UserInitiated { get; } = new BackupType("USER_INITIATED");
+        public static BackupType AwsBackup { get; } = new BackupType("AWS_BACKUP");
+
+        public static bool operator ==(BackupType left, BackupType right) => left.Equals(right);
+        public static bool operator !=(BackupType left, BackupType right) => !left.Equals(right);
+
+        public static explicit operator string(BackupType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BackupType other && Equals(other);
+        public bool Equals(BackupType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     [EnumType]
     public readonly struct DataRepositoryAssociationEventType : IEquatable<DataRepositoryAssociationEventType>
     {
@@ -29,6 +97,127 @@ namespace Pulumi.AwsNative.FSx
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DataRepositoryAssociationEventType other && Equals(other);
         public bool Equals(DataRepositoryAssociationEventType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The lifecycle status of the cache
+    /// </summary>
+    [EnumType]
+    public readonly struct FileCacheLifecycle : IEquatable<FileCacheLifecycle>
+    {
+        private readonly string _value;
+
+        private FileCacheLifecycle(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FileCacheLifecycle Available { get; } = new FileCacheLifecycle("AVAILABLE");
+        public static FileCacheLifecycle Creating { get; } = new FileCacheLifecycle("CREATING");
+        public static FileCacheLifecycle Deleting { get; } = new FileCacheLifecycle("DELETING");
+        public static FileCacheLifecycle Updating { get; } = new FileCacheLifecycle("UPDATING");
+        public static FileCacheLifecycle Failed { get; } = new FileCacheLifecycle("FAILED");
+
+        public static bool operator ==(FileCacheLifecycle left, FileCacheLifecycle right) => left.Equals(right);
+        public static bool operator !=(FileCacheLifecycle left, FileCacheLifecycle right) => !left.Equals(right);
+
+        public static explicit operator string(FileCacheLifecycle value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileCacheLifecycle other && Equals(other);
+        public bool Equals(FileCacheLifecycle other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FileCacheLogConfigurationLevel : IEquatable<FileCacheLogConfigurationLevel>
+    {
+        private readonly string _value;
+
+        private FileCacheLogConfigurationLevel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FileCacheLogConfigurationLevel Disabled { get; } = new FileCacheLogConfigurationLevel("DISABLED");
+        public static FileCacheLogConfigurationLevel WarnOnly { get; } = new FileCacheLogConfigurationLevel("WARN_ONLY");
+        public static FileCacheLogConfigurationLevel ErrorOnly { get; } = new FileCacheLogConfigurationLevel("ERROR_ONLY");
+        public static FileCacheLogConfigurationLevel WarnError { get; } = new FileCacheLogConfigurationLevel("WARN_ERROR");
+
+        public static bool operator ==(FileCacheLogConfigurationLevel left, FileCacheLogConfigurationLevel right) => left.Equals(right);
+        public static bool operator !=(FileCacheLogConfigurationLevel left, FileCacheLogConfigurationLevel right) => !left.Equals(right);
+
+        public static explicit operator string(FileCacheLogConfigurationLevel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileCacheLogConfigurationLevel other && Equals(other);
+        public bool Equals(FileCacheLogConfigurationLevel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct FileCacheLustreConfigurationDeploymentType : IEquatable<FileCacheLustreConfigurationDeploymentType>
+    {
+        private readonly string _value;
+
+        private FileCacheLustreConfigurationDeploymentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FileCacheLustreConfigurationDeploymentType Cache1 { get; } = new FileCacheLustreConfigurationDeploymentType("CACHE_1");
+
+        public static bool operator ==(FileCacheLustreConfigurationDeploymentType left, FileCacheLustreConfigurationDeploymentType right) => left.Equals(right);
+        public static bool operator !=(FileCacheLustreConfigurationDeploymentType left, FileCacheLustreConfigurationDeploymentType right) => !left.Equals(right);
+
+        public static explicit operator string(FileCacheLustreConfigurationDeploymentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileCacheLustreConfigurationDeploymentType other && Equals(other);
+        public bool Equals(FileCacheLustreConfigurationDeploymentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of cache, which must be LUSTRE
+    /// </summary>
+    [EnumType]
+    public readonly struct FileCacheType : IEquatable<FileCacheType>
+    {
+        private readonly string _value;
+
+        private FileCacheType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static FileCacheType Lustre { get; } = new FileCacheType("LUSTRE");
+
+        public static bool operator ==(FileCacheType left, FileCacheType right) => left.Equals(right);
+        public static bool operator !=(FileCacheType left, FileCacheType right) => !left.Equals(right);
+
+        public static explicit operator string(FileCacheType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FileCacheType other && Equals(other);
+        public bool Equals(FileCacheType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

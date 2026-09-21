@@ -64,6 +64,9 @@ class FunctionMethodType(_builtins.str, Enum):
 
 @pulumi.type_token("aws-native:mediatailor:FunctionRuntimeType")
 class FunctionRuntimeType(_builtins.str, Enum):
+    """
+    The expression language used to evaluate expressions in the function configuration. Set this to JSONATA.
+    """
     JSONATA = "JSONATA"
 
 
@@ -71,6 +74,7 @@ class FunctionRuntimeType(_builtins.str, Enum):
 class FunctionType(_builtins.str, Enum):
     HTTP_REQUEST = "HTTP_REQUEST"
     CUSTOM_OUTPUT = "CUSTOM_OUTPUT"
+    CONCURRENT_EXECUTOR = "CONCURRENT_EXECUTOR"
     SEQUENTIAL_EXECUTOR = "SEQUENTIAL_EXECUTOR"
 
 

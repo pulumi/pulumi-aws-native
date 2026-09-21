@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &MultiRegionCluster{}
 	case "aws-native:memorydb:ParameterGroup":
 		r = &ParameterGroup{}
+	case "aws-native:memorydb:Snapshot":
+		r = &Snapshot{}
 	case "aws-native:memorydb:SubnetGroup":
 		r = &SubnetGroup{}
 	case "aws-native:memorydb:User":

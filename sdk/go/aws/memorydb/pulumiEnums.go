@@ -673,6 +673,97 @@ func (in *multiRegionClusterUpdateStrategyPtr) ToMultiRegionClusterUpdateStrateg
 	return pulumi.ToOutputWithContext(ctx, in).(MultiRegionClusterUpdateStrategyPtrOutput)
 }
 
+// Enables data tiering. Data tiering is only supported for clusters using the r6gd node type.
+type SnapshotDataTiering string
+
+const (
+	SnapshotDataTieringTrue  = SnapshotDataTiering("true")
+	SnapshotDataTieringFalse = SnapshotDataTiering("false")
+)
+
+type SnapshotDataTieringOutput struct{ *pulumi.OutputState }
+
+func (SnapshotDataTieringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SnapshotDataTiering)(nil)).Elem()
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringOutput() SnapshotDataTieringOutput {
+	return o
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringOutputWithContext(ctx context.Context) SnapshotDataTieringOutput {
+	return o
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringPtrOutput() SnapshotDataTieringPtrOutput {
+	return o.ToSnapshotDataTieringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringOutput) ToSnapshotDataTieringPtrOutputWithContext(ctx context.Context) SnapshotDataTieringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SnapshotDataTiering) *SnapshotDataTiering {
+		return &v
+	}).(SnapshotDataTieringPtrOutput)
+}
+
+func (o SnapshotDataTieringOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotDataTiering) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o SnapshotDataTieringOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e SnapshotDataTiering) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type SnapshotDataTieringPtrOutput struct{ *pulumi.OutputState }
+
+func (SnapshotDataTieringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SnapshotDataTiering)(nil)).Elem()
+}
+
+func (o SnapshotDataTieringPtrOutput) ToSnapshotDataTieringPtrOutput() SnapshotDataTieringPtrOutput {
+	return o
+}
+
+func (o SnapshotDataTieringPtrOutput) ToSnapshotDataTieringPtrOutputWithContext(ctx context.Context) SnapshotDataTieringPtrOutput {
+	return o
+}
+
+func (o SnapshotDataTieringPtrOutput) Elem() SnapshotDataTieringOutput {
+	return o.ApplyT(func(v *SnapshotDataTiering) SnapshotDataTiering {
+		if v != nil {
+			return *v
+		}
+		var ret SnapshotDataTiering
+		return ret
+	}).(SnapshotDataTieringOutput)
+}
+
+func (o SnapshotDataTieringPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o SnapshotDataTieringPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *SnapshotDataTiering) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
 // Type of authentication strategy for this user.
 type UserAuthenticationModePropertiesType string
 
@@ -858,6 +949,8 @@ func init() {
 	pulumi.RegisterOutputType(ClusterSupportedNetworkTypesPtrOutput{})
 	pulumi.RegisterOutputType(MultiRegionClusterUpdateStrategyOutput{})
 	pulumi.RegisterOutputType(MultiRegionClusterUpdateStrategyPtrOutput{})
+	pulumi.RegisterOutputType(SnapshotDataTieringOutput{})
+	pulumi.RegisterOutputType(SnapshotDataTieringPtrOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypeOutput{})
 	pulumi.RegisterOutputType(UserAuthenticationModePropertiesTypePtrOutput{})
 }

@@ -105,6 +105,11 @@ export const getInstanceSnapshot: typeof import("./getInstanceSnapshot").getInst
 export const getInstanceSnapshotOutput: typeof import("./getInstanceSnapshot").getInstanceSnapshotOutput = null as any;
 utilities.lazyLoad(exports, ["getInstanceSnapshot","getInstanceSnapshotOutput"], () => require("./getInstanceSnapshot"));
 
+export { GetKeyPairArgs, GetKeyPairResult, GetKeyPairOutputArgs } from "./getKeyPair";
+export const getKeyPair: typeof import("./getKeyPair").getKeyPair = null as any;
+export const getKeyPairOutput: typeof import("./getKeyPair").getKeyPairOutput = null as any;
+utilities.lazyLoad(exports, ["getKeyPair","getKeyPairOutput"], () => require("./getKeyPair"));
+
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
@@ -129,6 +134,11 @@ export { InstanceSnapshotArgs } from "./instanceSnapshot";
 export type InstanceSnapshot = import("./instanceSnapshot").InstanceSnapshot;
 export const InstanceSnapshot: typeof import("./instanceSnapshot").InstanceSnapshot = null as any;
 utilities.lazyLoad(exports, ["InstanceSnapshot"], () => require("./instanceSnapshot"));
+
+export { KeyPairArgs } from "./keyPair";
+export type KeyPair = import("./keyPair").KeyPair;
+export const KeyPair: typeof import("./keyPair").KeyPair = null as any;
+utilities.lazyLoad(exports, ["KeyPair"], () => require("./keyPair"));
 
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;
@@ -175,6 +185,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "aws-native:lightsail:InstanceSnapshot":
                 return new InstanceSnapshot(name, <any>undefined, { urn })
+            case "aws-native:lightsail:KeyPair":
+                return new KeyPair(name, <any>undefined, { urn })
             case "aws-native:lightsail:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "aws-native:lightsail:LoadBalancerTlsCertificate":

@@ -15,6 +15,11 @@ export type Faq = import("./faq").Faq;
 export const Faq: typeof import("./faq").Faq = null as any;
 utilities.lazyLoad(exports, ["Faq"], () => require("./faq"));
 
+export { FeaturedResultsSetArgs } from "./featuredResultsSet";
+export type FeaturedResultsSet = import("./featuredResultsSet").FeaturedResultsSet;
+export const FeaturedResultsSet: typeof import("./featuredResultsSet").FeaturedResultsSet = null as any;
+utilities.lazyLoad(exports, ["FeaturedResultsSet"], () => require("./featuredResultsSet"));
+
 export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
 export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
 export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
@@ -24,6 +29,11 @@ export { GetFaqArgs, GetFaqResult, GetFaqOutputArgs } from "./getFaq";
 export const getFaq: typeof import("./getFaq").getFaq = null as any;
 export const getFaqOutput: typeof import("./getFaq").getFaqOutput = null as any;
 utilities.lazyLoad(exports, ["getFaq","getFaqOutput"], () => require("./getFaq"));
+
+export { GetFeaturedResultsSetArgs, GetFeaturedResultsSetResult, GetFeaturedResultsSetOutputArgs } from "./getFeaturedResultsSet";
+export const getFeaturedResultsSet: typeof import("./getFeaturedResultsSet").getFeaturedResultsSet = null as any;
+export const getFeaturedResultsSetOutput: typeof import("./getFeaturedResultsSet").getFeaturedResultsSetOutput = null as any;
+utilities.lazyLoad(exports, ["getFeaturedResultsSet","getFeaturedResultsSetOutput"], () => require("./getFeaturedResultsSet"));
 
 export { GetIndexArgs, GetIndexResult, GetIndexOutputArgs } from "./getIndex";
 export const getIndex: typeof import("./getIndex").getIndex = null as any;
@@ -67,6 +77,8 @@ const _module = {
                 return new DataSource(name, <any>undefined, { urn })
             case "aws-native:kendra:Faq":
                 return new Faq(name, <any>undefined, { urn })
+            case "aws-native:kendra:FeaturedResultsSet":
+                return new FeaturedResultsSet(name, <any>undefined, { urn })
             case "aws-native:kendra:Index":
                 return new Index(name, <any>undefined, { urn })
             case "aws-native:kendra:QuerySuggestionsBlockList":

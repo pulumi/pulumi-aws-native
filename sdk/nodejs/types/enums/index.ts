@@ -71,6 +71,7 @@ import * as devopsagent from "./devopsagent";
 import * as devopsguru from "./devopsguru";
 import * as dms from "./dms";
 import * as docdb from "./docdb";
+import * as docdbelastic from "./docdbelastic";
 import * as drs from "./drs";
 import * as dynamodb from "./dynamodb";
 import * as ec2 from "./ec2";
@@ -79,6 +80,7 @@ import * as ecs from "./ecs";
 import * as efs from "./efs";
 import * as eks from "./eks";
 import * as elasticache from "./elasticache";
+import * as elasticbeanstalk from "./elasticbeanstalk";
 import * as elementalinference from "./elementalinference";
 import * as emr from "./emr";
 import * as emrcontainers from "./emrcontainers";
@@ -100,6 +102,7 @@ import * as grafana from "./grafana";
 import * as greengrassv2 from "./greengrassv2";
 import * as groundstation from "./groundstation";
 import * as guardduty from "./guardduty";
+import * as healthagent from "./healthagent";
 import * as healthimaging from "./healthimaging";
 import * as healthlake from "./healthlake";
 import * as iam from "./iam";
@@ -220,6 +223,7 @@ import * as synthetics from "./synthetics";
 import * as systemsmanagersap from "./systemsmanagersap";
 import * as textract from "./textract";
 import * as timestream from "./timestream";
+import * as transcribe from "./transcribe";
 import * as transfer from "./transfer";
 import * as translate from "./translate";
 import * as uxc from "./uxc";
@@ -303,6 +307,7 @@ export {
     devopsguru,
     dms,
     docdb,
+    docdbelastic,
     drs,
     dynamodb,
     ec2,
@@ -311,6 +316,7 @@ export {
     efs,
     eks,
     elasticache,
+    elasticbeanstalk,
     elementalinference,
     emr,
     emrcontainers,
@@ -332,6 +338,7 @@ export {
     greengrassv2,
     groundstation,
     guardduty,
+    healthagent,
     healthimaging,
     healthlake,
     iam,
@@ -452,6 +459,7 @@ export {
     systemsmanagersap,
     textract,
     timestream,
+    transcribe,
     transfer,
     translate,
     uxc,

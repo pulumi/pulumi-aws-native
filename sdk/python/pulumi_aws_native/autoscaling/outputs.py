@@ -451,6 +451,9 @@ class AutoScalingGroupCpuPerformanceFactorRequest(dict):
 
 @pulumi.output_type
 class AutoScalingGroupDistributionSegment(dict):
+    """
+    Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it launches instances.
+    """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
@@ -470,11 +473,23 @@ class AutoScalingGroupDistributionSegment(dict):
 
     def __init__(__self__, *,
                  target_capacity_types: Sequence['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']):
+        """
+        Use this structure to specify the capacity types that Amazon EC2 Auto Scaling prioritizes when it launches instances.
+
+        :param Sequence['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem'] target_capacity_types: The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in the priority order of the capacity types, and within each capacity type, in the order of instance types listed in your launch template ``Overrides``.
+                The following lists the valid values:
+                 + on-demand-capacity-reservation On-Demand Capacity Reservations. + capacity-block Capacity Blocks. + interruptible-capacity-reservation Interruptible Capacity Reservations. + on-demand On-Demand capacity. Include this value to allow the group to fall back to On-Demand capacity when the preceding capacity types are unavailable.
+        """
         pulumi.set(__self__, "target_capacity_types", target_capacity_types)
 
     @_builtins.property
     @pulumi.getter(name="targetCapacityTypes")
     def target_capacity_types(self) -> Sequence['AutoScalingGroupDistributionSegmentTargetCapacityTypesItem']:
+        """
+        The capacity types to prioritize, in order. Amazon EC2 Auto Scaling attempts to launch instances in the priority order of the capacity types, and within each capacity type, in the order of instance types listed in your launch template ``Overrides``.
+         The following lists the valid values:
+          + on-demand-capacity-reservation On-Demand Capacity Reservations. + capacity-block Capacity Blocks. + interruptible-capacity-reservation Interruptible Capacity Reservations. + on-demand On-Demand capacity. Include this value to allow the group to fall back to On-Demand capacity when the preceding capacity types are unavailable.
+        """
         return pulumi.get(self, "target_capacity_types")
 
 
@@ -1150,6 +1165,8 @@ class AutoScalingGroupInstancesDistribution(dict):
          For more information, see [Auto Scaling groups with multiple instance types and purchase options](https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-mixed-instances-groups.html) in the *Amazon EC2 Auto Scaling User Guide*.
          ``InstancesDistribution`` is a property of the [AWS::AutoScaling::AutoScalingGroup MixedInstancesPolicy](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-autoscaling-autoscalinggroup-mixedinstancespolicy.html) property type.
 
+        :param Sequence['AutoScalingGroupDistributionSegment'] distribution_segments: The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+                For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
         :param _builtins.str on_demand_allocation_strategy: The allocation strategy to apply to your On-Demand Instances when they are launched. Possible instance types are determined by the launch template overrides that you specify.
                 The following lists the valid values:
                  + lowest-price Uses price to determine which instance types are the highest priority, launching the lowest priced instance types within an Availability Zone first. This is the default value for Auto Scaling groups that specify InstanceRequirements. + prioritized You set the order of instance types for the launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling launches your highest priority instance types first. If all your On-Demand capacity cannot be fulfilled using your highest priority instance type, then Amazon EC2 Auto Scaling launches the remaining capacity using the second priority instance type, and so on. This is the default value for Auto Scaling groups that don't specify InstanceRequirements and cannot be used for groups that do.
@@ -1187,6 +1204,10 @@ class AutoScalingGroupInstancesDistribution(dict):
     @_builtins.property
     @pulumi.getter(name="distributionSegments")
     def distribution_segments(self) -> Optional[Sequence['outputs.AutoScalingGroupDistributionSegment']]:
+        """
+        The Distribution Segments configuration. Each segment contains an ordered list of capacity types to prioritize.
+         For more information, see [Use Distribution Segments to target multiple capacity types](https://docs.aws.amazon.com/autoscaling/ec2/userguide/use-distribution-segments.html) in the *Amazon EC2 Auto Scaling User Guide*.
+        """
         return pulumi.get(self, "distribution_segments")
 
     @_builtins.property
@@ -1857,7 +1878,7 @@ class AutoScalingGroupMixedInstancesPolicy(dict):
          When a Spot Instance is terminated, Amazon EC2 Auto Scaling group attempts to launch a replacement instance to maintain the desired capacity for the group.
          ``MixedInstancesPolicy`` is a property of the [AWS::AutoScaling::AutoScalingGroup](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-autoscaling-autoscalinggroup.html) resource.
 
-        :param 'AutoScalingGroupLaunchTemplate' launch_template: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        :param 'AutoScalingGroupLaunchTemplate' launch_template: One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
         :param 'AutoScalingGroupInstancesDistribution' instances_distribution: The instances distribution.
         """
         pulumi.set(__self__, "launch_template", launch_template)
@@ -1868,7 +1889,7 @@ class AutoScalingGroupMixedInstancesPolicy(dict):
     @pulumi.getter(name="launchTemplate")
     def launch_template(self) -> 'outputs.AutoScalingGroupLaunchTemplate':
         """
-        One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill On-Demand and Spot capacities.
+        One or more launch templates and the instance types (overrides) that are used to launch EC2 instances to fulfill the configured capacities.
         """
         return pulumi.get(self, "launch_template")
 

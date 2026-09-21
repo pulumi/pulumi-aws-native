@@ -21,6 +21,10 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws-native:transcribe:CallAnalyticsCategory":
+		r = &CallAnalyticsCategory{}
+	case "aws-native:transcribe:Vocabulary":
+		r = &Vocabulary{}
 	case "aws-native:transcribe:VocabularyFilter":
 		r = &VocabularyFilter{}
 	default:

@@ -923,6 +923,7 @@ func (in *functionMethodTypePtr) ToFunctionMethodTypePtrOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionMethodTypePtrOutput)
 }
 
+// The expression language used to evaluate expressions in the function configuration. Set this to JSONATA.
 type FunctionRuntimeType string
 
 const (
@@ -1091,6 +1092,7 @@ type FunctionType string
 const (
 	FunctionTypeHttpRequest        = FunctionType("HTTP_REQUEST")
 	FunctionTypeCustomOutput       = FunctionType("CUSTOM_OUTPUT")
+	FunctionTypeConcurrentExecutor = FunctionType("CONCURRENT_EXECUTOR")
 	FunctionTypeSequentialExecutor = FunctionType("SEQUENTIAL_EXECUTOR")
 )
 
@@ -1218,6 +1220,7 @@ func (o FunctionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //
 //	FunctionTypeHttpRequest
 //	FunctionTypeCustomOutput
+//	FunctionTypeConcurrentExecutor
 //	FunctionTypeSequentialExecutor
 type FunctionTypeInput interface {
 	pulumi.Input

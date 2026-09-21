@@ -68,6 +68,7 @@ __all__ = [
     'DataSourceWebCrawlerUrls',
     'DataSourceWorkDocsConfiguration',
     'FaqS3Path',
+    'FeaturedResultsSetFeaturedDocument',
     'IndexCapacityUnitsConfiguration',
     'IndexDocumentMetadataConfiguration',
     'IndexJsonTokenTypeConfiguration',
@@ -3982,6 +3983,30 @@ class FaqS3Path(dict):
         The name of the file.
         """
         return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class FeaturedResultsSetFeaturedDocument(dict):
+    """
+    A featured document. This document is displayed at the top of the search results page.
+    """
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        A featured document. This document is displayed at the top of the search results page.
+
+        :param _builtins.str id: The identifier of the document to feature in the search results.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The identifier of the document to feature in the search results.
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type

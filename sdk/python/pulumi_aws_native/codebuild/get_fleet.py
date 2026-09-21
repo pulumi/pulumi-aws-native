@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetFleetResult:
-    def __init__(__self__, arn=None, base_capacity=None, compute_configuration=None, compute_type=None, environment_type=None, fleet_proxy_configuration=None, fleet_service_role=None, fleet_vpc_config=None, image_id=None, name=None, overflow_behavior=None, scaling_configuration=None, tags=None):
+    def __init__(__self__, arn=None, base_capacity=None, compute_configuration=None, compute_type=None, environment_type=None, fleet_proxy_configuration=None, fleet_service_role=None, fleet_vpc_config=None, image_id=None, overflow_behavior=None, scaling_configuration=None, tags=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -54,9 +54,6 @@ class GetFleetResult:
         if image_id and not isinstance(image_id, str):
             raise TypeError("Expected argument 'image_id' to be a str")
         pulumi.set(__self__, "image_id", image_id)
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        pulumi.set(__self__, "name", name)
         if overflow_behavior and not isinstance(overflow_behavior, str):
             raise TypeError("Expected argument 'overflow_behavior' to be a str")
         pulumi.set(__self__, "overflow_behavior", overflow_behavior)
@@ -180,14 +177,6 @@ class GetFleetResult:
         return pulumi.get(self, "image_id")
 
     @_builtins.property
-    @pulumi.getter
-    def name(self) -> Optional[_builtins.str]:
-        """
-        The name of the compute fleet.
-        """
-        return pulumi.get(self, "name")
-
-    @_builtins.property
     @pulumi.getter(name="overflowBehavior")
     def overflow_behavior(self) -> Optional['FleetOverflowBehavior']:
         """
@@ -234,7 +223,6 @@ class AwaitableGetFleetResult(GetFleetResult):
             fleet_service_role=self.fleet_service_role,
             fleet_vpc_config=self.fleet_vpc_config,
             image_id=self.image_id,
-            name=self.name,
             overflow_behavior=self.overflow_behavior,
             scaling_configuration=self.scaling_configuration,
             tags=self.tags)
@@ -262,7 +250,6 @@ def get_fleet(arn: Optional[_builtins.str] = None,
         fleet_service_role=pulumi.get(__ret__, 'fleet_service_role'),
         fleet_vpc_config=pulumi.get(__ret__, 'fleet_vpc_config'),
         image_id=pulumi.get(__ret__, 'image_id'),
-        name=pulumi.get(__ret__, 'name'),
         overflow_behavior=pulumi.get(__ret__, 'overflow_behavior'),
         scaling_configuration=pulumi.get(__ret__, 'scaling_configuration'),
         tags=pulumi.get(__ret__, 'tags'))
@@ -287,7 +274,6 @@ def get_fleet_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
         fleet_service_role=pulumi.get(__response__, 'fleet_service_role'),
         fleet_vpc_config=pulumi.get(__response__, 'fleet_vpc_config'),
         image_id=pulumi.get(__response__, 'image_id'),
-        name=pulumi.get(__response__, 'name'),
         overflow_behavior=pulumi.get(__response__, 'overflow_behavior'),
         scaling_configuration=pulumi.get(__response__, 'scaling_configuration'),
         tags=pulumi.get(__response__, 'tags')))

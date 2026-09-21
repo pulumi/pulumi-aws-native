@@ -25,6 +25,9 @@ __all__ = [
 
 @pulumi.type_token("aws-native:batch:ComputeEnvironmentEcsSettingsContainerInsights")
 class ComputeEnvironmentEcsSettingsContainerInsights(_builtins.str, Enum):
+    """
+    The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
+    """
     ENABLED = "ENABLED"
     ENHANCED = "ENHANCED"
     DISABLED = "DISABLED"

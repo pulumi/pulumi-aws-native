@@ -16,5 +16,13 @@ type TapePoolTag struct {
 	Value string `pulumi:"value"`
 }
 
+// A key-value pair to associate with the virtual tape.
+type TapeTag struct {
+	// The tag key. Cannot be prefixed with aws:.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 func init() {
 }

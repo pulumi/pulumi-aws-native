@@ -5,10 +5,20 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetMediaInsightsPipelineConfigurationArgs, GetMediaInsightsPipelineConfigurationResult, GetMediaInsightsPipelineConfigurationOutputArgs } from "./getMediaInsightsPipelineConfiguration";
+export const getMediaInsightsPipelineConfiguration: typeof import("./getMediaInsightsPipelineConfiguration").getMediaInsightsPipelineConfiguration = null as any;
+export const getMediaInsightsPipelineConfigurationOutput: typeof import("./getMediaInsightsPipelineConfiguration").getMediaInsightsPipelineConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getMediaInsightsPipelineConfiguration","getMediaInsightsPipelineConfigurationOutput"], () => require("./getMediaInsightsPipelineConfiguration"));
+
 export { GetMediaPipelineKinesisVideoStreamPoolArgs, GetMediaPipelineKinesisVideoStreamPoolResult, GetMediaPipelineKinesisVideoStreamPoolOutputArgs } from "./getMediaPipelineKinesisVideoStreamPool";
 export const getMediaPipelineKinesisVideoStreamPool: typeof import("./getMediaPipelineKinesisVideoStreamPool").getMediaPipelineKinesisVideoStreamPool = null as any;
 export const getMediaPipelineKinesisVideoStreamPoolOutput: typeof import("./getMediaPipelineKinesisVideoStreamPool").getMediaPipelineKinesisVideoStreamPoolOutput = null as any;
 utilities.lazyLoad(exports, ["getMediaPipelineKinesisVideoStreamPool","getMediaPipelineKinesisVideoStreamPoolOutput"], () => require("./getMediaPipelineKinesisVideoStreamPool"));
+
+export { MediaInsightsPipelineConfigurationArgs } from "./mediaInsightsPipelineConfiguration";
+export type MediaInsightsPipelineConfiguration = import("./mediaInsightsPipelineConfiguration").MediaInsightsPipelineConfiguration;
+export const MediaInsightsPipelineConfiguration: typeof import("./mediaInsightsPipelineConfiguration").MediaInsightsPipelineConfiguration = null as any;
+utilities.lazyLoad(exports, ["MediaInsightsPipelineConfiguration"], () => require("./mediaInsightsPipelineConfiguration"));
 
 export { MediaPipelineKinesisVideoStreamPoolArgs } from "./mediaPipelineKinesisVideoStreamPool";
 export type MediaPipelineKinesisVideoStreamPool = import("./mediaPipelineKinesisVideoStreamPool").MediaPipelineKinesisVideoStreamPool;
@@ -23,6 +33,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws-native:chime:MediaInsightsPipelineConfiguration":
+                return new MediaInsightsPipelineConfiguration(name, <any>undefined, { urn })
             case "aws-native:chime:MediaPipelineKinesisVideoStreamPool":
                 return new MediaPipelineKinesisVideoStreamPool(name, <any>undefined, { urn })
             default:

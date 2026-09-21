@@ -31,7 +31,7 @@
   },
   "additionalProperties" : false,
   "required" : [ "Policy" ],
-  "oneOf" : [ {
+  "anyOf" : [ {
     "required" : [ "VectorBucketName" ]
   }, {
     "required" : [ "VectorBucketArn" ]

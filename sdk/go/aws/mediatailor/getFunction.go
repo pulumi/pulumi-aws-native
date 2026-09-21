@@ -30,8 +30,10 @@ type LookupFunctionArgs struct {
 
 type LookupFunctionResult struct {
 	// The ARN of the function.
-	Arn                       *string                            `pulumi:"arn"`
-	CustomOutputConfiguration *FunctionCustomOutputConfiguration `pulumi:"customOutputConfiguration"`
+	Arn *string `pulumi:"arn"`
+	// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+	ConcurrentExecutorConfiguration *FunctionConcurrentExecutorConfiguration `pulumi:"concurrentExecutorConfiguration"`
+	CustomOutputConfiguration       *FunctionCustomOutputConfiguration       `pulumi:"customOutputConfiguration"`
 	// A description of the function.
 	Description *string `pulumi:"description"`
 	// The type of the function. Determines which configuration object is used.
@@ -73,6 +75,13 @@ func (o LookupFunctionResultOutput) ToLookupFunctionResultOutputWithContext(ctx 
 // The ARN of the function.
 func (o LookupFunctionResultOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFunctionResult) *string { return v.Arn }).(pulumi.StringPtrOutput)
+}
+
+// The configuration for a CONCURRENT_EXECUTOR function. Required when FunctionType is CONCURRENT_EXECUTOR.
+func (o LookupFunctionResultOutput) ConcurrentExecutorConfiguration() FunctionConcurrentExecutorConfigurationPtrOutput {
+	return o.ApplyT(func(v LookupFunctionResult) *FunctionConcurrentExecutorConfiguration {
+		return v.ConcurrentExecutorConfiguration
+	}).(FunctionConcurrentExecutorConfigurationPtrOutput)
 }
 
 func (o LookupFunctionResultOutput) CustomOutputConfiguration() FunctionCustomOutputConfigurationPtrOutput {

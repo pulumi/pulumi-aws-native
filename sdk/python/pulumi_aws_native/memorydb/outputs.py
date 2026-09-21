@@ -18,6 +18,7 @@ from ._enums import *
 __all__ = [
     'AuthenticationModeProperties',
     'ClusterEndpoint',
+    'SnapshotClusterConfiguration',
 ]
 
 @pulumi.output_type
@@ -93,5 +94,215 @@ class ClusterEndpoint(dict):
         The port number that the engine is listening on.
         """
         return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class SnapshotClusterConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "engineVersion":
+            suggest = "engine_version"
+        elif key == "maintenanceWindow":
+            suggest = "maintenance_window"
+        elif key == "nodeType":
+            suggest = "node_type"
+        elif key == "numShards":
+            suggest = "num_shards"
+        elif key == "parameterGroupName":
+            suggest = "parameter_group_name"
+        elif key == "snapshotRetentionLimit":
+            suggest = "snapshot_retention_limit"
+        elif key == "snapshotWindow":
+            suggest = "snapshot_window"
+        elif key == "subnetGroupName":
+            suggest = "subnet_group_name"
+        elif key == "topicArn":
+            suggest = "topic_arn"
+        elif key == "vpcId":
+            suggest = "vpc_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SnapshotClusterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SnapshotClusterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SnapshotClusterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: Optional[_builtins.str] = None,
+                 engine: Optional[_builtins.str] = None,
+                 engine_version: Optional[_builtins.str] = None,
+                 maintenance_window: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 node_type: Optional[_builtins.str] = None,
+                 num_shards: Optional[_builtins.int] = None,
+                 parameter_group_name: Optional[_builtins.str] = None,
+                 port: Optional[_builtins.int] = None,
+                 snapshot_retention_limit: Optional[_builtins.int] = None,
+                 snapshot_window: Optional[_builtins.str] = None,
+                 subnet_group_name: Optional[_builtins.str] = None,
+                 topic_arn: Optional[_builtins.str] = None,
+                 vpc_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str description: The description of the cluster configuration.
+        :param _builtins.str engine: The name of the engine used by the cluster configuration.
+        :param _builtins.str engine_version: The Redis OSS engine version used by the cluster.
+        :param _builtins.str maintenance_window: The specified maintenance window for the cluster.
+        :param _builtins.str name: The name of the cluster.
+        :param _builtins.str node_type: The node type used for the cluster.
+        :param _builtins.int num_shards: The number of shards in the cluster.
+        :param _builtins.str parameter_group_name: The name of parameter group used by the cluster.
+        :param _builtins.int port: The port used by the cluster.
+        :param _builtins.int snapshot_retention_limit: The snapshot retention limit set by the cluster.
+        :param _builtins.str snapshot_window: The snapshot window set by the cluster.
+        :param _builtins.str subnet_group_name: The name of the subnet group used by the cluster.
+        :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the SNS notification topic for the cluster.
+        :param _builtins.str vpc_id: The ID of the VPC the cluster belongs to.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if engine is not None:
+            pulumi.set(__self__, "engine", engine)
+        if engine_version is not None:
+            pulumi.set(__self__, "engine_version", engine_version)
+        if maintenance_window is not None:
+            pulumi.set(__self__, "maintenance_window", maintenance_window)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if node_type is not None:
+            pulumi.set(__self__, "node_type", node_type)
+        if num_shards is not None:
+            pulumi.set(__self__, "num_shards", num_shards)
+        if parameter_group_name is not None:
+            pulumi.set(__self__, "parameter_group_name", parameter_group_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if snapshot_retention_limit is not None:
+            pulumi.set(__self__, "snapshot_retention_limit", snapshot_retention_limit)
+        if snapshot_window is not None:
+            pulumi.set(__self__, "snapshot_window", snapshot_window)
+        if subnet_group_name is not None:
+            pulumi.set(__self__, "subnet_group_name", subnet_group_name)
+        if topic_arn is not None:
+            pulumi.set(__self__, "topic_arn", topic_arn)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def description(self) -> Optional[_builtins.str]:
+        """
+        The description of the cluster configuration.
+        """
+        return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter
+    def engine(self) -> Optional[_builtins.str]:
+        """
+        The name of the engine used by the cluster configuration.
+        """
+        return pulumi.get(self, "engine")
+
+    @_builtins.property
+    @pulumi.getter(name="engineVersion")
+    def engine_version(self) -> Optional[_builtins.str]:
+        """
+        The Redis OSS engine version used by the cluster.
+        """
+        return pulumi.get(self, "engine_version")
+
+    @_builtins.property
+    @pulumi.getter(name="maintenanceWindow")
+    def maintenance_window(self) -> Optional[_builtins.str]:
+        """
+        The specified maintenance window for the cluster.
+        """
+        return pulumi.get(self, "maintenance_window")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of the cluster.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="nodeType")
+    def node_type(self) -> Optional[_builtins.str]:
+        """
+        The node type used for the cluster.
+        """
+        return pulumi.get(self, "node_type")
+
+    @_builtins.property
+    @pulumi.getter(name="numShards")
+    def num_shards(self) -> Optional[_builtins.int]:
+        """
+        The number of shards in the cluster.
+        """
+        return pulumi.get(self, "num_shards")
+
+    @_builtins.property
+    @pulumi.getter(name="parameterGroupName")
+    def parameter_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of parameter group used by the cluster.
+        """
+        return pulumi.get(self, "parameter_group_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> Optional[_builtins.int]:
+        """
+        The port used by the cluster.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotRetentionLimit")
+    def snapshot_retention_limit(self) -> Optional[_builtins.int]:
+        """
+        The snapshot retention limit set by the cluster.
+        """
+        return pulumi.get(self, "snapshot_retention_limit")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotWindow")
+    def snapshot_window(self) -> Optional[_builtins.str]:
+        """
+        The snapshot window set by the cluster.
+        """
+        return pulumi.get(self, "snapshot_window")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetGroupName")
+    def subnet_group_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the subnet group used by the cluster.
+        """
+        return pulumi.get(self, "subnet_group_name")
+
+    @_builtins.property
+    @pulumi.getter(name="topicArn")
+    def topic_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the SNS notification topic for the cluster.
+        """
+        return pulumi.get(self, "topic_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the VPC the cluster belongs to.
+        """
+        return pulumi.get(self, "vpc_id")
 
 

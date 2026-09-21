@@ -11,6 +11,7 @@ __all__ = [
     'HealthCheckConfigPropertiesType',
     'KeySigningKeyStatus',
     'RecordSetFailover',
+    'TrafficPolicyType',
 ]
 
 
@@ -77,3 +78,27 @@ class KeySigningKeyStatus(_builtins.str, Enum):
 class RecordSetFailover(_builtins.str, Enum):
     PRIMARY = "PRIMARY"
     SECONDARY = "SECONDARY"
+
+
+@pulumi.type_token("aws-native:route53:TrafficPolicyType")
+class TrafficPolicyType(_builtins.str, Enum):
+    """
+    The DNS type of the resource record sets that Amazon Route 53 creates when the traffic policy is used to create a traffic policy instance.
+    """
+    SOA = "SOA"
+    A = "A"
+    TXT = "TXT"
+    NS = "NS"
+    CNAME = "CNAME"
+    MX = "MX"
+    NAPTR = "NAPTR"
+    PTR = "PTR"
+    SRV = "SRV"
+    SPF = "SPF"
+    AAAA = "AAAA"
+    CAA = "CAA"
+    DS = "DS"
+    TLSA = "TLSA"
+    SSHFP = "SSHFP"
+    SVCB = "SVCB"
+    HTTPS = "HTTPS"

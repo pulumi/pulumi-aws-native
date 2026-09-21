@@ -25,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetImageBuilderResult:
-    def __init__(__self__, access_endpoints=None, appstream_agent_version=None, description=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, image_arn=None, instance_type=None, root_volume_config=None, streaming_url=None, tags=None, vpc_config=None):
+    def __init__(__self__, access_endpoints=None, appstream_agent_version=None, description=None, disable_imdsv1=None, display_name=None, domain_join_info=None, enable_default_internet_access=None, iam_role_arn=None, image_arn=None, instance_type=None, root_volume_config=None, streaming_url=None, tags=None, vpc_config=None):
         if access_endpoints and not isinstance(access_endpoints, list):
             raise TypeError("Expected argument 'access_endpoints' to be a list")
         pulumi.set(__self__, "access_endpoints", access_endpoints)
@@ -35,6 +35,9 @@ class GetImageBuilderResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if disable_imdsv1 and not isinstance(disable_imdsv1, bool):
+            raise TypeError("Expected argument 'disable_imdsv1' to be a bool")
+        pulumi.set(__self__, "disable_imdsv1", disable_imdsv1)
         if display_name and not isinstance(display_name, str):
             raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
@@ -89,6 +92,11 @@ class GetImageBuilderResult:
         The description to display.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="disableImdsv1")
+    def disable_imdsv1(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "disable_imdsv1")
 
     @_builtins.property
     @pulumi.getter(name="displayName")
@@ -230,6 +238,7 @@ class AwaitableGetImageBuilderResult(GetImageBuilderResult):
             access_endpoints=self.access_endpoints,
             appstream_agent_version=self.appstream_agent_version,
             description=self.description,
+            disable_imdsv1=self.disable_imdsv1,
             display_name=self.display_name,
             domain_join_info=self.domain_join_info,
             enable_default_internet_access=self.enable_default_internet_access,
@@ -258,6 +267,7 @@ def get_image_builder(name: Optional[_builtins.str] = None,
         access_endpoints=pulumi.get(__ret__, 'access_endpoints'),
         appstream_agent_version=pulumi.get(__ret__, 'appstream_agent_version'),
         description=pulumi.get(__ret__, 'description'),
+        disable_imdsv1=pulumi.get(__ret__, 'disable_imdsv1'),
         display_name=pulumi.get(__ret__, 'display_name'),
         domain_join_info=pulumi.get(__ret__, 'domain_join_info'),
         enable_default_internet_access=pulumi.get(__ret__, 'enable_default_internet_access'),
@@ -283,6 +293,7 @@ def get_image_builder_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         access_endpoints=pulumi.get(__response__, 'access_endpoints'),
         appstream_agent_version=pulumi.get(__response__, 'appstream_agent_version'),
         description=pulumi.get(__response__, 'description'),
+        disable_imdsv1=pulumi.get(__response__, 'disable_imdsv1'),
         display_name=pulumi.get(__response__, 'display_name'),
         domain_join_info=pulumi.get(__response__, 'domain_join_info'),
         enable_default_internet_access=pulumi.get(__response__, 'enable_default_internet_access'),

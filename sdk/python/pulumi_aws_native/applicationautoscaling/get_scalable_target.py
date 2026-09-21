@@ -14,6 +14,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
+from .. import outputs as _root_outputs
 
 __all__ = [
     'GetScalableTargetResult',
@@ -24,7 +25,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetScalableTargetResult:
-    def __init__(__self__, id=None, max_capacity=None, min_capacity=None, scheduled_actions=None, suspended_state=None):
+    def __init__(__self__, id=None, max_capacity=None, min_capacity=None, scheduled_actions=None, suspended_state=None, tags=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -40,6 +41,9 @@ class GetScalableTargetResult:
         if suspended_state and not isinstance(suspended_state, dict):
             raise TypeError("Expected argument 'suspended_state' to be a dict")
         pulumi.set(__self__, "suspended_state", suspended_state)
+        if tags and not isinstance(tags, list):
+            raise TypeError("Expected argument 'tags' to be a list")
+        pulumi.set(__self__, "tags", tags)
 
     @_builtins.property
     @pulumi.getter
@@ -82,6 +86,11 @@ class GetScalableTargetResult:
         """
         return pulumi.get(self, "suspended_state")
 
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Sequence['_root_outputs.Tag']]:
+        return pulumi.get(self, "tags")
+
 
 class AwaitableGetScalableTargetResult(GetScalableTargetResult):
     # pylint: disable=using-constant-test
@@ -93,7 +102,8 @@ class AwaitableGetScalableTargetResult(GetScalableTargetResult):
             max_capacity=self.max_capacity,
             min_capacity=self.min_capacity,
             scheduled_actions=self.scheduled_actions,
-            suspended_state=self.suspended_state)
+            suspended_state=self.suspended_state,
+            tags=self.tags)
 
 
 def get_scalable_target(resource_id: Optional[_builtins.str] = None,
@@ -165,7 +175,8 @@ def get_scalable_target(resource_id: Optional[_builtins.str] = None,
         max_capacity=pulumi.get(__ret__, 'max_capacity'),
         min_capacity=pulumi.get(__ret__, 'min_capacity'),
         scheduled_actions=pulumi.get(__ret__, 'scheduled_actions'),
-        suspended_state=pulumi.get(__ret__, 'suspended_state'))
+        suspended_state=pulumi.get(__ret__, 'suspended_state'),
+        tags=pulumi.get(__ret__, 'tags'))
 def get_scalable_target_output(resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                                scalable_dimension: pulumi.Input[Optional[_builtins.str]] = None,
                                service_namespace: pulumi.Input[Optional[_builtins.str]] = None,
@@ -234,4 +245,5 @@ def get_scalable_target_output(resource_id: pulumi.Input[Optional[_builtins.str]
         max_capacity=pulumi.get(__response__, 'max_capacity'),
         min_capacity=pulumi.get(__response__, 'min_capacity'),
         scheduled_actions=pulumi.get(__response__, 'scheduled_actions'),
-        suspended_state=pulumi.get(__response__, 'suspended_state')))
+        suspended_state=pulumi.get(__response__, 'suspended_state'),
+        tags=pulumi.get(__response__, 'tags')))

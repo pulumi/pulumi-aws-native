@@ -7,6 +7,8 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .channel import *
+from .get_channel import *
 from .get_resource_policy import *
 from .get_stream import *
 from .get_stream_consumer import *

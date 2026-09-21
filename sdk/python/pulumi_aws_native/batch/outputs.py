@@ -779,12 +779,18 @@ class ComputeEnvironmentEcsSettings(dict):
 
     def __init__(__self__, *,
                  container_insights: Optional['ComputeEnvironmentEcsSettingsContainerInsights'] = None):
+        """
+        :param 'ComputeEnvironmentEcsSettingsContainerInsights' container_insights: The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
+        """
         if container_insights is not None:
             pulumi.set(__self__, "container_insights", container_insights)
 
     @_builtins.property
     @pulumi.getter(name="containerInsights")
     def container_insights(self) -> Optional['ComputeEnvironmentEcsSettingsContainerInsights']:
+        """
+        The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
+        """
         return pulumi.get(self, "container_insights")
 
 

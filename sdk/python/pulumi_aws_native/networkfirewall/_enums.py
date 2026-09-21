@@ -7,6 +7,8 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ContainerAssociationStatus',
+    'ContainerAssociationType',
     'FirewallEnabledAnalysisType',
     'FirewallPolicyOverrideAction',
     'FirewallPolicyRuleOrder',
@@ -25,6 +27,26 @@ __all__ = [
     'TlsInspectionConfigurationRevokedStatusAction',
     'TlsInspectionConfigurationUnknownStatusAction',
 ]
+
+
+@pulumi.type_token("aws-native:networkfirewall:ContainerAssociationStatus")
+class ContainerAssociationStatus(_builtins.str, Enum):
+    """
+    The current status of the container association.
+    """
+    ACTIVE = "ACTIVE"
+    CREATING = "CREATING"
+    DELETING = "DELETING"
+    UPDATING = "UPDATING"
+
+
+@pulumi.type_token("aws-native:networkfirewall:ContainerAssociationType")
+class ContainerAssociationType(_builtins.str, Enum):
+    """
+    The type of containers to monitor. You can't change the container type after creation.
+    """
+    ECS = "ECS"
+    EKS = "EKS"
 
 
 @pulumi.type_token("aws-native:networkfirewall:FirewallEnabledAnalysisType")

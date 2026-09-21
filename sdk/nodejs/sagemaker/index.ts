@@ -10,6 +10,11 @@ export type Action = import("./action").Action;
 export const Action: typeof import("./action").Action = null as any;
 utilities.lazyLoad(exports, ["Action"], () => require("./action"));
 
+export { AiWorkloadConfigArgs } from "./aiWorkloadConfig";
+export type AiWorkloadConfig = import("./aiWorkloadConfig").AiWorkloadConfig;
+export const AiWorkloadConfig: typeof import("./aiWorkloadConfig").AiWorkloadConfig = null as any;
+utilities.lazyLoad(exports, ["AiWorkloadConfig"], () => require("./aiWorkloadConfig"));
+
 export { AlgorithmArgs } from "./algorithm";
 export type Algorithm = import("./algorithm").Algorithm;
 export const Algorithm: typeof import("./algorithm").Algorithm = null as any;
@@ -34,6 +39,11 @@ export { ClusterArgs } from "./cluster";
 export type Cluster = import("./cluster").Cluster;
 export const Cluster: typeof import("./cluster").Cluster = null as any;
 utilities.lazyLoad(exports, ["Cluster"], () => require("./cluster"));
+
+export { CodeRepositoryArgs } from "./codeRepository";
+export type CodeRepository = import("./codeRepository").CodeRepository;
+export const CodeRepository: typeof import("./codeRepository").CodeRepository = null as any;
+utilities.lazyLoad(exports, ["CodeRepository"], () => require("./codeRepository"));
 
 export { ContextArgs } from "./context";
 export type Context = import("./context").Context;
@@ -90,6 +100,11 @@ export const getAction: typeof import("./getAction").getAction = null as any;
 export const getActionOutput: typeof import("./getAction").getActionOutput = null as any;
 utilities.lazyLoad(exports, ["getAction","getActionOutput"], () => require("./getAction"));
 
+export { GetAiWorkloadConfigArgs, GetAiWorkloadConfigResult, GetAiWorkloadConfigOutputArgs } from "./getAiWorkloadConfig";
+export const getAiWorkloadConfig: typeof import("./getAiWorkloadConfig").getAiWorkloadConfig = null as any;
+export const getAiWorkloadConfigOutput: typeof import("./getAiWorkloadConfig").getAiWorkloadConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getAiWorkloadConfig","getAiWorkloadConfigOutput"], () => require("./getAiWorkloadConfig"));
+
 export { GetAlgorithmArgs, GetAlgorithmResult, GetAlgorithmOutputArgs } from "./getAlgorithm";
 export const getAlgorithm: typeof import("./getAlgorithm").getAlgorithm = null as any;
 export const getAlgorithmOutput: typeof import("./getAlgorithm").getAlgorithmOutput = null as any;
@@ -114,6 +129,11 @@ export { GetClusterArgs, GetClusterResult, GetClusterOutputArgs } from "./getClu
 export const getCluster: typeof import("./getCluster").getCluster = null as any;
 export const getClusterOutput: typeof import("./getCluster").getClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getCluster","getClusterOutput"], () => require("./getCluster"));
+
+export { GetCodeRepositoryArgs, GetCodeRepositoryResult, GetCodeRepositoryOutputArgs } from "./getCodeRepository";
+export const getCodeRepository: typeof import("./getCodeRepository").getCodeRepository = null as any;
+export const getCodeRepositoryOutput: typeof import("./getCodeRepository").getCodeRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getCodeRepository","getCodeRepositoryOutput"], () => require("./getCodeRepository"));
 
 export { GetContextArgs, GetContextResult, GetContextOutputArgs } from "./getContext";
 export const getContext: typeof import("./getContext").getContext = null as any;
@@ -245,6 +265,11 @@ export const getNotebookInstance: typeof import("./getNotebookInstance").getNote
 export const getNotebookInstanceOutput: typeof import("./getNotebookInstance").getNotebookInstanceOutput = null as any;
 utilities.lazyLoad(exports, ["getNotebookInstance","getNotebookInstanceOutput"], () => require("./getNotebookInstance"));
 
+export { GetNotebookInstanceLifecycleConfigArgs, GetNotebookInstanceLifecycleConfigResult, GetNotebookInstanceLifecycleConfigOutputArgs } from "./getNotebookInstanceLifecycleConfig";
+export const getNotebookInstanceLifecycleConfig: typeof import("./getNotebookInstanceLifecycleConfig").getNotebookInstanceLifecycleConfig = null as any;
+export const getNotebookInstanceLifecycleConfigOutput: typeof import("./getNotebookInstanceLifecycleConfig").getNotebookInstanceLifecycleConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getNotebookInstanceLifecycleConfig","getNotebookInstanceLifecycleConfigOutput"], () => require("./getNotebookInstanceLifecycleConfig"));
+
 export { GetPartnerAppArgs, GetPartnerAppResult, GetPartnerAppOutputArgs } from "./getPartnerApp";
 export const getPartnerApp: typeof import("./getPartnerApp").getPartnerApp = null as any;
 export const getPartnerAppOutput: typeof import("./getPartnerApp").getPartnerAppOutput = null as any;
@@ -375,6 +400,11 @@ export type NotebookInstance = import("./notebookInstance").NotebookInstance;
 export const NotebookInstance: typeof import("./notebookInstance").NotebookInstance = null as any;
 utilities.lazyLoad(exports, ["NotebookInstance"], () => require("./notebookInstance"));
 
+export { NotebookInstanceLifecycleConfigArgs } from "./notebookInstanceLifecycleConfig";
+export type NotebookInstanceLifecycleConfig = import("./notebookInstanceLifecycleConfig").NotebookInstanceLifecycleConfig;
+export const NotebookInstanceLifecycleConfig: typeof import("./notebookInstanceLifecycleConfig").NotebookInstanceLifecycleConfig = null as any;
+utilities.lazyLoad(exports, ["NotebookInstanceLifecycleConfig"], () => require("./notebookInstanceLifecycleConfig"));
+
 export { PartnerAppArgs } from "./partnerApp";
 export type PartnerApp = import("./partnerApp").PartnerApp;
 export const PartnerApp: typeof import("./partnerApp").PartnerApp = null as any;
@@ -430,6 +460,8 @@ const _module = {
         switch (type) {
             case "aws-native:sagemaker:Action":
                 return new Action(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:AiWorkloadConfig":
+                return new AiWorkloadConfig(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Algorithm":
                 return new Algorithm(name, <any>undefined, { urn })
             case "aws-native:sagemaker:App":
@@ -440,6 +472,8 @@ const _module = {
                 return new Artifact(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:CodeRepository":
+                return new CodeRepository(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Context":
                 return new Context(name, <any>undefined, { urn })
             case "aws-native:sagemaker:DataQualityJobDefinition":
@@ -494,6 +528,8 @@ const _module = {
                 return new MonitoringSchedule(name, <any>undefined, { urn })
             case "aws-native:sagemaker:NotebookInstance":
                 return new NotebookInstance(name, <any>undefined, { urn })
+            case "aws-native:sagemaker:NotebookInstanceLifecycleConfig":
+                return new NotebookInstanceLifecycleConfig(name, <any>undefined, { urn })
             case "aws-native:sagemaker:PartnerApp":
                 return new PartnerApp(name, <any>undefined, { urn })
             case "aws-native:sagemaker:Pipeline":

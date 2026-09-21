@@ -60,7 +60,8 @@ type LookupTopicResult struct {
 	FifoThroughputScope *string `pulumi:"fifoThroughputScope"`
 	// The ID of an AWS managed customer master key (CMK) for SNS or a custom CMK. For more information, see [Key terms](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms). For more examples, see ``KeyId`` in the *API Reference*.
 	//  This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
-	KmsMasterKeyId *string `pulumi:"kmsMasterKeyId"`
+	KmsMasterKeyId     *string `pulumi:"kmsMasterKeyId"`
+	MaximumMessageSize *int    `pulumi:"maximumMessageSize"`
 	// The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, ``SignatureVersion`` is set to ``1``.
 	SignatureVersion *string `pulumi:"signatureVersion"`
 	// The SNS subscriptions (endpoints) for this topic.
@@ -158,6 +159,10 @@ func (o LookupTopicResultOutput) FifoThroughputScope() pulumi.StringPtrOutput {
 //	This property applies only to [server-side-encryption](https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html).
 func (o LookupTopicResultOutput) KmsMasterKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupTopicResult) *string { return v.KmsMasterKeyId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupTopicResultOutput) MaximumMessageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTopicResult) *int { return v.MaximumMessageSize }).(pulumi.IntPtrOutput)
 }
 
 // The signature version corresponds to the hashing algorithm used while creating the signature of the notifications, subscription confirmations, or unsubscribe confirmation messages sent by Amazon SNS. By default, “SignatureVersion“ is set to “1“.

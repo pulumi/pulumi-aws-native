@@ -13,6 +13,132 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// An individual Firewall Manager application.
+type ApplicationsListApp struct {
+	// The application's name.
+	AppName string `pulumi:"appName"`
+	// The application's port number, for example 80.
+	Port int `pulumi:"port"`
+	// The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+	Protocol string `pulumi:"protocol"`
+}
+
+// ApplicationsListAppInput is an input type that accepts ApplicationsListAppArgs and ApplicationsListAppOutput values.
+// You can construct a concrete instance of `ApplicationsListAppInput` via:
+//
+//	ApplicationsListAppArgs{...}
+type ApplicationsListAppInput interface {
+	pulumi.Input
+
+	ToApplicationsListAppOutput() ApplicationsListAppOutput
+	ToApplicationsListAppOutputWithContext(context.Context) ApplicationsListAppOutput
+}
+
+// An individual Firewall Manager application.
+type ApplicationsListAppArgs struct {
+	// The application's name.
+	AppName pulumi.StringInput `pulumi:"appName"`
+	// The application's port number, for example 80.
+	Port pulumi.IntInput `pulumi:"port"`
+	// The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+	Protocol pulumi.StringInput `pulumi:"protocol"`
+}
+
+func (ApplicationsListAppArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationsListApp)(nil)).Elem()
+}
+
+func (i ApplicationsListAppArgs) ToApplicationsListAppOutput() ApplicationsListAppOutput {
+	return i.ToApplicationsListAppOutputWithContext(context.Background())
+}
+
+func (i ApplicationsListAppArgs) ToApplicationsListAppOutputWithContext(ctx context.Context) ApplicationsListAppOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationsListAppOutput)
+}
+
+// ApplicationsListAppArrayInput is an input type that accepts ApplicationsListAppArray and ApplicationsListAppArrayOutput values.
+// You can construct a concrete instance of `ApplicationsListAppArrayInput` via:
+//
+//	ApplicationsListAppArray{ ApplicationsListAppArgs{...} }
+type ApplicationsListAppArrayInput interface {
+	pulumi.Input
+
+	ToApplicationsListAppArrayOutput() ApplicationsListAppArrayOutput
+	ToApplicationsListAppArrayOutputWithContext(context.Context) ApplicationsListAppArrayOutput
+}
+
+type ApplicationsListAppArray []ApplicationsListAppInput
+
+func (ApplicationsListAppArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationsListApp)(nil)).Elem()
+}
+
+func (i ApplicationsListAppArray) ToApplicationsListAppArrayOutput() ApplicationsListAppArrayOutput {
+	return i.ToApplicationsListAppArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationsListAppArray) ToApplicationsListAppArrayOutputWithContext(ctx context.Context) ApplicationsListAppArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationsListAppArrayOutput)
+}
+
+// An individual Firewall Manager application.
+type ApplicationsListAppOutput struct{ *pulumi.OutputState }
+
+func (ApplicationsListAppOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationsListApp)(nil)).Elem()
+}
+
+func (o ApplicationsListAppOutput) ToApplicationsListAppOutput() ApplicationsListAppOutput {
+	return o
+}
+
+func (o ApplicationsListAppOutput) ToApplicationsListAppOutputWithContext(ctx context.Context) ApplicationsListAppOutput {
+	return o
+}
+
+// The application's name.
+func (o ApplicationsListAppOutput) AppName() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationsListApp) string { return v.AppName }).(pulumi.StringOutput)
+}
+
+// The application's port number, for example 80.
+func (o ApplicationsListAppOutput) Port() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationsListApp) int { return v.Port }).(pulumi.IntOutput)
+}
+
+// The IP protocol name or number. The name can be one of tcp, udp, or icmp. For information on possible numbers, see Protocol Numbers (https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml).
+func (o ApplicationsListAppOutput) Protocol() pulumi.StringOutput {
+	return o.ApplyT(func(v ApplicationsListApp) string { return v.Protocol }).(pulumi.StringOutput)
+}
+
+type ApplicationsListAppArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationsListAppArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationsListApp)(nil)).Elem()
+}
+
+func (o ApplicationsListAppArrayOutput) ToApplicationsListAppArrayOutput() ApplicationsListAppArrayOutput {
+	return o
+}
+
+func (o ApplicationsListAppArrayOutput) ToApplicationsListAppArrayOutputWithContext(ctx context.Context) ApplicationsListAppArrayOutput {
+	return o
+}
+
+func (o ApplicationsListAppArrayOutput) Index(i pulumi.IntInput) ApplicationsListAppOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationsListApp {
+		return vs[0].([]ApplicationsListApp)[vs[1].(int)]
+	}).(ApplicationsListAppOutput)
+}
+
+// A tag to associate with the applications list. A tag is a key-value pair.
+type ApplicationsListTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // An FMS includeMap or excludeMap.
 type PolicyIeMap struct {
 	// The account list for the map.
@@ -2047,6 +2173,14 @@ func (o PolicyThirdPartyFirewallPolicyPtrOutput) FirewallDeploymentModel() Polic
 	}).(PolicyFirewallDeploymentModelPtrOutput)
 }
 
+// A tag to associate with the protocols list. A tag is a key-value pair.
+type ProtocolsListTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // A tag.
 type ResourceSetTag struct {
 	// Part of the key:value pair that defines a tag. You can use a tag key to describe a category of information, such as "customer." Tag keys are case-sensitive.
@@ -2056,6 +2190,8 @@ type ResourceSetTag struct {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationsListAppInput)(nil)).Elem(), ApplicationsListAppArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationsListAppArrayInput)(nil)).Elem(), ApplicationsListAppArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIeMapInput)(nil)).Elem(), PolicyIeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyIeMapPtrInput)(nil)).Elem(), PolicyIeMapArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyNetworkAclCommonPolicyInput)(nil)).Elem(), PolicyNetworkAclCommonPolicyArgs{})
@@ -2077,6 +2213,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicySecurityServicePolicyDataInput)(nil)).Elem(), PolicySecurityServicePolicyDataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyThirdPartyFirewallPolicyInput)(nil)).Elem(), PolicyThirdPartyFirewallPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyThirdPartyFirewallPolicyPtrInput)(nil)).Elem(), PolicyThirdPartyFirewallPolicyArgs{})
+	pulumi.RegisterOutputType(ApplicationsListAppOutput{})
+	pulumi.RegisterOutputType(ApplicationsListAppArrayOutput{})
 	pulumi.RegisterOutputType(PolicyIeMapOutput{})
 	pulumi.RegisterOutputType(PolicyIeMapPtrOutput{})
 	pulumi.RegisterOutputType(PolicyNetworkAclCommonPolicyOutput{})

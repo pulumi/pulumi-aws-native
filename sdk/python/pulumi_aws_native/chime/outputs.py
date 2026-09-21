@@ -13,11 +13,977 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration',
+    'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration',
+    'MediaInsightsPipelineConfigurationElement',
+    'MediaInsightsPipelineConfigurationIssueDetectionConfiguration',
+    'MediaInsightsPipelineConfigurationKeywordMatchConfiguration',
+    'MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration',
+    'MediaInsightsPipelineConfigurationPostCallAnalyticsSettings',
+    'MediaInsightsPipelineConfigurationRealTimeAlertConfiguration',
+    'MediaInsightsPipelineConfigurationRealTimeAlertRule',
+    'MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration',
+    'MediaInsightsPipelineConfigurationSentimentConfiguration',
     'StreamConfigurationProperties',
 ]
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "languageCode":
+            suggest = "language_code"
+        elif key == "callAnalyticsStreamCategories":
+            suggest = "call_analytics_stream_categories"
+        elif key == "contentIdentificationType":
+            suggest = "content_identification_type"
+        elif key == "contentRedactionType":
+            suggest = "content_redaction_type"
+        elif key == "enablePartialResultsStabilization":
+            suggest = "enable_partial_results_stabilization"
+        elif key == "filterPartialResults":
+            suggest = "filter_partial_results"
+        elif key == "languageModelName":
+            suggest = "language_model_name"
+        elif key == "partialResultsStability":
+            suggest = "partial_results_stability"
+        elif key == "piiEntityTypes":
+            suggest = "pii_entity_types"
+        elif key == "postCallAnalyticsSettings":
+            suggest = "post_call_analytics_settings"
+        elif key == "vocabularyFilterMethod":
+            suggest = "vocabulary_filter_method"
+        elif key == "vocabularyFilterName":
+            suggest = "vocabulary_filter_name"
+        elif key == "vocabularyName":
+            suggest = "vocabulary_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 language_code: 'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode',
+                 call_analytics_stream_categories: Optional[Sequence[_builtins.str]] = None,
+                 content_identification_type: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType'] = None,
+                 content_redaction_type: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType'] = None,
+                 enable_partial_results_stabilization: Optional[_builtins.bool] = None,
+                 filter_partial_results: Optional[_builtins.bool] = None,
+                 language_model_name: Optional[_builtins.str] = None,
+                 partial_results_stability: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability'] = None,
+                 pii_entity_types: Optional[_builtins.str] = None,
+                 post_call_analytics_settings: Optional['outputs.MediaInsightsPipelineConfigurationPostCallAnalyticsSettings'] = None,
+                 vocabulary_filter_method: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod'] = None,
+                 vocabulary_filter_name: Optional[_builtins.str] = None,
+                 vocabulary_name: Optional[_builtins.str] = None):
+        """
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode' language_code: The language code in the configuration.
+        :param Sequence[_builtins.str] call_analytics_stream_categories: The categories to send to the insights target.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType' content_identification_type: Labels all PII identified in the transcript.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType' content_redaction_type: Redacts all PII identified in the transcript.
+        :param _builtins.bool enable_partial_results_stabilization: Enables partial result stabilization.
+        :param _builtins.bool filter_partial_results: If true, partial results are filtered out.
+        :param _builtins.str language_model_name: The name of the custom language model.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability' partial_results_stability: The level of stability for partial results.
+        :param _builtins.str pii_entity_types: The types of PII to redact.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod' vocabulary_filter_method: The vocabulary filtering method.
+        :param _builtins.str vocabulary_filter_name: The name of the custom vocabulary filter.
+        :param _builtins.str vocabulary_name: The name of the custom vocabulary.
+        """
+        pulumi.set(__self__, "language_code", language_code)
+        if call_analytics_stream_categories is not None:
+            pulumi.set(__self__, "call_analytics_stream_categories", call_analytics_stream_categories)
+        if content_identification_type is not None:
+            pulumi.set(__self__, "content_identification_type", content_identification_type)
+        if content_redaction_type is not None:
+            pulumi.set(__self__, "content_redaction_type", content_redaction_type)
+        if enable_partial_results_stabilization is not None:
+            pulumi.set(__self__, "enable_partial_results_stabilization", enable_partial_results_stabilization)
+        if filter_partial_results is not None:
+            pulumi.set(__self__, "filter_partial_results", filter_partial_results)
+        if language_model_name is not None:
+            pulumi.set(__self__, "language_model_name", language_model_name)
+        if partial_results_stability is not None:
+            pulumi.set(__self__, "partial_results_stability", partial_results_stability)
+        if pii_entity_types is not None:
+            pulumi.set(__self__, "pii_entity_types", pii_entity_types)
+        if post_call_analytics_settings is not None:
+            pulumi.set(__self__, "post_call_analytics_settings", post_call_analytics_settings)
+        if vocabulary_filter_method is not None:
+            pulumi.set(__self__, "vocabulary_filter_method", vocabulary_filter_method)
+        if vocabulary_filter_name is not None:
+            pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
+        if vocabulary_name is not None:
+            pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+
+    @_builtins.property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> 'MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationLanguageCode':
+        """
+        The language code in the configuration.
+        """
+        return pulumi.get(self, "language_code")
+
+    @_builtins.property
+    @pulumi.getter(name="callAnalyticsStreamCategories")
+    def call_analytics_stream_categories(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        The categories to send to the insights target.
+        """
+        return pulumi.get(self, "call_analytics_stream_categories")
+
+    @_builtins.property
+    @pulumi.getter(name="contentIdentificationType")
+    def content_identification_type(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentIdentificationType']:
+        """
+        Labels all PII identified in the transcript.
+        """
+        return pulumi.get(self, "content_identification_type")
+
+    @_builtins.property
+    @pulumi.getter(name="contentRedactionType")
+    def content_redaction_type(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationContentRedactionType']:
+        """
+        Redacts all PII identified in the transcript.
+        """
+        return pulumi.get(self, "content_redaction_type")
+
+    @_builtins.property
+    @pulumi.getter(name="enablePartialResultsStabilization")
+    def enable_partial_results_stabilization(self) -> Optional[_builtins.bool]:
+        """
+        Enables partial result stabilization.
+        """
+        return pulumi.get(self, "enable_partial_results_stabilization")
+
+    @_builtins.property
+    @pulumi.getter(name="filterPartialResults")
+    def filter_partial_results(self) -> Optional[_builtins.bool]:
+        """
+        If true, partial results are filtered out.
+        """
+        return pulumi.get(self, "filter_partial_results")
+
+    @_builtins.property
+    @pulumi.getter(name="languageModelName")
+    def language_model_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the custom language model.
+        """
+        return pulumi.get(self, "language_model_name")
+
+    @_builtins.property
+    @pulumi.getter(name="partialResultsStability")
+    def partial_results_stability(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationPartialResultsStability']:
+        """
+        The level of stability for partial results.
+        """
+        return pulumi.get(self, "partial_results_stability")
+
+    @_builtins.property
+    @pulumi.getter(name="piiEntityTypes")
+    def pii_entity_types(self) -> Optional[_builtins.str]:
+        """
+        The types of PII to redact.
+        """
+        return pulumi.get(self, "pii_entity_types")
+
+    @_builtins.property
+    @pulumi.getter(name="postCallAnalyticsSettings")
+    def post_call_analytics_settings(self) -> Optional['outputs.MediaInsightsPipelineConfigurationPostCallAnalyticsSettings']:
+        return pulumi.get(self, "post_call_analytics_settings")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyFilterMethod")
+    def vocabulary_filter_method(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfigurationVocabularyFilterMethod']:
+        """
+        The vocabulary filtering method.
+        """
+        return pulumi.get(self, "vocabulary_filter_method")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyFilterName")
+    def vocabulary_filter_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the custom vocabulary filter.
+        """
+        return pulumi.get(self, "vocabulary_filter_name")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyName")
+    def vocabulary_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the custom vocabulary.
+        """
+        return pulumi.get(self, "vocabulary_name")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentIdentificationType":
+            suggest = "content_identification_type"
+        elif key == "contentRedactionType":
+            suggest = "content_redaction_type"
+        elif key == "enablePartialResultsStabilization":
+            suggest = "enable_partial_results_stabilization"
+        elif key == "filterPartialResults":
+            suggest = "filter_partial_results"
+        elif key == "identifyLanguage":
+            suggest = "identify_language"
+        elif key == "identifyMultipleLanguages":
+            suggest = "identify_multiple_languages"
+        elif key == "languageCode":
+            suggest = "language_code"
+        elif key == "languageModelName":
+            suggest = "language_model_name"
+        elif key == "languageOptions":
+            suggest = "language_options"
+        elif key == "partialResultsStability":
+            suggest = "partial_results_stability"
+        elif key == "piiEntityTypes":
+            suggest = "pii_entity_types"
+        elif key == "preferredLanguage":
+            suggest = "preferred_language"
+        elif key == "showSpeakerLabel":
+            suggest = "show_speaker_label"
+        elif key == "vocabularyFilterMethod":
+            suggest = "vocabulary_filter_method"
+        elif key == "vocabularyFilterName":
+            suggest = "vocabulary_filter_name"
+        elif key == "vocabularyFilterNames":
+            suggest = "vocabulary_filter_names"
+        elif key == "vocabularyName":
+            suggest = "vocabulary_name"
+        elif key == "vocabularyNames":
+            suggest = "vocabulary_names"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_identification_type: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType'] = None,
+                 content_redaction_type: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType'] = None,
+                 enable_partial_results_stabilization: Optional[_builtins.bool] = None,
+                 filter_partial_results: Optional[_builtins.bool] = None,
+                 identify_language: Optional[_builtins.bool] = None,
+                 identify_multiple_languages: Optional[_builtins.bool] = None,
+                 language_code: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode'] = None,
+                 language_model_name: Optional[_builtins.str] = None,
+                 language_options: Optional[_builtins.str] = None,
+                 partial_results_stability: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability'] = None,
+                 pii_entity_types: Optional[_builtins.str] = None,
+                 preferred_language: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage'] = None,
+                 show_speaker_label: Optional[_builtins.bool] = None,
+                 vocabulary_filter_method: Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod'] = None,
+                 vocabulary_filter_name: Optional[_builtins.str] = None,
+                 vocabulary_filter_names: Optional[_builtins.str] = None,
+                 vocabulary_name: Optional[_builtins.str] = None,
+                 vocabulary_names: Optional[_builtins.str] = None):
+        """
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType' content_identification_type: Labels all PII identified in the transcript.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType' content_redaction_type: Redacts all PII identified in the transcript.
+        :param _builtins.bool enable_partial_results_stabilization: Enables partial result stabilization.
+        :param _builtins.bool filter_partial_results: If true, partial results are filtered out.
+        :param _builtins.bool identify_language: Turns language identification on or off.
+        :param _builtins.bool identify_multiple_languages: Turns multiple language identification on or off.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode' language_code: The language code.
+        :param _builtins.str language_model_name: The name of the custom language model.
+        :param _builtins.str language_options: The language options for transcription.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability' partial_results_stability: The level of stability for partial results.
+        :param _builtins.str pii_entity_types: The types of PII to redact.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage' preferred_language: The preferred language for transcription.
+        :param _builtins.bool show_speaker_label: Enables speaker partitioning.
+        :param 'MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod' vocabulary_filter_method: The vocabulary filtering method.
+        :param _builtins.str vocabulary_filter_name: The name of the custom vocabulary filter.
+        :param _builtins.str vocabulary_filter_names: The names of the custom vocabulary filters.
+        :param _builtins.str vocabulary_name: The name of the custom vocabulary.
+        :param _builtins.str vocabulary_names: The names of the custom vocabularies.
+        """
+        if content_identification_type is not None:
+            pulumi.set(__self__, "content_identification_type", content_identification_type)
+        if content_redaction_type is not None:
+            pulumi.set(__self__, "content_redaction_type", content_redaction_type)
+        if enable_partial_results_stabilization is not None:
+            pulumi.set(__self__, "enable_partial_results_stabilization", enable_partial_results_stabilization)
+        if filter_partial_results is not None:
+            pulumi.set(__self__, "filter_partial_results", filter_partial_results)
+        if identify_language is not None:
+            pulumi.set(__self__, "identify_language", identify_language)
+        if identify_multiple_languages is not None:
+            pulumi.set(__self__, "identify_multiple_languages", identify_multiple_languages)
+        if language_code is not None:
+            pulumi.set(__self__, "language_code", language_code)
+        if language_model_name is not None:
+            pulumi.set(__self__, "language_model_name", language_model_name)
+        if language_options is not None:
+            pulumi.set(__self__, "language_options", language_options)
+        if partial_results_stability is not None:
+            pulumi.set(__self__, "partial_results_stability", partial_results_stability)
+        if pii_entity_types is not None:
+            pulumi.set(__self__, "pii_entity_types", pii_entity_types)
+        if preferred_language is not None:
+            pulumi.set(__self__, "preferred_language", preferred_language)
+        if show_speaker_label is not None:
+            pulumi.set(__self__, "show_speaker_label", show_speaker_label)
+        if vocabulary_filter_method is not None:
+            pulumi.set(__self__, "vocabulary_filter_method", vocabulary_filter_method)
+        if vocabulary_filter_name is not None:
+            pulumi.set(__self__, "vocabulary_filter_name", vocabulary_filter_name)
+        if vocabulary_filter_names is not None:
+            pulumi.set(__self__, "vocabulary_filter_names", vocabulary_filter_names)
+        if vocabulary_name is not None:
+            pulumi.set(__self__, "vocabulary_name", vocabulary_name)
+        if vocabulary_names is not None:
+            pulumi.set(__self__, "vocabulary_names", vocabulary_names)
+
+    @_builtins.property
+    @pulumi.getter(name="contentIdentificationType")
+    def content_identification_type(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentIdentificationType']:
+        """
+        Labels all PII identified in the transcript.
+        """
+        return pulumi.get(self, "content_identification_type")
+
+    @_builtins.property
+    @pulumi.getter(name="contentRedactionType")
+    def content_redaction_type(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationContentRedactionType']:
+        """
+        Redacts all PII identified in the transcript.
+        """
+        return pulumi.get(self, "content_redaction_type")
+
+    @_builtins.property
+    @pulumi.getter(name="enablePartialResultsStabilization")
+    def enable_partial_results_stabilization(self) -> Optional[_builtins.bool]:
+        """
+        Enables partial result stabilization.
+        """
+        return pulumi.get(self, "enable_partial_results_stabilization")
+
+    @_builtins.property
+    @pulumi.getter(name="filterPartialResults")
+    def filter_partial_results(self) -> Optional[_builtins.bool]:
+        """
+        If true, partial results are filtered out.
+        """
+        return pulumi.get(self, "filter_partial_results")
+
+    @_builtins.property
+    @pulumi.getter(name="identifyLanguage")
+    def identify_language(self) -> Optional[_builtins.bool]:
+        """
+        Turns language identification on or off.
+        """
+        return pulumi.get(self, "identify_language")
+
+    @_builtins.property
+    @pulumi.getter(name="identifyMultipleLanguages")
+    def identify_multiple_languages(self) -> Optional[_builtins.bool]:
+        """
+        Turns multiple language identification on or off.
+        """
+        return pulumi.get(self, "identify_multiple_languages")
+
+    @_builtins.property
+    @pulumi.getter(name="languageCode")
+    def language_code(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationLanguageCode']:
+        """
+        The language code.
+        """
+        return pulumi.get(self, "language_code")
+
+    @_builtins.property
+    @pulumi.getter(name="languageModelName")
+    def language_model_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the custom language model.
+        """
+        return pulumi.get(self, "language_model_name")
+
+    @_builtins.property
+    @pulumi.getter(name="languageOptions")
+    def language_options(self) -> Optional[_builtins.str]:
+        """
+        The language options for transcription.
+        """
+        return pulumi.get(self, "language_options")
+
+    @_builtins.property
+    @pulumi.getter(name="partialResultsStability")
+    def partial_results_stability(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPartialResultsStability']:
+        """
+        The level of stability for partial results.
+        """
+        return pulumi.get(self, "partial_results_stability")
+
+    @_builtins.property
+    @pulumi.getter(name="piiEntityTypes")
+    def pii_entity_types(self) -> Optional[_builtins.str]:
+        """
+        The types of PII to redact.
+        """
+        return pulumi.get(self, "pii_entity_types")
+
+    @_builtins.property
+    @pulumi.getter(name="preferredLanguage")
+    def preferred_language(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationPreferredLanguage']:
+        """
+        The preferred language for transcription.
+        """
+        return pulumi.get(self, "preferred_language")
+
+    @_builtins.property
+    @pulumi.getter(name="showSpeakerLabel")
+    def show_speaker_label(self) -> Optional[_builtins.bool]:
+        """
+        Enables speaker partitioning.
+        """
+        return pulumi.get(self, "show_speaker_label")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyFilterMethod")
+    def vocabulary_filter_method(self) -> Optional['MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfigurationVocabularyFilterMethod']:
+        """
+        The vocabulary filtering method.
+        """
+        return pulumi.get(self, "vocabulary_filter_method")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyFilterName")
+    def vocabulary_filter_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the custom vocabulary filter.
+        """
+        return pulumi.get(self, "vocabulary_filter_name")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyFilterNames")
+    def vocabulary_filter_names(self) -> Optional[_builtins.str]:
+        """
+        The names of the custom vocabulary filters.
+        """
+        return pulumi.get(self, "vocabulary_filter_names")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyName")
+    def vocabulary_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the custom vocabulary.
+        """
+        return pulumi.get(self, "vocabulary_name")
+
+    @_builtins.property
+    @pulumi.getter(name="vocabularyNames")
+    def vocabulary_names(self) -> Optional[_builtins.str]:
+        """
+        The names of the custom vocabularies.
+        """
+        return pulumi.get(self, "vocabulary_names")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationElement(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amazonTranscribeCallAnalyticsProcessorConfiguration":
+            suggest = "amazon_transcribe_call_analytics_processor_configuration"
+        elif key == "amazonTranscribeProcessorConfiguration":
+            suggest = "amazon_transcribe_processor_configuration"
+        elif key == "kinesisDataStreamSinkConfiguration":
+            suggest = "kinesis_data_stream_sink_configuration"
+        elif key == "s3RecordingSinkConfiguration":
+            suggest = "s3_recording_sink_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationElement. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationElement.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationElement.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'MediaInsightsPipelineConfigurationElementType',
+                 amazon_transcribe_call_analytics_processor_configuration: Optional['outputs.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration'] = None,
+                 amazon_transcribe_processor_configuration: Optional['outputs.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration'] = None,
+                 kinesis_data_stream_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration'] = None,
+                 s3_recording_sink_configuration: Optional['outputs.MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration'] = None):
+        """
+        :param 'MediaInsightsPipelineConfigurationElementType' type: The element type.
+        """
+        pulumi.set(__self__, "type", type)
+        if amazon_transcribe_call_analytics_processor_configuration is not None:
+            pulumi.set(__self__, "amazon_transcribe_call_analytics_processor_configuration", amazon_transcribe_call_analytics_processor_configuration)
+        if amazon_transcribe_processor_configuration is not None:
+            pulumi.set(__self__, "amazon_transcribe_processor_configuration", amazon_transcribe_processor_configuration)
+        if kinesis_data_stream_sink_configuration is not None:
+            pulumi.set(__self__, "kinesis_data_stream_sink_configuration", kinesis_data_stream_sink_configuration)
+        if s3_recording_sink_configuration is not None:
+            pulumi.set(__self__, "s3_recording_sink_configuration", s3_recording_sink_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'MediaInsightsPipelineConfigurationElementType':
+        """
+        The element type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="amazonTranscribeCallAnalyticsProcessorConfiguration")
+    def amazon_transcribe_call_analytics_processor_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationAmazonTranscribeCallAnalyticsProcessorConfiguration']:
+        return pulumi.get(self, "amazon_transcribe_call_analytics_processor_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="amazonTranscribeProcessorConfiguration")
+    def amazon_transcribe_processor_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationAmazonTranscribeProcessorConfiguration']:
+        return pulumi.get(self, "amazon_transcribe_processor_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="kinesisDataStreamSinkConfiguration")
+    def kinesis_data_stream_sink_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration']:
+        return pulumi.get(self, "kinesis_data_stream_sink_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="s3RecordingSinkConfiguration")
+    def s3_recording_sink_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration']:
+        return pulumi.get(self, "s3_recording_sink_configuration")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationIssueDetectionConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleName":
+            suggest = "rule_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationIssueDetectionConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationIssueDetectionConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationIssueDetectionConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_name: _builtins.str):
+        """
+        :param _builtins.str rule_name: The name of the issue detection rule.
+        """
+        pulumi.set(__self__, "rule_name", rule_name)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> _builtins.str:
+        """
+        The name of the issue detection rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationKeywordMatchConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleName":
+            suggest = "rule_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationKeywordMatchConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationKeywordMatchConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationKeywordMatchConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 keywords: Sequence[_builtins.str],
+                 rule_name: _builtins.str,
+                 negate: Optional[_builtins.bool] = None):
+        """
+        :param Sequence[_builtins.str] keywords: The keywords or phrases to match.
+        :param _builtins.str rule_name: The name of the keyword match rule.
+        :param _builtins.bool negate: Matches keywords on their presence or absence.
+        """
+        pulumi.set(__self__, "keywords", keywords)
+        pulumi.set(__self__, "rule_name", rule_name)
+        if negate is not None:
+            pulumi.set(__self__, "negate", negate)
+
+    @_builtins.property
+    @pulumi.getter
+    def keywords(self) -> Sequence[_builtins.str]:
+        """
+        The keywords or phrases to match.
+        """
+        return pulumi.get(self, "keywords")
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> _builtins.str:
+        """
+        The name of the keyword match rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def negate(self) -> Optional[_builtins.bool]:
+        """
+        Matches keywords on their presence or absence.
+        """
+        return pulumi.get(self, "negate")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "insightsTarget":
+            suggest = "insights_target"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationKinesisDataStreamSinkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 insights_target: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str insights_target: The ARN of the Kinesis Data Stream sink.
+        """
+        if insights_target is not None:
+            pulumi.set(__self__, "insights_target", insights_target)
+
+    @_builtins.property
+    @pulumi.getter(name="insightsTarget")
+    def insights_target(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the Kinesis Data Stream sink.
+        """
+        return pulumi.get(self, "insights_target")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationPostCallAnalyticsSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataAccessRoleArn":
+            suggest = "data_access_role_arn"
+        elif key == "outputLocation":
+            suggest = "output_location"
+        elif key == "contentRedactionOutput":
+            suggest = "content_redaction_output"
+        elif key == "outputEncryptionKmsKeyId":
+            suggest = "output_encryption_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationPostCallAnalyticsSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationPostCallAnalyticsSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationPostCallAnalyticsSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_access_role_arn: _builtins.str,
+                 output_location: _builtins.str,
+                 content_redaction_output: Optional['MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput'] = None,
+                 output_encryption_kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str data_access_role_arn: The ARN of the role used by Transcribe to upload post-call analysis.
+        :param _builtins.str output_location: The URL of the Amazon S3 bucket for post-call data.
+        :param 'MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput' content_redaction_output: The content redaction output settings.
+        :param _builtins.str output_encryption_kms_key_id: The ID of the KMS key used to encrypt the output.
+        """
+        pulumi.set(__self__, "data_access_role_arn", data_access_role_arn)
+        pulumi.set(__self__, "output_location", output_location)
+        if content_redaction_output is not None:
+            pulumi.set(__self__, "content_redaction_output", content_redaction_output)
+        if output_encryption_kms_key_id is not None:
+            pulumi.set(__self__, "output_encryption_kms_key_id", output_encryption_kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="dataAccessRoleArn")
+    def data_access_role_arn(self) -> _builtins.str:
+        """
+        The ARN of the role used by Transcribe to upload post-call analysis.
+        """
+        return pulumi.get(self, "data_access_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="outputLocation")
+    def output_location(self) -> _builtins.str:
+        """
+        The URL of the Amazon S3 bucket for post-call data.
+        """
+        return pulumi.get(self, "output_location")
+
+    @_builtins.property
+    @pulumi.getter(name="contentRedactionOutput")
+    def content_redaction_output(self) -> Optional['MediaInsightsPipelineConfigurationPostCallAnalyticsSettingsContentRedactionOutput']:
+        """
+        The content redaction output settings.
+        """
+        return pulumi.get(self, "content_redaction_output")
+
+    @_builtins.property
+    @pulumi.getter(name="outputEncryptionKmsKeyId")
+    def output_encryption_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the KMS key used to encrypt the output.
+        """
+        return pulumi.get(self, "output_encryption_kms_key_id")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationRealTimeAlertConfiguration(dict):
+    def __init__(__self__, *,
+                 disabled: Optional[_builtins.bool] = None,
+                 rules: Optional[Sequence['outputs.MediaInsightsPipelineConfigurationRealTimeAlertRule']] = None):
+        """
+        :param _builtins.bool disabled: Turns off real-time alerts.
+        :param Sequence['MediaInsightsPipelineConfigurationRealTimeAlertRule'] rules: The rules in the alert.
+        """
+        if disabled is not None:
+            pulumi.set(__self__, "disabled", disabled)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def disabled(self) -> Optional[_builtins.bool]:
+        """
+        Turns off real-time alerts.
+        """
+        return pulumi.get(self, "disabled")
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> Optional[Sequence['outputs.MediaInsightsPipelineConfigurationRealTimeAlertRule']]:
+        """
+        The rules in the alert.
+        """
+        return pulumi.get(self, "rules")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationRealTimeAlertRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "issueDetectionConfiguration":
+            suggest = "issue_detection_configuration"
+        elif key == "keywordMatchConfiguration":
+            suggest = "keyword_match_configuration"
+        elif key == "sentimentConfiguration":
+            suggest = "sentiment_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationRealTimeAlertRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationRealTimeAlertRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationRealTimeAlertRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: 'MediaInsightsPipelineConfigurationRealTimeAlertRuleType',
+                 issue_detection_configuration: Optional['outputs.MediaInsightsPipelineConfigurationIssueDetectionConfiguration'] = None,
+                 keyword_match_configuration: Optional['outputs.MediaInsightsPipelineConfigurationKeywordMatchConfiguration'] = None,
+                 sentiment_configuration: Optional['outputs.MediaInsightsPipelineConfigurationSentimentConfiguration'] = None):
+        """
+        :param 'MediaInsightsPipelineConfigurationRealTimeAlertRuleType' type: The type of alert rule.
+        """
+        pulumi.set(__self__, "type", type)
+        if issue_detection_configuration is not None:
+            pulumi.set(__self__, "issue_detection_configuration", issue_detection_configuration)
+        if keyword_match_configuration is not None:
+            pulumi.set(__self__, "keyword_match_configuration", keyword_match_configuration)
+        if sentiment_configuration is not None:
+            pulumi.set(__self__, "sentiment_configuration", sentiment_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> 'MediaInsightsPipelineConfigurationRealTimeAlertRuleType':
+        """
+        The type of alert rule.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="issueDetectionConfiguration")
+    def issue_detection_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationIssueDetectionConfiguration']:
+        return pulumi.get(self, "issue_detection_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="keywordMatchConfiguration")
+    def keyword_match_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationKeywordMatchConfiguration']:
+        return pulumi.get(self, "keyword_match_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="sentimentConfiguration")
+    def sentiment_configuration(self) -> Optional['outputs.MediaInsightsPipelineConfigurationSentimentConfiguration']:
+        return pulumi.get(self, "sentiment_configuration")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "recordingFileFormat":
+            suggest = "recording_file_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationS3RecordingSinkConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination: Optional[_builtins.str] = None,
+                 recording_file_format: Optional['MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat'] = None):
+        """
+        :param _builtins.str destination: The default URI of the Amazon S3 bucket.
+        :param 'MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat' recording_file_format: The recording file format.
+        """
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if recording_file_format is not None:
+            pulumi.set(__self__, "recording_file_format", recording_file_format)
+
+    @_builtins.property
+    @pulumi.getter
+    def destination(self) -> Optional[_builtins.str]:
+        """
+        The default URI of the Amazon S3 bucket.
+        """
+        return pulumi.get(self, "destination")
+
+    @_builtins.property
+    @pulumi.getter(name="recordingFileFormat")
+    def recording_file_format(self) -> Optional['MediaInsightsPipelineConfigurationS3RecordingSinkConfigurationRecordingFileFormat']:
+        """
+        The recording file format.
+        """
+        return pulumi.get(self, "recording_file_format")
+
+
+@pulumi.output_type
+class MediaInsightsPipelineConfigurationSentimentConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ruleName":
+            suggest = "rule_name"
+        elif key == "sentimentType":
+            suggest = "sentiment_type"
+        elif key == "timePeriod":
+            suggest = "time_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MediaInsightsPipelineConfigurationSentimentConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MediaInsightsPipelineConfigurationSentimentConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MediaInsightsPipelineConfigurationSentimentConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rule_name: _builtins.str,
+                 sentiment_type: 'MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType',
+                 time_period: _builtins.int):
+        """
+        :param _builtins.str rule_name: The name of the sentiment rule.
+        :param 'MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType' sentiment_type: The type of sentiment.
+        :param _builtins.int time_period: The analysis interval in seconds.
+        """
+        pulumi.set(__self__, "rule_name", rule_name)
+        pulumi.set(__self__, "sentiment_type", sentiment_type)
+        pulumi.set(__self__, "time_period", time_period)
+
+    @_builtins.property
+    @pulumi.getter(name="ruleName")
+    def rule_name(self) -> _builtins.str:
+        """
+        The name of the sentiment rule.
+        """
+        return pulumi.get(self, "rule_name")
+
+    @_builtins.property
+    @pulumi.getter(name="sentimentType")
+    def sentiment_type(self) -> 'MediaInsightsPipelineConfigurationSentimentConfigurationSentimentType':
+        """
+        The type of sentiment.
+        """
+        return pulumi.get(self, "sentiment_type")
+
+    @_builtins.property
+    @pulumi.getter(name="timePeriod")
+    def time_period(self) -> _builtins.int:
+        """
+        The analysis interval in seconds.
+        """
+        return pulumi.get(self, "time_period")
+
 
 @pulumi.output_type
 class StreamConfigurationProperties(dict):

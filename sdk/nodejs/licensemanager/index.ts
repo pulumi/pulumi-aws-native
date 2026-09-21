@@ -15,6 +15,11 @@ export const getLicense: typeof import("./getLicense").getLicense = null as any;
 export const getLicenseOutput: typeof import("./getLicense").getLicenseOutput = null as any;
 utilities.lazyLoad(exports, ["getLicense","getLicenseOutput"], () => require("./getLicense"));
 
+export { GetLicenseAssetGroupArgs, GetLicenseAssetGroupResult, GetLicenseAssetGroupOutputArgs } from "./getLicenseAssetGroup";
+export const getLicenseAssetGroup: typeof import("./getLicenseAssetGroup").getLicenseAssetGroup = null as any;
+export const getLicenseAssetGroupOutput: typeof import("./getLicenseAssetGroup").getLicenseAssetGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getLicenseAssetGroup","getLicenseAssetGroupOutput"], () => require("./getLicenseAssetGroup"));
+
 export { GetLicenseAssetRuleSetArgs, GetLicenseAssetRuleSetResult, GetLicenseAssetRuleSetOutputArgs } from "./getLicenseAssetRuleSet";
 export const getLicenseAssetRuleSet: typeof import("./getLicenseAssetRuleSet").getLicenseAssetRuleSet = null as any;
 export const getLicenseAssetRuleSetOutput: typeof import("./getLicenseAssetRuleSet").getLicenseAssetRuleSetOutput = null as any;
@@ -30,6 +35,11 @@ export type License = import("./license").License;
 export const License: typeof import("./license").License = null as any;
 utilities.lazyLoad(exports, ["License"], () => require("./license"));
 
+export { LicenseAssetGroupArgs } from "./licenseAssetGroup";
+export type LicenseAssetGroup = import("./licenseAssetGroup").LicenseAssetGroup;
+export const LicenseAssetGroup: typeof import("./licenseAssetGroup").LicenseAssetGroup = null as any;
+utilities.lazyLoad(exports, ["LicenseAssetGroup"], () => require("./licenseAssetGroup"));
+
 export { LicenseAssetRuleSetArgs } from "./licenseAssetRuleSet";
 export type LicenseAssetRuleSet = import("./licenseAssetRuleSet").LicenseAssetRuleSet;
 export const LicenseAssetRuleSet: typeof import("./licenseAssetRuleSet").LicenseAssetRuleSet = null as any;
@@ -44,6 +54,8 @@ const _module = {
                 return new Grant(name, <any>undefined, { urn })
             case "aws-native:licensemanager:License":
                 return new License(name, <any>undefined, { urn })
+            case "aws-native:licensemanager:LicenseAssetGroup":
+                return new LicenseAssetGroup(name, <any>undefined, { urn })
             case "aws-native:licensemanager:LicenseAssetRuleSet":
                 return new LicenseAssetRuleSet(name, <any>undefined, { urn })
             default:

@@ -7,5 +7,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .get_tape import *
 from .get_tape_pool import *
+from .tape import *
 from .tape_pool import *

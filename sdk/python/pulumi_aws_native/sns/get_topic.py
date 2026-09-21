@@ -26,7 +26,7 @@ __all__ = [
 
 @pulumi.output_type
 class GetTopicResult:
-    def __init__(__self__, archive_policy=None, content_based_deduplication=None, data_protection_policy=None, delivery_status_logging=None, display_name=None, fifo_throughput_scope=None, kms_master_key_id=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
+    def __init__(__self__, archive_policy=None, content_based_deduplication=None, data_protection_policy=None, delivery_status_logging=None, display_name=None, fifo_throughput_scope=None, kms_master_key_id=None, maximum_message_size=None, signature_version=None, subscription=None, tags=None, topic_arn=None, tracing_config=None):
         if archive_policy and not isinstance(archive_policy, dict):
             raise TypeError("Expected argument 'archive_policy' to be a dict")
         pulumi.set(__self__, "archive_policy", archive_policy)
@@ -48,6 +48,9 @@ class GetTopicResult:
         if kms_master_key_id and not isinstance(kms_master_key_id, str):
             raise TypeError("Expected argument 'kms_master_key_id' to be a str")
         pulumi.set(__self__, "kms_master_key_id", kms_master_key_id)
+        if maximum_message_size and not isinstance(maximum_message_size, int):
+            raise TypeError("Expected argument 'maximum_message_size' to be a int")
+        pulumi.set(__self__, "maximum_message_size", maximum_message_size)
         if signature_version and not isinstance(signature_version, str):
             raise TypeError("Expected argument 'signature_version' to be a str")
         pulumi.set(__self__, "signature_version", signature_version)
@@ -136,6 +139,11 @@ class GetTopicResult:
         return pulumi.get(self, "kms_master_key_id")
 
     @_builtins.property
+    @pulumi.getter(name="maximumMessageSize")
+    def maximum_message_size(self) -> Optional[_builtins.int]:
+        return pulumi.get(self, "maximum_message_size")
+
+    @_builtins.property
     @pulumi.getter(name="signatureVersion")
     def signature_version(self) -> Optional[_builtins.str]:
         """
@@ -191,6 +199,7 @@ class AwaitableGetTopicResult(GetTopicResult):
             display_name=self.display_name,
             fifo_throughput_scope=self.fifo_throughput_scope,
             kms_master_key_id=self.kms_master_key_id,
+            maximum_message_size=self.maximum_message_size,
             signature_version=self.signature_version,
             subscription=self.subscription,
             tags=self.tags,
@@ -220,6 +229,7 @@ def get_topic(topic_arn: Optional[_builtins.str] = None,
         display_name=pulumi.get(__ret__, 'display_name'),
         fifo_throughput_scope=pulumi.get(__ret__, 'fifo_throughput_scope'),
         kms_master_key_id=pulumi.get(__ret__, 'kms_master_key_id'),
+        maximum_message_size=pulumi.get(__ret__, 'maximum_message_size'),
         signature_version=pulumi.get(__ret__, 'signature_version'),
         subscription=pulumi.get(__ret__, 'subscription'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -246,6 +256,7 @@ def get_topic_output(topic_arn: pulumi.Input[Optional[_builtins.str]] = None,
         display_name=pulumi.get(__response__, 'display_name'),
         fifo_throughput_scope=pulumi.get(__response__, 'fifo_throughput_scope'),
         kms_master_key_id=pulumi.get(__response__, 'kms_master_key_id'),
+        maximum_message_size=pulumi.get(__response__, 'maximum_message_size'),
         signature_version=pulumi.get(__response__, 'signature_version'),
         subscription=pulumi.get(__response__, 'subscription'),
         tags=pulumi.get(__response__, 'tags'),

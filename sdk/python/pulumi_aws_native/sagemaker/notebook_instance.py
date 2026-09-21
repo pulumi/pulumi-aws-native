@@ -309,6 +309,50 @@ class NotebookInstance(pulumi.CustomResource):
         """
         Resource Type definition for AWS::SageMaker::NotebookInstance
 
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws_native as aws_native
+
+        basic_notebook_instance_lifecycle_config = aws_native.sagemaker.NotebookInstanceLifecycleConfig("basicNotebookInstanceLifecycleConfig", on_start=[{
+            "content": base64.b64encode("echo 'hello'".encode()).decode(),
+        }])
+        execution_role = aws_native.iam.Role("executionRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["sagemaker.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        basic_notebook_instance = aws_native.sagemaker.NotebookInstance("basicNotebookInstance",
+            instance_type="ml.t2.medium",
+            role_arn=execution_role.arn,
+            lifecycle_config_name=basic_notebook_instance_lifecycle_config.notebook_instance_lifecycle_config_name)
+        pulumi.export("basicNotebookInstanceId", basic_notebook_instance.id)
+        pulumi.export("basicNotebookInstanceLifecycleConfigId", basic_notebook_instance_lifecycle_config.id)
+
+        ```
+
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accelerator_types: A list of Amazon Elastic Inference (EI) instance types to associate with the notebook instance. Currently, only one instance type can be associated with a notebook instance.
@@ -336,6 +380,50 @@ class NotebookInstance(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource Type definition for AWS::SageMaker::NotebookInstance
+
+        ## Example Usage
+        ### Example
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_aws_native as aws_native
+
+        basic_notebook_instance_lifecycle_config = aws_native.sagemaker.NotebookInstanceLifecycleConfig("basicNotebookInstanceLifecycleConfig", on_start=[{
+            "content": base64.b64encode("echo 'hello'".encode()).decode(),
+        }])
+        execution_role = aws_native.iam.Role("executionRole",
+            assume_role_policy_document={
+                "version": "2012-10-17",
+                "statement": [{
+                    "effect": "Allow",
+                    "principal": {
+                        "service": ["sagemaker.amazonaws.com"],
+                    },
+                    "action": ["sts:AssumeRole"],
+                }],
+            },
+            path="/",
+            policies=[{
+                "policy_name": "root",
+                "policy_document": {
+                    "version": "2012-10-17",
+                    "statement": [{
+                        "effect": "Allow",
+                        "action": "*",
+                        "resource": "*",
+                    }],
+                },
+            }])
+        basic_notebook_instance = aws_native.sagemaker.NotebookInstance("basicNotebookInstance",
+            instance_type="ml.t2.medium",
+            role_arn=execution_role.arn,
+            lifecycle_config_name=basic_notebook_instance_lifecycle_config.notebook_instance_lifecycle_config_name)
+        pulumi.export("basicNotebookInstanceId", basic_notebook_instance.id)
+        pulumi.export("basicNotebookInstanceLifecycleConfigId", basic_notebook_instance_lifecycle_config.id)
+
+        ```
+
 
         :param str resource_name: The name of the resource.
         :param NotebookInstanceArgs args: The arguments to use to populate this resource's properties.

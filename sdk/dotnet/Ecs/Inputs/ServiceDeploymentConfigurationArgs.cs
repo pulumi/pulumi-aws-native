@@ -46,6 +46,9 @@ namespace Pulumi.AwsNative.Ecs.Inputs
         [Input("deploymentCircuitBreaker")]
         public Input<Inputs.ServiceDeploymentCircuitBreakerArgs>? DeploymentCircuitBreaker { get; set; }
 
+        [Input("earlySuccessCriteria")]
+        public Input<Inputs.ServiceDeploymentEarlySuccessCriteriaArgs>? EarlySuccessCriteria { get; set; }
+
         [Input("lifecycleHooks")]
         private InputList<Inputs.ServiceDeploymentLifecycleHookArgs>? _lifecycleHooks;
 

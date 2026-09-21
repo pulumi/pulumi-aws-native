@@ -13,6 +13,13 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type BackupTag struct {
+	// The tag key.
+	Key string `pulumi:"key"`
+	// The tag value.
+	Value string `pulumi:"value"`
+}
+
 // Specifies the type of updated objects (new, changed, deleted) that will be automatically exported from your file system to the linked S3 bucket.
 type DataRepositoryAssociationAutoExportPolicy struct {
 	// The `AutoExportPolicy` can have the following event values:
@@ -529,6 +536,602 @@ type DataRepositoryAssociationTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
 	Key string `pulumi:"key"`
 	// The value for the tag. You can specify a value that is 0 to 256 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
+type FileCacheDataRepositoryAssociation struct {
+	DataRepositoryPath string `pulumi:"dataRepositoryPath"`
+	FileCachePath      string `pulumi:"fileCachePath"`
+}
+
+// FileCacheDataRepositoryAssociationInput is an input type that accepts FileCacheDataRepositoryAssociationArgs and FileCacheDataRepositoryAssociationOutput values.
+// You can construct a concrete instance of `FileCacheDataRepositoryAssociationInput` via:
+//
+//	FileCacheDataRepositoryAssociationArgs{...}
+type FileCacheDataRepositoryAssociationInput interface {
+	pulumi.Input
+
+	ToFileCacheDataRepositoryAssociationOutput() FileCacheDataRepositoryAssociationOutput
+	ToFileCacheDataRepositoryAssociationOutputWithContext(context.Context) FileCacheDataRepositoryAssociationOutput
+}
+
+type FileCacheDataRepositoryAssociationArgs struct {
+	DataRepositoryPath pulumi.StringInput `pulumi:"dataRepositoryPath"`
+	FileCachePath      pulumi.StringInput `pulumi:"fileCachePath"`
+}
+
+func (FileCacheDataRepositoryAssociationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (i FileCacheDataRepositoryAssociationArgs) ToFileCacheDataRepositoryAssociationOutput() FileCacheDataRepositoryAssociationOutput {
+	return i.ToFileCacheDataRepositoryAssociationOutputWithContext(context.Background())
+}
+
+func (i FileCacheDataRepositoryAssociationArgs) ToFileCacheDataRepositoryAssociationOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationOutput)
+}
+
+// FileCacheDataRepositoryAssociationArrayInput is an input type that accepts FileCacheDataRepositoryAssociationArray and FileCacheDataRepositoryAssociationArrayOutput values.
+// You can construct a concrete instance of `FileCacheDataRepositoryAssociationArrayInput` via:
+//
+//	FileCacheDataRepositoryAssociationArray{ FileCacheDataRepositoryAssociationArgs{...} }
+type FileCacheDataRepositoryAssociationArrayInput interface {
+	pulumi.Input
+
+	ToFileCacheDataRepositoryAssociationArrayOutput() FileCacheDataRepositoryAssociationArrayOutput
+	ToFileCacheDataRepositoryAssociationArrayOutputWithContext(context.Context) FileCacheDataRepositoryAssociationArrayOutput
+}
+
+type FileCacheDataRepositoryAssociationArray []FileCacheDataRepositoryAssociationInput
+
+func (FileCacheDataRepositoryAssociationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (i FileCacheDataRepositoryAssociationArray) ToFileCacheDataRepositoryAssociationArrayOutput() FileCacheDataRepositoryAssociationArrayOutput {
+	return i.ToFileCacheDataRepositoryAssociationArrayOutputWithContext(context.Background())
+}
+
+func (i FileCacheDataRepositoryAssociationArray) ToFileCacheDataRepositoryAssociationArrayOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheDataRepositoryAssociationArrayOutput)
+}
+
+type FileCacheDataRepositoryAssociationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheDataRepositoryAssociationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) ToFileCacheDataRepositoryAssociationOutput() FileCacheDataRepositoryAssociationOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) ToFileCacheDataRepositoryAssociationOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) DataRepositoryPath() pulumi.StringOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) string { return v.DataRepositoryPath }).(pulumi.StringOutput)
+}
+
+func (o FileCacheDataRepositoryAssociationOutput) FileCachePath() pulumi.StringOutput {
+	return o.ApplyT(func(v FileCacheDataRepositoryAssociation) string { return v.FileCachePath }).(pulumi.StringOutput)
+}
+
+type FileCacheDataRepositoryAssociationArrayOutput struct{ *pulumi.OutputState }
+
+func (FileCacheDataRepositoryAssociationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FileCacheDataRepositoryAssociation)(nil)).Elem()
+}
+
+func (o FileCacheDataRepositoryAssociationArrayOutput) ToFileCacheDataRepositoryAssociationArrayOutput() FileCacheDataRepositoryAssociationArrayOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationArrayOutput) ToFileCacheDataRepositoryAssociationArrayOutputWithContext(ctx context.Context) FileCacheDataRepositoryAssociationArrayOutput {
+	return o
+}
+
+func (o FileCacheDataRepositoryAssociationArrayOutput) Index(i pulumi.IntInput) FileCacheDataRepositoryAssociationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FileCacheDataRepositoryAssociation {
+		return vs[0].([]FileCacheDataRepositoryAssociation)[vs[1].(int)]
+	}).(FileCacheDataRepositoryAssociationOutput)
+}
+
+type FileCacheLogConfiguration struct {
+	Destination *string                        `pulumi:"destination"`
+	Level       FileCacheLogConfigurationLevel `pulumi:"level"`
+}
+
+// FileCacheLogConfigurationInput is an input type that accepts FileCacheLogConfigurationArgs and FileCacheLogConfigurationOutput values.
+// You can construct a concrete instance of `FileCacheLogConfigurationInput` via:
+//
+//	FileCacheLogConfigurationArgs{...}
+type FileCacheLogConfigurationInput interface {
+	pulumi.Input
+
+	ToFileCacheLogConfigurationOutput() FileCacheLogConfigurationOutput
+	ToFileCacheLogConfigurationOutputWithContext(context.Context) FileCacheLogConfigurationOutput
+}
+
+type FileCacheLogConfigurationArgs struct {
+	Destination pulumi.StringPtrInput               `pulumi:"destination"`
+	Level       FileCacheLogConfigurationLevelInput `pulumi:"level"`
+}
+
+func (FileCacheLogConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLogConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLogConfigurationArgs) ToFileCacheLogConfigurationOutput() FileCacheLogConfigurationOutput {
+	return i.ToFileCacheLogConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileCacheLogConfigurationArgs) ToFileCacheLogConfigurationOutputWithContext(ctx context.Context) FileCacheLogConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLogConfigurationOutput)
+}
+
+func (i FileCacheLogConfigurationArgs) ToFileCacheLogConfigurationPtrOutput() FileCacheLogConfigurationPtrOutput {
+	return i.ToFileCacheLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileCacheLogConfigurationArgs) ToFileCacheLogConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLogConfigurationOutput).ToFileCacheLogConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileCacheLogConfigurationPtrInput is an input type that accepts FileCacheLogConfigurationArgs, FileCacheLogConfigurationPtr and FileCacheLogConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileCacheLogConfigurationPtrInput` via:
+//
+//	        FileCacheLogConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FileCacheLogConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileCacheLogConfigurationPtrOutput() FileCacheLogConfigurationPtrOutput
+	ToFileCacheLogConfigurationPtrOutputWithContext(context.Context) FileCacheLogConfigurationPtrOutput
+}
+
+type fileCacheLogConfigurationPtrType FileCacheLogConfigurationArgs
+
+func FileCacheLogConfigurationPtr(v *FileCacheLogConfigurationArgs) FileCacheLogConfigurationPtrInput {
+	return (*fileCacheLogConfigurationPtrType)(v)
+}
+
+func (*fileCacheLogConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheLogConfiguration)(nil)).Elem()
+}
+
+func (i *fileCacheLogConfigurationPtrType) ToFileCacheLogConfigurationPtrOutput() FileCacheLogConfigurationPtrOutput {
+	return i.ToFileCacheLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileCacheLogConfigurationPtrType) ToFileCacheLogConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLogConfigurationPtrOutput)
+}
+
+type FileCacheLogConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLogConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLogConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLogConfigurationOutput) ToFileCacheLogConfigurationOutput() FileCacheLogConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationOutput) ToFileCacheLogConfigurationOutputWithContext(ctx context.Context) FileCacheLogConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationOutput) ToFileCacheLogConfigurationPtrOutput() FileCacheLogConfigurationPtrOutput {
+	return o.ToFileCacheLogConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLogConfigurationOutput) ToFileCacheLogConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileCacheLogConfiguration) *FileCacheLogConfiguration {
+		return &v
+	}).(FileCacheLogConfigurationPtrOutput)
+}
+
+func (o FileCacheLogConfigurationOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheLogConfiguration) *string { return v.Destination }).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheLogConfigurationOutput) Level() FileCacheLogConfigurationLevelOutput {
+	return o.ApplyT(func(v FileCacheLogConfiguration) FileCacheLogConfigurationLevel { return v.Level }).(FileCacheLogConfigurationLevelOutput)
+}
+
+type FileCacheLogConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLogConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheLogConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLogConfigurationPtrOutput) ToFileCacheLogConfigurationPtrOutput() FileCacheLogConfigurationPtrOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationPtrOutput) ToFileCacheLogConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLogConfigurationPtrOutput {
+	return o
+}
+
+func (o FileCacheLogConfigurationPtrOutput) Elem() FileCacheLogConfigurationOutput {
+	return o.ApplyT(func(v *FileCacheLogConfiguration) FileCacheLogConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileCacheLogConfiguration
+		return ret
+	}).(FileCacheLogConfigurationOutput)
+}
+
+func (o FileCacheLogConfigurationPtrOutput) Destination() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCacheLogConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Destination
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheLogConfigurationPtrOutput) Level() FileCacheLogConfigurationLevelPtrOutput {
+	return o.ApplyT(func(v *FileCacheLogConfiguration) *FileCacheLogConfigurationLevel {
+		if v == nil {
+			return nil
+		}
+		return &v.Level
+	}).(FileCacheLogConfigurationLevelPtrOutput)
+}
+
+type FileCacheLustreConfiguration struct {
+	DeploymentType             FileCacheLustreConfigurationDeploymentType `pulumi:"deploymentType"`
+	LogConfiguration           *FileCacheLogConfiguration                 `pulumi:"logConfiguration"`
+	MetadataConfiguration      FileCacheMetadataConfiguration             `pulumi:"metadataConfiguration"`
+	MountName                  *string                                    `pulumi:"mountName"`
+	PerUnitStorageThroughput   int                                        `pulumi:"perUnitStorageThroughput"`
+	WeeklyMaintenanceStartTime *string                                    `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+// FileCacheLustreConfigurationInput is an input type that accepts FileCacheLustreConfigurationArgs and FileCacheLustreConfigurationOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationInput` via:
+//
+//	FileCacheLustreConfigurationArgs{...}
+type FileCacheLustreConfigurationInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationOutput() FileCacheLustreConfigurationOutput
+	ToFileCacheLustreConfigurationOutputWithContext(context.Context) FileCacheLustreConfigurationOutput
+}
+
+type FileCacheLustreConfigurationArgs struct {
+	DeploymentType             FileCacheLustreConfigurationDeploymentTypeInput `pulumi:"deploymentType"`
+	LogConfiguration           FileCacheLogConfigurationPtrInput               `pulumi:"logConfiguration"`
+	MetadataConfiguration      FileCacheMetadataConfigurationInput             `pulumi:"metadataConfiguration"`
+	MountName                  pulumi.StringPtrInput                           `pulumi:"mountName"`
+	PerUnitStorageThroughput   pulumi.IntInput                                 `pulumi:"perUnitStorageThroughput"`
+	WeeklyMaintenanceStartTime pulumi.StringPtrInput                           `pulumi:"weeklyMaintenanceStartTime"`
+}
+
+func (FileCacheLustreConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheLustreConfigurationArgs) ToFileCacheLustreConfigurationOutput() FileCacheLustreConfigurationOutput {
+	return i.ToFileCacheLustreConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationArgs) ToFileCacheLustreConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationOutput)
+}
+
+func (i FileCacheLustreConfigurationArgs) ToFileCacheLustreConfigurationPtrOutput() FileCacheLustreConfigurationPtrOutput {
+	return i.ToFileCacheLustreConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileCacheLustreConfigurationArgs) ToFileCacheLustreConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationOutput).ToFileCacheLustreConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileCacheLustreConfigurationPtrInput is an input type that accepts FileCacheLustreConfigurationArgs, FileCacheLustreConfigurationPtr and FileCacheLustreConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileCacheLustreConfigurationPtrInput` via:
+//
+//	        FileCacheLustreConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FileCacheLustreConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileCacheLustreConfigurationPtrOutput() FileCacheLustreConfigurationPtrOutput
+	ToFileCacheLustreConfigurationPtrOutputWithContext(context.Context) FileCacheLustreConfigurationPtrOutput
+}
+
+type fileCacheLustreConfigurationPtrType FileCacheLustreConfigurationArgs
+
+func FileCacheLustreConfigurationPtr(v *FileCacheLustreConfigurationArgs) FileCacheLustreConfigurationPtrInput {
+	return (*fileCacheLustreConfigurationPtrType)(v)
+}
+
+func (*fileCacheLustreConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (i *fileCacheLustreConfigurationPtrType) ToFileCacheLustreConfigurationPtrOutput() FileCacheLustreConfigurationPtrOutput {
+	return i.ToFileCacheLustreConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileCacheLustreConfigurationPtrType) ToFileCacheLustreConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheLustreConfigurationPtrOutput)
+}
+
+type FileCacheLustreConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationOutput() FileCacheLustreConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationOutputWithContext(ctx context.Context) FileCacheLustreConfigurationOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationPtrOutput() FileCacheLustreConfigurationPtrOutput {
+	return o.ToFileCacheLustreConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheLustreConfigurationOutput) ToFileCacheLustreConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileCacheLustreConfiguration) *FileCacheLustreConfiguration {
+		return &v
+	}).(FileCacheLustreConfigurationPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) DeploymentType() FileCacheLustreConfigurationDeploymentTypeOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) FileCacheLustreConfigurationDeploymentType {
+		return v.DeploymentType
+	}).(FileCacheLustreConfigurationDeploymentTypeOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) LogConfiguration() FileCacheLogConfigurationPtrOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) *FileCacheLogConfiguration { return v.LogConfiguration }).(FileCacheLogConfigurationPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) MetadataConfiguration() FileCacheMetadataConfigurationOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) FileCacheMetadataConfiguration { return v.MetadataConfiguration }).(FileCacheMetadataConfigurationOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) MountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) *string { return v.MountName }).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) PerUnitStorageThroughput() pulumi.IntOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) int { return v.PerUnitStorageThroughput }).(pulumi.IntOutput)
+}
+
+func (o FileCacheLustreConfigurationOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FileCacheLustreConfiguration) *string { return v.WeeklyMaintenanceStartTime }).(pulumi.StringPtrOutput)
+}
+
+type FileCacheLustreConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileCacheLustreConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheLustreConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) ToFileCacheLustreConfigurationPtrOutput() FileCacheLustreConfigurationPtrOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) ToFileCacheLustreConfigurationPtrOutputWithContext(ctx context.Context) FileCacheLustreConfigurationPtrOutput {
+	return o
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) Elem() FileCacheLustreConfigurationOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfiguration) FileCacheLustreConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileCacheLustreConfiguration
+		return ret
+	}).(FileCacheLustreConfigurationOutput)
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) DeploymentType() FileCacheLustreConfigurationDeploymentTypePtrOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfiguration) *FileCacheLustreConfigurationDeploymentType {
+		if v == nil {
+			return nil
+		}
+		return &v.DeploymentType
+	}).(FileCacheLustreConfigurationDeploymentTypePtrOutput)
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) LogConfiguration() FileCacheLogConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfiguration) *FileCacheLogConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.LogConfiguration
+	}).(FileCacheLogConfigurationPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) MetadataConfiguration() FileCacheMetadataConfigurationPtrOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfiguration) *FileCacheMetadataConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.MetadataConfiguration
+	}).(FileCacheMetadataConfigurationPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) MountName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MountName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) PerUnitStorageThroughput() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.PerUnitStorageThroughput
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o FileCacheLustreConfigurationPtrOutput) WeeklyMaintenanceStartTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FileCacheLustreConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.WeeklyMaintenanceStartTime
+	}).(pulumi.StringPtrOutput)
+}
+
+type FileCacheMetadataConfiguration struct {
+	StorageCapacity int `pulumi:"storageCapacity"`
+}
+
+// FileCacheMetadataConfigurationInput is an input type that accepts FileCacheMetadataConfigurationArgs and FileCacheMetadataConfigurationOutput values.
+// You can construct a concrete instance of `FileCacheMetadataConfigurationInput` via:
+//
+//	FileCacheMetadataConfigurationArgs{...}
+type FileCacheMetadataConfigurationInput interface {
+	pulumi.Input
+
+	ToFileCacheMetadataConfigurationOutput() FileCacheMetadataConfigurationOutput
+	ToFileCacheMetadataConfigurationOutputWithContext(context.Context) FileCacheMetadataConfigurationOutput
+}
+
+type FileCacheMetadataConfigurationArgs struct {
+	StorageCapacity pulumi.IntInput `pulumi:"storageCapacity"`
+}
+
+func (FileCacheMetadataConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheMetadataConfiguration)(nil)).Elem()
+}
+
+func (i FileCacheMetadataConfigurationArgs) ToFileCacheMetadataConfigurationOutput() FileCacheMetadataConfigurationOutput {
+	return i.ToFileCacheMetadataConfigurationOutputWithContext(context.Background())
+}
+
+func (i FileCacheMetadataConfigurationArgs) ToFileCacheMetadataConfigurationOutputWithContext(ctx context.Context) FileCacheMetadataConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheMetadataConfigurationOutput)
+}
+
+func (i FileCacheMetadataConfigurationArgs) ToFileCacheMetadataConfigurationPtrOutput() FileCacheMetadataConfigurationPtrOutput {
+	return i.ToFileCacheMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i FileCacheMetadataConfigurationArgs) ToFileCacheMetadataConfigurationPtrOutputWithContext(ctx context.Context) FileCacheMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheMetadataConfigurationOutput).ToFileCacheMetadataConfigurationPtrOutputWithContext(ctx)
+}
+
+// FileCacheMetadataConfigurationPtrInput is an input type that accepts FileCacheMetadataConfigurationArgs, FileCacheMetadataConfigurationPtr and FileCacheMetadataConfigurationPtrOutput values.
+// You can construct a concrete instance of `FileCacheMetadataConfigurationPtrInput` via:
+//
+//	        FileCacheMetadataConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type FileCacheMetadataConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToFileCacheMetadataConfigurationPtrOutput() FileCacheMetadataConfigurationPtrOutput
+	ToFileCacheMetadataConfigurationPtrOutputWithContext(context.Context) FileCacheMetadataConfigurationPtrOutput
+}
+
+type fileCacheMetadataConfigurationPtrType FileCacheMetadataConfigurationArgs
+
+func FileCacheMetadataConfigurationPtr(v *FileCacheMetadataConfigurationArgs) FileCacheMetadataConfigurationPtrInput {
+	return (*fileCacheMetadataConfigurationPtrType)(v)
+}
+
+func (*fileCacheMetadataConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheMetadataConfiguration)(nil)).Elem()
+}
+
+func (i *fileCacheMetadataConfigurationPtrType) ToFileCacheMetadataConfigurationPtrOutput() FileCacheMetadataConfigurationPtrOutput {
+	return i.ToFileCacheMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *fileCacheMetadataConfigurationPtrType) ToFileCacheMetadataConfigurationPtrOutputWithContext(ctx context.Context) FileCacheMetadataConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FileCacheMetadataConfigurationPtrOutput)
+}
+
+type FileCacheMetadataConfigurationOutput struct{ *pulumi.OutputState }
+
+func (FileCacheMetadataConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FileCacheMetadataConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheMetadataConfigurationOutput) ToFileCacheMetadataConfigurationOutput() FileCacheMetadataConfigurationOutput {
+	return o
+}
+
+func (o FileCacheMetadataConfigurationOutput) ToFileCacheMetadataConfigurationOutputWithContext(ctx context.Context) FileCacheMetadataConfigurationOutput {
+	return o
+}
+
+func (o FileCacheMetadataConfigurationOutput) ToFileCacheMetadataConfigurationPtrOutput() FileCacheMetadataConfigurationPtrOutput {
+	return o.ToFileCacheMetadataConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o FileCacheMetadataConfigurationOutput) ToFileCacheMetadataConfigurationPtrOutputWithContext(ctx context.Context) FileCacheMetadataConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FileCacheMetadataConfiguration) *FileCacheMetadataConfiguration {
+		return &v
+	}).(FileCacheMetadataConfigurationPtrOutput)
+}
+
+func (o FileCacheMetadataConfigurationOutput) StorageCapacity() pulumi.IntOutput {
+	return o.ApplyT(func(v FileCacheMetadataConfiguration) int { return v.StorageCapacity }).(pulumi.IntOutput)
+}
+
+type FileCacheMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (FileCacheMetadataConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FileCacheMetadataConfiguration)(nil)).Elem()
+}
+
+func (o FileCacheMetadataConfigurationPtrOutput) ToFileCacheMetadataConfigurationPtrOutput() FileCacheMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o FileCacheMetadataConfigurationPtrOutput) ToFileCacheMetadataConfigurationPtrOutputWithContext(ctx context.Context) FileCacheMetadataConfigurationPtrOutput {
+	return o
+}
+
+func (o FileCacheMetadataConfigurationPtrOutput) Elem() FileCacheMetadataConfigurationOutput {
+	return o.ApplyT(func(v *FileCacheMetadataConfiguration) FileCacheMetadataConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret FileCacheMetadataConfiguration
+		return ret
+	}).(FileCacheMetadataConfigurationOutput)
+}
+
+func (o FileCacheMetadataConfigurationPtrOutput) StorageCapacity() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *FileCacheMetadataConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageCapacity
+	}).(pulumi.IntPtrOutput)
+}
+
+type FileCacheTag struct {
+	Key   string `pulumi:"key"`
 	Value string `pulumi:"value"`
 }
 
@@ -4598,6 +5201,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationAutoImportPolicyPtrInput)(nil)).Elem(), DataRepositoryAssociationAutoImportPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3Input)(nil)).Elem(), DataRepositoryAssociationS3Args{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DataRepositoryAssociationS3PtrInput)(nil)).Elem(), DataRepositoryAssociationS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheDataRepositoryAssociationInput)(nil)).Elem(), FileCacheDataRepositoryAssociationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheDataRepositoryAssociationArrayInput)(nil)).Elem(), FileCacheDataRepositoryAssociationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLogConfigurationInput)(nil)).Elem(), FileCacheLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLogConfigurationPtrInput)(nil)).Elem(), FileCacheLogConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationInput)(nil)).Elem(), FileCacheLustreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheLustreConfigurationPtrInput)(nil)).Elem(), FileCacheLustreConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheMetadataConfigurationInput)(nil)).Elem(), FileCacheMetadataConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FileCacheMetadataConfigurationPtrInput)(nil)).Elem(), FileCacheMetadataConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentFileSystemGidInput)(nil)).Elem(), S3AccessPointAttachmentFileSystemGidArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentFileSystemGidArrayInput)(nil)).Elem(), S3AccessPointAttachmentFileSystemGidArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*S3AccessPointAttachmentOntapFileSystemIdentityInput)(nil)).Elem(), S3AccessPointAttachmentOntapFileSystemIdentityArgs{})
@@ -4648,6 +5259,14 @@ func init() {
 	pulumi.RegisterOutputType(DataRepositoryAssociationAutoImportPolicyPtrOutput{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3Output{})
 	pulumi.RegisterOutputType(DataRepositoryAssociationS3PtrOutput{})
+	pulumi.RegisterOutputType(FileCacheDataRepositoryAssociationOutput{})
+	pulumi.RegisterOutputType(FileCacheDataRepositoryAssociationArrayOutput{})
+	pulumi.RegisterOutputType(FileCacheLogConfigurationOutput{})
+	pulumi.RegisterOutputType(FileCacheLogConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationOutput{})
+	pulumi.RegisterOutputType(FileCacheLustreConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(FileCacheMetadataConfigurationOutput{})
+	pulumi.RegisterOutputType(FileCacheMetadataConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentFileSystemGidOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentFileSystemGidArrayOutput{})
 	pulumi.RegisterOutputType(S3AccessPointAttachmentOntapFileSystemIdentityOutput{})

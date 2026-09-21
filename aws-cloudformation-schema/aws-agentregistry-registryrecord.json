@@ -494,16 +494,16 @@
   },
   "handlers" : {
     "create" : {
-      "permissions" : [ "agent-registry:CreateRegistryRecord", "agent-registry:GetRegistryRecord", "agent-registry:TagResource", "agent-registry:ListTagsForResource", "iam:PassRole", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetResourceOauth2Token", "secretsmanager:GetSecretValue" ]
+      "permissions" : [ "agent-registry:CreateRegistryRecord", "agent-registry:GetRegistryRecord", "agent-registry:TagResource", "agent-registry:ListTagsForResource", "iam:PassRole", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetResourceOauth2Token", "secretsmanager:GetSecretValue", "kms:Decrypt" ]
     },
     "read" : {
-      "permissions" : [ "agent-registry:GetRegistryRecord", "agent-registry:ListTagsForResource" ]
+      "permissions" : [ "agent-registry:GetRegistryRecord", "agent-registry:ListTagsForResource", "kms:Decrypt" ]
     },
     "update" : {
-      "permissions" : [ "agent-registry:UpdateRegistryRecord", "agent-registry:GetRegistryRecord", "agent-registry:TagResource", "agent-registry:UntagResource", "agent-registry:ListTagsForResource", "iam:PassRole", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetResourceOauth2Token", "secretsmanager:GetSecretValue" ]
+      "permissions" : [ "agent-registry:UpdateRegistryRecord", "agent-registry:GetRegistryRecord", "agent-registry:TagResource", "agent-registry:UntagResource", "agent-registry:ListTagsForResource", "iam:PassRole", "bedrock-agentcore:GetWorkloadAccessToken", "bedrock-agentcore:GetResourceOauth2Token", "secretsmanager:GetSecretValue", "kms:Decrypt" ]
     },
     "delete" : {
-      "permissions" : [ "agent-registry:DeleteRegistryRecord", "agent-registry:GetRegistryRecord", "agent-registry:ListTagsForResource" ]
+      "permissions" : [ "agent-registry:DeleteRegistryRecord", "agent-registry:GetRegistryRecord", "agent-registry:ListTagsForResource", "kms:Decrypt" ]
     },
     "list" : {
       "handlerSchema" : {

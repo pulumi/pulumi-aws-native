@@ -22,6 +22,12 @@ namespace Pulumi.AwsNative.MediaPackageV2
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
+        /// &lt;p&gt;The multiview channels, in the same channel group, that list this channel as an available source. This is a read-only field. You can't delete a channel while any multiview channel still lists it as a source. Use this field to find the multiview channels that you need to update first.&lt;/p&gt;
+        /// </summary>
+        [Output("attachedMultiviewChannels")]
+        public Output<ImmutableArray<string>> AttachedMultiviewChannels { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the channel group associated with the channel configuration.
         /// </summary>
         [Output("channelGroupName")]
@@ -79,6 +85,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Output("modifiedAt")]
         public Output<string> ModifiedAt { get; private set; } = null!;
+
+        [Output("multiviewConfiguration")]
+        public Output<Outputs.ChannelMultiviewConfiguration?> MultiviewConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.
@@ -178,6 +187,9 @@ namespace Pulumi.AwsNative.MediaPackageV2
         /// </summary>
         [Input("inputType")]
         public Input<Pulumi.AwsNative.MediaPackageV2.ChannelInputType>? InputType { get; set; }
+
+        [Input("multiviewConfiguration")]
+        public Input<Inputs.ChannelMultiviewConfigurationArgs>? MultiviewConfiguration { get; set; }
 
         /// <summary>
         /// The settings for what common media server data (CMSD) headers AWS Elemental MediaPackage includes in responses to the CDN.

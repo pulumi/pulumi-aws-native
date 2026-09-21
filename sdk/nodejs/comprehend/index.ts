@@ -10,6 +10,11 @@ export type DocumentClassifier = import("./documentClassifier").DocumentClassifi
 export const DocumentClassifier: typeof import("./documentClassifier").DocumentClassifier = null as any;
 utilities.lazyLoad(exports, ["DocumentClassifier"], () => require("./documentClassifier"));
 
+export { DocumentClassifierEndpointArgs } from "./documentClassifierEndpoint";
+export type DocumentClassifierEndpoint = import("./documentClassifierEndpoint").DocumentClassifierEndpoint;
+export const DocumentClassifierEndpoint: typeof import("./documentClassifierEndpoint").DocumentClassifierEndpoint = null as any;
+utilities.lazyLoad(exports, ["DocumentClassifierEndpoint"], () => require("./documentClassifierEndpoint"));
+
 export { FlywheelArgs } from "./flywheel";
 export type Flywheel = import("./flywheel").Flywheel;
 export const Flywheel: typeof import("./flywheel").Flywheel = null as any;
@@ -19,6 +24,11 @@ export { GetDocumentClassifierArgs, GetDocumentClassifierResult, GetDocumentClas
 export const getDocumentClassifier: typeof import("./getDocumentClassifier").getDocumentClassifier = null as any;
 export const getDocumentClassifierOutput: typeof import("./getDocumentClassifier").getDocumentClassifierOutput = null as any;
 utilities.lazyLoad(exports, ["getDocumentClassifier","getDocumentClassifierOutput"], () => require("./getDocumentClassifier"));
+
+export { GetDocumentClassifierEndpointArgs, GetDocumentClassifierEndpointResult, GetDocumentClassifierEndpointOutputArgs } from "./getDocumentClassifierEndpoint";
+export const getDocumentClassifierEndpoint: typeof import("./getDocumentClassifierEndpoint").getDocumentClassifierEndpoint = null as any;
+export const getDocumentClassifierEndpointOutput: typeof import("./getDocumentClassifierEndpoint").getDocumentClassifierEndpointOutput = null as any;
+utilities.lazyLoad(exports, ["getDocumentClassifierEndpoint","getDocumentClassifierEndpointOutput"], () => require("./getDocumentClassifierEndpoint"));
 
 export { GetFlywheelArgs, GetFlywheelResult, GetFlywheelOutputArgs } from "./getFlywheel";
 export const getFlywheel: typeof import("./getFlywheel").getFlywheel = null as any;
@@ -35,6 +45,8 @@ const _module = {
         switch (type) {
             case "aws-native:comprehend:DocumentClassifier":
                 return new DocumentClassifier(name, <any>undefined, { urn })
+            case "aws-native:comprehend:DocumentClassifierEndpoint":
+                return new DocumentClassifierEndpoint(name, <any>undefined, { urn })
             case "aws-native:comprehend:Flywheel":
                 return new Flywheel(name, <any>undefined, { urn })
             default:

@@ -1346,6 +1346,7 @@ func (o ComputeEnvironmentEc2ConfigurationObjectArrayOutput) Index(i pulumi.IntI
 }
 
 type ComputeEnvironmentEcsSettings struct {
+	// The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
 	ContainerInsights *ComputeEnvironmentEcsSettingsContainerInsights `pulumi:"containerInsights"`
 }
 
@@ -1361,6 +1362,7 @@ type ComputeEnvironmentEcsSettingsInput interface {
 }
 
 type ComputeEnvironmentEcsSettingsArgs struct {
+	// The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
 	ContainerInsights ComputeEnvironmentEcsSettingsContainerInsightsPtrInput `pulumi:"containerInsights"`
 }
 
@@ -1441,6 +1443,7 @@ func (o ComputeEnvironmentEcsSettingsOutput) ToComputeEnvironmentEcsSettingsPtrO
 	}).(ComputeEnvironmentEcsSettingsPtrOutput)
 }
 
+// The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
 func (o ComputeEnvironmentEcsSettingsOutput) ContainerInsights() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEcsSettings) *ComputeEnvironmentEcsSettingsContainerInsights {
 		return v.ContainerInsights
@@ -1471,6 +1474,7 @@ func (o ComputeEnvironmentEcsSettingsPtrOutput) Elem() ComputeEnvironmentEcsSett
 	}).(ComputeEnvironmentEcsSettingsOutput)
 }
 
+// The CloudWatch Container Insights setting applied to the Amazon ECS cluster that backs this compute environment. After you set this property, you can't revert it to the default (unset) state in which the setting is managed outside of AWS Batch. If you remove this property after previously setting it, AWS Batch treats the omission as DISABLED, because the underlying API has no way to unset the value. Because of this, if a stack rollback would return this property to its previous unset state, AWS Batch sets it to DISABLED instead.
 func (o ComputeEnvironmentEcsSettingsPtrOutput) ContainerInsights() ComputeEnvironmentEcsSettingsContainerInsightsPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentEcsSettings) *ComputeEnvironmentEcsSettingsContainerInsights {
 		if v == nil {

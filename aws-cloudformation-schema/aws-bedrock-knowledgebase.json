@@ -611,6 +611,10 @@
         },
         "Video" : {
           "$ref" : "#/definitions/VideoConfigurations"
+        },
+        "ModelConfiguration" : {
+          "type" : "object",
+          "description" : "Model-specific configuration for the embedding model."
         }
       },
       "additionalProperties" : false
@@ -722,6 +726,9 @@
         },
         "EmbeddingModelConfiguration" : {
           "$ref" : "#/definitions/EmbeddingModelConfiguration"
+        },
+        "SupplementalDataStorageConfiguration" : {
+          "$ref" : "#/definitions/SupplementalDataStorageConfiguration"
         },
         "ServerSideEncryptionConfiguration" : {
           "$ref" : "#/definitions/ManagedKnowledgeBaseServerSideEncryptionConfiguration"
@@ -1191,13 +1198,13 @@
   "primaryIdentifier" : [ "/properties/KnowledgeBaseId" ],
   "handlers" : {
     "create" : {
-      "permissions" : [ "bedrock:CreateKnowledgeBase", "bedrock:GetKnowledgeBase", "bedrock:TagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole", "kms:CreateGrant", "kms:RetireGrant", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:CreateKnowledgeBase", "bedrock:GetKnowledgeBase", "bedrock:TagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole", "kms:CreateGrant", "kms:RetireGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt" ]
     },
     "read" : {
       "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:ListTagsForResource" ]
     },
     "update" : {
-      "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:UpdateKnowledgeBase", "bedrock:TagResource", "bedrock:UntagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole", "kms:CreateGrant", "kms:RetireGrant", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt" ]
+      "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:UpdateKnowledgeBase", "bedrock:TagResource", "bedrock:UntagResource", "bedrock:ListTagsForResource", "bedrock:AssociateThirdPartyKnowledgeBase", "iam:PassRole", "kms:CreateGrant", "kms:RetireGrant", "kms:DescribeKey", "kms:GenerateDataKey", "kms:GenerateDataKeyWithoutPlaintext", "kms:Encrypt", "kms:Decrypt" ]
     },
     "delete" : {
       "permissions" : [ "bedrock:GetKnowledgeBase", "bedrock:DeleteKnowledgeBase", "bedrock:ListDataSources" ]

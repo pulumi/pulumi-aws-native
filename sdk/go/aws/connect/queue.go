@@ -35,7 +35,7 @@ type Queue struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig QueueOutboundCallerConfigPtrOutput `pulumi:"outboundCallerConfig"`
-	// The outbound email address ID.
+	// The outbound email configuration for a specified queue.
 	OutboundEmailConfig QueueOutboundEmailConfigPtrOutput `pulumi:"outboundEmailConfig"`
 	// The Amazon Resource Name (ARN) for the queue.
 	QueueArn pulumi.StringOutput `pulumi:"queueArn"`
@@ -109,7 +109,7 @@ type queueArgs struct {
 	Name *string `pulumi:"name"`
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig *QueueOutboundCallerConfig `pulumi:"outboundCallerConfig"`
-	// The outbound email address ID.
+	// The outbound email configuration for a specified queue.
 	OutboundEmailConfig *QueueOutboundEmailConfig `pulumi:"outboundEmailConfig"`
 	// The quick connects available to agents who are working the queue.
 	QuickConnectArns []string `pulumi:"quickConnectArns"`
@@ -135,7 +135,7 @@ type QueueArgs struct {
 	Name pulumi.StringPtrInput
 	// The outbound caller ID name, number, and outbound whisper flow.
 	OutboundCallerConfig QueueOutboundCallerConfigPtrInput
-	// The outbound email address ID.
+	// The outbound email configuration for a specified queue.
 	OutboundEmailConfig QueueOutboundEmailConfigPtrInput
 	// The quick connects available to agents who are working the queue.
 	QuickConnectArns pulumi.StringArrayInput
@@ -227,7 +227,7 @@ func (o QueueOutput) OutboundCallerConfig() QueueOutboundCallerConfigPtrOutput {
 	return o.ApplyT(func(v *Queue) QueueOutboundCallerConfigPtrOutput { return v.OutboundCallerConfig }).(QueueOutboundCallerConfigPtrOutput)
 }
 
-// The outbound email address ID.
+// The outbound email configuration for a specified queue.
 func (o QueueOutput) OutboundEmailConfig() QueueOutboundEmailConfigPtrOutput {
 	return o.ApplyT(func(v *Queue) QueueOutboundEmailConfigPtrOutput { return v.OutboundEmailConfig }).(QueueOutboundEmailConfigPtrOutput)
 }

@@ -15,6 +15,10 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'LicenseAssetGroupConfigurationArgs',
+    'LicenseAssetGroupConfigurationArgsDict',
+    'LicenseAssetGroupPropertyArgs',
+    'LicenseAssetGroupPropertyArgsDict',
     'LicenseAssetRuleSetAndRuleStatementArgs',
     'LicenseAssetRuleSetAndRuleStatementArgsDict',
     'LicenseAssetRuleSetInstanceRuleStatementArgs',
@@ -46,6 +50,59 @@ __all__ = [
     'LicenseValidityDateFormatArgs',
     'LicenseValidityDateFormatArgsDict',
 ]
+
+class LicenseAssetGroupConfigurationArgsDict(TypedDict):
+    usage_dimension: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LicenseAssetGroupConfigurationArgs:
+    def __init__(__self__, *,
+                 usage_dimension: pulumi.Input[Optional[_builtins.str]] = None):
+        if usage_dimension is not None:
+            pulumi.set(__self__, "usage_dimension", usage_dimension)
+
+    @_builtins.property
+    @pulumi.getter(name="usageDimension")
+    def usage_dimension(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "usage_dimension")
+
+    @usage_dimension.setter
+    def usage_dimension(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "usage_dimension", value)
+
+
+class LicenseAssetGroupPropertyArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    value: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+
+@pulumi.input_type
+class LicenseAssetGroupPropertyArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 value: pulumi.Input[Optional[_builtins.str]] = None):
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[Optional[_builtins.str]]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
 
 class LicenseAssetRuleSetAndRuleStatementArgsDict(TypedDict):
     """

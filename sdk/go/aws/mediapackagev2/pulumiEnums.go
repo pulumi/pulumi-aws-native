@@ -13,8 +13,9 @@ import (
 type ChannelInputType string
 
 const (
-	ChannelInputTypeHls  = ChannelInputType("HLS")
-	ChannelInputTypeCmaf = ChannelInputType("CMAF")
+	ChannelInputTypeHls       = ChannelInputType("HLS")
+	ChannelInputTypeCmaf      = ChannelInputType("CMAF")
+	ChannelInputTypeMultiview = ChannelInputType("MULTIVIEW")
 )
 
 func (ChannelInputType) ElementType() reflect.Type {
@@ -141,6 +142,7 @@ func (o ChannelInputTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 //
 //	ChannelInputTypeHls
 //	ChannelInputTypeCmaf
+//	ChannelInputTypeMultiview
 type ChannelInputTypeInput interface {
 	pulumi.Input
 
@@ -173,6 +175,225 @@ func (in *channelInputTypePtr) ToChannelInputTypePtrOutput() ChannelInputTypePtr
 
 func (in *channelInputTypePtr) ToChannelInputTypePtrOutputWithContext(ctx context.Context) ChannelInputTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ChannelInputTypePtrOutput)
+}
+
+// <p>A tile layout for a multiview channel. Each layout determines how many source tiles are composited into the output and how those tiles are arranged.</p> <p>The allowed values are:</p> <ul> <li> <p> <code>LAYOUT_SINGLE</code> – One tile at full resolution. Use this to serve a single source as a standard stream.</p> </li> <li> <p> <code>LAYOUT_2EH</code> – Two tiles of equal size, arranged horizontally.</p> </li> <li> <p> <code>LAYOUT_2PL</code> – Two tiles, with one larger primary tile.</p> </li> <li> <p> <code>LAYOUT_3EB</code> – Three tiles of equal size, with two on top and one below.</p> </li> <li> <p> <code>LAYOUT_3EL</code> – Three tiles of equal size, arranged in two columns.</p> </li> <li> <p> <code>LAYOUT_3PL</code> – Three tiles, with one larger primary tile on the left and two stacked on the right.</p> </li> <li> <p> <code>LAYOUT_4E</code> – Four tiles of equal size, arranged in a two-by-two grid.</p> </li> <li> <p> <code>LAYOUT_4PL</code> – Four tiles, with one larger primary tile on the left and three stacked on the right.</p> </li> </ul>
+type ChannelMultiviewLayoutType string
+
+const (
+	ChannelMultiviewLayoutTypeLayout2eh = ChannelMultiviewLayoutType("LAYOUT_2EH")
+	ChannelMultiviewLayoutTypeLayout2pl = ChannelMultiviewLayoutType("LAYOUT_2PL")
+	ChannelMultiviewLayoutTypeLayout3el = ChannelMultiviewLayoutType("LAYOUT_3EL")
+	ChannelMultiviewLayoutTypeLayout3pl = ChannelMultiviewLayoutType("LAYOUT_3PL")
+	ChannelMultiviewLayoutTypeLayout4e  = ChannelMultiviewLayoutType("LAYOUT_4E")
+	ChannelMultiviewLayoutTypeLayout4pl = ChannelMultiviewLayoutType("LAYOUT_4PL")
+)
+
+func (ChannelMultiviewLayoutType) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultiviewLayoutType)(nil)).Elem()
+}
+
+func (e ChannelMultiviewLayoutType) ToChannelMultiviewLayoutTypeOutput() ChannelMultiviewLayoutTypeOutput {
+	return pulumi.ToOutput(e).(ChannelMultiviewLayoutTypeOutput)
+}
+
+func (e ChannelMultiviewLayoutType) ToChannelMultiviewLayoutTypeOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(ChannelMultiviewLayoutTypeOutput)
+}
+
+func (e ChannelMultiviewLayoutType) ToChannelMultiviewLayoutTypePtrOutput() ChannelMultiviewLayoutTypePtrOutput {
+	return e.ToChannelMultiviewLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (e ChannelMultiviewLayoutType) ToChannelMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypePtrOutput {
+	return ChannelMultiviewLayoutType(e).ToChannelMultiviewLayoutTypeOutputWithContext(ctx).ToChannelMultiviewLayoutTypePtrOutputWithContext(ctx)
+}
+
+func (e ChannelMultiviewLayoutType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMultiviewLayoutType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e ChannelMultiviewLayoutType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e ChannelMultiviewLayoutType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type ChannelMultiviewLayoutTypeOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultiviewLayoutTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelMultiviewLayoutType)(nil)).Elem()
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToChannelMultiviewLayoutTypeOutput() ChannelMultiviewLayoutTypeOutput {
+	return o
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToChannelMultiviewLayoutTypeOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypeOutput {
+	return o
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToChannelMultiviewLayoutTypePtrOutput() ChannelMultiviewLayoutTypePtrOutput {
+	return o.ToChannelMultiviewLayoutTypePtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToChannelMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelMultiviewLayoutType) *ChannelMultiviewLayoutType {
+		return &v
+	}).(ChannelMultiviewLayoutTypePtrOutput)
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelMultiviewLayoutType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultiviewLayoutTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e ChannelMultiviewLayoutType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type ChannelMultiviewLayoutTypePtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultiviewLayoutTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelMultiviewLayoutType)(nil)).Elem()
+}
+
+func (o ChannelMultiviewLayoutTypePtrOutput) ToChannelMultiviewLayoutTypePtrOutput() ChannelMultiviewLayoutTypePtrOutput {
+	return o
+}
+
+func (o ChannelMultiviewLayoutTypePtrOutput) ToChannelMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypePtrOutput {
+	return o
+}
+
+func (o ChannelMultiviewLayoutTypePtrOutput) Elem() ChannelMultiviewLayoutTypeOutput {
+	return o.ApplyT(func(v *ChannelMultiviewLayoutType) ChannelMultiviewLayoutType {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelMultiviewLayoutType
+		return ret
+	}).(ChannelMultiviewLayoutTypeOutput)
+}
+
+func (o ChannelMultiviewLayoutTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelMultiviewLayoutTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *ChannelMultiviewLayoutType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// ChannelMultiviewLayoutTypeInput is an input type that accepts values of the ChannelMultiviewLayoutType enum
+// A concrete instance of `ChannelMultiviewLayoutTypeInput` can be one of the following:
+//
+//	ChannelMultiviewLayoutTypeLayout2eh
+//	ChannelMultiviewLayoutTypeLayout2pl
+//	ChannelMultiviewLayoutTypeLayout3el
+//	ChannelMultiviewLayoutTypeLayout3pl
+//	ChannelMultiviewLayoutTypeLayout4e
+//	ChannelMultiviewLayoutTypeLayout4pl
+type ChannelMultiviewLayoutTypeInput interface {
+	pulumi.Input
+
+	ToChannelMultiviewLayoutTypeOutput() ChannelMultiviewLayoutTypeOutput
+	ToChannelMultiviewLayoutTypeOutputWithContext(context.Context) ChannelMultiviewLayoutTypeOutput
+}
+
+var channelMultiviewLayoutTypePtrType = reflect.TypeOf((**ChannelMultiviewLayoutType)(nil)).Elem()
+
+type ChannelMultiviewLayoutTypePtrInput interface {
+	pulumi.Input
+
+	ToChannelMultiviewLayoutTypePtrOutput() ChannelMultiviewLayoutTypePtrOutput
+	ToChannelMultiviewLayoutTypePtrOutputWithContext(context.Context) ChannelMultiviewLayoutTypePtrOutput
+}
+
+type channelMultiviewLayoutTypePtr string
+
+func ChannelMultiviewLayoutTypePtr(v string) ChannelMultiviewLayoutTypePtrInput {
+	return (*channelMultiviewLayoutTypePtr)(&v)
+}
+
+func (*channelMultiviewLayoutTypePtr) ElementType() reflect.Type {
+	return channelMultiviewLayoutTypePtrType
+}
+
+func (in *channelMultiviewLayoutTypePtr) ToChannelMultiviewLayoutTypePtrOutput() ChannelMultiviewLayoutTypePtrOutput {
+	return pulumi.ToOutput(in).(ChannelMultiviewLayoutTypePtrOutput)
+}
+
+func (in *channelMultiviewLayoutTypePtr) ToChannelMultiviewLayoutTypePtrOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(ChannelMultiviewLayoutTypePtrOutput)
+}
+
+// ChannelMultiviewLayoutTypeArrayInput is an input type that accepts ChannelMultiviewLayoutTypeArray and ChannelMultiviewLayoutTypeArrayOutput values.
+// You can construct a concrete instance of `ChannelMultiviewLayoutTypeArrayInput` via:
+//
+//	ChannelMultiviewLayoutTypeArray{ ChannelMultiviewLayoutTypeArgs{...} }
+type ChannelMultiviewLayoutTypeArrayInput interface {
+	pulumi.Input
+
+	ToChannelMultiviewLayoutTypeArrayOutput() ChannelMultiviewLayoutTypeArrayOutput
+	ToChannelMultiviewLayoutTypeArrayOutputWithContext(context.Context) ChannelMultiviewLayoutTypeArrayOutput
+}
+
+type ChannelMultiviewLayoutTypeArray []ChannelMultiviewLayoutType
+
+func (ChannelMultiviewLayoutTypeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelMultiviewLayoutType)(nil)).Elem()
+}
+
+func (i ChannelMultiviewLayoutTypeArray) ToChannelMultiviewLayoutTypeArrayOutput() ChannelMultiviewLayoutTypeArrayOutput {
+	return i.ToChannelMultiviewLayoutTypeArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelMultiviewLayoutTypeArray) ToChannelMultiviewLayoutTypeArrayOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelMultiviewLayoutTypeArrayOutput)
+}
+
+type ChannelMultiviewLayoutTypeArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelMultiviewLayoutTypeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelMultiviewLayoutType)(nil)).Elem()
+}
+
+func (o ChannelMultiviewLayoutTypeArrayOutput) ToChannelMultiviewLayoutTypeArrayOutput() ChannelMultiviewLayoutTypeArrayOutput {
+	return o
+}
+
+func (o ChannelMultiviewLayoutTypeArrayOutput) ToChannelMultiviewLayoutTypeArrayOutputWithContext(ctx context.Context) ChannelMultiviewLayoutTypeArrayOutput {
+	return o
+}
+
+func (o ChannelMultiviewLayoutTypeArrayOutput) Index(i pulumi.IntInput) ChannelMultiviewLayoutTypeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelMultiviewLayoutType {
+		return vs[0].([]ChannelMultiviewLayoutType)[vs[1].(int)]
+	}).(ChannelMultiviewLayoutTypeOutput)
 }
 
 type ChannelOutputLockingMode string
@@ -5148,6 +5369,9 @@ func (in *originEndpointUriSeparatorPtr) ToOriginEndpointUriSeparatorPtrOutputWi
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypeInput)(nil)).Elem(), ChannelInputType("HLS"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelInputTypePtrInput)(nil)).Elem(), ChannelInputType("HLS"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiviewLayoutTypeInput)(nil)).Elem(), ChannelMultiviewLayoutType("LAYOUT_2EH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiviewLayoutTypePtrInput)(nil)).Elem(), ChannelMultiviewLayoutType("LAYOUT_2EH"))
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelMultiviewLayoutTypeArrayInput)(nil)).Elem(), ChannelMultiviewLayoutTypeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLockingModeInput)(nil)).Elem(), ChannelOutputLockingMode("EPOCH_LOCKED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelOutputLockingModePtrInput)(nil)).Elem(), ChannelOutputLockingMode("EPOCH_LOCKED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointAdMarkerDashInput)(nil)).Elem(), OriginEndpointAdMarkerDash("BINARY"))
@@ -5212,6 +5436,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OriginEndpointUriSeparatorPtrInput)(nil)).Elem(), OriginEndpointUriSeparator("UNDERSCORE"))
 	pulumi.RegisterOutputType(ChannelInputTypeOutput{})
 	pulumi.RegisterOutputType(ChannelInputTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelMultiviewLayoutTypeOutput{})
+	pulumi.RegisterOutputType(ChannelMultiviewLayoutTypePtrOutput{})
+	pulumi.RegisterOutputType(ChannelMultiviewLayoutTypeArrayOutput{})
 	pulumi.RegisterOutputType(ChannelOutputLockingModeOutput{})
 	pulumi.RegisterOutputType(ChannelOutputLockingModePtrOutput{})
 	pulumi.RegisterOutputType(OriginEndpointAdMarkerDashOutput{})

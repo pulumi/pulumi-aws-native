@@ -19,10 +19,16 @@ type ApplicationVersion struct {
 	// The name of the Elastic Beanstalk application that is associated with this application version.
 	ApplicationName pulumi.StringOutput `pulumi:"applicationName"`
 	AwsId           pulumi.StringOutput `pulumi:"awsId"`
+	// Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+	BuildConfiguration ApplicationVersionBuildConfigurationPtrOutput `pulumi:"buildConfiguration"`
 	// A description of this application version.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// Configuration for image-based application versions.
+	ImageConfiguration ApplicationVersionImageConfigurationPtrOutput `pulumi:"imageConfiguration"`
+	// Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+	Process pulumi.BoolPtrOutput `pulumi:"process"`
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
-	SourceBundle ApplicationVersionSourceBundleOutput `pulumi:"sourceBundle"`
+	SourceBundle ApplicationVersionSourceBundlePtrOutput `pulumi:"sourceBundle"`
 }
 
 // NewApplicationVersion registers a new resource with the given unique name, arguments, and options.
@@ -35,11 +41,11 @@ func NewApplicationVersion(ctx *pulumi.Context,
 	if args.ApplicationName == nil {
 		return nil, errors.New("invalid value for required argument 'ApplicationName'")
 	}
-	if args.SourceBundle == nil {
-		return nil, errors.New("invalid value for required argument 'SourceBundle'")
-	}
 	replaceOnChanges := pulumi.ReplaceOnChanges([]string{
 		"applicationName",
+		"buildConfiguration",
+		"imageConfiguration",
+		"process",
 		"sourceBundle",
 	})
 	opts = append(opts, replaceOnChanges)
@@ -78,20 +84,32 @@ func (ApplicationVersionState) ElementType() reflect.Type {
 type applicationVersionArgs struct {
 	// The name of the Elastic Beanstalk application that is associated with this application version.
 	ApplicationName string `pulumi:"applicationName"`
+	// Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+	BuildConfiguration *ApplicationVersionBuildConfiguration `pulumi:"buildConfiguration"`
 	// A description of this application version.
 	Description *string `pulumi:"description"`
+	// Configuration for image-based application versions.
+	ImageConfiguration *ApplicationVersionImageConfiguration `pulumi:"imageConfiguration"`
+	// Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+	Process *bool `pulumi:"process"`
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
-	SourceBundle ApplicationVersionSourceBundle `pulumi:"sourceBundle"`
+	SourceBundle *ApplicationVersionSourceBundle `pulumi:"sourceBundle"`
 }
 
 // The set of arguments for constructing a ApplicationVersion resource.
 type ApplicationVersionArgs struct {
 	// The name of the Elastic Beanstalk application that is associated with this application version.
 	ApplicationName pulumi.StringInput
+	// Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+	BuildConfiguration ApplicationVersionBuildConfigurationPtrInput
 	// A description of this application version.
 	Description pulumi.StringPtrInput
+	// Configuration for image-based application versions.
+	ImageConfiguration ApplicationVersionImageConfigurationPtrInput
+	// Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+	Process pulumi.BoolPtrInput
 	// The Amazon S3 bucket and key that identify the location of the source bundle for this version.
-	SourceBundle ApplicationVersionSourceBundleInput
+	SourceBundle ApplicationVersionSourceBundlePtrInput
 }
 
 func (ApplicationVersionArgs) ElementType() reflect.Type {
@@ -140,14 +158,29 @@ func (o ApplicationVersionOutput) AwsId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringOutput { return v.AwsId }).(pulumi.StringOutput)
 }
 
+// Settings for an AWS CodeBuild build that packages and builds an application version from source code.
+func (o ApplicationVersionOutput) BuildConfiguration() ApplicationVersionBuildConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersionBuildConfigurationPtrOutput { return v.BuildConfiguration }).(ApplicationVersionBuildConfigurationPtrOutput)
+}
+
 // A description of this application version.
 func (o ApplicationVersionOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationVersion) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// Configuration for image-based application versions.
+func (o ApplicationVersionOutput) ImageConfiguration() ApplicationVersionImageConfigurationPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersionImageConfigurationPtrOutput { return v.ImageConfiguration }).(ApplicationVersionImageConfigurationPtrOutput)
+}
+
+// Pre-process and validate the environment manifest (`env.yaml`) and configuration files in the source bundle. Leave unset for the service default.
+func (o ApplicationVersionOutput) Process() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationVersion) pulumi.BoolPtrOutput { return v.Process }).(pulumi.BoolPtrOutput)
+}
+
 // The Amazon S3 bucket and key that identify the location of the source bundle for this version.
-func (o ApplicationVersionOutput) SourceBundle() ApplicationVersionSourceBundleOutput {
-	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersionSourceBundleOutput { return v.SourceBundle }).(ApplicationVersionSourceBundleOutput)
+func (o ApplicationVersionOutput) SourceBundle() ApplicationVersionSourceBundlePtrOutput {
+	return o.ApplyT(func(v *ApplicationVersion) ApplicationVersionSourceBundlePtrOutput { return v.SourceBundle }).(ApplicationVersionSourceBundlePtrOutput)
 }
 
 func init() {

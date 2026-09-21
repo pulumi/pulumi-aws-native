@@ -121,6 +121,7 @@ export class ScalableTarget extends pulumi.CustomResource {
      *   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
      */
     declare public readonly suspendedState: pulumi.Output<outputs.applicationautoscaling.ScalableTargetSuspendedState | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.Tag[] | undefined>;
 
     /**
      * Create a ScalableTarget resource with the given unique name, arguments, and options.
@@ -156,6 +157,7 @@ export class ScalableTarget extends pulumi.CustomResource {
             resourceInputs["scheduledActions"] = args?.scheduledActions;
             resourceInputs["serviceNamespace"] = args?.serviceNamespace;
             resourceInputs["suspendedState"] = args?.suspendedState;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["awsId"] = undefined /*out*/;
         } else {
             resourceInputs["awsId"] = undefined /*out*/;
@@ -167,6 +169,7 @@ export class ScalableTarget extends pulumi.CustomResource {
             resourceInputs["scheduledActions"] = undefined /*out*/;
             resourceInputs["serviceNamespace"] = undefined /*out*/;
             resourceInputs["suspendedState"] = undefined /*out*/;
+            resourceInputs["tags"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const replaceOnChanges = { replaceOnChanges: ["resourceId", "scalableDimension", "serviceNamespace"] };
@@ -260,4 +263,5 @@ export interface ScalableTargetArgs {
      *   +  For ``ScheduledScalingSuspended``, while a suspension is in effect, all scaling activities that involve scheduled actions are suspended.
      */
     suspendedState?: pulumi.Input<inputs.applicationautoscaling.ScalableTargetSuspendedStateArgs | undefined>;
+    tags?: pulumi.Input<pulumi.Input<inputs.TagArgs>[] | undefined>;
 }

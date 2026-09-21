@@ -354,6 +354,13 @@ export const ServiceDeploymentControllerType = {
  */
 export type ServiceDeploymentControllerType = (typeof ServiceDeploymentControllerType)[keyof typeof ServiceDeploymentControllerType];
 
+export const ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup = {
+    Blocking: "BLOCKING",
+    Deferred: "DEFERRED",
+} as const;
+
+export type ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup = (typeof ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup)[keyof typeof ServiceDeploymentEarlySuccessCriteriaSourceServiceRevisionCleanup];
+
 export const ServiceDeploymentLifecycleHookLifecycleStagesItem = {
     ReconcileService: "RECONCILE_SERVICE",
     PreScaleUp: "PRE_SCALE_UP",

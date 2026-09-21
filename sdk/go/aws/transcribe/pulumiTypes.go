@@ -4,10 +4,1287 @@
 package transcribe
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-aws-native/sdk/go/aws/internal"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 var _ = internal.GetEnvOrDefault
+
+type CallAnalyticsCategoryAbsoluteTimeRange struct {
+	EndTime   *int `pulumi:"endTime"`
+	First     *int `pulumi:"first"`
+	Last      *int `pulumi:"last"`
+	StartTime *int `pulumi:"startTime"`
+}
+
+// CallAnalyticsCategoryAbsoluteTimeRangeInput is an input type that accepts CallAnalyticsCategoryAbsoluteTimeRangeArgs and CallAnalyticsCategoryAbsoluteTimeRangeOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryAbsoluteTimeRangeInput` via:
+//
+//	CallAnalyticsCategoryAbsoluteTimeRangeArgs{...}
+type CallAnalyticsCategoryAbsoluteTimeRangeInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryAbsoluteTimeRangeOutput() CallAnalyticsCategoryAbsoluteTimeRangeOutput
+	ToCallAnalyticsCategoryAbsoluteTimeRangeOutputWithContext(context.Context) CallAnalyticsCategoryAbsoluteTimeRangeOutput
+}
+
+type CallAnalyticsCategoryAbsoluteTimeRangeArgs struct {
+	EndTime   pulumi.IntPtrInput `pulumi:"endTime"`
+	First     pulumi.IntPtrInput `pulumi:"first"`
+	Last      pulumi.IntPtrInput `pulumi:"last"`
+	StartTime pulumi.IntPtrInput `pulumi:"startTime"`
+}
+
+func (CallAnalyticsCategoryAbsoluteTimeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryAbsoluteTimeRange)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategoryAbsoluteTimeRangeArgs) ToCallAnalyticsCategoryAbsoluteTimeRangeOutput() CallAnalyticsCategoryAbsoluteTimeRangeOutput {
+	return i.ToCallAnalyticsCategoryAbsoluteTimeRangeOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryAbsoluteTimeRangeArgs) ToCallAnalyticsCategoryAbsoluteTimeRangeOutputWithContext(ctx context.Context) CallAnalyticsCategoryAbsoluteTimeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryAbsoluteTimeRangeOutput)
+}
+
+func (i CallAnalyticsCategoryAbsoluteTimeRangeArgs) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutput() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return i.ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryAbsoluteTimeRangeArgs) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryAbsoluteTimeRangeOutput).ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(ctx)
+}
+
+// CallAnalyticsCategoryAbsoluteTimeRangePtrInput is an input type that accepts CallAnalyticsCategoryAbsoluteTimeRangeArgs, CallAnalyticsCategoryAbsoluteTimeRangePtr and CallAnalyticsCategoryAbsoluteTimeRangePtrOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryAbsoluteTimeRangePtrInput` via:
+//
+//	        CallAnalyticsCategoryAbsoluteTimeRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type CallAnalyticsCategoryAbsoluteTimeRangePtrInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutput() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput
+	ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(context.Context) CallAnalyticsCategoryAbsoluteTimeRangePtrOutput
+}
+
+type callAnalyticsCategoryAbsoluteTimeRangePtrType CallAnalyticsCategoryAbsoluteTimeRangeArgs
+
+func CallAnalyticsCategoryAbsoluteTimeRangePtr(v *CallAnalyticsCategoryAbsoluteTimeRangeArgs) CallAnalyticsCategoryAbsoluteTimeRangePtrInput {
+	return (*callAnalyticsCategoryAbsoluteTimeRangePtrType)(v)
+}
+
+func (*callAnalyticsCategoryAbsoluteTimeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryAbsoluteTimeRange)(nil)).Elem()
+}
+
+func (i *callAnalyticsCategoryAbsoluteTimeRangePtrType) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutput() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return i.ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *callAnalyticsCategoryAbsoluteTimeRangePtrType) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+type CallAnalyticsCategoryAbsoluteTimeRangeOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryAbsoluteTimeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryAbsoluteTimeRange)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) ToCallAnalyticsCategoryAbsoluteTimeRangeOutput() CallAnalyticsCategoryAbsoluteTimeRangeOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) ToCallAnalyticsCategoryAbsoluteTimeRangeOutputWithContext(ctx context.Context) CallAnalyticsCategoryAbsoluteTimeRangeOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutput() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CallAnalyticsCategoryAbsoluteTimeRange) *CallAnalyticsCategoryAbsoluteTimeRange {
+		return &v
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) EndTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryAbsoluteTimeRange) *int { return v.EndTime }).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) First() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryAbsoluteTimeRange) *int { return v.First }).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) Last() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryAbsoluteTimeRange) *int { return v.Last }).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangeOutput) StartTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryAbsoluteTimeRange) *int { return v.StartTime }).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryAbsoluteTimeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryAbsoluteTimeRange)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutput() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) ToCallAnalyticsCategoryAbsoluteTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) Elem() CallAnalyticsCategoryAbsoluteTimeRangeOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryAbsoluteTimeRange) CallAnalyticsCategoryAbsoluteTimeRange {
+		if v != nil {
+			return *v
+		}
+		var ret CallAnalyticsCategoryAbsoluteTimeRange
+		return ret
+	}).(CallAnalyticsCategoryAbsoluteTimeRangeOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) EndTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryAbsoluteTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EndTime
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) First() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryAbsoluteTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.First
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) Last() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryAbsoluteTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Last
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryAbsoluteTimeRangePtrOutput) StartTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryAbsoluteTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartTime
+	}).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryInterruptionFilter struct {
+	AbsoluteTimeRange *CallAnalyticsCategoryAbsoluteTimeRange                 `pulumi:"absoluteTimeRange"`
+	Negate            *bool                                                   `pulumi:"negate"`
+	ParticipantRole   *CallAnalyticsCategoryInterruptionFilterParticipantRole `pulumi:"participantRole"`
+	RelativeTimeRange *CallAnalyticsCategoryRelativeTimeRange                 `pulumi:"relativeTimeRange"`
+	Threshold         *int                                                    `pulumi:"threshold"`
+}
+
+// CallAnalyticsCategoryInterruptionFilterInput is an input type that accepts CallAnalyticsCategoryInterruptionFilterArgs and CallAnalyticsCategoryInterruptionFilterOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryInterruptionFilterInput` via:
+//
+//	CallAnalyticsCategoryInterruptionFilterArgs{...}
+type CallAnalyticsCategoryInterruptionFilterInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryInterruptionFilterOutput() CallAnalyticsCategoryInterruptionFilterOutput
+	ToCallAnalyticsCategoryInterruptionFilterOutputWithContext(context.Context) CallAnalyticsCategoryInterruptionFilterOutput
+}
+
+type CallAnalyticsCategoryInterruptionFilterArgs struct {
+	AbsoluteTimeRange CallAnalyticsCategoryAbsoluteTimeRangePtrInput                 `pulumi:"absoluteTimeRange"`
+	Negate            pulumi.BoolPtrInput                                            `pulumi:"negate"`
+	ParticipantRole   CallAnalyticsCategoryInterruptionFilterParticipantRolePtrInput `pulumi:"participantRole"`
+	RelativeTimeRange CallAnalyticsCategoryRelativeTimeRangePtrInput                 `pulumi:"relativeTimeRange"`
+	Threshold         pulumi.IntPtrInput                                             `pulumi:"threshold"`
+}
+
+func (CallAnalyticsCategoryInterruptionFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryInterruptionFilter)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategoryInterruptionFilterArgs) ToCallAnalyticsCategoryInterruptionFilterOutput() CallAnalyticsCategoryInterruptionFilterOutput {
+	return i.ToCallAnalyticsCategoryInterruptionFilterOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryInterruptionFilterArgs) ToCallAnalyticsCategoryInterruptionFilterOutputWithContext(ctx context.Context) CallAnalyticsCategoryInterruptionFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryInterruptionFilterOutput)
+}
+
+func (i CallAnalyticsCategoryInterruptionFilterArgs) ToCallAnalyticsCategoryInterruptionFilterPtrOutput() CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return i.ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryInterruptionFilterArgs) ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryInterruptionFilterOutput).ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(ctx)
+}
+
+// CallAnalyticsCategoryInterruptionFilterPtrInput is an input type that accepts CallAnalyticsCategoryInterruptionFilterArgs, CallAnalyticsCategoryInterruptionFilterPtr and CallAnalyticsCategoryInterruptionFilterPtrOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryInterruptionFilterPtrInput` via:
+//
+//	        CallAnalyticsCategoryInterruptionFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type CallAnalyticsCategoryInterruptionFilterPtrInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryInterruptionFilterPtrOutput() CallAnalyticsCategoryInterruptionFilterPtrOutput
+	ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(context.Context) CallAnalyticsCategoryInterruptionFilterPtrOutput
+}
+
+type callAnalyticsCategoryInterruptionFilterPtrType CallAnalyticsCategoryInterruptionFilterArgs
+
+func CallAnalyticsCategoryInterruptionFilterPtr(v *CallAnalyticsCategoryInterruptionFilterArgs) CallAnalyticsCategoryInterruptionFilterPtrInput {
+	return (*callAnalyticsCategoryInterruptionFilterPtrType)(v)
+}
+
+func (*callAnalyticsCategoryInterruptionFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryInterruptionFilter)(nil)).Elem()
+}
+
+func (i *callAnalyticsCategoryInterruptionFilterPtrType) ToCallAnalyticsCategoryInterruptionFilterPtrOutput() CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return i.ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *callAnalyticsCategoryInterruptionFilterPtrType) ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryInterruptionFilterPtrOutput)
+}
+
+type CallAnalyticsCategoryInterruptionFilterOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryInterruptionFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryInterruptionFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) ToCallAnalyticsCategoryInterruptionFilterOutput() CallAnalyticsCategoryInterruptionFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) ToCallAnalyticsCategoryInterruptionFilterOutputWithContext(ctx context.Context) CallAnalyticsCategoryInterruptionFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) ToCallAnalyticsCategoryInterruptionFilterPtrOutput() CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return o.ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(context.Background())
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CallAnalyticsCategoryInterruptionFilter) *CallAnalyticsCategoryInterruptionFilter {
+		return &v
+	}).(CallAnalyticsCategoryInterruptionFilterPtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryInterruptionFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryInterruptionFilter) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) ParticipantRole() CallAnalyticsCategoryInterruptionFilterParticipantRolePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryInterruptionFilter) *CallAnalyticsCategoryInterruptionFilterParticipantRole {
+		return v.ParticipantRole
+	}).(CallAnalyticsCategoryInterruptionFilterParticipantRolePtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryInterruptionFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterOutput) Threshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryInterruptionFilter) *int { return v.Threshold }).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryInterruptionFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryInterruptionFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryInterruptionFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) ToCallAnalyticsCategoryInterruptionFilterPtrOutput() CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) ToCallAnalyticsCategoryInterruptionFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) Elem() CallAnalyticsCategoryInterruptionFilterOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryInterruptionFilter) CallAnalyticsCategoryInterruptionFilter {
+		if v != nil {
+			return *v
+		}
+		var ret CallAnalyticsCategoryInterruptionFilter
+		return ret
+	}).(CallAnalyticsCategoryInterruptionFilterOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryInterruptionFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryInterruptionFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) ParticipantRole() CallAnalyticsCategoryInterruptionFilterParticipantRolePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryInterruptionFilter) *CallAnalyticsCategoryInterruptionFilterParticipantRole {
+		if v == nil {
+			return nil
+		}
+		return v.ParticipantRole
+	}).(CallAnalyticsCategoryInterruptionFilterParticipantRolePtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryInterruptionFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryInterruptionFilterPtrOutput) Threshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryInterruptionFilter) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryNonTalkTimeFilter struct {
+	AbsoluteTimeRange *CallAnalyticsCategoryAbsoluteTimeRange `pulumi:"absoluteTimeRange"`
+	Negate            *bool                                   `pulumi:"negate"`
+	RelativeTimeRange *CallAnalyticsCategoryRelativeTimeRange `pulumi:"relativeTimeRange"`
+	Threshold         *int                                    `pulumi:"threshold"`
+}
+
+// CallAnalyticsCategoryNonTalkTimeFilterInput is an input type that accepts CallAnalyticsCategoryNonTalkTimeFilterArgs and CallAnalyticsCategoryNonTalkTimeFilterOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryNonTalkTimeFilterInput` via:
+//
+//	CallAnalyticsCategoryNonTalkTimeFilterArgs{...}
+type CallAnalyticsCategoryNonTalkTimeFilterInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryNonTalkTimeFilterOutput() CallAnalyticsCategoryNonTalkTimeFilterOutput
+	ToCallAnalyticsCategoryNonTalkTimeFilterOutputWithContext(context.Context) CallAnalyticsCategoryNonTalkTimeFilterOutput
+}
+
+type CallAnalyticsCategoryNonTalkTimeFilterArgs struct {
+	AbsoluteTimeRange CallAnalyticsCategoryAbsoluteTimeRangePtrInput `pulumi:"absoluteTimeRange"`
+	Negate            pulumi.BoolPtrInput                            `pulumi:"negate"`
+	RelativeTimeRange CallAnalyticsCategoryRelativeTimeRangePtrInput `pulumi:"relativeTimeRange"`
+	Threshold         pulumi.IntPtrInput                             `pulumi:"threshold"`
+}
+
+func (CallAnalyticsCategoryNonTalkTimeFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryNonTalkTimeFilter)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategoryNonTalkTimeFilterArgs) ToCallAnalyticsCategoryNonTalkTimeFilterOutput() CallAnalyticsCategoryNonTalkTimeFilterOutput {
+	return i.ToCallAnalyticsCategoryNonTalkTimeFilterOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryNonTalkTimeFilterArgs) ToCallAnalyticsCategoryNonTalkTimeFilterOutputWithContext(ctx context.Context) CallAnalyticsCategoryNonTalkTimeFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryNonTalkTimeFilterOutput)
+}
+
+func (i CallAnalyticsCategoryNonTalkTimeFilterArgs) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutput() CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return i.ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryNonTalkTimeFilterArgs) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryNonTalkTimeFilterOutput).ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(ctx)
+}
+
+// CallAnalyticsCategoryNonTalkTimeFilterPtrInput is an input type that accepts CallAnalyticsCategoryNonTalkTimeFilterArgs, CallAnalyticsCategoryNonTalkTimeFilterPtr and CallAnalyticsCategoryNonTalkTimeFilterPtrOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryNonTalkTimeFilterPtrInput` via:
+//
+//	        CallAnalyticsCategoryNonTalkTimeFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type CallAnalyticsCategoryNonTalkTimeFilterPtrInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutput() CallAnalyticsCategoryNonTalkTimeFilterPtrOutput
+	ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(context.Context) CallAnalyticsCategoryNonTalkTimeFilterPtrOutput
+}
+
+type callAnalyticsCategoryNonTalkTimeFilterPtrType CallAnalyticsCategoryNonTalkTimeFilterArgs
+
+func CallAnalyticsCategoryNonTalkTimeFilterPtr(v *CallAnalyticsCategoryNonTalkTimeFilterArgs) CallAnalyticsCategoryNonTalkTimeFilterPtrInput {
+	return (*callAnalyticsCategoryNonTalkTimeFilterPtrType)(v)
+}
+
+func (*callAnalyticsCategoryNonTalkTimeFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryNonTalkTimeFilter)(nil)).Elem()
+}
+
+func (i *callAnalyticsCategoryNonTalkTimeFilterPtrType) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutput() CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return i.ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *callAnalyticsCategoryNonTalkTimeFilterPtrType) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryNonTalkTimeFilterPtrOutput)
+}
+
+type CallAnalyticsCategoryNonTalkTimeFilterOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryNonTalkTimeFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryNonTalkTimeFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) ToCallAnalyticsCategoryNonTalkTimeFilterOutput() CallAnalyticsCategoryNonTalkTimeFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) ToCallAnalyticsCategoryNonTalkTimeFilterOutputWithContext(ctx context.Context) CallAnalyticsCategoryNonTalkTimeFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutput() CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return o.ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(context.Background())
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CallAnalyticsCategoryNonTalkTimeFilter) *CallAnalyticsCategoryNonTalkTimeFilter {
+		return &v
+	}).(CallAnalyticsCategoryNonTalkTimeFilterPtrOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryNonTalkTimeFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryNonTalkTimeFilter) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryNonTalkTimeFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterOutput) Threshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryNonTalkTimeFilter) *int { return v.Threshold }).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryNonTalkTimeFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryNonTalkTimeFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutput() CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) ToCallAnalyticsCategoryNonTalkTimeFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) Elem() CallAnalyticsCategoryNonTalkTimeFilterOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryNonTalkTimeFilter) CallAnalyticsCategoryNonTalkTimeFilter {
+		if v != nil {
+			return *v
+		}
+		var ret CallAnalyticsCategoryNonTalkTimeFilter
+		return ret
+	}).(CallAnalyticsCategoryNonTalkTimeFilterOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryNonTalkTimeFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryNonTalkTimeFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryNonTalkTimeFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryNonTalkTimeFilterPtrOutput) Threshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryNonTalkTimeFilter) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Threshold
+	}).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryRelativeTimeRange struct {
+	EndPercentage   *int `pulumi:"endPercentage"`
+	First           *int `pulumi:"first"`
+	Last            *int `pulumi:"last"`
+	StartPercentage *int `pulumi:"startPercentage"`
+}
+
+// CallAnalyticsCategoryRelativeTimeRangeInput is an input type that accepts CallAnalyticsCategoryRelativeTimeRangeArgs and CallAnalyticsCategoryRelativeTimeRangeOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryRelativeTimeRangeInput` via:
+//
+//	CallAnalyticsCategoryRelativeTimeRangeArgs{...}
+type CallAnalyticsCategoryRelativeTimeRangeInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryRelativeTimeRangeOutput() CallAnalyticsCategoryRelativeTimeRangeOutput
+	ToCallAnalyticsCategoryRelativeTimeRangeOutputWithContext(context.Context) CallAnalyticsCategoryRelativeTimeRangeOutput
+}
+
+type CallAnalyticsCategoryRelativeTimeRangeArgs struct {
+	EndPercentage   pulumi.IntPtrInput `pulumi:"endPercentage"`
+	First           pulumi.IntPtrInput `pulumi:"first"`
+	Last            pulumi.IntPtrInput `pulumi:"last"`
+	StartPercentage pulumi.IntPtrInput `pulumi:"startPercentage"`
+}
+
+func (CallAnalyticsCategoryRelativeTimeRangeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryRelativeTimeRange)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategoryRelativeTimeRangeArgs) ToCallAnalyticsCategoryRelativeTimeRangeOutput() CallAnalyticsCategoryRelativeTimeRangeOutput {
+	return i.ToCallAnalyticsCategoryRelativeTimeRangeOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryRelativeTimeRangeArgs) ToCallAnalyticsCategoryRelativeTimeRangeOutputWithContext(ctx context.Context) CallAnalyticsCategoryRelativeTimeRangeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryRelativeTimeRangeOutput)
+}
+
+func (i CallAnalyticsCategoryRelativeTimeRangeArgs) ToCallAnalyticsCategoryRelativeTimeRangePtrOutput() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return i.ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryRelativeTimeRangeArgs) ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryRelativeTimeRangeOutput).ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(ctx)
+}
+
+// CallAnalyticsCategoryRelativeTimeRangePtrInput is an input type that accepts CallAnalyticsCategoryRelativeTimeRangeArgs, CallAnalyticsCategoryRelativeTimeRangePtr and CallAnalyticsCategoryRelativeTimeRangePtrOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryRelativeTimeRangePtrInput` via:
+//
+//	        CallAnalyticsCategoryRelativeTimeRangeArgs{...}
+//
+//	or:
+//
+//	        nil
+type CallAnalyticsCategoryRelativeTimeRangePtrInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryRelativeTimeRangePtrOutput() CallAnalyticsCategoryRelativeTimeRangePtrOutput
+	ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(context.Context) CallAnalyticsCategoryRelativeTimeRangePtrOutput
+}
+
+type callAnalyticsCategoryRelativeTimeRangePtrType CallAnalyticsCategoryRelativeTimeRangeArgs
+
+func CallAnalyticsCategoryRelativeTimeRangePtr(v *CallAnalyticsCategoryRelativeTimeRangeArgs) CallAnalyticsCategoryRelativeTimeRangePtrInput {
+	return (*callAnalyticsCategoryRelativeTimeRangePtrType)(v)
+}
+
+func (*callAnalyticsCategoryRelativeTimeRangePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryRelativeTimeRange)(nil)).Elem()
+}
+
+func (i *callAnalyticsCategoryRelativeTimeRangePtrType) ToCallAnalyticsCategoryRelativeTimeRangePtrOutput() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return i.ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (i *callAnalyticsCategoryRelativeTimeRangePtrType) ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+type CallAnalyticsCategoryRelativeTimeRangeOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryRelativeTimeRangeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryRelativeTimeRange)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) ToCallAnalyticsCategoryRelativeTimeRangeOutput() CallAnalyticsCategoryRelativeTimeRangeOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) ToCallAnalyticsCategoryRelativeTimeRangeOutputWithContext(ctx context.Context) CallAnalyticsCategoryRelativeTimeRangeOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) ToCallAnalyticsCategoryRelativeTimeRangePtrOutput() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(context.Background())
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CallAnalyticsCategoryRelativeTimeRange) *CallAnalyticsCategoryRelativeTimeRange {
+		return &v
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) EndPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRelativeTimeRange) *int { return v.EndPercentage }).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) First() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRelativeTimeRange) *int { return v.First }).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) Last() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRelativeTimeRange) *int { return v.Last }).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangeOutput) StartPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRelativeTimeRange) *int { return v.StartPercentage }).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryRelativeTimeRangePtrOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryRelativeTimeRangePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryRelativeTimeRange)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangePtrOutput) ToCallAnalyticsCategoryRelativeTimeRangePtrOutput() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangePtrOutput) ToCallAnalyticsCategoryRelativeTimeRangePtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangePtrOutput) Elem() CallAnalyticsCategoryRelativeTimeRangeOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryRelativeTimeRange) CallAnalyticsCategoryRelativeTimeRange {
+		if v != nil {
+			return *v
+		}
+		var ret CallAnalyticsCategoryRelativeTimeRange
+		return ret
+	}).(CallAnalyticsCategoryRelativeTimeRangeOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangePtrOutput) EndPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryRelativeTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.EndPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangePtrOutput) First() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryRelativeTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.First
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangePtrOutput) Last() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryRelativeTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Last
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRelativeTimeRangePtrOutput) StartPercentage() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryRelativeTimeRange) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StartPercentage
+	}).(pulumi.IntPtrOutput)
+}
+
+type CallAnalyticsCategoryRule struct {
+	InterruptionFilter *CallAnalyticsCategoryInterruptionFilter `pulumi:"interruptionFilter"`
+	NonTalkTimeFilter  *CallAnalyticsCategoryNonTalkTimeFilter  `pulumi:"nonTalkTimeFilter"`
+	SentimentFilter    *CallAnalyticsCategorySentimentFilter    `pulumi:"sentimentFilter"`
+	TranscriptFilter   *CallAnalyticsCategoryTranscriptFilter   `pulumi:"transcriptFilter"`
+}
+
+// CallAnalyticsCategoryRuleInput is an input type that accepts CallAnalyticsCategoryRuleArgs and CallAnalyticsCategoryRuleOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryRuleInput` via:
+//
+//	CallAnalyticsCategoryRuleArgs{...}
+type CallAnalyticsCategoryRuleInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryRuleOutput() CallAnalyticsCategoryRuleOutput
+	ToCallAnalyticsCategoryRuleOutputWithContext(context.Context) CallAnalyticsCategoryRuleOutput
+}
+
+type CallAnalyticsCategoryRuleArgs struct {
+	InterruptionFilter CallAnalyticsCategoryInterruptionFilterPtrInput `pulumi:"interruptionFilter"`
+	NonTalkTimeFilter  CallAnalyticsCategoryNonTalkTimeFilterPtrInput  `pulumi:"nonTalkTimeFilter"`
+	SentimentFilter    CallAnalyticsCategorySentimentFilterPtrInput    `pulumi:"sentimentFilter"`
+	TranscriptFilter   CallAnalyticsCategoryTranscriptFilterPtrInput   `pulumi:"transcriptFilter"`
+}
+
+func (CallAnalyticsCategoryRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryRule)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategoryRuleArgs) ToCallAnalyticsCategoryRuleOutput() CallAnalyticsCategoryRuleOutput {
+	return i.ToCallAnalyticsCategoryRuleOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryRuleArgs) ToCallAnalyticsCategoryRuleOutputWithContext(ctx context.Context) CallAnalyticsCategoryRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryRuleOutput)
+}
+
+// CallAnalyticsCategoryRuleArrayInput is an input type that accepts CallAnalyticsCategoryRuleArray and CallAnalyticsCategoryRuleArrayOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryRuleArrayInput` via:
+//
+//	CallAnalyticsCategoryRuleArray{ CallAnalyticsCategoryRuleArgs{...} }
+type CallAnalyticsCategoryRuleArrayInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryRuleArrayOutput() CallAnalyticsCategoryRuleArrayOutput
+	ToCallAnalyticsCategoryRuleArrayOutputWithContext(context.Context) CallAnalyticsCategoryRuleArrayOutput
+}
+
+type CallAnalyticsCategoryRuleArray []CallAnalyticsCategoryRuleInput
+
+func (CallAnalyticsCategoryRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CallAnalyticsCategoryRule)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategoryRuleArray) ToCallAnalyticsCategoryRuleArrayOutput() CallAnalyticsCategoryRuleArrayOutput {
+	return i.ToCallAnalyticsCategoryRuleArrayOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryRuleArray) ToCallAnalyticsCategoryRuleArrayOutputWithContext(ctx context.Context) CallAnalyticsCategoryRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryRuleArrayOutput)
+}
+
+type CallAnalyticsCategoryRuleOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryRule)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryRuleOutput) ToCallAnalyticsCategoryRuleOutput() CallAnalyticsCategoryRuleOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRuleOutput) ToCallAnalyticsCategoryRuleOutputWithContext(ctx context.Context) CallAnalyticsCategoryRuleOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRuleOutput) InterruptionFilter() CallAnalyticsCategoryInterruptionFilterPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRule) *CallAnalyticsCategoryInterruptionFilter {
+		return v.InterruptionFilter
+	}).(CallAnalyticsCategoryInterruptionFilterPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRuleOutput) NonTalkTimeFilter() CallAnalyticsCategoryNonTalkTimeFilterPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRule) *CallAnalyticsCategoryNonTalkTimeFilter { return v.NonTalkTimeFilter }).(CallAnalyticsCategoryNonTalkTimeFilterPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRuleOutput) SentimentFilter() CallAnalyticsCategorySentimentFilterPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRule) *CallAnalyticsCategorySentimentFilter { return v.SentimentFilter }).(CallAnalyticsCategorySentimentFilterPtrOutput)
+}
+
+func (o CallAnalyticsCategoryRuleOutput) TranscriptFilter() CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryRule) *CallAnalyticsCategoryTranscriptFilter { return v.TranscriptFilter }).(CallAnalyticsCategoryTranscriptFilterPtrOutput)
+}
+
+type CallAnalyticsCategoryRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CallAnalyticsCategoryRule)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryRuleArrayOutput) ToCallAnalyticsCategoryRuleArrayOutput() CallAnalyticsCategoryRuleArrayOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRuleArrayOutput) ToCallAnalyticsCategoryRuleArrayOutputWithContext(ctx context.Context) CallAnalyticsCategoryRuleArrayOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryRuleArrayOutput) Index(i pulumi.IntInput) CallAnalyticsCategoryRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CallAnalyticsCategoryRule {
+		return vs[0].([]CallAnalyticsCategoryRule)[vs[1].(int)]
+	}).(CallAnalyticsCategoryRuleOutput)
+}
+
+type CallAnalyticsCategorySentimentFilter struct {
+	AbsoluteTimeRange *CallAnalyticsCategoryAbsoluteTimeRange              `pulumi:"absoluteTimeRange"`
+	Negate            *bool                                                `pulumi:"negate"`
+	ParticipantRole   *CallAnalyticsCategorySentimentFilterParticipantRole `pulumi:"participantRole"`
+	RelativeTimeRange *CallAnalyticsCategoryRelativeTimeRange              `pulumi:"relativeTimeRange"`
+	Sentiments        []CallAnalyticsCategorySentimentFilterSentimentsItem `pulumi:"sentiments"`
+}
+
+// CallAnalyticsCategorySentimentFilterInput is an input type that accepts CallAnalyticsCategorySentimentFilterArgs and CallAnalyticsCategorySentimentFilterOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategorySentimentFilterInput` via:
+//
+//	CallAnalyticsCategorySentimentFilterArgs{...}
+type CallAnalyticsCategorySentimentFilterInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategorySentimentFilterOutput() CallAnalyticsCategorySentimentFilterOutput
+	ToCallAnalyticsCategorySentimentFilterOutputWithContext(context.Context) CallAnalyticsCategorySentimentFilterOutput
+}
+
+type CallAnalyticsCategorySentimentFilterArgs struct {
+	AbsoluteTimeRange CallAnalyticsCategoryAbsoluteTimeRangePtrInput               `pulumi:"absoluteTimeRange"`
+	Negate            pulumi.BoolPtrInput                                          `pulumi:"negate"`
+	ParticipantRole   CallAnalyticsCategorySentimentFilterParticipantRolePtrInput  `pulumi:"participantRole"`
+	RelativeTimeRange CallAnalyticsCategoryRelativeTimeRangePtrInput               `pulumi:"relativeTimeRange"`
+	Sentiments        CallAnalyticsCategorySentimentFilterSentimentsItemArrayInput `pulumi:"sentiments"`
+}
+
+func (CallAnalyticsCategorySentimentFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategorySentimentFilter)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategorySentimentFilterArgs) ToCallAnalyticsCategorySentimentFilterOutput() CallAnalyticsCategorySentimentFilterOutput {
+	return i.ToCallAnalyticsCategorySentimentFilterOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategorySentimentFilterArgs) ToCallAnalyticsCategorySentimentFilterOutputWithContext(ctx context.Context) CallAnalyticsCategorySentimentFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategorySentimentFilterOutput)
+}
+
+func (i CallAnalyticsCategorySentimentFilterArgs) ToCallAnalyticsCategorySentimentFilterPtrOutput() CallAnalyticsCategorySentimentFilterPtrOutput {
+	return i.ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategorySentimentFilterArgs) ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategorySentimentFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategorySentimentFilterOutput).ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(ctx)
+}
+
+// CallAnalyticsCategorySentimentFilterPtrInput is an input type that accepts CallAnalyticsCategorySentimentFilterArgs, CallAnalyticsCategorySentimentFilterPtr and CallAnalyticsCategorySentimentFilterPtrOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategorySentimentFilterPtrInput` via:
+//
+//	        CallAnalyticsCategorySentimentFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type CallAnalyticsCategorySentimentFilterPtrInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategorySentimentFilterPtrOutput() CallAnalyticsCategorySentimentFilterPtrOutput
+	ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(context.Context) CallAnalyticsCategorySentimentFilterPtrOutput
+}
+
+type callAnalyticsCategorySentimentFilterPtrType CallAnalyticsCategorySentimentFilterArgs
+
+func CallAnalyticsCategorySentimentFilterPtr(v *CallAnalyticsCategorySentimentFilterArgs) CallAnalyticsCategorySentimentFilterPtrInput {
+	return (*callAnalyticsCategorySentimentFilterPtrType)(v)
+}
+
+func (*callAnalyticsCategorySentimentFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategorySentimentFilter)(nil)).Elem()
+}
+
+func (i *callAnalyticsCategorySentimentFilterPtrType) ToCallAnalyticsCategorySentimentFilterPtrOutput() CallAnalyticsCategorySentimentFilterPtrOutput {
+	return i.ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *callAnalyticsCategorySentimentFilterPtrType) ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategorySentimentFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategorySentimentFilterPtrOutput)
+}
+
+type CallAnalyticsCategorySentimentFilterOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategorySentimentFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategorySentimentFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) ToCallAnalyticsCategorySentimentFilterOutput() CallAnalyticsCategorySentimentFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) ToCallAnalyticsCategorySentimentFilterOutputWithContext(ctx context.Context) CallAnalyticsCategorySentimentFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) ToCallAnalyticsCategorySentimentFilterPtrOutput() CallAnalyticsCategorySentimentFilterPtrOutput {
+	return o.ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(context.Background())
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategorySentimentFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CallAnalyticsCategorySentimentFilter) *CallAnalyticsCategorySentimentFilter {
+		return &v
+	}).(CallAnalyticsCategorySentimentFilterPtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategorySentimentFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategorySentimentFilter) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) ParticipantRole() CallAnalyticsCategorySentimentFilterParticipantRolePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategorySentimentFilter) *CallAnalyticsCategorySentimentFilterParticipantRole {
+		return v.ParticipantRole
+	}).(CallAnalyticsCategorySentimentFilterParticipantRolePtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategorySentimentFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterOutput) Sentiments() CallAnalyticsCategorySentimentFilterSentimentsItemArrayOutput {
+	return o.ApplyT(func(v CallAnalyticsCategorySentimentFilter) []CallAnalyticsCategorySentimentFilterSentimentsItem {
+		return v.Sentiments
+	}).(CallAnalyticsCategorySentimentFilterSentimentsItemArrayOutput)
+}
+
+type CallAnalyticsCategorySentimentFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategorySentimentFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategorySentimentFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) ToCallAnalyticsCategorySentimentFilterPtrOutput() CallAnalyticsCategorySentimentFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) ToCallAnalyticsCategorySentimentFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategorySentimentFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) Elem() CallAnalyticsCategorySentimentFilterOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategorySentimentFilter) CallAnalyticsCategorySentimentFilter {
+		if v != nil {
+			return *v
+		}
+		var ret CallAnalyticsCategorySentimentFilter
+		return ret
+	}).(CallAnalyticsCategorySentimentFilterOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategorySentimentFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategorySentimentFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) ParticipantRole() CallAnalyticsCategorySentimentFilterParticipantRolePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategorySentimentFilter) *CallAnalyticsCategorySentimentFilterParticipantRole {
+		if v == nil {
+			return nil
+		}
+		return v.ParticipantRole
+	}).(CallAnalyticsCategorySentimentFilterParticipantRolePtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategorySentimentFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategorySentimentFilterPtrOutput) Sentiments() CallAnalyticsCategorySentimentFilterSentimentsItemArrayOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategorySentimentFilter) []CallAnalyticsCategorySentimentFilterSentimentsItem {
+		if v == nil {
+			return nil
+		}
+		return v.Sentiments
+	}).(CallAnalyticsCategorySentimentFilterSentimentsItemArrayOutput)
+}
+
+type CallAnalyticsCategoryTag struct {
+	Key   string `pulumi:"key"`
+	Value string `pulumi:"value"`
+}
+
+type CallAnalyticsCategoryTranscriptFilter struct {
+	AbsoluteTimeRange    *CallAnalyticsCategoryAbsoluteTimeRange                   `pulumi:"absoluteTimeRange"`
+	Negate               *bool                                                     `pulumi:"negate"`
+	ParticipantRole      *CallAnalyticsCategoryTranscriptFilterParticipantRole     `pulumi:"participantRole"`
+	RelativeTimeRange    *CallAnalyticsCategoryRelativeTimeRange                   `pulumi:"relativeTimeRange"`
+	Targets              []string                                                  `pulumi:"targets"`
+	TranscriptFilterType CallAnalyticsCategoryTranscriptFilterTranscriptFilterType `pulumi:"transcriptFilterType"`
+}
+
+// CallAnalyticsCategoryTranscriptFilterInput is an input type that accepts CallAnalyticsCategoryTranscriptFilterArgs and CallAnalyticsCategoryTranscriptFilterOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryTranscriptFilterInput` via:
+//
+//	CallAnalyticsCategoryTranscriptFilterArgs{...}
+type CallAnalyticsCategoryTranscriptFilterInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryTranscriptFilterOutput() CallAnalyticsCategoryTranscriptFilterOutput
+	ToCallAnalyticsCategoryTranscriptFilterOutputWithContext(context.Context) CallAnalyticsCategoryTranscriptFilterOutput
+}
+
+type CallAnalyticsCategoryTranscriptFilterArgs struct {
+	AbsoluteTimeRange    CallAnalyticsCategoryAbsoluteTimeRangePtrInput                 `pulumi:"absoluteTimeRange"`
+	Negate               pulumi.BoolPtrInput                                            `pulumi:"negate"`
+	ParticipantRole      CallAnalyticsCategoryTranscriptFilterParticipantRolePtrInput   `pulumi:"participantRole"`
+	RelativeTimeRange    CallAnalyticsCategoryRelativeTimeRangePtrInput                 `pulumi:"relativeTimeRange"`
+	Targets              pulumi.StringArrayInput                                        `pulumi:"targets"`
+	TranscriptFilterType CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypeInput `pulumi:"transcriptFilterType"`
+}
+
+func (CallAnalyticsCategoryTranscriptFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryTranscriptFilter)(nil)).Elem()
+}
+
+func (i CallAnalyticsCategoryTranscriptFilterArgs) ToCallAnalyticsCategoryTranscriptFilterOutput() CallAnalyticsCategoryTranscriptFilterOutput {
+	return i.ToCallAnalyticsCategoryTranscriptFilterOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryTranscriptFilterArgs) ToCallAnalyticsCategoryTranscriptFilterOutputWithContext(ctx context.Context) CallAnalyticsCategoryTranscriptFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryTranscriptFilterOutput)
+}
+
+func (i CallAnalyticsCategoryTranscriptFilterArgs) ToCallAnalyticsCategoryTranscriptFilterPtrOutput() CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return i.ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(context.Background())
+}
+
+func (i CallAnalyticsCategoryTranscriptFilterArgs) ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryTranscriptFilterOutput).ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(ctx)
+}
+
+// CallAnalyticsCategoryTranscriptFilterPtrInput is an input type that accepts CallAnalyticsCategoryTranscriptFilterArgs, CallAnalyticsCategoryTranscriptFilterPtr and CallAnalyticsCategoryTranscriptFilterPtrOutput values.
+// You can construct a concrete instance of `CallAnalyticsCategoryTranscriptFilterPtrInput` via:
+//
+//	        CallAnalyticsCategoryTranscriptFilterArgs{...}
+//
+//	or:
+//
+//	        nil
+type CallAnalyticsCategoryTranscriptFilterPtrInput interface {
+	pulumi.Input
+
+	ToCallAnalyticsCategoryTranscriptFilterPtrOutput() CallAnalyticsCategoryTranscriptFilterPtrOutput
+	ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(context.Context) CallAnalyticsCategoryTranscriptFilterPtrOutput
+}
+
+type callAnalyticsCategoryTranscriptFilterPtrType CallAnalyticsCategoryTranscriptFilterArgs
+
+func CallAnalyticsCategoryTranscriptFilterPtr(v *CallAnalyticsCategoryTranscriptFilterArgs) CallAnalyticsCategoryTranscriptFilterPtrInput {
+	return (*callAnalyticsCategoryTranscriptFilterPtrType)(v)
+}
+
+func (*callAnalyticsCategoryTranscriptFilterPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryTranscriptFilter)(nil)).Elem()
+}
+
+func (i *callAnalyticsCategoryTranscriptFilterPtrType) ToCallAnalyticsCategoryTranscriptFilterPtrOutput() CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return i.ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(context.Background())
+}
+
+func (i *callAnalyticsCategoryTranscriptFilterPtrType) ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CallAnalyticsCategoryTranscriptFilterPtrOutput)
+}
+
+type CallAnalyticsCategoryTranscriptFilterOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryTranscriptFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CallAnalyticsCategoryTranscriptFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) ToCallAnalyticsCategoryTranscriptFilterOutput() CallAnalyticsCategoryTranscriptFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) ToCallAnalyticsCategoryTranscriptFilterOutputWithContext(ctx context.Context) CallAnalyticsCategoryTranscriptFilterOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) ToCallAnalyticsCategoryTranscriptFilterPtrOutput() CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return o.ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(context.Background())
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryTranscriptFilter {
+		return &v
+	}).(CallAnalyticsCategoryTranscriptFilterPtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryTranscriptFilter) *bool { return v.Negate }).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) ParticipantRole() CallAnalyticsCategoryTranscriptFilterParticipantRolePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryTranscriptFilterParticipantRole {
+		return v.ParticipantRole
+	}).(CallAnalyticsCategoryTranscriptFilterParticipantRolePtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) Targets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryTranscriptFilter) []string { return v.Targets }).(pulumi.StringArrayOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterOutput) TranscriptFilterType() CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypeOutput {
+	return o.ApplyT(func(v CallAnalyticsCategoryTranscriptFilter) CallAnalyticsCategoryTranscriptFilterTranscriptFilterType {
+		return v.TranscriptFilterType
+	}).(CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypeOutput)
+}
+
+type CallAnalyticsCategoryTranscriptFilterPtrOutput struct{ *pulumi.OutputState }
+
+func (CallAnalyticsCategoryTranscriptFilterPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CallAnalyticsCategoryTranscriptFilter)(nil)).Elem()
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) ToCallAnalyticsCategoryTranscriptFilterPtrOutput() CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) ToCallAnalyticsCategoryTranscriptFilterPtrOutputWithContext(ctx context.Context) CallAnalyticsCategoryTranscriptFilterPtrOutput {
+	return o
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) Elem() CallAnalyticsCategoryTranscriptFilterOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryTranscriptFilter) CallAnalyticsCategoryTranscriptFilter {
+		if v != nil {
+			return *v
+		}
+		var ret CallAnalyticsCategoryTranscriptFilter
+		return ret
+	}).(CallAnalyticsCategoryTranscriptFilterOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) AbsoluteTimeRange() CallAnalyticsCategoryAbsoluteTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryAbsoluteTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.AbsoluteTimeRange
+	}).(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) Negate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryTranscriptFilter) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Negate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) ParticipantRole() CallAnalyticsCategoryTranscriptFilterParticipantRolePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryTranscriptFilterParticipantRole {
+		if v == nil {
+			return nil
+		}
+		return v.ParticipantRole
+	}).(CallAnalyticsCategoryTranscriptFilterParticipantRolePtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) RelativeTimeRange() CallAnalyticsCategoryRelativeTimeRangePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryRelativeTimeRange {
+		if v == nil {
+			return nil
+		}
+		return v.RelativeTimeRange
+	}).(CallAnalyticsCategoryRelativeTimeRangePtrOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) Targets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryTranscriptFilter) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Targets
+	}).(pulumi.StringArrayOutput)
+}
+
+func (o CallAnalyticsCategoryTranscriptFilterPtrOutput) TranscriptFilterType() CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypePtrOutput {
+	return o.ApplyT(func(v *CallAnalyticsCategoryTranscriptFilter) *CallAnalyticsCategoryTranscriptFilterTranscriptFilterType {
+		if v == nil {
+			return nil
+		}
+		return &v.TranscriptFilterType
+	}).(CallAnalyticsCategoryTranscriptFilterTranscriptFilterTypePtrOutput)
+}
 
 type VocabularyFilterTag struct {
 	// The key of the tag.
@@ -16,5 +1293,40 @@ type VocabularyFilterTag struct {
 	Value string `pulumi:"value"`
 }
 
+type VocabularyTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryAbsoluteTimeRangeInput)(nil)).Elem(), CallAnalyticsCategoryAbsoluteTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryAbsoluteTimeRangePtrInput)(nil)).Elem(), CallAnalyticsCategoryAbsoluteTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryInterruptionFilterInput)(nil)).Elem(), CallAnalyticsCategoryInterruptionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryInterruptionFilterPtrInput)(nil)).Elem(), CallAnalyticsCategoryInterruptionFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryNonTalkTimeFilterInput)(nil)).Elem(), CallAnalyticsCategoryNonTalkTimeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryNonTalkTimeFilterPtrInput)(nil)).Elem(), CallAnalyticsCategoryNonTalkTimeFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryRelativeTimeRangeInput)(nil)).Elem(), CallAnalyticsCategoryRelativeTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryRelativeTimeRangePtrInput)(nil)).Elem(), CallAnalyticsCategoryRelativeTimeRangeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryRuleInput)(nil)).Elem(), CallAnalyticsCategoryRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryRuleArrayInput)(nil)).Elem(), CallAnalyticsCategoryRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategorySentimentFilterInput)(nil)).Elem(), CallAnalyticsCategorySentimentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategorySentimentFilterPtrInput)(nil)).Elem(), CallAnalyticsCategorySentimentFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryTranscriptFilterInput)(nil)).Elem(), CallAnalyticsCategoryTranscriptFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CallAnalyticsCategoryTranscriptFilterPtrInput)(nil)).Elem(), CallAnalyticsCategoryTranscriptFilterArgs{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryAbsoluteTimeRangeOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryAbsoluteTimeRangePtrOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryInterruptionFilterOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryInterruptionFilterPtrOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryNonTalkTimeFilterOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryNonTalkTimeFilterPtrOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryRelativeTimeRangeOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryRelativeTimeRangePtrOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryRuleOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryRuleArrayOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategorySentimentFilterOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategorySentimentFilterPtrOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryTranscriptFilterOutput{})
+	pulumi.RegisterOutputType(CallAnalyticsCategoryTranscriptFilterPtrOutput{})
 }

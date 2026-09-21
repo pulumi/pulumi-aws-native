@@ -35,6 +35,31 @@ __all__ = [
     'ConnectionOAuth2Credentials',
     'ConnectionOAuth2Properties',
     'ConnectionPhysicalConnectionRequirements',
+    'ConnectionTypeBasicAuthenticationProperties',
+    'ConnectionTypeBetweenConfiguration',
+    'ConnectionTypeClientCredentialsProperties',
+    'ConnectionTypeConnectionPropertiesConfiguration',
+    'ConnectionTypeConnectorAuthenticationConfiguration',
+    'ConnectionTypeConnectorAuthorizationCodeProperties',
+    'ConnectionTypeConnectorOAuth2Properties',
+    'ConnectionTypeConnectorProperty',
+    'ConnectionTypeCursorConfiguration',
+    'ConnectionTypeCustomAuthenticationProperties',
+    'ConnectionTypeEntityConfiguration',
+    'ConnectionTypeExtractedParameter',
+    'ConnectionTypeFieldDefinition',
+    'ConnectionTypeFilterConfiguration',
+    'ConnectionTypeFilterOverrides',
+    'ConnectionTypeFilterStringConfiguration',
+    'ConnectionTypeJwtBearerProperties',
+    'ConnectionTypeOffsetConfiguration',
+    'ConnectionTypePaginationConfiguration',
+    'ConnectionTypeResponseConfiguration',
+    'ConnectionTypeResponseExtractionMapping',
+    'ConnectionTypeRestConfiguration',
+    'ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties',
+    'ConnectionTypeSecretConnectorProperty',
+    'ConnectionTypeSourceConfiguration',
     'CrawlerCatalogTarget',
     'CrawlerDeltaTarget',
     'CrawlerDynamoDbTarget',
@@ -1464,6 +1489,1801 @@ class ConnectionPhysicalConnectionRequirements(dict):
         The subnet ID used by the connection.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class ConnectionTypeBasicAuthenticationProperties(dict):
+    """
+    Basic authentication configuration.
+    """
+    def __init__(__self__, *,
+                 password: Optional['outputs.ConnectionTypeSecretConnectorProperty'] = None,
+                 username: Optional['outputs.ConnectionTypeSecretConnectorProperty'] = None):
+        """
+        Basic authentication configuration.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ConnectionTypeBetweenConfiguration(dict):
+    """
+    Configuration that defines how BETWEEN range filter operations are translated into REST API request parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "highBoundKey":
+            suggest = "high_bound_key"
+        elif key == "lowBoundKey":
+            suggest = "low_bound_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeBetweenConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeBetweenConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeBetweenConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 high_bound_key: Optional[_builtins.str] = None,
+                 low_bound_key: Optional[_builtins.str] = None,
+                 template: Optional[_builtins.str] = None):
+        """
+        Configuration that defines how BETWEEN range filter operations are translated into REST API request parameters.
+
+        :param _builtins.str high_bound_key: The parameter name used for the upper bound value in a BETWEEN filter operation.
+        :param _builtins.str low_bound_key: The parameter name used for the lower bound value in a BETWEEN filter operation.
+        :param _builtins.str template: A template string for constructing the BETWEEN filter expression.
+        """
+        if high_bound_key is not None:
+            pulumi.set(__self__, "high_bound_key", high_bound_key)
+        if low_bound_key is not None:
+            pulumi.set(__self__, "low_bound_key", low_bound_key)
+        if template is not None:
+            pulumi.set(__self__, "template", template)
+
+    @_builtins.property
+    @pulumi.getter(name="highBoundKey")
+    def high_bound_key(self) -> Optional[_builtins.str]:
+        """
+        The parameter name used for the upper bound value in a BETWEEN filter operation.
+        """
+        return pulumi.get(self, "high_bound_key")
+
+    @_builtins.property
+    @pulumi.getter(name="lowBoundKey")
+    def low_bound_key(self) -> Optional[_builtins.str]:
+        """
+        The parameter name used for the lower bound value in a BETWEEN filter operation.
+        """
+        return pulumi.get(self, "low_bound_key")
+
+    @_builtins.property
+    @pulumi.getter
+    def template(self) -> Optional[_builtins.str]:
+        """
+        A template string for constructing the BETWEEN filter expression.
+        """
+        return pulumi.get(self, "template")
+
+
+@pulumi.output_type
+class ConnectionTypeClientCredentialsProperties(dict):
+    """
+    OAuth2 client credentials configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "requestMethod":
+            suggest = "request_method"
+        elif key == "tokenUrl":
+            suggest = "token_url"
+        elif key == "tokenUrlParameters":
+            suggest = "token_url_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeClientCredentialsProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeClientCredentialsProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeClientCredentialsProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional['outputs.ConnectionTypeSecretConnectorProperty'] = None,
+                 client_secret: Optional['outputs.ConnectionTypeSecretConnectorProperty'] = None,
+                 content_type: Optional['ConnectionTypeClientCredentialsPropertiesContentType'] = None,
+                 request_method: Optional['ConnectionTypeClientCredentialsPropertiesRequestMethod'] = None,
+                 scope: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 token_url: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 token_url_parameters: Optional[Sequence['outputs.ConnectionTypeConnectorProperty']] = None):
+        """
+        OAuth2 client credentials configuration.
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters is not None:
+            pulumi.set(__self__, "token_url_parameters", token_url_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional['ConnectionTypeClientCredentialsPropertiesContentType']:
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> Optional['ConnectionTypeClientCredentialsPropertiesRequestMethod']:
+        return pulumi.get(self, "request_method")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "token_url")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrlParameters")
+    def token_url_parameters(self) -> Optional[Sequence['outputs.ConnectionTypeConnectorProperty']]:
+        return pulumi.get(self, "token_url_parameters")
+
+
+@pulumi.output_type
+class ConnectionTypeConnectionPropertiesConfiguration(dict):
+    """
+    Configuration that defines the base URL and additional request parameters needed during connection creation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalRequestParameters":
+            suggest = "additional_request_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeConnectionPropertiesConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeConnectionPropertiesConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeConnectionPropertiesConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 additional_request_parameters: Optional[Sequence['outputs.ConnectionTypeConnectorProperty']] = None,
+                 url: Optional['outputs.ConnectionTypeConnectorProperty'] = None):
+        """
+        Configuration that defines the base URL and additional request parameters needed during connection creation.
+
+        :param Sequence['ConnectionTypeConnectorProperty'] additional_request_parameters: Key-value pairs of additional request parameters.
+        """
+        if additional_request_parameters is not None:
+            pulumi.set(__self__, "additional_request_parameters", additional_request_parameters)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @_builtins.property
+    @pulumi.getter(name="additionalRequestParameters")
+    def additional_request_parameters(self) -> Optional[Sequence['outputs.ConnectionTypeConnectorProperty']]:
+        """
+        Key-value pairs of additional request parameters.
+        """
+        return pulumi.get(self, "additional_request_parameters")
+
+    @_builtins.property
+    @pulumi.getter
+    def url(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ConnectionTypeConnectorAuthenticationConfiguration(dict):
+    """
+    Configuration that defines supported authentication types and required properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationTypes":
+            suggest = "authentication_types"
+        elif key == "basicAuthenticationProperties":
+            suggest = "basic_authentication_properties"
+        elif key == "customAuthenticationProperties":
+            suggest = "custom_authentication_properties"
+        elif key == "oAuth2Properties":
+            suggest = "o_auth2_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeConnectorAuthenticationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeConnectorAuthenticationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeConnectorAuthenticationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_types: Sequence['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem'],
+                 basic_authentication_properties: Optional['outputs.ConnectionTypeBasicAuthenticationProperties'] = None,
+                 custom_authentication_properties: Optional['outputs.ConnectionTypeCustomAuthenticationProperties'] = None,
+                 o_auth2_properties: Optional['outputs.ConnectionTypeConnectorOAuth2Properties'] = None):
+        """
+        Configuration that defines supported authentication types and required properties.
+
+        :param Sequence['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem'] authentication_types: A list of authentication types supported.
+        """
+        pulumi.set(__self__, "authentication_types", authentication_types)
+        if basic_authentication_properties is not None:
+            pulumi.set(__self__, "basic_authentication_properties", basic_authentication_properties)
+        if custom_authentication_properties is not None:
+            pulumi.set(__self__, "custom_authentication_properties", custom_authentication_properties)
+        if o_auth2_properties is not None:
+            pulumi.set(__self__, "o_auth2_properties", o_auth2_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationTypes")
+    def authentication_types(self) -> Sequence['ConnectionTypeConnectorAuthenticationConfigurationAuthenticationTypesItem']:
+        """
+        A list of authentication types supported.
+        """
+        return pulumi.get(self, "authentication_types")
+
+    @_builtins.property
+    @pulumi.getter(name="basicAuthenticationProperties")
+    def basic_authentication_properties(self) -> Optional['outputs.ConnectionTypeBasicAuthenticationProperties']:
+        return pulumi.get(self, "basic_authentication_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="customAuthenticationProperties")
+    def custom_authentication_properties(self) -> Optional['outputs.ConnectionTypeCustomAuthenticationProperties']:
+        return pulumi.get(self, "custom_authentication_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2Properties")
+    def o_auth2_properties(self) -> Optional['outputs.ConnectionTypeConnectorOAuth2Properties']:
+        return pulumi.get(self, "o_auth2_properties")
+
+
+@pulumi.output_type
+class ConnectionTypeConnectorAuthorizationCodeProperties(dict):
+    """
+    OAuth2 authorization code configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorizationCode":
+            suggest = "authorization_code"
+        elif key == "authorizationCodeUrl":
+            suggest = "authorization_code_url"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
+        elif key == "contentType":
+            suggest = "content_type"
+        elif key == "redirectUri":
+            suggest = "redirect_uri"
+        elif key == "requestMethod":
+            suggest = "request_method"
+        elif key == "tokenUrl":
+            suggest = "token_url"
+        elif key == "tokenUrlParameters":
+            suggest = "token_url_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeConnectorAuthorizationCodeProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeConnectorAuthorizationCodeProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeConnectorAuthorizationCodeProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authorization_code: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 authorization_code_url: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 client_id: Optional['outputs.ConnectionTypeSecretConnectorProperty'] = None,
+                 client_secret: Optional['outputs.ConnectionTypeSecretConnectorProperty'] = None,
+                 content_type: Optional['ConnectionTypeConnectorAuthorizationCodePropertiesContentType'] = None,
+                 prompt: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 redirect_uri: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 request_method: Optional['ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod'] = None,
+                 scope: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 token_url: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 token_url_parameters: Optional[Sequence['outputs.ConnectionTypeConnectorProperty']] = None):
+        """
+        OAuth2 authorization code configuration.
+        """
+        if authorization_code is not None:
+            pulumi.set(__self__, "authorization_code", authorization_code)
+        if authorization_code_url is not None:
+            pulumi.set(__self__, "authorization_code_url", authorization_code_url)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if prompt is not None:
+            pulumi.set(__self__, "prompt", prompt)
+        if redirect_uri is not None:
+            pulumi.set(__self__, "redirect_uri", redirect_uri)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters is not None:
+            pulumi.set(__self__, "token_url_parameters", token_url_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCode")
+    def authorization_code(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "authorization_code")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCodeUrl")
+    def authorization_code_url(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "authorization_code_url")
+
+    @_builtins.property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "client_id")
+
+    @_builtins.property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "client_secret")
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional['ConnectionTypeConnectorAuthorizationCodePropertiesContentType']:
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def prompt(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "prompt")
+
+    @_builtins.property
+    @pulumi.getter(name="redirectUri")
+    def redirect_uri(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "redirect_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> Optional['ConnectionTypeConnectorAuthorizationCodePropertiesRequestMethod']:
+        return pulumi.get(self, "request_method")
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "scope")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "token_url")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrlParameters")
+    def token_url_parameters(self) -> Optional[Sequence['outputs.ConnectionTypeConnectorProperty']]:
+        return pulumi.get(self, "token_url_parameters")
+
+
+@pulumi.output_type
+class ConnectionTypeConnectorOAuth2Properties(dict):
+    """
+    OAuth2 configuration container.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oAuth2GrantType":
+            suggest = "o_auth2_grant_type"
+        elif key == "authorizationCodeProperties":
+            suggest = "authorization_code_properties"
+        elif key == "clientCredentialsProperties":
+            suggest = "client_credentials_properties"
+        elif key == "jwtBearerProperties":
+            suggest = "jwt_bearer_properties"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeConnectorOAuth2Properties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeConnectorOAuth2Properties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeConnectorOAuth2Properties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 o_auth2_grant_type: 'ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType',
+                 authorization_code_properties: Optional['outputs.ConnectionTypeConnectorAuthorizationCodeProperties'] = None,
+                 client_credentials_properties: Optional['outputs.ConnectionTypeClientCredentialsProperties'] = None,
+                 jwt_bearer_properties: Optional['outputs.ConnectionTypeJwtBearerProperties'] = None):
+        """
+        OAuth2 configuration container.
+
+        :param 'ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType' o_auth2_grant_type: The OAuth2 grant type to use.
+        """
+        pulumi.set(__self__, "o_auth2_grant_type", o_auth2_grant_type)
+        if authorization_code_properties is not None:
+            pulumi.set(__self__, "authorization_code_properties", authorization_code_properties)
+        if client_credentials_properties is not None:
+            pulumi.set(__self__, "client_credentials_properties", client_credentials_properties)
+        if jwt_bearer_properties is not None:
+            pulumi.set(__self__, "jwt_bearer_properties", jwt_bearer_properties)
+
+    @_builtins.property
+    @pulumi.getter(name="oAuth2GrantType")
+    def o_auth2_grant_type(self) -> 'ConnectionTypeConnectorOAuth2PropertiesOAuth2GrantType':
+        """
+        The OAuth2 grant type to use.
+        """
+        return pulumi.get(self, "o_auth2_grant_type")
+
+    @_builtins.property
+    @pulumi.getter(name="authorizationCodeProperties")
+    def authorization_code_properties(self) -> Optional['outputs.ConnectionTypeConnectorAuthorizationCodeProperties']:
+        return pulumi.get(self, "authorization_code_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="clientCredentialsProperties")
+    def client_credentials_properties(self) -> Optional['outputs.ConnectionTypeClientCredentialsProperties']:
+        return pulumi.get(self, "client_credentials_properties")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtBearerProperties")
+    def jwt_bearer_properties(self) -> Optional['outputs.ConnectionTypeJwtBearerProperties']:
+        return pulumi.get(self, "jwt_bearer_properties")
+
+
+@pulumi.output_type
+class ConnectionTypeConnectorProperty(dict):
+    """
+    Defines a property configuration for connection types.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyType":
+            suggest = "property_type"
+        elif key == "allowedValues":
+            suggest = "allowed_values"
+        elif key == "defaultValue":
+            suggest = "default_value"
+        elif key == "keyOverride":
+            suggest = "key_override"
+        elif key == "propertyLocation":
+            suggest = "property_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeConnectorProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeConnectorProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeConnectorProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 property_type: 'ConnectionTypeConnectorPropertyPropertyType',
+                 required: _builtins.bool,
+                 allowed_values: Optional[Sequence[_builtins.str]] = None,
+                 default_value: Optional[_builtins.str] = None,
+                 key_override: Optional[_builtins.str] = None,
+                 property_location: Optional['ConnectionTypeConnectorPropertyPropertyLocation'] = None):
+        """
+        Defines a property configuration for connection types.
+
+        :param _builtins.str name: The name of the property.
+        :param 'ConnectionTypeConnectorPropertyPropertyType' property_type: The data type of this property.
+        :param _builtins.bool required: Indicates whether the property is required.
+        :param Sequence[_builtins.str] allowed_values: A list of allowed values for the property.
+        :param _builtins.str default_value: The default value for the property.
+        :param _builtins.str key_override: A key name to use when sending this property in API requests.
+        :param 'ConnectionTypeConnectorPropertyPropertyLocation' property_location: Specifies where this property should be included in REST requests.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_type", property_type)
+        pulumi.set(__self__, "required", required)
+        if allowed_values is not None:
+            pulumi.set(__self__, "allowed_values", allowed_values)
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if key_override is not None:
+            pulumi.set(__self__, "key_override", key_override)
+        if property_location is not None:
+            pulumi.set(__self__, "property_location", property_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyType")
+    def property_type(self) -> 'ConnectionTypeConnectorPropertyPropertyType':
+        """
+        The data type of this property.
+        """
+        return pulumi.get(self, "property_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> _builtins.bool:
+        """
+        Indicates whether the property is required.
+        """
+        return pulumi.get(self, "required")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedValues")
+    def allowed_values(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of allowed values for the property.
+        """
+        return pulumi.get(self, "allowed_values")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        """
+        The default value for the property.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter(name="keyOverride")
+    def key_override(self) -> Optional[_builtins.str]:
+        """
+        A key name to use when sending this property in API requests.
+        """
+        return pulumi.get(self, "key_override")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyLocation")
+    def property_location(self) -> Optional['ConnectionTypeConnectorPropertyPropertyLocation']:
+        """
+        Specifies where this property should be included in REST requests.
+        """
+        return pulumi.get(self, "property_location")
+
+
+@pulumi.output_type
+class ConnectionTypeCursorConfiguration(dict):
+    """
+    Cursor-based pagination configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "nextPage":
+            suggest = "next_page"
+        elif key == "limitParameter":
+            suggest = "limit_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeCursorConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeCursorConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeCursorConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 next_page: 'outputs.ConnectionTypeExtractedParameter',
+                 limit_parameter: Optional['outputs.ConnectionTypeExtractedParameter'] = None):
+        """
+        Cursor-based pagination configuration.
+        """
+        pulumi.set(__self__, "next_page", next_page)
+        if limit_parameter is not None:
+            pulumi.set(__self__, "limit_parameter", limit_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="nextPage")
+    def next_page(self) -> 'outputs.ConnectionTypeExtractedParameter':
+        return pulumi.get(self, "next_page")
+
+    @_builtins.property
+    @pulumi.getter(name="limitParameter")
+    def limit_parameter(self) -> Optional['outputs.ConnectionTypeExtractedParameter']:
+        return pulumi.get(self, "limit_parameter")
+
+
+@pulumi.output_type
+class ConnectionTypeCustomAuthenticationProperties(dict):
+    """
+    Custom authentication configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationParameters":
+            suggest = "authentication_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeCustomAuthenticationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeCustomAuthenticationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeCustomAuthenticationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_parameters: Sequence['outputs.ConnectionTypeSecretConnectorProperty']):
+        """
+        Custom authentication configuration.
+        """
+        pulumi.set(__self__, "authentication_parameters", authentication_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="authenticationParameters")
+    def authentication_parameters(self) -> Sequence['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "authentication_parameters")
+
+
+@pulumi.output_type
+class ConnectionTypeEntityConfiguration(dict):
+    """
+    Configuration for interacting with a specific data entity.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceConfiguration":
+            suggest = "source_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeEntityConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeEntityConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeEntityConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 schema: Optional[Mapping[str, 'outputs.ConnectionTypeFieldDefinition']] = None,
+                 source_configuration: Optional['outputs.ConnectionTypeSourceConfiguration'] = None):
+        """
+        Configuration for interacting with a specific data entity.
+
+        :param Mapping[str, 'ConnectionTypeFieldDefinition'] schema: The schema definition for this entity.
+        """
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if source_configuration is not None:
+            pulumi.set(__self__, "source_configuration", source_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def schema(self) -> Optional[Mapping[str, 'outputs.ConnectionTypeFieldDefinition']]:
+        """
+        The schema definition for this entity.
+        """
+        return pulumi.get(self, "schema")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceConfiguration")
+    def source_configuration(self) -> Optional['outputs.ConnectionTypeSourceConfiguration']:
+        return pulumi.get(self, "source_configuration")
+
+
+@pulumi.output_type
+class ConnectionTypeExtractedParameter(dict):
+    """
+    Parameter extraction configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultValue":
+            suggest = "default_value"
+        elif key == "propertyLocation":
+            suggest = "property_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeExtractedParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeExtractedParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeExtractedParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_value: Optional[_builtins.str] = None,
+                 key: Optional[_builtins.str] = None,
+                 property_location: Optional['ConnectionTypeExtractedParameterPropertyLocation'] = None,
+                 value: Optional['outputs.ConnectionTypeResponseExtractionMapping'] = None):
+        """
+        Parameter extraction configuration.
+
+        :param _builtins.str default_value: The default value.
+        :param _builtins.str key: The parameter key name.
+        :param 'ConnectionTypeExtractedParameterPropertyLocation' property_location: Specifies where to place the parameter in requests.
+        """
+        if default_value is not None:
+            pulumi.set(__self__, "default_value", default_value)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if property_location is not None:
+            pulumi.set(__self__, "property_location", property_location)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultValue")
+    def default_value(self) -> Optional[_builtins.str]:
+        """
+        The default value.
+        """
+        return pulumi.get(self, "default_value")
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        The parameter key name.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyLocation")
+    def property_location(self) -> Optional['ConnectionTypeExtractedParameterPropertyLocation']:
+        """
+        Specifies where to place the parameter in requests.
+        """
+        return pulumi.get(self, "property_location")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional['outputs.ConnectionTypeResponseExtractionMapping']:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConnectionTypeFieldDefinition(dict):
+    """
+    Defines a field in an entity schema.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fieldDataType":
+            suggest = "field_data_type"
+        elif key == "filterOverrides":
+            suggest = "filter_overrides"
+        elif key == "isNullable":
+            suggest = "is_nullable"
+        elif key == "isOrderable":
+            suggest = "is_orderable"
+        elif key == "isPartitionable":
+            suggest = "is_partitionable"
+        elif key == "isQueryable":
+            suggest = "is_queryable"
+        elif key == "responseDateFormat":
+            suggest = "response_date_format"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeFieldDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeFieldDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeFieldDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 field_data_type: 'ConnectionTypeFieldDefinitionFieldDataType',
+                 name: _builtins.str,
+                 filter_overrides: Optional['outputs.ConnectionTypeFilterOverrides'] = None,
+                 is_nullable: Optional[_builtins.bool] = None,
+                 is_orderable: Optional[_builtins.bool] = None,
+                 is_partitionable: Optional[_builtins.bool] = None,
+                 is_queryable: Optional[_builtins.bool] = None,
+                 response_date_format: Optional[_builtins.str] = None):
+        """
+        Defines a field in an entity schema.
+
+        :param 'ConnectionTypeFieldDefinitionFieldDataType' field_data_type: The data type of the field.
+        :param _builtins.str name: The name of the field.
+        :param _builtins.bool is_nullable: Indicates whether this field can contain null values.
+        :param _builtins.bool is_orderable: Indicates whether this field can be used for ordering results.
+        :param _builtins.bool is_partitionable: Indicates whether this field can be used for partitioning queries to the data source.
+        :param _builtins.bool is_queryable: Indicates whether this field can be used in filter predicates when querying data.
+        :param _builtins.str response_date_format: The format pattern for parsing date values from API responses. Accepts Java DateTimeFormatter patterns, EPOCH_SECONDS, or EPOCH_MILLIS.
+        """
+        pulumi.set(__self__, "field_data_type", field_data_type)
+        pulumi.set(__self__, "name", name)
+        if filter_overrides is not None:
+            pulumi.set(__self__, "filter_overrides", filter_overrides)
+        if is_nullable is not None:
+            pulumi.set(__self__, "is_nullable", is_nullable)
+        if is_orderable is not None:
+            pulumi.set(__self__, "is_orderable", is_orderable)
+        if is_partitionable is not None:
+            pulumi.set(__self__, "is_partitionable", is_partitionable)
+        if is_queryable is not None:
+            pulumi.set(__self__, "is_queryable", is_queryable)
+        if response_date_format is not None:
+            pulumi.set(__self__, "response_date_format", response_date_format)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldDataType")
+    def field_data_type(self) -> 'ConnectionTypeFieldDefinitionFieldDataType':
+        """
+        The data type of the field.
+        """
+        return pulumi.get(self, "field_data_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the field.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="filterOverrides")
+    def filter_overrides(self) -> Optional['outputs.ConnectionTypeFilterOverrides']:
+        return pulumi.get(self, "filter_overrides")
+
+    @_builtins.property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether this field can contain null values.
+        """
+        return pulumi.get(self, "is_nullable")
+
+    @_builtins.property
+    @pulumi.getter(name="isOrderable")
+    def is_orderable(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether this field can be used for ordering results.
+        """
+        return pulumi.get(self, "is_orderable")
+
+    @_builtins.property
+    @pulumi.getter(name="isPartitionable")
+    def is_partitionable(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether this field can be used for partitioning queries to the data source.
+        """
+        return pulumi.get(self, "is_partitionable")
+
+    @_builtins.property
+    @pulumi.getter(name="isQueryable")
+    def is_queryable(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether this field can be used in filter predicates when querying data.
+        """
+        return pulumi.get(self, "is_queryable")
+
+    @_builtins.property
+    @pulumi.getter(name="responseDateFormat")
+    def response_date_format(self) -> Optional[_builtins.str]:
+        """
+        The format pattern for parsing date values from API responses. Accepts Java DateTimeFormatter patterns, EPOCH_SECONDS, or EPOCH_MILLIS.
+        """
+        return pulumi.get(self, "response_date_format")
+
+
+@pulumi.output_type
+class ConnectionTypeFilterConfiguration(dict):
+    """
+    Configuration that defines how filter predicates are applied to REST API requests, supporting both query parameter and filter string strategies.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterMode":
+            suggest = "filter_mode"
+        elif key == "betweenConfiguration":
+            suggest = "between_configuration"
+        elif key == "dateTimeFormat":
+            suggest = "date_time_format"
+        elif key == "filterStringConfiguration":
+            suggest = "filter_string_configuration"
+        elif key == "operatorMappings":
+            suggest = "operator_mappings"
+        elif key == "stripQuotes":
+            suggest = "strip_quotes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeFilterConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeFilterConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeFilterConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_mode: 'ConnectionTypeFilterConfigurationFilterMode',
+                 between_configuration: Optional['outputs.ConnectionTypeBetweenConfiguration'] = None,
+                 date_time_format: Optional[_builtins.str] = None,
+                 filter_string_configuration: Optional['outputs.ConnectionTypeFilterStringConfiguration'] = None,
+                 operator_mappings: Optional[Mapping[str, _builtins.str]] = None,
+                 strip_quotes: Optional[_builtins.bool] = None):
+        """
+        Configuration that defines how filter predicates are applied to REST API requests, supporting both query parameter and filter string strategies.
+
+        :param 'ConnectionTypeFilterConfigurationFilterMode' filter_mode: The strategy for applying filters to requests.
+        :param _builtins.str date_time_format: The global date and time format for filter expressions.
+        :param Mapping[str, _builtins.str] operator_mappings: A map of logical filter operators to their API-specific string representations.
+        :param _builtins.bool strip_quotes: Indicates whether surrounding double quotes should be stripped from filter values before processing.
+        """
+        pulumi.set(__self__, "filter_mode", filter_mode)
+        if between_configuration is not None:
+            pulumi.set(__self__, "between_configuration", between_configuration)
+        if date_time_format is not None:
+            pulumi.set(__self__, "date_time_format", date_time_format)
+        if filter_string_configuration is not None:
+            pulumi.set(__self__, "filter_string_configuration", filter_string_configuration)
+        if operator_mappings is not None:
+            pulumi.set(__self__, "operator_mappings", operator_mappings)
+        if strip_quotes is not None:
+            pulumi.set(__self__, "strip_quotes", strip_quotes)
+
+    @_builtins.property
+    @pulumi.getter(name="filterMode")
+    def filter_mode(self) -> 'ConnectionTypeFilterConfigurationFilterMode':
+        """
+        The strategy for applying filters to requests.
+        """
+        return pulumi.get(self, "filter_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="betweenConfiguration")
+    def between_configuration(self) -> Optional['outputs.ConnectionTypeBetweenConfiguration']:
+        return pulumi.get(self, "between_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="dateTimeFormat")
+    def date_time_format(self) -> Optional[_builtins.str]:
+        """
+        The global date and time format for filter expressions.
+        """
+        return pulumi.get(self, "date_time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="filterStringConfiguration")
+    def filter_string_configuration(self) -> Optional['outputs.ConnectionTypeFilterStringConfiguration']:
+        return pulumi.get(self, "filter_string_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="operatorMappings")
+    def operator_mappings(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A map of logical filter operators to their API-specific string representations.
+        """
+        return pulumi.get(self, "operator_mappings")
+
+    @_builtins.property
+    @pulumi.getter(name="stripQuotes")
+    def strip_quotes(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether surrounding double quotes should be stripped from filter values before processing.
+        """
+        return pulumi.get(self, "strip_quotes")
+
+
+@pulumi.output_type
+class ConnectionTypeFilterOverrides(dict):
+    """
+    Configuration that defines per-field overrides for filter behavior, allowing individual fields to customize how filter operations are applied.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "betweenConfiguration":
+            suggest = "between_configuration"
+        elif key == "dateTimeFormat":
+            suggest = "date_time_format"
+        elif key == "fieldName":
+            suggest = "field_name"
+        elif key == "operatorMappings":
+            suggest = "operator_mappings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeFilterOverrides. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeFilterOverrides.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeFilterOverrides.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 between_configuration: Optional['outputs.ConnectionTypeBetweenConfiguration'] = None,
+                 date_time_format: Optional[_builtins.str] = None,
+                 field_name: Optional[_builtins.str] = None,
+                 operator_mappings: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        Configuration that defines per-field overrides for filter behavior, allowing individual fields to customize how filter operations are applied.
+
+        :param _builtins.str date_time_format: The date and time format for filter expressions on this field, overriding the global DateTimeFormat.
+        :param _builtins.str field_name: An override for the field name to use in filter expressions, if different from the schema field name.
+        :param Mapping[str, _builtins.str] operator_mappings: A map of logical filter operators to their field-specific API representations, overriding the global operator mappings.
+        """
+        if between_configuration is not None:
+            pulumi.set(__self__, "between_configuration", between_configuration)
+        if date_time_format is not None:
+            pulumi.set(__self__, "date_time_format", date_time_format)
+        if field_name is not None:
+            pulumi.set(__self__, "field_name", field_name)
+        if operator_mappings is not None:
+            pulumi.set(__self__, "operator_mappings", operator_mappings)
+
+    @_builtins.property
+    @pulumi.getter(name="betweenConfiguration")
+    def between_configuration(self) -> Optional['outputs.ConnectionTypeBetweenConfiguration']:
+        return pulumi.get(self, "between_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="dateTimeFormat")
+    def date_time_format(self) -> Optional[_builtins.str]:
+        """
+        The date and time format for filter expressions on this field, overriding the global DateTimeFormat.
+        """
+        return pulumi.get(self, "date_time_format")
+
+    @_builtins.property
+    @pulumi.getter(name="fieldName")
+    def field_name(self) -> Optional[_builtins.str]:
+        """
+        An override for the field name to use in filter expressions, if different from the schema field name.
+        """
+        return pulumi.get(self, "field_name")
+
+    @_builtins.property
+    @pulumi.getter(name="operatorMappings")
+    def operator_mappings(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        A map of logical filter operators to their field-specific API representations, overriding the global operator mappings.
+        """
+        return pulumi.get(self, "operator_mappings")
+
+
+@pulumi.output_type
+class ConnectionTypeFilterStringConfiguration(dict):
+    """
+    Configuration for constructing filter expression strings when using the FILTER_STRING filter mode.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "queryParameterName":
+            suggest = "query_parameter_name"
+        elif key == "quoteCharacter":
+            suggest = "quote_character"
+        elif key == "quoteStringValues":
+            suggest = "quote_string_values"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeFilterStringConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeFilterStringConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeFilterStringConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 query_parameter_name: _builtins.str,
+                 quote_character: Optional[_builtins.str] = None,
+                 quote_string_values: Optional[_builtins.bool] = None):
+        """
+        Configuration for constructing filter expression strings when using the FILTER_STRING filter mode.
+
+        :param _builtins.str query_parameter_name: The query parameter name used to send the constructed filter expression string in API requests.
+        :param _builtins.str quote_character: The character used to quote values when QuoteStringValues is true. Defaults to double quotes if not specified.
+        :param _builtins.bool quote_string_values: Indicates whether string and date values should be wrapped with a quote character in the filter expression.
+        """
+        pulumi.set(__self__, "query_parameter_name", query_parameter_name)
+        if quote_character is not None:
+            pulumi.set(__self__, "quote_character", quote_character)
+        if quote_string_values is not None:
+            pulumi.set(__self__, "quote_string_values", quote_string_values)
+
+    @_builtins.property
+    @pulumi.getter(name="queryParameterName")
+    def query_parameter_name(self) -> _builtins.str:
+        """
+        The query parameter name used to send the constructed filter expression string in API requests.
+        """
+        return pulumi.get(self, "query_parameter_name")
+
+    @_builtins.property
+    @pulumi.getter(name="quoteCharacter")
+    def quote_character(self) -> Optional[_builtins.str]:
+        """
+        The character used to quote values when QuoteStringValues is true. Defaults to double quotes if not specified.
+        """
+        return pulumi.get(self, "quote_character")
+
+    @_builtins.property
+    @pulumi.getter(name="quoteStringValues")
+    def quote_string_values(self) -> Optional[_builtins.bool]:
+        """
+        Indicates whether string and date values should be wrapped with a quote character in the filter expression.
+        """
+        return pulumi.get(self, "quote_string_values")
+
+
+@pulumi.output_type
+class ConnectionTypeJwtBearerProperties(dict):
+    """
+    JWT bearer token configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "jwtToken":
+            suggest = "jwt_token"
+        elif key == "requestMethod":
+            suggest = "request_method"
+        elif key == "tokenUrl":
+            suggest = "token_url"
+        elif key == "tokenUrlParameters":
+            suggest = "token_url_parameters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeJwtBearerProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeJwtBearerProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeJwtBearerProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_type: Optional['ConnectionTypeJwtBearerPropertiesContentType'] = None,
+                 jwt_token: Optional['outputs.ConnectionTypeSecretConnectorProperty'] = None,
+                 request_method: Optional['ConnectionTypeJwtBearerPropertiesRequestMethod'] = None,
+                 token_url: Optional['outputs.ConnectionTypeConnectorProperty'] = None,
+                 token_url_parameters: Optional[Sequence['outputs.ConnectionTypeConnectorProperty']] = None):
+        """
+        JWT bearer token configuration.
+        """
+        if content_type is not None:
+            pulumi.set(__self__, "content_type", content_type)
+        if jwt_token is not None:
+            pulumi.set(__self__, "jwt_token", jwt_token)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if token_url is not None:
+            pulumi.set(__self__, "token_url", token_url)
+        if token_url_parameters is not None:
+            pulumi.set(__self__, "token_url_parameters", token_url_parameters)
+
+    @_builtins.property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> Optional['ConnectionTypeJwtBearerPropertiesContentType']:
+        return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="jwtToken")
+    def jwt_token(self) -> Optional['outputs.ConnectionTypeSecretConnectorProperty']:
+        return pulumi.get(self, "jwt_token")
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> Optional['ConnectionTypeJwtBearerPropertiesRequestMethod']:
+        return pulumi.get(self, "request_method")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrl")
+    def token_url(self) -> Optional['outputs.ConnectionTypeConnectorProperty']:
+        return pulumi.get(self, "token_url")
+
+    @_builtins.property
+    @pulumi.getter(name="tokenUrlParameters")
+    def token_url_parameters(self) -> Optional[Sequence['outputs.ConnectionTypeConnectorProperty']]:
+        return pulumi.get(self, "token_url_parameters")
+
+
+@pulumi.output_type
+class ConnectionTypeOffsetConfiguration(dict):
+    """
+    Offset-based pagination configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "limitParameter":
+            suggest = "limit_parameter"
+        elif key == "offsetParameter":
+            suggest = "offset_parameter"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeOffsetConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeOffsetConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeOffsetConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 limit_parameter: 'outputs.ConnectionTypeExtractedParameter',
+                 offset_parameter: 'outputs.ConnectionTypeExtractedParameter'):
+        """
+        Offset-based pagination configuration.
+        """
+        pulumi.set(__self__, "limit_parameter", limit_parameter)
+        pulumi.set(__self__, "offset_parameter", offset_parameter)
+
+    @_builtins.property
+    @pulumi.getter(name="limitParameter")
+    def limit_parameter(self) -> 'outputs.ConnectionTypeExtractedParameter':
+        return pulumi.get(self, "limit_parameter")
+
+    @_builtins.property
+    @pulumi.getter(name="offsetParameter")
+    def offset_parameter(self) -> 'outputs.ConnectionTypeExtractedParameter':
+        return pulumi.get(self, "offset_parameter")
+
+
+@pulumi.output_type
+class ConnectionTypePaginationConfiguration(dict):
+    """
+    Configuration for handling paginated responses.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cursorConfiguration":
+            suggest = "cursor_configuration"
+        elif key == "offsetConfiguration":
+            suggest = "offset_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypePaginationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypePaginationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypePaginationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cursor_configuration: Optional['outputs.ConnectionTypeCursorConfiguration'] = None,
+                 offset_configuration: Optional['outputs.ConnectionTypeOffsetConfiguration'] = None):
+        """
+        Configuration for handling paginated responses.
+        """
+        if cursor_configuration is not None:
+            pulumi.set(__self__, "cursor_configuration", cursor_configuration)
+        if offset_configuration is not None:
+            pulumi.set(__self__, "offset_configuration", offset_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="cursorConfiguration")
+    def cursor_configuration(self) -> Optional['outputs.ConnectionTypeCursorConfiguration']:
+        return pulumi.get(self, "cursor_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="offsetConfiguration")
+    def offset_configuration(self) -> Optional['outputs.ConnectionTypeOffsetConfiguration']:
+        return pulumi.get(self, "offset_configuration")
+
+
+@pulumi.output_type
+class ConnectionTypeResponseConfiguration(dict):
+    """
+    Configuration for parsing JSON responses from REST API calls.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resultPath":
+            suggest = "result_path"
+        elif key == "errorPath":
+            suggest = "error_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeResponseConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeResponseConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeResponseConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 result_path: _builtins.str,
+                 error_path: Optional[_builtins.str] = None):
+        """
+        Configuration for parsing JSON responses from REST API calls.
+
+        :param _builtins.str result_path: JSON path expression for result data location.
+        :param _builtins.str error_path: JSON path expression for error information location.
+        """
+        pulumi.set(__self__, "result_path", result_path)
+        if error_path is not None:
+            pulumi.set(__self__, "error_path", error_path)
+
+    @_builtins.property
+    @pulumi.getter(name="resultPath")
+    def result_path(self) -> _builtins.str:
+        """
+        JSON path expression for result data location.
+        """
+        return pulumi.get(self, "result_path")
+
+    @_builtins.property
+    @pulumi.getter(name="errorPath")
+    def error_path(self) -> Optional[_builtins.str]:
+        """
+        JSON path expression for error information location.
+        """
+        return pulumi.get(self, "error_path")
+
+
+@pulumi.output_type
+class ConnectionTypeResponseExtractionMapping(dict):
+    """
+    Defines how to extract values from HTTP responses.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentPath":
+            suggest = "content_path"
+        elif key == "headerKey":
+            suggest = "header_key"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeResponseExtractionMapping. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeResponseExtractionMapping.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeResponseExtractionMapping.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_path: Optional[_builtins.str] = None,
+                 header_key: Optional[_builtins.str] = None):
+        """
+        Defines how to extract values from HTTP responses.
+
+        :param _builtins.str content_path: A JSON path expression to extract a value from response body.
+        :param _builtins.str header_key: The name of an HTTP response header from which to extract the value.
+        """
+        if content_path is not None:
+            pulumi.set(__self__, "content_path", content_path)
+        if header_key is not None:
+            pulumi.set(__self__, "header_key", header_key)
+
+    @_builtins.property
+    @pulumi.getter(name="contentPath")
+    def content_path(self) -> Optional[_builtins.str]:
+        """
+        A JSON path expression to extract a value from response body.
+        """
+        return pulumi.get(self, "content_path")
+
+    @_builtins.property
+    @pulumi.getter(name="headerKey")
+    def header_key(self) -> Optional[_builtins.str]:
+        """
+        The name of an HTTP response header from which to extract the value.
+        """
+        return pulumi.get(self, "header_key")
+
+
+@pulumi.output_type
+class ConnectionTypeRestConfiguration(dict):
+    """
+    Configuration for HTTP request and response handling.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "entityConfigurations":
+            suggest = "entity_configurations"
+        elif key == "globalSourceConfiguration":
+            suggest = "global_source_configuration"
+        elif key == "validationEndpointConfiguration":
+            suggest = "validation_endpoint_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeRestConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeRestConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeRestConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 entity_configurations: Optional[Mapping[str, 'outputs.ConnectionTypeEntityConfiguration']] = None,
+                 global_source_configuration: Optional['outputs.ConnectionTypeSourceConfiguration'] = None,
+                 validation_endpoint_configuration: Optional['outputs.ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties'] = None):
+        """
+        Configuration for HTTP request and response handling.
+
+        :param Mapping[str, 'ConnectionTypeEntityConfiguration'] entity_configurations: A map of entity configurations.
+        :param 'ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties' validation_endpoint_configuration: Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+        """
+        if entity_configurations is not None:
+            pulumi.set(__self__, "entity_configurations", entity_configurations)
+        if global_source_configuration is not None:
+            pulumi.set(__self__, "global_source_configuration", global_source_configuration)
+        if validation_endpoint_configuration is not None:
+            pulumi.set(__self__, "validation_endpoint_configuration", validation_endpoint_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="entityConfigurations")
+    def entity_configurations(self) -> Optional[Mapping[str, 'outputs.ConnectionTypeEntityConfiguration']]:
+        """
+        A map of entity configurations.
+        """
+        return pulumi.get(self, "entity_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="globalSourceConfiguration")
+    def global_source_configuration(self) -> Optional['outputs.ConnectionTypeSourceConfiguration']:
+        return pulumi.get(self, "global_source_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="validationEndpointConfiguration")
+    def validation_endpoint_configuration(self) -> Optional['outputs.ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties']:
+        """
+        Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+        """
+        return pulumi.get(self, "validation_endpoint_configuration")
+
+
+@pulumi.output_type
+class ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties(dict):
+    """
+    Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "requestMethod":
+            suggest = "request_method"
+        elif key == "requestPath":
+            suggest = "request_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeRestConfigurationValidationEndpointConfigurationProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 request_method: Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod'] = None,
+                 request_path: Optional[_builtins.str] = None):
+        """
+        Configuration for the validation endpoint. Only supports RequestMethod and RequestPath.
+
+        :param 'ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod' request_method: The HTTP method to use.
+        :param _builtins.str request_path: The URL path for the REST endpoint.
+        """
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> Optional['ConnectionTypeRestConfigurationValidationEndpointConfigurationPropertiesRequestMethod']:
+        """
+        The HTTP method to use.
+        """
+        return pulumi.get(self, "request_method")
+
+    @_builtins.property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> Optional[_builtins.str]:
+        """
+        The URL path for the REST endpoint.
+        """
+        return pulumi.get(self, "request_path")
+
+
+@pulumi.output_type
+class ConnectionTypeSecretConnectorProperty(dict):
+    """
+    Defines a secret property configuration. SECRET-type properties cannot have DefaultValue or AllowedValues.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "propertyType":
+            suggest = "property_type"
+        elif key == "keyOverride":
+            suggest = "key_override"
+        elif key == "propertyLocation":
+            suggest = "property_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeSecretConnectorProperty. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeSecretConnectorProperty.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeSecretConnectorProperty.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 property_type: 'ConnectionTypeSecretConnectorPropertyPropertyType',
+                 required: _builtins.bool,
+                 key_override: Optional[_builtins.str] = None,
+                 property_location: Optional['ConnectionTypeSecretConnectorPropertyPropertyLocation'] = None):
+        """
+        Defines a secret property configuration. SECRET-type properties cannot have DefaultValue or AllowedValues.
+
+        :param _builtins.str name: The name of the property.
+        :param 'ConnectionTypeSecretConnectorPropertyPropertyType' property_type: The data type of this property. Must be SECRET for secret properties.
+        :param _builtins.bool required: Indicates whether the property is required.
+        :param _builtins.str key_override: A key name to use when sending this property in API requests.
+        :param 'ConnectionTypeSecretConnectorPropertyPropertyLocation' property_location: Specifies where this property should be included in REST requests.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "property_type", property_type)
+        pulumi.set(__self__, "required", required)
+        if key_override is not None:
+            pulumi.set(__self__, "key_override", key_override)
+        if property_location is not None:
+            pulumi.set(__self__, "property_location", property_location)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        The name of the property.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyType")
+    def property_type(self) -> 'ConnectionTypeSecretConnectorPropertyPropertyType':
+        """
+        The data type of this property. Must be SECRET for secret properties.
+        """
+        return pulumi.get(self, "property_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def required(self) -> _builtins.bool:
+        """
+        Indicates whether the property is required.
+        """
+        return pulumi.get(self, "required")
+
+    @_builtins.property
+    @pulumi.getter(name="keyOverride")
+    def key_override(self) -> Optional[_builtins.str]:
+        """
+        A key name to use when sending this property in API requests.
+        """
+        return pulumi.get(self, "key_override")
+
+    @_builtins.property
+    @pulumi.getter(name="propertyLocation")
+    def property_location(self) -> Optional['ConnectionTypeSecretConnectorPropertyPropertyLocation']:
+        """
+        Specifies where this property should be included in REST requests.
+        """
+        return pulumi.get(self, "property_location")
+
+
+@pulumi.output_type
+class ConnectionTypeSourceConfiguration(dict):
+    """
+    Configuration that defines how to make requests to endpoints.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filterConfiguration":
+            suggest = "filter_configuration"
+        elif key == "paginationConfiguration":
+            suggest = "pagination_configuration"
+        elif key == "requestMethod":
+            suggest = "request_method"
+        elif key == "requestParameters":
+            suggest = "request_parameters"
+        elif key == "requestPath":
+            suggest = "request_path"
+        elif key == "responseConfiguration":
+            suggest = "response_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConnectionTypeSourceConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConnectionTypeSourceConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConnectionTypeSourceConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 filter_configuration: Optional['outputs.ConnectionTypeFilterConfiguration'] = None,
+                 pagination_configuration: Optional['outputs.ConnectionTypePaginationConfiguration'] = None,
+                 request_method: Optional['ConnectionTypeSourceConfigurationRequestMethod'] = None,
+                 request_parameters: Optional[Sequence['outputs.ConnectionTypeConnectorProperty']] = None,
+                 request_path: Optional[_builtins.str] = None,
+                 response_configuration: Optional['outputs.ConnectionTypeResponseConfiguration'] = None):
+        """
+        Configuration that defines how to make requests to endpoints.
+
+        :param 'ConnectionTypeSourceConfigurationRequestMethod' request_method: The HTTP method to use.
+        :param Sequence['ConnectionTypeConnectorProperty'] request_parameters: Request parameters configuration.
+        :param _builtins.str request_path: The URL path for the REST endpoint.
+        """
+        if filter_configuration is not None:
+            pulumi.set(__self__, "filter_configuration", filter_configuration)
+        if pagination_configuration is not None:
+            pulumi.set(__self__, "pagination_configuration", pagination_configuration)
+        if request_method is not None:
+            pulumi.set(__self__, "request_method", request_method)
+        if request_parameters is not None:
+            pulumi.set(__self__, "request_parameters", request_parameters)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+        if response_configuration is not None:
+            pulumi.set(__self__, "response_configuration", response_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="filterConfiguration")
+    def filter_configuration(self) -> Optional['outputs.ConnectionTypeFilterConfiguration']:
+        return pulumi.get(self, "filter_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="paginationConfiguration")
+    def pagination_configuration(self) -> Optional['outputs.ConnectionTypePaginationConfiguration']:
+        return pulumi.get(self, "pagination_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="requestMethod")
+    def request_method(self) -> Optional['ConnectionTypeSourceConfigurationRequestMethod']:
+        """
+        The HTTP method to use.
+        """
+        return pulumi.get(self, "request_method")
+
+    @_builtins.property
+    @pulumi.getter(name="requestParameters")
+    def request_parameters(self) -> Optional[Sequence['outputs.ConnectionTypeConnectorProperty']]:
+        """
+        Request parameters configuration.
+        """
+        return pulumi.get(self, "request_parameters")
+
+    @_builtins.property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> Optional[_builtins.str]:
+        """
+        The URL path for the REST endpoint.
+        """
+        return pulumi.get(self, "request_path")
+
+    @_builtins.property
+    @pulumi.getter(name="responseConfiguration")
+    def response_configuration(self) -> Optional['outputs.ConnectionTypeResponseConfiguration']:
+        return pulumi.get(self, "response_configuration")
 
 
 @pulumi.output_type

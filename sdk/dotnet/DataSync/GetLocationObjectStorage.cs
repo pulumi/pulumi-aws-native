@@ -87,6 +87,7 @@ namespace Pulumi.AwsNative.DataSync
         /// &gt; You can use either `CmkSecretConfig` (with `SecretKey` ) or `CustomSecretConfig` (without `SecretKey` ) to provide credentials for a `CreateLocationObjectStorage` request. Do not provide both parameters for the same request.
         /// </summary>
         public readonly Outputs.LocationObjectStorageCustomSecretConfig? CustomSecretConfig;
+        public readonly Outputs.LocationObjectStorageObjectStorageFederatedIdentityConfig? FederatedIdentity;
         /// <summary>
         /// The Amazon Resource Name (ARN) of the location that is created.
         /// </summary>
@@ -123,6 +124,8 @@ namespace Pulumi.AwsNative.DataSync
 
             Outputs.LocationObjectStorageCustomSecretConfig? customSecretConfig,
 
+            Outputs.LocationObjectStorageObjectStorageFederatedIdentityConfig? federatedIdentity,
+
             string? locationArn,
 
             string? locationUri,
@@ -141,6 +144,7 @@ namespace Pulumi.AwsNative.DataSync
             AgentArns = agentArns;
             CmkSecretConfig = cmkSecretConfig;
             CustomSecretConfig = customSecretConfig;
+            FederatedIdentity = federatedIdentity;
             LocationArn = locationArn;
             LocationUri = locationUri;
             ManagedSecretConfig = managedSecretConfig;

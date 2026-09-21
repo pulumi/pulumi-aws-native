@@ -13,6 +13,1815 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+// CloudWatch Logs configuration for the channel. When Enabled is true and LogGroupName is omitted, the service uses a default group derived from the channel name and id; LogStreamName defaults to the literal string 'DestinationDelivery'.
+type ChannelCloudWatchLogsConfiguration struct {
+	// Whether CloudWatch Logs delivery is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The CloudWatch log group name. When Enabled is true and LogGroupName is omitted, the service uses the default '/aws/kinesis/<channelName>/<channelId>'.
+	LogGroupName *string `pulumi:"logGroupName"`
+	// The CloudWatch log stream name. Defaults to the literal string 'DestinationDelivery' when omitted.
+	LogStreamName *string `pulumi:"logStreamName"`
+}
+
+// ChannelCloudWatchLogsConfigurationInput is an input type that accepts ChannelCloudWatchLogsConfigurationArgs and ChannelCloudWatchLogsConfigurationOutput values.
+// You can construct a concrete instance of `ChannelCloudWatchLogsConfigurationInput` via:
+//
+//	ChannelCloudWatchLogsConfigurationArgs{...}
+type ChannelCloudWatchLogsConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelCloudWatchLogsConfigurationOutput() ChannelCloudWatchLogsConfigurationOutput
+	ToChannelCloudWatchLogsConfigurationOutputWithContext(context.Context) ChannelCloudWatchLogsConfigurationOutput
+}
+
+// CloudWatch Logs configuration for the channel. When Enabled is true and LogGroupName is omitted, the service uses a default group derived from the channel name and id; LogStreamName defaults to the literal string 'DestinationDelivery'.
+type ChannelCloudWatchLogsConfigurationArgs struct {
+	// Whether CloudWatch Logs delivery is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The CloudWatch log group name. When Enabled is true and LogGroupName is omitted, the service uses the default '/aws/kinesis/<channelName>/<channelId>'.
+	LogGroupName pulumi.StringPtrInput `pulumi:"logGroupName"`
+	// The CloudWatch log stream name. Defaults to the literal string 'DestinationDelivery' when omitted.
+	LogStreamName pulumi.StringPtrInput `pulumi:"logStreamName"`
+}
+
+func (ChannelCloudWatchLogsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i ChannelCloudWatchLogsConfigurationArgs) ToChannelCloudWatchLogsConfigurationOutput() ChannelCloudWatchLogsConfigurationOutput {
+	return i.ToChannelCloudWatchLogsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelCloudWatchLogsConfigurationArgs) ToChannelCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) ChannelCloudWatchLogsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelCloudWatchLogsConfigurationOutput)
+}
+
+func (i ChannelCloudWatchLogsConfigurationArgs) ToChannelCloudWatchLogsConfigurationPtrOutput() ChannelCloudWatchLogsConfigurationPtrOutput {
+	return i.ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelCloudWatchLogsConfigurationArgs) ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ChannelCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelCloudWatchLogsConfigurationOutput).ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelCloudWatchLogsConfigurationPtrInput is an input type that accepts ChannelCloudWatchLogsConfigurationArgs, ChannelCloudWatchLogsConfigurationPtr and ChannelCloudWatchLogsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelCloudWatchLogsConfigurationPtrInput` via:
+//
+//	        ChannelCloudWatchLogsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelCloudWatchLogsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelCloudWatchLogsConfigurationPtrOutput() ChannelCloudWatchLogsConfigurationPtrOutput
+	ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(context.Context) ChannelCloudWatchLogsConfigurationPtrOutput
+}
+
+type channelCloudWatchLogsConfigurationPtrType ChannelCloudWatchLogsConfigurationArgs
+
+func ChannelCloudWatchLogsConfigurationPtr(v *ChannelCloudWatchLogsConfigurationArgs) ChannelCloudWatchLogsConfigurationPtrInput {
+	return (*channelCloudWatchLogsConfigurationPtrType)(v)
+}
+
+func (*channelCloudWatchLogsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (i *channelCloudWatchLogsConfigurationPtrType) ToChannelCloudWatchLogsConfigurationPtrOutput() ChannelCloudWatchLogsConfigurationPtrOutput {
+	return i.ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelCloudWatchLogsConfigurationPtrType) ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ChannelCloudWatchLogsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelCloudWatchLogsConfigurationPtrOutput)
+}
+
+// CloudWatch Logs configuration for the channel. When Enabled is true and LogGroupName is omitted, the service uses a default group derived from the channel name and id; LogStreamName defaults to the literal string 'DestinationDelivery'.
+type ChannelCloudWatchLogsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelCloudWatchLogsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o ChannelCloudWatchLogsConfigurationOutput) ToChannelCloudWatchLogsConfigurationOutput() ChannelCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o ChannelCloudWatchLogsConfigurationOutput) ToChannelCloudWatchLogsConfigurationOutputWithContext(ctx context.Context) ChannelCloudWatchLogsConfigurationOutput {
+	return o
+}
+
+func (o ChannelCloudWatchLogsConfigurationOutput) ToChannelCloudWatchLogsConfigurationPtrOutput() ChannelCloudWatchLogsConfigurationPtrOutput {
+	return o.ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelCloudWatchLogsConfigurationOutput) ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ChannelCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelCloudWatchLogsConfiguration) *ChannelCloudWatchLogsConfiguration {
+		return &v
+	}).(ChannelCloudWatchLogsConfigurationPtrOutput)
+}
+
+// Whether CloudWatch Logs delivery is enabled.
+func (o ChannelCloudWatchLogsConfigurationOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ChannelCloudWatchLogsConfiguration) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The CloudWatch log group name. When Enabled is true and LogGroupName is omitted, the service uses the default '/aws/kinesis/<channelName>/<channelId>'.
+func (o ChannelCloudWatchLogsConfigurationOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelCloudWatchLogsConfiguration) *string { return v.LogGroupName }).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name. Defaults to the literal string 'DestinationDelivery' when omitted.
+func (o ChannelCloudWatchLogsConfigurationOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelCloudWatchLogsConfiguration) *string { return v.LogStreamName }).(pulumi.StringPtrOutput)
+}
+
+type ChannelCloudWatchLogsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelCloudWatchLogsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelCloudWatchLogsConfiguration)(nil)).Elem()
+}
+
+func (o ChannelCloudWatchLogsConfigurationPtrOutput) ToChannelCloudWatchLogsConfigurationPtrOutput() ChannelCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelCloudWatchLogsConfigurationPtrOutput) ToChannelCloudWatchLogsConfigurationPtrOutputWithContext(ctx context.Context) ChannelCloudWatchLogsConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelCloudWatchLogsConfigurationPtrOutput) Elem() ChannelCloudWatchLogsConfigurationOutput {
+	return o.ApplyT(func(v *ChannelCloudWatchLogsConfiguration) ChannelCloudWatchLogsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelCloudWatchLogsConfiguration
+		return ret
+	}).(ChannelCloudWatchLogsConfigurationOutput)
+}
+
+// Whether CloudWatch Logs delivery is enabled.
+func (o ChannelCloudWatchLogsConfigurationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ChannelCloudWatchLogsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The CloudWatch log group name. When Enabled is true and LogGroupName is omitted, the service uses the default '/aws/kinesis/<channelName>/<channelId>'.
+func (o ChannelCloudWatchLogsConfigurationPtrOutput) LogGroupName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelCloudWatchLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogGroupName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The CloudWatch log stream name. Defaults to the literal string 'DestinationDelivery' when omitted.
+func (o ChannelCloudWatchLogsConfigurationPtrOutput) LogStreamName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelCloudWatchLogsConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.LogStreamName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration of the S3 bucket used to capture records that cannot be delivered to the primary destination.
+type ChannelDeadLetterQueueS3Configuration struct {
+	// The ARN of the S3 bucket for storing failed records.
+	BucketArn string `pulumi:"bucketArn"`
+	// Optional S3 key prefix under which error records are organized. When omitted, the service uses the default 'kinesis-channel/errors/<channelName>/<channelId>/'.
+	ErrorOutputPrefix *string `pulumi:"errorOutputPrefix"`
+	// The AWS account ID of the expected owner of the dead-letter queue S3 bucket. Used to verify bucket ownership before delivery.
+	ExpectedBucketOwner string `pulumi:"expectedBucketOwner"`
+}
+
+// ChannelDeadLetterQueueS3ConfigurationInput is an input type that accepts ChannelDeadLetterQueueS3ConfigurationArgs and ChannelDeadLetterQueueS3ConfigurationOutput values.
+// You can construct a concrete instance of `ChannelDeadLetterQueueS3ConfigurationInput` via:
+//
+//	ChannelDeadLetterQueueS3ConfigurationArgs{...}
+type ChannelDeadLetterQueueS3ConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelDeadLetterQueueS3ConfigurationOutput() ChannelDeadLetterQueueS3ConfigurationOutput
+	ToChannelDeadLetterQueueS3ConfigurationOutputWithContext(context.Context) ChannelDeadLetterQueueS3ConfigurationOutput
+}
+
+// Configuration of the S3 bucket used to capture records that cannot be delivered to the primary destination.
+type ChannelDeadLetterQueueS3ConfigurationArgs struct {
+	// The ARN of the S3 bucket for storing failed records.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// Optional S3 key prefix under which error records are organized. When omitted, the service uses the default 'kinesis-channel/errors/<channelName>/<channelId>/'.
+	ErrorOutputPrefix pulumi.StringPtrInput `pulumi:"errorOutputPrefix"`
+	// The AWS account ID of the expected owner of the dead-letter queue S3 bucket. Used to verify bucket ownership before delivery.
+	ExpectedBucketOwner pulumi.StringInput `pulumi:"expectedBucketOwner"`
+}
+
+func (ChannelDeadLetterQueueS3ConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDeadLetterQueueS3Configuration)(nil)).Elem()
+}
+
+func (i ChannelDeadLetterQueueS3ConfigurationArgs) ToChannelDeadLetterQueueS3ConfigurationOutput() ChannelDeadLetterQueueS3ConfigurationOutput {
+	return i.ToChannelDeadLetterQueueS3ConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelDeadLetterQueueS3ConfigurationArgs) ToChannelDeadLetterQueueS3ConfigurationOutputWithContext(ctx context.Context) ChannelDeadLetterQueueS3ConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDeadLetterQueueS3ConfigurationOutput)
+}
+
+func (i ChannelDeadLetterQueueS3ConfigurationArgs) ToChannelDeadLetterQueueS3ConfigurationPtrOutput() ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return i.ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelDeadLetterQueueS3ConfigurationArgs) ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(ctx context.Context) ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDeadLetterQueueS3ConfigurationOutput).ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelDeadLetterQueueS3ConfigurationPtrInput is an input type that accepts ChannelDeadLetterQueueS3ConfigurationArgs, ChannelDeadLetterQueueS3ConfigurationPtr and ChannelDeadLetterQueueS3ConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelDeadLetterQueueS3ConfigurationPtrInput` via:
+//
+//	        ChannelDeadLetterQueueS3ConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelDeadLetterQueueS3ConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelDeadLetterQueueS3ConfigurationPtrOutput() ChannelDeadLetterQueueS3ConfigurationPtrOutput
+	ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(context.Context) ChannelDeadLetterQueueS3ConfigurationPtrOutput
+}
+
+type channelDeadLetterQueueS3ConfigurationPtrType ChannelDeadLetterQueueS3ConfigurationArgs
+
+func ChannelDeadLetterQueueS3ConfigurationPtr(v *ChannelDeadLetterQueueS3ConfigurationArgs) ChannelDeadLetterQueueS3ConfigurationPtrInput {
+	return (*channelDeadLetterQueueS3ConfigurationPtrType)(v)
+}
+
+func (*channelDeadLetterQueueS3ConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelDeadLetterQueueS3Configuration)(nil)).Elem()
+}
+
+func (i *channelDeadLetterQueueS3ConfigurationPtrType) ToChannelDeadLetterQueueS3ConfigurationPtrOutput() ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return i.ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelDeadLetterQueueS3ConfigurationPtrType) ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(ctx context.Context) ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelDeadLetterQueueS3ConfigurationPtrOutput)
+}
+
+// Configuration of the S3 bucket used to capture records that cannot be delivered to the primary destination.
+type ChannelDeadLetterQueueS3ConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelDeadLetterQueueS3ConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelDeadLetterQueueS3Configuration)(nil)).Elem()
+}
+
+func (o ChannelDeadLetterQueueS3ConfigurationOutput) ToChannelDeadLetterQueueS3ConfigurationOutput() ChannelDeadLetterQueueS3ConfigurationOutput {
+	return o
+}
+
+func (o ChannelDeadLetterQueueS3ConfigurationOutput) ToChannelDeadLetterQueueS3ConfigurationOutputWithContext(ctx context.Context) ChannelDeadLetterQueueS3ConfigurationOutput {
+	return o
+}
+
+func (o ChannelDeadLetterQueueS3ConfigurationOutput) ToChannelDeadLetterQueueS3ConfigurationPtrOutput() ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return o.ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelDeadLetterQueueS3ConfigurationOutput) ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(ctx context.Context) ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelDeadLetterQueueS3Configuration) *ChannelDeadLetterQueueS3Configuration {
+		return &v
+	}).(ChannelDeadLetterQueueS3ConfigurationPtrOutput)
+}
+
+// The ARN of the S3 bucket for storing failed records.
+func (o ChannelDeadLetterQueueS3ConfigurationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelDeadLetterQueueS3Configuration) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// Optional S3 key prefix under which error records are organized. When omitted, the service uses the default 'kinesis-channel/errors/<channelName>/<channelId>/'.
+func (o ChannelDeadLetterQueueS3ConfigurationOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelDeadLetterQueueS3Configuration) *string { return v.ErrorOutputPrefix }).(pulumi.StringPtrOutput)
+}
+
+// The AWS account ID of the expected owner of the dead-letter queue S3 bucket. Used to verify bucket ownership before delivery.
+func (o ChannelDeadLetterQueueS3ConfigurationOutput) ExpectedBucketOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelDeadLetterQueueS3Configuration) string { return v.ExpectedBucketOwner }).(pulumi.StringOutput)
+}
+
+type ChannelDeadLetterQueueS3ConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelDeadLetterQueueS3ConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelDeadLetterQueueS3Configuration)(nil)).Elem()
+}
+
+func (o ChannelDeadLetterQueueS3ConfigurationPtrOutput) ToChannelDeadLetterQueueS3ConfigurationPtrOutput() ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelDeadLetterQueueS3ConfigurationPtrOutput) ToChannelDeadLetterQueueS3ConfigurationPtrOutputWithContext(ctx context.Context) ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelDeadLetterQueueS3ConfigurationPtrOutput) Elem() ChannelDeadLetterQueueS3ConfigurationOutput {
+	return o.ApplyT(func(v *ChannelDeadLetterQueueS3Configuration) ChannelDeadLetterQueueS3Configuration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelDeadLetterQueueS3Configuration
+		return ret
+	}).(ChannelDeadLetterQueueS3ConfigurationOutput)
+}
+
+// The ARN of the S3 bucket for storing failed records.
+func (o ChannelDeadLetterQueueS3ConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelDeadLetterQueueS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional S3 key prefix under which error records are organized. When omitted, the service uses the default 'kinesis-channel/errors/<channelName>/<channelId>/'.
+func (o ChannelDeadLetterQueueS3ConfigurationPtrOutput) ErrorOutputPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelDeadLetterQueueS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ErrorOutputPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// The AWS account ID of the expected owner of the dead-letter queue S3 bucket. Used to verify bucket ownership before delivery.
+func (o ChannelDeadLetterQueueS3ConfigurationPtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelDeadLetterQueueS3Configuration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Server-side encryption configuration for data at rest in the destination. Data delivered to S3 / S3 Tables is encrypted with the same key.
+type ChannelEncryptionConfiguration struct {
+	// The encryption type. KMS is the only supported value.
+	EncryptionType ChannelEncryptionConfigurationEncryptionType `pulumi:"encryptionType"`
+	// The customer-managed AWS KMS key. Accepts a key GUID, key ARN, alias ARN, or alias name prefixed by 'alias/'. The Kinesis Data Streams managed alias 'aws/kinesis' is not accepted - the key must be customer-owned so it can also be used by readers of the destination.
+	KeyId string `pulumi:"keyId"`
+}
+
+// ChannelEncryptionConfigurationInput is an input type that accepts ChannelEncryptionConfigurationArgs and ChannelEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `ChannelEncryptionConfigurationInput` via:
+//
+//	ChannelEncryptionConfigurationArgs{...}
+type ChannelEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelEncryptionConfigurationOutput() ChannelEncryptionConfigurationOutput
+	ToChannelEncryptionConfigurationOutputWithContext(context.Context) ChannelEncryptionConfigurationOutput
+}
+
+// Server-side encryption configuration for data at rest in the destination. Data delivered to S3 / S3 Tables is encrypted with the same key.
+type ChannelEncryptionConfigurationArgs struct {
+	// The encryption type. KMS is the only supported value.
+	EncryptionType ChannelEncryptionConfigurationEncryptionTypeInput `pulumi:"encryptionType"`
+	// The customer-managed AWS KMS key. Accepts a key GUID, key ARN, alias ARN, or alias name prefixed by 'alias/'. The Kinesis Data Streams managed alias 'aws/kinesis' is not accepted - the key must be customer-owned so it can also be used by readers of the destination.
+	KeyId pulumi.StringInput `pulumi:"keyId"`
+}
+
+func (ChannelEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationOutput() ChannelEncryptionConfigurationOutput {
+	return i.ToChannelEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncryptionConfigurationOutput)
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return i.ToChannelEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelEncryptionConfigurationArgs) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncryptionConfigurationOutput).ToChannelEncryptionConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelEncryptionConfigurationPtrInput is an input type that accepts ChannelEncryptionConfigurationArgs, ChannelEncryptionConfigurationPtr and ChannelEncryptionConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelEncryptionConfigurationPtrInput` via:
+//
+//	        ChannelEncryptionConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelEncryptionConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput
+	ToChannelEncryptionConfigurationPtrOutputWithContext(context.Context) ChannelEncryptionConfigurationPtrOutput
+}
+
+type channelEncryptionConfigurationPtrType ChannelEncryptionConfigurationArgs
+
+func ChannelEncryptionConfigurationPtr(v *ChannelEncryptionConfigurationArgs) ChannelEncryptionConfigurationPtrInput {
+	return (*channelEncryptionConfigurationPtrType)(v)
+}
+
+func (*channelEncryptionConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i *channelEncryptionConfigurationPtrType) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return i.ToChannelEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelEncryptionConfigurationPtrType) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelEncryptionConfigurationPtrOutput)
+}
+
+// Server-side encryption configuration for data at rest in the destination. Data delivered to S3 / S3 Tables is encrypted with the same key.
+type ChannelEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationOutput() ChannelEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return o.ToChannelEncryptionConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelEncryptionConfigurationOutput) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelEncryptionConfiguration) *ChannelEncryptionConfiguration {
+		return &v
+	}).(ChannelEncryptionConfigurationPtrOutput)
+}
+
+// The encryption type. KMS is the only supported value.
+func (o ChannelEncryptionConfigurationOutput) EncryptionType() ChannelEncryptionConfigurationEncryptionTypeOutput {
+	return o.ApplyT(func(v ChannelEncryptionConfiguration) ChannelEncryptionConfigurationEncryptionType {
+		return v.EncryptionType
+	}).(ChannelEncryptionConfigurationEncryptionTypeOutput)
+}
+
+// The customer-managed AWS KMS key. Accepts a key GUID, key ARN, alias ARN, or alias name prefixed by 'alias/'. The Kinesis Data Streams managed alias 'aws/kinesis' is not accepted - the key must be customer-owned so it can also be used by readers of the destination.
+func (o ChannelEncryptionConfigurationOutput) KeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelEncryptionConfiguration) string { return v.KeyId }).(pulumi.StringOutput)
+}
+
+type ChannelEncryptionConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelEncryptionConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o ChannelEncryptionConfigurationPtrOutput) ToChannelEncryptionConfigurationPtrOutput() ChannelEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationPtrOutput) ToChannelEncryptionConfigurationPtrOutputWithContext(ctx context.Context) ChannelEncryptionConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelEncryptionConfigurationPtrOutput) Elem() ChannelEncryptionConfigurationOutput {
+	return o.ApplyT(func(v *ChannelEncryptionConfiguration) ChannelEncryptionConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelEncryptionConfiguration
+		return ret
+	}).(ChannelEncryptionConfigurationOutput)
+}
+
+// The encryption type. KMS is the only supported value.
+func (o ChannelEncryptionConfigurationPtrOutput) EncryptionType() ChannelEncryptionConfigurationEncryptionTypePtrOutput {
+	return o.ApplyT(func(v *ChannelEncryptionConfiguration) *ChannelEncryptionConfigurationEncryptionType {
+		if v == nil {
+			return nil
+		}
+		return &v.EncryptionType
+	}).(ChannelEncryptionConfigurationEncryptionTypePtrOutput)
+}
+
+// The customer-managed AWS KMS key. Accepts a key GUID, key ARN, alias ARN, or alias name prefixed by 'alias/'. The Kinesis Data Streams managed alias 'aws/kinesis' is not accepted - the key must be customer-owned so it can also be used by readers of the destination.
+func (o ChannelEncryptionConfigurationPtrOutput) KeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEncryptionConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration for delivering channel operational logs.
+type ChannelLoggingConfiguration struct {
+	// CloudWatch Logs configuration block. When provided, controls whether and where the channel writes operational logs.
+	CloudWatchLogs ChannelCloudWatchLogsConfiguration `pulumi:"cloudWatchLogs"`
+}
+
+// ChannelLoggingConfigurationInput is an input type that accepts ChannelLoggingConfigurationArgs and ChannelLoggingConfigurationOutput values.
+// You can construct a concrete instance of `ChannelLoggingConfigurationInput` via:
+//
+//	ChannelLoggingConfigurationArgs{...}
+type ChannelLoggingConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelLoggingConfigurationOutput() ChannelLoggingConfigurationOutput
+	ToChannelLoggingConfigurationOutputWithContext(context.Context) ChannelLoggingConfigurationOutput
+}
+
+// Configuration for delivering channel operational logs.
+type ChannelLoggingConfigurationArgs struct {
+	// CloudWatch Logs configuration block. When provided, controls whether and where the channel writes operational logs.
+	CloudWatchLogs ChannelCloudWatchLogsConfigurationInput `pulumi:"cloudWatchLogs"`
+}
+
+func (ChannelLoggingConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingConfiguration)(nil)).Elem()
+}
+
+func (i ChannelLoggingConfigurationArgs) ToChannelLoggingConfigurationOutput() ChannelLoggingConfigurationOutput {
+	return i.ToChannelLoggingConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingConfigurationArgs) ToChannelLoggingConfigurationOutputWithContext(ctx context.Context) ChannelLoggingConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingConfigurationOutput)
+}
+
+func (i ChannelLoggingConfigurationArgs) ToChannelLoggingConfigurationPtrOutput() ChannelLoggingConfigurationPtrOutput {
+	return i.ToChannelLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelLoggingConfigurationArgs) ToChannelLoggingConfigurationPtrOutputWithContext(ctx context.Context) ChannelLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingConfigurationOutput).ToChannelLoggingConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelLoggingConfigurationPtrInput is an input type that accepts ChannelLoggingConfigurationArgs, ChannelLoggingConfigurationPtr and ChannelLoggingConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelLoggingConfigurationPtrInput` via:
+//
+//	        ChannelLoggingConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelLoggingConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelLoggingConfigurationPtrOutput() ChannelLoggingConfigurationPtrOutput
+	ToChannelLoggingConfigurationPtrOutputWithContext(context.Context) ChannelLoggingConfigurationPtrOutput
+}
+
+type channelLoggingConfigurationPtrType ChannelLoggingConfigurationArgs
+
+func ChannelLoggingConfigurationPtr(v *ChannelLoggingConfigurationArgs) ChannelLoggingConfigurationPtrInput {
+	return (*channelLoggingConfigurationPtrType)(v)
+}
+
+func (*channelLoggingConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingConfiguration)(nil)).Elem()
+}
+
+func (i *channelLoggingConfigurationPtrType) ToChannelLoggingConfigurationPtrOutput() ChannelLoggingConfigurationPtrOutput {
+	return i.ToChannelLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelLoggingConfigurationPtrType) ToChannelLoggingConfigurationPtrOutputWithContext(ctx context.Context) ChannelLoggingConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelLoggingConfigurationPtrOutput)
+}
+
+// Configuration for delivering channel operational logs.
+type ChannelLoggingConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ChannelLoggingConfigurationOutput) ToChannelLoggingConfigurationOutput() ChannelLoggingConfigurationOutput {
+	return o
+}
+
+func (o ChannelLoggingConfigurationOutput) ToChannelLoggingConfigurationOutputWithContext(ctx context.Context) ChannelLoggingConfigurationOutput {
+	return o
+}
+
+func (o ChannelLoggingConfigurationOutput) ToChannelLoggingConfigurationPtrOutput() ChannelLoggingConfigurationPtrOutput {
+	return o.ToChannelLoggingConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelLoggingConfigurationOutput) ToChannelLoggingConfigurationPtrOutputWithContext(ctx context.Context) ChannelLoggingConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelLoggingConfiguration) *ChannelLoggingConfiguration {
+		return &v
+	}).(ChannelLoggingConfigurationPtrOutput)
+}
+
+// CloudWatch Logs configuration block. When provided, controls whether and where the channel writes operational logs.
+func (o ChannelLoggingConfigurationOutput) CloudWatchLogs() ChannelCloudWatchLogsConfigurationOutput {
+	return o.ApplyT(func(v ChannelLoggingConfiguration) ChannelCloudWatchLogsConfiguration { return v.CloudWatchLogs }).(ChannelCloudWatchLogsConfigurationOutput)
+}
+
+type ChannelLoggingConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelLoggingConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelLoggingConfiguration)(nil)).Elem()
+}
+
+func (o ChannelLoggingConfigurationPtrOutput) ToChannelLoggingConfigurationPtrOutput() ChannelLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelLoggingConfigurationPtrOutput) ToChannelLoggingConfigurationPtrOutputWithContext(ctx context.Context) ChannelLoggingConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelLoggingConfigurationPtrOutput) Elem() ChannelLoggingConfigurationOutput {
+	return o.ApplyT(func(v *ChannelLoggingConfiguration) ChannelLoggingConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelLoggingConfiguration
+		return ret
+	}).(ChannelLoggingConfigurationOutput)
+}
+
+// CloudWatch Logs configuration block. When provided, controls whether and where the channel writes operational logs.
+func (o ChannelLoggingConfigurationPtrOutput) CloudWatchLogs() ChannelCloudWatchLogsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelLoggingConfiguration) *ChannelCloudWatchLogsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.CloudWatchLogs
+	}).(ChannelCloudWatchLogsConfigurationPtrOutput)
+}
+
+// A single partition field consisting of a transform applied to a source column.
+type ChannelPartitionField struct {
+	// The name of the source column on which the transform is applied.
+	SourceName string `pulumi:"sourceName"`
+	// The partitioning transform applied to the SourceName column.
+	Transform ChannelPartitionFieldTransform `pulumi:"transform"`
+}
+
+// ChannelPartitionFieldInput is an input type that accepts ChannelPartitionFieldArgs and ChannelPartitionFieldOutput values.
+// You can construct a concrete instance of `ChannelPartitionFieldInput` via:
+//
+//	ChannelPartitionFieldArgs{...}
+type ChannelPartitionFieldInput interface {
+	pulumi.Input
+
+	ToChannelPartitionFieldOutput() ChannelPartitionFieldOutput
+	ToChannelPartitionFieldOutputWithContext(context.Context) ChannelPartitionFieldOutput
+}
+
+// A single partition field consisting of a transform applied to a source column.
+type ChannelPartitionFieldArgs struct {
+	// The name of the source column on which the transform is applied.
+	SourceName pulumi.StringInput `pulumi:"sourceName"`
+	// The partitioning transform applied to the SourceName column.
+	Transform ChannelPartitionFieldTransformInput `pulumi:"transform"`
+}
+
+func (ChannelPartitionFieldArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPartitionField)(nil)).Elem()
+}
+
+func (i ChannelPartitionFieldArgs) ToChannelPartitionFieldOutput() ChannelPartitionFieldOutput {
+	return i.ToChannelPartitionFieldOutputWithContext(context.Background())
+}
+
+func (i ChannelPartitionFieldArgs) ToChannelPartitionFieldOutputWithContext(ctx context.Context) ChannelPartitionFieldOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPartitionFieldOutput)
+}
+
+// ChannelPartitionFieldArrayInput is an input type that accepts ChannelPartitionFieldArray and ChannelPartitionFieldArrayOutput values.
+// You can construct a concrete instance of `ChannelPartitionFieldArrayInput` via:
+//
+//	ChannelPartitionFieldArray{ ChannelPartitionFieldArgs{...} }
+type ChannelPartitionFieldArrayInput interface {
+	pulumi.Input
+
+	ToChannelPartitionFieldArrayOutput() ChannelPartitionFieldArrayOutput
+	ToChannelPartitionFieldArrayOutputWithContext(context.Context) ChannelPartitionFieldArrayOutput
+}
+
+type ChannelPartitionFieldArray []ChannelPartitionFieldInput
+
+func (ChannelPartitionFieldArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelPartitionField)(nil)).Elem()
+}
+
+func (i ChannelPartitionFieldArray) ToChannelPartitionFieldArrayOutput() ChannelPartitionFieldArrayOutput {
+	return i.ToChannelPartitionFieldArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelPartitionFieldArray) ToChannelPartitionFieldArrayOutputWithContext(ctx context.Context) ChannelPartitionFieldArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPartitionFieldArrayOutput)
+}
+
+// A single partition field consisting of a transform applied to a source column.
+type ChannelPartitionFieldOutput struct{ *pulumi.OutputState }
+
+func (ChannelPartitionFieldOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPartitionField)(nil)).Elem()
+}
+
+func (o ChannelPartitionFieldOutput) ToChannelPartitionFieldOutput() ChannelPartitionFieldOutput {
+	return o
+}
+
+func (o ChannelPartitionFieldOutput) ToChannelPartitionFieldOutputWithContext(ctx context.Context) ChannelPartitionFieldOutput {
+	return o
+}
+
+// The name of the source column on which the transform is applied.
+func (o ChannelPartitionFieldOutput) SourceName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelPartitionField) string { return v.SourceName }).(pulumi.StringOutput)
+}
+
+// The partitioning transform applied to the SourceName column.
+func (o ChannelPartitionFieldOutput) Transform() ChannelPartitionFieldTransformOutput {
+	return o.ApplyT(func(v ChannelPartitionField) ChannelPartitionFieldTransform { return v.Transform }).(ChannelPartitionFieldTransformOutput)
+}
+
+type ChannelPartitionFieldArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelPartitionFieldArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelPartitionField)(nil)).Elem()
+}
+
+func (o ChannelPartitionFieldArrayOutput) ToChannelPartitionFieldArrayOutput() ChannelPartitionFieldArrayOutput {
+	return o
+}
+
+func (o ChannelPartitionFieldArrayOutput) ToChannelPartitionFieldArrayOutputWithContext(ctx context.Context) ChannelPartitionFieldArrayOutput {
+	return o
+}
+
+func (o ChannelPartitionFieldArrayOutput) Index(i pulumi.IntInput) ChannelPartitionFieldOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelPartitionField {
+		return vs[0].([]ChannelPartitionField)[vs[1].(int)]
+	}).(ChannelPartitionFieldOutput)
+}
+
+// Partitioning specification for the destination Iceberg table. Follows the S3 Tables / Iceberg PartitionSpec format.
+type ChannelPartitionSpec struct {
+	// List of partition fields that define how records are partitioned when written to the destination table.
+	PartitionFields []ChannelPartitionField `pulumi:"partitionFields"`
+}
+
+// ChannelPartitionSpecInput is an input type that accepts ChannelPartitionSpecArgs and ChannelPartitionSpecOutput values.
+// You can construct a concrete instance of `ChannelPartitionSpecInput` via:
+//
+//	ChannelPartitionSpecArgs{...}
+type ChannelPartitionSpecInput interface {
+	pulumi.Input
+
+	ToChannelPartitionSpecOutput() ChannelPartitionSpecOutput
+	ToChannelPartitionSpecOutputWithContext(context.Context) ChannelPartitionSpecOutput
+}
+
+// Partitioning specification for the destination Iceberg table. Follows the S3 Tables / Iceberg PartitionSpec format.
+type ChannelPartitionSpecArgs struct {
+	// List of partition fields that define how records are partitioned when written to the destination table.
+	PartitionFields ChannelPartitionFieldArrayInput `pulumi:"partitionFields"`
+}
+
+func (ChannelPartitionSpecArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPartitionSpec)(nil)).Elem()
+}
+
+func (i ChannelPartitionSpecArgs) ToChannelPartitionSpecOutput() ChannelPartitionSpecOutput {
+	return i.ToChannelPartitionSpecOutputWithContext(context.Background())
+}
+
+func (i ChannelPartitionSpecArgs) ToChannelPartitionSpecOutputWithContext(ctx context.Context) ChannelPartitionSpecOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPartitionSpecOutput)
+}
+
+func (i ChannelPartitionSpecArgs) ToChannelPartitionSpecPtrOutput() ChannelPartitionSpecPtrOutput {
+	return i.ToChannelPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelPartitionSpecArgs) ToChannelPartitionSpecPtrOutputWithContext(ctx context.Context) ChannelPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPartitionSpecOutput).ToChannelPartitionSpecPtrOutputWithContext(ctx)
+}
+
+// ChannelPartitionSpecPtrInput is an input type that accepts ChannelPartitionSpecArgs, ChannelPartitionSpecPtr and ChannelPartitionSpecPtrOutput values.
+// You can construct a concrete instance of `ChannelPartitionSpecPtrInput` via:
+//
+//	        ChannelPartitionSpecArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelPartitionSpecPtrInput interface {
+	pulumi.Input
+
+	ToChannelPartitionSpecPtrOutput() ChannelPartitionSpecPtrOutput
+	ToChannelPartitionSpecPtrOutputWithContext(context.Context) ChannelPartitionSpecPtrOutput
+}
+
+type channelPartitionSpecPtrType ChannelPartitionSpecArgs
+
+func ChannelPartitionSpecPtr(v *ChannelPartitionSpecArgs) ChannelPartitionSpecPtrInput {
+	return (*channelPartitionSpecPtrType)(v)
+}
+
+func (*channelPartitionSpecPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelPartitionSpec)(nil)).Elem()
+}
+
+func (i *channelPartitionSpecPtrType) ToChannelPartitionSpecPtrOutput() ChannelPartitionSpecPtrOutput {
+	return i.ToChannelPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (i *channelPartitionSpecPtrType) ToChannelPartitionSpecPtrOutputWithContext(ctx context.Context) ChannelPartitionSpecPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelPartitionSpecPtrOutput)
+}
+
+// Partitioning specification for the destination Iceberg table. Follows the S3 Tables / Iceberg PartitionSpec format.
+type ChannelPartitionSpecOutput struct{ *pulumi.OutputState }
+
+func (ChannelPartitionSpecOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelPartitionSpec)(nil)).Elem()
+}
+
+func (o ChannelPartitionSpecOutput) ToChannelPartitionSpecOutput() ChannelPartitionSpecOutput {
+	return o
+}
+
+func (o ChannelPartitionSpecOutput) ToChannelPartitionSpecOutputWithContext(ctx context.Context) ChannelPartitionSpecOutput {
+	return o
+}
+
+func (o ChannelPartitionSpecOutput) ToChannelPartitionSpecPtrOutput() ChannelPartitionSpecPtrOutput {
+	return o.ToChannelPartitionSpecPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelPartitionSpecOutput) ToChannelPartitionSpecPtrOutputWithContext(ctx context.Context) ChannelPartitionSpecPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelPartitionSpec) *ChannelPartitionSpec {
+		return &v
+	}).(ChannelPartitionSpecPtrOutput)
+}
+
+// List of partition fields that define how records are partitioned when written to the destination table.
+func (o ChannelPartitionSpecOutput) PartitionFields() ChannelPartitionFieldArrayOutput {
+	return o.ApplyT(func(v ChannelPartitionSpec) []ChannelPartitionField { return v.PartitionFields }).(ChannelPartitionFieldArrayOutput)
+}
+
+type ChannelPartitionSpecPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelPartitionSpecPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelPartitionSpec)(nil)).Elem()
+}
+
+func (o ChannelPartitionSpecPtrOutput) ToChannelPartitionSpecPtrOutput() ChannelPartitionSpecPtrOutput {
+	return o
+}
+
+func (o ChannelPartitionSpecPtrOutput) ToChannelPartitionSpecPtrOutputWithContext(ctx context.Context) ChannelPartitionSpecPtrOutput {
+	return o
+}
+
+func (o ChannelPartitionSpecPtrOutput) Elem() ChannelPartitionSpecOutput {
+	return o.ApplyT(func(v *ChannelPartitionSpec) ChannelPartitionSpec {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelPartitionSpec
+		return ret
+	}).(ChannelPartitionSpecOutput)
+}
+
+// List of partition fields that define how records are partitioned when written to the destination table.
+func (o ChannelPartitionSpecPtrOutput) PartitionFields() ChannelPartitionFieldArrayOutput {
+	return o.ApplyT(func(v *ChannelPartitionSpec) []ChannelPartitionField {
+		if v == nil {
+			return nil
+		}
+		return v.PartitionFields
+	}).(ChannelPartitionFieldArrayOutput)
+}
+
+// The configuration that describes how records on the source stream are encoded.
+type ChannelRecordConfiguration struct {
+	// The ARN of the AWS Glue Schema Registry (GSR) schema. Required for the S3 Tables destination, where it is used to create the S3 Table and to validate that the record format matches the table schema. Also used when RecordFormatType is GSR_JSON to interpret records read from the source stream. Vanilla S3 delivery writes records as S3 objects and does not need a schema. The schema must be in the same account and region as the channel.
+	GsrSchemaArn *string `pulumi:"gsrSchemaArn"`
+	// The format used to interpret records read from the source stream.
+	RecordFormatType ChannelRecordConfigurationRecordFormatType `pulumi:"recordFormatType"`
+}
+
+// ChannelRecordConfigurationInput is an input type that accepts ChannelRecordConfigurationArgs and ChannelRecordConfigurationOutput values.
+// You can construct a concrete instance of `ChannelRecordConfigurationInput` via:
+//
+//	ChannelRecordConfigurationArgs{...}
+type ChannelRecordConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelRecordConfigurationOutput() ChannelRecordConfigurationOutput
+	ToChannelRecordConfigurationOutputWithContext(context.Context) ChannelRecordConfigurationOutput
+}
+
+// The configuration that describes how records on the source stream are encoded.
+type ChannelRecordConfigurationArgs struct {
+	// The ARN of the AWS Glue Schema Registry (GSR) schema. Required for the S3 Tables destination, where it is used to create the S3 Table and to validate that the record format matches the table schema. Also used when RecordFormatType is GSR_JSON to interpret records read from the source stream. Vanilla S3 delivery writes records as S3 objects and does not need a schema. The schema must be in the same account and region as the channel.
+	GsrSchemaArn pulumi.StringPtrInput `pulumi:"gsrSchemaArn"`
+	// The format used to interpret records read from the source stream.
+	RecordFormatType ChannelRecordConfigurationRecordFormatTypeInput `pulumi:"recordFormatType"`
+}
+
+func (ChannelRecordConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelRecordConfiguration)(nil)).Elem()
+}
+
+func (i ChannelRecordConfigurationArgs) ToChannelRecordConfigurationOutput() ChannelRecordConfigurationOutput {
+	return i.ToChannelRecordConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelRecordConfigurationArgs) ToChannelRecordConfigurationOutputWithContext(ctx context.Context) ChannelRecordConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelRecordConfigurationOutput)
+}
+
+// The configuration that describes how records on the source stream are encoded.
+type ChannelRecordConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelRecordConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelRecordConfiguration)(nil)).Elem()
+}
+
+func (o ChannelRecordConfigurationOutput) ToChannelRecordConfigurationOutput() ChannelRecordConfigurationOutput {
+	return o
+}
+
+func (o ChannelRecordConfigurationOutput) ToChannelRecordConfigurationOutputWithContext(ctx context.Context) ChannelRecordConfigurationOutput {
+	return o
+}
+
+// The ARN of the AWS Glue Schema Registry (GSR) schema. Required for the S3 Tables destination, where it is used to create the S3 Table and to validate that the record format matches the table schema. Also used when RecordFormatType is GSR_JSON to interpret records read from the source stream. Vanilla S3 delivery writes records as S3 objects and does not need a schema. The schema must be in the same account and region as the channel.
+func (o ChannelRecordConfigurationOutput) GsrSchemaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelRecordConfiguration) *string { return v.GsrSchemaArn }).(pulumi.StringPtrOutput)
+}
+
+// The format used to interpret records read from the source stream.
+func (o ChannelRecordConfigurationOutput) RecordFormatType() ChannelRecordConfigurationRecordFormatTypeOutput {
+	return o.ApplyT(func(v ChannelRecordConfiguration) ChannelRecordConfigurationRecordFormatType {
+		return v.RecordFormatType
+	}).(ChannelRecordConfigurationRecordFormatTypeOutput)
+}
+
+// Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+type ChannelS3DestinationConfiguration struct {
+	// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+	DataFreshnessInSeconds *int `pulumi:"dataFreshnessInSeconds"`
+	// Optional dead-letter queue (DLQ) configuration for records that cannot be delivered to the destination. When omitted, the service auto-fills using the storage BucketARN with an error prefix.
+	DeadLetterQueueS3Configuration *ChannelDeadLetterQueueS3Configuration `pulumi:"deadLetterQueueS3Configuration"`
+	// S3 storage configuration including the destination bucket, output key template, storage class, and compression type.
+	StorageConfiguration ChannelS3StorageConfiguration `pulumi:"storageConfiguration"`
+}
+
+// ChannelS3DestinationConfigurationInput is an input type that accepts ChannelS3DestinationConfigurationArgs and ChannelS3DestinationConfigurationOutput values.
+// You can construct a concrete instance of `ChannelS3DestinationConfigurationInput` via:
+//
+//	ChannelS3DestinationConfigurationArgs{...}
+type ChannelS3DestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelS3DestinationConfigurationOutput() ChannelS3DestinationConfigurationOutput
+	ToChannelS3DestinationConfigurationOutputWithContext(context.Context) ChannelS3DestinationConfigurationOutput
+}
+
+// Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+type ChannelS3DestinationConfigurationArgs struct {
+	// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+	DataFreshnessInSeconds pulumi.IntPtrInput `pulumi:"dataFreshnessInSeconds"`
+	// Optional dead-letter queue (DLQ) configuration for records that cannot be delivered to the destination. When omitted, the service auto-fills using the storage BucketARN with an error prefix.
+	DeadLetterQueueS3Configuration ChannelDeadLetterQueueS3ConfigurationPtrInput `pulumi:"deadLetterQueueS3Configuration"`
+	// S3 storage configuration including the destination bucket, output key template, storage class, and compression type.
+	StorageConfiguration ChannelS3StorageConfigurationInput `pulumi:"storageConfiguration"`
+}
+
+func (ChannelS3DestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3DestinationConfiguration)(nil)).Elem()
+}
+
+func (i ChannelS3DestinationConfigurationArgs) ToChannelS3DestinationConfigurationOutput() ChannelS3DestinationConfigurationOutput {
+	return i.ToChannelS3DestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationConfigurationArgs) ToChannelS3DestinationConfigurationOutputWithContext(ctx context.Context) ChannelS3DestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationConfigurationOutput)
+}
+
+func (i ChannelS3DestinationConfigurationArgs) ToChannelS3DestinationConfigurationPtrOutput() ChannelS3DestinationConfigurationPtrOutput {
+	return i.ToChannelS3DestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelS3DestinationConfigurationArgs) ToChannelS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationConfigurationOutput).ToChannelS3DestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelS3DestinationConfigurationPtrInput is an input type that accepts ChannelS3DestinationConfigurationArgs, ChannelS3DestinationConfigurationPtr and ChannelS3DestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelS3DestinationConfigurationPtrInput` via:
+//
+//	        ChannelS3DestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelS3DestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelS3DestinationConfigurationPtrOutput() ChannelS3DestinationConfigurationPtrOutput
+	ToChannelS3DestinationConfigurationPtrOutputWithContext(context.Context) ChannelS3DestinationConfigurationPtrOutput
+}
+
+type channelS3DestinationConfigurationPtrType ChannelS3DestinationConfigurationArgs
+
+func ChannelS3DestinationConfigurationPtr(v *ChannelS3DestinationConfigurationArgs) ChannelS3DestinationConfigurationPtrInput {
+	return (*channelS3DestinationConfigurationPtrType)(v)
+}
+
+func (*channelS3DestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3DestinationConfiguration)(nil)).Elem()
+}
+
+func (i *channelS3DestinationConfigurationPtrType) ToChannelS3DestinationConfigurationPtrOutput() ChannelS3DestinationConfigurationPtrOutput {
+	return i.ToChannelS3DestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelS3DestinationConfigurationPtrType) ToChannelS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3DestinationConfigurationPtrOutput)
+}
+
+// Configuration for delivery to a vanilla S3 bucket destination. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+type ChannelS3DestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3DestinationConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationConfigurationOutput) ToChannelS3DestinationConfigurationOutput() ChannelS3DestinationConfigurationOutput {
+	return o
+}
+
+func (o ChannelS3DestinationConfigurationOutput) ToChannelS3DestinationConfigurationOutputWithContext(ctx context.Context) ChannelS3DestinationConfigurationOutput {
+	return o
+}
+
+func (o ChannelS3DestinationConfigurationOutput) ToChannelS3DestinationConfigurationPtrOutput() ChannelS3DestinationConfigurationPtrOutput {
+	return o.ToChannelS3DestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3DestinationConfigurationOutput) ToChannelS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3DestinationConfiguration) *ChannelS3DestinationConfiguration {
+		return &v
+	}).(ChannelS3DestinationConfigurationPtrOutput)
+}
+
+// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+func (o ChannelS3DestinationConfigurationOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelS3DestinationConfiguration) *int { return v.DataFreshnessInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Optional dead-letter queue (DLQ) configuration for records that cannot be delivered to the destination. When omitted, the service auto-fills using the storage BucketARN with an error prefix.
+func (o ChannelS3DestinationConfigurationOutput) DeadLetterQueueS3Configuration() ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v ChannelS3DestinationConfiguration) *ChannelDeadLetterQueueS3Configuration {
+		return v.DeadLetterQueueS3Configuration
+	}).(ChannelDeadLetterQueueS3ConfigurationPtrOutput)
+}
+
+// S3 storage configuration including the destination bucket, output key template, storage class, and compression type.
+func (o ChannelS3DestinationConfigurationOutput) StorageConfiguration() ChannelS3StorageConfigurationOutput {
+	return o.ApplyT(func(v ChannelS3DestinationConfiguration) ChannelS3StorageConfiguration { return v.StorageConfiguration }).(ChannelS3StorageConfigurationOutput)
+}
+
+type ChannelS3DestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3DestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3DestinationConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3DestinationConfigurationPtrOutput) ToChannelS3DestinationConfigurationPtrOutput() ChannelS3DestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationConfigurationPtrOutput) ToChannelS3DestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3DestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelS3DestinationConfigurationPtrOutput) Elem() ChannelS3DestinationConfigurationOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationConfiguration) ChannelS3DestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3DestinationConfiguration
+		return ret
+	}).(ChannelS3DestinationConfigurationOutput)
+}
+
+// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+func (o ChannelS3DestinationConfigurationPtrOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataFreshnessInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Optional dead-letter queue (DLQ) configuration for records that cannot be delivered to the destination. When omitted, the service auto-fills using the storage BucketARN with an error prefix.
+func (o ChannelS3DestinationConfigurationPtrOutput) DeadLetterQueueS3Configuration() ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationConfiguration) *ChannelDeadLetterQueueS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return v.DeadLetterQueueS3Configuration
+	}).(ChannelDeadLetterQueueS3ConfigurationPtrOutput)
+}
+
+// S3 storage configuration including the destination bucket, output key template, storage class, and compression type.
+func (o ChannelS3DestinationConfigurationPtrOutput) StorageConfiguration() ChannelS3StorageConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelS3DestinationConfiguration) *ChannelS3StorageConfiguration {
+		if v == nil {
+			return nil
+		}
+		return &v.StorageConfiguration
+	}).(ChannelS3StorageConfigurationPtrOutput)
+}
+
+// S3 storage configuration that describes the destination bucket and how delivered objects are stored.
+type ChannelS3StorageConfiguration struct {
+	// The ARN of the S3 bucket for record delivery. Different channels can deliver to the same bucket. Buckets can be cross-account but must be in the same region as the channel.
+	BucketArn string `pulumi:"bucketArn"`
+	// The compression algorithm applied to delivered objects.
+	CompressionType ChannelS3StorageConfigurationCompressionType `pulumi:"compressionType"`
+	// The AWS account ID of the expected owner of the destination S3 bucket. Used to verify bucket ownership before delivery.
+	ExpectedBucketOwner string `pulumi:"expectedBucketOwner"`
+	// Optional template for the S3 object key path. Supports placeholders in the form !{name}: !{channel-name}, !{channel-id}, !{stream-name}, !{yyyy}, !{yy}, !{MM}, !{dd}, !{HH}, !{mm}, and !{extension} (a literal file extension can be supplied as !{extension:.json.gz}). When omitted, the service uses the default 'kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}'.
+	OutputKeyTemplate *string `pulumi:"outputKeyTemplate"`
+	// The S3 storage class for delivered objects.
+	StorageClass *ChannelS3StorageConfigurationStorageClass `pulumi:"storageClass"`
+}
+
+// ChannelS3StorageConfigurationInput is an input type that accepts ChannelS3StorageConfigurationArgs and ChannelS3StorageConfigurationOutput values.
+// You can construct a concrete instance of `ChannelS3StorageConfigurationInput` via:
+//
+//	ChannelS3StorageConfigurationArgs{...}
+type ChannelS3StorageConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelS3StorageConfigurationOutput() ChannelS3StorageConfigurationOutput
+	ToChannelS3StorageConfigurationOutputWithContext(context.Context) ChannelS3StorageConfigurationOutput
+}
+
+// S3 storage configuration that describes the destination bucket and how delivered objects are stored.
+type ChannelS3StorageConfigurationArgs struct {
+	// The ARN of the S3 bucket for record delivery. Different channels can deliver to the same bucket. Buckets can be cross-account but must be in the same region as the channel.
+	BucketArn pulumi.StringInput `pulumi:"bucketArn"`
+	// The compression algorithm applied to delivered objects.
+	CompressionType ChannelS3StorageConfigurationCompressionTypeInput `pulumi:"compressionType"`
+	// The AWS account ID of the expected owner of the destination S3 bucket. Used to verify bucket ownership before delivery.
+	ExpectedBucketOwner pulumi.StringInput `pulumi:"expectedBucketOwner"`
+	// Optional template for the S3 object key path. Supports placeholders in the form !{name}: !{channel-name}, !{channel-id}, !{stream-name}, !{yyyy}, !{yy}, !{MM}, !{dd}, !{HH}, !{mm}, and !{extension} (a literal file extension can be supplied as !{extension:.json.gz}). When omitted, the service uses the default 'kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}'.
+	OutputKeyTemplate pulumi.StringPtrInput `pulumi:"outputKeyTemplate"`
+	// The S3 storage class for delivered objects.
+	StorageClass ChannelS3StorageConfigurationStorageClassPtrInput `pulumi:"storageClass"`
+}
+
+func (ChannelS3StorageConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3StorageConfiguration)(nil)).Elem()
+}
+
+func (i ChannelS3StorageConfigurationArgs) ToChannelS3StorageConfigurationOutput() ChannelS3StorageConfigurationOutput {
+	return i.ToChannelS3StorageConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelS3StorageConfigurationArgs) ToChannelS3StorageConfigurationOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3StorageConfigurationOutput)
+}
+
+func (i ChannelS3StorageConfigurationArgs) ToChannelS3StorageConfigurationPtrOutput() ChannelS3StorageConfigurationPtrOutput {
+	return i.ToChannelS3StorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelS3StorageConfigurationArgs) ToChannelS3StorageConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3StorageConfigurationOutput).ToChannelS3StorageConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelS3StorageConfigurationPtrInput is an input type that accepts ChannelS3StorageConfigurationArgs, ChannelS3StorageConfigurationPtr and ChannelS3StorageConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelS3StorageConfigurationPtrInput` via:
+//
+//	        ChannelS3StorageConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelS3StorageConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelS3StorageConfigurationPtrOutput() ChannelS3StorageConfigurationPtrOutput
+	ToChannelS3StorageConfigurationPtrOutputWithContext(context.Context) ChannelS3StorageConfigurationPtrOutput
+}
+
+type channelS3StorageConfigurationPtrType ChannelS3StorageConfigurationArgs
+
+func ChannelS3StorageConfigurationPtr(v *ChannelS3StorageConfigurationArgs) ChannelS3StorageConfigurationPtrInput {
+	return (*channelS3StorageConfigurationPtrType)(v)
+}
+
+func (*channelS3StorageConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3StorageConfiguration)(nil)).Elem()
+}
+
+func (i *channelS3StorageConfigurationPtrType) ToChannelS3StorageConfigurationPtrOutput() ChannelS3StorageConfigurationPtrOutput {
+	return i.ToChannelS3StorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelS3StorageConfigurationPtrType) ToChannelS3StorageConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3StorageConfigurationPtrOutput)
+}
+
+// S3 storage configuration that describes the destination bucket and how delivered objects are stored.
+type ChannelS3StorageConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3StorageConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3StorageConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3StorageConfigurationOutput) ToChannelS3StorageConfigurationOutput() ChannelS3StorageConfigurationOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationOutput) ToChannelS3StorageConfigurationOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationOutput) ToChannelS3StorageConfigurationPtrOutput() ChannelS3StorageConfigurationPtrOutput {
+	return o.ToChannelS3StorageConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3StorageConfigurationOutput) ToChannelS3StorageConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3StorageConfiguration) *ChannelS3StorageConfiguration {
+		return &v
+	}).(ChannelS3StorageConfigurationPtrOutput)
+}
+
+// The ARN of the S3 bucket for record delivery. Different channels can deliver to the same bucket. Buckets can be cross-account but must be in the same region as the channel.
+func (o ChannelS3StorageConfigurationOutput) BucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3StorageConfiguration) string { return v.BucketArn }).(pulumi.StringOutput)
+}
+
+// The compression algorithm applied to delivered objects.
+func (o ChannelS3StorageConfigurationOutput) CompressionType() ChannelS3StorageConfigurationCompressionTypeOutput {
+	return o.ApplyT(func(v ChannelS3StorageConfiguration) ChannelS3StorageConfigurationCompressionType {
+		return v.CompressionType
+	}).(ChannelS3StorageConfigurationCompressionTypeOutput)
+}
+
+// The AWS account ID of the expected owner of the destination S3 bucket. Used to verify bucket ownership before delivery.
+func (o ChannelS3StorageConfigurationOutput) ExpectedBucketOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3StorageConfiguration) string { return v.ExpectedBucketOwner }).(pulumi.StringOutput)
+}
+
+// Optional template for the S3 object key path. Supports placeholders in the form !{name}: !{channel-name}, !{channel-id}, !{stream-name}, !{yyyy}, !{yy}, !{MM}, !{dd}, !{HH}, !{mm}, and !{extension} (a literal file extension can be supplied as !{extension:.json.gz}). When omitted, the service uses the default 'kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}'.
+func (o ChannelS3StorageConfigurationOutput) OutputKeyTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ChannelS3StorageConfiguration) *string { return v.OutputKeyTemplate }).(pulumi.StringPtrOutput)
+}
+
+// The S3 storage class for delivered objects.
+func (o ChannelS3StorageConfigurationOutput) StorageClass() ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return o.ApplyT(func(v ChannelS3StorageConfiguration) *ChannelS3StorageConfigurationStorageClass {
+		return v.StorageClass
+	}).(ChannelS3StorageConfigurationStorageClassPtrOutput)
+}
+
+type ChannelS3StorageConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3StorageConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3StorageConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3StorageConfigurationPtrOutput) ToChannelS3StorageConfigurationPtrOutput() ChannelS3StorageConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationPtrOutput) ToChannelS3StorageConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3StorageConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelS3StorageConfigurationPtrOutput) Elem() ChannelS3StorageConfigurationOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfiguration) ChannelS3StorageConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3StorageConfiguration
+		return ret
+	}).(ChannelS3StorageConfigurationOutput)
+}
+
+// The ARN of the S3 bucket for record delivery. Different channels can deliver to the same bucket. Buckets can be cross-account but must be in the same region as the channel.
+func (o ChannelS3StorageConfigurationPtrOutput) BucketArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.BucketArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The compression algorithm applied to delivered objects.
+func (o ChannelS3StorageConfigurationPtrOutput) CompressionType() ChannelS3StorageConfigurationCompressionTypePtrOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfiguration) *ChannelS3StorageConfigurationCompressionType {
+		if v == nil {
+			return nil
+		}
+		return &v.CompressionType
+	}).(ChannelS3StorageConfigurationCompressionTypePtrOutput)
+}
+
+// The AWS account ID of the expected owner of the destination S3 bucket. Used to verify bucket ownership before delivery.
+func (o ChannelS3StorageConfigurationPtrOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ExpectedBucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Optional template for the S3 object key path. Supports placeholders in the form !{name}: !{channel-name}, !{channel-id}, !{stream-name}, !{yyyy}, !{yy}, !{MM}, !{dd}, !{HH}, !{mm}, and !{extension} (a literal file extension can be supplied as !{extension:.json.gz}). When omitted, the service uses the default 'kinesis-channel/!{channel-name}/!{channel-id}/!{yyyy}/!{MM}/!{dd}/!{HH}/!{channel-name}-!{channel-id}-!{yyyy}-!{MM}-!{dd}-!{HH}-!{mm}!{extension}'.
+func (o ChannelS3StorageConfigurationPtrOutput) OutputKeyTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OutputKeyTemplate
+	}).(pulumi.StringPtrOutput)
+}
+
+// The S3 storage class for delivered objects.
+func (o ChannelS3StorageConfigurationPtrOutput) StorageClass() ChannelS3StorageConfigurationStorageClassPtrOutput {
+	return o.ApplyT(func(v *ChannelS3StorageConfiguration) *ChannelS3StorageConfigurationStorageClass {
+		if v == nil {
+			return nil
+		}
+		return v.StorageClass
+	}).(ChannelS3StorageConfigurationStorageClassPtrOutput)
+}
+
+// An S3 Tables destination including its table bucket, namespace, table name, and partition spec.
+type ChannelS3TableConfiguration struct {
+	// The compression algorithm applied to objects delivered to the S3 Tables destination.
+	CompressionType ChannelS3TableConfigurationCompressionType `pulumi:"compressionType"`
+	// The name of the S3 Tables namespace that contains the destination table.
+	Namespace string `pulumi:"namespace"`
+	// The partition specification used by the destination Iceberg table.
+	PartitionSpec *ChannelPartitionSpec `pulumi:"partitionSpec"`
+	// The ARN of the S3 Tables table bucket for record delivery. Buckets can be cross-account but must be in the same region as the channel.
+	TableBucketArn string `pulumi:"tableBucketArn"`
+	// The name of the destination S3 Tables table. The table is created for the customer if it does not yet exist.
+	TableName string `pulumi:"tableName"`
+}
+
+// ChannelS3TableConfigurationInput is an input type that accepts ChannelS3TableConfigurationArgs and ChannelS3TableConfigurationOutput values.
+// You can construct a concrete instance of `ChannelS3TableConfigurationInput` via:
+//
+//	ChannelS3TableConfigurationArgs{...}
+type ChannelS3TableConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelS3TableConfigurationOutput() ChannelS3TableConfigurationOutput
+	ToChannelS3TableConfigurationOutputWithContext(context.Context) ChannelS3TableConfigurationOutput
+}
+
+// An S3 Tables destination including its table bucket, namespace, table name, and partition spec.
+type ChannelS3TableConfigurationArgs struct {
+	// The compression algorithm applied to objects delivered to the S3 Tables destination.
+	CompressionType ChannelS3TableConfigurationCompressionTypeInput `pulumi:"compressionType"`
+	// The name of the S3 Tables namespace that contains the destination table.
+	Namespace pulumi.StringInput `pulumi:"namespace"`
+	// The partition specification used by the destination Iceberg table.
+	PartitionSpec ChannelPartitionSpecPtrInput `pulumi:"partitionSpec"`
+	// The ARN of the S3 Tables table bucket for record delivery. Buckets can be cross-account but must be in the same region as the channel.
+	TableBucketArn pulumi.StringInput `pulumi:"tableBucketArn"`
+	// The name of the destination S3 Tables table. The table is created for the customer if it does not yet exist.
+	TableName pulumi.StringInput `pulumi:"tableName"`
+}
+
+func (ChannelS3TableConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3TableConfiguration)(nil)).Elem()
+}
+
+func (i ChannelS3TableConfigurationArgs) ToChannelS3TableConfigurationOutput() ChannelS3TableConfigurationOutput {
+	return i.ToChannelS3TableConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelS3TableConfigurationArgs) ToChannelS3TableConfigurationOutputWithContext(ctx context.Context) ChannelS3TableConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3TableConfigurationOutput)
+}
+
+// ChannelS3TableConfigurationArrayInput is an input type that accepts ChannelS3TableConfigurationArray and ChannelS3TableConfigurationArrayOutput values.
+// You can construct a concrete instance of `ChannelS3TableConfigurationArrayInput` via:
+//
+//	ChannelS3TableConfigurationArray{ ChannelS3TableConfigurationArgs{...} }
+type ChannelS3TableConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToChannelS3TableConfigurationArrayOutput() ChannelS3TableConfigurationArrayOutput
+	ToChannelS3TableConfigurationArrayOutputWithContext(context.Context) ChannelS3TableConfigurationArrayOutput
+}
+
+type ChannelS3TableConfigurationArray []ChannelS3TableConfigurationInput
+
+func (ChannelS3TableConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelS3TableConfiguration)(nil)).Elem()
+}
+
+func (i ChannelS3TableConfigurationArray) ToChannelS3TableConfigurationArrayOutput() ChannelS3TableConfigurationArrayOutput {
+	return i.ToChannelS3TableConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelS3TableConfigurationArray) ToChannelS3TableConfigurationArrayOutputWithContext(ctx context.Context) ChannelS3TableConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3TableConfigurationArrayOutput)
+}
+
+// An S3 Tables destination including its table bucket, namespace, table name, and partition spec.
+type ChannelS3TableConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3TableConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3TableConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3TableConfigurationOutput) ToChannelS3TableConfigurationOutput() ChannelS3TableConfigurationOutput {
+	return o
+}
+
+func (o ChannelS3TableConfigurationOutput) ToChannelS3TableConfigurationOutputWithContext(ctx context.Context) ChannelS3TableConfigurationOutput {
+	return o
+}
+
+// The compression algorithm applied to objects delivered to the S3 Tables destination.
+func (o ChannelS3TableConfigurationOutput) CompressionType() ChannelS3TableConfigurationCompressionTypeOutput {
+	return o.ApplyT(func(v ChannelS3TableConfiguration) ChannelS3TableConfigurationCompressionType {
+		return v.CompressionType
+	}).(ChannelS3TableConfigurationCompressionTypeOutput)
+}
+
+// The name of the S3 Tables namespace that contains the destination table.
+func (o ChannelS3TableConfigurationOutput) Namespace() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3TableConfiguration) string { return v.Namespace }).(pulumi.StringOutput)
+}
+
+// The partition specification used by the destination Iceberg table.
+func (o ChannelS3TableConfigurationOutput) PartitionSpec() ChannelPartitionSpecPtrOutput {
+	return o.ApplyT(func(v ChannelS3TableConfiguration) *ChannelPartitionSpec { return v.PartitionSpec }).(ChannelPartitionSpecPtrOutput)
+}
+
+// The ARN of the S3 Tables table bucket for record delivery. Buckets can be cross-account but must be in the same region as the channel.
+func (o ChannelS3TableConfigurationOutput) TableBucketArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3TableConfiguration) string { return v.TableBucketArn }).(pulumi.StringOutput)
+}
+
+// The name of the destination S3 Tables table. The table is created for the customer if it does not yet exist.
+func (o ChannelS3TableConfigurationOutput) TableName() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelS3TableConfiguration) string { return v.TableName }).(pulumi.StringOutput)
+}
+
+type ChannelS3TableConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3TableConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelS3TableConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3TableConfigurationArrayOutput) ToChannelS3TableConfigurationArrayOutput() ChannelS3TableConfigurationArrayOutput {
+	return o
+}
+
+func (o ChannelS3TableConfigurationArrayOutput) ToChannelS3TableConfigurationArrayOutputWithContext(ctx context.Context) ChannelS3TableConfigurationArrayOutput {
+	return o
+}
+
+func (o ChannelS3TableConfigurationArrayOutput) Index(i pulumi.IntInput) ChannelS3TableConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelS3TableConfiguration {
+		return vs[0].([]ChannelS3TableConfiguration)[vs[1].(int)]
+	}).(ChannelS3TableConfigurationOutput)
+}
+
+// Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+type ChannelS3TablesDestinationConfiguration struct {
+	// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+	DataFreshnessInSeconds *int `pulumi:"dataFreshnessInSeconds"`
+	// The dead-letter queue (DLQ) configuration for records that cannot be delivered to the S3 Tables destination. Required for S3 Tables: there is no safe fallback because S3 Tables metadata writes are critical-path.
+	DeadLetterQueueS3Configuration ChannelDeadLetterQueueS3Configuration `pulumi:"deadLetterQueueS3Configuration"`
+	// The list of S3 Tables destinations. v1 supports a single element; the list shape allows future extensibility to fan out to multiple tables.
+	S3TablesConfigurationList []ChannelS3TableConfiguration `pulumi:"s3TablesConfigurationList"`
+}
+
+// ChannelS3TablesDestinationConfigurationInput is an input type that accepts ChannelS3TablesDestinationConfigurationArgs and ChannelS3TablesDestinationConfigurationOutput values.
+// You can construct a concrete instance of `ChannelS3TablesDestinationConfigurationInput` via:
+//
+//	ChannelS3TablesDestinationConfigurationArgs{...}
+type ChannelS3TablesDestinationConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelS3TablesDestinationConfigurationOutput() ChannelS3TablesDestinationConfigurationOutput
+	ToChannelS3TablesDestinationConfigurationOutputWithContext(context.Context) ChannelS3TablesDestinationConfigurationOutput
+}
+
+// Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+type ChannelS3TablesDestinationConfigurationArgs struct {
+	// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+	DataFreshnessInSeconds pulumi.IntPtrInput `pulumi:"dataFreshnessInSeconds"`
+	// The dead-letter queue (DLQ) configuration for records that cannot be delivered to the S3 Tables destination. Required for S3 Tables: there is no safe fallback because S3 Tables metadata writes are critical-path.
+	DeadLetterQueueS3Configuration ChannelDeadLetterQueueS3ConfigurationInput `pulumi:"deadLetterQueueS3Configuration"`
+	// The list of S3 Tables destinations. v1 supports a single element; the list shape allows future extensibility to fan out to multiple tables.
+	S3TablesConfigurationList ChannelS3TableConfigurationArrayInput `pulumi:"s3TablesConfigurationList"`
+}
+
+func (ChannelS3TablesDestinationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3TablesDestinationConfiguration)(nil)).Elem()
+}
+
+func (i ChannelS3TablesDestinationConfigurationArgs) ToChannelS3TablesDestinationConfigurationOutput() ChannelS3TablesDestinationConfigurationOutput {
+	return i.ToChannelS3TablesDestinationConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelS3TablesDestinationConfigurationArgs) ToChannelS3TablesDestinationConfigurationOutputWithContext(ctx context.Context) ChannelS3TablesDestinationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3TablesDestinationConfigurationOutput)
+}
+
+func (i ChannelS3TablesDestinationConfigurationArgs) ToChannelS3TablesDestinationConfigurationPtrOutput() ChannelS3TablesDestinationConfigurationPtrOutput {
+	return i.ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ChannelS3TablesDestinationConfigurationArgs) ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3TablesDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3TablesDestinationConfigurationOutput).ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(ctx)
+}
+
+// ChannelS3TablesDestinationConfigurationPtrInput is an input type that accepts ChannelS3TablesDestinationConfigurationArgs, ChannelS3TablesDestinationConfigurationPtr and ChannelS3TablesDestinationConfigurationPtrOutput values.
+// You can construct a concrete instance of `ChannelS3TablesDestinationConfigurationPtrInput` via:
+//
+//	        ChannelS3TablesDestinationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ChannelS3TablesDestinationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToChannelS3TablesDestinationConfigurationPtrOutput() ChannelS3TablesDestinationConfigurationPtrOutput
+	ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(context.Context) ChannelS3TablesDestinationConfigurationPtrOutput
+}
+
+type channelS3TablesDestinationConfigurationPtrType ChannelS3TablesDestinationConfigurationArgs
+
+func ChannelS3TablesDestinationConfigurationPtr(v *ChannelS3TablesDestinationConfigurationArgs) ChannelS3TablesDestinationConfigurationPtrInput {
+	return (*channelS3TablesDestinationConfigurationPtrType)(v)
+}
+
+func (*channelS3TablesDestinationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3TablesDestinationConfiguration)(nil)).Elem()
+}
+
+func (i *channelS3TablesDestinationConfigurationPtrType) ToChannelS3TablesDestinationConfigurationPtrOutput() ChannelS3TablesDestinationConfigurationPtrOutput {
+	return i.ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *channelS3TablesDestinationConfigurationPtrType) ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3TablesDestinationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelS3TablesDestinationConfigurationPtrOutput)
+}
+
+// Configuration for delivery to S3 Tables destinations. Exactly one of S3DestinationConfiguration and S3TablesDestinationConfiguration must be specified on the channel.
+type ChannelS3TablesDestinationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3TablesDestinationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelS3TablesDestinationConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3TablesDestinationConfigurationOutput) ToChannelS3TablesDestinationConfigurationOutput() ChannelS3TablesDestinationConfigurationOutput {
+	return o
+}
+
+func (o ChannelS3TablesDestinationConfigurationOutput) ToChannelS3TablesDestinationConfigurationOutputWithContext(ctx context.Context) ChannelS3TablesDestinationConfigurationOutput {
+	return o
+}
+
+func (o ChannelS3TablesDestinationConfigurationOutput) ToChannelS3TablesDestinationConfigurationPtrOutput() ChannelS3TablesDestinationConfigurationPtrOutput {
+	return o.ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ChannelS3TablesDestinationConfigurationOutput) ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3TablesDestinationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ChannelS3TablesDestinationConfiguration) *ChannelS3TablesDestinationConfiguration {
+		return &v
+	}).(ChannelS3TablesDestinationConfigurationPtrOutput)
+}
+
+// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+func (o ChannelS3TablesDestinationConfigurationOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ChannelS3TablesDestinationConfiguration) *int { return v.DataFreshnessInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// The dead-letter queue (DLQ) configuration for records that cannot be delivered to the S3 Tables destination. Required for S3 Tables: there is no safe fallback because S3 Tables metadata writes are critical-path.
+func (o ChannelS3TablesDestinationConfigurationOutput) DeadLetterQueueS3Configuration() ChannelDeadLetterQueueS3ConfigurationOutput {
+	return o.ApplyT(func(v ChannelS3TablesDestinationConfiguration) ChannelDeadLetterQueueS3Configuration {
+		return v.DeadLetterQueueS3Configuration
+	}).(ChannelDeadLetterQueueS3ConfigurationOutput)
+}
+
+// The list of S3 Tables destinations. v1 supports a single element; the list shape allows future extensibility to fan out to multiple tables.
+func (o ChannelS3TablesDestinationConfigurationOutput) S3TablesConfigurationList() ChannelS3TableConfigurationArrayOutput {
+	return o.ApplyT(func(v ChannelS3TablesDestinationConfiguration) []ChannelS3TableConfiguration {
+		return v.S3TablesConfigurationList
+	}).(ChannelS3TableConfigurationArrayOutput)
+}
+
+type ChannelS3TablesDestinationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ChannelS3TablesDestinationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ChannelS3TablesDestinationConfiguration)(nil)).Elem()
+}
+
+func (o ChannelS3TablesDestinationConfigurationPtrOutput) ToChannelS3TablesDestinationConfigurationPtrOutput() ChannelS3TablesDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelS3TablesDestinationConfigurationPtrOutput) ToChannelS3TablesDestinationConfigurationPtrOutputWithContext(ctx context.Context) ChannelS3TablesDestinationConfigurationPtrOutput {
+	return o
+}
+
+func (o ChannelS3TablesDestinationConfigurationPtrOutput) Elem() ChannelS3TablesDestinationConfigurationOutput {
+	return o.ApplyT(func(v *ChannelS3TablesDestinationConfiguration) ChannelS3TablesDestinationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ChannelS3TablesDestinationConfiguration
+		return ret
+	}).(ChannelS3TablesDestinationConfigurationOutput)
+}
+
+// The maximum time in seconds the channel buffers records before delivery if the minimum target file size is not reached.
+func (o ChannelS3TablesDestinationConfigurationPtrOutput) DataFreshnessInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ChannelS3TablesDestinationConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.DataFreshnessInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// The dead-letter queue (DLQ) configuration for records that cannot be delivered to the S3 Tables destination. Required for S3 Tables: there is no safe fallback because S3 Tables metadata writes are critical-path.
+func (o ChannelS3TablesDestinationConfigurationPtrOutput) DeadLetterQueueS3Configuration() ChannelDeadLetterQueueS3ConfigurationPtrOutput {
+	return o.ApplyT(func(v *ChannelS3TablesDestinationConfiguration) *ChannelDeadLetterQueueS3Configuration {
+		if v == nil {
+			return nil
+		}
+		return &v.DeadLetterQueueS3Configuration
+	}).(ChannelDeadLetterQueueS3ConfigurationPtrOutput)
+}
+
+// The list of S3 Tables destinations. v1 supports a single element; the list shape allows future extensibility to fan out to multiple tables.
+func (o ChannelS3TablesDestinationConfigurationPtrOutput) S3TablesConfigurationList() ChannelS3TableConfigurationArrayOutput {
+	return o.ApplyT(func(v *ChannelS3TablesDestinationConfiguration) []ChannelS3TableConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.S3TablesConfigurationList
+	}).(ChannelS3TableConfigurationArrayOutput)
+}
+
+// The configuration of a Kinesis stream that the channel reads from.
+type ChannelStreamConfiguration struct {
+	// The configuration that describes how records on the source stream are encoded.
+	RecordConfiguration ChannelRecordConfiguration `pulumi:"recordConfiguration"`
+	// The Amazon resource name (ARN) of the Kinesis data stream that the channel reads from.
+	StreamArn string `pulumi:"streamArn"`
+}
+
+// ChannelStreamConfigurationInput is an input type that accepts ChannelStreamConfigurationArgs and ChannelStreamConfigurationOutput values.
+// You can construct a concrete instance of `ChannelStreamConfigurationInput` via:
+//
+//	ChannelStreamConfigurationArgs{...}
+type ChannelStreamConfigurationInput interface {
+	pulumi.Input
+
+	ToChannelStreamConfigurationOutput() ChannelStreamConfigurationOutput
+	ToChannelStreamConfigurationOutputWithContext(context.Context) ChannelStreamConfigurationOutput
+}
+
+// The configuration of a Kinesis stream that the channel reads from.
+type ChannelStreamConfigurationArgs struct {
+	// The configuration that describes how records on the source stream are encoded.
+	RecordConfiguration ChannelRecordConfigurationInput `pulumi:"recordConfiguration"`
+	// The Amazon resource name (ARN) of the Kinesis data stream that the channel reads from.
+	StreamArn pulumi.StringInput `pulumi:"streamArn"`
+}
+
+func (ChannelStreamConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelStreamConfiguration)(nil)).Elem()
+}
+
+func (i ChannelStreamConfigurationArgs) ToChannelStreamConfigurationOutput() ChannelStreamConfigurationOutput {
+	return i.ToChannelStreamConfigurationOutputWithContext(context.Background())
+}
+
+func (i ChannelStreamConfigurationArgs) ToChannelStreamConfigurationOutputWithContext(ctx context.Context) ChannelStreamConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelStreamConfigurationOutput)
+}
+
+// ChannelStreamConfigurationArrayInput is an input type that accepts ChannelStreamConfigurationArray and ChannelStreamConfigurationArrayOutput values.
+// You can construct a concrete instance of `ChannelStreamConfigurationArrayInput` via:
+//
+//	ChannelStreamConfigurationArray{ ChannelStreamConfigurationArgs{...} }
+type ChannelStreamConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToChannelStreamConfigurationArrayOutput() ChannelStreamConfigurationArrayOutput
+	ToChannelStreamConfigurationArrayOutputWithContext(context.Context) ChannelStreamConfigurationArrayOutput
+}
+
+type ChannelStreamConfigurationArray []ChannelStreamConfigurationInput
+
+func (ChannelStreamConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelStreamConfiguration)(nil)).Elem()
+}
+
+func (i ChannelStreamConfigurationArray) ToChannelStreamConfigurationArrayOutput() ChannelStreamConfigurationArrayOutput {
+	return i.ToChannelStreamConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i ChannelStreamConfigurationArray) ToChannelStreamConfigurationArrayOutputWithContext(ctx context.Context) ChannelStreamConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ChannelStreamConfigurationArrayOutput)
+}
+
+// The configuration of a Kinesis stream that the channel reads from.
+type ChannelStreamConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ChannelStreamConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ChannelStreamConfiguration)(nil)).Elem()
+}
+
+func (o ChannelStreamConfigurationOutput) ToChannelStreamConfigurationOutput() ChannelStreamConfigurationOutput {
+	return o
+}
+
+func (o ChannelStreamConfigurationOutput) ToChannelStreamConfigurationOutputWithContext(ctx context.Context) ChannelStreamConfigurationOutput {
+	return o
+}
+
+// The configuration that describes how records on the source stream are encoded.
+func (o ChannelStreamConfigurationOutput) RecordConfiguration() ChannelRecordConfigurationOutput {
+	return o.ApplyT(func(v ChannelStreamConfiguration) ChannelRecordConfiguration { return v.RecordConfiguration }).(ChannelRecordConfigurationOutput)
+}
+
+// The Amazon resource name (ARN) of the Kinesis data stream that the channel reads from.
+func (o ChannelStreamConfigurationOutput) StreamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ChannelStreamConfiguration) string { return v.StreamArn }).(pulumi.StringOutput)
+}
+
+type ChannelStreamConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (ChannelStreamConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ChannelStreamConfiguration)(nil)).Elem()
+}
+
+func (o ChannelStreamConfigurationArrayOutput) ToChannelStreamConfigurationArrayOutput() ChannelStreamConfigurationArrayOutput {
+	return o
+}
+
+func (o ChannelStreamConfigurationArrayOutput) ToChannelStreamConfigurationArrayOutputWithContext(ctx context.Context) ChannelStreamConfigurationArrayOutput {
+	return o
+}
+
+func (o ChannelStreamConfigurationArrayOutput) Index(i pulumi.IntInput) ChannelStreamConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ChannelStreamConfiguration {
+		return vs[0].([]ChannelStreamConfiguration)[vs[1].(int)]
+	}).(ChannelStreamConfigurationOutput)
+}
+
+// An arbitrary set of tags (key-value pairs) to associate with the Kinesis channel.
+type ChannelTag struct {
+	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Key string `pulumi:"key"`
+	// The value for the tag. You can specify a value that is 0 to 255 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
+	Value string `pulumi:"value"`
+}
+
 // An arbitrary set of tags (key-value pairs) to associate with the Kinesis consumer.
 type StreamConsumerTag struct {
 	// The key name of the tag. You can specify a value that is 1 to 128 Unicode characters in length and cannot be prefixed with aws:. You can use any of the following characters: the set of Unicode letters, digits, whitespace, _, ., /, =, +, and -.
@@ -406,10 +2215,56 @@ func (o StreamWarmThroughputObjectPtrOutput) TargetMiBps() pulumi.IntPtrOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCloudWatchLogsConfigurationInput)(nil)).Elem(), ChannelCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCloudWatchLogsConfigurationPtrInput)(nil)).Elem(), ChannelCloudWatchLogsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDeadLetterQueueS3ConfigurationInput)(nil)).Elem(), ChannelDeadLetterQueueS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelDeadLetterQueueS3ConfigurationPtrInput)(nil)).Elem(), ChannelDeadLetterQueueS3ConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationInput)(nil)).Elem(), ChannelEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelEncryptionConfigurationPtrInput)(nil)).Elem(), ChannelEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingConfigurationInput)(nil)).Elem(), ChannelLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelLoggingConfigurationPtrInput)(nil)).Elem(), ChannelLoggingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPartitionFieldInput)(nil)).Elem(), ChannelPartitionFieldArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPartitionFieldArrayInput)(nil)).Elem(), ChannelPartitionFieldArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPartitionSpecInput)(nil)).Elem(), ChannelPartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelPartitionSpecPtrInput)(nil)).Elem(), ChannelPartitionSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelRecordConfigurationInput)(nil)).Elem(), ChannelRecordConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationConfigurationInput)(nil)).Elem(), ChannelS3DestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3DestinationConfigurationPtrInput)(nil)).Elem(), ChannelS3DestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3StorageConfigurationInput)(nil)).Elem(), ChannelS3StorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3StorageConfigurationPtrInput)(nil)).Elem(), ChannelS3StorageConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3TableConfigurationInput)(nil)).Elem(), ChannelS3TableConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3TableConfigurationArrayInput)(nil)).Elem(), ChannelS3TableConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3TablesDestinationConfigurationInput)(nil)).Elem(), ChannelS3TablesDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelS3TablesDestinationConfigurationPtrInput)(nil)).Elem(), ChannelS3TablesDestinationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelStreamConfigurationInput)(nil)).Elem(), ChannelStreamConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ChannelStreamConfigurationArrayInput)(nil)).Elem(), ChannelStreamConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionInput)(nil)).Elem(), StreamEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamEncryptionPtrInput)(nil)).Elem(), StreamEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsInput)(nil)).Elem(), StreamModeDetailsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StreamModeDetailsPtrInput)(nil)).Elem(), StreamModeDetailsArgs{})
+	pulumi.RegisterOutputType(ChannelCloudWatchLogsConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelCloudWatchLogsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelDeadLetterQueueS3ConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelDeadLetterQueueS3ConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelEncryptionConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelLoggingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelPartitionFieldOutput{})
+	pulumi.RegisterOutputType(ChannelPartitionFieldArrayOutput{})
+	pulumi.RegisterOutputType(ChannelPartitionSpecOutput{})
+	pulumi.RegisterOutputType(ChannelPartitionSpecPtrOutput{})
+	pulumi.RegisterOutputType(ChannelRecordConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelS3DestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelS3DestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3StorageConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelS3StorageConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelS3TableConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelS3TableConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(ChannelS3TablesDestinationConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelS3TablesDestinationConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ChannelStreamConfigurationOutput{})
+	pulumi.RegisterOutputType(ChannelStreamConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionOutput{})
 	pulumi.RegisterOutputType(StreamEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(StreamModeDetailsOutput{})

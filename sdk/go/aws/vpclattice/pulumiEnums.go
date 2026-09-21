@@ -1037,6 +1037,7 @@ const (
 	ResourceConfigurationTypeChild  = ResourceConfigurationType("CHILD")
 	ResourceConfigurationTypeSingle = ResourceConfigurationType("SINGLE")
 	ResourceConfigurationTypeArn    = ResourceConfigurationType("ARN")
+	ResourceConfigurationTypeCidr   = ResourceConfigurationType("CIDR")
 )
 
 func (ResourceConfigurationType) ElementType() reflect.Type {
@@ -1165,6 +1166,7 @@ func (o ResourceConfigurationTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 //	ResourceConfigurationTypeChild
 //	ResourceConfigurationTypeSingle
 //	ResourceConfigurationTypeArn
+//	ResourceConfigurationTypeCidr
 type ResourceConfigurationTypeInput interface {
 	pulumi.Input
 
