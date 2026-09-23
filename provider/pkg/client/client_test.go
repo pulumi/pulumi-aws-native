@@ -405,11 +405,11 @@ func TestClientCreate(t *testing.T) {
 			_ *types.ProgressEvent,
 		) (*types.ProgressEvent, error) {
 			return &types.ProgressEvent{
-					Identifier: &resourceID,
-					ErrorCode:  "AlreadyExists",
-				}, errors.New(
-					"resource with same id alteady exists",
-				)
+				Identifier: &resourceID,
+				ErrorCode:  "AlreadyExists",
+			}, errors.New(
+				"resource with same id alteady exists",
+			)
 		}
 
 		id, outputs, err := client.Create(ctx, testURN, typeName, desiredState)

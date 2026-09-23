@@ -42,6 +42,7 @@ func TestProviderEndpoints(t *testing.T) {
 		require.NoError(t, err)
 		ctx := context.Background()
 		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:region":    "us-west-2",
 				"aws-native:config:endpoints": `{"sts": "` + server.URL + `"}`,
@@ -77,6 +78,7 @@ func TestProviderEndpoints(t *testing.T) {
 		require.NoError(t, err)
 		ctx := context.Background()
 		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:region":    "us-west-2",
 				"aws-native:config:endpoints": `{"sts": "` + server.URL + `"}`,
@@ -103,6 +105,7 @@ func TestProviderEndpoints(t *testing.T) {
 		require.NoError(t, err)
 		ctx := context.Background()
 		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:region":                    "us-west-2",
 				"aws-native:config:endpoints":                 `{"sts": "` + server.URL + `"}`,
@@ -175,6 +178,7 @@ func TestProviderEndpoints(t *testing.T) {
 		require.NoError(t, err)
 		ctx := context.Background()
 		_, err = provider.Configure(ctx, &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:region":                    "us-west-2",
 				"aws-native:config:endpoints":                 `{"cloudcontrol": "` + server.URL + `"}`,
