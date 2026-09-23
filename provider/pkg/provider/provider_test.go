@@ -1139,6 +1139,7 @@ func TestConfigure(t *testing.T) {
 
 	t.Run("No AutoNaming Config", func(t *testing.T) {
 		req := &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:skipCredentialsValidation": "true",
 				"aws-native:config:region":                    "us-west-2",
@@ -1153,6 +1154,7 @@ func TestConfigure(t *testing.T) {
 
 	t.Run("AutoNaming config", func(t *testing.T) {
 		req := &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:skipCredentialsValidation": "true",
 				"aws-native:config:autoNaming":                "{\"autoTrim\": true, \"randomSuffixMinLength\": 5}",
@@ -1172,6 +1174,7 @@ func TestConfigure(t *testing.T) {
 
 	t.Run("AutoNaming empty", func(t *testing.T) {
 		req := &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:skipCredentialsValidation": "true",
 				"aws-native:config:autoNaming":                "{}",
@@ -1188,6 +1191,7 @@ func TestConfigure(t *testing.T) {
 
 	t.Run("AutoNaming config invalid", func(t *testing.T) {
 		req := &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:skipCredentialsValidation": "true",
 				"aws-native:config:autoNaming":                "autoTrim: true",
@@ -1201,6 +1205,7 @@ func TestConfigure(t *testing.T) {
 
 	t.Run("S3UsePathStyle config", func(t *testing.T) {
 		req := &pulumirpc.ConfigureRequest{
+			//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 			Variables: map[string]string{
 				"aws-native:config:skipCredentialsValidation": "true",
 				"aws-native:config:s3UsePathStyle":            "true",

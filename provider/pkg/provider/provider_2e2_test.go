@@ -96,6 +96,7 @@ func TestListLogStreamsLive(t *testing.T) {
 	server, err := testProviderServer()
 	require.NoError(t, err)
 	_, err = server.Configure(context.Background(), &pulumirpc.ConfigureRequest{
+		//nolint:staticcheck // ConfigureRequest variables remain the provider's config source.
 		Variables: map[string]string{"aws-native:config:region": "us-west-2"},
 	})
 	require.NoError(t, err)

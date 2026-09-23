@@ -154,7 +154,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Upload coverage reports to Codecov
-      uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v7.0.0
+      uses: codecov/codecov-action@0b35c9ecc4f0529d0eb674914510c22f85b196b4 # v7.1.0
       env:
         CODECOV_TOKEN: ${{ steps.esc-secrets.outputs.CODECOV_TOKEN }}
     - if: failure() && github.event_name == 'push'
@@ -395,7 +395,7 @@ jobs:
         swap-storage: true
         large-packages: false
     - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@cbe3b392738ccf3f987d68400dafcf4b0624a56c # v6.2.4
+      uses: aws-actions/configure-aws-credentials@e1253824e5c10ff9df46874f81ed3ec929e19cfd # v6.3.0
       with:
         aws-access-key-id: ${{ steps.esc-secrets.outputs.AWS_ACCESS_KEY_ID }}
         aws-region: us-east-2
