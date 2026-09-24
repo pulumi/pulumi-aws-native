@@ -123,22 +123,22 @@ class Detector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: pulumi.Input[Optional[Union['DetectorCfnDataSourceConfigurationsArgs', 'DetectorCfnDataSourceConfigurationsArgsDict']]] = None,
+                 data_sources: pulumi.Input[Optional[Union['DetectorCfnDataSourceConfigurationsArgs', 'DetectorCfnDataSourceConfigurationsArgsDict', 'outputs.DetectorCfnDataSourceConfigurations']]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorCfnFeatureConfigurationArgs', 'DetectorCfnFeatureConfigurationArgsDict']]]]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorCfnFeatureConfigurationArgs', 'DetectorCfnFeatureConfigurationArgsDict', 'outputs.DetectorCfnFeatureConfiguration']]]]] = None,
                  finding_publishing_frequency: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::GuardDuty::Detector
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['DetectorCfnDataSourceConfigurationsArgs', 'DetectorCfnDataSourceConfigurationsArgsDict']] data_sources: Describes which data sources will be enabled for the detector.
+        :param pulumi.Input[Union['DetectorCfnDataSourceConfigurationsArgs', 'DetectorCfnDataSourceConfigurationsArgsDict', 'outputs.DetectorCfnDataSourceConfigurations']] data_sources: Describes which data sources will be enabled for the detector.
         :param pulumi.Input[_builtins.bool] enable: Specifies whether the detector is to be enabled on creation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorCfnFeatureConfigurationArgs', 'DetectorCfnFeatureConfigurationArgsDict']]]] features: A list of features that will be configured for the detector.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DetectorCfnFeatureConfigurationArgs', 'DetectorCfnFeatureConfigurationArgsDict', 'outputs.DetectorCfnFeatureConfiguration']]]] features: A list of features that will be configured for the detector.
         :param pulumi.Input[_builtins.str] finding_publishing_frequency: Specifies how frequently updated findings are exported.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Specifies tags added to a new detector resource. Each tag consists of a key and an optional value, both of which you define.
                
                Currently, support is available only for creating and deleting a tag. No support exists for updating the tags.
                
@@ -168,11 +168,11 @@ class Detector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 data_sources: pulumi.Input[Optional[Union['DetectorCfnDataSourceConfigurationsArgs', 'DetectorCfnDataSourceConfigurationsArgsDict']]] = None,
+                 data_sources: pulumi.Input[Optional[Union['DetectorCfnDataSourceConfigurationsArgs', 'DetectorCfnDataSourceConfigurationsArgsDict', 'outputs.DetectorCfnDataSourceConfigurations']]] = None,
                  enable: pulumi.Input[Optional[_builtins.bool]] = None,
-                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorCfnFeatureConfigurationArgs', 'DetectorCfnFeatureConfigurationArgsDict']]]]] = None,
+                 features: pulumi.Input[Optional[Sequence[pulumi.Input[Union['DetectorCfnFeatureConfigurationArgs', 'DetectorCfnFeatureConfigurationArgsDict', 'outputs.DetectorCfnFeatureConfiguration']]]]] = None,
                  finding_publishing_frequency: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -273,7 +273,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  manifest: pulumi.Input[Optional[_builtins.str]] = None,
                  source_custom_db_engine_version_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['CustomDbEngineVersionStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_aws_provided_latest_image: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         """
@@ -304,7 +304,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                     For more information, see [Creating the CEV manifest](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html#custom-cev.preparing.manifest) in the *Amazon RDS User Guide*.
         :param pulumi.Input[_builtins.str] source_custom_db_engine_version_identifier: The ARN of a CEV to use as a source for creating a new CEV. You can specify a different Amazon Machine Imagine (AMI) by using either ``Source`` or ``UseAwsProvidedLatestImage``. You can't specify a different JSON manifest when you specify ``SourceCustomDbEngineVersionIdentifier``.
         :param pulumi.Input['CustomDbEngineVersionStatus'] status: A value that indicates the status of a custom engine version (CEV).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags. For more information, see [Tagging Amazon RDS Resources](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html) in the *Amazon RDS User Guide.*
         :param pulumi.Input[_builtins.bool] use_aws_provided_latest_image: Specifies whether to use the latest service-provided Amazon Machine Image (AMI) for the CEV. If you specify ``UseAwsProvidedLatestImage``, you can't also specify ``ImageId``.
         """
         ...
@@ -342,7 +342,7 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                  manifest: pulumi.Input[Optional[_builtins.str]] = None,
                  source_custom_db_engine_version_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional['CustomDbEngineVersionStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  use_aws_provided_latest_image: pulumi.Input[Optional[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

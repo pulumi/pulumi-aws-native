@@ -97,7 +97,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affinity: pulumi.Input[Optional['ListenerClientAffinity']] = None,
-                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]]] = None,
                  protocol: pulumi.Input[Optional['ListenerProtocol']] = None,
                  __props__=None):
         """
@@ -107,7 +107,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] accelerator_arn: The Amazon Resource Name (ARN) of the accelerator.
         :param pulumi.Input['ListenerClientAffinity'] client_affinity: Client affinity lets you direct all requests from a user to the same endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]] port_ranges: The list of port ranges for the connections from clients to the accelerator.
         :param pulumi.Input['ListenerProtocol'] protocol: The protocol for the listener.
         """
         ...
@@ -136,7 +136,7 @@ class Listener(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  accelerator_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  client_affinity: pulumi.Input[Optional['ListenerClientAffinity']] = None,
-                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict']]]]] = None,
+                 port_ranges: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerPortRangeArgs', 'ListenerPortRangeArgsDict', 'outputs.ListenerPortRange']]]]] = None,
                  protocol: pulumi.Input[Optional['ListenerProtocol']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

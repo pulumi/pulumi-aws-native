@@ -112,7 +112,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[Any] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict', 'outputs.TriggerCondition']]] = None,
                  status: pulumi.Input[Optional['TriggerStatus']] = None,
                  type: pulumi.Input[Optional['TriggerType']] = None,
                  __props__=None):
@@ -154,7 +154,7 @@ class Trigger(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  action: Optional[Any] = None,
                  agent_space_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict']]] = None,
+                 condition: pulumi.Input[Optional[Union['TriggerConditionArgs', 'TriggerConditionArgsDict', 'outputs.TriggerCondition']]] = None,
                  status: pulumi.Input[Optional['TriggerStatus']] = None,
                  type: pulumi.Input[Optional['TriggerType']] = None,
                  __props__=None):

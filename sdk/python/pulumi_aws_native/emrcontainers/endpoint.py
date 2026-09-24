@@ -160,12 +160,12 @@ class Endpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_overrides: pulumi.Input[Optional[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']]] = None,
+                 configuration_overrides: pulumi.Input[Optional[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict', 'outputs.EndpointConfigurationOverrides']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  release_label: pulumi.Input[Optional[_builtins.str]] = None,
                  session_idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -174,12 +174,12 @@ class Endpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']] configuration_overrides: The configuration overrides for the managed endpoint.
+        :param pulumi.Input[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict', 'outputs.EndpointConfigurationOverrides']] configuration_overrides: The configuration overrides for the managed endpoint.
         :param pulumi.Input[_builtins.str] execution_role_arn: The execution role ARN for the managed endpoint.
         :param pulumi.Input[_builtins.str] name: The name of the managed endpoint.
         :param pulumi.Input[_builtins.str] release_label: The Amazon EMR release label.
         :param pulumi.Input[_builtins.int] session_idle_timeout_in_minutes: The idle timeout in minutes for sessions on the managed endpoint.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this managed endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this managed endpoint.
         :param pulumi.Input[_builtins.str] type: The type of the managed endpoint.
         :param pulumi.Input[_builtins.str] virtual_cluster_id: The ID of the virtual cluster for which the managed endpoint is created.
         """
@@ -207,12 +207,12 @@ class Endpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration_overrides: pulumi.Input[Optional[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict']]] = None,
+                 configuration_overrides: pulumi.Input[Optional[Union['EndpointConfigurationOverridesArgs', 'EndpointConfigurationOverridesArgsDict', 'outputs.EndpointConfigurationOverrides']]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  release_label: pulumi.Input[Optional[_builtins.str]] = None,
                  session_idle_timeout_in_minutes: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  virtual_cluster_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

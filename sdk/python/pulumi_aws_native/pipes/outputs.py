@@ -2414,7 +2414,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
                  topic_name: _builtins.str,
                  batch_size: Optional[_builtins.int] = None,
                  consumer_group_id: Optional[_builtins.str] = None,
-                 credentials: Optional[Any] = None,
+                 credentials: Optional[Union['outputs.PipeMskAccessCredentials0Properties', 'outputs.PipeMskAccessCredentials1Properties']] = None,
                  maximum_batching_window_in_seconds: Optional[_builtins.int] = None,
                  starting_position: Optional['PipeMskStartPosition'] = None):
         """
@@ -2463,7 +2463,7 @@ class PipeSourceManagedStreamingKafkaParameters(dict):
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[Any]:
+    def credentials(self) -> Optional[Union['outputs.PipeMskAccessCredentials0Properties', 'outputs.PipeMskAccessCredentials1Properties']]:
         """
         The credentials needed to access the resource.
         """
@@ -2756,7 +2756,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
                  additional_bootstrap_servers: Optional[Sequence[_builtins.str]] = None,
                  batch_size: Optional[_builtins.int] = None,
                  consumer_group_id: Optional[_builtins.str] = None,
-                 credentials: Optional[Any] = None,
+                 credentials: Optional[Union['outputs.PipeSelfManagedKafkaAccessConfigurationCredentials0Properties', 'outputs.PipeSelfManagedKafkaAccessConfigurationCredentials1Properties', 'outputs.PipeSelfManagedKafkaAccessConfigurationCredentials2Properties', 'outputs.PipeSelfManagedKafkaAccessConfigurationCredentials3Properties']] = None,
                  maximum_batching_window_in_seconds: Optional[_builtins.int] = None,
                  server_root_ca_certificate: Optional[_builtins.str] = None,
                  starting_position: Optional['PipeSelfManagedKafkaStartPosition'] = None,
@@ -2824,7 +2824,7 @@ class PipeSourceSelfManagedKafkaParameters(dict):
 
     @_builtins.property
     @pulumi.getter
-    def credentials(self) -> Optional[Any]:
+    def credentials(self) -> Optional[Union['outputs.PipeSelfManagedKafkaAccessConfigurationCredentials0Properties', 'outputs.PipeSelfManagedKafkaAccessConfigurationCredentials1Properties', 'outputs.PipeSelfManagedKafkaAccessConfigurationCredentials2Properties', 'outputs.PipeSelfManagedKafkaAccessConfigurationCredentials3Properties']]:
         """
         The credentials needed to access the resource.
         """

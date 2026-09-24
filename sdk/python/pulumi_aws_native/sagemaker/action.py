@@ -165,11 +165,11 @@ class Action(pulumi.CustomResource):
                  action_name: pulumi.Input[Optional[_builtins.str]] = None,
                  action_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['ActionMetadataPropertiesArgs', 'ActionMetadataPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ActionMetadataPropertiesArgs', 'ActionMetadataPropertiesArgsDict', 'outputs.ActionMetadataProperties']]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: pulumi.Input[Optional[Union['ActionSourceArgs', 'ActionSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ActionSourceArgs', 'ActionSourceArgsDict', 'outputs.ActionSource']]] = None,
                  status: pulumi.Input[Optional['ActionStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::SageMaker::Action. An action is a lineage tracking entity that represents an action or activity, such as a model deployment or an HPO job.
@@ -179,11 +179,11 @@ class Action(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] action_name: The name of the action. Must be unique to your account in an AWS Region.
         :param pulumi.Input[_builtins.str] action_type: The action type.
         :param pulumi.Input[_builtins.str] description: The description of the action.
-        :param pulumi.Input[Union['ActionMetadataPropertiesArgs', 'ActionMetadataPropertiesArgsDict']] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
+        :param pulumi.Input[Union['ActionMetadataPropertiesArgs', 'ActionMetadataPropertiesArgsDict', 'outputs.ActionMetadataProperties']] metadata_properties: Metadata properties of the tracking entity, trial, or trial component.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] properties: A list of properties to add to the action.
-        :param pulumi.Input[Union['ActionSourceArgs', 'ActionSourceArgsDict']] source: The source type, ID, and URI.
+        :param pulumi.Input[Union['ActionSourceArgs', 'ActionSourceArgsDict', 'outputs.ActionSource']] source: The source type, ID, and URI.
         :param pulumi.Input['ActionStatus'] status: The status of the action.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the action.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to apply to the action.
         """
         ...
     @overload
@@ -212,11 +212,11 @@ class Action(pulumi.CustomResource):
                  action_name: pulumi.Input[Optional[_builtins.str]] = None,
                  action_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 metadata_properties: pulumi.Input[Optional[Union['ActionMetadataPropertiesArgs', 'ActionMetadataPropertiesArgsDict']]] = None,
+                 metadata_properties: pulumi.Input[Optional[Union['ActionMetadataPropertiesArgs', 'ActionMetadataPropertiesArgsDict', 'outputs.ActionMetadataProperties']]] = None,
                  properties: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 source: pulumi.Input[Optional[Union['ActionSourceArgs', 'ActionSourceArgsDict']]] = None,
+                 source: pulumi.Input[Optional[Union['ActionSourceArgs', 'ActionSourceArgsDict', 'outputs.ActionSource']]] = None,
                  status: pulumi.Input[Optional['ActionStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

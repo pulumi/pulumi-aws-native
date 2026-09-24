@@ -272,8 +272,8 @@ class UserSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 branding_configuration: pulumi.Input[Optional[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
-                 cookie_synchronization_configuration: pulumi.Input[Optional[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
+                 branding_configuration: pulumi.Input[Optional[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict', 'outputs.UserSettingsBrandingConfiguration']]] = None,
+                 cookie_synchronization_configuration: pulumi.Input[Optional[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict', 'outputs.UserSettingsCookieSynchronizationConfiguration']]] = None,
                  copy_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  deep_link_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
@@ -282,8 +282,8 @@ class UserSettings(pulumi.CustomResource):
                  idle_disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
                  paste_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  print_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 toolbar_configuration: pulumi.Input[Optional[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 toolbar_configuration: pulumi.Input[Optional[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict', 'outputs.UserSettingsToolbarConfiguration']]] = None,
                  upload_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  web_authn_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  __props__=None):
@@ -293,8 +293,8 @@ class UserSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] additional_encryption_context: The additional encryption context of the user settings.
-        :param pulumi.Input[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']] branding_configuration: The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
-        :param pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
+        :param pulumi.Input[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict', 'outputs.UserSettingsBrandingConfiguration']] branding_configuration: The branding configuration that customizes the appearance of the web portal for end users. This includes a custom logo, favicon, wallpaper, localized strings, color theme, and an optional terms of service.
+        :param pulumi.Input[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict', 'outputs.UserSettingsCookieSynchronizationConfiguration']] cookie_synchronization_configuration: The configuration that specifies which cookies should be synchronized from the end user's local browser to the remote browser.
         :param pulumi.Input['UserSettingsEnabledType'] copy_allowed: Specifies whether the user can copy text from the streaming session to the local device.
         :param pulumi.Input[_builtins.str] customer_managed_key: The customer managed key used to encrypt sensitive information in the user settings.
         :param pulumi.Input['UserSettingsEnabledType'] deep_link_allowed: Specifies whether the user can use deep links that open automatically when connecting to a session.
@@ -303,8 +303,8 @@ class UserSettings(pulumi.CustomResource):
         :param pulumi.Input[_builtins.float] idle_disconnect_timeout_in_minutes: The amount of time that users can be idle (inactive) before they are disconnected from their streaming session and the disconnect timeout interval begins.
         :param pulumi.Input['UserSettingsEnabledType'] paste_allowed: Specifies whether the user can paste text from the local device to the streaming session.
         :param pulumi.Input['UserSettingsEnabledType'] print_allowed: Specifies whether the user can print to the local device.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
-        :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']] toolbar_configuration: The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to add to the user settings resource. A tag is a key-value pair.
+        :param pulumi.Input[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict', 'outputs.UserSettingsToolbarConfiguration']] toolbar_configuration: The configuration of the toolbar. This allows administrators to select the toolbar type and visual mode, set maximum display resolution for sessions, and choose which items are visible to end users during their sessions. If administrators do not modify these settings, end users retain control over their toolbar preferences.
         :param pulumi.Input['UserSettingsEnabledType'] upload_allowed: Specifies whether the user can upload files from the local device to the streaming session.
         :param pulumi.Input['UserSettingsEnabledType'] web_authn_allowed: Specifies whether the user can use WebAuthn redirection for passwordless login to websites within the streaming session.
         """
@@ -333,8 +333,8 @@ class UserSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  additional_encryption_context: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 branding_configuration: pulumi.Input[Optional[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict']]] = None,
-                 cookie_synchronization_configuration: pulumi.Input[Optional[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict']]] = None,
+                 branding_configuration: pulumi.Input[Optional[Union['UserSettingsBrandingConfigurationArgs', 'UserSettingsBrandingConfigurationArgsDict', 'outputs.UserSettingsBrandingConfiguration']]] = None,
+                 cookie_synchronization_configuration: pulumi.Input[Optional[Union['UserSettingsCookieSynchronizationConfigurationArgs', 'UserSettingsCookieSynchronizationConfigurationArgsDict', 'outputs.UserSettingsCookieSynchronizationConfiguration']]] = None,
                  copy_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  customer_managed_key: pulumi.Input[Optional[_builtins.str]] = None,
                  deep_link_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
@@ -343,8 +343,8 @@ class UserSettings(pulumi.CustomResource):
                  idle_disconnect_timeout_in_minutes: pulumi.Input[Optional[_builtins.float]] = None,
                  paste_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  print_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 toolbar_configuration: pulumi.Input[Optional[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 toolbar_configuration: pulumi.Input[Optional[Union['UserSettingsToolbarConfigurationArgs', 'UserSettingsToolbarConfigurationArgsDict', 'outputs.UserSettingsToolbarConfiguration']]] = None,
                  upload_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  web_authn_allowed: pulumi.Input[Optional['UserSettingsEnabledType']] = None,
                  __props__=None):

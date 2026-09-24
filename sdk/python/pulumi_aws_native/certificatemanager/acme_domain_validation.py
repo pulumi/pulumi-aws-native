@@ -94,8 +94,8 @@ class AcmeDomainValidation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 prevalidation_options: pulumi.Input[Optional[Union['AcmeDomainValidationPrevalidationOptionsArgs', 'AcmeDomainValidationPrevalidationOptionsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 prevalidation_options: pulumi.Input[Optional[Union['AcmeDomainValidationPrevalidationOptionsArgs', 'AcmeDomainValidationPrevalidationOptionsArgsDict', 'outputs.AcmeDomainValidationPrevalidationOptions']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::CertificateManager::AcmeDomainValidation
@@ -104,7 +104,7 @@ class AcmeDomainValidation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] acme_endpoint_arn: The ARN of the ACME endpoint this domain validation is associated with.
         :param pulumi.Input[_builtins.str] domain_name: The domain name to validate.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags associated with the domain validation.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags associated with the domain validation.
         """
         ...
     @overload
@@ -132,8 +132,8 @@ class AcmeDomainValidation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  acme_endpoint_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 prevalidation_options: pulumi.Input[Optional[Union['AcmeDomainValidationPrevalidationOptionsArgs', 'AcmeDomainValidationPrevalidationOptionsArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 prevalidation_options: pulumi.Input[Optional[Union['AcmeDomainValidationPrevalidationOptionsArgs', 'AcmeDomainValidationPrevalidationOptionsArgsDict', 'outputs.AcmeDomainValidationPrevalidationOptions']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

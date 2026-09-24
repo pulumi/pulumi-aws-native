@@ -181,10 +181,10 @@ class WirelessDevice(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  last_uplink_received_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 lo_ra_wan: pulumi.Input[Optional[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict', 'outputs.WirelessDeviceLoRaWanDevice']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  positioning: pulumi.Input[Optional['WirelessDevicePositioning']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  thing_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['WirelessDeviceType']] = None,
                  __props__=None):
@@ -196,10 +196,10 @@ class WirelessDevice(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Wireless device description
         :param pulumi.Input[_builtins.str] destination_name: Wireless device destination name
         :param pulumi.Input[_builtins.str] last_uplink_received_at: The date and time when the most recent uplink was received.
-        :param pulumi.Input[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
+        :param pulumi.Input[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict', 'outputs.WirelessDeviceLoRaWanDevice']] lo_ra_wan: The combination of Package, Station and Model which represents the version of the LoRaWAN Wireless Device.
         :param pulumi.Input[_builtins.str] name: Wireless device name
         :param pulumi.Input['WirelessDevicePositioning'] positioning: FPort values for the GNSS, stream, and ClockSync functions of the positioning information.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that contain metadata for the device. Currently not supported, will not create if tags are passed.
         :param pulumi.Input[_builtins.str] thing_arn: Thing arn. Passed into update to associate Thing with Wireless device.
         :param pulumi.Input['WirelessDeviceType'] type: Wireless device type, currently only Sidewalk and LoRa
         """
@@ -230,10 +230,10 @@ class WirelessDevice(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  last_uplink_received_at: pulumi.Input[Optional[_builtins.str]] = None,
-                 lo_ra_wan: pulumi.Input[Optional[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict']]] = None,
+                 lo_ra_wan: pulumi.Input[Optional[Union['WirelessDeviceLoRaWanDeviceArgs', 'WirelessDeviceLoRaWanDeviceArgsDict', 'outputs.WirelessDeviceLoRaWanDevice']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  positioning: pulumi.Input[Optional['WirelessDevicePositioning']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  thing_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional['WirelessDeviceType']] = None,
                  __props__=None):

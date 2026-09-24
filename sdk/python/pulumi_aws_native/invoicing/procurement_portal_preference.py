@@ -242,18 +242,18 @@ class ProcurementPortalPreference(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  buyer_domain: pulumi.Input[Optional['ProcurementPortalPreferenceBuyerDomain']] = None,
                  buyer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcurementPortalPreferenceContactArgs', 'ProcurementPortalPreferenceContactArgsDict']]]]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcurementPortalPreferenceContactArgs', 'ProcurementPortalPreferenceContactArgsDict', 'outputs.ProcurementPortalPreferenceContact']]]]] = None,
                  einvoice_delivery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 einvoice_delivery_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs', 'ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgsDict']]] = None,
+                 einvoice_delivery_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs', 'ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgsDict', 'outputs.ProcurementPortalPreferenceEinvoiceDeliveryPreference']]] = None,
                  procurement_portal_instance_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  procurement_portal_name: pulumi.Input[Optional['ProcurementPortalPreferenceProcurementPortalName']] = None,
                  procurement_portal_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  purchase_order_retrieval_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 selector: pulumi.Input[Optional[Union['ProcurementPortalPreferenceSelectorArgs', 'ProcurementPortalPreferenceSelectorArgsDict']]] = None,
+                 selector: pulumi.Input[Optional[Union['ProcurementPortalPreferenceSelectorArgs', 'ProcurementPortalPreferenceSelectorArgsDict', 'outputs.ProcurementPortalPreferenceSelector']]] = None,
                  supplier_domain: pulumi.Input[Optional['ProcurementPortalPreferenceSupplierDomain']] = None,
                  supplier_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 test_env_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceTestEnvPreferenceArgs', 'ProcurementPortalPreferenceTestEnvPreferenceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 test_env_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceTestEnvPreferenceArgs', 'ProcurementPortalPreferenceTestEnvPreferenceArgsDict', 'outputs.ProcurementPortalPreferenceTestEnvPreference']]] = None,
                  __props__=None):
         """
         Creates and manages a procurement portal preference configuration for e-invoice delivery and purchase order retrieval.
@@ -262,7 +262,7 @@ class ProcurementPortalPreference(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ProcurementPortalPreferenceBuyerDomain'] buyer_domain: The domain identifier for the buyer in the procurement portal.
         :param pulumi.Input[_builtins.str] buyer_identifier: The unique identifier for the buyer in the procurement portal.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcurementPortalPreferenceContactArgs', 'ProcurementPortalPreferenceContactArgsDict']]]] contacts: List of contact information for portal administrators and technical contacts.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcurementPortalPreferenceContactArgs', 'ProcurementPortalPreferenceContactArgsDict', 'outputs.ProcurementPortalPreferenceContact']]]] contacts: List of contact information for portal administrators and technical contacts.
         :param pulumi.Input[_builtins.bool] einvoice_delivery_enabled: Indicates whether e-invoice delivery is enabled for this procurement portal preference.
         :param pulumi.Input[_builtins.str] procurement_portal_instance_endpoint: The endpoint URL where e-invoices are delivered to the procurement portal.
         :param pulumi.Input['ProcurementPortalPreferenceProcurementPortalName'] procurement_portal_name: The name of the procurement portal.
@@ -270,7 +270,7 @@ class ProcurementPortalPreference(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] purchase_order_retrieval_enabled: Indicates whether purchase order retrieval is enabled for this procurement portal preference.
         :param pulumi.Input['ProcurementPortalPreferenceSupplierDomain'] supplier_domain: The domain identifier for the supplier in the procurement portal.
         :param pulumi.Input[_builtins.str] supplier_identifier: The unique identifier for the supplier in the procurement portal.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with this procurement portal preference.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with this procurement portal preference.
         """
         ...
     @overload
@@ -298,18 +298,18 @@ class ProcurementPortalPreference(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  buyer_domain: pulumi.Input[Optional['ProcurementPortalPreferenceBuyerDomain']] = None,
                  buyer_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcurementPortalPreferenceContactArgs', 'ProcurementPortalPreferenceContactArgsDict']]]]] = None,
+                 contacts: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ProcurementPortalPreferenceContactArgs', 'ProcurementPortalPreferenceContactArgsDict', 'outputs.ProcurementPortalPreferenceContact']]]]] = None,
                  einvoice_delivery_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 einvoice_delivery_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs', 'ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgsDict']]] = None,
+                 einvoice_delivery_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgs', 'ProcurementPortalPreferenceEinvoiceDeliveryPreferenceArgsDict', 'outputs.ProcurementPortalPreferenceEinvoiceDeliveryPreference']]] = None,
                  procurement_portal_instance_endpoint: pulumi.Input[Optional[_builtins.str]] = None,
                  procurement_portal_name: pulumi.Input[Optional['ProcurementPortalPreferenceProcurementPortalName']] = None,
                  procurement_portal_shared_secret: pulumi.Input[Optional[_builtins.str]] = None,
                  purchase_order_retrieval_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 selector: pulumi.Input[Optional[Union['ProcurementPortalPreferenceSelectorArgs', 'ProcurementPortalPreferenceSelectorArgsDict']]] = None,
+                 selector: pulumi.Input[Optional[Union['ProcurementPortalPreferenceSelectorArgs', 'ProcurementPortalPreferenceSelectorArgsDict', 'outputs.ProcurementPortalPreferenceSelector']]] = None,
                  supplier_domain: pulumi.Input[Optional['ProcurementPortalPreferenceSupplierDomain']] = None,
                  supplier_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 test_env_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceTestEnvPreferenceArgs', 'ProcurementPortalPreferenceTestEnvPreferenceArgsDict']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 test_env_preference: pulumi.Input[Optional[Union['ProcurementPortalPreferenceTestEnvPreferenceArgs', 'ProcurementPortalPreferenceTestEnvPreferenceArgsDict', 'outputs.ProcurementPortalPreferenceTestEnvPreference']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

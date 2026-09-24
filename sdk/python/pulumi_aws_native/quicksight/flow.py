@@ -100,7 +100,7 @@ class Flow(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  flow_definition: Optional[Any] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowPermissionArgs', 'FlowPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowPermissionArgs', 'FlowPermissionArgsDict', 'outputs.FlowPermission']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::QuickSight::Flow Resource Type
@@ -137,7 +137,7 @@ class Flow(pulumi.CustomResource):
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  flow_definition: Optional[Any] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowPermissionArgs', 'FlowPermissionArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['FlowPermissionArgs', 'FlowPermissionArgsDict', 'outputs.FlowPermission']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

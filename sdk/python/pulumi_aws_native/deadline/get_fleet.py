@@ -85,7 +85,7 @@ class GetFleetResult:
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> Optional[Any]:
+    def configuration(self) -> Optional[Union['outputs.FleetConfiguration0Properties', 'outputs.FleetConfiguration1Properties']]:
         """
         The configuration details for the fleet.
         """

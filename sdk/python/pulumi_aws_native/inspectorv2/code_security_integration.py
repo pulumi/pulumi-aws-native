@@ -114,22 +114,22 @@ class CodeSecurityIntegration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationCreateDetailsArgs', 'CodeSecurityIntegrationCreateDetailsArgsDict']]] = None,
+                 create_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationCreateDetailsArgs', 'CodeSecurityIntegrationCreateDetailsArgsDict', 'outputs.CodeSecurityIntegrationCreateDetails']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional['CodeSecurityIntegrationIntegrationType']] = None,
-                 update_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationUpdateDetailsArgs', 'CodeSecurityIntegrationUpdateDetailsArgsDict']]] = None,
+                 update_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationUpdateDetailsArgs', 'CodeSecurityIntegrationUpdateDetailsArgsDict', 'outputs.CodeSecurityIntegrationUpdateDetails']]] = None,
                  __props__=None):
         """
         Inspector CodeSecurityIntegration resource schema
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['CodeSecurityIntegrationCreateDetailsArgs', 'CodeSecurityIntegrationCreateDetailsArgsDict']] create_integration_details: Create Integration Details
+        :param pulumi.Input[Union['CodeSecurityIntegrationCreateDetailsArgs', 'CodeSecurityIntegrationCreateDetailsArgsDict', 'outputs.CodeSecurityIntegrationCreateDetails']] create_integration_details: Create Integration Details
         :param pulumi.Input[_builtins.str] name: Code Security Integration name
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to apply to the code security integration.
         :param pulumi.Input['CodeSecurityIntegrationIntegrationType'] type: Integration Type
-        :param pulumi.Input[Union['CodeSecurityIntegrationUpdateDetailsArgs', 'CodeSecurityIntegrationUpdateDetailsArgsDict']] update_integration_details: Update Integration Details
+        :param pulumi.Input[Union['CodeSecurityIntegrationUpdateDetailsArgs', 'CodeSecurityIntegrationUpdateDetailsArgsDict', 'outputs.CodeSecurityIntegrationUpdateDetails']] update_integration_details: Update Integration Details
         """
         ...
     @overload
@@ -155,11 +155,11 @@ class CodeSecurityIntegration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 create_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationCreateDetailsArgs', 'CodeSecurityIntegrationCreateDetailsArgsDict']]] = None,
+                 create_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationCreateDetailsArgs', 'CodeSecurityIntegrationCreateDetailsArgsDict', 'outputs.CodeSecurityIntegrationCreateDetails']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  type: pulumi.Input[Optional['CodeSecurityIntegrationIntegrationType']] = None,
-                 update_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationUpdateDetailsArgs', 'CodeSecurityIntegrationUpdateDetailsArgsDict']]] = None,
+                 update_integration_details: pulumi.Input[Optional[Union['CodeSecurityIntegrationUpdateDetailsArgs', 'CodeSecurityIntegrationUpdateDetailsArgsDict', 'outputs.CodeSecurityIntegrationUpdateDetails']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

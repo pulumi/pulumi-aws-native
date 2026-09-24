@@ -275,7 +275,7 @@ class VpcEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict']]] = None,
+                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict', 'outputs.VpcEndpointDnsOptionsSpecification']]] = None,
                  ip_address_type: pulumi.Input[Optional['VpcEndpointIpAddressType']] = None,
                  policy_document: Optional[Any] = None,
                  private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -286,7 +286,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  service_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_endpoint_type: pulumi.Input[Optional['VpcEndpointType']] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -301,7 +301,7 @@ class VpcEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict']] dns_options: Describes the DNS options for an endpoint.
+        :param pulumi.Input[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict', 'outputs.VpcEndpointDnsOptionsSpecification']] dns_options: Describes the DNS options for an endpoint.
         :param pulumi.Input['VpcEndpointIpAddressType'] ip_address_type: The supported IP address types.
         :param Any policy_document: An endpoint policy, which controls access to the service from the VPC. The default endpoint policy allows full access to the service. Endpoint policies are supported only for gateway and interface endpoints.
                 For CloudFormation templates in YAML, you can provide the policy in JSON or YAML format. For example, if you have a JSON policy, you can convert it to YAML before including it in the YAML template, and CFNlong converts the policy to JSON format before calling the API actions for privatelink. Alternatively, you can include the JSON directly in the YAML, as shown in the following ``Properties`` section:
@@ -319,7 +319,7 @@ class VpcEndpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] service_network_arn: The Amazon Resource Name (ARN) of the service network.
         :param pulumi.Input[_builtins.str] service_region: Describes a Region.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The IDs of the subnets in which to create endpoint network interfaces. You must specify this property for an interface endpoint or a Gateway Load Balancer endpoint. You can't specify this property for a gateway endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to associate with the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to associate with the endpoint.
         :param pulumi.Input['VpcEndpointType'] vpc_endpoint_type: The type of endpoint.
                 Default: Gateway
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC.
@@ -354,7 +354,7 @@ class VpcEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict']]] = None,
+                 dns_options: pulumi.Input[Optional[Union['VpcEndpointDnsOptionsSpecificationArgs', 'VpcEndpointDnsOptionsSpecificationArgsDict', 'outputs.VpcEndpointDnsOptionsSpecification']]] = None,
                  ip_address_type: pulumi.Input[Optional['VpcEndpointIpAddressType']] = None,
                  policy_document: Optional[Any] = None,
                  private_dns_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
@@ -365,7 +365,7 @@ class VpcEndpoint(pulumi.CustomResource):
                  service_network_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  service_region: pulumi.Input[Optional[_builtins.str]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_endpoint_type: pulumi.Input[Optional['VpcEndpointType']] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

@@ -82,18 +82,18 @@ class ApplicationsList(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apps_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationsListAppArgs', 'ApplicationsListAppArgsDict']]]]] = None,
+                 apps_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationsListAppArgs', 'ApplicationsListAppArgsDict', 'outputs.ApplicationsListApp']]]]] = None,
                  list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates an AWS Firewall Manager applications list.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationsListAppArgs', 'ApplicationsListAppArgsDict']]]] apps_list: An array of applications in the Firewall Manager applications list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationsListAppArgs', 'ApplicationsListAppArgsDict', 'outputs.ApplicationsListApp']]]] apps_list: An array of applications in the Firewall Manager applications list.
         :param pulumi.Input[_builtins.str] list_name: The name of the Firewall Manager applications list.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to the applications list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to the applications list.
         """
         ...
     @overload
@@ -119,9 +119,9 @@ class ApplicationsList(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 apps_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationsListAppArgs', 'ApplicationsListAppArgsDict']]]]] = None,
+                 apps_list: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ApplicationsListAppArgs', 'ApplicationsListAppArgsDict', 'outputs.ApplicationsListApp']]]]] = None,
                  list_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

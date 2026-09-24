@@ -164,13 +164,13 @@ class SecurityProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_metrics_to_retain_v2: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileMetricToRetainArgs', 'SecurityProfileMetricToRetainArgsDict']]]]] = None,
-                 alert_targets: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityProfileAlertTargetArgs', 'SecurityProfileAlertTargetArgsDict']]]]] = None,
-                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileBehaviorArgs', 'SecurityProfileBehaviorArgsDict']]]]] = None,
-                 metrics_export_config: pulumi.Input[Optional[Union['MetricsExportConfigPropertiesArgs', 'MetricsExportConfigPropertiesArgsDict']]] = None,
+                 additional_metrics_to_retain_v2: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileMetricToRetainArgs', 'SecurityProfileMetricToRetainArgsDict', 'outputs.SecurityProfileMetricToRetain']]]]] = None,
+                 alert_targets: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityProfileAlertTargetArgs', 'SecurityProfileAlertTargetArgsDict', 'outputs.SecurityProfileAlertTarget']]]]] = None,
+                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileBehaviorArgs', 'SecurityProfileBehaviorArgsDict', 'outputs.SecurityProfileBehavior']]]]] = None,
+                 metrics_export_config: pulumi.Input[Optional[Union['MetricsExportConfigPropertiesArgs', 'MetricsExportConfigPropertiesArgsDict', 'outputs.MetricsExportConfigProperties']]] = None,
                  security_profile_description: pulumi.Input[Optional[_builtins.str]] = None,
                  security_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -178,13 +178,13 @@ class SecurityProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileMetricToRetainArgs', 'SecurityProfileMetricToRetainArgsDict']]]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
-        :param pulumi.Input[Mapping[str, pulumi.Input[Union['SecurityProfileAlertTargetArgs', 'SecurityProfileAlertTargetArgsDict']]]] alert_targets: Specifies the destinations to which alerts are sent.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileBehaviorArgs', 'SecurityProfileBehaviorArgsDict']]]] behaviors: Specifies the behaviors that, when violated by a device (thing), cause an alert.
-        :param pulumi.Input[Union['MetricsExportConfigPropertiesArgs', 'MetricsExportConfigPropertiesArgsDict']] metrics_export_config: A structure containing the mqtt topic for metrics export.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileMetricToRetainArgs', 'SecurityProfileMetricToRetainArgsDict', 'outputs.SecurityProfileMetricToRetain']]]] additional_metrics_to_retain_v2: A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.
+        :param pulumi.Input[Mapping[str, pulumi.Input[Union['SecurityProfileAlertTargetArgs', 'SecurityProfileAlertTargetArgsDict', 'outputs.SecurityProfileAlertTarget']]]] alert_targets: Specifies the destinations to which alerts are sent.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SecurityProfileBehaviorArgs', 'SecurityProfileBehaviorArgsDict', 'outputs.SecurityProfileBehavior']]]] behaviors: Specifies the behaviors that, when violated by a device (thing), cause an alert.
+        :param pulumi.Input[Union['MetricsExportConfigPropertiesArgs', 'MetricsExportConfigPropertiesArgsDict', 'outputs.MetricsExportConfigProperties']] metrics_export_config: A structure containing the mqtt topic for metrics export.
         :param pulumi.Input[_builtins.str] security_profile_description: A description of the security profile.
         :param pulumi.Input[_builtins.str] security_profile_name: A unique identifier for the security profile.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Metadata that can be used to manage the security profile.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Metadata that can be used to manage the security profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_arns: A set of target ARNs that the security profile is attached to.
         """
         ...
@@ -211,13 +211,13 @@ class SecurityProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 additional_metrics_to_retain_v2: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileMetricToRetainArgs', 'SecurityProfileMetricToRetainArgsDict']]]]] = None,
-                 alert_targets: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityProfileAlertTargetArgs', 'SecurityProfileAlertTargetArgsDict']]]]] = None,
-                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileBehaviorArgs', 'SecurityProfileBehaviorArgsDict']]]]] = None,
-                 metrics_export_config: pulumi.Input[Optional[Union['MetricsExportConfigPropertiesArgs', 'MetricsExportConfigPropertiesArgsDict']]] = None,
+                 additional_metrics_to_retain_v2: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileMetricToRetainArgs', 'SecurityProfileMetricToRetainArgsDict', 'outputs.SecurityProfileMetricToRetain']]]]] = None,
+                 alert_targets: pulumi.Input[Optional[Mapping[str, pulumi.Input[Union['SecurityProfileAlertTargetArgs', 'SecurityProfileAlertTargetArgsDict', 'outputs.SecurityProfileAlertTarget']]]]] = None,
+                 behaviors: pulumi.Input[Optional[Sequence[pulumi.Input[Union['SecurityProfileBehaviorArgs', 'SecurityProfileBehaviorArgsDict', 'outputs.SecurityProfileBehavior']]]]] = None,
+                 metrics_export_config: pulumi.Input[Optional[Union['MetricsExportConfigPropertiesArgs', 'MetricsExportConfigPropertiesArgsDict', 'outputs.MetricsExportConfigProperties']]] = None,
                  security_profile_description: pulumi.Input[Optional[_builtins.str]] = None,
                  security_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -134,7 +134,7 @@ class EnvironmentActions(pulumi.CustomResource):
                  environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict', 'outputs.EnvironmentActionsAwsConsoleLinkParameters']]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::EnvironmentActions Resource Type
@@ -146,7 +146,7 @@ class EnvironmentActions(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_identifier: The identifier of the Amazon DataZone environment in which the action is taking place
         :param pulumi.Input[_builtins.str] identifier: The ID of the Amazon DataZone environment action.
         :param pulumi.Input[_builtins.str] name: The name of the environment action.
-        :param pulumi.Input[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict']] parameters: The parameters of the environment action.
+        :param pulumi.Input[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict', 'outputs.EnvironmentActionsAwsConsoleLinkParameters']] parameters: The parameters of the environment action.
         """
         ...
     @overload
@@ -177,7 +177,7 @@ class EnvironmentActions(pulumi.CustomResource):
                  environment_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict']]] = None,
+                 parameters: pulumi.Input[Optional[Union['EnvironmentActionsAwsConsoleLinkParametersArgs', 'EnvironmentActionsAwsConsoleLinkParametersArgsDict', 'outputs.EnvironmentActionsAwsConsoleLinkParameters']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

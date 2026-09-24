@@ -114,7 +114,7 @@ class Destination(pulumi.CustomResource):
                  destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -125,7 +125,7 @@ class Destination(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_name: The name of the destination resource
         :param pulumi.Input[_builtins.str] destination_policy: An IAM policy document that governs which AWS accounts can create subscription filters against this destination.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of an IAM role that permits CloudWatch Logs to send data to the specified AWS resource
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] target_arn: The ARN of the physical target where the log events are delivered (for example, a Kinesis stream)
         """
         ...
@@ -155,7 +155,7 @@ class Destination(pulumi.CustomResource):
                  destination_name: pulumi.Input[Optional[_builtins.str]] = None,
                  destination_policy: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

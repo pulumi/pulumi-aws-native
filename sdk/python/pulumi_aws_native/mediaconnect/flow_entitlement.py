@@ -163,12 +163,12 @@ class FlowEntitlement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_transfer_subscriber_fee_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict', 'outputs.FlowEntitlementEncryption']]] = None,
                  entitlement_status: pulumi.Input[Optional['FlowEntitlementEntitlementStatus']] = None,
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::MediaConnect::FlowEntitlement
@@ -177,12 +177,12 @@ class FlowEntitlement(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] data_transfer_subscriber_fee_percent: Percentage from 0-100 of the data transfer cost to be billed to the subscriber.
         :param pulumi.Input[_builtins.str] description: A description of the entitlement.
-        :param pulumi.Input[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
+        :param pulumi.Input[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict', 'outputs.FlowEntitlementEncryption']] encryption: The type of encryption that will be used on the output that is associated with this entitlement.
         :param pulumi.Input['FlowEntitlementEntitlementStatus'] entitlement_status:  An indication of whether the entitlement is enabled.
         :param pulumi.Input[_builtins.str] flow_arn: The ARN of the flow.
         :param pulumi.Input[_builtins.str] name: The name of the entitlement.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subscribers: The AWS account IDs that you want to share your content with. The receiving accounts (subscribers) will be allowed to create their own flow using your content as the source.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Key-value pairs that can be used to tag and organize this flow entitlement.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Key-value pairs that can be used to tag and organize this flow entitlement.
         """
         ...
     @overload
@@ -210,12 +210,12 @@ class FlowEntitlement(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_transfer_subscriber_fee_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 encryption: pulumi.Input[Optional[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict']]] = None,
+                 encryption: pulumi.Input[Optional[Union['FlowEntitlementEncryptionArgs', 'FlowEntitlementEncryptionArgsDict', 'outputs.FlowEntitlementEncryption']]] = None,
                  entitlement_status: pulumi.Input[Optional['FlowEntitlementEntitlementStatus']] = None,
                  flow_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  subscribers: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

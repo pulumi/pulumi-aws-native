@@ -115,8 +115,8 @@ class VariantStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 reference: pulumi.Input[Optional[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict']]] = None,
-                 sse_config: pulumi.Input[Optional[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict']]] = None,
+                 reference: pulumi.Input[Optional[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict', 'outputs.VariantStoreReferenceItem']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict', 'outputs.VariantStoreSseConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -126,8 +126,8 @@ class VariantStore(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the store.
         :param pulumi.Input[_builtins.str] name: A name for the store.
-        :param pulumi.Input[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict']] reference: The genome reference for the store's variants.
-        :param pulumi.Input[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict']] sse_config: Server-side encryption (SSE) settings for the store.
+        :param pulumi.Input[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict', 'outputs.VariantStoreReferenceItem']] reference: The genome reference for the store's variants.
+        :param pulumi.Input[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict', 'outputs.VariantStoreSseConfig']] sse_config: Server-side encryption (SSE) settings for the store.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags for the store.
         """
         ...
@@ -156,8 +156,8 @@ class VariantStore(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 reference: pulumi.Input[Optional[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict']]] = None,
-                 sse_config: pulumi.Input[Optional[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict']]] = None,
+                 reference: pulumi.Input[Optional[Union['VariantStoreReferenceItemArgs', 'VariantStoreReferenceItemArgsDict', 'outputs.VariantStoreReferenceItem']]] = None,
+                 sse_config: pulumi.Input[Optional[Union['VariantStoreSseConfigArgs', 'VariantStoreSseConfigArgsDict', 'outputs.VariantStoreSseConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

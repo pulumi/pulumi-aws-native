@@ -111,10 +111,10 @@ class CisScanConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  scan_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['CisScanConfigurationScheduleArgs', 'CisScanConfigurationScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['CisScanConfigurationScheduleArgs', 'CisScanConfigurationScheduleArgsDict', 'outputs.CisScanConfigurationSchedule']]] = None,
                  security_level: pulumi.Input[Optional['CisScanConfigurationCisSecurityLevel']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Union['CisScanConfigurationCisTargetsArgs', 'CisScanConfigurationCisTargetsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Union['CisScanConfigurationCisTargetsArgs', 'CisScanConfigurationCisTargetsArgsDict', 'outputs.CisScanConfigurationCisTargets']]] = None,
                  __props__=None):
         """
         CIS Scan Configuration resource schema
@@ -122,10 +122,10 @@ class CisScanConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] scan_name: Name of the scan
-        :param pulumi.Input[Union['CisScanConfigurationScheduleArgs', 'CisScanConfigurationScheduleArgsDict']] schedule: The CIS scan configuration's schedule.
+        :param pulumi.Input[Union['CisScanConfigurationScheduleArgs', 'CisScanConfigurationScheduleArgsDict', 'outputs.CisScanConfigurationSchedule']] schedule: The CIS scan configuration's schedule.
         :param pulumi.Input['CisScanConfigurationCisSecurityLevel'] security_level: The CIS scan configuration's CIS Benchmark level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The CIS scan configuration's tags.
-        :param pulumi.Input[Union['CisScanConfigurationCisTargetsArgs', 'CisScanConfigurationCisTargetsArgsDict']] targets: The CIS scan configuration's targets.
+        :param pulumi.Input[Union['CisScanConfigurationCisTargetsArgs', 'CisScanConfigurationCisTargetsArgsDict', 'outputs.CisScanConfigurationCisTargets']] targets: The CIS scan configuration's targets.
         """
         ...
     @overload
@@ -152,10 +152,10 @@ class CisScanConfiguration(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  scan_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 schedule: pulumi.Input[Optional[Union['CisScanConfigurationScheduleArgs', 'CisScanConfigurationScheduleArgsDict']]] = None,
+                 schedule: pulumi.Input[Optional[Union['CisScanConfigurationScheduleArgs', 'CisScanConfigurationScheduleArgsDict', 'outputs.CisScanConfigurationSchedule']]] = None,
                  security_level: pulumi.Input[Optional['CisScanConfigurationCisSecurityLevel']] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 targets: pulumi.Input[Optional[Union['CisScanConfigurationCisTargetsArgs', 'CisScanConfigurationCisTargetsArgsDict']]] = None,
+                 targets: pulumi.Input[Optional[Union['CisScanConfigurationCisTargetsArgs', 'CisScanConfigurationCisTargetsArgsDict', 'outputs.CisScanConfigurationCisTargets']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -126,12 +126,12 @@ class ListenerRule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict', 'outputs.ListenerRuleRuleCondition']]]]] = None,
                  listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict', 'outputs.ListenerRuleTransform']]]]] = None,
                  __props__=None):
         """
         Specifies a listener rule. The listener must be associated with an Application Load Balancer. Each rule consists of a priority, one or more actions, and one or more conditions.
@@ -139,9 +139,9 @@ class ListenerRule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]] actions: The actions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]]] actions: The actions.
                 The rule must include exactly one of the following types of actions: ``forward``, ``fixed-response``, or ``redirect``, and it must be the last action to be performed. If the rule is for an HTTPS listener, it can also optionally include an authentication action.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]] conditions: The conditions.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict', 'outputs.ListenerRuleRuleCondition']]]] conditions: The conditions.
                 The rule can optionally include up to one of each of the following conditions: ``http-request-method``, ``host-header``, ``path-pattern``, and ``source-ip``. A rule can also optionally include one or more of each of the following conditions: ``http-header`` and ``query-string``.
         :param pulumi.Input[_builtins.str] listener_arn: The Amazon Resource Name (ARN) of the listener.
         :param pulumi.Input[_builtins.int] priority: The rule priority. A listener can't have multiple rules with the same priority.
@@ -172,12 +172,12 @@ class ListenerRule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict']]]]] = None,
-                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleActionArgs', 'ListenerRuleActionArgsDict', 'outputs.ListenerRuleAction']]]]] = None,
+                 conditions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleRuleConditionArgs', 'ListenerRuleRuleConditionArgsDict', 'outputs.ListenerRuleRuleCondition']]]]] = None,
                  listener_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 transforms: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ListenerRuleTransformArgs', 'ListenerRuleTransformArgsDict', 'outputs.ListenerRuleTransform']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

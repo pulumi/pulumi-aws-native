@@ -96,7 +96,7 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
+                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict', 'outputs.ConnectorProvisioningConfig']]] = None,
                  connector_provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -106,7 +106,7 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] connector_label:  The name of the connector. The name is unique for each ConnectorRegistration in your AWS account.
-        :param pulumi.Input[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']] connector_provisioning_config: Contains information about the configuration of the connector being registered.
+        :param pulumi.Input[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict', 'outputs.ConnectorProvisioningConfig']] connector_provisioning_config: Contains information about the configuration of the connector being registered.
         :param pulumi.Input[_builtins.str] connector_provisioning_type: The provisioning type of the connector. Currently the only supported value is LAMBDA.
         :param pulumi.Input[_builtins.str] description: A description about the connector that's being registered.
         """
@@ -135,7 +135,7 @@ class Connector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  connector_label: pulumi.Input[Optional[_builtins.str]] = None,
-                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict']]] = None,
+                 connector_provisioning_config: pulumi.Input[Optional[Union['ConnectorProvisioningConfigArgs', 'ConnectorProvisioningConfigArgsDict', 'outputs.ConnectorProvisioningConfig']]] = None,
                  connector_provisioning_type: pulumi.Input[Optional[_builtins.str]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

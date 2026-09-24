@@ -307,22 +307,22 @@ class Harness(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['HarnessAuthorizerConfigurationArgs', 'HarnessAuthorizerConfigurationArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['HarnessEnvironmentProviderArgs', 'HarnessEnvironmentProviderArgsDict']]] = None,
-                 environment_artifact: pulumi.Input[Optional[Union['HarnessEnvironmentArtifactArgs', 'HarnessEnvironmentArtifactArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['HarnessAuthorizerConfigurationArgs', 'HarnessAuthorizerConfigurationArgsDict', 'outputs.HarnessAuthorizerConfiguration']]] = None,
+                 environment: pulumi.Input[Optional[Union['HarnessEnvironmentProviderArgs', 'HarnessEnvironmentProviderArgsDict', 'outputs.HarnessEnvironmentProvider']]] = None,
+                 environment_artifact: pulumi.Input[Optional[Union['HarnessEnvironmentArtifactArgs', 'HarnessEnvironmentArtifactArgsDict', 'outputs.HarnessEnvironmentArtifact']]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  harness_name: pulumi.Input[Optional[_builtins.str]] = None,
                  max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
-                 memory: pulumi.Input[Optional[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict']]] = None,
-                 model: pulumi.Input[Optional[Union['HarnessModelConfigurationArgs', 'HarnessModelConfigurationArgsDict']]] = None,
-                 skills: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSkillArgs', 'HarnessSkillArgsDict']]]]] = None,
-                 system_prompt: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSystemContentBlockArgs', 'HarnessSystemContentBlockArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 memory: pulumi.Input[Optional[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict', 'outputs.HarnessMemoryConfiguration']]] = None,
+                 model: pulumi.Input[Optional[Union['HarnessModelConfigurationArgs', 'HarnessModelConfigurationArgsDict', 'outputs.HarnessModelConfiguration']]] = None,
+                 skills: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSkillArgs', 'HarnessSkillArgsDict', 'outputs.HarnessSkill']]]]] = None,
+                 system_prompt: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSystemContentBlockArgs', 'HarnessSystemContentBlockArgsDict', 'outputs.HarnessSystemContentBlock']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 tools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessToolArgs', 'HarnessToolArgsDict']]]]] = None,
-                 truncation: pulumi.Input[Optional[Union['HarnessTruncationConfigurationArgs', 'HarnessTruncationConfigurationArgsDict']]] = None,
+                 tools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessToolArgs', 'HarnessToolArgsDict', 'outputs.HarnessTool']]]]] = None,
+                 truncation: pulumi.Input[Optional[Union['HarnessTruncationConfigurationArgs', 'HarnessTruncationConfigurationArgsDict', 'outputs.HarnessTruncationConfiguration']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::Harness - a managed agentic loop service that provides a turnkey solution for running stateful, tool-equipped AI agents.
@@ -330,22 +330,22 @@ class Harness(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] allowed_tools: The tools that the agent is allowed to use.
-        :param pulumi.Input[Union['HarnessAuthorizerConfigurationArgs', 'HarnessAuthorizerConfigurationArgsDict']] authorizer_configuration: The inbound authorization configuration for authenticating incoming requests.
-        :param pulumi.Input[Union['HarnessEnvironmentProviderArgs', 'HarnessEnvironmentProviderArgsDict']] environment: The compute environment configuration for the harness, including underlying runtime information.
-        :param pulumi.Input[Union['HarnessEnvironmentArtifactArgs', 'HarnessEnvironmentArtifactArgsDict']] environment_artifact: The environment artifact for the harness, such as a custom container image.
+        :param pulumi.Input[Union['HarnessAuthorizerConfigurationArgs', 'HarnessAuthorizerConfigurationArgsDict', 'outputs.HarnessAuthorizerConfiguration']] authorizer_configuration: The inbound authorization configuration for authenticating incoming requests.
+        :param pulumi.Input[Union['HarnessEnvironmentProviderArgs', 'HarnessEnvironmentProviderArgsDict', 'outputs.HarnessEnvironmentProvider']] environment: The compute environment configuration for the harness, including underlying runtime information.
+        :param pulumi.Input[Union['HarnessEnvironmentArtifactArgs', 'HarnessEnvironmentArtifactArgsDict', 'outputs.HarnessEnvironmentArtifact']] environment_artifact: The environment artifact for the harness, such as a custom container image.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] environment_variables: Environment variables to set in the harness runtime environment.
         :param pulumi.Input[_builtins.str] execution_role_arn: The ARN of the IAM role that the harness assumes when running.
         :param pulumi.Input[_builtins.str] harness_name: The name of the harness.
         :param pulumi.Input[_builtins.int] max_iterations: The maximum number of iterations the agent loop can execute per invocation.
         :param pulumi.Input[_builtins.int] max_tokens: The maximum number of tokens the agent can generate per iteration.
-        :param pulumi.Input[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict']] memory: The AgentCore Memory configuration for persisting conversation context.
-        :param pulumi.Input[Union['HarnessModelConfigurationArgs', 'HarnessModelConfigurationArgsDict']] model: The model configuration for the harness.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HarnessSkillArgs', 'HarnessSkillArgsDict']]]] skills: The skills available to the agent.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HarnessSystemContentBlockArgs', 'HarnessSystemContentBlockArgsDict']]]] system_prompt: The system prompt that defines the agent's behavior.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to apply to the harness resource.
+        :param pulumi.Input[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict', 'outputs.HarnessMemoryConfiguration']] memory: The AgentCore Memory configuration for persisting conversation context.
+        :param pulumi.Input[Union['HarnessModelConfigurationArgs', 'HarnessModelConfigurationArgsDict', 'outputs.HarnessModelConfiguration']] model: The model configuration for the harness.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HarnessSkillArgs', 'HarnessSkillArgsDict', 'outputs.HarnessSkill']]]] skills: The skills available to the agent.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HarnessSystemContentBlockArgs', 'HarnessSystemContentBlockArgsDict', 'outputs.HarnessSystemContentBlock']]]] system_prompt: The system prompt that defines the agent's behavior.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to apply to the harness resource.
         :param pulumi.Input[_builtins.int] timeout_seconds: The maximum duration in seconds for the agent loop execution per invocation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['HarnessToolArgs', 'HarnessToolArgsDict']]]] tools: The tools available to the agent.
-        :param pulumi.Input[Union['HarnessTruncationConfigurationArgs', 'HarnessTruncationConfigurationArgsDict']] truncation: The truncation configuration for managing conversation context.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['HarnessToolArgs', 'HarnessToolArgsDict', 'outputs.HarnessTool']]]] tools: The tools available to the agent.
+        :param pulumi.Input[Union['HarnessTruncationConfigurationArgs', 'HarnessTruncationConfigurationArgsDict', 'outputs.HarnessTruncationConfiguration']] truncation: The truncation configuration for managing conversation context.
         """
         ...
     @overload
@@ -372,22 +372,22 @@ class Harness(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  allowed_tools: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 authorizer_configuration: pulumi.Input[Optional[Union['HarnessAuthorizerConfigurationArgs', 'HarnessAuthorizerConfigurationArgsDict']]] = None,
-                 environment: pulumi.Input[Optional[Union['HarnessEnvironmentProviderArgs', 'HarnessEnvironmentProviderArgsDict']]] = None,
-                 environment_artifact: pulumi.Input[Optional[Union['HarnessEnvironmentArtifactArgs', 'HarnessEnvironmentArtifactArgsDict']]] = None,
+                 authorizer_configuration: pulumi.Input[Optional[Union['HarnessAuthorizerConfigurationArgs', 'HarnessAuthorizerConfigurationArgsDict', 'outputs.HarnessAuthorizerConfiguration']]] = None,
+                 environment: pulumi.Input[Optional[Union['HarnessEnvironmentProviderArgs', 'HarnessEnvironmentProviderArgsDict', 'outputs.HarnessEnvironmentProvider']]] = None,
+                 environment_artifact: pulumi.Input[Optional[Union['HarnessEnvironmentArtifactArgs', 'HarnessEnvironmentArtifactArgsDict', 'outputs.HarnessEnvironmentArtifact']]] = None,
                  environment_variables: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  harness_name: pulumi.Input[Optional[_builtins.str]] = None,
                  max_iterations: pulumi.Input[Optional[_builtins.int]] = None,
                  max_tokens: pulumi.Input[Optional[_builtins.int]] = None,
-                 memory: pulumi.Input[Optional[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict']]] = None,
-                 model: pulumi.Input[Optional[Union['HarnessModelConfigurationArgs', 'HarnessModelConfigurationArgsDict']]] = None,
-                 skills: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSkillArgs', 'HarnessSkillArgsDict']]]]] = None,
-                 system_prompt: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSystemContentBlockArgs', 'HarnessSystemContentBlockArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 memory: pulumi.Input[Optional[Union['HarnessMemoryConfigurationArgs', 'HarnessMemoryConfigurationArgsDict', 'outputs.HarnessMemoryConfiguration']]] = None,
+                 model: pulumi.Input[Optional[Union['HarnessModelConfigurationArgs', 'HarnessModelConfigurationArgsDict', 'outputs.HarnessModelConfiguration']]] = None,
+                 skills: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSkillArgs', 'HarnessSkillArgsDict', 'outputs.HarnessSkill']]]]] = None,
+                 system_prompt: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessSystemContentBlockArgs', 'HarnessSystemContentBlockArgsDict', 'outputs.HarnessSystemContentBlock']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  timeout_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 tools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessToolArgs', 'HarnessToolArgsDict']]]]] = None,
-                 truncation: pulumi.Input[Optional[Union['HarnessTruncationConfigurationArgs', 'HarnessTruncationConfigurationArgsDict']]] = None,
+                 tools: pulumi.Input[Optional[Sequence[pulumi.Input[Union['HarnessToolArgs', 'HarnessToolArgsDict', 'outputs.HarnessTool']]]]] = None,
+                 truncation: pulumi.Input[Optional[Union['HarnessTruncationConfigurationArgs', 'HarnessTruncationConfigurationArgsDict', 'outputs.HarnessTruncationConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

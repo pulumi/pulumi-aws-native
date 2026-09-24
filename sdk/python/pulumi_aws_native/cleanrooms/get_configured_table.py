@@ -134,7 +134,7 @@ class GetConfiguredTableResult:
 
     @_builtins.property
     @pulumi.getter(name="tableReference")
-    def table_reference(self) -> Optional[Any]:
+    def table_reference(self) -> Optional[Union['outputs.ConfiguredTableTableReference0Properties', 'outputs.ConfiguredTableTableReference1Properties', 'outputs.ConfiguredTableTableReference2Properties']]:
         """
         The table that this configured table represents.
         """

@@ -150,10 +150,10 @@ class Workspace(pulumi.CustomResource):
                  alert_manager_definition: pulumi.Input[Optional[_builtins.str]] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
-                 query_logging_configuration: pulumi.Input[Optional[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workspace_configuration: pulumi.Input[Optional[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']]] = None,
+                 query_logging_configuration: pulumi.Input[Optional[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict', 'outputs.WorkspaceQueryLoggingConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 workspace_configuration: pulumi.Input[Optional[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict', 'outputs.WorkspaceConfiguration']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::APS::Workspace
@@ -214,10 +214,10 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] alert_manager_definition: The AMP Workspace alert manager definition data
         :param pulumi.Input[_builtins.str] alias: AMP Workspace alias.
         :param pulumi.Input[_builtins.str] kms_key_arn: KMS Key ARN used to encrypt and decrypt AMP workspace data.
-        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']] logging_configuration: Contains information about the logging configuration for the workspace.
-        :param pulumi.Input[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']] query_logging_configuration: The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
-        :param pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']] workspace_configuration: Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
+        :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']] logging_configuration: Contains information about the logging configuration for the workspace.
+        :param pulumi.Input[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict', 'outputs.WorkspaceQueryLoggingConfiguration']] query_logging_configuration: The definition of logging configuration in an Amazon Managed Service for Prometheus workspace.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict', 'outputs.WorkspaceConfiguration']] workspace_configuration: Use this structure to define label sets and the ingestion limits for time series that match label sets, and to specify the retention period of the workspace.
         """
         ...
     @overload
@@ -297,10 +297,10 @@ class Workspace(pulumi.CustomResource):
                  alert_manager_definition: pulumi.Input[Optional[_builtins.str]] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']]] = None,
-                 query_logging_configuration: pulumi.Input[Optional[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
-                 workspace_configuration: pulumi.Input[Optional[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict']]] = None,
+                 logging_configuration: pulumi.Input[Optional[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict', 'outputs.WorkspaceLoggingConfiguration']]] = None,
+                 query_logging_configuration: pulumi.Input[Optional[Union['WorkspaceQueryLoggingConfigurationArgs', 'WorkspaceQueryLoggingConfigurationArgsDict', 'outputs.WorkspaceQueryLoggingConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
+                 workspace_configuration: pulumi.Input[Optional[Union['WorkspaceConfigurationArgs', 'WorkspaceConfigurationArgsDict', 'outputs.WorkspaceConfiguration']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

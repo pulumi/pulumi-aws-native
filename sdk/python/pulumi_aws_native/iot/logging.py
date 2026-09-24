@@ -97,7 +97,7 @@ class Logging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  default_log_level: pulumi.Input[Optional['LoggingDefaultLogLevel']] = None,
-                 event_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
+                 event_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict', 'outputs.LoggingEventConfiguration']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -107,7 +107,7 @@ class Logging(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: Your 12-digit account ID (used as the primary identifier for the CloudFormation resource).
         :param pulumi.Input['LoggingDefaultLogLevel'] default_log_level: The log level to use. Valid values are: ERROR, WARN, INFO, DEBUG, or DISABLED.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]] event_configurations: Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict', 'outputs.LoggingEventConfiguration']]]] event_configurations: Configurations for event-based logging that specifies which event types to log and their logging settings. Overrides account-level logging for the specified event
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that allows IoT to write to Cloudwatch logs.
         """
         ...
@@ -136,7 +136,7 @@ class Logging(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  account_id: pulumi.Input[Optional[_builtins.str]] = None,
                  default_log_level: pulumi.Input[Optional['LoggingDefaultLogLevel']] = None,
-                 event_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict']]]]] = None,
+                 event_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LoggingEventConfigurationArgs', 'LoggingEventConfigurationArgsDict', 'outputs.LoggingEventConfiguration']]]]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

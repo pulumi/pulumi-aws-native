@@ -63,7 +63,7 @@ class TableBucketPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_policy: pulumi.Input[Optional[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict', 'outputs.TableBucketPolicyResourcePolicy']]] = None,
                  table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -71,7 +71,7 @@ class TableBucketPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']] resource_policy: The bucket policy JSON for the table bucket.
+        :param pulumi.Input[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict', 'outputs.TableBucketPolicyResourcePolicy']] resource_policy: The bucket policy JSON for the table bucket.
         :param pulumi.Input[_builtins.str] table_bucket_arn: The Amazon Resource Name (ARN) of the table bucket.
         """
         ...
@@ -98,7 +98,7 @@ class TableBucketPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 resource_policy: pulumi.Input[Optional[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict']]] = None,
+                 resource_policy: pulumi.Input[Optional[Union['TableBucketPolicyResourcePolicyArgs', 'TableBucketPolicyResourcePolicyArgsDict', 'outputs.TableBucketPolicyResourcePolicy']]] = None,
                  table_bucket_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

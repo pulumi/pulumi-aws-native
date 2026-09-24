@@ -228,10 +228,10 @@ class UserPoolUser(pulumi.CustomResource):
                  desired_delivery_mediums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  force_alias_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  message_action: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 user_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict', 'outputs.UserPoolUserAttributeType']]]]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
-                 validation_data: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 validation_data: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict', 'outputs.UserPoolUserAttributeType']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Cognito::UserPoolUser
@@ -255,7 +255,7 @@ class UserPoolUser(pulumi.CustomResource):
                
                If this parameter is set to `False` , the API throws an `AliasExistsException` error if the alias already exists. The default value is `False` .
         :param pulumi.Input[_builtins.str] message_action: Set to `RESEND` to resend the invitation message to a user that already exists, and to reset the temporary-password duration with a new temporary password. Set to `SUPPRESS` to suppress sending the message. You can specify only one value.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]] user_attributes: An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict', 'outputs.UserPoolUserAttributeType']]]] user_attributes: An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than `Username` . However, any attributes that you specify as required (when creating a user pool or in the *Attributes* tab of the console) either you should supply (in your call to `AdminCreateUser` ) or the user should supply (when they sign up in response to your welcome message).
                
                For custom attributes, you must prepend the `custom:` prefix to the attribute name.
                
@@ -273,7 +273,7 @@ class UserPoolUser(pulumi.CustomResource):
                - The username can't be a duplicate of another username in the same user pool.
                - You can't change the value of a username after you create it.
                - You can only provide a value if usernames are a valid sign-in attribute for your user pool. If your user pool only supports phone numbers or email addresses as sign-in attributes, Amazon Cognito automatically generates a username value. For more information, see [Customizing sign-in attributes](https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-aliases) .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]] validation_data: Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict', 'outputs.UserPoolUserAttributeType']]]] validation_data: Temporary user attributes that contribute to the outcomes of your pre sign-up Lambda trigger. This set of key-value pairs are for custom validation of information that you collect from your users but don't need to retain.
                
                Your Lambda function can analyze this additional data and act on it. Your function can automatically confirm and verify select users or perform external API operations like logging user attributes and validation data to Amazon CloudWatch Logs.
                
@@ -307,10 +307,10 @@ class UserPoolUser(pulumi.CustomResource):
                  desired_delivery_mediums: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  force_alias_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  message_action: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 user_attributes: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict', 'outputs.UserPoolUserAttributeType']]]]] = None,
                  user_pool_id: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
-                 validation_data: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict']]]]] = None,
+                 validation_data: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserPoolUserAttributeTypeArgs', 'UserPoolUserAttributeTypeArgsDict', 'outputs.UserPoolUserAttributeType']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

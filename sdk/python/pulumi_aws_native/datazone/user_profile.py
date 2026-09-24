@@ -224,7 +224,7 @@ class UserProfile(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def details(self) -> pulumi.Output[Any]:
+    def details(self) -> pulumi.Output[Union['outputs.UserProfileDetails0Properties', 'outputs.UserProfileDetails1Properties']]:
         return pulumi.get(self, "details")
 
     @_builtins.property

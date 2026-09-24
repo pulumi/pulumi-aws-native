@@ -151,14 +151,14 @@ class PrefetchSchedule(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumption: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchConsumptionArgs', 'PrefetchSchedulePrefetchConsumptionArgsDict']]] = None,
+                 consumption: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchConsumptionArgs', 'PrefetchSchedulePrefetchConsumptionArgsDict', 'outputs.PrefetchSchedulePrefetchConsumption']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  playback_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurring_prefetch_configuration: pulumi.Input[Optional[Union['PrefetchScheduleRecurringPrefetchConfigurationArgs', 'PrefetchScheduleRecurringPrefetchConfigurationArgsDict']]] = None,
-                 retrieval: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchRetrievalArgs', 'PrefetchSchedulePrefetchRetrievalArgsDict']]] = None,
+                 recurring_prefetch_configuration: pulumi.Input[Optional[Union['PrefetchScheduleRecurringPrefetchConfigurationArgs', 'PrefetchScheduleRecurringPrefetchConfigurationArgsDict', 'outputs.PrefetchScheduleRecurringPrefetchConfiguration']]] = None,
+                 retrieval: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchRetrievalArgs', 'PrefetchSchedulePrefetchRetrievalArgsDict', 'outputs.PrefetchSchedulePrefetchRetrieval']]] = None,
                  schedule_type: pulumi.Input[Optional['PrefetchScheduleScheduleType']] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::MediaTailor::PrefetchSchedule Resource Type
@@ -169,7 +169,7 @@ class PrefetchSchedule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] playback_configuration_name: The name of the playback configuration.
         :param pulumi.Input['PrefetchScheduleScheduleType'] schedule_type: The frequency that MediaTailor creates prefetch schedules.
         :param pulumi.Input[_builtins.str] stream_id: An optional stream identifier that MediaTailor uses to prefetch ads for multiple streams that use the same playback configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags assigned to the prefetch schedule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags assigned to the prefetch schedule.
         """
         ...
     @overload
@@ -195,14 +195,14 @@ class PrefetchSchedule(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 consumption: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchConsumptionArgs', 'PrefetchSchedulePrefetchConsumptionArgsDict']]] = None,
+                 consumption: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchConsumptionArgs', 'PrefetchSchedulePrefetchConsumptionArgsDict', 'outputs.PrefetchSchedulePrefetchConsumption']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  playback_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 recurring_prefetch_configuration: pulumi.Input[Optional[Union['PrefetchScheduleRecurringPrefetchConfigurationArgs', 'PrefetchScheduleRecurringPrefetchConfigurationArgsDict']]] = None,
-                 retrieval: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchRetrievalArgs', 'PrefetchSchedulePrefetchRetrievalArgsDict']]] = None,
+                 recurring_prefetch_configuration: pulumi.Input[Optional[Union['PrefetchScheduleRecurringPrefetchConfigurationArgs', 'PrefetchScheduleRecurringPrefetchConfigurationArgsDict', 'outputs.PrefetchScheduleRecurringPrefetchConfiguration']]] = None,
+                 retrieval: pulumi.Input[Optional[Union['PrefetchSchedulePrefetchRetrievalArgs', 'PrefetchSchedulePrefetchRetrievalArgsDict', 'outputs.PrefetchSchedulePrefetchRetrieval']]] = None,
                  schedule_type: pulumi.Input[Optional['PrefetchScheduleScheduleType']] = None,
                  stream_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
