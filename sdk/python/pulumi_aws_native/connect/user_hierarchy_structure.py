@@ -65,7 +65,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_hierarchy_structure: pulumi.Input[Optional[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict']]] = None,
+                 user_hierarchy_structure: pulumi.Input[Optional[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict', 'outputs.UserHierarchyStructureProperties']]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Connect::UserHierarchyStructure
@@ -73,7 +73,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] instance_arn: The identifier of the Amazon Connect instance.
-        :param pulumi.Input[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict']] user_hierarchy_structure: Information about the hierarchy structure.
+        :param pulumi.Input[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict', 'outputs.UserHierarchyStructureProperties']] user_hierarchy_structure: Information about the hierarchy structure.
         """
         ...
     @overload
@@ -100,7 +100,7 @@ class UserHierarchyStructure(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  instance_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_hierarchy_structure: pulumi.Input[Optional[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict']]] = None,
+                 user_hierarchy_structure: pulumi.Input[Optional[Union['UserHierarchyStructurePropertiesArgs', 'UserHierarchyStructurePropertiesArgsDict', 'outputs.UserHierarchyStructureProperties']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

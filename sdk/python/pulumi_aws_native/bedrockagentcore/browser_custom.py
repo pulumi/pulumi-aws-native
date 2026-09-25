@@ -177,14 +177,14 @@ class BrowserCustom(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 browser_signing: pulumi.Input[Optional[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
+                 browser_signing: pulumi.Input[Optional[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict', 'outputs.BrowserCustomBrowserSigning']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict', 'outputs.BrowserCustomCertificate']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict', 'outputs.BrowserCustomBrowserEnterprisePolicy']]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording_config: pulumi.Input[Optional[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict', 'outputs.BrowserCustomBrowserNetworkConfiguration']]] = None,
+                 recording_config: pulumi.Input[Optional[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict', 'outputs.BrowserCustomRecordingConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -192,14 +192,14 @@ class BrowserCustom(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']] browser_signing: Browser signing configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]] certificates: List of root CA certificates in PEM format.
+        :param pulumi.Input[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict', 'outputs.BrowserCustomBrowserSigning']] browser_signing: Browser signing configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict', 'outputs.BrowserCustomCertificate']]]] certificates: List of root CA certificates in PEM format.
         :param pulumi.Input[_builtins.str] description: The description of the browser.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]] enterprise_policies: A list of enterprise policy files for the browser.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict', 'outputs.BrowserCustomBrowserEnterprisePolicy']]]] enterprise_policies: A list of enterprise policy files for the browser.
         :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the IAM role that the browser uses to access resources.
         :param pulumi.Input[_builtins.str] name: The name of the browser.
-        :param pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']] network_configuration: Network configuration for browser.
-        :param pulumi.Input[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']] recording_config: Recording configuration for browser.
+        :param pulumi.Input[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict', 'outputs.BrowserCustomBrowserNetworkConfiguration']] network_configuration: Network configuration for browser.
+        :param pulumi.Input[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict', 'outputs.BrowserCustomRecordingConfig']] recording_config: Recording configuration for browser.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags for the custom browser.
         """
         ...
@@ -226,14 +226,14 @@ class BrowserCustom(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 browser_signing: pulumi.Input[Optional[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict']]] = None,
-                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict']]]]] = None,
+                 browser_signing: pulumi.Input[Optional[Union['BrowserCustomBrowserSigningArgs', 'BrowserCustomBrowserSigningArgsDict', 'outputs.BrowserCustomBrowserSigning']]] = None,
+                 certificates: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomCertificateArgs', 'BrowserCustomCertificateArgsDict', 'outputs.BrowserCustomCertificate']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict']]]]] = None,
+                 enterprise_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['BrowserCustomBrowserEnterprisePolicyArgs', 'BrowserCustomBrowserEnterprisePolicyArgsDict', 'outputs.BrowserCustomBrowserEnterprisePolicy']]]]] = None,
                  execution_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 network_configuration: pulumi.Input[Optional[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict']]] = None,
-                 recording_config: pulumi.Input[Optional[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict']]] = None,
+                 network_configuration: pulumi.Input[Optional[Union['BrowserCustomBrowserNetworkConfigurationArgs', 'BrowserCustomBrowserNetworkConfigurationArgsDict', 'outputs.BrowserCustomBrowserNetworkConfiguration']]] = None,
+                 recording_config: pulumi.Input[Optional[Union['BrowserCustomRecordingConfigArgs', 'BrowserCustomRecordingConfigArgsDict', 'outputs.BrowserCustomRecordingConfig']]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

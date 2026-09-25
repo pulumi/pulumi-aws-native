@@ -249,13 +249,13 @@ class CloudFormationProduct(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
                  product_type: pulumi.Input[Optional['CloudFormationProductProductType']] = None,
-                 provisioning_artifact_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict', 'outputs.CloudFormationProductProvisioningArtifactProperties']]]]] = None,
                  replace_provisioning_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
-                 source_connection: pulumi.Input[Optional[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
+                 source_connection: pulumi.Input[Optional[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict', 'outputs.CloudFormationProductSourceConnection']]] = None,
                  support_description: pulumi.Input[Optional[_builtins.str]] = None,
                  support_email: pulumi.Input[Optional[_builtins.str]] = None,
                  support_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource type definition for AWS::ServiceCatalog::CloudFormationProduct
@@ -268,13 +268,13 @@ class CloudFormationProduct(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the product.
         :param pulumi.Input[_builtins.str] owner: The owner of the product.
         :param pulumi.Input['CloudFormationProductProductType'] product_type: The type of product.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]] provisioning_artifact_parameters: The configuration of the provisioning artifact (also known as a version).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict', 'outputs.CloudFormationProductProvisioningArtifactProperties']]]] provisioning_artifact_parameters: The configuration of the provisioning artifact (also known as a version).
         :param pulumi.Input[_builtins.bool] replace_provisioning_artifacts: This property is turned off by default. If turned off, you can update provisioning artifacts or product attributes (such as description, distributor, name, owner, and more) and the associated provisioning artifacts will retain the same unique identifier. Provisioning artifacts are matched within the CloudFormationProduct resource, and only those that have been updated will be changed. Provisioning artifacts are matched by a combinaton of provisioning artifact template URL and name.
-        :param pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']] source_connection: A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
+        :param pulumi.Input[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict', 'outputs.CloudFormationProductSourceConnection']] source_connection: A top level ProductViewDetail response containing details about the product's connection. AWS Service Catalog returns this field for the CreateProduct, UpdateProduct, DescribeProductAsAdmin, and SearchProductAsAdmin APIs. This response contains the same fields as the ConnectionParameters request, with the addition of the LastSync response.
         :param pulumi.Input[_builtins.str] support_description: The support information about the product.
         :param pulumi.Input[_builtins.str] support_email: The contact email for product support.
         :param pulumi.Input[_builtins.str] support_url: The contact URL for product support.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: One or more tags.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: One or more tags.
         """
         ...
     @overload
@@ -306,13 +306,13 @@ class CloudFormationProduct(pulumi.CustomResource):
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner: pulumi.Input[Optional[_builtins.str]] = None,
                  product_type: pulumi.Input[Optional['CloudFormationProductProductType']] = None,
-                 provisioning_artifact_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict']]]]] = None,
+                 provisioning_artifact_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['CloudFormationProductProvisioningArtifactPropertiesArgs', 'CloudFormationProductProvisioningArtifactPropertiesArgsDict', 'outputs.CloudFormationProductProvisioningArtifactProperties']]]]] = None,
                  replace_provisioning_artifacts: pulumi.Input[Optional[_builtins.bool]] = None,
-                 source_connection: pulumi.Input[Optional[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict']]] = None,
+                 source_connection: pulumi.Input[Optional[Union['CloudFormationProductSourceConnectionArgs', 'CloudFormationProductSourceConnectionArgsDict', 'outputs.CloudFormationProductSourceConnection']]] = None,
                  support_description: pulumi.Input[Optional[_builtins.str]] = None,
                  support_email: pulumi.Input[Optional[_builtins.str]] = None,
                  support_url: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

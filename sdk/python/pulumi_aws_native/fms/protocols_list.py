@@ -82,7 +82,7 @@ class ProtocolsList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocols_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Creates an AWS Firewall Manager protocols list.
@@ -91,7 +91,7 @@ class ProtocolsList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] list_name: The name of the Firewall Manager protocols list.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] protocols_list: An array of protocols in the Firewall Manager protocols list.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to the protocols list.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to the protocols list.
         """
         ...
     @overload
@@ -119,7 +119,7 @@ class ProtocolsList(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  list_name: pulumi.Input[Optional[_builtins.str]] = None,
                  protocols_list: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

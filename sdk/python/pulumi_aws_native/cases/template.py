@@ -166,12 +166,12 @@ class Template(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 layout_configuration: pulumi.Input[Optional[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']]] = None,
+                 layout_configuration: pulumi.Input[Optional[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict', 'outputs.TemplateLayoutConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 required_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]]] = None,
+                 required_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict', 'outputs.TemplateRequiredField']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict', 'outputs.TemplateRule']]]]] = None,
                  status: pulumi.Input[Optional['TemplateStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         A template in the Cases domain. This template is used to define the case object model (that is, to define what data can be captured on cases) in a Cases domain. A template must have a unique name within a domain, and it must reference existing field IDs and layout IDs.
@@ -180,12 +180,12 @@ class Template(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description explaining the purpose and use case for this template. Should indicate what types of cases this template is designed for and any specific workflow it supports.
         :param pulumi.Input[_builtins.str] domain_id: The unique identifier of the Cases domain.
-        :param pulumi.Input[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']] layout_configuration: Object to store configuration of layouts associated to the template.
+        :param pulumi.Input[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict', 'outputs.TemplateLayoutConfiguration']] layout_configuration: Object to store configuration of layouts associated to the template.
         :param pulumi.Input[_builtins.str] name: A name for the template. It must be unique per domain.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]] required_fields: A list of fields that must contain a value for a case to be successfully created with this template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]] rules: A list of case rules (also known as case field conditions) on a template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict', 'outputs.TemplateRequiredField']]]] required_fields: A list of fields that must contain a value for a case to be successfully created with this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict', 'outputs.TemplateRule']]]] rules: A list of case rules (also known as case field conditions) on a template.
         :param pulumi.Input['TemplateStatus'] status: The status of the template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags that you attach to this template.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags that you attach to this template.
         """
         ...
     @overload
@@ -213,12 +213,12 @@ class Template(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 layout_configuration: pulumi.Input[Optional[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict']]] = None,
+                 layout_configuration: pulumi.Input[Optional[Union['TemplateLayoutConfigurationArgs', 'TemplateLayoutConfigurationArgsDict', 'outputs.TemplateLayoutConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 required_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict']]]]] = None,
-                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict']]]]] = None,
+                 required_fields: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRequiredFieldArgs', 'TemplateRequiredFieldArgsDict', 'outputs.TemplateRequiredField']]]]] = None,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateRuleArgs', 'TemplateRuleArgsDict', 'outputs.TemplateRule']]]]] = None,
                  status: pulumi.Input[Optional['TemplateStatus']] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

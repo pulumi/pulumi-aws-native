@@ -67,16 +67,16 @@ class HealthCheck(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_config: pulumi.Input[Optional[Union['HealthCheckConfigPropertiesArgs', 'HealthCheckConfigPropertiesArgsDict']]] = None,
-                 health_check_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 health_check_config: pulumi.Input[Optional[Union['HealthCheckConfigPropertiesArgs', 'HealthCheckConfigPropertiesArgsDict', 'outputs.HealthCheckConfigProperties']]] = None,
+                 health_check_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Route53::HealthCheck.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['HealthCheckConfigPropertiesArgs', 'HealthCheckConfigPropertiesArgsDict']] health_check_config: A complex type that contains information about the health check.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] health_check_tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Union['HealthCheckConfigPropertiesArgs', 'HealthCheckConfigPropertiesArgsDict', 'outputs.HealthCheckConfigProperties']] health_check_config: A complex type that contains information about the health check.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] health_check_tags: An array of key-value pairs to apply to this resource.
         """
         ...
     @overload
@@ -102,8 +102,8 @@ class HealthCheck(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 health_check_config: pulumi.Input[Optional[Union['HealthCheckConfigPropertiesArgs', 'HealthCheckConfigPropertiesArgsDict']]] = None,
-                 health_check_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 health_check_config: pulumi.Input[Optional[Union['HealthCheckConfigPropertiesArgs', 'HealthCheckConfigPropertiesArgsDict', 'outputs.HealthCheckConfigProperties']]] = None,
+                 health_check_tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

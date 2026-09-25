@@ -145,11 +145,11 @@ class AnomalyDetector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']]] = None,
                  evaluation_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalyDetectorLabelArgs', 'AnomalyDetectorLabelArgsDict']]]]] = None,
-                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalyDetectorLabelArgs', 'AnomalyDetectorLabelArgsDict', 'outputs.AnomalyDetectorLabel']]]]] = None,
+                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workspace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -158,11 +158,11 @@ class AnomalyDetector(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The AnomalyDetector alias.
-        :param pulumi.Input[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']] configuration: Determines the anomaly detector's algorithm and its configuration.
+        :param pulumi.Input[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']] configuration: Determines the anomaly detector's algorithm and its configuration.
         :param pulumi.Input[_builtins.int] evaluation_interval_in_seconds: The AnomalyDetector period of detection and metric generation.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalyDetectorLabelArgs', 'AnomalyDetectorLabelArgsDict']]]] labels: An array of key-value pairs to provide meta-data.
-        :param pulumi.Input[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']] missing_data_action: The action to perform when running the expression returns no data.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AnomalyDetectorLabelArgs', 'AnomalyDetectorLabelArgsDict', 'outputs.AnomalyDetectorLabel']]]] labels: An array of key-value pairs to provide meta-data.
+        :param pulumi.Input[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']] missing_data_action: The action to perform when running the expression returns no data.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] workspace: Required to identify a specific APS Workspace associated with this Anomaly Detector.
         """
         ...
@@ -190,11 +190,11 @@ class AnomalyDetector(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  alias: pulumi.Input[Optional[_builtins.str]] = None,
-                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['AnomalyDetectorConfigurationArgs', 'AnomalyDetectorConfigurationArgsDict', 'outputs.AnomalyDetectorConfiguration']]] = None,
                  evaluation_interval_in_seconds: pulumi.Input[Optional[_builtins.int]] = None,
-                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalyDetectorLabelArgs', 'AnomalyDetectorLabelArgsDict']]]]] = None,
-                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 labels: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AnomalyDetectorLabelArgs', 'AnomalyDetectorLabelArgsDict', 'outputs.AnomalyDetectorLabel']]]]] = None,
+                 missing_data_action: pulumi.Input[Optional[Union['AnomalyDetectorMissingDataActionArgs', 'AnomalyDetectorMissingDataActionArgsDict', 'outputs.AnomalyDetectorMissingDataAction']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  workspace: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

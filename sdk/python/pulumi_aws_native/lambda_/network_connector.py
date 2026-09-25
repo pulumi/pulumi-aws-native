@@ -87,17 +87,17 @@ class NetworkConnector(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['NetworkConnectorConfigArgs', 'NetworkConnectorConfigArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['NetworkConnectorConfigArgs', 'NetworkConnectorConfigArgsDict', 'outputs.NetworkConnectorConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::Lambda::NetworkConnector
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of tags to apply to the network connector. Use tags to categorize network connectors for cost allocation, access control, or operational management.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of tags to apply to the network connector. Use tags to categorize network connectors for cost allocation, access control, or operational management.
         """
         ...
     @overload
@@ -123,10 +123,10 @@ class NetworkConnector(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 configuration: pulumi.Input[Optional[Union['NetworkConnectorConfigArgs', 'NetworkConnectorConfigArgsDict']]] = None,
+                 configuration: pulumi.Input[Optional[Union['NetworkConnectorConfigArgs', 'NetworkConnectorConfigArgsDict', 'outputs.NetworkConnectorConfig']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  operator_role: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

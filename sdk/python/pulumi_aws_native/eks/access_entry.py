@@ -146,11 +146,11 @@ class AccessEntry(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessEntryAccessPolicyArgs', 'AccessEntryAccessPolicyArgsDict']]]]] = None,
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessEntryAccessPolicyArgs', 'AccessEntryAccessPolicyArgsDict', 'outputs.AccessEntryAccessPolicy']]]]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kubernetes_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -159,11 +159,11 @@ class AccessEntry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessEntryAccessPolicyArgs', 'AccessEntryAccessPolicyArgsDict']]]] access_policies: An array of access policies that are associated with the access entry.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AccessEntryAccessPolicyArgs', 'AccessEntryAccessPolicyArgsDict', 'outputs.AccessEntryAccessPolicy']]]] access_policies: An array of access policies that are associated with the access entry.
         :param pulumi.Input[_builtins.str] cluster_name: The cluster that the access entry is created for.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kubernetes_groups: The Kubernetes groups that the access entry is associated with.
         :param pulumi.Input[_builtins.str] principal_arn: The principal ARN that the access entry is created for.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] type: The node type to associate with the access entry.
         :param pulumi.Input[_builtins.str] username: The Kubernetes user that the access entry is associated with.
         """
@@ -191,11 +191,11 @@ class AccessEntry(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessEntryAccessPolicyArgs', 'AccessEntryAccessPolicyArgsDict']]]]] = None,
+                 access_policies: pulumi.Input[Optional[Sequence[pulumi.Input[Union['AccessEntryAccessPolicyArgs', 'AccessEntryAccessPolicyArgsDict', 'outputs.AccessEntryAccessPolicy']]]]] = None,
                  cluster_name: pulumi.Input[Optional[_builtins.str]] = None,
                  kubernetes_groups: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  principal_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  username: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):

@@ -117,10 +117,10 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 api_key_secret_config: pulumi.Input[Optional[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
+                 api_key_secret_config: pulumi.Input[Optional[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict', 'outputs.ApiKeyCredentialProviderSecretReference']]] = None,
                  api_key_secret_source: pulumi.Input[Optional['ApiKeyCredentialProviderApiKeySecretSource']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::BedrockAgentCore::ApiKeyCredentialProvider
@@ -128,10 +128,10 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] api_key: The API key to use for authentication
-        :param pulumi.Input[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']] api_key_secret_config: Configuration for a customer-provided secret containing the API key
+        :param pulumi.Input[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict', 'outputs.ApiKeyCredentialProviderSecretReference']] api_key_secret_config: Configuration for a customer-provided secret containing the API key
         :param pulumi.Input['ApiKeyCredentialProviderApiKeySecretSource'] api_key_secret_source: The source of the API key secret. Use MANAGED for service-managed secrets or EXTERNAL for customer-provided secrets.
         :param pulumi.Input[_builtins.str] name: The name of the API key credential provider
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to assign to the API key credential provider
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to assign to the API key credential provider
         """
         ...
     @overload
@@ -158,10 +158,10 @@ class ApiKeyCredentialProvider(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 api_key_secret_config: pulumi.Input[Optional[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict']]] = None,
+                 api_key_secret_config: pulumi.Input[Optional[Union['ApiKeyCredentialProviderSecretReferenceArgs', 'ApiKeyCredentialProviderSecretReferenceArgsDict', 'outputs.ApiKeyCredentialProviderSecretReference']]] = None,
                  api_key_secret_source: pulumi.Input[Optional['ApiKeyCredentialProviderApiKeySecretSource']] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

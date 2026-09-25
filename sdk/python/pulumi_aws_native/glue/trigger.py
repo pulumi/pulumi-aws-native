@@ -195,11 +195,11 @@ class Trigger(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict', 'outputs.TriggerAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_batching_condition: pulumi.Input[Optional[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
+                 event_batching_condition: pulumi.Input[Optional[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict', 'outputs.TriggerEventBatchingCondition']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 predicate: pulumi.Input[Optional[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
+                 predicate: pulumi.Input[Optional[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict', 'outputs.TriggerPredicate']]] = None,
                  schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  start_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: Optional[Any] = None,
@@ -292,11 +292,11 @@ class Trigger(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]] actions: The actions initiated by this trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict', 'outputs.TriggerAction']]]] actions: The actions initiated by this trigger.
         :param pulumi.Input[_builtins.str] description: A description of this trigger.
-        :param pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']] event_batching_condition: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
+        :param pulumi.Input[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict', 'outputs.TriggerEventBatchingCondition']] event_batching_condition: Batch condition that must be met (specified number of events received or batch time window expired) before EventBridge event trigger fires.
         :param pulumi.Input[_builtins.str] name: The name of the trigger.
-        :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']] predicate: The predicate of this trigger, which defines when it will fire.
+        :param pulumi.Input[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict', 'outputs.TriggerPredicate']] predicate: The predicate of this trigger, which defines when it will fire.
         :param pulumi.Input[_builtins.str] schedule: A cron expression used to specify the schedule.
         :param pulumi.Input[_builtins.bool] start_on_creation: Set to true to start SCHEDULED and CONDITIONAL triggers when created. True is not supported for ON_DEMAND triggers.
         :param Any tags: The tags to use with this trigger.
@@ -410,11 +410,11 @@ class Trigger(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict']]]]] = None,
+                 actions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TriggerActionArgs', 'TriggerActionArgsDict', 'outputs.TriggerAction']]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 event_batching_condition: pulumi.Input[Optional[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict']]] = None,
+                 event_batching_condition: pulumi.Input[Optional[Union['TriggerEventBatchingConditionArgs', 'TriggerEventBatchingConditionArgsDict', 'outputs.TriggerEventBatchingCondition']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 predicate: pulumi.Input[Optional[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict']]] = None,
+                 predicate: pulumi.Input[Optional[Union['TriggerPredicateArgs', 'TriggerPredicateArgsDict', 'outputs.TriggerPredicate']]] = None,
                  schedule: pulumi.Input[Optional[_builtins.str]] = None,
                  start_on_creation: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: Optional[Any] = None,

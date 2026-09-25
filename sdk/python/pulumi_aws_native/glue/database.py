@@ -80,7 +80,7 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_input: pulumi.Input[Optional[Union['DatabaseInputArgs', 'DatabaseInputArgsDict']]] = None,
+                 database_input: pulumi.Input[Optional[Union['DatabaseInputArgs', 'DatabaseInputArgsDict', 'outputs.DatabaseInput']]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -89,7 +89,7 @@ class Database(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] catalog_id: The AWS account ID for the account in which to create the catalog object.
-        :param pulumi.Input[Union['DatabaseInputArgs', 'DatabaseInputArgsDict']] database_input: The metadata for the database.
+        :param pulumi.Input[Union['DatabaseInputArgs', 'DatabaseInputArgsDict', 'outputs.DatabaseInput']] database_input: The metadata for the database.
         :param pulumi.Input[_builtins.str] database_name: The name of the database. For hive compatibility, this is folded to lowercase when it is store.
         """
         ...
@@ -117,7 +117,7 @@ class Database(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 database_input: pulumi.Input[Optional[Union['DatabaseInputArgs', 'DatabaseInputArgsDict']]] = None,
+                 database_input: pulumi.Input[Optional[Union['DatabaseInputArgs', 'DatabaseInputArgsDict', 'outputs.DatabaseInput']]] = None,
                  database_name: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

@@ -110,8 +110,8 @@ class EnabledBaseline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledBaselineParameterArgs', 'EnabledBaselineParameterArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledBaselineParameterArgs', 'EnabledBaselineParameterArgsDict', 'outputs.EnabledBaselineParameter']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -121,7 +121,7 @@ class EnabledBaseline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] baseline_identifier: The specific `Baseline` enabled as part of the `EnabledBaseline` resource.
         :param pulumi.Input[_builtins.str] baseline_version: The enabled version of the `Baseline` .
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnabledBaselineParameterArgs', 'EnabledBaselineParameterArgsDict']]]] parameters: Shows the parameters that are applied when enabling this `Baseline` .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnabledBaselineParameterArgs', 'EnabledBaselineParameterArgsDict', 'outputs.EnabledBaselineParameter']]]] parameters: Shows the parameters that are applied when enabling this `Baseline` .
         :param pulumi.Input[_builtins.str] target_identifier: The target on which to enable the `Baseline` .
         """
         ...
@@ -150,8 +150,8 @@ class EnabledBaseline(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  baseline_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  baseline_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledBaselineParameterArgs', 'EnabledBaselineParameterArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnabledBaselineParameterArgs', 'EnabledBaselineParameterArgsDict', 'outputs.EnabledBaselineParameter']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  target_identifier: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

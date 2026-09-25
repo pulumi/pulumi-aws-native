@@ -179,15 +179,15 @@ class MetricStream(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict', 'outputs.MetricStreamFilter']]]]] = None,
                  firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict', 'outputs.MetricStreamFilter']]]]] = None,
                  include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_format: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for Metric Stream
@@ -217,15 +217,15 @@ class MetricStream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict', 'outputs.MetricStreamFilter']]]] exclude_filters: Define which metrics will be not streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[_builtins.str] firehose_arn: The ARN of the Kinesis Firehose where to stream the data.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict', 'outputs.MetricStreamFilter']]]] include_filters: Define which metrics will be streamed. Metrics matched by multiple instances of MetricStreamFilter are joined with an OR operation by default. If both IncludeFilters and ExcludeFilters are omitted, all metrics in the account will be streamed. IncludeFilters and ExcludeFilters are mutually exclusive. Default to null.
         :param pulumi.Input[_builtins.bool] include_linked_accounts_metrics: If you are creating a metric stream in a monitoring account, specify true to include metrics from source accounts that are linked to this monitoring account, in the metric stream. The default is false.
         :param pulumi.Input[_builtins.str] name: Name of the metric stream.
         :param pulumi.Input[_builtins.str] output_format: The output format of the data streamed to the Kinesis Firehose.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that provides access to the Kinesis Firehose.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]] statistics_configurations: By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags to assign to the delivery stream.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]] statistics_configurations: By default, a metric stream always sends the MAX, MIN, SUM, and SAMPLECOUNT statistics for each metric that is streamed. You can use this parameter to have the metric stream also send additional statistics in the stream. This array can have up to 100 members.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags to assign to the delivery stream.
         """
         ...
     @overload
@@ -274,15 +274,15 @@ class MetricStream(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 exclude_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict', 'outputs.MetricStreamFilter']]]]] = None,
                  firehose_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict']]]]] = None,
+                 include_filters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamFilterArgs', 'MetricStreamFilterArgsDict', 'outputs.MetricStreamFilter']]]]] = None,
                  include_linked_accounts_metrics: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  output_format: pulumi.Input[Optional[_builtins.str]] = None,
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 statistics_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MetricStreamStatisticsConfigurationArgs', 'MetricStreamStatisticsConfigurationArgsDict', 'outputs.MetricStreamStatisticsConfiguration']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

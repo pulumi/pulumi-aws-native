@@ -200,11 +200,11 @@ class Channel(pulumi.CustomResource):
                  container_format: pulumi.Input[Optional['ChannelContainerFormat']] = None,
                  insecure_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
                  latency_mode: pulumi.Input[Optional['ChannelLatencyMode']] = None,
-                 multitrack_input_configuration: pulumi.Input[Optional[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict']]] = None,
+                 multitrack_input_configuration: pulumi.Input[Optional[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict', 'outputs.ChannelMultitrackInputConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  preset: pulumi.Input[Optional['ChannelPreset']] = None,
                  recording_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ChannelType']] = None,
                  __props__=None):
         """
@@ -269,11 +269,11 @@ class Channel(pulumi.CustomResource):
         :param pulumi.Input['ChannelContainerFormat'] container_format: Indicates which content-packaging format is used (MPEG-TS or fMP4). If multitrackInputConfiguration is specified and enabled is true, then containerFormat is required and must be set to FRAGMENTED_MP4. Otherwise, containerFormat may be set to TS or FRAGMENTED_MP4. Default: TS.
         :param pulumi.Input[_builtins.bool] insecure_ingest: Whether the channel allows insecure ingest.
         :param pulumi.Input['ChannelLatencyMode'] latency_mode: Channel latency mode.
-        :param pulumi.Input[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict']] multitrack_input_configuration: Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
+        :param pulumi.Input[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict', 'outputs.ChannelMultitrackInputConfiguration']] multitrack_input_configuration: Object specifying multitrack input configuration. Default: no multitrack input configuration is specified.
         :param pulumi.Input[_builtins.str] name: Channel
         :param pulumi.Input['ChannelPreset'] preset: Optional transcode preset for the channel. This is selectable only for ADVANCED_HD and ADVANCED_SD channel types. For those channel types, the default preset is HIGHER_BANDWIDTH_DELIVERY. For other channel types (BASIC and STANDARD), preset is the empty string ("").
         :param pulumi.Input[_builtins.str] recording_configuration_arn: Recording Configuration ARN. A value other than an empty string indicates that recording is enabled. Default: "" (recording is disabled).
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A list of key-value pairs that contain metadata for the asset model.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A list of key-value pairs that contain metadata for the asset model.
         :param pulumi.Input['ChannelType'] type: Channel type, which determines the allowable resolution and bitrate. If you exceed the allowable resolution or bitrate, the stream probably will disconnect immediately.
         """
         ...
@@ -357,11 +357,11 @@ class Channel(pulumi.CustomResource):
                  container_format: pulumi.Input[Optional['ChannelContainerFormat']] = None,
                  insecure_ingest: pulumi.Input[Optional[_builtins.bool]] = None,
                  latency_mode: pulumi.Input[Optional['ChannelLatencyMode']] = None,
-                 multitrack_input_configuration: pulumi.Input[Optional[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict']]] = None,
+                 multitrack_input_configuration: pulumi.Input[Optional[Union['ChannelMultitrackInputConfigurationArgs', 'ChannelMultitrackInputConfigurationArgsDict', 'outputs.ChannelMultitrackInputConfiguration']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  preset: pulumi.Input[Optional['ChannelPreset']] = None,
                  recording_configuration_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  type: pulumi.Input[Optional['ChannelType']] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

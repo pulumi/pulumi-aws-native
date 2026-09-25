@@ -67,8 +67,8 @@ class StorageLens(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 storage_lens_configuration: pulumi.Input[Optional[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 storage_lens_configuration: pulumi.Input[Optional[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict', 'outputs.StorageLensConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         The AWS::S3::StorageLens resource is an Amazon S3 resource type that you can use to create Storage Lens configurations.
@@ -242,8 +242,8 @@ class StorageLens(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict']] storage_lens_configuration: This resource contains the details Amazon S3 Storage Lens configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict', 'outputs.StorageLensConfiguration']] storage_lens_configuration: This resource contains the details Amazon S3 Storage Lens configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: A set of tags (key-value pairs) for this Amazon S3 Storage Lens configuration.
         """
         ...
     @overload
@@ -436,8 +436,8 @@ class StorageLens(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 storage_lens_configuration: pulumi.Input[Optional[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 storage_lens_configuration: pulumi.Input[Optional[Union['StorageLensConfigurationArgs', 'StorageLensConfigurationArgsDict', 'outputs.StorageLensConfiguration']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

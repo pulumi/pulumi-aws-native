@@ -129,7 +129,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_location_constraint: pulumi.Input[Optional['ResiliencyPolicyDataLocationConstraint']] = None,
-                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict', 'outputs.ResiliencyPolicyPolicyMap']]] = None,
                  policy_description: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -141,7 +141,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['ResiliencyPolicyDataLocationConstraint'] data_location_constraint: Data Location Constraint of the Policy.
-        :param pulumi.Input[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict']] policy: The resiliency policy.
+        :param pulumi.Input[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict', 'outputs.ResiliencyPolicyPolicyMap']] policy: The resiliency policy.
         :param pulumi.Input[_builtins.str] policy_description: Description of Resiliency Policy.
         :param pulumi.Input[_builtins.str] policy_name: Name of Resiliency Policy.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Tags assigned to the resource. A tag is a label that you assign to an AWS resource. Each tag consists of a key/value pair.
@@ -172,7 +172,7 @@ class ResiliencyPolicy(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  data_location_constraint: pulumi.Input[Optional['ResiliencyPolicyDataLocationConstraint']] = None,
-                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict']]] = None,
+                 policy: pulumi.Input[Optional[Union['ResiliencyPolicyPolicyMapArgs', 'ResiliencyPolicyPolicyMapArgsDict', 'outputs.ResiliencyPolicyPolicyMap']]] = None,
                  policy_description: pulumi.Input[Optional[_builtins.str]] = None,
                  policy_name: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,

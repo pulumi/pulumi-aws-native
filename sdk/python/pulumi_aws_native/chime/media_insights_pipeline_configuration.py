@@ -110,21 +110,21 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]]] = None,
                  media_insights_pipeline_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']]] = None,
                  resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for an Amazon Chime SDK Media Insights Pipeline Configuration
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]] elements: The elements in the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]] elements: The elements in the configuration.
         :param pulumi.Input[_builtins.str] media_insights_pipeline_configuration_name: The name of the media insights pipeline configuration.
         :param pulumi.Input[_builtins.str] resource_access_role_arn: The ARN of the role used by the service to access Amazon Web Services resources.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags associated with the configuration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags associated with the configuration.
         """
         ...
     @overload
@@ -150,11 +150,11 @@ class MediaInsightsPipelineConfiguration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict']]]]] = None,
+                 elements: pulumi.Input[Optional[Sequence[pulumi.Input[Union['MediaInsightsPipelineConfigurationElementArgs', 'MediaInsightsPipelineConfigurationElementArgsDict', 'outputs.MediaInsightsPipelineConfigurationElement']]]]] = None,
                  media_insights_pipeline_configuration_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict']]] = None,
+                 real_time_alert_configuration: pulumi.Input[Optional[Union['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs', 'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict', 'outputs.MediaInsightsPipelineConfigurationRealTimeAlertConfiguration']]] = None,
                  resource_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

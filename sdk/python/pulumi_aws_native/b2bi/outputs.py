@@ -1392,7 +1392,7 @@ class TransformerX12ValidationOptions(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 validation_rules: Optional[Sequence[Any]] = None):
+                 validation_rules: Optional[Sequence[Union['outputs.TransformerX12ValidationRule0Properties', 'outputs.TransformerX12ValidationRule1Properties', 'outputs.TransformerX12ValidationRule2Properties']]] = None):
         """
         :param Sequence[Union['TransformerX12ValidationRule0Properties', 'TransformerX12ValidationRule1Properties', 'TransformerX12ValidationRule2Properties']] validation_rules: Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
         """
@@ -1401,7 +1401,7 @@ class TransformerX12ValidationOptions(dict):
 
     @_builtins.property
     @pulumi.getter(name="validationRules")
-    def validation_rules(self) -> Optional[Sequence[Any]]:
+    def validation_rules(self) -> Optional[Sequence[Union['outputs.TransformerX12ValidationRule0Properties', 'outputs.TransformerX12ValidationRule1Properties', 'outputs.TransformerX12ValidationRule2Properties']]]:
         """
         Specifies a list of validation rules to apply during EDI document processing. These rules can include code list modifications, element length constraints, and element requirement changes.
         """

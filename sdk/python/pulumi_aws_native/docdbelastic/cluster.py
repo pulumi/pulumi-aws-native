@@ -329,7 +329,7 @@ class Cluster(pulumi.CustomResource):
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -381,7 +381,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] shard_count: The number of shards assigned to the elastic cluster. Maximum is 32.
         :param pulumi.Input[_builtins.int] shard_instance_count: The number of replica instances applying to all shards in the cluster. A `shardInstanceCount` value of 1 means there is one writer instance, and any additional instances are replicas that can be used for reads and to improve availability.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The Amazon EC2 subnet IDs for the new elastic cluster.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: The tags to be assigned to the new elastic cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: The tags to be assigned to the new elastic cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: A list of EC2 VPC security groups to associate with the new elastic cluster.
         """
         ...
@@ -420,7 +420,7 @@ class Cluster(pulumi.CustomResource):
                  shard_count: pulumi.Input[Optional[_builtins.int]] = None,
                  shard_instance_count: pulumi.Input[Optional[_builtins.int]] = None,
                  subnet_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_security_group_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

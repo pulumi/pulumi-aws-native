@@ -99,7 +99,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_exclusion_mode: pulumi.Input[Optional['VpcBlockPublicAccessExclusionInternetGatewayExclusionMode']] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -109,7 +109,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input['VpcBlockPublicAccessExclusionInternetGatewayExclusionMode'] internet_gateway_exclusion_mode: The desired Block Public Access Exclusion Mode for a specific VPC/Subnet.
         :param pulumi.Input[_builtins.str] subnet_id: The ID of the subnet. Required only if you don't specify VpcId
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the vpc. Required only if you don't specify SubnetId.
         """
         ...
@@ -138,7 +138,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  internet_gateway_exclusion_mode: pulumi.Input[Optional['VpcBlockPublicAccessExclusionInternetGatewayExclusionMode']] = None,
                  subnet_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

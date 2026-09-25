@@ -240,7 +240,7 @@ class MlTransform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  glue_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_record_tables: pulumi.Input[Optional[Union['MlTransformInputRecordTablesArgs', 'MlTransformInputRecordTablesArgsDict']]] = None,
+                 input_record_tables: pulumi.Input[Optional[Union['MlTransformInputRecordTablesArgs', 'MlTransformInputRecordTablesArgsDict', 'outputs.MlTransformInputRecordTables']]] = None,
                  max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
                  max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -248,8 +248,8 @@ class MlTransform(pulumi.CustomResource):
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 transform_encryption: pulumi.Input[Optional[Union['MlTransformTransformEncryptionArgs', 'MlTransformTransformEncryptionArgsDict']]] = None,
-                 transform_parameters: pulumi.Input[Optional[Union['MlTransformTransformParametersArgs', 'MlTransformTransformParametersArgsDict']]] = None,
+                 transform_encryption: pulumi.Input[Optional[Union['MlTransformTransformEncryptionArgs', 'MlTransformTransformEncryptionArgsDict', 'outputs.MlTransformTransformEncryption']]] = None,
+                 transform_parameters: pulumi.Input[Optional[Union['MlTransformTransformParametersArgs', 'MlTransformTransformParametersArgsDict', 'outputs.MlTransformTransformParameters']]] = None,
                  worker_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -259,7 +259,7 @@ class MlTransform(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A user-defined, long-form description text for the machine learning transform.
         :param pulumi.Input[_builtins.str] glue_version: The version of AWS Glue this machine learning transform is compatible with.
-        :param pulumi.Input[Union['MlTransformInputRecordTablesArgs', 'MlTransformInputRecordTablesArgsDict']] input_record_tables: A list of AWS Glue table definitions used by the transform.
+        :param pulumi.Input[Union['MlTransformInputRecordTablesArgs', 'MlTransformInputRecordTablesArgsDict', 'outputs.MlTransformInputRecordTables']] input_record_tables: A list of AWS Glue table definitions used by the transform.
         :param pulumi.Input[_builtins.float] max_capacity: The number of AWS Glue DPUs allocated to task runs for this transform.
         :param pulumi.Input[_builtins.int] max_retries: The maximum number of times to retry after an MLTaskRun fails.
         :param pulumi.Input[_builtins.str] name: A user-defined name for the machine learning transform.
@@ -267,8 +267,8 @@ class MlTransform(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] role: The name or ARN of the IAM role with the required permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The tags to use with this machine learning transform.
         :param pulumi.Input[_builtins.int] timeout: The timeout in minutes of the machine learning transform.
-        :param pulumi.Input[Union['MlTransformTransformEncryptionArgs', 'MlTransformTransformEncryptionArgsDict']] transform_encryption: The encryption-at-rest settings of the transform.
-        :param pulumi.Input[Union['MlTransformTransformParametersArgs', 'MlTransformTransformParametersArgsDict']] transform_parameters: The algorithm-specific parameters that are associated with the machine learning transform.
+        :param pulumi.Input[Union['MlTransformTransformEncryptionArgs', 'MlTransformTransformEncryptionArgsDict', 'outputs.MlTransformTransformEncryption']] transform_encryption: The encryption-at-rest settings of the transform.
+        :param pulumi.Input[Union['MlTransformTransformParametersArgs', 'MlTransformTransformParametersArgsDict', 'outputs.MlTransformTransformParameters']] transform_parameters: The algorithm-specific parameters that are associated with the machine learning transform.
         :param pulumi.Input[_builtins.str] worker_type: The type of predefined worker that is allocated when a task runs.
         """
         ...
@@ -297,7 +297,7 @@ class MlTransform(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  glue_version: pulumi.Input[Optional[_builtins.str]] = None,
-                 input_record_tables: pulumi.Input[Optional[Union['MlTransformInputRecordTablesArgs', 'MlTransformInputRecordTablesArgsDict']]] = None,
+                 input_record_tables: pulumi.Input[Optional[Union['MlTransformInputRecordTablesArgs', 'MlTransformInputRecordTablesArgsDict', 'outputs.MlTransformInputRecordTables']]] = None,
                  max_capacity: pulumi.Input[Optional[_builtins.float]] = None,
                  max_retries: pulumi.Input[Optional[_builtins.int]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
@@ -305,8 +305,8 @@ class MlTransform(pulumi.CustomResource):
                  role: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeout: pulumi.Input[Optional[_builtins.int]] = None,
-                 transform_encryption: pulumi.Input[Optional[Union['MlTransformTransformEncryptionArgs', 'MlTransformTransformEncryptionArgsDict']]] = None,
-                 transform_parameters: pulumi.Input[Optional[Union['MlTransformTransformParametersArgs', 'MlTransformTransformParametersArgsDict']]] = None,
+                 transform_encryption: pulumi.Input[Optional[Union['MlTransformTransformEncryptionArgs', 'MlTransformTransformEncryptionArgsDict', 'outputs.MlTransformTransformEncryption']]] = None,
+                 transform_parameters: pulumi.Input[Optional[Union['MlTransformTransformParametersArgs', 'MlTransformTransformParametersArgsDict', 'outputs.MlTransformTransformParameters']]] = None,
                  worker_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

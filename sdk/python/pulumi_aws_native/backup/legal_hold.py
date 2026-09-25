@@ -98,8 +98,8 @@ class LegalHold(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 recovery_point_selection: pulumi.Input[Optional[Union['RecoveryPointSelectionPropertiesArgs', 'RecoveryPointSelectionPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 recovery_point_selection: pulumi.Input[Optional[Union['RecoveryPointSelectionPropertiesArgs', 'RecoveryPointSelectionPropertiesArgsDict', 'outputs.RecoveryPointSelectionProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -108,8 +108,8 @@ class LegalHold(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the legal hold.
-        :param pulumi.Input[Union['RecoveryPointSelectionPropertiesArgs', 'RecoveryPointSelectionPropertiesArgsDict']] recovery_point_selection: The criteria to assign a set of resources, such as resource types or backup vaults.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Optional tags to include.
+        :param pulumi.Input[Union['RecoveryPointSelectionPropertiesArgs', 'RecoveryPointSelectionPropertiesArgsDict', 'outputs.RecoveryPointSelectionProperties']] recovery_point_selection: The criteria to assign a set of resources, such as resource types or backup vaults.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Optional tags to include.
         :param pulumi.Input[_builtins.str] title: The title of the legal hold.
         """
         ...
@@ -137,8 +137,8 @@ class LegalHold(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 recovery_point_selection: pulumi.Input[Optional[Union['RecoveryPointSelectionPropertiesArgs', 'RecoveryPointSelectionPropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 recovery_point_selection: pulumi.Input[Optional[Union['RecoveryPointSelectionPropertiesArgs', 'RecoveryPointSelectionPropertiesArgsDict', 'outputs.RecoveryPointSelectionProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  title: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

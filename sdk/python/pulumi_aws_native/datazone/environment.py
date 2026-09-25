@@ -252,7 +252,7 @@ class Environment(pulumi.CustomResource):
                  glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentParameterArgs', 'EnvironmentParameterArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentParameterArgs', 'EnvironmentParameterArgsDict', 'outputs.EnvironmentParameter']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::DataZone::Environment Resource Type
@@ -271,7 +271,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] glossary_terms: The glossary terms that can be used in the Amazon DataZone environment.
         :param pulumi.Input[_builtins.str] name: The name of the environment.
         :param pulumi.Input[_builtins.str] project_identifier: The ID of the Amazon DataZone project in which the environment would be created.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentParameterArgs', 'EnvironmentParameterArgsDict']]]] user_parameters: The user parameters of the Amazon DataZone environment.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EnvironmentParameterArgs', 'EnvironmentParameterArgsDict', 'outputs.EnvironmentParameter']]]] user_parameters: The user parameters of the Amazon DataZone environment.
         """
         ...
     @overload
@@ -309,7 +309,7 @@ class Environment(pulumi.CustomResource):
                  glossary_terms: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  project_identifier: pulumi.Input[Optional[_builtins.str]] = None,
-                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentParameterArgs', 'EnvironmentParameterArgsDict']]]]] = None,
+                 user_parameters: pulumi.Input[Optional[Sequence[pulumi.Input[Union['EnvironmentParameterArgs', 'EnvironmentParameterArgsDict', 'outputs.EnvironmentParameter']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

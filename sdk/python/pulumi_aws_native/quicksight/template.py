@@ -183,13 +183,13 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['TemplateVersionDefinitionArgs', 'TemplateVersionDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['TemplateVersionDefinitionArgs', 'TemplateVersionDefinitionArgsDict', 'outputs.TemplateVersionDefinition']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateResourcePermissionArgs', 'TemplateResourcePermissionArgsDict']]]]] = None,
-                 source_entity: pulumi.Input[Optional[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateResourcePermissionArgs', 'TemplateResourcePermissionArgsDict', 'outputs.TemplateResourcePermission']]]]] = None,
+                 source_entity: pulumi.Input[Optional[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict', 'outputs.TemplateSourceEntity']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 validation_strategy: pulumi.Input[Optional[Union['TemplateValidationStrategyArgs', 'TemplateValidationStrategyArgsDict']]] = None,
+                 validation_strategy: pulumi.Input[Optional[Union['TemplateValidationStrategyArgs', 'TemplateValidationStrategyArgsDict', 'outputs.TemplateValidationStrategy']]] = None,
                  version_description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -199,15 +199,15 @@ class Template(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aws_account_id: The ID for the AWS account that the group is in. You use the ID for the AWS account that contains your Amazon Quick Sight account.
         :param pulumi.Input[_builtins.str] name: A display name for the template.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateResourcePermissionArgs', 'TemplateResourcePermissionArgsDict']]]] permissions: A list of resource permissions to be set on the template.
-        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TemplateResourcePermissionArgs', 'TemplateResourcePermissionArgsDict', 'outputs.TemplateResourcePermission']]]] permissions: A list of resource permissions to be set on the template.
+        :param pulumi.Input[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict', 'outputs.TemplateSourceEntity']] source_entity: The entity that you are using as a source when you create the template. In `SourceEntity` , you specify the type of object you're using as source: `SourceTemplate` for a template or `SourceAnalysis` for an analysis. Both of these require an Amazon Resource Name (ARN). For `SourceTemplate` , specify the ARN of the source template. For `SourceAnalysis` , specify the ARN of the source analysis. The `SourceTemplate` ARN can contain any AWS account and any Quick Sight-supported AWS Region .
                
                Use the `DataSetReferences` entity within `SourceTemplate` or `SourceAnalysis` to list the replacement datasets for the placeholders listed in the original. The schema in each dataset must match its placeholder.
                
                Either a `SourceEntity` or a `Definition` must be provided in order for the request to be valid.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Contains a map of the key-value pairs for the resource tag or tags assigned to the resource.
         :param pulumi.Input[_builtins.str] template_id: An ID for the template that you want to create. This template is unique per AWS Region ; in each AWS account.
-        :param pulumi.Input[Union['TemplateValidationStrategyArgs', 'TemplateValidationStrategyArgsDict']] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
+        :param pulumi.Input[Union['TemplateValidationStrategyArgs', 'TemplateValidationStrategyArgsDict', 'outputs.TemplateValidationStrategy']] validation_strategy: The option to relax the validation that is required to create and update analyses, dashboards, and templates with definition objects. When you set this value to `LENIENT` , validation is skipped for specific errors.
         :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created. This API operation creates the first version of the template. Every time `UpdateTemplate` is called, a new version is created. Each version of the template maintains a description of the version in the `VersionDescription` field.
         """
         ...
@@ -235,13 +235,13 @@ class Template(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  aws_account_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 definition: pulumi.Input[Optional[Union['TemplateVersionDefinitionArgs', 'TemplateVersionDefinitionArgsDict']]] = None,
+                 definition: pulumi.Input[Optional[Union['TemplateVersionDefinitionArgs', 'TemplateVersionDefinitionArgsDict', 'outputs.TemplateVersionDefinition']]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateResourcePermissionArgs', 'TemplateResourcePermissionArgsDict']]]]] = None,
-                 source_entity: pulumi.Input[Optional[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 permissions: pulumi.Input[Optional[Sequence[pulumi.Input[Union['TemplateResourcePermissionArgs', 'TemplateResourcePermissionArgsDict', 'outputs.TemplateResourcePermission']]]]] = None,
+                 source_entity: pulumi.Input[Optional[Union['TemplateSourceEntityArgs', 'TemplateSourceEntityArgsDict', 'outputs.TemplateSourceEntity']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  template_id: pulumi.Input[Optional[_builtins.str]] = None,
-                 validation_strategy: pulumi.Input[Optional[Union['TemplateValidationStrategyArgs', 'TemplateValidationStrategyArgsDict']]] = None,
+                 validation_strategy: pulumi.Input[Optional[Union['TemplateValidationStrategyArgs', 'TemplateValidationStrategyArgsDict', 'outputs.TemplateValidationStrategy']]] = None,
                  version_description: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)

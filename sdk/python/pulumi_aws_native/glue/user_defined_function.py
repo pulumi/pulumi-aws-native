@@ -151,7 +151,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  function_type: pulumi.Input[Optional['UserDefinedFunctionFunctionType']] = None,
                  owner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_type: pulumi.Input[Optional['UserDefinedFunctionOwnerType']] = None,
-                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None,
                  __props__=None):
         """
         Represents a user-defined function (UDF) definition in the AWS Glue Data Catalog.
@@ -164,7 +164,7 @@ class UserDefinedFunction(pulumi.CustomResource):
         :param pulumi.Input['UserDefinedFunctionFunctionType'] function_type: The type of the function.
         :param pulumi.Input[_builtins.str] owner_name: The owner of the function.
         :param pulumi.Input['UserDefinedFunctionOwnerType'] owner_type: The owner type.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]] resource_uris: The resource URIs for the function.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]] resource_uris: The resource URIs for the function.
         """
         ...
     @overload
@@ -196,7 +196,7 @@ class UserDefinedFunction(pulumi.CustomResource):
                  function_type: pulumi.Input[Optional['UserDefinedFunctionFunctionType']] = None,
                  owner_name: pulumi.Input[Optional[_builtins.str]] = None,
                  owner_type: pulumi.Input[Optional['UserDefinedFunctionOwnerType']] = None,
-                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict']]]]] = None,
+                 resource_uris: pulumi.Input[Optional[Sequence[pulumi.Input[Union['UserDefinedFunctionResourceUriArgs', 'UserDefinedFunctionResourceUriArgsDict', 'outputs.UserDefinedFunctionResourceUri']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

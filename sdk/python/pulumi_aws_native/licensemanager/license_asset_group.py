@@ -131,10 +131,10 @@ class LicenseAssetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associated_license_asset_ruleset_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 license_asset_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupConfigurationArgs', 'LicenseAssetGroupConfigurationArgsDict']]]]] = None,
+                 license_asset_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupConfigurationArgs', 'LicenseAssetGroupConfigurationArgsDict', 'outputs.LicenseAssetGroupConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupPropertyArgs', 'LicenseAssetGroupPropertyArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupPropertyArgs', 'LicenseAssetGroupPropertyArgsDict', 'outputs.LicenseAssetGroupProperty']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource Type definition for AWS::LicenseManager::LicenseAssetGroup
@@ -143,10 +143,10 @@ class LicenseAssetGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] associated_license_asset_ruleset_arns: ARNs of associated license asset rulesets.
         :param pulumi.Input[_builtins.str] description: License asset group description.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseAssetGroupConfigurationArgs', 'LicenseAssetGroupConfigurationArgsDict']]]] license_asset_group_configurations: License asset group configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseAssetGroupConfigurationArgs', 'LicenseAssetGroupConfigurationArgsDict', 'outputs.LicenseAssetGroupConfiguration']]]] license_asset_group_configurations: License asset group configurations.
         :param pulumi.Input[_builtins.str] name: License asset group name.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseAssetGroupPropertyArgs', 'LicenseAssetGroupPropertyArgsDict']]]] properties: License asset group properties.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: Tags to add to the license asset group.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['LicenseAssetGroupPropertyArgs', 'LicenseAssetGroupPropertyArgsDict', 'outputs.LicenseAssetGroupProperty']]]] properties: License asset group properties.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: Tags to add to the license asset group.
         """
         ...
     @overload
@@ -174,10 +174,10 @@ class LicenseAssetGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  associated_license_asset_ruleset_arns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
-                 license_asset_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupConfigurationArgs', 'LicenseAssetGroupConfigurationArgsDict']]]]] = None,
+                 license_asset_group_configurations: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupConfigurationArgs', 'LicenseAssetGroupConfigurationArgsDict', 'outputs.LicenseAssetGroupConfiguration']]]]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
-                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupPropertyArgs', 'LicenseAssetGroupPropertyArgsDict']]]]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 properties: pulumi.Input[Optional[Sequence[pulumi.Input[Union['LicenseAssetGroupPropertyArgs', 'LicenseAssetGroupPropertyArgsDict', 'outputs.LicenseAssetGroupProperty']]]]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -102,8 +102,8 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  inference_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 model_source: pulumi.Input[Optional[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 model_source: pulumi.Input[Optional[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict', 'outputs.ApplicationInferenceProfileInferenceProfileModelSourceProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Definition of AWS::Bedrock::ApplicationInferenceProfile Resource Type
@@ -112,8 +112,8 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the inference profile
         :param pulumi.Input[_builtins.str] inference_profile_name: The name of the inference profile.
-        :param pulumi.Input[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']] model_source: Contains configurations for the inference profile to copy as the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: List of Tags
+        :param pulumi.Input[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict', 'outputs.ApplicationInferenceProfileInferenceProfileModelSourceProperties']] model_source: Contains configurations for the inference profile to copy as the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: List of Tags
         """
         ...
     @overload
@@ -141,8 +141,8 @@ class ApplicationInferenceProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  inference_profile_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 model_source: pulumi.Input[Optional[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 model_source: pulumi.Input[Optional[Union['ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgs', 'ApplicationInferenceProfileInferenceProfileModelSourcePropertiesArgsDict', 'outputs.ApplicationInferenceProfileInferenceProfileModelSourceProperties']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):

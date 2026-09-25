@@ -116,8 +116,8 @@ class Keyspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_specification: pulumi.Input[Optional[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 replication_specification: pulumi.Input[Optional[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict', 'outputs.KeyspaceReplicationSpecification']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         """
         Resource schema for AWS::Cassandra::Keyspace
@@ -185,13 +185,13 @@ class Keyspace(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] client_side_timestamps_enabled: Indicates whether client-side timestamps are enabled (true) or disabled (false) for all tables in the keyspace. To add a Region to a single-Region keyspace with at least one table, the value must be set to true. After you enabled client-side timestamps for a table, you can’t disable it again.
         :param pulumi.Input[_builtins.str] keyspace_name: Name for Cassandra keyspace
-        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
+        :param pulumi.Input[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict', 'outputs.KeyspaceReplicationSpecification']] replication_specification: Specifies the `ReplicationStrategy` of a keyspace. The options are:
                
                - `SINGLE_REGION` for a single Region keyspace (optional) or
                - `MULTI_REGION` for a multi-Region keyspace
                
                If no `ReplicationStrategy` is provided, the default is `SINGLE_REGION` . If you choose `MULTI_REGION` , you must also provide a `RegionList` with the AWS Regions that the keyspace is replicated in.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]] tags: An array of key-value pairs to apply to this resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]] tags: An array of key-value pairs to apply to this resource.
                
                For more information, see [Tag](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-resource-tags.html) .
         """
@@ -280,8 +280,8 @@ class Keyspace(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  client_side_timestamps_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  keyspace_name: pulumi.Input[Optional[_builtins.str]] = None,
-                 replication_specification: pulumi.Input[Optional[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict']]] = None,
-                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict']]]]] = None,
+                 replication_specification: pulumi.Input[Optional[Union['KeyspaceReplicationSpecificationArgs', 'KeyspaceReplicationSpecificationArgsDict', 'outputs.KeyspaceReplicationSpecification']]] = None,
+                 tags: pulumi.Input[Optional[Sequence[pulumi.Input[Union['_root_inputs.TagArgs', '_root_inputs.TagArgsDict', '_root_outputs.Tag']]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
